@@ -7,6 +7,7 @@
 //
 
 #import "Moltin.h"
+#import "MoltinAPIClient.h"
 
 @implementation Moltin
 
@@ -28,6 +29,11 @@
     });
     
     return _sharedInstance;
+}
+
+- (void)setPublicId:(NSString *)publicId
+{
+    [MoltinAPIClient sharedClient].publicId = publicId;
 }
 
 @end

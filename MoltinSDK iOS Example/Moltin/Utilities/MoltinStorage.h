@@ -10,6 +10,12 @@
 
 @interface MoltinStorage : NSObject
 
++ (NSString *)getCurrencyId;
++ (void)setCurrencyId:(NSString *) currencyId;
+
++ (NSString *)getCartId;
++ (void)setCartId:(NSString *) cartId;
+
 + (void)setToken:(NSString *) accessToken;
 + (NSString *)getToken;
 

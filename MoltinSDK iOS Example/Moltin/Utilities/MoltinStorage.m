@@ -10,6 +10,22 @@
 
 @implementation MoltinStorage
 
++ (NSString *)getCurrencyId{
+    return [self getStringForKey:@"mcurrency"];
+}
++ (void)setCurrencyId:(NSString *) currencyId{
+    [self setString:currencyId forKey:@"mcurrency"];
+}
+
++ (NSString *)getCartId{
+    return [self getStringForKey:@"mcart"];
+}
++ (void)setCartId:(NSString *) cartId
+{
+    [self setString:cartId forKey:@"mcart"];
+}
+
+
 + (void)setToken:(NSString *)accessToken{
     [self setString:accessToken forKey:@"mtoken"];
 }
@@ -19,11 +35,19 @@
 }
 
 + (void)setTokenExpiration:(NSInteger)expiresIn{
-    [self setInteger:expiresIn forKey:@"mexpires"];
+    
+    NSDate *expireDate = [NSDate dateWithTimeIntervalSinceNow:expiresIn];
+    
+    [self setDouble:[expireDate timeIntervalSinceReferenceDate] forKey:@"mexpires"];
 }
 
 + (BOOL)isTokenExpired{
-    return NO;
+    
+    double expiresTimeInterval = [self getDoubleForKey:@"mexpires"];
+    
+    double currentTimeInterval = [[NSDate date] timeIntervalSinceReferenceDate];
+    
+    return currentTimeInterval > expiresTimeInterval;
 }
 
 + (NSString *)getStringForKey:(NSString *) key{
@@ -34,8 +58,20 @@
     [[NSUserDefaults standardUserDefaults] setObject:value forKey:key];
 }
 
++ (NSInteger)getIntegerForKey:(NSString *) key{
+    return [[NSUserDefaults standardUserDefaults] integerForKey:key];
+}
+
 + (void)setInteger:(NSInteger) value forKey:(NSString *) key{
     [[NSUserDefaults standardUserDefaults] setInteger:value forKey:key];
+}
+
++ (double)getDoubleForKey:(NSString *) key{
+    return [[NSUserDefaults standardUserDefaults] doubleForKey:key];
+}
+
++ (void)setDouble:(double) value forKey:(NSString *) key{
+    [[NSUserDefaults standardUserDefaults] setDouble:value forKey:key];
 }
 
 @end

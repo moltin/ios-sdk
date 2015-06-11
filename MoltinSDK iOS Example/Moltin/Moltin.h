@@ -29,5 +29,6 @@
 @property (strong, nonatomic) MTCategory *category;
 
 + (instancetype)sharedInstance;
+- (void)setPublicId:(NSString *)publicId;
 
 @end
