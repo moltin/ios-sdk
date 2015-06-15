@@ -14,4 +14,8 @@
     return [super initWithEndpoint:@"gateways"];
 }
 
+- (void)getWithSlug:(NSString *) slug callback:(void (^)(NSDictionary *, NSError *))completion{
+    [super getWithId:slug callback:completion];
+}
+
 @end

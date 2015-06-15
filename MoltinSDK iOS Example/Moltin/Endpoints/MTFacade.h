@@ -15,6 +15,7 @@
 - (id)initWithEndpoint:(NSString *) endpoint;
 
 - (void)getWithId:(NSString *) ID callback:(void(^)(NSDictionary *response, NSError *error)) completion;
+
 - (void)createWithParameters:(NSDictionary *) parameters callback:(void(^)(NSDictionary *response, NSError *error)) completion;
 - (void)updateWithId:(NSString *) ID andParameters:(NSDictionary *) parameters callback:(void(^)(NSDictionary *response, NSError *error)) completion;
 - (void)deleteWithId:(NSString *) ID callback:(void(^)(NSDictionary *response, NSError *error)) completion;
@@ -23,5 +24,12 @@
 - (void)listingWithParameters:(NSDictionary *) parameters callback:(void(^)(NSDictionary *response, NSError *error)) completion;
 
 - (void)fieldsWithId:(NSString *) ID callback:(void(^)(NSDictionary *response, NSError *error)) completion;
+
+- (void)getWithEndpoint:(NSString *) endpoint andParameters:(NSDictionary *) parameters callback:(void(^)(NSDictionary *response, NSError *error)) completion;
+- (void)postWithEndpoint:(NSString *) endpoint andParameters:(NSDictionary *) parameters callback:(void(^)(NSDictionary *response, NSError *error)) completion;
+- (void)putWithEndpoint:(NSString *) endpoint andParameters:(NSDictionary *) parameters callback:(void(^)(NSDictionary *response, NSError *error)) completion;
+- (void)deleteWithEndpoint:(NSString *)endpoint callback:(void (^)(NSDictionary *, NSError *))completion;
+
+- (void)raiseUnsupportedException;
 
 @end

@@ -24,6 +24,7 @@
 		3E0D67BA1B28EA350081BC51 /* Moltin.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0D67A51B28EA350081BC51 /* Moltin.m */; };
 		3E0D67BB1B28EA350081BC51 /* MoltinAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0D67A71B28EA350081BC51 /* MoltinAPIClient.m */; };
 		3E0D67BC1B28EA350081BC51 /* MoltinStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0D67AB1B28EA350081BC51 /* MoltinStorage.m */; };
+		3E3716D61B2E469000CFE67C /* MTCustomer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3716D51B2E469000CFE67C /* MTCustomer.m */; };
 		3EC7CE281B25BB8E00D843EB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EC7CE271B25BB8E00D843EB /* main.m */; };
 		3EC7CE2B1B25BB8E00D843EB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EC7CE2A1B25BB8E00D843EB /* AppDelegate.m */; };
 		3EC7CE2E1B25BB8E00D843EB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EC7CE2D1B25BB8E00D843EB /* ViewController.m */; };
@@ -81,6 +82,8 @@
 		3E0D67A91B28EA350081BC51 /* MoltinConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoltinConstants.h; sourceTree = "<group>"; };
 		3E0D67AA1B28EA350081BC51 /* MoltinStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoltinStorage.h; sourceTree = "<group>"; };
 		3E0D67AB1B28EA350081BC51 /* MoltinStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoltinStorage.m; sourceTree = "<group>"; };
+		3E3716D41B2E469000CFE67C /* MTCustomer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTCustomer.h; sourceTree = "<group>"; };
+		3E3716D51B2E469000CFE67C /* MTCustomer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTCustomer.m; sourceTree = "<group>"; };
 		3EC7CE221B25BB8E00D843EB /* MoltinSDK iOS Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MoltinSDK iOS Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EC7CE261B25BB8E00D843EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3EC7CE271B25BB8E00D843EB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -153,6 +156,8 @@
 				3E0D67911B28EA350081BC51 /* MTCheckout.m */,
 				3E0D67921B28EA350081BC51 /* MTCollection.h */,
 				3E0D67931B28EA350081BC51 /* MTCollection.m */,
+				3E3716D41B2E469000CFE67C /* MTCustomer.h */,
+				3E3716D51B2E469000CFE67C /* MTCustomer.m */,
 				3E0D67941B28EA350081BC51 /* MTCurrency.h */,
 				3E0D67951B28EA350081BC51 /* MTCurrency.m */,
 				3E0D67961B28EA350081BC51 /* MTEntry.h */,
@@ -396,6 +401,7 @@
 				3E0D67B31B28EA350081BC51 /* MTEntry.m in Sources */,
 				3E0D67B51B28EA350081BC51 /* MTGateway.m in Sources */,
 				3E0D67B71B28EA350081BC51 /* MTProduct.m in Sources */,
+				3E3716D61B2E469000CFE67C /* MTCustomer.m in Sources */,
 				3EC7CE2E1B25BB8E00D843EB /* ViewController.m in Sources */,
 				3E0D67AC1B28EA350081BC51 /* MTAddress.m in Sources */,
 				3E0D67BB1B28EA350081BC51 /* MoltinAPIClient.m in Sources */,

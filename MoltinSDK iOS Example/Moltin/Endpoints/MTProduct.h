@@ -12,4 +12,8 @@
 
 - (void)searchWithParameters:(NSDictionary *) parameters callback:(void(^)(NSDictionary *response, NSError *error)) completion;
 
+- (void)getModifiersWithId:(NSString *) productId callback:(void(^)(NSDictionary *response, NSError *error)) completion;
+
+- (void)getVariationsWithId:(NSString *) productId callback:(void(^)(NSDictionary *response, NSError *error)) completion;
+
 @end

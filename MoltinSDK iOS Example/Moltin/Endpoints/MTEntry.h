@@ -10,4 +10,8 @@
 
 @interface MTEntry : MTFacade
 
+- (void)getWithFlowId:(NSString *) flowId andEntryId:(NSString *) entryId callback:(void (^)(NSDictionary *, NSError *))completion;
+- (void)findWithFlowId:(NSString *) flowId andParameters:(NSDictionary *) parameters callback:(void(^)(NSDictionary *response, NSError *error)) completion;
+- (void)listingWithFlowId:(NSString *) flowId andParameters:(NSDictionary *) parameters callback:(void(^)(NSDictionary *response, NSError *error)) completion;
+
 @end

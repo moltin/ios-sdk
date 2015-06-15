@@ -10,4 +10,14 @@
 
 @interface MTCart : MTFacade
 
+- (void)getContentsWithCallback:(void (^)(NSDictionary *, NSError *))completion;
+- (void)insertItemWithId:(NSString *) itemId quantity:(NSInteger) quantity andModifiersOrNil:(NSDictionary *) modifiers callback:(void (^)(NSDictionary *, NSError *))completion;
+- (void)updateItemWithId:(NSString *) itemId parameters:(NSDictionary *) parameters callback:(void (^)(NSDictionary *, NSError *))completion;
+- (void)removeItemWithId:(NSString *) itemId callback:(void (^)(NSDictionary *, NSError *))completion;
+- (void)getItemWithId:(NSString *) itemId callback:(void (^)(NSDictionary *, NSError *))completion;
+- (void)isItemInCart:(NSString *) itemId callback:(void (^)(NSDictionary *, NSError *))completion;
+- (void)checkoutWithCallback:(void (^)(NSDictionary *, NSError *))completion;
+- (void)orderWithParameters:(NSDictionary *) parameters callback:(void (^)(NSDictionary *, NSError *))completion;
+- (void)discountWithCode:(NSString *) code callback:(void (^)(NSDictionary *, NSError *))completion;
+
 @end
