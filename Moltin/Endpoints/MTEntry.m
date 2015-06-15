@@ -14,7 +14,7 @@
     return [super initWithEndpoint:@"entries"];
 }
 
-- (void)getWithFlowId:(NSString *) flowId andEntryId:(NSString *) entryId callback:(void (^)(NSDictionary *, NSError *))completion{
+- (void)getWithFlowId:(NSString *) flowId andEntryId:(NSString *) entryId callback:(void (^)(NSDictionary *response, NSError *error))completion{
     NSString *endpoint = [NSString stringWithFormat:@"flows/%@/%@/%@", flowId, self.endpoint, entryId];
     [super getWithEndpoint:endpoint andParameters:nil callback:completion];
 }

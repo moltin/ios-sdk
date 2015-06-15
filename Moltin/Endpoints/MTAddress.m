@@ -14,7 +14,7 @@
     return [super initWithEndpoint:@"addresses"];
 }
 
--(void)getWithId:(NSString *)ID callback:(void (^)(NSDictionary *, NSError *))completion
+-(void)getWithId:(NSString *)ID callback:(void (^)(NSDictionary *response, NSError *error))completion
 {
     [super raiseUnsupportedException];
 }

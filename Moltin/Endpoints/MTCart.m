@@ -32,11 +32,11 @@
     return _identifier;
 }
 
-- (void)getContentsWithCallback:(void (^)(NSDictionary *, NSError *))completion{
+- (void)getContentsWithCallback:(void (^)(NSDictionary *response, NSError *error))completion{
     [super getWithId:self.identifier callback:completion];
 }
 
-- (void)insertItemWithId:(NSString *) itemId quantity:(NSInteger) quantity andModifiersOrNil:(NSDictionary *) modifiers callback:(void (^)(NSDictionary *, NSError *))completion
+- (void)insertItemWithId:(NSString *) itemId quantity:(NSInteger) quantity andModifiersOrNil:(NSDictionary *) modifiers callback:(void (^)(NSDictionary *response, NSError *error))completion
 {
     NSDictionary *parameters;
     
@@ -51,41 +51,51 @@
     [super postWithEndpoint:endpoint andParameters:parameters callback:completion];
 }
 
-- (void)updateItemWithId:(NSString *) itemId parameters:(NSDictionary *) parameters callback:(void (^)(NSDictionary *, NSError *))completion
+- (void)updateItemWithId:(NSString *) itemId parameters:(NSDictionary *) parameters callback:(void (^)(NSDictionary *response, NSError *error))completion
 {
     NSString *endpoint = [NSString stringWithFormat:@"%@/%@/item/%@", self.endpoint, self.identifier, itemId];
     [super putWithEndpoint:endpoint andParameters:parameters callback:completion];
 }
 
-- (void)removeItemWithId:(NSString *) itemId callback:(void (^)(NSDictionary *, NSError *))completion
+- (void)removeItemWithId:(NSString *) itemId callback:(void (^)(NSDictionary *response, NSError *error))completion
 {
     NSString *endpoint = [NSString stringWithFormat:@"%@/%@/item/%@", self.endpoint, self.identifier, itemId];
     [super deleteWithEndpoint:endpoint callback:completion];
 }
 
-- (void)getItemWithId:(NSString *) itemId callback:(void (^)(NSDictionary *, NSError *))completion
+- (void)getItemWithId:(NSString *) itemId callback:(void (^)(NSDictionary *response, NSError *error))completion
 {
     NSString *endpoint = [NSString stringWithFormat:@"%@/%@/item/%@", self.endpoint, self.identifier, itemId];
     [super getWithEndpoint:endpoint andParameters:nil callback:completion];
 }
 
-- (void)isItemInCart:(NSString *) itemId callback:(void (^)(NSDictionary *, NSError *))completion
+- (void)isItemInCart:(NSString *) itemId callback:(void (^)(NSDictionary *response, NSError *error))completion
 {
     NSString *endpoint = [NSString stringWithFormat:@"%@/%@/has/%@", self.endpoint, self.identifier, itemId];
     [super getWithEndpoint:endpoint andParameters:nil callback:completion];
 }
 
-- (void)checkoutWithCallback:(void (^)(NSDictionary *, NSError *))completion{
+- (void)checkoutWithCallback:(void (^)(NSDictionary *response, NSError *error))completion{
     NSString *endpoint = [NSString stringWithFormat:@"%@/%@/checkout", self.endpoint, self.identifier];
     [super getWithEndpoint:endpoint andParameters:nil callback:completion];
 }
 
-- (void)orderWithParameters:(NSDictionary *) parameters callback:(void (^)(NSDictionary *, NSError *))completion{
+- (void)orderWithParameters:(NSDictionary *) parameters callback:(void (^)(NSDictionary *response, NSError *error))completion{
     NSString *endpoint = [NSString stringWithFormat:@"%@/%@/checkout", self.endpoint, self.identifier];
-    [super postWithEndpoint:endpoint andParameters:nil callback:completion];
+    
+    [super postWithEndpoint:endpoint andParameters:parameters callback:^(NSDictionary *response, NSError *error) {
+        if (error) {
+            completion(nil, error);
+        }
+        else{
+            //order completed reset cart id
+            [MoltinStorage setCartId:nil];
+            completion(response, nil);
+        }
+    }];
 }
 
-- (void)discountWithCode:(NSString *) code callback:(void (^)(NSDictionary *, NSError *))completion{
+- (void)discountWithCode:(NSString *) code callback:(void (^)(NSDictionary *response, NSError *error))completion{
     
     NSString *endpoint = [NSString stringWithFormat:@"%@/%@/discount", self.endpoint, self.identifier];
     

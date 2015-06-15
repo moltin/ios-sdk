@@ -28,7 +28,7 @@
 - (void)getWithEndpoint:(NSString *) endpoint andParameters:(NSDictionary *) parameters callback:(void(^)(NSDictionary *response, NSError *error)) completion;
 - (void)postWithEndpoint:(NSString *) endpoint andParameters:(NSDictionary *) parameters callback:(void(^)(NSDictionary *response, NSError *error)) completion;
 - (void)putWithEndpoint:(NSString *) endpoint andParameters:(NSDictionary *) parameters callback:(void(^)(NSDictionary *response, NSError *error)) completion;
-- (void)deleteWithEndpoint:(NSString *)endpoint callback:(void (^)(NSDictionary *, NSError *))completion;
+- (void)deleteWithEndpoint:(NSString *)endpoint callback:(void (^)(NSDictionary *response, NSError *error))completion;
 
 - (void)raiseUnsupportedException;
 

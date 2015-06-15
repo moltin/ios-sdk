@@ -72,17 +72,17 @@
     [[MoltinAPIClient sharedClient] get:endpoint withParameters:parameters callback:completion];
 }
 
--(void)postWithEndpoint:(NSString *)endpoint andParameters:(NSDictionary *)parameters callback:(void (^)(NSDictionary *, NSError *))completion
+-(void)postWithEndpoint:(NSString *)endpoint andParameters:(NSDictionary *)parameters callback:(void (^)(NSDictionary *response, NSError *error))completion
 {
     [[MoltinAPIClient sharedClient] post:endpoint withParameters:parameters callback:completion];
 }
 
--(void)putWithEndpoint:(NSString *)endpoint andParameters:(NSDictionary *)parameters callback:(void (^)(NSDictionary *, NSError *))completion
+-(void)putWithEndpoint:(NSString *)endpoint andParameters:(NSDictionary *)parameters callback:(void (^)(NSDictionary *response, NSError *error))completion
 {
     [[MoltinAPIClient sharedClient] put:endpoint withParameters:parameters callback:completion];
 }
 
--(void)deleteWithEndpoint:(NSString *)endpoint callback:(void (^)(NSDictionary *, NSError *))completion
+-(void)deleteWithEndpoint:(NSString *)endpoint callback:(void (^)(NSDictionary *response, NSError *error))completion
 {
     [[MoltinAPIClient sharedClient] delete:endpoint withParameters:nil callback:completion];
 }

@@ -10,6 +10,6 @@
 
 @interface MTGateway : MTFacade
 
-- (void)getWithSlug:(NSString *) slug callback:(void (^)(NSDictionary *, NSError *))completion;
+- (void)getWithSlug:(NSString *) slug callback:(void (^)(NSDictionary *response, NSError *error))completion;
 
 @end

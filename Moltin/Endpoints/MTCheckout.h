@@ -10,6 +10,6 @@
 
 @interface MTCheckout : MTFacade
 
-- (void)paymentWithMethod:(NSString *) method order:(NSString *) order parameters:(NSDictionary *) parameters callback:(void (^)(NSDictionary *, NSError *))completion;
+- (void)paymentWithMethod:(NSString *) method order:(NSString *) order parameters:(NSDictionary *) parameters callback:(void (^)(NSDictionary *response, NSError *error))completion;
 
 @end

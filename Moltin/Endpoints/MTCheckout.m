@@ -14,7 +14,7 @@
     return [super initWithEndpoint:@"checkout"];
 }
 
-- (void)paymentWithMethod:(NSString *) method order:(NSString *) order parameters:(NSDictionary *) parameters callback:(void (^)(NSDictionary *, NSError *))completion{
+- (void)paymentWithMethod:(NSString *) method order:(NSString *) order parameters:(NSDictionary *) parameters callback:(void (^)(NSDictionary *response, NSError *error))completion{
     NSString *endpoint = [NSString stringWithFormat:@"%@/payment/%@/%@", self.endpoint, method, order];
     [super postWithEndpoint:endpoint andParameters:parameters callback:completion];
 }
