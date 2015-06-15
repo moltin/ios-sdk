@@ -10,10 +10,15 @@
 #import <AFNetworking/AFNetworking.h>
 #import "MoltinConstants.h"
 
+typedef void (^MTAuthenitactionCallback)(BOOL, NSError *);
+
+
 @interface MoltinAPIClient : AFHTTPSessionManager
 
+@property (strong, nonatomic) NSString *publicId;
+
 + (instancetype)sharedClient;
-- (void)authenticateWithClientId:(NSString *) clientId andCallback:(void(^)(BOOL sucess, NSError *error)) completion;
+- (void)authenticateWithPublicId:(NSString *) publicId andCallback:(MTAuthenitactionCallback) completion;
 - (void)setAccessToken:(NSString *)accessToken;
 
 - (void)get:(NSString *) URLString withParameters:(NSDictionary *) parameters callback:(void(^)(NSDictionary *response, NSError *error)) completion;

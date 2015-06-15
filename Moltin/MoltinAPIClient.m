@@ -8,6 +8,7 @@
 
 #import "MoltinAPIClient.h"
 #import "MoltinStorage.h"
+#import <AFNetworking/AFNetworkActivityIndicatorManager.h>
 
 @interface MoltinAPIClient()
 
@@ -19,6 +20,7 @@
 - (id)initWithBaseURL:(NSURL *)url{
     self = [super initWithBaseURL:url];
     if (self){
+        [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
         self.requestSerializer = [AFHTTPRequestSerializer serializer];
         [self.requestSerializer setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
         
@@ -40,28 +42,33 @@
     return _sharedClient;
 }
 
-- (void)authenticateWithClientId:(NSString *) clientId andCallback:(void(^)(BOOL sucess, NSError *error)) completion
+- (void)authenticateWithPublicId:(NSString *) publicId andCallback:(MTAuthenitactionCallback) completion
 {
-    NSDictionary *params = @{
-                             @"client_id" : clientId,
-                             @"grant_type": @"implicit"
-                             };
-    
-    
-    [self POST:[NSString stringWithFormat:@"%@oauth/access_token", kMoltinBaseApiURL] parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
-        [MoltinStorage setToken:[responseObject valueForKey:@"access_token"]];
-        [MoltinStorage setTokenExpiration:[[responseObject valueForKey:@"expires_in"] integerValue]];
+    NSString *accessToken = [MoltinStorage getToken];
+    if ([MoltinStorage isTokenExpired] || accessToken == nil || [accessToken isEqualToString:@""]) {
+        NSDictionary *params = @{
+                                 @"client_id" : publicId,
+                                 @"grant_type": @"implicit"
+                                 };
         
-        [self setAccessToken:[MoltinStorage getToken]];
         
-        NSLog(@"com.moltin Authentication success. TOKEN: %@", [MoltinStorage getToken]);
+        [self POST:[NSString stringWithFormat:@"%@oauth/access_token", kMoltinBaseApiURL] parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
+            [MoltinStorage setToken:[responseObject valueForKey:@"access_token"]];
+            [MoltinStorage setTokenExpiration:[[responseObject valueForKey:@"expires_in"] doubleValue]];
+            
+            [self setAccessToken:[MoltinStorage getToken]];
+            
+            NSLog(@"com.moltin Authentication success. TOKEN: %@", [MoltinStorage getToken]);
+            completion(YES, nil);
+            
+        } failure:^(NSURLSessionDataTask *task, NSError *error) {
+            NSLog(@"com.moltin Authenticate ERROR: %@", error);
+            completion(NO, error);
+        }];
+    }
+    else{
         completion(YES, nil);
-        
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@"com.moltin Authenticate ERROR: %@", error);
-        completion(NO, error);
-    }];
-    
+    }
 }
 
 - (void)setAccessToken:(NSString *)accessToken
@@ -71,38 +78,75 @@
 
 - (void)get:(NSString *) URLString withParameters:(NSDictionary *) parameters callback:(void(^)(NSDictionary *response, NSError *error)) completion
 {
-    [super GET:URLString parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
-        completion(responseObject, nil);
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        completion(nil, error);
-    }];
+    MTAuthenitactionCallback authCallback = ^(BOOL sucess, NSError *error) {
+        if (error) {
+            NSLog(@"ERROR authenticating!!! %@", error);
+        }
+        else{
+            [super GET:URLString parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
+                completion(responseObject, nil);
+            } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                completion(nil, error);
+            }];
+        }
+    };
+    
+    [self authenticateWithPublicId:self.publicId andCallback:authCallback];
+    
 }
 
 - (void)post:(NSString *) URLString withParameters:(NSDictionary *) parameters callback:(void(^)(NSDictionary *response, NSError *error)) completion
 {
-    [super POST:URLString parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
-        completion(responseObject, nil);
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        completion(nil, error);
-    }];
+    MTAuthenitactionCallback authCallback = ^(BOOL sucess, NSError *error) {
+        if (error) {
+            NSLog(@"ERROR authenticating!!! %@", error);
+        }
+        else{
+            [super POST:URLString parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
+                completion(responseObject, nil);
+            } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                completion(nil, error);
+            }];
+        }
+    };
+    
+    [self authenticateWithPublicId:self.publicId andCallback:authCallback];
 }
 
 - (void)put:(NSString *) URLString withParameters:(NSDictionary *) parameters callback:(void(^)(NSDictionary *response, NSError *error)) completion
 {
-    [super PUT:URLString parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
-        completion(responseObject, nil);
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        completion(nil, error);
-    }];
+    MTAuthenitactionCallback authCallback = ^(BOOL sucess, NSError *error) {
+        if (error) {
+            NSLog(@"ERROR authenticating!!! %@", error);
+        }
+        else{
+            [super PUT:URLString parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
+                completion(responseObject, nil);
+            } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                completion(nil, error);
+            }];
+        }
+    };
+    
+    [self authenticateWithPublicId:self.publicId andCallback:authCallback];
 }
 
 - (void)delete:(NSString *) URLString withParameters:(NSDictionary *) parameters callback:(void(^)(NSDictionary *response, NSError *error)) completion
 {
-    [super DELETE:URLString parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
-        completion(responseObject, nil);
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        completion(nil, error);
-    }];
+    MTAuthenitactionCallback authCallback = ^(BOOL sucess, NSError *error) {
+        if (error) {
+            NSLog(@"ERROR authenticating!!! %@", error);
+        }
+        else{
+            [super DELETE:URLString parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
+                completion(responseObject, nil);
+            } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                completion(nil, error);
+            }];
+        }
+    };
+    
+    [self authenticateWithPublicId:self.publicId andCallback:authCallback];
 }
 
 @end

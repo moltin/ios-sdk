@@ -20,4 +20,15 @@
     [[MoltinAPIClient sharedClient] get:endpoint withParameters:parameters callback:completion];
 }
 
+- (void)getModifiersWithId:(NSString *) productId callback:(void(^)(NSDictionary *response, NSError *error)) completion{
+    NSString *endpoint = [NSString stringWithFormat:@"%@/%@/modifiers", self.endpoint, productId];
+    [[MoltinAPIClient sharedClient] get:endpoint withParameters:nil callback:completion];
+}
+
+- (void)getVariationsWithId:(NSString *) productId callback:(void(^)(NSDictionary *response, NSError *error)) completion
+{
+    NSString *endpoint = [NSString stringWithFormat:@"%@/%@/variations", self.endpoint, productId];
+    [[MoltinAPIClient sharedClient] get:endpoint withParameters:nil callback:completion];
+}
+
 @end

@@ -10,4 +10,6 @@
 
 @interface MTCategory : MTFacade
 
+- (void)getTreeWithParameters:(NSDictionary *) parameters callback:(void (^)(NSDictionary *, NSError *))completion;
+
 @end

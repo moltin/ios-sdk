@@ -23,7 +23,6 @@
     }
     return self;
 }
-
 - (void)getWithId:(NSString *) ID callback:(void(^)(NSDictionary *response, NSError *error)) completion{
     NSString *endpoint = [NSString stringWithFormat:@"%@/%@", self.endpoint, ID];
     [[MoltinAPIClient sharedClient] get:endpoint withParameters:nil callback:completion];
@@ -61,10 +60,36 @@
 
 - (NSString *)appendEndpointWith:(NSString *) appdend andIdOrNil:(NSString *) ID{
     NSString *_append = appdend;
-    if (ID == nil && ID.length > 0) {
+    if (ID != nil && ID.length > 0) {
         _append = [NSString stringWithFormat:@"%@/%@", ID, appdend];
     }
     return [NSString stringWithFormat:@"%@/%@", self.endpoint, _append];
+}
+
+
+- (void)getWithEndpoint:(NSString *) endpoint andParameters:(NSDictionary *) parameters callback:(void(^)(NSDictionary *response, NSError *error)) completion
+{
+    [[MoltinAPIClient sharedClient] get:endpoint withParameters:parameters callback:completion];
+}
+
+-(void)postWithEndpoint:(NSString *)endpoint andParameters:(NSDictionary *)parameters callback:(void (^)(NSDictionary *, NSError *))completion
+{
+    [[MoltinAPIClient sharedClient] post:endpoint withParameters:parameters callback:completion];
+}
+
+-(void)putWithEndpoint:(NSString *)endpoint andParameters:(NSDictionary *)parameters callback:(void (^)(NSDictionary *, NSError *))completion
+{
+    [[MoltinAPIClient sharedClient] put:endpoint withParameters:parameters callback:completion];
+}
+
+-(void)deleteWithEndpoint:(NSString *)endpoint callback:(void (^)(NSDictionary *, NSError *))completion
+{
+    [[MoltinAPIClient sharedClient] delete:endpoint withParameters:nil callback:completion];
+}
+
+-(void)raiseUnsupportedException
+{
+    [NSException raise:[NSString stringWithFormat:@"Unsupported call for %@ endpoint", self.endpoint.uppercaseString] format:nil];
 }
 
 @end
