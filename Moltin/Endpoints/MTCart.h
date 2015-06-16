@@ -10,14 +10,14 @@
 
 @interface MTCart : MTFacade
 
-- (void)getContentsWithCallback:(void (^)(NSDictionary *response, NSError *error))completion;
-- (void)insertItemWithId:(NSString *) itemId quantity:(NSInteger) quantity andModifiersOrNil:(NSDictionary *) modifiers callback:(void (^)(NSDictionary *response, NSError *error))completion;
-- (void)updateItemWithId:(NSString *) itemId parameters:(NSDictionary *) parameters callback:(void (^)(NSDictionary *response, NSError *error))completion;
-- (void)removeItemWithId:(NSString *) itemId callback:(void (^)(NSDictionary *response, NSError *error))completion;
-- (void)getItemWithId:(NSString *) itemId callback:(void (^)(NSDictionary *response, NSError *error))completion;
-- (void)isItemInCart:(NSString *) itemId callback:(void (^)(NSDictionary *response, NSError *error))completion;
-- (void)checkoutWithCallback:(void (^)(NSDictionary *response, NSError *error))completion;
-- (void)orderWithParameters:(NSDictionary *) parameters callback:(void (^)(NSDictionary *response, NSError *error))completion;
-- (void)discountWithCode:(NSString *) code callback:(void (^)(NSDictionary *response, NSError *error))completion;
+- (void)getContentsWithsuccess:(MTSuccessCallback)success failure:(MTFailureCallback)failure;
+- (void)insertItemWithId:(NSString *) itemId quantity:(NSInteger) quantity andModifiersOrNil:(NSDictionary *) modifiers success:(MTSuccessCallback)success failure:(MTFailureCallback)failure;
+- (void)updateItemWithId:(NSString *) itemId parameters:(NSDictionary *) parameters success:(MTSuccessCallback)success failure:(MTFailureCallback)failure;
+- (void)removeItemWithId:(NSString *) itemId success:(MTSuccessCallback)success failure:(MTFailureCallback)failure;
+- (void)getItemWithId:(NSString *) itemId success:(MTSuccessCallback)success failure:(MTFailureCallback)failure;
+- (void)isItemInCart:(NSString *) itemId success:(MTSuccessCallback)success failure:(MTFailureCallback)failure;
+- (void)checkoutWithsuccess:(MTSuccessCallback)success failure:(MTFailureCallback)failure;
+- (void)orderWithParameters:(NSDictionary *) parameters success:(MTSuccessCallback)success failure:(MTFailureCallback)failure;
+- (void)discountWithCode:(NSString *) code success:(MTSuccessCallback)success failure:(MTFailureCallback)failure;
 
 @end

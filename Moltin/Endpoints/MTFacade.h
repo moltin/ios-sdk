@@ -8,27 +8,30 @@
 
 #import <Foundation/Foundation.h>
 
+typedef void (^MTSuccessCallback)(NSDictionary *response);
+typedef void (^MTFailureCallback)(NSError *error);
+
 @interface MTFacade : NSObject
 
 @property (strong, nonatomic) NSString *endpoint;
 
 - (id)initWithEndpoint:(NSString *) endpoint;
 
-- (void)getWithId:(NSString *) ID callback:(void(^)(NSDictionary *response, NSError *error)) completion;
+- (void)getWithId:(NSString *) ID success:(MTSuccessCallback)success failure:(MTFailureCallback)failure;
 
-- (void)createWithParameters:(NSDictionary *) parameters callback:(void(^)(NSDictionary *response, NSError *error)) completion;
-- (void)updateWithId:(NSString *) ID andParameters:(NSDictionary *) parameters callback:(void(^)(NSDictionary *response, NSError *error)) completion;
-- (void)deleteWithId:(NSString *) ID callback:(void(^)(NSDictionary *response, NSError *error)) completion;
+- (void)createWithParameters:(NSDictionary *) parameters success:(MTSuccessCallback)success failure:(MTFailureCallback)failure;
+- (void)updateWithId:(NSString *) ID andParameters:(NSDictionary *) parameters success:(MTSuccessCallback)success failure:(MTFailureCallback)failure;
+- (void)deleteWithId:(NSString *) ID success:(MTSuccessCallback)success failure:(MTFailureCallback)failure;
 
-- (void)findWithParameters:(NSDictionary *) parameters callback:(void(^)(NSDictionary *response, NSError *error)) completion;
-- (void)listingWithParameters:(NSDictionary *) parameters callback:(void(^)(NSDictionary *response, NSError *error)) completion;
+- (void)findWithParameters:(NSDictionary *) parameters success:(MTSuccessCallback)success failure:(MTFailureCallback)failure;
+- (void)listingWithParameters:(NSDictionary *) parameters success:(MTSuccessCallback)success failure:(MTFailureCallback)failure;
 
-- (void)fieldsWithId:(NSString *) ID callback:(void(^)(NSDictionary *response, NSError *error)) completion;
+- (void)fieldsWithId:(NSString *) ID success:(MTSuccessCallback)success failure:(MTFailureCallback)failure;
 
-- (void)getWithEndpoint:(NSString *) endpoint andParameters:(NSDictionary *) parameters callback:(void(^)(NSDictionary *response, NSError *error)) completion;
-- (void)postWithEndpoint:(NSString *) endpoint andParameters:(NSDictionary *) parameters callback:(void(^)(NSDictionary *response, NSError *error)) completion;
-- (void)putWithEndpoint:(NSString *) endpoint andParameters:(NSDictionary *) parameters callback:(void(^)(NSDictionary *response, NSError *error)) completion;
-- (void)deleteWithEndpoint:(NSString *)endpoint callback:(void (^)(NSDictionary *response, NSError *error))completion;
+- (void)getWithEndpoint:(NSString *) endpoint andParameters:(NSDictionary *) parameters success:(MTSuccessCallback)success failure:(MTFailureCallback)failure;
+- (void)postWithEndpoint:(NSString *) endpoint andParameters:(NSDictionary *) parameters success:(MTSuccessCallback)success failure:(MTFailureCallback)failure;
+- (void)putWithEndpoint:(NSString *) endpoint andParameters:(NSDictionary *) parameters success:(MTSuccessCallback)success failure:(MTFailureCallback)failure;
+- (void)deleteWithEndpoint:(NSString *)endpoint success:(MTSuccessCallback)success failure:(MTFailureCallback)failure;
 
 - (void)raiseUnsupportedException;
 

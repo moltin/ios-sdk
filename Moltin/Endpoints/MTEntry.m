@@ -14,19 +14,19 @@
     return [super initWithEndpoint:@"entries"];
 }
 
-- (void)getWithFlowId:(NSString *) flowId andEntryId:(NSString *) entryId callback:(void (^)(NSDictionary *response, NSError *error))completion{
+- (void)getWithFlowId:(NSString *) flowId andEntryId:(NSString *) entryId success:(MTSuccessCallback)success failure:(MTFailureCallback)failure{
     NSString *endpoint = [NSString stringWithFormat:@"flows/%@/%@/%@", flowId, self.endpoint, entryId];
-    [super getWithEndpoint:endpoint andParameters:nil callback:completion];
+    [super getWithEndpoint:endpoint andParameters:nil success:success failure:failure];
 }
 
-- (void)findWithFlowId:(NSString *) flowId andParameters:(NSDictionary *) parameters callback:(void(^)(NSDictionary *response, NSError *error)) completion{
+- (void)findWithFlowId:(NSString *) flowId andParameters:(NSDictionary *) parameters success:(MTSuccessCallback)success failure:(MTFailureCallback)failure{
     NSString *endpoint = [NSString stringWithFormat:@"flows/%@/%@/search", flowId, self.endpoint];
-    [super getWithEndpoint:endpoint andParameters:parameters callback:completion];
+    [super getWithEndpoint:endpoint andParameters:parameters success:success failure:failure];
 }
 
-- (void)listingWithFlowId:(NSString *) flowId andParameters:(NSDictionary *) parameters callback:(void(^)(NSDictionary *response, NSError *error)) completion{
+- (void)listingWithFlowId:(NSString *) flowId andParameters:(NSDictionary *) parameters success:(MTSuccessCallback)success failure:(MTFailureCallback)failure{
     NSString *endpoint = [NSString stringWithFormat:@"flows/%@/%@", flowId, self.endpoint];
-    [super getWithEndpoint:endpoint andParameters:parameters callback:completion];
+    [super getWithEndpoint:endpoint andParameters:parameters success:success failure:failure];
 }
 
 @end

@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <AFNetworking/AFNetworking.h>
 #import "MoltinConstants.h"
+#import "MTFacade.h"
 
 typedef void (^MTAuthenitactionCallback)(BOOL, NSError *);
 
@@ -21,12 +22,12 @@ typedef void (^MTAuthenitactionCallback)(BOOL, NSError *);
 - (void)authenticateWithPublicId:(NSString *) publicId andCallback:(MTAuthenitactionCallback) completion;
 - (void)setAccessToken:(NSString *)accessToken;
 
-- (void)get:(NSString *) URLString withParameters:(NSDictionary *) parameters callback:(void(^)(NSDictionary *response, NSError *error)) completion;
+- (void)get:(NSString *) URLString withParameters:(NSDictionary *) parameters success:(MTSuccessCallback)success failure:(MTFailureCallback)failure;
 
-- (void)post:(NSString *) URLString withParameters:(NSDictionary *) parameters callback:(void(^)(NSDictionary *response, NSError *error)) completion;
+- (void)post:(NSString *) URLString withParameters:(NSDictionary *) parameters success:(MTSuccessCallback)success failure:(MTFailureCallback)failure;
 
-- (void)put:(NSString *) URLString withParameters:(NSDictionary *) parameters callback:(void(^)(NSDictionary *response, NSError *error)) completion;
+- (void)put:(NSString *) URLString withParameters:(NSDictionary *) parameters success:(MTSuccessCallback)success failure:(MTFailureCallback)failure;
 
-- (void)delete:(NSString *) URLString withParameters:(NSDictionary *) parameters callback:(void(^)(NSDictionary *response, NSError *error)) completion;
+- (void)delete:(NSString *) URLString withParameters:(NSDictionary *) parameters success:(MTSuccessCallback)success failure:(MTFailureCallback)failure;
 
 @end

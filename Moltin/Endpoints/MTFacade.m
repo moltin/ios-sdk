@@ -23,39 +23,39 @@
     }
     return self;
 }
-- (void)getWithId:(NSString *) ID callback:(void(^)(NSDictionary *response, NSError *error)) completion{
+- (void)getWithId:(NSString *) ID success:(MTSuccessCallback)success failure:(MTFailureCallback)failure{
     NSString *endpoint = [NSString stringWithFormat:@"%@/%@", self.endpoint, ID];
-    [[MoltinAPIClient sharedClient] get:endpoint withParameters:nil callback:completion];
+    [[MoltinAPIClient sharedClient] get:endpoint withParameters:nil success:success failure:failure];
 }
 
-- (void)createWithParameters:(NSDictionary *) parameters callback:(void(^)(NSDictionary *response, NSError *error)) completion{
+- (void)createWithParameters:(NSDictionary *) parameters success:(MTSuccessCallback)success failure:(MTFailureCallback)failure{
     NSString *endpoint = self.endpoint;
-    [[MoltinAPIClient sharedClient] post:endpoint withParameters:parameters callback:completion];
+    [[MoltinAPIClient sharedClient] post:endpoint withParameters:parameters success:success failure:failure];
 }
 
-- (void)updateWithId:(NSString *) ID andParameters:(NSDictionary *) parameters callback:(void(^)(NSDictionary *response, NSError *error)) completion{
+- (void)updateWithId:(NSString *) ID andParameters:(NSDictionary *) parameters success:(MTSuccessCallback)success failure:(MTFailureCallback)failure{
     NSString *endpoint = [NSString stringWithFormat:@"%@/%@", self.endpoint, ID];
-    [[MoltinAPIClient sharedClient] put:endpoint withParameters:parameters callback:completion];
+    [[MoltinAPIClient sharedClient] put:endpoint withParameters:parameters success:success failure:failure];
 }
 
-- (void)deleteWithId:(NSString *) ID callback:(void(^)(NSDictionary *response, NSError *error)) completion{
+- (void)deleteWithId:(NSString *) ID success:(MTSuccessCallback)success failure:(MTFailureCallback)failure{
     NSString *endpoint = [NSString stringWithFormat:@"%@/%@", self.endpoint, ID];
-    [[MoltinAPIClient sharedClient] delete:endpoint withParameters:nil callback:completion];
+    [[MoltinAPIClient sharedClient] delete:endpoint withParameters:nil success:success failure:failure];
 }
 
-- (void)findWithParameters:(NSDictionary *) parameters callback:(void(^)(NSDictionary *response, NSError *error)) completion{
+- (void)findWithParameters:(NSDictionary *) parameters success:(MTSuccessCallback)success failure:(MTFailureCallback)failure{
     NSString *endpoint = self.endpoint;
-    [[MoltinAPIClient sharedClient] get:endpoint withParameters:parameters callback:completion];
+    [[MoltinAPIClient sharedClient] get:endpoint withParameters:parameters success:success failure:failure];
 }
 
-- (void)listingWithParameters:(NSDictionary *) parameters callback:(void(^)(NSDictionary *response, NSError *error)) completion{
+- (void)listingWithParameters:(NSDictionary *) parameters success:(MTSuccessCallback)success failure:(MTFailureCallback)failure{
     NSString *endpoint = self.endpoint;
-    [[MoltinAPIClient sharedClient] get:endpoint withParameters:parameters callback:completion];
+    [[MoltinAPIClient sharedClient] get:endpoint withParameters:parameters success:success failure:failure];
 }
 
-- (void)fieldsWithId:(NSString *) ID callback:(void(^)(NSDictionary *response, NSError *error)) completion{
+- (void)fieldsWithId:(NSString *) ID success:(MTSuccessCallback)success failure:(MTFailureCallback)failure{
     NSString *endpoint = [self appendEndpointWith:@"fields" andIdOrNil:ID];
-    [[MoltinAPIClient sharedClient] get:endpoint withParameters:nil callback:completion];
+    [[MoltinAPIClient sharedClient] get:endpoint withParameters:nil success:success failure:failure];
 }
 
 - (NSString *)appendEndpointWith:(NSString *) appdend andIdOrNil:(NSString *) ID{
@@ -67,24 +67,24 @@
 }
 
 
-- (void)getWithEndpoint:(NSString *) endpoint andParameters:(NSDictionary *) parameters callback:(void(^)(NSDictionary *response, NSError *error)) completion
+- (void)getWithEndpoint:(NSString *) endpoint andParameters:(NSDictionary *) parameters success:(MTSuccessCallback)success failure:(MTFailureCallback)failure
 {
-    [[MoltinAPIClient sharedClient] get:endpoint withParameters:parameters callback:completion];
+    [[MoltinAPIClient sharedClient] get:endpoint withParameters:parameters success:success failure:failure];
 }
 
--(void)postWithEndpoint:(NSString *)endpoint andParameters:(NSDictionary *)parameters callback:(void (^)(NSDictionary *response, NSError *error))completion
+-(void)postWithEndpoint:(NSString *)endpoint andParameters:(NSDictionary *)parameters success:(MTSuccessCallback)success failure:(MTFailureCallback)failure
 {
-    [[MoltinAPIClient sharedClient] post:endpoint withParameters:parameters callback:completion];
+    [[MoltinAPIClient sharedClient] post:endpoint withParameters:parameters success:success failure:failure];
 }
 
--(void)putWithEndpoint:(NSString *)endpoint andParameters:(NSDictionary *)parameters callback:(void (^)(NSDictionary *response, NSError *error))completion
+-(void)putWithEndpoint:(NSString *)endpoint andParameters:(NSDictionary *)parameters success:(MTSuccessCallback)success failure:(MTFailureCallback)failure
 {
-    [[MoltinAPIClient sharedClient] put:endpoint withParameters:parameters callback:completion];
+    [[MoltinAPIClient sharedClient] put:endpoint withParameters:parameters success:success failure:failure];
 }
 
--(void)deleteWithEndpoint:(NSString *)endpoint callback:(void (^)(NSDictionary *response, NSError *error))completion
+-(void)deleteWithEndpoint:(NSString *)endpoint success:(MTSuccessCallback)success failure:(MTFailureCallback)failure
 {
-    [[MoltinAPIClient sharedClient] delete:endpoint withParameters:nil callback:completion];
+    [[MoltinAPIClient sharedClient] delete:endpoint withParameters:nil success:success failure:failure];
 }
 
 -(void)raiseUnsupportedException

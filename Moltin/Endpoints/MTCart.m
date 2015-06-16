@@ -32,11 +32,11 @@
     return _identifier;
 }
 
-- (void)getContentsWithCallback:(void (^)(NSDictionary *response, NSError *error))completion{
-    [super getWithId:self.identifier callback:completion];
+- (void)getContentsWithsuccess:(MTSuccessCallback)success failure:(MTFailureCallback)failure{
+    [super getWithId:self.identifier success:success failure:failure];
 }
 
-- (void)insertItemWithId:(NSString *) itemId quantity:(NSInteger) quantity andModifiersOrNil:(NSDictionary *) modifiers callback:(void (^)(NSDictionary *response, NSError *error))completion
+- (void)insertItemWithId:(NSString *) itemId quantity:(NSInteger) quantity andModifiersOrNil:(NSDictionary *) modifiers success:(MTSuccessCallback)success failure:(MTFailureCallback)failure
 {
     NSDictionary *parameters;
     
@@ -48,62 +48,63 @@
     }
     
     NSString *endpoint = [NSString stringWithFormat:@"%@/%@", self.endpoint, self.identifier];
-    [super postWithEndpoint:endpoint andParameters:parameters callback:completion];
+    [super postWithEndpoint:endpoint andParameters:parameters success:success failure:failure];
 }
 
-- (void)updateItemWithId:(NSString *) itemId parameters:(NSDictionary *) parameters callback:(void (^)(NSDictionary *response, NSError *error))completion
+- (void)updateItemWithId:(NSString *) itemId parameters:(NSDictionary *) parameters success:(MTSuccessCallback)success failure:(MTFailureCallback)failure
 {
     NSString *endpoint = [NSString stringWithFormat:@"%@/%@/item/%@", self.endpoint, self.identifier, itemId];
-    [super putWithEndpoint:endpoint andParameters:parameters callback:completion];
+    [super putWithEndpoint:endpoint andParameters:parameters success:success failure:failure];
 }
 
-- (void)removeItemWithId:(NSString *) itemId callback:(void (^)(NSDictionary *response, NSError *error))completion
+- (void)removeItemWithId:(NSString *) itemId success:(MTSuccessCallback)success failure:(MTFailureCallback)failure
 {
     NSString *endpoint = [NSString stringWithFormat:@"%@/%@/item/%@", self.endpoint, self.identifier, itemId];
-    [super deleteWithEndpoint:endpoint callback:completion];
+    [super deleteWithEndpoint:endpoint success:success failure:failure];
 }
 
-- (void)getItemWithId:(NSString *) itemId callback:(void (^)(NSDictionary *response, NSError *error))completion
+- (void)getItemWithId:(NSString *) itemId success:(MTSuccessCallback)success failure:(MTFailureCallback)failure
 {
     NSString *endpoint = [NSString stringWithFormat:@"%@/%@/item/%@", self.endpoint, self.identifier, itemId];
-    [super getWithEndpoint:endpoint andParameters:nil callback:completion];
+    [super getWithEndpoint:endpoint andParameters:nil success:success failure:failure];
 }
 
-- (void)isItemInCart:(NSString *) itemId callback:(void (^)(NSDictionary *response, NSError *error))completion
+- (void)isItemInCart:(NSString *) itemId success:(MTSuccessCallback)success failure:(MTFailureCallback)failure
 {
     NSString *endpoint = [NSString stringWithFormat:@"%@/%@/has/%@", self.endpoint, self.identifier, itemId];
-    [super getWithEndpoint:endpoint andParameters:nil callback:completion];
+    [super getWithEndpoint:endpoint andParameters:nil success:success failure:failure];
 }
 
-- (void)checkoutWithCallback:(void (^)(NSDictionary *response, NSError *error))completion{
+- (void)checkoutWithsuccess:(MTSuccessCallback)success failure:(MTFailureCallback)failure{
     NSString *endpoint = [NSString stringWithFormat:@"%@/%@/checkout", self.endpoint, self.identifier];
-    [super getWithEndpoint:endpoint andParameters:nil callback:completion];
+    [super getWithEndpoint:endpoint andParameters:nil success:success failure:failure];
 }
 
-- (void)orderWithParameters:(NSDictionary *) parameters callback:(void (^)(NSDictionary *response, NSError *error))completion{
+- (void)orderWithParameters:(NSDictionary *) parameters success:(MTSuccessCallback)success failure:(MTFailureCallback)failure{
     NSString *endpoint = [NSString stringWithFormat:@"%@/%@/checkout", self.endpoint, self.identifier];
     
-    [super postWithEndpoint:endpoint andParameters:parameters callback:^(NSDictionary *response, NSError *error) {
-        if (error) {
-            completion(nil, error);
+    [super postWithEndpoint:endpoint andParameters:parameters success:^(NSDictionary *response) {
+        //order completed reset cart id
+        [MoltinStorage setCartId:nil];
+        if (success) {
+            success(response);
         }
-        else{
-            //order completed reset cart id
-            [MoltinStorage setCartId:nil];
-            completion(response, nil);
+    } failure:^(NSError *error) {
+        if (failure) {
+            failure(error);
         }
     }];
 }
 
-- (void)discountWithCode:(NSString *) code callback:(void (^)(NSDictionary *response, NSError *error))completion{
+- (void)discountWithCode:(NSString *) code success:(MTSuccessCallback)success failure:(MTFailureCallback)failure{
     
     NSString *endpoint = [NSString stringWithFormat:@"%@/%@/discount", self.endpoint, self.identifier];
     
     if (code == nil || code.length == 0) {
-        [super deleteWithEndpoint:endpoint callback:completion];
+        [super deleteWithEndpoint:endpoint success:success failure:failure];
     }
     else{
-        [super postWithEndpoint:endpoint andParameters:@{@"code":code} callback:completion];
+        [super postWithEndpoint:endpoint andParameters:@{@"code":code} success:success failure:failure];
     }
 }
 

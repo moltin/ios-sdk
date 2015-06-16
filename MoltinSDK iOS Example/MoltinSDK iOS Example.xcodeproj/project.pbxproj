@@ -63,10 +63,10 @@
 		3E3716E61B2E5C9700CFE67C /* MTCurrency.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTCurrency.m; sourceTree = "<group>"; };
 		3E3716E71B2E5C9700CFE67C /* MTCustomer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTCustomer.h; sourceTree = "<group>"; };
 		3E3716E81B2E5C9700CFE67C /* MTCustomer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTCustomer.m; sourceTree = "<group>"; };
-		3E3716E91B2E5C9700CFE67C /* MTEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTEntry.h; sourceTree = "<group>"; };
-		3E3716EA1B2E5C9700CFE67C /* MTEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTEntry.m; sourceTree = "<group>"; };
-		3E3716EB1B2E5C9700CFE67C /* MTFacade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTFacade.h; sourceTree = "<group>"; };
-		3E3716EC1B2E5C9700CFE67C /* MTFacade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTFacade.m; sourceTree = "<group>"; };
+		3E3716E91B2E5C9700CFE67C /* MTEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = MTEntry.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		3E3716EA1B2E5C9700CFE67C /* MTEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MTEntry.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		3E3716EB1B2E5C9700CFE67C /* MTFacade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = MTFacade.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		3E3716EC1B2E5C9700CFE67C /* MTFacade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MTFacade.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		3E3716ED1B2E5C9700CFE67C /* MTGateway.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGateway.h; sourceTree = "<group>"; };
 		3E3716EE1B2E5C9700CFE67C /* MTGateway.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGateway.m; sourceTree = "<group>"; };
 		3E3716EF1B2E5C9700CFE67C /* MTOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTOrder.h; sourceTree = "<group>"; };
@@ -79,8 +79,8 @@
 		3E3716F61B2E5C9700CFE67C /* MTTax.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTTax.m; sourceTree = "<group>"; };
 		3E3716F71B2E5C9700CFE67C /* Moltin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Moltin.h; sourceTree = "<group>"; };
 		3E3716F81B2E5C9700CFE67C /* Moltin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Moltin.m; sourceTree = "<group>"; };
-		3E3716F91B2E5C9700CFE67C /* MoltinAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoltinAPIClient.h; sourceTree = "<group>"; };
-		3E3716FA1B2E5C9700CFE67C /* MoltinAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoltinAPIClient.m; sourceTree = "<group>"; };
+		3E3716F91B2E5C9700CFE67C /* MoltinAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = MoltinAPIClient.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		3E3716FA1B2E5C9700CFE67C /* MoltinAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MoltinAPIClient.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		3E3716FC1B2E5C9700CFE67C /* MoltinConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoltinConstants.h; sourceTree = "<group>"; };
 		3E3716FD1B2E5C9700CFE67C /* MoltinStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoltinStorage.h; sourceTree = "<group>"; };
 		3E3716FE1B2E5C9700CFE67C /* MoltinStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoltinStorage.m; sourceTree = "<group>"; };

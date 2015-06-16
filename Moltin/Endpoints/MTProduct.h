@@ -10,10 +10,10 @@
 
 @interface MTProduct : MTFacade
 
-- (void)searchWithParameters:(NSDictionary *) parameters callback:(void(^)(NSDictionary *response, NSError *error)) completion;
+- (void)searchWithParameters:(NSDictionary *) parameters success:(MTSuccessCallback)success failure:(MTFailureCallback)failure;
 
-- (void)getModifiersWithId:(NSString *) productId callback:(void(^)(NSDictionary *response, NSError *error)) completion;
+- (void)getModifiersWithId:(NSString *) productId success:(MTSuccessCallback)success failure:(MTFailureCallback)failure;
 
-- (void)getVariationsWithId:(NSString *) productId callback:(void(^)(NSDictionary *response, NSError *error)) completion;
+- (void)getVariationsWithId:(NSString *) productId success:(MTSuccessCallback)success failure:(MTFailureCallback)failure;
 
 @end

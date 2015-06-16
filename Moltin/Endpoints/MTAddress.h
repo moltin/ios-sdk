@@ -10,9 +10,9 @@
 
 @interface MTAddress : MTFacade
 
-- (void)getWithCustomerId:(NSString *)customerId andAddressId:(NSString *) addressId callback:(void (^)(NSDictionary *response, NSError *error))completion;
-- (void)findWithCustomerId:(NSString *)customerId andParameters:(NSDictionary *) parameters callback:(void (^)(NSDictionary *response, NSError *error))completion;
-- (void)listingWithCustomerId:(NSString *)customerId andParameters:(NSDictionary *) parameters callback:(void (^)(NSDictionary *response, NSError *error))completion;
-- (void)fieldsWithCustomerId:(NSString *)customerId andAddressId:(NSString *) addressId callback:(void (^)(NSDictionary *response, NSError *error))completion;
+- (void)getWithCustomerId:(NSString *)customerId andAddressId:(NSString *) addressId success:(MTSuccessCallback)success failure:(MTFailureCallback)failure;
+- (void)findWithCustomerId:(NSString *)customerId andParameters:(NSDictionary *) parameters success:(MTSuccessCallback)success failure:(MTFailureCallback)failure;
+- (void)listingWithCustomerId:(NSString *)customerId andParameters:(NSDictionary *) parameters success:(MTSuccessCallback)success failure:(MTFailureCallback)failure;
+- (void)fieldsWithCustomerId:(NSString *)customerId andAddressId:(NSString *) addressId success:(MTSuccessCallback)success failure:(MTFailureCallback)failure;
 
 @end

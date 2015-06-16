@@ -15,20 +15,20 @@
     return [super initWithEndpoint:@"products"];
 }
 
-- (void)searchWithParameters:(NSDictionary *) parameters callback:(void(^)(NSDictionary *response, NSError *error)) completion{
+- (void)searchWithParameters:(NSDictionary *) parameters success:(MTSuccessCallback)success failure:(MTFailureCallback)failure{
     NSString *endpoint = [NSString stringWithFormat:@"%@/search", self.endpoint];
-    [[MoltinAPIClient sharedClient] get:endpoint withParameters:parameters callback:completion];
+    [[MoltinAPIClient sharedClient] get:endpoint withParameters:parameters success:success failure:failure];
 }
 
-- (void)getModifiersWithId:(NSString *) productId callback:(void(^)(NSDictionary *response, NSError *error)) completion{
+- (void)getModifiersWithId:(NSString *) productId success:(MTSuccessCallback)success failure:(MTFailureCallback)failure{
     NSString *endpoint = [NSString stringWithFormat:@"%@/%@/modifiers", self.endpoint, productId];
-    [[MoltinAPIClient sharedClient] get:endpoint withParameters:nil callback:completion];
+    [[MoltinAPIClient sharedClient] get:endpoint withParameters:nil success:success failure:failure];
 }
 
-- (void)getVariationsWithId:(NSString *) productId callback:(void(^)(NSDictionary *response, NSError *error)) completion
+- (void)getVariationsWithId:(NSString *) productId success:(MTSuccessCallback)success failure:(MTFailureCallback)failure
 {
     NSString *endpoint = [NSString stringWithFormat:@"%@/%@/variations", self.endpoint, productId];
-    [[MoltinAPIClient sharedClient] get:endpoint withParameters:nil callback:completion];
+    [[MoltinAPIClient sharedClient] get:endpoint withParameters:nil success:success failure:failure];
 }
 
 @end

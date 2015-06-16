@@ -24,79 +24,13 @@
     
     [Moltin sharedInstance].publicId = @"umRG34nxZVGIuCSPfYf8biBSvtABgTR8GMUtflyE";
     
-    [[Moltin sharedInstance].category listingWithParameters:@{@"status": @1} callback:^(NSDictionary *response, NSError *error) {
-        if (error) {
-            NSLog(@"Category listing ERROR!!! %@", error);
-        }
-        else {
-            NSLog(@"RESPONSE (category listing): %@", response);
-            self.categories = [response objectForKey:@"result"];
-            [self.tableView reloadData];
-        }
-    }];
-    
-    /*[[Moltin sharedInstance].product searchWithParameters:nil callback:^(NSDictionary *response, NSError *error) {
-        if (error) {
-            NSLog(@"Search without params ERROR!!! %@", error);
-        }
-        else {
-            NSLog(@"RESPONSE (product search): %@", response);
-        }
-    }];*/
-    
-    [[Moltin sharedInstance].product getModifiersWithId:@"1004136473257050831" callback:^(NSDictionary *response, NSError *error) {
-        if (error) {
-            NSLog(@"Product modifiers ERROR!!! %@", error);
-        }
-        else {
-            NSLog(@"RESPONSE (product modifiers): %@", response);
-        }
-    }];
-    
-    [[Moltin sharedInstance].customer listingWithParameters:nil callback:^(NSDictionary *response, NSError *error) {
-        if (error) {
-            NSLog(@"Customers listing ERROR!!! %@", error);
-        }
-        else {
-            NSLog(@"RESPONSE (customer listings): %@", response);
-        }
-    }];
-    
-    /*
-     DEMO CUSTOMER:
-     {
-     "created_at" = "2015-06-14 22:49:14";
-     email = "mmmm@ggg.bbb";
-     "first_name" = "CD cd";
-     group = "<null>";
-     history =     {
-     addresses = 2;
-     orders = 1;
-     value = "28.01";
-     };
-     id = 1007489686488220132;
-     "last_name" = gdc;
-     order = "<null>";
-     "updated_at" = "2015-06-14 22:49:14";
-     },
-     */
-    
-    [[Moltin sharedInstance].address findWithCustomerId:@"1007489686488220132" andParameters:nil callback:^(NSDictionary *response, NSError *error) {
-        if (error) {
-            NSLog(@"Address find ERROR!!! %@", error);
-        }
-        else {
-            NSLog(@"RESPONSE (address find with customer id): %@", response);
-        }
-    }];
-    
-    [[Moltin sharedInstance].collection listingWithParameters:@{@"slug" : @"lacko"} callback:^(NSDictionary *response, NSError *error) {
-        if (error) {
-            NSLog(@"Collection listing ERROR!!! %@", error);
-        }
-        else {
-            NSLog(@"RESPONSE (collection listing): %@", response);
-        }
+    __weak ViewController *weakSelf = self;
+    [[Moltin sharedInstance].category listingWithParameters:@{@"status" : @1} success:^(NSDictionary *response) {
+        NSLog(@"RESPONSE (category listing): %@", response);
+        weakSelf.categories = [response objectForKey:@"result"];
+        [weakSelf.tableView reloadData];
+    } failure:^(NSError *error) {
+        NSLog(@"Category listing ERROR!!! %@", error);
     }];
 }
 

@@ -14,40 +14,40 @@
     return [super initWithEndpoint:@"addresses"];
 }
 
--(void)getWithId:(NSString *)ID callback:(void (^)(NSDictionary *response, NSError *error))completion
+-(void)getWithId:(NSString *)ID success:(MTSuccessCallback)success failure:(MTFailureCallback)failure
 {
     [super raiseUnsupportedException];
 }
 
-- (void)getWithCustomerId:(NSString *)customerId andAddressId:(NSString *) addressId callback:(void (^)(NSDictionary *response, NSError *error))completion
+- (void)getWithCustomerId:(NSString *)customerId andAddressId:(NSString *) addressId success:(MTSuccessCallback)success failure:(MTFailureCallback)failure
 {
     NSString *endpoint = [NSString stringWithFormat:@"customers/%@/%@/%@", customerId, self.endpoint, addressId];
-    [super getWithEndpoint:endpoint andParameters:nil callback:completion];
+    [super getWithEndpoint:endpoint andParameters:nil success:success failure:failure];
 }
 
--(void)createWithCustomerId:(NSString *)customerId Parameters:(NSDictionary *)parameters callback:(void (^)(NSDictionary *response, NSError *error))completion
+-(void)createWithCustomerId:(NSString *)customerId Parameters:(NSDictionary *)parameters success:(MTSuccessCallback)success failure:(MTFailureCallback)failure
 {
     NSString *endpoint = [NSString stringWithFormat:@"customers/%@/%@", customerId, self.endpoint];
-    [super postWithEndpoint:endpoint andParameters:parameters callback:completion];
+    [super postWithEndpoint:endpoint andParameters:parameters success:success failure:failure];
 }
 
--(void)updateWithCustomerId:(NSString *)customerId Parameters:(NSDictionary *)parameters callback:(void (^)(NSDictionary *response, NSError *error))completion
+-(void)updateWithCustomerId:(NSString *)customerId Parameters:(NSDictionary *)parameters success:(MTSuccessCallback)success failure:(MTFailureCallback)failure
 {
     NSString *endpoint = [NSString stringWithFormat:@"customers/%@/%@", customerId, self.endpoint];
-    [super putWithEndpoint:endpoint andParameters:parameters callback:completion];
+    [super putWithEndpoint:endpoint andParameters:parameters success:success failure:failure];
 }
 
-- (void)findWithCustomerId:(NSString *)customerId andParameters:(NSDictionary *) parameters callback:(void (^)(NSDictionary *response, NSError *error))completion{
+- (void)findWithCustomerId:(NSString *)customerId andParameters:(NSDictionary *) parameters success:(MTSuccessCallback)success failure:(MTFailureCallback)failure{
     NSString *endpoint = [NSString stringWithFormat:@"customers/%@/%@", customerId, self.endpoint];
-    [super getWithEndpoint:endpoint andParameters:parameters callback:completion];
+    [super getWithEndpoint:endpoint andParameters:parameters success:success failure:failure];
 }
 
-- (void)listingWithCustomerId:(NSString *)customerId andParameters:(NSDictionary *) parameters callback:(void (^)(NSDictionary *response, NSError *error))completion{
+- (void)listingWithCustomerId:(NSString *)customerId andParameters:(NSDictionary *) parameters success:(MTSuccessCallback)success failure:(MTFailureCallback)failure{
     NSString *endpoint = [NSString stringWithFormat:@"customers/%@/%@", customerId, self.endpoint];
-    [super getWithEndpoint:endpoint andParameters:parameters callback:completion];
+    [super getWithEndpoint:endpoint andParameters:parameters success:success failure:failure];
 }
 
-- (void)fieldsWithCustomerId:(NSString *)customerId andAddressId:(NSString *) addressId callback:(void (^)(NSDictionary *response, NSError *error))completion
+- (void)fieldsWithCustomerId:(NSString *)customerId andAddressId:(NSString *) addressId success:(MTSuccessCallback)success failure:(MTFailureCallback)failure
 {
     NSString *endpoint;
     if (customerId != nil && customerId.length > 0 && (addressId == nil || addressId.length == 0)) {
@@ -62,7 +62,7 @@
     else{
         endpoint = [NSString stringWithFormat:@"%@/fields", self.endpoint];
     }
-    [super getWithEndpoint:endpoint andParameters:nil callback:completion];
+    [super getWithEndpoint:endpoint andParameters:nil success:success failure:failure];
 }
 
 @end

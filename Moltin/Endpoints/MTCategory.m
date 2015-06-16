@@ -14,9 +14,9 @@
     return [super initWithEndpoint:@"categories"];
 }
 
-- (void)getTreeWithParameters:(NSDictionary *) parameters callback:(void (^)(NSDictionary *response, NSError *error))completion{
+- (void)getTreeWithParameters:(NSDictionary *) parameters success:(MTSuccessCallback)success failure:(MTFailureCallback)failure{
     NSString *endpoint = [NSString stringWithFormat:@"%@/tree", self.endpoint];
-    [super getWithEndpoint:endpoint andParameters:parameters callback:completion];
+    [super getWithEndpoint:endpoint andParameters:parameters success:success failure:failure];
 }
 
 @end

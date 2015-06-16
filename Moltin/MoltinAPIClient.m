@@ -51,19 +51,23 @@
                                  @"grant_type": @"implicit"
                                  };
         
-        
+        __weak MoltinAPIClient *weekSelf = self;
         [self POST:[NSString stringWithFormat:@"%@oauth/access_token", kMoltinBaseApiURL] parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
             [MoltinStorage setToken:[responseObject valueForKey:@"access_token"]];
             [MoltinStorage setTokenExpiration:[[responseObject valueForKey:@"expires_in"] doubleValue]];
             
-            [self setAccessToken:[MoltinStorage getToken]];
+            [weekSelf setAccessToken:[MoltinStorage getToken]];
             
             NSLog(@"com.moltin Authentication success. TOKEN: %@", [MoltinStorage getToken]);
-            completion(YES, nil);
+            if (completion) {
+                completion(YES, nil);
+            }
             
         } failure:^(NSURLSessionDataTask *task, NSError *error) {
             NSLog(@"com.moltin Authenticate ERROR: %@", error);
-            completion(NO, error);
+            if (completion) {
+                completion(NO, error);
+            }
         }];
     }
     else{
@@ -76,17 +80,22 @@
     [self.requestSerializer setValue:[NSString stringWithFormat:@"Bearer %@", accessToken] forHTTPHeaderField:@"Authorization"];
 }
 
-- (void)get:(NSString *) URLString withParameters:(NSDictionary *) parameters callback:(void(^)(NSDictionary *response, NSError *error)) completion
+- (void)get:(NSString *) URLString withParameters:(NSDictionary *) parameters success:(MTSuccessCallback)success failure:(MTFailureCallback)failure
 {
+    __weak MoltinAPIClient *weekSelf = self;
     MTAuthenitactionCallback authCallback = ^(BOOL sucess, NSError *error) {
         if (error) {
             NSLog(@"ERROR authenticating!!! %@", error);
         }
         else{
-            [super GET:URLString parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
-                completion(responseObject, nil);
+            [weekSelf GET:URLString parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
+                if (success) {
+                    success(responseObject);
+                }
             } failure:^(NSURLSessionDataTask *task, NSError *error) {
-                completion(nil, error);
+                if (failure) {
+                    failure(error);
+                }
             }];
         }
     };
@@ -95,17 +104,22 @@
     
 }
 
-- (void)post:(NSString *) URLString withParameters:(NSDictionary *) parameters callback:(void(^)(NSDictionary *response, NSError *error)) completion
+- (void)post:(NSString *) URLString withParameters:(NSDictionary *) parameters success:(MTSuccessCallback)success failure:(MTFailureCallback)failure
 {
+    __weak MoltinAPIClient *weekSelf = self;
     MTAuthenitactionCallback authCallback = ^(BOOL sucess, NSError *error) {
         if (error) {
             NSLog(@"ERROR authenticating!!! %@", error);
         }
         else{
-            [super POST:URLString parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
-                completion(responseObject, nil);
+            [weekSelf POST:URLString parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
+                if (success) {
+                    success(responseObject);
+                }
             } failure:^(NSURLSessionDataTask *task, NSError *error) {
-                completion(nil, error);
+                if (failure) {
+                    failure(error);
+                }
             }];
         }
     };
@@ -113,17 +127,22 @@
     [self authenticateWithPublicId:self.publicId andCallback:authCallback];
 }
 
-- (void)put:(NSString *) URLString withParameters:(NSDictionary *) parameters callback:(void(^)(NSDictionary *response, NSError *error)) completion
+- (void)put:(NSString *) URLString withParameters:(NSDictionary *) parameters success:(MTSuccessCallback)success failure:(MTFailureCallback)failure
 {
+    __weak MoltinAPIClient *weekSelf = self;
     MTAuthenitactionCallback authCallback = ^(BOOL sucess, NSError *error) {
         if (error) {
             NSLog(@"ERROR authenticating!!! %@", error);
         }
         else{
-            [super PUT:URLString parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
-                completion(responseObject, nil);
+            [weekSelf PUT:URLString parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
+                if (success) {
+                    success(responseObject);
+                }
             } failure:^(NSURLSessionDataTask *task, NSError *error) {
-                completion(nil, error);
+                if (failure) {
+                    failure(error);
+                }
             }];
         }
     };
@@ -131,17 +150,22 @@
     [self authenticateWithPublicId:self.publicId andCallback:authCallback];
 }
 
-- (void)delete:(NSString *) URLString withParameters:(NSDictionary *) parameters callback:(void(^)(NSDictionary *response, NSError *error)) completion
+- (void)delete:(NSString *) URLString withParameters:(NSDictionary *) parameters success:(MTSuccessCallback)success failure:(MTFailureCallback)failure
 {
+    __weak MoltinAPIClient *weekSelf = self;
     MTAuthenitactionCallback authCallback = ^(BOOL sucess, NSError *error) {
         if (error) {
             NSLog(@"ERROR authenticating!!! %@", error);
         }
         else{
-            [super DELETE:URLString parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
-                completion(responseObject, nil);
+            [weekSelf DELETE:URLString parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
+                if (success) {
+                    success(responseObject);
+                }
             } failure:^(NSURLSessionDataTask *task, NSError *error) {
-                completion(nil, error);
+                if (failure) {
+                    failure(error);
+                }
             }];
         }
     };
