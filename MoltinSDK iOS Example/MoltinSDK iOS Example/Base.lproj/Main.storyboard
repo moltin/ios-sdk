@@ -20,10 +20,10 @@
             </objects>
             <point key="canvasLocation" x="-265" y="-51"/>
         </scene>
-        <!--View Controller-->
+        <!--Collections View Controller-->
         <scene sceneID="B6Z-uD-ycf">
             <objects>
-                <viewController id="p8i-lg-9Ru" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="p8i-lg-9Ru" customClass="CollectionsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5z4-FG-j1c"/>
                         <viewControllerLayoutGuide type="bottom" id="RdO-bk-nfe"/>
@@ -32,26 +32,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="A5O-r8-2Fo">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="oxM-dA-mzv">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Gvp-oI-36w">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="7DQ-Fb-v6a">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
                                 <connections>
-                                    <outlet property="dataSource" destination="p8i-lg-9Ru" id="gVe-v8-Ge1"/>
-                                    <outlet property="delegate" destination="p8i-lg-9Ru" id="W4K-4Z-J7t"/>
+                                    <outlet property="dataSource" destination="p8i-lg-9Ru" id="SOY-WV-UCB"/>
+                                    <outlet property="delegate" destination="p8i-lg-9Ru" id="0dt-nq-Hkf"/>
                                 </connections>
-                            </tableView>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="A5O-r8-2Fo" firstAttribute="top" secondItem="NKk-Zb-e2c" secondAttribute="top" id="EQF-oD-3dX"/>
-                            <constraint firstAttribute="trailing" secondItem="A5O-r8-2Fo" secondAttribute="trailing" id="QEt-DF-rPF"/>
-                            <constraint firstItem="A5O-r8-2Fo" firstAttribute="bottom" secondItem="RdO-bk-nfe" secondAttribute="top" id="rhi-oE-yQ6"/>
-                            <constraint firstItem="A5O-r8-2Fo" firstAttribute="leading" secondItem="NKk-Zb-e2c" secondAttribute="leading" id="wgX-vV-a30"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="SQk-NT-NBK"/>
                     <connections>
-                        <outlet property="tableView" destination="A5O-r8-2Fo" id="xjX-D9-CES"/>
+                        <outlet property="collectionView" destination="oxM-dA-mzv" id="N4z-HO-64G"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1ZG-pm-W7o" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E2F2BCB1B2F0BED006CD657 /* ProductListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E2F2BC91B2F0BED006CD657 /* ProductListCell.m */; };
+		3E2F2BCC1B2F0BED006CD657 /* ProductListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E2F2BCA1B2F0BED006CD657 /* ProductListCell.xib */; };
+		3E2F2BCF1B2F0C2E006CD657 /* ProductDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E2F2BCE1B2F0C2E006CD657 /* ProductDetailsViewController.m */; };
 		3E3716FF1B2E5C9700CFE67C /* MTAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3716DA1B2E5C9700CFE67C /* MTAddress.m */; };
 		3E3717001B2E5C9700CFE67C /* MTBrand.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3716DC1B2E5C9700CFE67C /* MTBrand.m */; };
 		3E3717011B2E5C9700CFE67C /* MTCart.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3716DE1B2E5C9700CFE67C /* MTCart.m */; };
@@ -25,9 +28,12 @@
 		3E37170E1B2E5C9700CFE67C /* Moltin.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3716F81B2E5C9700CFE67C /* Moltin.m */; };
 		3E37170F1B2E5C9700CFE67C /* MoltinAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3716FA1B2E5C9700CFE67C /* MoltinAPIClient.m */; };
 		3E3717101B2E5C9700CFE67C /* MoltinStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3716FE1B2E5C9700CFE67C /* MoltinStorage.m */; };
+		3E3717161B2F00E700CFE67C /* CollectionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3717141B2F00E700CFE67C /* CollectionsViewController.m */; };
+		3E37171B1B2F019B00CFE67C /* CollectionListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3717191B2F019B00CFE67C /* CollectionListCell.m */; };
+		3E37171C1B2F019B00CFE67C /* CollectionListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E37171A1B2F019B00CFE67C /* CollectionListCell.xib */; };
+		3E3717201B2F0AA500CFE67C /* ProductsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E37171F1B2F0AA500CFE67C /* ProductsViewController.m */; };
 		3EC7CE281B25BB8E00D843EB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EC7CE271B25BB8E00D843EB /* main.m */; };
 		3EC7CE2B1B25BB8E00D843EB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EC7CE2A1B25BB8E00D843EB /* AppDelegate.m */; };
-		3EC7CE2E1B25BB8E00D843EB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EC7CE2D1B25BB8E00D843EB /* ViewController.m */; };
 		3EC7CE311B25BB8E00D843EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EC7CE2F1B25BB8E00D843EB /* Main.storyboard */; };
 		3EC7CE331B25BB8E00D843EB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EC7CE321B25BB8E00D843EB /* Images.xcassets */; };
 		3EC7CE361B25BB8E00D843EB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EC7CE341B25BB8E00D843EB /* LaunchScreen.xib */; };
@@ -47,6 +53,11 @@
 
 /* Begin PBXFileReference section */
 		35199D69AF9D6C20A3A8E169 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		3E2F2BC81B2F0BED006CD657 /* ProductListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductListCell.h; sourceTree = "<group>"; };
+		3E2F2BC91B2F0BED006CD657 /* ProductListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductListCell.m; sourceTree = "<group>"; };
+		3E2F2BCA1B2F0BED006CD657 /* ProductListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductListCell.xib; sourceTree = "<group>"; };
+		3E2F2BCD1B2F0C2E006CD657 /* ProductDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetailsViewController.h; sourceTree = "<group>"; };
+		3E2F2BCE1B2F0C2E006CD657 /* ProductDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductDetailsViewController.m; sourceTree = "<group>"; };
 		3E3716D91B2E5C9700CFE67C /* MTAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTAddress.h; sourceTree = "<group>"; };
 		3E3716DA1B2E5C9700CFE67C /* MTAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTAddress.m; sourceTree = "<group>"; };
 		3E3716DB1B2E5C9700CFE67C /* MTBrand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTBrand.h; sourceTree = "<group>"; };
@@ -84,13 +95,18 @@
 		3E3716FC1B2E5C9700CFE67C /* MoltinConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoltinConstants.h; sourceTree = "<group>"; };
 		3E3716FD1B2E5C9700CFE67C /* MoltinStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoltinStorage.h; sourceTree = "<group>"; };
 		3E3716FE1B2E5C9700CFE67C /* MoltinStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoltinStorage.m; sourceTree = "<group>"; };
+		3E3717131B2F00E700CFE67C /* CollectionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionsViewController.h; sourceTree = "<group>"; };
+		3E3717141B2F00E700CFE67C /* CollectionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionsViewController.m; sourceTree = "<group>"; };
+		3E3717181B2F019B00CFE67C /* CollectionListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionListCell.h; sourceTree = "<group>"; };
+		3E3717191B2F019B00CFE67C /* CollectionListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionListCell.m; sourceTree = "<group>"; };
+		3E37171A1B2F019B00CFE67C /* CollectionListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionListCell.xib; sourceTree = "<group>"; };
+		3E37171E1B2F0AA500CFE67C /* ProductsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductsViewController.h; sourceTree = "<group>"; };
+		3E37171F1B2F0AA500CFE67C /* ProductsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductsViewController.m; sourceTree = "<group>"; };
 		3EC7CE221B25BB8E00D843EB /* MoltinSDK iOS Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MoltinSDK iOS Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EC7CE261B25BB8E00D843EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3EC7CE271B25BB8E00D843EB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3EC7CE291B25BB8E00D843EB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3EC7CE2A1B25BB8E00D843EB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		3EC7CE2C1B25BB8E00D843EB /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		3EC7CE2D1B25BB8E00D843EB /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		3EC7CE301B25BB8E00D843EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3EC7CE321B25BB8E00D843EB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3EC7CE351B25BB8E00D843EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -126,6 +142,16 @@
 				FD2C43979DB376E19EF5905E /* libPods.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3E2F2BC71B2F0BDB006CD657 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3E2F2BC81B2F0BED006CD657 /* ProductListCell.h */,
+				3E2F2BC91B2F0BED006CD657 /* ProductListCell.m */,
+				3E2F2BCA1B2F0BED006CD657 /* ProductListCell.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		3E3716D71B2E5C9700CFE67C /* Moltin */ = {
@@ -189,6 +215,45 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		3E3717111B2F00E700CFE67C /* Cart */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cart;
+			sourceTree = "<group>";
+		};
+		3E3717121B2F00E700CFE67C /* Collections */ = {
+			isa = PBXGroup;
+			children = (
+				3E3717131B2F00E700CFE67C /* CollectionsViewController.h */,
+				3E3717141B2F00E700CFE67C /* CollectionsViewController.m */,
+				3E3717171B2F016E00CFE67C /* Views */,
+			);
+			path = Collections;
+			sourceTree = "<group>";
+		};
+		3E3717151B2F00E700CFE67C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3E37171E1B2F0AA500CFE67C /* ProductsViewController.h */,
+				3E37171F1B2F0AA500CFE67C /* ProductsViewController.m */,
+				3E2F2BCD1B2F0C2E006CD657 /* ProductDetailsViewController.h */,
+				3E2F2BCE1B2F0C2E006CD657 /* ProductDetailsViewController.m */,
+				3E2F2BC71B2F0BDB006CD657 /* Views */,
+			);
+			path = Products;
+			sourceTree = "<group>";
+		};
+		3E3717171B2F016E00CFE67C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3E3717181B2F019B00CFE67C /* CollectionListCell.h */,
+				3E3717191B2F019B00CFE67C /* CollectionListCell.m */,
+				3E37171A1B2F019B00CFE67C /* CollectionListCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		3EC7CE191B25BB8E00D843EB = {
 			isa = PBXGroup;
 			children = (
@@ -212,11 +277,12 @@
 		3EC7CE241B25BB8E00D843EB /* MoltinSDK iOS Example */ = {
 			isa = PBXGroup;
 			children = (
+				3E3717111B2F00E700CFE67C /* Cart */,
+				3E3717121B2F00E700CFE67C /* Collections */,
+				3E3717151B2F00E700CFE67C /* Products */,
 				3E3716D71B2E5C9700CFE67C /* Moltin */,
 				3EC7CE291B25BB8E00D843EB /* AppDelegate.h */,
 				3EC7CE2A1B25BB8E00D843EB /* AppDelegate.m */,
-				3EC7CE2C1B25BB8E00D843EB /* ViewController.h */,
-				3EC7CE2D1B25BB8E00D843EB /* ViewController.m */,
 				3EC7CE2F1B25BB8E00D843EB /* Main.storyboard */,
 				3EC7CE321B25BB8E00D843EB /* Images.xcassets */,
 				3EC7CE341B25BB8E00D843EB /* LaunchScreen.xib */,
@@ -343,7 +409,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				3EC7CE311B25BB8E00D843EB /* Main.storyboard in Resources */,
+				3E2F2BCC1B2F0BED006CD657 /* ProductListCell.xib in Resources */,
 				3EC7CE361B25BB8E00D843EB /* LaunchScreen.xib in Resources */,
+				3E37171C1B2F019B00CFE67C /* CollectionListCell.xib in Resources */,
 				3EC7CE331B25BB8E00D843EB /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -403,18 +471,22 @@
 				3E3717091B2E5C9700CFE67C /* MTGateway.m in Sources */,
 				3E37170E1B2E5C9700CFE67C /* Moltin.m in Sources */,
 				3E37170A1B2E5C9700CFE67C /* MTOrder.m in Sources */,
-				3EC7CE2E1B25BB8E00D843EB /* ViewController.m in Sources */,
 				3E3716FF1B2E5C9700CFE67C /* MTAddress.m in Sources */,
+				3E2F2BCF1B2F0C2E006CD657 /* ProductDetailsViewController.m in Sources */,
+				3E2F2BCB1B2F0BED006CD657 /* ProductListCell.m in Sources */,
 				3E37170C1B2E5C9700CFE67C /* MTShipping.m in Sources */,
 				3EC7CE2B1B25BB8E00D843EB /* AppDelegate.m in Sources */,
 				3E37170B1B2E5C9700CFE67C /* MTProduct.m in Sources */,
 				3E3717001B2E5C9700CFE67C /* MTBrand.m in Sources */,
 				3E3717071B2E5C9700CFE67C /* MTEntry.m in Sources */,
 				3E37170D1B2E5C9700CFE67C /* MTTax.m in Sources */,
+				3E3717201B2F0AA500CFE67C /* ProductsViewController.m in Sources */,
 				3E3717021B2E5C9700CFE67C /* MTCategory.m in Sources */,
 				3E3717051B2E5C9700CFE67C /* MTCurrency.m in Sources */,
 				3E3717081B2E5C9700CFE67C /* MTFacade.m in Sources */,
+				3E3717161B2F00E700CFE67C /* CollectionsViewController.m in Sources */,
 				3E3717031B2E5C9700CFE67C /* MTCheckout.m in Sources */,
+				3E37171B1B2F019B00CFE67C /* CollectionListCell.m in Sources */,
 				3EC7CE281B25BB8E00D843EB /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
