@@ -38,6 +38,19 @@
 		3EC7CE331B25BB8E00D843EB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EC7CE321B25BB8E00D843EB /* Images.xcassets */; };
 		3EC7CE361B25BB8E00D843EB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EC7CE341B25BB8E00D843EB /* LaunchScreen.xib */; };
 		3EC7CE421B25BB8E00D843EB /* MoltinSDK_iOS_ExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EC7CE411B25BB8E00D843EB /* MoltinSDK_iOS_ExampleTests.m */; };
+		3EF22AF51B30883000462BFA /* MTNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF22AF41B30883000462BFA /* MTNavigationController.m */; };
+		3EF22B181B31273B00462BFA /* Heuristica-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3EF22B0E1B31273B00462BFA /* Heuristica-Bold.otf */; };
+		3EF22B191B31273B00462BFA /* Heuristica-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3EF22B0F1B31273B00462BFA /* Heuristica-BoldItalic.otf */; };
+		3EF22B1A1B31273B00462BFA /* Heuristica-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3EF22B101B31273B00462BFA /* Heuristica-Italic.otf */; };
+		3EF22B1B1B31273B00462BFA /* Heuristica-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3EF22B111B31273B00462BFA /* Heuristica-Regular.otf */; };
+		3EF22B1C1B31273B00462BFA /* Montserrat-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3EF22B131B31273B00462BFA /* Montserrat-Black.otf */; };
+		3EF22B1D1B31273B00462BFA /* Montserrat-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3EF22B141B31273B00462BFA /* Montserrat-Bold.otf */; };
+		3EF22B1E1B31273B00462BFA /* Montserrat-Hairline.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3EF22B151B31273B00462BFA /* Montserrat-Hairline.otf */; };
+		3EF22B1F1B31273B00462BFA /* Montserrat-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3EF22B161B31273B00462BFA /* Montserrat-Light.otf */; };
+		3EF22B201B31273B00462BFA /* Montserrat-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3EF22B171B31273B00462BFA /* Montserrat-Regular.otf */; };
+		3EF22B231B312FE100462BFA /* btn-view-collection@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EF22B221B312FE100462BFA /* btn-view-collection@2x.png */; };
+		3EF22B251B313A6100462BFA /* cart@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EF22B241B313A6100462BFA /* cart@2x.png */; };
+		3EF22B271B3192EF00462BFA /* btn-more-info@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EF22B261B3192EF00462BFA /* btn-more-info@2x.png */; };
 		FC55015328D6E3F69210124B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD2C43979DB376E19EF5905E /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -113,6 +126,21 @@
 		3EC7CE3B1B25BB8E00D843EB /* MoltinSDK iOS ExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MoltinSDK iOS ExampleTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EC7CE401B25BB8E00D843EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3EC7CE411B25BB8E00D843EB /* MoltinSDK_iOS_ExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoltinSDK_iOS_ExampleTests.m; sourceTree = "<group>"; };
+		3EF22AF31B30883000462BFA /* MTNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTNavigationController.h; sourceTree = "<group>"; };
+		3EF22AF41B30883000462BFA /* MTNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTNavigationController.m; sourceTree = "<group>"; };
+		3EF22AF71B31262E00462BFA /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		3EF22B0E1B31273B00462BFA /* Heuristica-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Heuristica-Bold.otf"; sourceTree = "<group>"; };
+		3EF22B0F1B31273B00462BFA /* Heuristica-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Heuristica-BoldItalic.otf"; sourceTree = "<group>"; };
+		3EF22B101B31273B00462BFA /* Heuristica-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Heuristica-Italic.otf"; sourceTree = "<group>"; };
+		3EF22B111B31273B00462BFA /* Heuristica-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Heuristica-Regular.otf"; sourceTree = "<group>"; };
+		3EF22B131B31273B00462BFA /* Montserrat-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Black.otf"; sourceTree = "<group>"; };
+		3EF22B141B31273B00462BFA /* Montserrat-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.otf"; sourceTree = "<group>"; };
+		3EF22B151B31273B00462BFA /* Montserrat-Hairline.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Hairline.otf"; sourceTree = "<group>"; };
+		3EF22B161B31273B00462BFA /* Montserrat-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.otf"; sourceTree = "<group>"; };
+		3EF22B171B31273B00462BFA /* Montserrat-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.otf"; sourceTree = "<group>"; };
+		3EF22B221B312FE100462BFA /* btn-view-collection@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-view-collection@2x.png"; sourceTree = "<group>"; };
+		3EF22B241B313A6100462BFA /* cart@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cart@2x.png"; sourceTree = "<group>"; };
+		3EF22B261B3192EF00462BFA /* btn-more-info@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-more-info@2x.png"; sourceTree = "<group>"; };
 		B8DAB94EF02ABE3D337E23BE /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		FD2C43979DB376E19EF5905E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -277,12 +305,15 @@
 		3EC7CE241B25BB8E00D843EB /* MoltinSDK iOS Example */ = {
 			isa = PBXGroup;
 			children = (
+				3EF22B0C1B31273B00462BFA /* Resources */,
 				3E3717111B2F00E700CFE67C /* Cart */,
 				3E3717121B2F00E700CFE67C /* Collections */,
 				3E3717151B2F00E700CFE67C /* Products */,
 				3E3716D71B2E5C9700CFE67C /* Moltin */,
 				3EC7CE291B25BB8E00D843EB /* AppDelegate.h */,
 				3EC7CE2A1B25BB8E00D843EB /* AppDelegate.m */,
+				3EF22AF31B30883000462BFA /* MTNavigationController.h */,
+				3EF22AF41B30883000462BFA /* MTNavigationController.m */,
 				3EC7CE2F1B25BB8E00D843EB /* Main.storyboard */,
 				3EC7CE321B25BB8E00D843EB /* Images.xcassets */,
 				3EC7CE341B25BB8E00D843EB /* LaunchScreen.xib */,
@@ -296,6 +327,7 @@
 			children = (
 				3EC7CE261B25BB8E00D843EB /* Info.plist */,
 				3EC7CE271B25BB8E00D843EB /* main.m */,
+				3EF22AF71B31262E00462BFA /* PrefixHeader.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -315,6 +347,49 @@
 				3EC7CE401B25BB8E00D843EB /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3EF22B0C1B31273B00462BFA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3EF22B211B312FE100462BFA /* images */,
+				3EF22B0D1B31273B00462BFA /* heuristica */,
+				3EF22B121B31273B00462BFA /* montserrat */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		3EF22B0D1B31273B00462BFA /* heuristica */ = {
+			isa = PBXGroup;
+			children = (
+				3EF22B0E1B31273B00462BFA /* Heuristica-Bold.otf */,
+				3EF22B0F1B31273B00462BFA /* Heuristica-BoldItalic.otf */,
+				3EF22B101B31273B00462BFA /* Heuristica-Italic.otf */,
+				3EF22B111B31273B00462BFA /* Heuristica-Regular.otf */,
+			);
+			path = heuristica;
+			sourceTree = "<group>";
+		};
+		3EF22B121B31273B00462BFA /* montserrat */ = {
+			isa = PBXGroup;
+			children = (
+				3EF22B131B31273B00462BFA /* Montserrat-Black.otf */,
+				3EF22B141B31273B00462BFA /* Montserrat-Bold.otf */,
+				3EF22B151B31273B00462BFA /* Montserrat-Hairline.otf */,
+				3EF22B161B31273B00462BFA /* Montserrat-Light.otf */,
+				3EF22B171B31273B00462BFA /* Montserrat-Regular.otf */,
+			);
+			path = montserrat;
+			sourceTree = "<group>";
+		};
+		3EF22B211B312FE100462BFA /* images */ = {
+			isa = PBXGroup;
+			children = (
+				3EF22B261B3192EF00462BFA /* btn-more-info@2x.png */,
+				3EF22B241B313A6100462BFA /* cart@2x.png */,
+				3EF22B221B312FE100462BFA /* btn-view-collection@2x.png */,
+			);
+			path = images;
 			sourceTree = "<group>";
 		};
 		863CEDFB573FEE0EC40E6748 /* Pods */ = {
@@ -408,11 +483,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3EF22B231B312FE100462BFA /* btn-view-collection@2x.png in Resources */,
+				3EF22B1B1B31273B00462BFA /* Heuristica-Regular.otf in Resources */,
+				3EF22B251B313A6100462BFA /* cart@2x.png in Resources */,
+				3EF22B1A1B31273B00462BFA /* Heuristica-Italic.otf in Resources */,
 				3EC7CE311B25BB8E00D843EB /* Main.storyboard in Resources */,
+				3EF22B181B31273B00462BFA /* Heuristica-Bold.otf in Resources */,
+				3EF22B1F1B31273B00462BFA /* Montserrat-Light.otf in Resources */,
+				3EF22B201B31273B00462BFA /* Montserrat-Regular.otf in Resources */,
 				3E2F2BCC1B2F0BED006CD657 /* ProductListCell.xib in Resources */,
 				3EC7CE361B25BB8E00D843EB /* LaunchScreen.xib in Resources */,
+				3EF22B1E1B31273B00462BFA /* Montserrat-Hairline.otf in Resources */,
+				3EF22B1C1B31273B00462BFA /* Montserrat-Black.otf in Resources */,
 				3E37171C1B2F019B00CFE67C /* CollectionListCell.xib in Resources */,
+				3EF22B271B3192EF00462BFA /* btn-more-info@2x.png in Resources */,
 				3EC7CE331B25BB8E00D843EB /* Images.xcassets in Resources */,
+				3EF22B191B31273B00462BFA /* Heuristica-BoldItalic.otf in Resources */,
+				3EF22B1D1B31273B00462BFA /* Montserrat-Bold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -485,6 +572,7 @@
 				3E3717051B2E5C9700CFE67C /* MTCurrency.m in Sources */,
 				3E3717081B2E5C9700CFE67C /* MTFacade.m in Sources */,
 				3E3717161B2F00E700CFE67C /* CollectionsViewController.m in Sources */,
+				3EF22AF51B30883000462BFA /* MTNavigationController.m in Sources */,
 				3E3717031B2E5C9700CFE67C /* MTCheckout.m in Sources */,
 				3E37171B1B2F019B00CFE67C /* CollectionListCell.m in Sources */,
 				3EC7CE281B25BB8E00D843EB /* main.m in Sources */,
@@ -614,6 +702,7 @@
 			baseConfigurationReference = 35199D69AF9D6C20A3A8E169 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/PrefixHeader.pch";
 				INFOPLIST_FILE = "MoltinSDK iOS Example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -625,6 +714,7 @@
 			baseConfigurationReference = B8DAB94EF02ABE3D337E23BE /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/PrefixHeader.pch";
 				INFOPLIST_FILE = "MoltinSDK iOS Example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

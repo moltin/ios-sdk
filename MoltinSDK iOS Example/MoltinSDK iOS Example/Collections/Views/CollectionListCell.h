@@ -8,11 +8,21 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol CollectionListCellDelegate <NSObject>
+
+- (void)didSelectCollectionWithId:(NSString *) collectionId;
+
+@end
+
 @interface CollectionListCell : UICollectionViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UILabel *lbTitle;
+@property (weak, nonatomic) IBOutlet UILabel *lbInfo;
+
+@property (nonatomic, weak) id <CollectionListCellDelegate> delegate;
 
 - (void)configureWithCollectionDict:(NSDictionary *) dictionary;
+- (IBAction)btnViewCollectionTap:(id)sender;
 
 @end

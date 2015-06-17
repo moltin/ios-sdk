@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ProductsViewController : UIViewController
+@interface ProductsViewController : UIViewController<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, SlideNavigationControllerDelegate>
+
+@property (strong, nonatomic) NSString *collectionId;
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet UILabel *lbNoProducts;
+@property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @end

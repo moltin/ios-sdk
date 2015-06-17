@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "ProductsViewController.h"
+#import "CollectionsViewController.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +19,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+
+    [MTNavigationController sharedInstance].rightMenu = [[ProductsViewController alloc] init];
+    
+    UIButton *button  = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+    [button setImage:[UIImage imageNamed:@"cart"] forState:UIControlStateNormal];
+    [button addTarget:[SlideNavigationController sharedInstance] action:@selector(toggleRightMenu) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+    [MTNavigationController sharedInstance].rightBarButtonItem = rightBarButtonItem;
+
     return YES;
 }
 

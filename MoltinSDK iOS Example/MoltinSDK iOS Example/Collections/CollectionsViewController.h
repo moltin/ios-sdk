@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <SlideNavigationController.h>
 #import "CollectionListCell.h"
 
-@interface CollectionsViewController : UIViewController<UICollectionViewDelegate, UICollectionViewDataSource>
+@interface CollectionsViewController : UIViewController<SlideNavigationControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource, CollectionListCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @end
 
