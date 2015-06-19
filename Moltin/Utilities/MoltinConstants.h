@@ -8,4 +8,4 @@
 
 
 #define kMoltinBaseApiURL   @"https://api.molt.in/"
-#define kMoltinVersion      @"v1/"//@"beta"//
+#define kMoltinVersion      @"beta"//@"v1/"//

@@ -132,7 +132,7 @@
                                     <outlet property="delegate" destination="U1H-ep-4cK" id="h4x-2a-9ox"/>
                                 </connections>
                             </collectionView>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2RW-a9-8Fw">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2RW-a9-8Fw">
                                 <rect key="frame" x="186.5" y="190" width="228.5" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="94E-tg-1SB"/>

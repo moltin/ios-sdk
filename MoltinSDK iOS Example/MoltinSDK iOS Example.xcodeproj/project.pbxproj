@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E29785F1B33DE46002E1DC1 /* btn-add-to-cart@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E29785E1B33DE46002E1DC1 /* btn-add-to-cart@2x.png */; };
+		3E2978611B3403A2002E1DC1 /* btn-back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E2978601B3403A2002E1DC1 /* btn-back@2x.png */; };
 		3E2F2BCB1B2F0BED006CD657 /* ProductListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E2F2BC91B2F0BED006CD657 /* ProductListCell.m */; };
 		3E2F2BCC1B2F0BED006CD657 /* ProductListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E2F2BCA1B2F0BED006CD657 /* ProductListCell.xib */; };
 		3E2F2BCF1B2F0C2E006CD657 /* ProductDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E2F2BCE1B2F0C2E006CD657 /* ProductDetailsViewController.m */; };
@@ -51,6 +53,7 @@
 		3EF22B231B312FE100462BFA /* btn-view-collection@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EF22B221B312FE100462BFA /* btn-view-collection@2x.png */; };
 		3EF22B251B313A6100462BFA /* cart@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EF22B241B313A6100462BFA /* cart@2x.png */; };
 		3EF22B271B3192EF00462BFA /* btn-more-info@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EF22B261B3192EF00462BFA /* btn-more-info@2x.png */; };
+		3EF22B291B32AEE500462BFA /* ProductDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EF22B281B32AEE500462BFA /* ProductDetailsView.xib */; };
 		FC55015328D6E3F69210124B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD2C43979DB376E19EF5905E /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +69,8 @@
 
 /* Begin PBXFileReference section */
 		35199D69AF9D6C20A3A8E169 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		3E29785E1B33DE46002E1DC1 /* btn-add-to-cart@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-add-to-cart@2x.png"; sourceTree = "<group>"; };
+		3E2978601B3403A2002E1DC1 /* btn-back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-back@2x.png"; sourceTree = "<group>"; };
 		3E2F2BC81B2F0BED006CD657 /* ProductListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductListCell.h; sourceTree = "<group>"; };
 		3E2F2BC91B2F0BED006CD657 /* ProductListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductListCell.m; sourceTree = "<group>"; };
 		3E2F2BCA1B2F0BED006CD657 /* ProductListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductListCell.xib; sourceTree = "<group>"; };
@@ -141,6 +146,7 @@
 		3EF22B221B312FE100462BFA /* btn-view-collection@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-view-collection@2x.png"; sourceTree = "<group>"; };
 		3EF22B241B313A6100462BFA /* cart@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cart@2x.png"; sourceTree = "<group>"; };
 		3EF22B261B3192EF00462BFA /* btn-more-info@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-more-info@2x.png"; sourceTree = "<group>"; };
+		3EF22B281B32AEE500462BFA /* ProductDetailsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductDetailsView.xib; sourceTree = "<group>"; };
 		B8DAB94EF02ABE3D337E23BE /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		FD2C43979DB376E19EF5905E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -178,6 +184,7 @@
 				3E2F2BC81B2F0BED006CD657 /* ProductListCell.h */,
 				3E2F2BC91B2F0BED006CD657 /* ProductListCell.m */,
 				3E2F2BCA1B2F0BED006CD657 /* ProductListCell.xib */,
+				3EF22B281B32AEE500462BFA /* ProductDetailsView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -385,6 +392,8 @@
 		3EF22B211B312FE100462BFA /* images */ = {
 			isa = PBXGroup;
 			children = (
+				3E2978601B3403A2002E1DC1 /* btn-back@2x.png */,
+				3E29785E1B33DE46002E1DC1 /* btn-add-to-cart@2x.png */,
 				3EF22B261B3192EF00462BFA /* btn-more-info@2x.png */,
 				3EF22B241B313A6100462BFA /* cart@2x.png */,
 				3EF22B221B312FE100462BFA /* btn-view-collection@2x.png */,
@@ -486,17 +495,20 @@
 				3EF22B231B312FE100462BFA /* btn-view-collection@2x.png in Resources */,
 				3EF22B1B1B31273B00462BFA /* Heuristica-Regular.otf in Resources */,
 				3EF22B251B313A6100462BFA /* cart@2x.png in Resources */,
+				3EF22B291B32AEE500462BFA /* ProductDetailsView.xib in Resources */,
 				3EF22B1A1B31273B00462BFA /* Heuristica-Italic.otf in Resources */,
 				3EC7CE311B25BB8E00D843EB /* Main.storyboard in Resources */,
 				3EF22B181B31273B00462BFA /* Heuristica-Bold.otf in Resources */,
 				3EF22B1F1B31273B00462BFA /* Montserrat-Light.otf in Resources */,
 				3EF22B201B31273B00462BFA /* Montserrat-Regular.otf in Resources */,
 				3E2F2BCC1B2F0BED006CD657 /* ProductListCell.xib in Resources */,
+				3E2978611B3403A2002E1DC1 /* btn-back@2x.png in Resources */,
 				3EC7CE361B25BB8E00D843EB /* LaunchScreen.xib in Resources */,
 				3EF22B1E1B31273B00462BFA /* Montserrat-Hairline.otf in Resources */,
 				3EF22B1C1B31273B00462BFA /* Montserrat-Black.otf in Resources */,
 				3E37171C1B2F019B00CFE67C /* CollectionListCell.xib in Resources */,
 				3EF22B271B3192EF00462BFA /* btn-more-info@2x.png in Resources */,
+				3E29785F1B33DE46002E1DC1 /* btn-add-to-cart@2x.png in Resources */,
 				3EC7CE331B25BB8E00D843EB /* Images.xcassets in Resources */,
 				3EF22B191B31273B00462BFA /* Heuristica-BoldItalic.otf in Resources */,
 				3EF22B1D1B31273B00462BFA /* Montserrat-Bold.otf in Resources */,

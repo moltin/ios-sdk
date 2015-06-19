@@ -20,5 +20,6 @@
 
 @property (strong, nonatomic) NSMutableArray *images;
 - (void)configureWithProductDict:(NSDictionary *) product;
+- (IBAction)btnMoreInfoTap:(id)sender;
 
 @end

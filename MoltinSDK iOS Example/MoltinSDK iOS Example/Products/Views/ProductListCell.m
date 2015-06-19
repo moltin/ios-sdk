@@ -7,6 +7,14 @@
 //
 
 #import "ProductListCell.h"
+#import "ProductDetailsViewController.h"
+#import "MTNavigationController.h"
+
+@interface ProductListCell()
+
+@property (strong, nonatomic) NSDictionary *productDict;
+
+@end
 
 @implementation ProductListCell
 
@@ -15,14 +23,6 @@
     self.layer.cornerRadius = 10;
     self.clipsToBounds = YES;
     self.images = [NSMutableArray array];
-    self.imageView.layer.borderColor = [UIColor redColor].CGColor;
-    self.imageView.layer.borderWidth = 1;
-    
-    self.lbCollectionTitle.layer.borderColor = [UIColor redColor].CGColor;
-    self.lbCollectionTitle.layer.borderWidth = 1;
-    
-    self.imagesScrollView.layer.borderColor = [UIColor greenColor].CGColor;
-    self.imagesScrollView.layer.borderWidth = 1;
     
     if (IS_IPHONE_4) {
         self.lbTitle.numberOfLines = 1;
@@ -30,8 +30,14 @@
     
 }
 
+- (void)prepareForReuse{
+    _productDict = nil;
+    [self.images removeAllObjects];
+}
+
 - (void)configureWithProductDict:(NSDictionary *) product
 {
+    _productDict = product;
     if (IS_IPHONE_4) {
         self.imageHeightConstraint.constant = self.imageWidthConstraint.constant - 50;
     }
@@ -83,6 +89,11 @@
         self.imagesScrollViewHeightConstraint.constant = 0;
     }
     
+}
+
+- (IBAction)btnMoreInfoTap:(id)sender {
+    ProductDetailsViewController *detailsViewController = [[ProductDetailsViewController alloc] initWithProductDictionary:_productDict];
+    [[MTNavigationController sharedInstance] presentViewController:detailsViewController animated:YES completion:nil];
 }
 
 - (void)smallImageViewTap:(UITapGestureRecognizer *) sender{

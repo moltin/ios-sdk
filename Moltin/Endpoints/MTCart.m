@@ -18,10 +18,9 @@
 @implementation MTCart
 
 - (id)init{
-    return [super initWithEndpoint:@"charts"];
+    return [super initWithEndpoint:@"cart"];
 }
-
-- (NSString *)getIdentifier{
+- (NSString *)identifier{
     _identifier = [MoltinStorage getCartId];
     
     if (_identifier == nil || _identifier.length > 0) {

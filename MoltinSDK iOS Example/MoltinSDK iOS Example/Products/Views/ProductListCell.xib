@@ -42,6 +42,9 @@
                         <state key="normal" image="btn-more-info.png">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
+                        <connections>
+                            <action selector="btnMoreInfoTap:" destination="gTV-IL-0wX" eventType="touchUpInside" id="6Mw-nI-GbE"/>
+                        </connections>
                     </button>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2LY-bT-TYy">
                         <rect key="frame" x="0.0" y="0.0" width="260" height="260"/>
