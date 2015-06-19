@@ -20,16 +20,6 @@
 
 @implementation ProductDetailsViewController
 
-- (id)initWithProductId:(NSString *) productId
-{
-    self = [super initWithNibName:@"ProductDetailsView" bundle:nil];
-    if (self) {
-        _productDict = nil;
-        _productId = productId;
-    }
-    return self;
-}
-
 - (id)initWithProductDictionary:(NSDictionary *) productDict{
     self = [super initWithNibName:@"ProductDetailsView" bundle:nil];
     
@@ -50,15 +40,6 @@
     self.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     
     self.images = [NSMutableArray array];
-    
-    self.imageView.layer.borderColor = [UIColor redColor].CGColor;
-    self.imageView.layer.borderWidth = 1;
-    
-    self.lbCollectionTitle.layer.borderColor = [UIColor redColor].CGColor;
-    self.lbCollectionTitle.layer.borderWidth = 1;
-    
-    self.imagesScrollView.layer.borderColor = [UIColor greenColor].CGColor;
-    self.imagesScrollView.layer.borderWidth = 1;
     
     [self configureWithProductDict:_productDict];
 }

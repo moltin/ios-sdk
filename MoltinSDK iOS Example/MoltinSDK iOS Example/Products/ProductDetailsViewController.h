@@ -18,7 +18,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *lbDescription;
 @property (weak, nonatomic) IBOutlet UIButton *btnAddToCart;
 
-- (id)initWithProductId:(NSString *) productId;
 - (id)initWithProductDictionary:(NSDictionary *) productDict;
 - (IBAction)btnBackTap:(id)sender;
 - (IBAction)btnAddToCartTap:(id)sender;
