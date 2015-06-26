@@ -7,7 +7,6 @@
 //
 
 #import "MoltinAPIClient.h"
-#import "MoltinStorage.h"
 #import <AFNetworking/AFNetworkActivityIndicatorManager.h>
 
 @interface MoltinAPIClient()
@@ -21,9 +20,9 @@
     self = [super initWithBaseURL:url];
     if (self){
         [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
+        
         self.requestSerializer = [AFHTTPRequestSerializer serializer];
         [self.requestSerializer setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-        
         NSString *accessToken = [MoltinStorage getToken];
         if (accessToken != nil && ![accessToken isEqualToString:@""]) {
             [self.requestSerializer setValue:[NSString stringWithFormat:@"Bearer %@", accessToken] forHTTPHeaderField:@"Authorization"];
@@ -58,13 +57,13 @@
             
             [weekSelf setAccessToken:[MoltinStorage getToken]];
             
-            NSLog(@"com.moltin Authentication success. TOKEN: %@", [MoltinStorage getToken]);
+            MTLog(@"Authentication success. TOKEN: %@", [MoltinStorage getToken]);
             if (completion) {
                 completion(YES, nil);
             }
             
         } failure:^(NSURLSessionDataTask *task, NSError *error) {
-            NSLog(@"com.moltin Authenticate ERROR: %@", error);
+            MTLog(@"Authenticate ERROR: %@", error);
             if (completion) {
                 completion(NO, error);
             }
@@ -82,10 +81,11 @@
 
 - (void)get:(NSString *) URLString withParameters:(NSDictionary *) parameters success:(MTSuccessCallback)success failure:(MTFailureCallback)failure
 {
+    MTLog(@"GET: %@%@", self.baseURL.absoluteString, URLString);
     __weak MoltinAPIClient *weekSelf = self;
     MTAuthenitactionCallback authCallback = ^(BOOL sucess, NSError *error) {
         if (error) {
-            NSLog(@"ERROR authenticating!!! %@", error);
+            MTLog(@"ERROR authenticating!!! %@", error);
         }
         else{
             [weekSelf GET:URLString parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
@@ -106,10 +106,11 @@
 
 - (void)post:(NSString *) URLString withParameters:(NSDictionary *) parameters success:(MTSuccessCallback)success failure:(MTFailureCallback)failure
 {
+    MTLog(@"POST: %@%@", self.baseURL.absoluteString, URLString);
     __weak MoltinAPIClient *weekSelf = self;
     MTAuthenitactionCallback authCallback = ^(BOOL sucess, NSError *error) {
         if (error) {
-            NSLog(@"ERROR authenticating!!! %@", error);
+            MTLog(@"ERROR authenticating!!! %@", error);
         }
         else{
             [weekSelf POST:URLString parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
@@ -129,10 +130,11 @@
 
 - (void)put:(NSString *) URLString withParameters:(NSDictionary *) parameters success:(MTSuccessCallback)success failure:(MTFailureCallback)failure
 {
+    MTLog(@"PUT: %@%@", self.baseURL.absoluteString, URLString);
     __weak MoltinAPIClient *weekSelf = self;
     MTAuthenitactionCallback authCallback = ^(BOOL sucess, NSError *error) {
         if (error) {
-            NSLog(@"ERROR authenticating!!! %@", error);
+            MTLog(@"ERROR authenticating!!! %@", error);
         }
         else{
             [weekSelf PUT:URLString parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
@@ -152,10 +154,11 @@
 
 - (void)delete:(NSString *) URLString withParameters:(NSDictionary *) parameters success:(MTSuccessCallback)success failure:(MTFailureCallback)failure
 {
+    MTLog(@"DELETE: %@%@", self.baseURL.absoluteString, URLString);
     __weak MoltinAPIClient *weekSelf = self;
     MTAuthenitactionCallback authCallback = ^(BOOL sucess, NSError *error) {
         if (error) {
-            NSLog(@"ERROR authenticating!!! %@", error);
+            MTLog(@"ERROR authenticating!!! %@", error);
         }
         else{
             [weekSelf DELETE:URLString parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {

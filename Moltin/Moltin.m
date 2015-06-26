@@ -7,6 +7,7 @@
 //
 
 #import "Moltin.h"
+#import "MoltinStorage.h"
 #import "MoltinAPIClient.h"
 
 @implementation Moltin
@@ -14,22 +15,6 @@
 - (id)init{
     self = [super init];
     if (self) {
-        /*
-         MTAddress *address;
-         MTBrand *brand;
-         MTCart *cart;
-         MTCategory *category;
-         MTCheckout *checkout;
-         MTCollection *collection;
-         MTCustomer *customer;
-         MTCurrency *currency;
-         MTEntry *entry;
-         MTGateway *gateway;
-         MTOrder *order;
-         MTProduct *product;
-         MTShipping *shipping;
-         MTTax *tax;
-         */
         self.address = [[MTAddress alloc] init];
         self.brand = [[MTBrand alloc] init];
         self.cart = [[MTCart alloc] init];
@@ -53,6 +38,8 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _sharedInstance = [[Moltin alloc] init];
+        //by default logging is disabled
+        [MoltinStorage setLoggingEnabled:NO];
     });
     
     return _sharedInstance;
@@ -61,6 +48,10 @@
 - (void)setPublicId:(NSString *)publicId
 {
     [MoltinAPIClient sharedClient].publicId = publicId;
+}
+
+- (void)setLoggingEnabled:(BOOL) enabled{
+    [MoltinStorage setLoggingEnabled:enabled];
 }
 
 @end

@@ -18,13 +18,13 @@
 @implementation MTCart
 
 - (id)init{
-    return [super initWithEndpoint:@"cart"];
+    return [super initWithEndpoint:@"carts"];
 }
 - (NSString *)identifier{
     _identifier = [MoltinStorage getCartId];
-    
-    if (_identifier == nil || _identifier.length > 0) {
-        _identifier = [[NSUUID UUID] UUIDString];
+
+    if (_identifier == nil || _identifier.length == 0) {
+        _identifier = [[[NSUUID UUID] UUIDString] stringByReplacingOccurrencesOfString:@"-" withString:@""].lowercaseString;
         [MoltinStorage setCartId:_identifier];
     }
     
