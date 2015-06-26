@@ -7,14 +7,48 @@
 //
 
 #import "ProductDetailsViewController.h"
-#import <MBProgressHUD.h>
+
+@interface ModifierModel : NSObject
+
+@property (nonatomic) NSInteger modifierId;
+@property (strong, nonatomic) NSString *title;
+@property (strong, nonatomic) NSMutableArray *variations;
+
+@end
+
+@implementation ModifierModel
+
+- (instancetype)initWithDictionary:(NSDictionary *) modifierDict{
+    self = [super init];
+    if (self) {
+        NSNumber *modifierId = [modifierDict valueForKey:@"id"];
+        self.modifierId = modifierId.integerValue;
+        self.title = [modifierDict valueForKey:@"title"];
+        
+        NSDictionary *tmpVariations = [modifierDict objectForKey:@"variations"];
+        if (tmpVariations.count > 0) {
+            self.variations = [NSMutableArray arrayWithCapacity:tmpVariations.count];
+        }
+        for (NSString *key in tmpVariations) {
+            NSDictionary *variation = [tmpVariations valueForKey:key];
+            [self.variations addObject:variation];
+        }
+    }
+    return self;
+}
+
+@end
 
 @interface ProductDetailsViewController ()
 
 @property (nonatomic) NSInteger quantity;
 @property (strong, nonatomic) NSString *productId;
 @property (strong, nonatomic) NSDictionary *productDict;
+@property (strong, nonatomic) NSMutableArray *modifiers;
 @property (strong, nonatomic) NSMutableArray *images;
+@property (strong, nonatomic) NSMutableDictionary *selectedModifiers;
+
+@property (strong, nonatomic) UIActionSheet *actionSheet;
 
 @end
 
@@ -26,6 +60,14 @@
     if (self) {
         _productDict = productDict;
         _productId = [productDict valueForKey:@"id"];
+        
+        NSDictionary *modifiersData = [self.productDict valueForKey:@"modifiers"];
+        self.modifiers = [NSMutableArray array];
+        for (NSString *key in modifiersData) {
+            ModifierModel *modifier = [[ModifierModel alloc] initWithDictionary:[modifiersData objectForKey:key]];
+            [self.modifiers addObject:modifier];
+            NSLog(@"SINGLE MODIFIER: %@", modifier.title);
+        }
     }
     return self;
 }
@@ -98,11 +140,91 @@
         self.imagesScrollViewHeightConstraint.constant = 0;
     }
     
+    [self layoutModifiers];
+}
+
+#pragma mark - Modifiers
+
+- (void)layoutModifiers{
+    if (self.modifiers.count > 0)
+    {
+        self.selectedModifiers = [NSMutableDictionary dictionary];
+        
+        double xOffset = 0;
+        for (ModifierModel *modifier in self.modifiers) {
+            UILabel *lbModifierTitle = [[UILabel alloc] initWithFrame:CGRectMake(0, xOffset, self.modifiersView.frame.size.width, 20)];
+            lbModifierTitle.font = [UIFont fontWithName:kMoltinFontBold size:15];
+            lbModifierTitle.text = modifier.title;
+            [self.modifiersView addSubview:lbModifierTitle];
+            xOffset = lbModifierTitle.frame.origin.y + lbModifierTitle.frame.size.height;
+            
+            NSDictionary *variant = [modifier.variations firstObject];
+            
+            if (variant){
+                [self.selectedModifiers setValue:[variant valueForKey:@"id"]  forKey:[variant valueForKey:@"modifier"]];
+            }
+            UIButton *btnSelectModifier = [[UIButton alloc] initWithFrame:CGRectMake(10, xOffset, lbModifierTitle.frame.size.width - 10, 30)];
+            btnSelectModifier.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+            btnSelectModifier.titleLabel.font = [UIFont fontWithName:kMoltinFontBold size:11];
+            btnSelectModifier.tag = modifier.modifierId;
+            [btnSelectModifier addTarget:self action:@selector(btnSelectModifierTap:) forControlEvents:UIControlEventTouchUpInside];
+            
+            NSString *btnTitle = [NSString stringWithFormat:@"%@ (%@)", [variant valueForKey:@"title"], [variant valueForKey:@"difference"]];
+            [btnSelectModifier setTitle:btnTitle forState:UIControlStateNormal];
+            [btnSelectModifier setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+            [self.modifiersView addSubview:btnSelectModifier];
+            xOffset = btnSelectModifier.frame.origin.y + btnSelectModifier.frame.size.height;
+        }
+        self.modifiersViewHeight.constant = xOffset;
+    }
+    else{
+        self.modifiersViewHeight.constant = 0;
+    }
 }
 
 - (void)smallImageViewTap:(UITapGestureRecognizer *) sender{
     if ([sender.view isKindOfClass:[UIImageView class]]) {
         self.imageView.image = [(UIImageView*)sender.view image];
+    }
+}
+
+- (void)btnSelectModifierTap:(UIButton *)sender {
+
+    NSArray *selectedModifier = [self.modifiers filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"modifierId=%@", [NSNumber numberWithInteger:sender.tag]]];
+    
+    ModifierModel *modifier = [selectedModifier firstObject];
+    
+    self.actionSheet = [[UIActionSheet alloc] initWithTitle:modifier.title delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:nil];
+    self.actionSheet.tag = sender.tag;
+    self.actionSheet.delegate = self;
+    
+    for (NSDictionary *variant in modifier.variations){
+        NSString *variantTitle = [NSString stringWithFormat:@"%@ (%@)", [variant valueForKey:@"title"], [variant valueForKey:@"difference"]];
+        [self.actionSheet addButtonWithTitle:variantTitle];
+    }
+    
+    [self.actionSheet showInView:self.view];
+}
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex != actionSheet.cancelButtonIndex) {
+        
+        NSArray *selectedModifier = [self.modifiers filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"modifierId=%@", [NSNumber numberWithInteger:actionSheet.tag]]];
+        
+        ModifierModel *modifier = [selectedModifier firstObject];
+        if (modifier) {
+            NSDictionary *variant = [modifier.variations objectAtIndex:buttonIndex-1];
+            [self.selectedModifiers setValue:[variant valueForKey:@"id"]  forKey:[variant valueForKey:@"modifier"]];
+            
+            NSString *variantTitle = [NSString stringWithFormat:@"%@ (%@)", [variant valueForKey:@"title"], [variant valueForKey:@"difference"]];
+            
+            for (UIButton *button in self.modifiersView.subviews) {
+                if ([button isKindOfClass:[UIButton class]] && button.tag == actionSheet.tag) {
+                    [button setTitle:variantTitle forState:UIControlStateNormal];
+                    break;
+                }
+            }
+        }
     }
 }
 
@@ -144,16 +266,18 @@
         self.btnAddToCart.enabled = NO;
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         
-        [[Moltin sharedInstance].cart insertItemWithId:self.productId quantity:self.quantity andModifiersOrNil:nil
+        [[Moltin sharedInstance].cart insertItemWithId:self.productId quantity:self.quantity andModifiersOrNil:self.selectedModifiers
                                                success:^(NSDictionary *response)
         {
             self.btnAddToCart.enabled = YES;
             dispatch_async(dispatch_get_main_queue(), ^{
                 [MBProgressHUD hideHUDForView:self.view animated:YES];
+                [[NSNotificationCenter defaultCenter] postNotificationName:kMoltinNotificationRefreshCart object:nil];
             });
         } failure:^(NSError *error) {
             self.btnAddToCart.enabled = YES;
             NSLog(@"ERROR: %@", error);
+            ALERT(@"ERROR", @"Faild to add product to cart.");
             dispatch_async(dispatch_get_main_queue(), ^{
                 [MBProgressHUD hideHUDForView:self.view animated:YES];
             });

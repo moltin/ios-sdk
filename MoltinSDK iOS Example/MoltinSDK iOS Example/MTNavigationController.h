@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import <SlideNavigationController.h>
 
-@interface MTNavigationController : SlideNavigationController
+@interface MTNavigationController : UINavigationController
 
 @end

@@ -57,9 +57,9 @@ static NSString *ProductCellIdentifier = @"MoltinProductCell";
     }
     [self.activityIndicator startAnimating];
     __weak ProductsViewController *weakSelf = self;
+    
     [[Moltin sharedInstance].product listingWithParameters:@{@"collection" : _collectionId} success:^(NSDictionary *response) {
         [weakSelf.activityIndicator stopAnimating];
-        NSLog(@"RESPONSE (products listing): %@", response);
         weakSelf.products = [response objectForKey:@"result"];
         if (weakSelf.products.count == 0) {
             weakSelf.lbNoProducts.hidden = NO;

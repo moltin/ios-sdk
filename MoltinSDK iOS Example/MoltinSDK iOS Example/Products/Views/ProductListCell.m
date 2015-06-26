@@ -39,7 +39,7 @@
 {
     _productDict = product;
     if (IS_IPHONE_4) {
-        self.imageHeightConstraint.constant = self.imageWidthConstraint.constant - 50;
+        self.imageHeightConstraint.constant = self.frame.size.width - 50;
     }
     
     [self.images removeAllObjects];
@@ -61,7 +61,7 @@
     }
     
     if (self.images.count > 1) {
-        self.imageHeightConstraint.constant = self.imageWidthConstraint.constant - self.imagesScrollViewHeightConstraint.constant - (IS_IPHONE_4 ? 50 : 0);
+        self.imageHeightConstraint.constant = self.frame.size.width - self.imagesScrollViewHeightConstraint.constant - (IS_IPHONE_4 ? 50 : 0);
         for (UIView *view in self.imagesScrollView.subviews) {
             if ([view isKindOfClass:[UIImageView class]] && view.tag == 99) {
                 [view removeFromSuperview];
@@ -93,7 +93,7 @@
 
 - (IBAction)btnMoreInfoTap:(id)sender {
     ProductDetailsViewController *detailsViewController = [[ProductDetailsViewController alloc] initWithProductDictionary:_productDict];
-    [[MTNavigationController sharedInstance] presentViewController:detailsViewController animated:YES completion:nil];
+    [[MTSlideNavigationController sharedInstance] presentViewController:detailsViewController animated:YES completion:nil];
 }
 
 - (void)smallImageViewTap:(UITapGestureRecognizer *) sender{

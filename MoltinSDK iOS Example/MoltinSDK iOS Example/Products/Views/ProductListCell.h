@@ -11,7 +11,7 @@
 @interface ProductListCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *imageHeightConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *imageWidthConstraint;
+//@property (weak, nonatomic) IBOutlet NSLayoutConstraint *imageWidthConstraint;
 @property (weak, nonatomic) IBOutlet UIScrollView *imagesScrollView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *imagesScrollViewHeightConstraint;
 @property (weak, nonatomic) IBOutlet UILabel *lbCollectionTitle;

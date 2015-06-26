@@ -43,12 +43,11 @@ static NSString *CellIdentifier = @"MoltinCollectionCell";
 //    [self.collectionView registerClass:[CollectionViewCell class] forCellWithReuseIdentifier:CellIdentifier];
     
     [[Moltin sharedInstance] setPublicId:@"umRG34nxZVGIuCSPfYf8biBSvtABgTR8GMUtflyE"];
-    
+    [[Moltin sharedInstance] setLoggingEnabled:YES];
     [self.activityIndicator startAnimating];
     __weak CollectionsViewController *weakSelf = self;
     [[Moltin sharedInstance].collection listingWithParameters:@{@"status" : @1} success:^(NSDictionary *response) {
         [weakSelf.activityIndicator stopAnimating];
-        NSLog(@"RESPONSE (collection listing): %@", response);
         weakSelf.categories = [response objectForKey:@"result"];
         weakSelf.pageControl.numberOfPages = weakSelf.categories.count;
         [weakSelf.collectionView reloadData];
@@ -95,7 +94,7 @@ static NSString *CellIdentifier = @"MoltinCollectionCell";
     ProductsViewController *productsViewController = [storyboard instantiateViewControllerWithIdentifier:@"productsList"];
     productsViewController.collectionId = collectionId;
     
-    [[MTNavigationController sharedInstance] pushViewController:productsViewController animated:YES];
+    [[MTSlideNavigationController sharedInstance] pushViewController:productsViewController animated:YES];
 }
 
 - (void)pageControlChanged:(id)sender

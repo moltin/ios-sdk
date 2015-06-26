@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ProductDetailsViewController : UIViewController<UIPickerViewDelegate, UIPickerViewDataSource, UIAlertViewDelegate>
+@interface ProductDetailsViewController : UIViewController<UIPickerViewDelegate, UIPickerViewDataSource, UIAlertViewDelegate, UIActionSheetDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *imagesScrollViewHeightConstraint;
 @property (weak, nonatomic) IBOutlet UIScrollView *imagesScrollView;
@@ -17,6 +17,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *lbPrice;
 @property (weak, nonatomic) IBOutlet UILabel *lbDescription;
 @property (weak, nonatomic) IBOutlet UIButton *btnAddToCart;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *modifiersViewHeight;
+@property (weak, nonatomic) IBOutlet UIView *modifiersView;
 
 - (id)initWithProductDictionary:(NSDictionary *) productDict;
 - (IBAction)btnBackTap:(id)sender;

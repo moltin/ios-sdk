@@ -1,30 +1,18 @@
 //
-//  MTNavigationController.m
+//  MTSlideNavigationController.m
 //  MoltinSDK iOS Example
 //
-//  Created by Gasper Rebernak on 16/06/15.
+//  Created by Gasper Rebernak on 24/06/15.
 //  Copyright (c) 2015 Gasper Rebernak. All rights reserved.
 //
 
-#import "MTNavigationController.h"
+#import "MTSlideNavigationController.h"
 
-
-@implementation UINavigationItem (RemoveBackButtonText)
-
--(UIBarButtonItem *)backBarButtonItem
-{
-    UIBarButtonItem * backButton = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
-    backButton.accessibilityLabel = @"Back";
-    return backButton;
-}
+@interface MTSlideNavigationController ()
 
 @end
 
-@interface MTNavigationController ()
-
-@end
-
-@implementation MTNavigationController
+@implementation MTSlideNavigationController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -43,6 +31,8 @@
                                           barMetrics:UIBarMetricsDefault];
     
     [[UINavigationBar appearance] setShadowImage:[[UIImage alloc] init]];
+    
+    self.enableShadow = NO;
 }
 
 - (void)didReceiveMemoryWarning {
