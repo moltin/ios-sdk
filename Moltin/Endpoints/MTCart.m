@@ -82,17 +82,7 @@
 - (void)orderWithParameters:(NSDictionary *) parameters success:(MTSuccessCallback)success failure:(MTFailureCallback)failure{
     NSString *endpoint = [NSString stringWithFormat:@"%@/%@/checkout", self.endpoint, self.identifier];
     
-    [super postWithEndpoint:endpoint andParameters:parameters success:^(NSDictionary *response) {
-        //order completed reset cart id
-        [MoltinStorage setCartId:nil];
-        if (success) {
-            success(response);
-        }
-    } failure:^(NSError *error) {
-        if (failure) {
-            failure(error);
-        }
-    }];
+    [super postWithEndpoint:endpoint andParameters:parameters success:success failure:failure];
 }
 
 - (void)discountWithCode:(NSString *) code success:(MTSuccessCallback)success failure:(MTFailureCallback)failure{

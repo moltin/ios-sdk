@@ -23,6 +23,7 @@
         
         self.requestSerializer = [AFHTTPRequestSerializer serializer];
         [self.requestSerializer setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+        self.responseSerializer = [AFJSONResponseSerializer serializer];
         NSString *accessToken = [MoltinStorage getToken];
         if (accessToken != nil && ![accessToken isEqualToString:@""]) {
             [self.requestSerializer setValue:[NSString stringWithFormat:@"Bearer %@", accessToken] forHTTPHeaderField:@"Authorization"];
@@ -93,8 +94,10 @@
                     success(responseObject);
                 }
             } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                NSData *errorData = error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey];
+                NSDictionary *serializedData = [NSJSONSerialization JSONObjectWithData: errorData options:kNilOptions error:nil];
                 if (failure) {
-                    failure(error);
+                    failure(serializedData, error);
                 }
             }];
         }
@@ -118,8 +121,10 @@
                     success(responseObject);
                 }
             } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                NSData *errorData = error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey];
+                NSDictionary *serializedData = [NSJSONSerialization JSONObjectWithData: errorData options:kNilOptions error:nil];
                 if (failure) {
-                    failure(error);
+                    failure(serializedData, error);
                 }
             }];
         }
@@ -142,8 +147,10 @@
                     success(responseObject);
                 }
             } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                NSData *errorData = error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey];
+                NSDictionary *serializedData = [NSJSONSerialization JSONObjectWithData: errorData options:kNilOptions error:nil];
                 if (failure) {
-                    failure(error);
+                    failure(serializedData, error);
                 }
             }];
         }
@@ -166,8 +173,10 @@
                     success(responseObject);
                 }
             } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                NSData *errorData = error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey];
+                NSDictionary *serializedData = [NSJSONSerialization JSONObjectWithData: errorData options:kNilOptions error:nil];
                 if (failure) {
-                    failure(error);
+                    failure(serializedData, error);
                 }
             }];
         }
