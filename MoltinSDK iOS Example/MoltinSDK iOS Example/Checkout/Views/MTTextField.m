@@ -51,6 +51,19 @@
     return (self.text.length == 0 || [self.text isEqualToString:@""]);
 }
 
+- (void)setDoneInputAccessoryView{
+    UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, 44)];
+    UIBarButtonItem *space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
+    UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(btnDoneTap:)];
+    [toolbar setItems:@[space, barButtonItem]];
+    [self setInputAccessoryView:toolbar];
+}
+
+- (void)btnDoneTap:(id)sender
+{
+    [self resignFirstResponder];
+}
+
 - (void)textFieldDidChange:(MTTextField *) sender{
     [sender clearBorder];
 }

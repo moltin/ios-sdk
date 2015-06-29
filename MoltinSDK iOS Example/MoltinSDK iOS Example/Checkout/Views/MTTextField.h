@@ -13,5 +13,6 @@
 - (void)clearBorder;
 - (void)setInvalidInputBorder;
 - (BOOL)isEmpty;
+- (void)setDoneInputAccessoryView;
 
 @end
