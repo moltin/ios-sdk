@@ -102,7 +102,7 @@
                 if (errorData) {
                     serializedData = [NSJSONSerialization JSONObjectWithData: errorData options:kNilOptions error:nil];
                 }
-                
+                MTLog(@"ERROR GET: %@%@\nDATA: %@", self.baseURL.absoluteString, URLString, serializedData);
                 if (failure) {
                     failure(serializedData, error);
                 }
@@ -132,7 +132,11 @@
                 NSData *errorData = error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey];
                 if (errorData) {
                     serializedData = [NSJSONSerialization JSONObjectWithData: errorData options:kNilOptions error:nil];
+                    
                 }
+                
+                MTLog(@"ERROR POST: %@%@\nDATA: %@", self.baseURL.absoluteString, URLString, serializedData);
+                
                 if (failure) {
                     failure(serializedData, error);
                 }
@@ -162,6 +166,9 @@
                 if (errorData) {
                     serializedData = [NSJSONSerialization JSONObjectWithData: errorData options:kNilOptions error:nil];
                 }
+                
+                MTLog(@"ERROR PUT: %@%@\nDATA: %@", self.baseURL.absoluteString, URLString, serializedData);
+                
                 if (failure) {
                     failure(serializedData, error);
                 }
@@ -191,6 +198,9 @@
                 if (errorData) {
                     serializedData = [NSJSONSerialization JSONObjectWithData: errorData options:kNilOptions error:nil];
                 }
+                
+                MTLog(@"ERROR DELETE: %@%@\nDATA: %@", self.baseURL.absoluteString, URLString, serializedData);
+                
                 if (failure) {
                     failure(serializedData, error);
                 }
