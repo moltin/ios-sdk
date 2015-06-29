@@ -66,7 +66,7 @@ static NSString *ProductCellIdentifier = @"MoltinProductCell";
         }
         weakSelf.pageControl.numberOfPages = weakSelf.products.count;
         [weakSelf.collectionView reloadData];
-    } failure:^(NSError *error) {
+    } failure:^(NSDictionary *response, NSError *error) {
         [weakSelf.activityIndicator stopAnimating];
         NSLog(@"Category listing ERROR!!! %@", error);
     }];

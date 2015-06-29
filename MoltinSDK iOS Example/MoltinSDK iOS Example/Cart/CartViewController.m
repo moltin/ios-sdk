@@ -57,7 +57,7 @@ static NSString *CartCellIdentifier = @"MoltinCartCell";
 //itemTotalPrice=json.getJSONObject("totals").getJSONObject("pre_discount").getJSONObject("formatted").getString("with_tax");
         weakSelf.lbTotalPrice.text = [[[[[_cartData objectForKey:@"result"] objectForKey:@"totals"] objectForKey:@"post_discount"] objectForKey:@"formatted"] valueForKey:@"with_tax"];
         [MBProgressHUD hideHUDForView:self.view animated:YES];
-    } failure:^(NSError *error) {
+    } failure:^(NSDictionary *response, NSError *error) {
         NSLog(@"CART ERROR: %@", error);
         [MBProgressHUD hideHUDForView:self.view animated:YES];
     }];
@@ -68,11 +68,14 @@ static NSString *CartCellIdentifier = @"MoltinCartCell";
     NSDictionary *tmpCartItems = [[self.cartData objectForKey:@"result"] objectForKey:@"contents"];
     if (tmpCartItems.count > 0) {
         self.cartItems = [tmpCartItems objectsForKeys:[tmpCartItems allKeys] notFoundMarker:[NSNull null]];
-        //NSLog(@"CART ITEMS: %@", self.cartItems);
+        self.lbNoProductsInCart.hidden = YES;
     }
     else{
         self.cartItems = nil;
+        self.lbNoProductsInCart.hidden = NO;
     }
+    
+    self.btnCheckout.enabled = self.lbNoProductsInCart.hidden;
     [self.tableView reloadData];
 }
 
@@ -123,7 +126,7 @@ static NSString *CartCellIdentifier = @"MoltinCartCell";
                                                    NSLog(@"CHART UPDATE OK: %@", response);
                                                    [weakSelf loadCart];
                                                }
-                                               failure:^(NSError *error) {
+                                               failure:^(NSDictionary *response, NSError *error) {
                                                    [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
                                                    NSLog(@"ERROR: %@", error);
                                                    [weakSelf loadCart];

@@ -44,6 +44,7 @@ static NSString *CellIdentifier = @"MoltinCollectionCell";
     
     [[Moltin sharedInstance] setPublicId:@"umRG34nxZVGIuCSPfYf8biBSvtABgTR8GMUtflyE"];
     [[Moltin sharedInstance] setLoggingEnabled:YES];
+    
     [self.activityIndicator startAnimating];
     __weak CollectionsViewController *weakSelf = self;
     [[Moltin sharedInstance].collection listingWithParameters:@{@"status" : @1} success:^(NSDictionary *response) {
@@ -51,7 +52,7 @@ static NSString *CellIdentifier = @"MoltinCollectionCell";
         weakSelf.categories = [response objectForKey:@"result"];
         weakSelf.pageControl.numberOfPages = weakSelf.categories.count;
         [weakSelf.collectionView reloadData];
-    } failure:^(NSError *error) {
+    } failure:^(NSDictionary *response, NSError *error) {
         [weakSelf.activityIndicator stopAnimating];
         NSLog(@"Category listing ERROR!!! %@", error);
     }];

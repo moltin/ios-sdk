@@ -9,10 +9,15 @@
             <string>Montserrat-Bold</string>
             <string>Montserrat-Bold</string>
         </mutableArray>
+        <mutableArray key="Montserrat-Regular.otf">
+            <string>Montserrat-Regular</string>
+        </mutableArray>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CartViewController">
             <connections>
+                <outlet property="btnCheckout" destination="YYQ-6t-Fw1" id="N1W-PW-Ohj"/>
+                <outlet property="lbNoProductsInCart" destination="J7Q-lR-807" id="O0j-Km-Z2p"/>
                 <outlet property="lbTotalPrice" destination="QOy-fk-hFp" id="zv4-Tu-oVg"/>
                 <outlet property="tableView" destination="23j-Oy-d3R" id="Gwv-g9-KWh"/>
                 <outlet property="view" destination="iN0-l3-epB" id="ytX-Kr-IBL"/>
@@ -47,7 +52,7 @@
                         </button>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="120" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="23j-Oy-d3R">
                             <rect key="frame" x="0.0" y="64" width="335" height="450"/>
-                            <color key="backgroundColor" red="0.1764705882" green="0.22352941179999999" blue="0.25490196079999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" red="0.2274509804" green="0.28627450980000002" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <outlet property="dataSource" destination="-1" id="kxZ-On-THL"/>
                                 <outlet property="delegate" destination="-1" id="8kV-2d-eAv"/>
@@ -72,11 +77,21 @@
                             <color key="textColor" red="0.5450980392" green="0.38431372549999998" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NO PRODUCTS IN CART" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J7Q-lR-807">
+                            <rect key="frame" x="49" y="259" width="237" height="150"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="150" id="cZ9-gA-RN8"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="20"/>
+                            <color key="textColor" red="0.99607843139999996" green="0.99607843139999996" blue="0.99607843139999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
-                    <color key="backgroundColor" red="0.1764705882" green="0.22352941179999999" blue="0.25490196079999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" red="0.2274509804" green="0.28627450980000002" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="23j-Oy-d3R" secondAttribute="width" id="9K1-eI-RXy"/>
                         <constraint firstAttribute="trailing" secondItem="QOy-fk-hFp" secondAttribute="trailing" constant="8" id="BnC-B4-hzs"/>
+                        <constraint firstAttribute="centerY" secondItem="J7Q-lR-807" secondAttribute="centerY" constant="-0.5" id="C0V-Lp-uYd"/>
                         <constraint firstItem="tqd-aH-1SI" firstAttribute="top" secondItem="QOy-fk-hFp" secondAttribute="top" id="DW3-o4-HL5"/>
                         <constraint firstItem="23j-Oy-d3R" firstAttribute="top" secondItem="LB1-vC-eXM" secondAttribute="top" constant="64" id="Ihh-TI-Xsc"/>
                         <constraint firstItem="pp7-6P-ZqF" firstAttribute="top" secondItem="LB1-vC-eXM" secondAttribute="top" constant="22" id="Ihq-58-k9A"/>
@@ -89,6 +104,7 @@
                         <constraint firstItem="QOy-fk-hFp" firstAttribute="leading" secondItem="tqd-aH-1SI" secondAttribute="trailing" id="i0g-DO-Rfg"/>
                         <constraint firstAttribute="trailing" secondItem="23j-Oy-d3R" secondAttribute="trailing" id="jHJ-rT-z5D"/>
                         <constraint firstItem="23j-Oy-d3R" firstAttribute="leading" secondItem="LB1-vC-eXM" secondAttribute="leading" id="jkz-RU-fSs"/>
+                        <constraint firstAttribute="centerX" secondItem="J7Q-lR-807" secondAttribute="centerX" constant="0.25" id="z9o-rq-zTM"/>
                         <constraint firstAttribute="bottom" secondItem="23j-Oy-d3R" secondAttribute="bottom" constant="153" id="zYO-eY-diq"/>
                     </constraints>
                     <variation key="default">
@@ -98,7 +114,7 @@
                     </variation>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="0.1764705882352941" green="0.22352941176470587" blue="0.25490196078431371" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.2274509804" green="0.28627450980000002" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="LB1-vC-eXM" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="19n-8Z-9Wp"/>
                 <constraint firstAttribute="trailing" secondItem="LB1-vC-eXM" secondAttribute="trailing" id="92i-J8-6Sk"/>

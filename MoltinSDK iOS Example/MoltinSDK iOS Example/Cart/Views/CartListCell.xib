@@ -25,6 +25,7 @@
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3OG-N5-eoy">
                         <rect key="frame" x="15" y="20" width="80" height="80"/>
+                        <color key="backgroundColor" red="0.61960784310000006" green="0.47843137250000001" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="80" id="21A-N0-vRf"/>
                             <constraint firstAttribute="width" constant="80" id="nVS-dZ-biA"/>
@@ -79,7 +80,7 @@
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eH8-hf-jc3">
                                 <rect key="frame" x="30" y="0.0" width="135" height="30"/>
-                                <color key="backgroundColor" red="0.2274509804" green="0.28627450980000002" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.1764705882" green="0.22352941179999999" blue="0.25490196079999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="eiT-uN-gQd"/>
                                 </constraints>
@@ -102,7 +103,7 @@
                         </constraints>
                     </view>
                 </subviews>
-                <color key="backgroundColor" red="0.1764705882" green="0.22352941179999999" blue="0.25490196079999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <color key="backgroundColor" red="0.2274509804" green="0.28627450980000002" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
                     <constraint firstItem="DeR-Dh-eaE" firstAttribute="width" secondItem="2JF-J4-o7h" secondAttribute="width" multiplier="0.6" id="2bq-ib-LJy"/>
                     <constraint firstAttribute="centerY" secondItem="3OG-N5-eoy" secondAttribute="centerY" id="2l2-ex-7GS"/>

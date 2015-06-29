@@ -15,6 +15,7 @@
 		3E2F2BCB1B2F0BED006CD657 /* ProductListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E2F2BC91B2F0BED006CD657 /* ProductListCell.m */; };
 		3E2F2BCC1B2F0BED006CD657 /* ProductListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E2F2BCA1B2F0BED006CD657 /* ProductListCell.xib */; };
 		3E2F2BCF1B2F0C2E006CD657 /* ProductDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E2F2BCE1B2F0C2E006CD657 /* ProductDetailsViewController.m */; };
+		3E3222621B3D8E20006D2CBE /* PaymentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3222611B3D8E20006D2CBE /* PaymentViewController.m */; };
 		3E3716FF1B2E5C9700CFE67C /* MTAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3716DA1B2E5C9700CFE67C /* MTAddress.m */; };
 		3E3717001B2E5C9700CFE67C /* MTBrand.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3716DC1B2E5C9700CFE67C /* MTBrand.m */; };
 		3E3717011B2E5C9700CFE67C /* MTCart.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3716DE1B2E5C9700CFE67C /* MTCart.m */; };
@@ -96,6 +97,8 @@
 		3E2F2BCA1B2F0BED006CD657 /* ProductListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductListCell.xib; sourceTree = "<group>"; };
 		3E2F2BCD1B2F0C2E006CD657 /* ProductDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetailsViewController.h; sourceTree = "<group>"; };
 		3E2F2BCE1B2F0C2E006CD657 /* ProductDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductDetailsViewController.m; sourceTree = "<group>"; };
+		3E3222601B3D8E20006D2CBE /* PaymentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentViewController.h; sourceTree = "<group>"; };
+		3E3222611B3D8E20006D2CBE /* PaymentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentViewController.m; sourceTree = "<group>"; };
 		3E3716D91B2E5C9700CFE67C /* MTAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTAddress.h; sourceTree = "<group>"; };
 		3E3716DA1B2E5C9700CFE67C /* MTAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTAddress.m; sourceTree = "<group>"; };
 		3E3716DB1B2E5C9700CFE67C /* MTBrand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTBrand.h; sourceTree = "<group>"; };
@@ -348,6 +351,8 @@
 				3E4B5F271B391CD9009889A9 /* AddressEntryViewController.m */,
 				3E4B5F351B3A74B4009889A9 /* ShippingMethodViewController.h */,
 				3E4B5F361B3A74B4009889A9 /* ShippingMethodViewController.m */,
+				3E3222601B3D8E20006D2CBE /* PaymentViewController.h */,
+				3E3222611B3D8E20006D2CBE /* PaymentViewController.m */,
 				3E4B5F251B3916BF009889A9 /* Views */,
 			);
 			path = Checkout;
@@ -497,9 +502,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3EC7CE211B25BB8E00D843EB /* MoltinSDK iOS Example */ = {
+		3EC7CE211B25BB8E00D843EB /* Moltin */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3EC7CE451B25BB8E00D843EB /* Build configuration list for PBXNativeTarget "MoltinSDK iOS Example" */;
+			buildConfigurationList = 3EC7CE451B25BB8E00D843EB /* Build configuration list for PBXNativeTarget "Moltin" */;
 			buildPhases = (
 				B2905D5541CC2DC41864D960 /* Check Pods Manifest.lock */,
 				3EC7CE1E1B25BB8E00D843EB /* Sources */,
@@ -511,7 +516,7 @@
 			);
 			dependencies = (
 			);
-			name = "MoltinSDK iOS Example";
+			name = Moltin;
 			productName = "MoltinSDK iOS Example";
 			productReference = 3EC7CE221B25BB8E00D843EB /* MoltinSDK iOS Example.app */;
 			productType = "com.apple.product-type.application";
@@ -565,7 +570,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3EC7CE211B25BB8E00D843EB /* MoltinSDK iOS Example */,
+				3EC7CE211B25BB8E00D843EB /* Moltin */,
 				3EC7CE3A1B25BB8E00D843EB /* MoltinSDK iOS ExampleTests */,
 			);
 		};
@@ -673,6 +678,7 @@
 				3E4B5F311B3A630C009889A9 /* MTSlideNavigationController.m in Sources */,
 				3E37170B1B2E5C9700CFE67C /* MTProduct.m in Sources */,
 				3E3717001B2E5C9700CFE67C /* MTBrand.m in Sources */,
+				3E3222621B3D8E20006D2CBE /* PaymentViewController.m in Sources */,
 				3E3717071B2E5C9700CFE67C /* MTEntry.m in Sources */,
 				3E4B5F341B3A6549009889A9 /* MTTextField.m in Sources */,
 				3E2978651B34118F002E1DC1 /* CartViewController.m in Sources */,
@@ -704,7 +710,7 @@
 /* Begin PBXTargetDependency section */
 		3EC7CE3D1B25BB8E00D843EB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 3EC7CE211B25BB8E00D843EB /* MoltinSDK iOS Example */;
+			target = 3EC7CE211B25BB8E00D843EB /* Moltin */;
 			targetProxy = 3EC7CE3C1B25BB8E00D843EB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -879,7 +885,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3EC7CE451B25BB8E00D843EB /* Build configuration list for PBXNativeTarget "MoltinSDK iOS Example" */ = {
+		3EC7CE451B25BB8E00D843EB /* Build configuration list for PBXNativeTarget "Moltin" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3EC7CE461B25BB8E00D843EB /* Debug */,

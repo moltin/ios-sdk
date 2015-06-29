@@ -7,10 +7,13 @@
 //
 
 #import "ShippingMethodViewController.h"
+#import "PaymentViewController.h"
 
 @interface ShippingMethodView : UIControl
 
 @property (strong, nonatomic) NSString *shippingId;
+@property (strong, nonatomic) NSString *shippingSlug;
+@property (strong, nonatomic) NSString *totalPrice;
 
 @property (strong, nonatomic) UILabel *lbTitle;
 @property (strong, nonatomic) UILabel *lbPrice;
@@ -25,9 +28,11 @@
 - (id)initWithFrame:(CGRect)frame andShippingMethodDictionary:(NSDictionary *) shippingMethod{
     self = [super initWithFrame:frame];
     if (self) {
-        //String shipTitle=jsonArrayMethods.getJSONObject(i).getString("title");
-        //String shipPrice=jsonArrayMethods.getJSONObject(i).getJSONObject("price").getJSONObject("data").getJSONObject("formatted").getString("with_tax");
+        
         self.shippingId = [shippingMethod valueForKey:@"id"];
+        self.shippingSlug = [shippingMethod valueForKey:@"slug"];
+        //shipTitle,shipPrice,jsonArrayMethods.getJSONObject(i).getJSONObject("totals").getJSONObject("post_discount").getJSONObject("formatted").getString("with_tax")
+        self.totalPrice = [[[[shippingMethod objectForKey:@"totals"] objectForKey:@"post_discount"] objectForKey:@"formatted"] valueForKey:@"with_tax"];
         
         self.lbTitle = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, (frame.size.width/3)*2, frame.size.height)];
         self.lbTitle.font = [UIFont fontWithName:kMoltinFont size:20];
@@ -80,7 +85,7 @@
 
 @interface ShippingMethodViewController ()
 
-@property (strong, nonatomic) NSString *selectedShippingMethodId;
+@property (strong, nonatomic) NSString *selectedShippingMethodSlug;
 @property (strong, nonatomic) NSArray *shippingMethods;
 
 @end
@@ -91,12 +96,15 @@
     [super viewDidLoad];
     self.title = @"Shipping method";
     
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
     [[Moltin sharedInstance].cart checkoutWithsuccess:^(NSDictionary *response) {
-        NSLog(@"CHECKOUT: %@", response);
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
         self.shippingMethods = [[[response objectForKey:@"result"] objectForKey:@"shipping"] objectForKey:@"methods"];
         [self setupViews];
-    } failure:^(NSError *error) {
-        NSLog(@"CHECKOUT ERROR: %@", error);
+    } failure:^(NSDictionary *response, NSError *error) {
+        NSLog(@"SHIPPING ERROR: %@", error);
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
     }];
 }
 
@@ -108,7 +116,7 @@
 - (void)setupViews
 {
     CGFloat width = [UIScreen mainScreen].bounds.size.width;
-    CGFloat height = 100;
+    CGFloat height = 70;
     CGFloat yOffset = 0;
     NSInteger i = 0;
     
@@ -127,6 +135,12 @@
     }
     
     self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width, yOffset);
+    
+    NSDictionary *shippingAddress = [[NSUserDefaults standardUserDefaults] objectForKey:kMoltinShippingAddressStorageKey];
+    NSDictionary *billingAddress = [[NSUserDefaults standardUserDefaults] objectForKey:kMoltinBillingAddressStorageKey];
+    
+    
+    NSLog(@"\nSHIPPING ADDRESS: %@\nBILLING ADDRESS: %@", shippingAddress, billingAddress);
 }
 
 - (void)shippingMethodSelected:(ShippingMethodView *) sender{
@@ -137,7 +151,15 @@
         }
     }
     [sender setSelected:!sender.selected];
-    self.selectedShippingMethodId = sender.shippingId;
+    self.selectedShippingMethodSlug = sender.shippingSlug;
+    self.lbTotalPrice.text = sender.totalPrice;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"creditCardSegue"]) {
+        PaymentViewController *destViewController = segue.destinationViewController;
+        destViewController.shippingMethodSlug = self.selectedShippingMethodSlug;
+    }
 }
 
 @end

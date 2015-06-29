@@ -274,7 +274,7 @@
                 [MBProgressHUD hideHUDForView:self.view animated:YES];
                 [[NSNotificationCenter defaultCenter] postNotificationName:kMoltinNotificationRefreshCart object:nil];
             });
-        } failure:^(NSError *error) {
+        } failure:^(NSDictionary *response, NSError *error) {
             self.btnAddToCart.enabled = YES;
             NSLog(@"ERROR: %@", error);
             ALERT(@"ERROR", @"Faild to add product to cart.");

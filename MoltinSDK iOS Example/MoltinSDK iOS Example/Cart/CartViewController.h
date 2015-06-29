@@ -13,6 +13,8 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UILabel *lbTotalPrice;
+@property (weak, nonatomic) IBOutlet UILabel *lbNoProductsInCart;
+@property (weak, nonatomic) IBOutlet UIButton *btnCheckout;
 
 - (IBAction)btnCheckoutTap:(id)sender;
 @end
