@@ -39,7 +39,9 @@
 @property (strong, nonatomic) MTShipping *shipping;
 @property (strong, nonatomic) MTTax *tax;
 
+
 + (instancetype)sharedInstance;
 - (void)setPublicId:(NSString *)publicId;
+- (void)setLoggingEnabled:(BOOL) enabled;
 
 @end

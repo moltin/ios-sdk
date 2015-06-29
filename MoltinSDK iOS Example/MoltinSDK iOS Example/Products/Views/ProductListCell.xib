@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Heuristica-Italic.otf">
+            <string>Heuristica-Italic</string>
+        </mutableArray>
+        <mutableArray key="Montserrat-Bold.otf">
+            <string>Montserrat-Bold</string>
+        </mutableArray>
+        <mutableArray key="Montserrat-Regular.otf">
+            <string>Montserrat-Regular</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="gTV-IL-0wX" customClass="ProductListCell">
+            <rect key="frame" x="0.0" y="0.0" width="260" height="480"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="260" height="480"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PRODUCT TITLE" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MZA-gw-Lbb">
+                        <rect key="frame" x="10" y="355" width="240" height="29"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="35" id="BmR-SY-wZf"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="24"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="BmR-SY-wZf"/>
+                            </mask>
+                        </variation>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jmQ-gl-rTX">
+                        <rect key="frame" x="75" y="430" width="110" height="30"/>
+                        <state key="normal" image="btn-more-info.png">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="btnMoreInfoTap:" destination="gTV-IL-0wX" eventType="touchUpInside" id="6Mw-nI-GbE"/>
+                        </connections>
+                    </button>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2LY-bT-TYy">
+                        <rect key="frame" x="0.0" y="0.0" width="260" height="260"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="260" id="emz-o0-4rz"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COLLECTION TITLE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="10g-PY-JWJ">
+                        <rect key="frame" x="10" y="335" width="240" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="FSQ-v4-3qM"/>
+                            <constraint firstAttribute="height" constant="20" id="KRk-aT-nBj"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="12"/>
+                        <color key="textColor" red="0.61176470588235299" green="0.6588235294117647" blue="0.69019607843137254" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Black - $30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GGS-Or-89h">
+                        <rect key="frame" x="10" y="389" width="240" height="18"/>
+                        <fontDescription key="fontDescription" name="Heuristica-Italic" family="Heuristica" pointSize="15"/>
+                        <color key="textColor" red="0.17647058823529413" green="0.22352941176470589" blue="0.25490196078431371" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bQI-t3-Qkj">
+                        <rect key="frame" x="0.0" y="260" width="260" height="65"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="65" id="UQg-Hm-VMI"/>
+                        </constraints>
+                    </scrollView>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="GGS-Or-89h" firstAttribute="top" secondItem="MZA-gw-Lbb" secondAttribute="bottom" constant="5" id="4Mh-3T-dkW"/>
+                <constraint firstAttribute="trailing" secondItem="bQI-t3-Qkj" secondAttribute="trailing" id="5p9-F6-HbL"/>
+                <constraint firstAttribute="trailing" secondItem="2LY-bT-TYy" secondAttribute="trailing" id="A9t-2c-vtm"/>
+                <constraint firstAttribute="centerX" secondItem="jmQ-gl-rTX" secondAttribute="centerX" id="Agg-af-xTJ"/>
+                <constraint firstAttribute="trailing" secondItem="2LY-bT-TYy" secondAttribute="trailing" id="Mwu-Ii-FgP"/>
+                <constraint firstAttribute="bottom" secondItem="jmQ-gl-rTX" secondAttribute="bottom" constant="20" id="QgT-e3-PEZ"/>
+                <constraint firstItem="GGS-Or-89h" firstAttribute="centerX" secondItem="MZA-gw-Lbb" secondAttribute="centerX" id="VZ2-p5-sIg"/>
+                <constraint firstItem="2LY-bT-TYy" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Wkx-GD-aJ8"/>
+                <constraint firstItem="10g-PY-JWJ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="Xw6-Vh-Zp9"/>
+                <constraint firstAttribute="trailing" secondItem="GGS-Or-89h" secondAttribute="trailing" constant="10" id="bC1-2E-nZT"/>
+                <constraint firstItem="10g-PY-JWJ" firstAttribute="top" secondItem="bQI-t3-Qkj" secondAttribute="bottom" constant="10" id="bk2-gj-Ccd"/>
+                <constraint firstItem="2LY-bT-TYy" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="cff-0z-mKo"/>
+                <constraint firstItem="2LY-bT-TYy" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="gLr-lC-OnP"/>
+                <constraint firstItem="MZA-gw-Lbb" firstAttribute="top" secondItem="10g-PY-JWJ" secondAttribute="bottom" id="hwf-iS-ohT"/>
+                <constraint firstItem="GGS-Or-89h" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="ihQ-68-69q"/>
+                <constraint firstItem="bQI-t3-Qkj" firstAttribute="centerX" secondItem="2LY-bT-TYy" secondAttribute="centerX" id="lJJ-sp-bRY"/>
+                <constraint firstItem="MZA-gw-Lbb" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="oPx-xg-mOZ"/>
+                <constraint firstItem="bQI-t3-Qkj" firstAttribute="top" secondItem="2LY-bT-TYy" secondAttribute="bottom" id="vAD-oZ-BzJ"/>
+                <constraint firstAttribute="trailing" secondItem="MZA-gw-Lbb" secondAttribute="trailing" constant="10" id="wVy-Pz-tVW"/>
+                <constraint firstAttribute="trailing" secondItem="10g-PY-JWJ" secondAttribute="trailing" constant="10" id="xSp-sC-pXQ"/>
+                <constraint firstItem="bQI-t3-Qkj" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="yYQ-kf-61f"/>
+            </constraints>
+            <size key="customSize" width="300" height="430"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="A9t-2c-vtm"/>
+                    <exclude reference="gLr-lC-OnP"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="imageHeightConstraint" destination="emz-o0-4rz" id="9Gy-iT-sEd"/>
+                <outlet property="imageView" destination="2LY-bT-TYy" id="7cu-4e-00x"/>
+                <outlet property="imagesScrollView" destination="bQI-t3-Qkj" id="kBw-MN-yLB"/>
+                <outlet property="imagesScrollViewHeightConstraint" destination="UQg-Hm-VMI" id="DKp-VK-up1"/>
+                <outlet property="lbCollectionTitle" destination="10g-PY-JWJ" id="wrp-SI-gO5"/>
+                <outlet property="lbPrice" destination="GGS-Or-89h" id="tin-bM-JYx"/>
+                <outlet property="lbTitle" destination="MZA-gw-Lbb" id="ng6-pV-ASy"/>
+            </connections>
+            <point key="canvasLocation" x="222" y="195"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="btn-more-info.png" width="110" height="30"/>
+    </resources>
+</document>

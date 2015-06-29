@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "3EC7CE211B25BB8E00D843EB"
-               BuildableName = "MoltinSDK iOS Example.app"
-               BlueprintName = "MoltinSDK iOS Example"
+               BuildableName = "Moltin.app"
+               BlueprintName = "Moltin"
                ReferencedContainer = "container:MoltinSDK iOS Example.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -57,8 +57,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3EC7CE211B25BB8E00D843EB"
-            BuildableName = "MoltinSDK iOS Example.app"
-            BlueprintName = "MoltinSDK iOS Example"
+            BuildableName = "Moltin.app"
+            BlueprintName = "Moltin"
             ReferencedContainer = "container:MoltinSDK iOS Example.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -77,8 +77,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3EC7CE211B25BB8E00D843EB"
-            BuildableName = "MoltinSDK iOS Example.app"
-            BlueprintName = "MoltinSDK iOS Example"
+            BuildableName = "Moltin.app"
+            BlueprintName = "Moltin"
             ReferencedContainer = "container:MoltinSDK iOS Example.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -96,8 +96,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3EC7CE211B25BB8E00D843EB"
-            BuildableName = "MoltinSDK iOS Example.app"
-            BlueprintName = "MoltinSDK iOS Example"
+            BuildableName = "Moltin.app"
+            BlueprintName = "Moltin"
             ReferencedContainer = "container:MoltinSDK iOS Example.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

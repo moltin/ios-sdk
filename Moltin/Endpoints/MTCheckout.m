@@ -7,6 +7,7 @@
 //
 
 #import "MTCheckout.h"
+#import "MoltinStorage.h"
 
 @implementation MTCheckout
 
@@ -16,7 +17,19 @@
 
 - (void)paymentWithMethod:(NSString *) method order:(NSString *) order parameters:(NSDictionary *) parameters success:(MTSuccessCallback)success failure:(MTFailureCallback)failure{
     NSString *endpoint = [NSString stringWithFormat:@"%@/payment/%@/%@", self.endpoint, method, order];
-    [super postWithEndpoint:endpoint andParameters:parameters success:success failure:failure];
+    
+    [super postWithEndpoint:endpoint andParameters:parameters success:^(NSDictionary *response) {
+        //order completed reset cart id
+        [MoltinStorage setCartId:nil];
+        if (success) {
+            success(response);
+        }
+    } failure:^(NSDictionary *response, NSError *error) {
+        
+        if (failure) {
+            failure(response, error);
+        }
+    }];
 }
 
 @end

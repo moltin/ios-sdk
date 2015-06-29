@@ -10,6 +10,15 @@
 #import <AFNetworking/AFNetworking.h>
 #import "MoltinConstants.h"
 #import "MTFacade.h"
+#import "MoltinStorage.h"
+
+#define LOGGING_ENABLED [MoltinStorage loggingEnabled]
+
+#ifdef LOGGING_ENABLED
+    #define MTLog(x, ...) NSLog(@"com.moltin: " x, ##__VA_ARGS__)
+#else
+    #define MTLog(x, ...)
+#endif
 
 typedef void (^MTAuthenitactionCallback)(BOOL, NSError *);
 

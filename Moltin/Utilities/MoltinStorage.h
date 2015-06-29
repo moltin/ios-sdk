@@ -22,4 +22,7 @@
 + (void)setTokenExpiration:(NSInteger) expiresIn;
 + (BOOL)isTokenExpired;
 
++ (void)setLoggingEnabled:(BOOL) enabled;
++ (BOOL)loggingEnabled;
+
 @end

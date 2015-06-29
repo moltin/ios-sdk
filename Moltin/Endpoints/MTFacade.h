@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 typedef void (^MTSuccessCallback)(NSDictionary *response);
-typedef void (^MTFailureCallback)(NSError *error);
+typedef void (^MTFailureCallback)(NSDictionary *response, NSError *error);
 
 @interface MTFacade : NSObject
 

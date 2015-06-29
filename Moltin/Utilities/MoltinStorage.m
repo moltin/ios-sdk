@@ -7,6 +7,7 @@
 //
 
 #import "MoltinStorage.h"
+#import "MoltinConstants.h"
 
 @implementation MoltinStorage
 
@@ -50,12 +51,21 @@
     return currentTimeInterval > expiresTimeInterval;
 }
 
++ (void)setLoggingEnabled:(BOOL) enabled{
+    [self setBool:enabled forKey:kMoltinLoggingEnabled];
+}
+
++ (BOOL)loggingEnabled{
+    return [self getBoolForKey:kMoltinLoggingEnabled];
+}
+
+
 + (NSString *)getStringForKey:(NSString *) key{
     return [[NSUserDefaults standardUserDefaults] stringForKey:key];
 }
 
 + (void)setString:(NSString *) value forKey:(NSString *) key{
-    [[NSUserDefaults standardUserDefaults] setObject:value forKey:key];
+    [[NSUserDefaults standardUserDefaults] setValue:value forKey:key];
 }
 
 + (NSInteger)getIntegerForKey:(NSString *) key{
@@ -72,6 +82,14 @@
 
 + (void)setDouble:(double) value forKey:(NSString *) key{
     [[NSUserDefaults standardUserDefaults] setDouble:value forKey:key];
+}
+
++ (void)setBool:(BOOL) value forKey:(NSString *)key{
+    [[NSUserDefaults standardUserDefaults] setBool:value forKey:key];
+}
+
++ (BOOL)getBoolForKey:(NSString *) key{
+    return [[NSUserDefaults standardUserDefaults] boolForKey:key];
 }
 
 @end
