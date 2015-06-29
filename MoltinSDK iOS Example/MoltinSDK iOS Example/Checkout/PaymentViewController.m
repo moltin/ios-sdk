@@ -259,9 +259,12 @@ static NSString *PAYMENT_METHOD  = @"purchase";
                                                 success:^(NSDictionary *response)
     {
         if ([[response valueForKey:@"status"] boolValue]) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:kMoltinNotificationRefreshCart object:nil];
+            
             NSString *responseMessage = [[response objectForKey:@"result"] valueForKey:@"message"];
             self.progressHUD.detailsLabelText = responseMessage;
             [self.progressHUD hide:YES afterDelay:2];
+            [self performSelector:@selector(dismissViewController) withObject:nil afterDelay:2];
         }
         else{
             NSString *responseMessage = [response valueForKey:@"error"];
@@ -280,6 +283,10 @@ static NSString *PAYMENT_METHOD  = @"purchase";
         }
         ALERT(@"Payment error", errorMessage);
     }];
+}
+
+- (void)dismissViewController{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
     
 - (NSString *)getCustomerEmail{

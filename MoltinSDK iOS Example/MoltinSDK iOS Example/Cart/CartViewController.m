@@ -54,11 +54,10 @@ static NSString *CartCellIdentifier = @"MoltinCartCell";
         NSLog(@"CART CONTENT: %@", response);
         _cartData = response;
         [weakSelf parseCartItems];
-//itemTotalPrice=json.getJSONObject("totals").getJSONObject("pre_discount").getJSONObject("formatted").getString("with_tax");
         weakSelf.lbTotalPrice.text = [[[[[_cartData objectForKey:@"result"] objectForKey:@"totals"] objectForKey:@"post_discount"] objectForKey:@"formatted"] valueForKey:@"with_tax"];
         [MBProgressHUD hideHUDForView:self.view animated:YES];
     } failure:^(NSDictionary *response, NSError *error) {
-        NSLog(@"CART ERROR: %@", error);
+        NSLog(@"CART ERROR: %@\nWITH RESPONSE: %@", error, response);
         [MBProgressHUD hideHUDForView:self.view animated:YES];
     }];
 }
