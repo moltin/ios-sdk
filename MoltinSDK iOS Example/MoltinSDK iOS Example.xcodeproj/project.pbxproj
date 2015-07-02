@@ -56,7 +56,6 @@
 		3EC7CE311B25BB8E00D843EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EC7CE2F1B25BB8E00D843EB /* Main.storyboard */; };
 		3EC7CE331B25BB8E00D843EB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EC7CE321B25BB8E00D843EB /* Images.xcassets */; };
 		3EC7CE361B25BB8E00D843EB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EC7CE341B25BB8E00D843EB /* LaunchScreen.xib */; };
-		3EC7CE421B25BB8E00D843EB /* MoltinSDK_iOS_ExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EC7CE411B25BB8E00D843EB /* MoltinSDK_iOS_ExampleTests.m */; };
 		3EF22AF51B30883000462BFA /* MTNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF22AF41B30883000462BFA /* MTNavigationController.m */; };
 		3EF22B181B31273B00462BFA /* Heuristica-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3EF22B0E1B31273B00462BFA /* Heuristica-Bold.otf */; };
 		3EF22B191B31273B00462BFA /* Heuristica-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3EF22B0F1B31273B00462BFA /* Heuristica-BoldItalic.otf */; };
@@ -73,16 +72,6 @@
 		3EF22B291B32AEE500462BFA /* ProductDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EF22B281B32AEE500462BFA /* ProductDetailsView.xib */; };
 		FC55015328D6E3F69210124B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD2C43979DB376E19EF5905E /* libPods.a */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		3EC7CE3C1B25BB8E00D843EB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3EC7CE1A1B25BB8E00D843EB /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 3EC7CE211B25BB8E00D843EB;
-			remoteInfo = "MoltinSDK iOS Example";
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		35199D69AF9D6C20A3A8E169 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -161,7 +150,7 @@
 		3E4B5F381B3A9ED7009889A9 /* btn-next@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-next@2x.png"; sourceTree = "<group>"; };
 		3E4B5F3A1B3AAE71009889A9 /* checkbox-checked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkbox-checked@2x.png"; sourceTree = "<group>"; };
 		3E4B5F3B1B3AAE71009889A9 /* checkbox-unchecked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkbox-unchecked@2x.png"; sourceTree = "<group>"; };
-		3EC7CE221B25BB8E00D843EB /* MoltinSDK iOS Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MoltinSDK iOS Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3EC7CE221B25BB8E00D843EB /* Moltin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Moltin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EC7CE261B25BB8E00D843EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3EC7CE271B25BB8E00D843EB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3EC7CE291B25BB8E00D843EB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -169,9 +158,6 @@
 		3EC7CE301B25BB8E00D843EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3EC7CE321B25BB8E00D843EB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3EC7CE351B25BB8E00D843EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		3EC7CE3B1B25BB8E00D843EB /* MoltinSDK iOS ExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MoltinSDK iOS ExampleTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3EC7CE401B25BB8E00D843EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3EC7CE411B25BB8E00D843EB /* MoltinSDK_iOS_ExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoltinSDK_iOS_ExampleTests.m; sourceTree = "<group>"; };
 		3EF22AF31B30883000462BFA /* MTNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTNavigationController.h; sourceTree = "<group>"; };
 		3EF22AF41B30883000462BFA /* MTNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTNavigationController.m; sourceTree = "<group>"; };
 		3EF22AF71B31262E00462BFA /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -198,13 +184,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC55015328D6E3F69210124B /* libPods.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3EC7CE381B25BB8E00D843EB /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,7 +351,6 @@
 			isa = PBXGroup;
 			children = (
 				3EC7CE241B25BB8E00D843EB /* MoltinSDK iOS Example */,
-				3EC7CE3E1B25BB8E00D843EB /* MoltinSDK iOS ExampleTests */,
 				3EC7CE231B25BB8E00D843EB /* Products */,
 				863CEDFB573FEE0EC40E6748 /* Pods */,
 				23F0DAA406455E97F4787739 /* Frameworks */,
@@ -382,8 +360,7 @@
 		3EC7CE231B25BB8E00D843EB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3EC7CE221B25BB8E00D843EB /* MoltinSDK iOS Example.app */,
-				3EC7CE3B1B25BB8E00D843EB /* MoltinSDK iOS ExampleTests.xctest */,
+				3EC7CE221B25BB8E00D843EB /* Moltin.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -417,23 +394,6 @@
 				3EC7CE261B25BB8E00D843EB /* Info.plist */,
 				3EC7CE271B25BB8E00D843EB /* main.m */,
 				3EF22AF71B31262E00462BFA /* PrefixHeader.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		3EC7CE3E1B25BB8E00D843EB /* MoltinSDK iOS ExampleTests */ = {
-			isa = PBXGroup;
-			children = (
-				3EC7CE411B25BB8E00D843EB /* MoltinSDK_iOS_ExampleTests.m */,
-				3EC7CE3F1B25BB8E00D843EB /* Supporting Files */,
-			);
-			path = "MoltinSDK iOS ExampleTests";
-			sourceTree = "<group>";
-		};
-		3EC7CE3F1B25BB8E00D843EB /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				3EC7CE401B25BB8E00D843EB /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -518,26 +478,8 @@
 			);
 			name = Moltin;
 			productName = "MoltinSDK iOS Example";
-			productReference = 3EC7CE221B25BB8E00D843EB /* MoltinSDK iOS Example.app */;
+			productReference = 3EC7CE221B25BB8E00D843EB /* Moltin.app */;
 			productType = "com.apple.product-type.application";
-		};
-		3EC7CE3A1B25BB8E00D843EB /* MoltinSDK iOS ExampleTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3EC7CE481B25BB8E00D843EB /* Build configuration list for PBXNativeTarget "MoltinSDK iOS ExampleTests" */;
-			buildPhases = (
-				3EC7CE371B25BB8E00D843EB /* Sources */,
-				3EC7CE381B25BB8E00D843EB /* Frameworks */,
-				3EC7CE391B25BB8E00D843EB /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				3EC7CE3D1B25BB8E00D843EB /* PBXTargetDependency */,
-			);
-			name = "MoltinSDK iOS ExampleTests";
-			productName = "MoltinSDK iOS ExampleTests";
-			productReference = 3EC7CE3B1B25BB8E00D843EB /* MoltinSDK iOS ExampleTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -550,10 +492,6 @@
 				TargetAttributes = {
 					3EC7CE211B25BB8E00D843EB = {
 						CreatedOnToolsVersion = 6.3.2;
-					};
-					3EC7CE3A1B25BB8E00D843EB = {
-						CreatedOnToolsVersion = 6.3.2;
-						TestTargetID = 3EC7CE211B25BB8E00D843EB;
 					};
 				};
 			};
@@ -571,7 +509,6 @@
 			projectRoot = "";
 			targets = (
 				3EC7CE211B25BB8E00D843EB /* Moltin */,
-				3EC7CE3A1B25BB8E00D843EB /* MoltinSDK iOS ExampleTests */,
 			);
 		};
 /* End PBXProject section */
@@ -611,13 +548,6 @@
 				3E2978691B3414B1002E1DC1 /* btn-checkout@2x.png in Resources */,
 				3EF22B191B31273B00462BFA /* Heuristica-BoldItalic.otf in Resources */,
 				3EF22B1D1B31273B00462BFA /* Montserrat-Bold.otf in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3EC7CE391B25BB8E00D843EB /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -697,23 +627,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3EC7CE371B25BB8E00D843EB /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3EC7CE421B25BB8E00D843EB /* MoltinSDK_iOS_ExampleTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		3EC7CE3D1B25BB8E00D843EB /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 3EC7CE211B25BB8E00D843EB /* Moltin */;
-			targetProxy = 3EC7CE3C1B25BB8E00D843EB /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		3EC7CE2F1B25BB8E00D843EB /* Main.storyboard */ = {
@@ -839,40 +753,6 @@
 			};
 			name = Release;
 		};
-		3EC7CE491B25BB8E00D843EB /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "MoltinSDK iOS ExampleTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MoltinSDK iOS Example.app/MoltinSDK iOS Example";
-			};
-			name = Debug;
-		};
-		3EC7CE4A1B25BB8E00D843EB /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "MoltinSDK iOS ExampleTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MoltinSDK iOS Example.app/MoltinSDK iOS Example";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -890,15 +770,6 @@
 			buildConfigurations = (
 				3EC7CE461B25BB8E00D843EB /* Debug */,
 				3EC7CE471B25BB8E00D843EB /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		3EC7CE481B25BB8E00D843EB /* Build configuration list for PBXNativeTarget "MoltinSDK iOS ExampleTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3EC7CE491B25BB8E00D843EB /* Debug */,
-				3EC7CE4A1B25BB8E00D843EB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
