@@ -22,13 +22,13 @@
 
 - (IBAction)btnMinusTap:(id)sender {
     NSInteger currentQuantity = self.lbQuantity.text.integerValue;
-    self.lbQuantity.text = [NSString stringWithFormat:@"%d", (currentQuantity-1)];
+    self.lbQuantity.text = [NSString stringWithFormat:@"%ld", (currentQuantity-1)];
     [self updateCart];
 }
 
 - (IBAction)btnPlusTap:(id)sender {
     NSInteger currentQuantity = self.lbQuantity.text.integerValue;
-    self.lbQuantity.text = [NSString stringWithFormat:@"%d", (currentQuantity+1)];
+    self.lbQuantity.text = [NSString stringWithFormat:@"%ld", (currentQuantity+1)];
     [self updateCart];
 }
 
@@ -43,7 +43,7 @@
 {
     _cartItem = cartItem;
     self.lbProductName.text = [cartItem valueForKey:@"title"];
-    self.lbPrice.text = [[[cartItem objectForKey:@"pricing"] objectForKey:@"formatted"] valueForKey:@"with_tax"];
+    self.lbPrice.text = [cartItem valueForKeyPath:@"pricing.formatted.with_tax"];
     
     NSNumber *quantity = [cartItem valueForKey:@"quantity"];
     self.lbQuantity.text = quantity.stringValue;
@@ -51,7 +51,7 @@
     NSArray *tmpImages = [cartItem objectForKey:@"images"];
     
     for (NSDictionary *image in tmpImages) {
-        NSString *imageUrl = [[image objectForKey:@"url"] objectForKey:@"http"];
+        NSString *imageUrl = [image valueForKeyPath:@"url.http"];
         [self.imgView sd_setImageWithURL:[NSURL URLWithString:imageUrl]];
         break;
     }

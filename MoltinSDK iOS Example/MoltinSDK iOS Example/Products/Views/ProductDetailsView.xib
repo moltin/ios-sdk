@@ -11,7 +11,6 @@
         <mutableArray key="Montserrat-Bold.otf">
             <string>Montserrat-Bold</string>
             <string>Montserrat-Bold</string>
-            <string>Montserrat-Bold</string>
         </mutableArray>
         <mutableArray key="Montserrat-Regular.otf">
             <string>Montserrat-Regular</string>
@@ -38,33 +37,8 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ebP-Zb-skx">
-                    <rect key="frame" x="8" y="20" width="48" height="48"/>
-                    <constraints>
-                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="48" id="1hc-GX-yHT"/>
-                        <constraint firstAttribute="height" constant="48" id="A64-N3-FLX"/>
-                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="48" id="T8S-Kq-fjA"/>
-                        <constraint firstAttribute="width" constant="48" id="lY4-y7-VaE"/>
-                    </constraints>
-                    <state key="normal" image="btn-back.png">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="btnBackTap:" destination="-1" eventType="touchUpInside" id="umu-Cc-l6n"/>
-                    </connections>
-                </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PRODUCT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="URh-Ge-lPU">
-                    <rect key="frame" x="87" y="20" width="200" height="44"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="200" id="J8k-MN-JLk"/>
-                        <constraint firstAttribute="height" constant="44" id="Pcj-sM-YN5"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="20"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aQM-1w-UnW" userLabel="ContainerScrollView">
-                    <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="COLLECTION TITLE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fo0-wq-RfD">
                             <rect key="frame" x="8" y="405" width="112" height="20"/>
@@ -89,7 +63,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="$30" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FB8-1V-SBS">
-                            <rect key="frame" x="254" y="435" width="112.5" height="29"/>
+                            <rect key="frame" x="254" y="435" width="113" height="29"/>
                             <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="24"/>
                             <color key="textColor" red="0.54509803921568623" green="0.3843137254901961" blue="0.70980392156862748" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -107,7 +81,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qt3-A0-s6c">
-                            <rect key="frame" x="47" y="554" width="280" height="40"/>
+                            <rect key="frame" x="47" y="553.5" width="280" height="40"/>
                             <state key="normal" image="btn-add-to-cart.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -161,21 +135,19 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="ebP-Zb-skx" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="OG5-pF-tu6"/>
-                <constraint firstItem="aQM-1w-UnW" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="64" id="Yqd-g1-yD7"/>
+                <constraint firstAttribute="trailing" secondItem="aQM-1w-UnW" secondAttribute="trailing" id="Qiw-xd-U12"/>
+                <constraint firstItem="aQM-1w-UnW" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Yqd-g1-yD7"/>
                 <constraint firstItem="aQM-1w-UnW" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="jEe-59-E8o"/>
-                <constraint firstItem="URh-Ge-lPU" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="jMF-c5-7WW"/>
-                <constraint firstItem="ebP-Zb-skx" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="oEP-hY-AmG"/>
                 <constraint firstAttribute="trailing" secondItem="aQM-1w-UnW" secondAttribute="trailing" id="psd-my-ixd"/>
-                <constraint firstAttribute="centerX" secondItem="URh-Ge-lPU" secondAttribute="centerX" id="rAo-60-DaA"/>
                 <constraint firstAttribute="bottom" secondItem="aQM-1w-UnW" secondAttribute="bottom" id="yaL-M0-lLC"/>
             </constraints>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <point key="canvasLocation" x="312.5" y="309.5"/>
         </view>
     </objects>
     <resources>
         <image name="btn-add-to-cart.png" width="280" height="40"/>
-        <image name="btn-back.png" width="25" height="25"/>
     </resources>
 </document>

@@ -18,9 +18,11 @@
 #import <MBProgressHUD.h>
 #import <SDWebImage/UIImageView+WebCache.h>
 
-#define kMoltinFontBold     @"Montserrat-Bold"
-#define kMoltinFont         @"Montserrat"
-#define kMoltinFontItalic   @"Heuristica-Italic"
+#define kMoltinFontBold             @"Montserrat-Bold"
+#define kMoltinFont                 @"Montserrat"
+#define kMoltinFontHeuristical      @"Heuristica"
+#define kMoltinFontHeuristicalBold      @"Heuristica-Bold"
+#define kMoltinFontItalic           @"Heuristica-Italic"
 
 #define kMoltinNotificationRefreshCart          @"com.moltin.notification.refresh.cart"
 #define kMoltinBillingEmailStorageKey           @"com.moltin.billing.email"

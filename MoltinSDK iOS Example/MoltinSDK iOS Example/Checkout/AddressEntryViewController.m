@@ -35,7 +35,11 @@
     }
     else{
         self.title = @"Billing address";
-        UIBarButtonItem *barBtnCancel = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(btnCancelTap:)];
+        UIButton *button  = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+        [button setImage:[UIImage imageNamed:@"btn-x"] forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(btnCancelTap:) forControlEvents:UIControlEventTouchUpInside];
+
+        UIBarButtonItem *barBtnCancel = [[UIBarButtonItem alloc] initWithCustomView:button];
         self.navigationItem.rightBarButtonItem = barBtnCancel;
     }
     
@@ -75,7 +79,7 @@
                                                   success:^(NSDictionary *response)
      {
          self.tfCountry.userInteractionEnabled = YES;
-         NSDictionary *tmpCountries = [[[response objectForKey:@"result"] objectForKey:@"country"] objectForKey:@"available"];
+         NSDictionary *tmpCountries = [response valueForKeyPath:@"result.country.available"];
          
          NSMutableArray *tmp = [NSMutableArray array];
          for (NSString *countryCode in [tmpCountries allKeys]) {
@@ -86,10 +90,8 @@
                                                                       ascending:YES];
          self.countries = [tmp sortedArrayUsingDescriptors:@[sortByName]];
          
-         NSLog(@"COUNTRIES: %@", self.countries);
-         
      } failure:^(NSDictionary *response, NSError *error) {
-         
+         NSLog(@"ERROR fetching country list: %@", response);
      }];
 
 }
@@ -104,16 +106,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 - (IBAction)btnSameAddressTap:(UIButton *)sender {
     [sender setSelected:!sender.selected];

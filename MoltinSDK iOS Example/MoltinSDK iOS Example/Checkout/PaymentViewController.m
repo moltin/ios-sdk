@@ -7,6 +7,8 @@
 //
 
 #import "PaymentViewController.h"
+#import "CartViewController.h"
+#import "ReceiptViewController.h"
 
 static NSString *PAYMENT_GATEWAY = @"stripe";
 static NSString *PAYMENT_METHOD  = @"purchase";
@@ -23,6 +25,8 @@ static NSString *PAYMENT_METHOD  = @"purchase";
 @property (nonatomic) NSInteger minYear;
 @property (nonatomic) NSInteger month;
 @property (nonatomic) NSInteger year;
+
+@property (strong, nonatomic) NSDictionary *receipt;
 
 @end
 
@@ -179,7 +183,7 @@ static NSString *PAYMENT_METHOD  = @"purchase";
                                                    success:^(NSDictionary *response)
     {
         if ([[response valueForKey:@"status"] boolValue]) {
-            self.customerId = [[response objectForKey:@"result"] valueForKey:@"id"];
+            self.customerId = [response valueForKeyPath:@"result.id"];
             [self order];
         }
         else{
@@ -217,8 +221,7 @@ static NSString *PAYMENT_METHOD  = @"purchase";
                                               success:^(NSDictionary *response)
     {
         if ([[response valueForKey:@"status"] boolValue]) {
-            NSLog(@"RESPONSE: %@", response);
-            self.orderId = [[response objectForKey:@"result"] valueForKey:@"id"];
+            self.orderId = [response valueForKeyPath:@"result.id"];
             [self payment];
         }
         else{
@@ -261,18 +264,22 @@ static NSString *PAYMENT_METHOD  = @"purchase";
         if ([[response valueForKey:@"status"] boolValue]) {
             [[NSNotificationCenter defaultCenter] postNotificationName:kMoltinNotificationRefreshCart object:nil];
             
-            NSString *responseMessage = [[response objectForKey:@"result"] valueForKey:@"message"];
+            self.receipt = response;
+            
+            NSString *responseMessage = [response valueForKeyPath:@"result.message"];
             self.progressHUD.detailsLabelText = responseMessage;
             [self.progressHUD hide:YES afterDelay:2];
-            [self performSelector:@selector(dismissViewController) withObject:nil afterDelay:2];
+            [self performSegueWithIdentifier:@"receiptSegue" sender:self];
         }
         else{
+            self.receipt = nil;
             NSString *responseMessage = [response valueForKey:@"error"];
             ALERT(@"Payment error", responseMessage);
             NSLog(@"ERROR PAYMENT: %@", response);
         }
         
     } failure:^(NSDictionary *response, NSError *error) {
+        self.receipt = nil;
         [self.progressHUD hide:YES];
         
         NSString *errorMessage = error.localizedDescription;
@@ -296,5 +303,20 @@ static NSString *PAYMENT_METHOD  = @"purchase";
 - (NSDictionary *)getAddressWithKey:(NSString *) key{
     return [[NSUserDefaults standardUserDefaults] objectForKey:key];
 }
+
+
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+     if ([segue.identifier isEqualToString:@"receiptSegue"]) {
+         ReceiptViewController *destViewController = segue.destinationViewController;
+         destViewController.products = [CartViewController sharedInstance].cartItems;
+         
+         [CartViewController sharedInstance].cartItems = nil;
+         
+         destViewController.reciept = self.receipt;
+     }
+ }
 
 @end

@@ -15,17 +15,38 @@ static NSString *CartCellIdentifier = @"MoltinCartCell";
 @interface CartViewController ()
 
 @property (strong, nonatomic) NSDictionary *cartData;
-@property (strong, nonatomic) NSArray *cartItems;
 
 @end
 
 @implementation CartViewController
+
++ (CartViewController *)sharedInstance {
+    static CartViewController *_sharedClient = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _sharedClient = [[CartViewController alloc] init];
+    });
+    
+    return _sharedClient;
+}
 
 - (id)init{
     self = [super initWithNibName:@"CartView" bundle:nil];
     if (self) {
         
     }
+    return self;
+}
+
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self)
+    {
+        
+    }
+    
     return self;
 }
 
@@ -54,7 +75,7 @@ static NSString *CartCellIdentifier = @"MoltinCartCell";
         NSLog(@"CART CONTENT: %@", response);
         _cartData = response;
         [weakSelf parseCartItems];
-        weakSelf.lbTotalPrice.text = [[[[[_cartData objectForKey:@"result"] objectForKey:@"totals"] objectForKey:@"post_discount"] objectForKey:@"formatted"] valueForKey:@"with_tax"];
+        weakSelf.lbTotalPrice.text = [_cartData valueForKeyPath:@"result.totals.post_discount.formatted.with_tax"];
         [MBProgressHUD hideHUDForView:self.view animated:YES];
     } failure:^(NSDictionary *response, NSError *error) {
         NSLog(@"CART ERROR: %@\nWITH RESPONSE: %@", error, response);
@@ -64,7 +85,7 @@ static NSString *CartCellIdentifier = @"MoltinCartCell";
 
 - (void)parseCartItems
 {
-    NSDictionary *tmpCartItems = [[self.cartData objectForKey:@"result"] objectForKey:@"contents"];
+    NSDictionary *tmpCartItems = [self.cartData valueForKeyPath:@"result.contents"];
     if (tmpCartItems.count > 0) {
         self.cartItems = [tmpCartItems objectsForKeys:[tmpCartItems allKeys] notFoundMarker:[NSNull null]];
         self.lbNoProductsInCart.hidden = YES;
@@ -118,32 +139,18 @@ static NSString *CartCellIdentifier = @"MoltinCartCell";
 {
     __weak CartViewController *weakSelf = self;
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    //if (quantity.integerValue > 0) {
-        [[Moltin sharedInstance].cart updateItemWithId:productId parameters:@{@"quantity" : quantity}
-                                               success:^(NSDictionary *response){
-                                                   [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
-                                                   NSLog(@"CHART UPDATE OK: %@", response);
-                                                   [weakSelf loadCart];
-                                               }
-                                               failure:^(NSDictionary *response, NSError *error) {
-                                                   [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
-                                                   NSLog(@"ERROR: %@", error);
-                                                   [weakSelf loadCart];
-                                               }];
-    /*}
-    else{
-        [[Moltin sharedInstance].cart removeItemWithId:productId success:^(NSDictionary *response) {
-            [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
-            NSLog(@"CHART UPDATE OK: %@", response);
-            [weakSelf loadCart];
-        } failure:^(NSError *error) {
-            [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
-            NSLog(@"ERROR: %@", error);
-            ALERT(@"ERROR", @"There was a problem while updating chart");
-            [weakSelf loadCart];
-        }];
-    }*/
     
+    [[Moltin sharedInstance].cart updateItemWithId:productId parameters:@{@"quantity" : quantity}
+                                           success:^(NSDictionary *response){
+                                               [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
+                                               NSLog(@"CHART UPDATE OK: %@", response);
+                                               [weakSelf loadCart];
+                                           }
+                                           failure:^(NSDictionary *response, NSError *error) {
+                                               [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
+                                               NSLog(@"ERROR: %@", error);
+                                               [weakSelf loadCart];
+                                           }];
 }
 
 @end

@@ -20,11 +20,11 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
 
-    [MTSlideNavigationController sharedInstance].rightMenu = [[CartViewController alloc] init];
+    [MTSlideNavigationController sharedInstance].rightMenu = [CartViewController sharedInstance];
     [MTSlideNavigationController sharedInstance].portraitSlideOffset = 30;
     
     UIButton *button  = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
-    [button setImage:[UIImage imageNamed:@"cart"] forState:UIControlStateNormal];
+    [button setImage:[UIImage imageNamed:@"cart-gray"] forState:UIControlStateNormal];
     [button addTarget:[SlideNavigationController sharedInstance] action:@selector(toggleRightMenu) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
     [MTSlideNavigationController sharedInstance].rightBarButtonItem = rightBarButtonItem;

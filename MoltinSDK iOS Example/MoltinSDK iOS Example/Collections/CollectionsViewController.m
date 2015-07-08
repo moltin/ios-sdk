@@ -7,7 +7,8 @@
 //
 
 #import "CollectionsViewController.h"
-#import "ProductsViewController.h"
+#import "ProductsListViewController.h"
+#import <SDWebImagePrefetcher.h>
 
 static NSString *CellIdentifier = @"MoltinCollectionCell";
 
@@ -52,6 +53,18 @@ static NSString *CellIdentifier = @"MoltinCollectionCell";
         weakSelf.categories = [response objectForKey:@"result"];
         weakSelf.pageControl.numberOfPages = weakSelf.categories.count;
         [weakSelf.collectionView reloadData];
+        
+//        NSString *imageUrl = @"";
+//        NSArray *images = [dictionary objectForKey:@"images"];
+        
+        NSMutableArray *imageUrls = [NSMutableArray array];
+        
+        NSArray *allImages = [self.categories valueForKeyPath:@"images.url.http"];
+        for (NSArray *collectionImages in allImages) {
+            [imageUrls addObjectsFromArray:collectionImages];
+        }
+        [[SDWebImagePrefetcher sharedImagePrefetcher] prefetchURLs:imageUrls];
+        
     } failure:^(NSDictionary *response, NSError *error) {
         [weakSelf.activityIndicator stopAnimating];
         NSLog(@"Category listing ERROR!!! %@", error);
@@ -83,17 +96,24 @@ static NSString *CellIdentifier = @"MoltinCollectionCell";
     return cell;
 }
 
+- (CGSize)collectionView:(UICollectionView *)collectionView
+                  layout:(UICollectionViewLayout *)collectionViewLayout
+  sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+    return CGSizeMake([UIScreen mainScreen].bounds.size.width, self.collectionView.frame.size.height);
+}
+
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     CGFloat pageWidth = self.collectionView.frame.size.width;
     self.pageControl.currentPage = self.collectionView.contentOffset.x / pageWidth;
 }
 
-- (void)didSelectCollectionWithId:(NSString *)collectionId
+- (void)didSelectCollectionWithId:(NSString *) collectionId andTitle:(NSString *) collecctionTitle
 {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    ProductsViewController *productsViewController = [storyboard instantiateViewControllerWithIdentifier:@"productsList"];
+    ProductsListViewController *productsViewController = [storyboard instantiateViewControllerWithIdentifier:@"productsList"];
     productsViewController.collectionId = collectionId;
+    productsViewController.title = collecctionTitle;
     
     [[MTSlideNavigationController sharedInstance] pushViewController:productsViewController animated:YES];
 }

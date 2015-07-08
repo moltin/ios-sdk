@@ -10,7 +10,7 @@
 
 @protocol CollectionListCellDelegate <NSObject>
 
-- (void)didSelectCollectionWithId:(NSString *) collectionId;
+- (void)didSelectCollectionWithId:(NSString *) collectionId andTitle:(NSString *) collecctionTitle;
 
 @end
 

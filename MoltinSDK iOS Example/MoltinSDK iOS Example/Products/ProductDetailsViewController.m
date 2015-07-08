@@ -58,6 +58,7 @@
     self = [super initWithNibName:@"ProductDetailsView" bundle:nil];
     
     if (self) {
+        self.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
         _productDict = productDict;
         _productId = [productDict valueForKey:@"id"];
         
@@ -73,17 +74,62 @@
 }
 
 - (IBAction)btnBackTap:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)btnCartTap:(id)sender {
+    [[MTSlideNavigationController sharedInstance] toggleRightMenu];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+
+    self.title = @"PRODUCT";
     
     self.images = [NSMutableArray array];
     
     [self configureWithProductDict:_productDict];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    UINavigationBar *navBar = self.navigationController.navigationBar;
+    navBar.tintColor = MOLTIN_DARK_BACKGROUND_COLOR;
+    navBar.barTintColor = [UIColor whiteColor];
+    navBar.barStyle = UIBarStyleBlack;
+    navBar.translucent = NO;
+    navBar.titleTextAttributes = @{
+                                   NSForegroundColorAttributeName: navBar.tintColor,
+                                   NSFontAttributeName:[UIFont fontWithName:kMoltinFontBold size:20]
+                                   };
+    
+    [[UINavigationBar appearance] setBackgroundImage:[[UIImage alloc] init]
+                                      forBarPosition:UIBarPositionAny
+                                          barMetrics:UIBarMetricsDefault];
+    
+    [[UINavigationBar appearance] setShadowImage:[[UIImage alloc] init]];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    UINavigationBar *navBar = self.navigationController.navigationBar;
+    navBar.tintColor = [UIColor whiteColor];
+    navBar.barTintColor = MOLTIN_DARK_BACKGROUND_COLOR;
+    navBar.barStyle = UIBarStyleBlack;
+    navBar.translucent = NO;
+    navBar.titleTextAttributes = @{
+                                   NSForegroundColorAttributeName: navBar.tintColor,
+                                   NSFontAttributeName:[UIFont fontWithName:kMoltinFontBold size:20]
+                                   };
+    
+    [[UINavigationBar appearance] setBackgroundImage:[[UIImage alloc] init]
+                                      forBarPosition:UIBarPositionAny
+                                          barMetrics:UIBarMetricsDefault];
+    
+    [[UINavigationBar appearance] setShadowImage:[[UIImage alloc] init]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -95,9 +141,9 @@
 {
     [self.images removeAllObjects];
     
-    self.lbCollectionTitle.text = [[[[product objectForKey:@"collection"] objectForKey:@"data"] valueForKey:@"title"] uppercaseString];
+    self.lbCollectionTitle.text = [[product valueForKeyPath:@"collection.data.title"] uppercaseString];
     self.lbTitle.text = [product valueForKey:@"title"];
-    self.lbPrice.text = [[[product objectForKey:@"pricing"] objectForKey:@"formatted"] valueForKey:@"with_tax"];;
+    self.lbPrice.text = [product valueForKeyPath:@"price.data.formatted.with_tax"];
     
     self.lbDescription.text = [product valueForKey:@"description"];
     
@@ -105,7 +151,7 @@
     
     
     for (NSDictionary *image in tmpImages) {
-        NSString *imageUrl = [[image objectForKey:@"url"] objectForKey:@"http"];
+        NSString *imageUrl = [image valueForKeyPath:@"url.http"];
         [self.images addObject:imageUrl];
     }
     if (self.images.count > 0) {
@@ -232,7 +278,31 @@
 - (IBAction)btnAddToCartTap:(id)sender {
     
     self.quantity = 1;
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Select quantity" message:@"" delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:@"Set", nil];
+    
+    self.btnAddToCart.enabled = NO;
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
+    [[Moltin sharedInstance].cart insertItemWithId:self.productId quantity:self.quantity andModifiersOrNil:self.selectedModifiers
+                                           success:^(NSDictionary *response)
+     {
+         dispatch_async(dispatch_get_main_queue(), ^{
+             [[NSNotificationCenter defaultCenter] postNotificationName:kMoltinNotificationRefreshCart object:nil];
+             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                 self.btnAddToCart.enabled = YES;
+                 [MBProgressHUD hideHUDForView:self.view animated:YES];
+                 [[MTSlideNavigationController sharedInstance] toggleRightMenu];
+             });
+         });
+     } failure:^(NSDictionary *response, NSError *error) {
+         self.btnAddToCart.enabled = YES;
+         NSLog(@"ERROR: %@", error);
+         ALERT(@"ERROR", @"Faild to add product to cart.");
+         dispatch_async(dispatch_get_main_queue(), ^{
+             [MBProgressHUD hideHUDForView:self.view animated:YES];
+         });
+     }];
+    
+    /*UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Select quantity" message:@"" delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:@"Set", nil];
     UIPickerView *pickerView = [[UIPickerView alloc] init];
     pickerView.delegate = self;
     pickerView.dataSource = self;
@@ -240,7 +310,7 @@
     
     alertView.delegate = self;
     [alertView setValue:pickerView forKey:@"accessoryView"];
-    [alertView show];
+    [alertView show];*/
 }
 
 -(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
@@ -283,6 +353,13 @@
             });
         }];
     }
+}
+
+#pragma mark SlideNavigationController
+
+- (BOOL)slideNavigationControllerShouldDisplayRightMenu
+{
+    return YES;
 }
 
 @end

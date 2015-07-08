@@ -11,10 +11,13 @@
 
 @interface CartViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, CartListCellDelegate>
 
+@property (strong, nonatomic) NSArray *cartItems;
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UILabel *lbTotalPrice;
 @property (weak, nonatomic) IBOutlet UILabel *lbNoProductsInCart;
 @property (weak, nonatomic) IBOutlet UIButton *btnCheckout;
 
++ (CartViewController *)sharedInstance;
 - (IBAction)btnCheckoutTap:(id)sender;
 @end

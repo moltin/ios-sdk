@@ -11,6 +11,7 @@
 @interface CollectionListCell()
 
 @property (strong, nonatomic) NSString *collectionId;
+@property (strong, nonatomic) NSString *collectionTitle;
 
 @end
 
@@ -23,17 +24,18 @@
     self.lbTitle.shadowOffset = CGSizeMake(1, 1);
     self.lbTitle.textColor = RGB(254, 254, 254);
     
-    self.lbInfo.font = [UIFont fontWithName:kMoltinFontItalic size:15];
-    self.lbInfo.shadowColor = RGB(254, 254, 254);
-    self.lbInfo.shadowOffset = CGSizeMake(0.5, 0.5);
-    self.lbInfo.textColor = RGB(78, 78, 78);
+    self.lbInfo.font = [UIFont fontWithName:kMoltinFontItalic size:16];
+    self.lbInfo.shadowColor = RGB(0, 0, 0);//RGB(78, 78, 78);
+    self.lbInfo.shadowOffset = CGSizeMake(1, 1);
+    self.lbInfo.textColor =RGB(254, 254, 254);
 }
 
 - (void)configureWithCollectionDict:(NSDictionary *) dictionary
 {
     if (dictionary) {
         self.collectionId = [dictionary valueForKey:@"id"];
-        self.lbTitle.text = [[dictionary valueForKey:@"title"] uppercaseString];
+        self.collectionTitle = [[dictionary valueForKey:@"title"] uppercaseString];
+        self.lbTitle.text = self.collectionTitle;
         self.lbInfo.text = [dictionary valueForKey:@"description"];
         [self.lbInfo sizeToFit];
         
@@ -41,7 +43,7 @@
         NSArray *images = [dictionary objectForKey:@"images"];
         
         if (images && images.count > 0) {
-            imageUrl = [[[images objectAtIndex:0] objectForKey:@"url"] objectForKey:@"http"];
+            imageUrl = [[images objectAtIndex:0] valueForKeyPath:@"url.http"];
         }
         
         [self.imageView sd_setImageWithURL:[NSURL URLWithString:imageUrl]];
@@ -52,8 +54,8 @@
 }
 
 - (IBAction)btnViewCollectionTap:(id)sender {
-    if (self.delegate && [self.delegate respondsToSelector:@selector(didSelectCollectionWithId:)]) {
-        [self.delegate didSelectCollectionWithId:self.collectionId];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(didSelectCollectionWithId:andTitle:)]) {
+        [self.delegate didSelectCollectionWithId:self.collectionId andTitle:self.collectionTitle];
     }
 }
 

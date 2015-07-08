@@ -31,8 +31,7 @@
         
         self.shippingId = [shippingMethod valueForKey:@"id"];
         self.shippingSlug = [shippingMethod valueForKey:@"slug"];
-        //shipTitle,shipPrice,jsonArrayMethods.getJSONObject(i).getJSONObject("totals").getJSONObject("post_discount").getJSONObject("formatted").getString("with_tax")
-        self.totalPrice = [[[[shippingMethod objectForKey:@"totals"] objectForKey:@"post_discount"] objectForKey:@"formatted"] valueForKey:@"with_tax"];
+        self.totalPrice = [shippingMethod valueForKeyPath:@"totals.post_discount.formatted.with_tax"];
         
         self.lbTitle = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, (frame.size.width/3)*2, frame.size.height)];
         self.lbTitle.font = [UIFont fontWithName:kMoltinFont size:20];
@@ -45,7 +44,7 @@
         self.lbPrice.font = [UIFont fontWithName:kMoltinFont size:20];
         self.lbPrice.textColor = [UIColor whiteColor];
         self.lbPrice.textAlignment = NSTextAlignmentRight;
-        self.lbPrice.text = [[[[shippingMethod objectForKey:@"price"] objectForKey:@"data"] objectForKey:@"formatted"] valueForKey:@"with_tax"];
+        self.lbPrice.text = [shippingMethod valueForKeyPath:@"price.data.formatted.with_tax"];
         
         [self addSubview:self.lbPrice];
         
@@ -100,7 +99,7 @@
     
     [[Moltin sharedInstance].cart checkoutWithsuccess:^(NSDictionary *response) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
-        self.shippingMethods = [[[response objectForKey:@"result"] objectForKey:@"shipping"] objectForKey:@"methods"];
+        self.shippingMethods = [response valueForKeyPath:@"result.shipping.methods"];
         [self setupViews];
     } failure:^(NSDictionary *response, NSError *error) {
         NSLog(@"SHIPPING ERROR: %@", error);
