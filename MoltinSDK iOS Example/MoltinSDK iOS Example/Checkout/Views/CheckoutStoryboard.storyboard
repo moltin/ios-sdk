@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ofj-vw-VCL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ofj-vw-VCL">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
@@ -64,7 +64,7 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sdn-RV-n6K">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="gapi_r@hotmail.com" placeholder="Valid email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ybS-ML-sth" customClass="MTTextField">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Valid email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ybS-ML-sth" customClass="MTTextField">
                                         <rect key="frame" x="10" y="10" width="355" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="MYt-Mv-sNr"/>
@@ -72,7 +72,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Gasper" placeholder="First name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Zr-RZ-bRf" customClass="MTTextField">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Zr-RZ-bRf" customClass="MTTextField">
                                         <rect key="frame" x="10" y="65" width="169" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="mDI-VM-ZfP"/>
@@ -80,7 +80,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Rebernak" placeholder="Last name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lls-Dg-mhc" customClass="MTTextField">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lls-Dg-mhc" customClass="MTTextField">
                                         <rect key="frame" x="198" y="65" width="169" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="Dm5-cc-bTb"/>
@@ -88,7 +88,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Spodnja Loznica 12a" placeholder="Billing address line 1" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UEh-U0-1LA" customClass="MTTextField">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Billing address line 1" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UEh-U0-1LA" customClass="MTTextField">
                                         <rect key="frame" x="10" y="120" width="355" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="Ewu-Yc-Jsb"/>
@@ -104,7 +104,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Zgornja Loznica" placeholder="City" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KhV-go-Gtp" customClass="MTTextField">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="City" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KhV-go-Gtp" customClass="MTTextField">
                                         <rect key="frame" x="10" y="230" width="169" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="Xpo-bv-APP"/>
@@ -112,7 +112,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="SI" placeholder="State" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="555-Df-aMb" customClass="MTTextField">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="State" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="555-Df-aMb" customClass="MTTextField">
                                         <rect key="frame" x="198" y="230" width="169" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="ZY4-Tj-V7p"/>
@@ -120,7 +120,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="2316" placeholder="ZIP" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e4D-3I-HF1" customClass="MTTextField">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="ZIP" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e4D-3I-HF1" customClass="MTTextField">
                                         <rect key="frame" x="10" y="285" width="169" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="KuT-jQ-7gg"/>
@@ -318,7 +318,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="5454545454545454" placeholder="Card number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tbG-rE-uC0" customClass="MTTextField">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Card number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tbG-rE-uC0" customClass="MTTextField">
                                 <rect key="frame" x="10" y="74" width="355" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="SXI-fc-eMS"/>
@@ -326,15 +326,15 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="next"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="3" placeholder="Expiration month" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mI7-sL-Jf5" customClass="MTTextField">
-                                <rect key="frame" x="10" y="129" width="167.5" height="45"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Expiration month" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mI7-sL-Jf5" customClass="MTTextField">
+                                <rect key="frame" x="10" y="129" width="168" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="DKI-8p-H0D"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="next"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="2016" placeholder="Expiration year" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0s3-Gb-jEH" customClass="MTTextField">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Expiration year" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0s3-Gb-jEH" customClass="MTTextField">
                                 <rect key="frame" x="198" y="129" width="167" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="tcp-kF-631"/>
@@ -342,8 +342,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="next"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123" placeholder="CVC/CVV" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kOq-al-QyK" customClass="MTTextField">
-                                <rect key="frame" x="10" y="184" width="167.5" height="45"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="CVC/CVV" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kOq-al-QyK" customClass="MTTextField">
+                                <rect key="frame" x="10" y="184" width="168" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="aE3-qq-eE2"/>
                                 </constraints>
@@ -417,14 +417,14 @@
                                             <outlet property="delegate" destination="fEV-QI-RIx" id="wJC-iV-pLX"/>
                                         </connections>
                                     </tableView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZSP-o3-T6t" userLabel="Purchase Info View">
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZSP-o3-T6t" userLabel="Purchase Info View">
                                         <rect key="frame" x="0.0" y="240" width="375" height="327"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JrT-JB-o6C" userLabel="Shipping">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="96.5"/>
+                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JrT-JB-o6C" userLabel="Shipping">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="97"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SHIPPING" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f3a-Wy-qdX">
-                                                        <rect key="frame" x="15" y="20" width="59.5" height="14.5"/>
+                                                        <rect key="frame" x="15" y="20" width="60" height="15"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="20" id="Nf0-Vx-uBh"/>
                                                         </constraints>
@@ -438,7 +438,7 @@
                                                         </variation>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Courier" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xKr-mb-Opy">
-                                                        <rect key="frame" x="110" y="20" width="52.5" height="17"/>
+                                                        <rect key="frame" x="110" y="20" width="53" height="17"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="14"/>
                                                         <color key="textColor" red="0.61176470588235299" green="0.6588235294117647" blue="0.69019607843137254" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -456,7 +456,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FedEx" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PRU-Jt-drY">
-                                                        <rect key="frame" x="315" y="20" width="44.5" height="17"/>
+                                                        <rect key="frame" x="315" y="20" width="45" height="17"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="14"/>
                                                         <color key="textColor" red="0.17647058823529413" green="0.22352941176470589" blue="0.25490196078431371" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -473,7 +473,7 @@
                                                         <color key="textColor" red="0.17647058823529413" green="0.22352941176470589" blue="0.25490196078431371" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8q0-Im-WEA">
+                                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8q0-Im-WEA">
                                                         <rect key="frame" x="0.0" y="96" width="375" height="1"/>
                                                         <color key="backgroundColor" red="0.87058823529411766" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
@@ -503,11 +503,11 @@
                                                     <constraint firstItem="f3a-Wy-qdX" firstAttribute="top" secondItem="JrT-JB-o6C" secondAttribute="top" constant="20" id="vdm-7C-GFo"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cF9-9U-JPt" userLabel="Address">
-                                                <rect key="frame" x="0.0" y="97" width="375" height="96.5"/>
+                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cF9-9U-JPt" userLabel="Address">
+                                                <rect key="frame" x="0.0" y="97" width="375" height="97"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ADDRESS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="klo-BG-A7t">
-                                                        <rect key="frame" x="15" y="20" width="60" height="14.5"/>
+                                                        <rect key="frame" x="15" y="20" width="60" height="15"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="20" id="2L8-Gc-GcK"/>
                                                         </constraints>
@@ -521,7 +521,7 @@
                                                         </variation>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FedEx" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hOw-sY-h19">
-                                                        <rect key="frame" x="315" y="20" width="44.5" height="17"/>
+                                                        <rect key="frame" x="315" y="20" width="45" height="17"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="14"/>
                                                         <color key="textColor" red="0.1764705882" green="0.22352941179999999" blue="0.25490196079999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -538,7 +538,7 @@
                                                         <color key="textColor" red="0.1764705882" green="0.22352941179999999" blue="0.25490196079999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RfG-JN-ntp">
+                                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RfG-JN-ntp">
                                                         <rect key="frame" x="0.0" y="96" width="375" height="1"/>
                                                         <color key="backgroundColor" red="0.87058823529999996" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
@@ -568,11 +568,11 @@
                                                     </mask>
                                                 </variation>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pwp-rs-zxp" userLabel="Payment">
+                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pwp-rs-zxp" userLabel="Payment">
                                                 <rect key="frame" x="0.0" y="194" width="375" height="118"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PAYMENT" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YiL-dE-4mq">
-                                                        <rect key="frame" x="15" y="20" width="60.5" height="14.5"/>
+                                                        <rect key="frame" x="15" y="20" width="61" height="15"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="20" id="lsP-OX-59Q"/>
                                                         </constraints>
