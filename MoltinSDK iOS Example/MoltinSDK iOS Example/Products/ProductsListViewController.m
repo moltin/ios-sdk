@@ -12,9 +12,12 @@
 
 static NSString *ProductCellIdentifier = @"MoltinProductCell";
 
-@interface ProductsListViewController ()
+@interface ProductsListViewController (){
+    BOOL isPageRefresing;
+}
 
-@property (strong, nonatomic) NSArray *products;
+@property (strong, nonatomic) NSMutableArray *products;
+@property (strong, nonatomic) NSNumber *paginationOffset;
 
 @end
 
@@ -51,23 +54,44 @@ static NSString *ProductCellIdentifier = @"MoltinProductCell";
 
 - (void)setCollectionId:(NSString *) collectionId{
     _collectionId = collectionId;
+    self.paginationOffset = [NSNumber numberWithInteger:0];
     if (!self.view){
         [self loadView];
     }
-    [self.activityIndicator startAnimating];
-    __weak ProductsListViewController *weakSelf = self;
     
-    [[Moltin sharedInstance].product listingWithParameters:@{@"collection" : _collectionId} success:^(NSDictionary *response) {
-        [weakSelf.activityIndicator stopAnimating];
-        weakSelf.products = [response objectForKey:@"result"];
-        if (weakSelf.products.count == 0) {
-            weakSelf.lbNoProducts.hidden = NO;
-        }
-        [weakSelf.tableView reloadData];
-    } failure:^(NSDictionary *response, NSError *error) {
-        [weakSelf.activityIndicator stopAnimating];
-        NSLog(@"Category listing ERROR!!! %@", error);
-    }];
+    self.products = [NSMutableArray array];
+    
+    [self loadProducts];
+}
+
+- (void)loadProducts{
+    
+    if (!isPageRefresing) {
+        isPageRefresing = YES;
+        [self.activityIndicator startAnimating];
+        __weak ProductsListViewController *weakSelf = self;
+        
+        [[Moltin sharedInstance].product listingWithParameters:@{@"collection" : _collectionId,
+                                                                 @"limit" : @15,
+                                                                 @"offset" : self.paginationOffset
+                                                                 }
+                                                       success:^(NSDictionary *response)
+         {
+             [weakSelf.activityIndicator stopAnimating];
+             [weakSelf.products addObjectsFromArray:[response objectForKey:@"result"]];
+             weakSelf.paginationOffset = [response valueForKeyPath:@"pagination.offsets.next"];
+             
+             if (weakSelf.products.count == 0) {
+                 weakSelf.lbNoProducts.hidden = NO;
+             }
+             [weakSelf.tableView reloadData];
+             isPageRefresing = NO;
+         } failure:^(NSDictionary *response, NSError *error) {
+             [weakSelf.activityIndicator stopAnimating];
+             NSLog(@"Category listing ERROR!!! %@", error);
+             isPageRefresing = NO;
+         }];
+    }
 }
 
 #pragma mark - TableView delegate
@@ -101,6 +125,17 @@ static NSString *ProductCellIdentifier = @"MoltinProductCell";
     
     ProductDetailsViewController *detailsViewController = [[ProductDetailsViewController alloc] initWithProductDictionary:product];
     [[MTSlideNavigationController sharedInstance] pushViewController:detailsViewController animated:YES];
+    
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    
+    if(self.tableView.contentOffset.y >= (self.tableView.contentSize.height - self.tableView.bounds.size.height)) {
+        if(isPageRefresing == NO && self.paginationOffset.integerValue != 0)
+        {
+            [self loadProducts];
+        }
+    }
     
 }
 
