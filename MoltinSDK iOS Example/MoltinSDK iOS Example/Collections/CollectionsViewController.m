@@ -42,8 +42,8 @@ static NSString *CellIdentifier = @"MoltinCollectionCell";
     
     [self.collectionView registerNib:[UINib nibWithNibName:@"CollectionListCell" bundle:nil] forCellWithReuseIdentifier:CellIdentifier];
 //    [self.collectionView registerClass:[CollectionViewCell class] forCellWithReuseIdentifier:CellIdentifier];
-    
-    [[Moltin sharedInstance] setPublicId:@"umRG34nxZVGIuCSPfYf8biBSvtABgTR8GMUtflyE"];
+    //umRG34nxZVGIuCSPfYf8biBSvtABgTR8GMUtflyE
+    [[Moltin sharedInstance] setPublicId:@"wf60kt82vtzkjIMslZ1FmDyV8WUWNQlLxUiRVLS4"];
     [[Moltin sharedInstance] setLoggingEnabled:YES];
     
     [self.activityIndicator startAnimating];

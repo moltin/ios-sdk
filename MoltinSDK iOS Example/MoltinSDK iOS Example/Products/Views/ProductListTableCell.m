@@ -24,6 +24,7 @@
 
 - (void)prepareForReuse{
     _productDict = nil;
+    self.productImageView.image = nil;
 }
 
 - (void)configureWithProductDict:(NSDictionary *) product

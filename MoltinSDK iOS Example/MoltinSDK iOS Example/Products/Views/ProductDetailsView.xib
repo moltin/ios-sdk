@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="Heuristica-Regular.otf">
@@ -19,6 +18,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProductDetailsViewController">
             <connections>
+                <outlet property="activityIndicatorImageView" destination="to2-20-83y" id="J9n-Uq-n1y"/>
                 <outlet property="btnAddToCart" destination="qt3-A0-s6c" id="yiK-2P-2ZS"/>
                 <outlet property="imageView" destination="WyS-9b-a0y" id="R9E-bw-mUM"/>
                 <outlet property="imagesScrollView" destination="bsc-ud-E5e" id="mWO-im-1Fn"/>
@@ -41,7 +41,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="COLLECTION TITLE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fo0-wq-RfD">
-                            <rect key="frame" x="8" y="405" width="112" height="20"/>
+                            <rect key="frame" x="8" y="405" width="109.5" height="20"/>
                             <constraints>
                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="5QU-J2-ZTF"/>
                                 <constraint firstAttribute="height" constant="20" id="XbX-mP-rod"/>
@@ -52,18 +52,22 @@
                         </label>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WyS-9b-a0y">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="320"/>
+                            <color key="backgroundColor" red="0.61960784310000006" green="0.47843137250000001" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="320" id="9UX-ah-XMF"/>
                             </constraints>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" misplaced="YES" text="PRODUCT TITLE" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NcG-HO-Z5j">
-                            <rect key="frame" x="8" y="435" width="225" height="29"/>
+                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="to2-20-83y">
+                            <rect key="frame" x="168" y="141" width="37" height="37"/>
+                        </activityIndicatorView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="PRODUCT TITLE" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NcG-HO-Z5j">
+                            <rect key="frame" x="8" y="435" width="184.5" height="28"/>
                             <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="24"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="$30" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FB8-1V-SBS">
-                            <rect key="frame" x="254" y="435" width="113" height="29"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" misplaced="YES" text="$30" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="FB8-1V-SBS">
+                            <rect key="frame" x="207" y="435" width="159.5" height="28"/>
                             <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="24"/>
                             <color key="textColor" red="0.54509803921568623" green="0.3843137254901961" blue="0.70980392156862748" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -75,13 +79,13 @@
                             </constraints>
                         </scrollView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="68g-mt-dLT">
-                            <rect key="frame" x="8" y="479" width="359" height="19.5"/>
+                            <rect key="frame" x="8" y="478" width="359" height="19"/>
                             <fontDescription key="fontDescription" name="Heuristica-Regular" family="Heuristica" pointSize="16"/>
                             <color key="textColor" red="0.61176470588235299" green="0.6588235294117647" blue="0.69019607843137254" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qt3-A0-s6c">
-                            <rect key="frame" x="47" y="553.5" width="280" height="40"/>
+                            <rect key="frame" x="47" y="552" width="280" height="40"/>
                             <state key="normal" image="btn-add-to-cart.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -90,7 +94,7 @@
                             </connections>
                         </button>
                         <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Fj-ii-XAH">
-                            <rect key="frame" x="8" y="503.5" width="359" height="20"/>
+                            <rect key="frame" x="8" y="502" width="359" height="20"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="20" id="lEC-F1-GKS"/>
@@ -106,18 +110,19 @@
                         <constraint firstAttribute="centerX" secondItem="WyS-9b-a0y" secondAttribute="centerX" id="AiY-Zm-OnN"/>
                         <constraint firstAttribute="trailing" secondItem="68g-mt-dLT" secondAttribute="trailing" constant="8" id="BhG-Xm-uRr"/>
                         <constraint firstItem="Fo0-wq-RfD" firstAttribute="top" secondItem="bsc-ud-E5e" secondAttribute="bottom" constant="10" id="DRa-66-czN"/>
-                        <constraint firstItem="FB8-1V-SBS" firstAttribute="width" secondItem="aQM-1w-UnW" secondAttribute="width" multiplier="0.3" id="Fdk-8i-dtV"/>
                         <constraint firstItem="68g-mt-dLT" firstAttribute="leading" secondItem="aQM-1w-UnW" secondAttribute="leading" constant="8" id="H4r-bh-gml"/>
                         <constraint firstAttribute="bottom" secondItem="qt3-A0-s6c" secondAttribute="bottom" constant="8" id="HE9-NE-nKn"/>
                         <constraint firstAttribute="trailing" secondItem="bsc-ud-E5e" secondAttribute="trailing" id="Hhs-rY-1cM"/>
                         <constraint firstItem="qt3-A0-s6c" firstAttribute="top" secondItem="0Fj-ii-XAH" secondAttribute="bottom" priority="750" constant="30" id="LBf-8i-eIJ"/>
+                        <constraint firstItem="WyS-9b-a0y" firstAttribute="centerY" secondItem="to2-20-83y" secondAttribute="centerY" id="NUa-hk-2Lw"/>
                         <constraint firstAttribute="trailing" secondItem="FB8-1V-SBS" secondAttribute="trailing" constant="8" id="OYO-gN-MQM"/>
                         <constraint firstItem="68g-mt-dLT" firstAttribute="top" secondItem="NcG-HO-Z5j" secondAttribute="bottom" constant="15" id="SW2-fJ-0PX"/>
+                        <constraint firstItem="WyS-9b-a0y" firstAttribute="centerX" secondItem="to2-20-83y" secondAttribute="centerX" constant="0.5" id="Tdb-ZK-mn2"/>
                         <constraint firstItem="0Fj-ii-XAH" firstAttribute="top" secondItem="68g-mt-dLT" secondAttribute="bottom" constant="5" id="Ukg-j0-svy"/>
                         <constraint firstItem="Fo0-wq-RfD" firstAttribute="leading" secondItem="aQM-1w-UnW" secondAttribute="leading" constant="8" id="Z6f-j8-RuU"/>
+                        <constraint firstItem="FB8-1V-SBS" firstAttribute="leading" secondItem="NcG-HO-Z5j" secondAttribute="trailing" constant="15" id="ath-CR-ie5"/>
                         <constraint firstItem="bsc-ud-E5e" firstAttribute="leading" secondItem="aQM-1w-UnW" secondAttribute="leading" id="bwz-On-wfF"/>
                         <constraint firstItem="bsc-ud-E5e" firstAttribute="width" secondItem="WyS-9b-a0y" secondAttribute="width" id="fqh-1U-CMW"/>
-                        <constraint firstItem="NcG-HO-Z5j" firstAttribute="width" secondItem="aQM-1w-UnW" secondAttribute="width" multiplier="0.6" id="g7K-2S-hEK"/>
                         <constraint firstItem="bsc-ud-E5e" firstAttribute="top" secondItem="WyS-9b-a0y" secondAttribute="bottom" id="k3b-zn-aBK"/>
                         <constraint firstItem="WyS-9b-a0y" firstAttribute="top" secondItem="aQM-1w-UnW" secondAttribute="top" id="kfp-el-shJ"/>
                         <constraint firstAttribute="width" constant="375" id="pww-1j-Mt3"/>

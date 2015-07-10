@@ -68,16 +68,25 @@ static NSString *ProductCellIdentifier = @"MoltinProductCell";
     
     if (!isPageRefresing) {
         isPageRefresing = YES;
-        [self.activityIndicator startAnimating];
+        
+        if (self.paginationOffset.integerValue == 0) {
+            [self.activityIndicator startAnimating];
+        }
+        else{
+            [self.activityIndicatorTableFooter startAnimating];
+        }
+        
+        
         __weak ProductsListViewController *weakSelf = self;
         
         [[Moltin sharedInstance].product listingWithParameters:@{@"collection" : _collectionId,
-                                                                 @"limit" : @15,
+                                                                 @"limit" : @10,
                                                                  @"offset" : self.paginationOffset
                                                                  }
                                                        success:^(NSDictionary *response)
          {
              [weakSelf.activityIndicator stopAnimating];
+             [weakSelf.activityIndicatorTableFooter stopAnimating];
              [weakSelf.products addObjectsFromArray:[response objectForKey:@"result"]];
              weakSelf.paginationOffset = [response valueForKeyPath:@"pagination.offsets.next"];
              
@@ -86,8 +95,11 @@ static NSString *ProductCellIdentifier = @"MoltinProductCell";
              }
              [weakSelf.tableView reloadData];
              isPageRefresing = NO;
+             
+             
          } failure:^(NSDictionary *response, NSError *error) {
              [weakSelf.activityIndicator stopAnimating];
+             [weakSelf.activityIndicatorTableFooter stopAnimating];
              NSLog(@"Category listing ERROR!!! %@", error);
              isPageRefresing = NO;
          }];
@@ -95,6 +107,11 @@ static NSString *ProductCellIdentifier = @"MoltinProductCell";
 }
 
 #pragma mark - TableView delegate
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 30;
+}
+
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 120;
@@ -117,6 +134,23 @@ static NSString *ProductCellIdentifier = @"MoltinProductCell";
     
     
     return cell;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    UIView *headerView = [[UIView alloc] init];
+    
+    [headerView setBackgroundColor:[UIColor clearColor]];
+    
+    self.activityIndicatorTableFooter = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    self.activityIndicatorTableFooter.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
+    self.activityIndicatorTableFooter.translatesAutoresizingMaskIntoConstraints = YES;
+    
+    self.activityIndicatorTableFooter.hidesWhenStopped = YES;
+    [headerView addSubview:self.activityIndicatorTableFooter];
+    
+    return headerView;
+    
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

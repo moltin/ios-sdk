@@ -20,6 +20,10 @@
     // Initialization code
 }
 
+- (void)prepareForReuse{
+    self.imgView.image = nil;
+}
+
 - (IBAction)btnMinusTap:(id)sender {
     NSInteger currentQuantity = self.lbQuantity.text.integerValue;
     self.lbQuantity.text = [NSString stringWithFormat:@"%ld", (currentQuantity-1)];
