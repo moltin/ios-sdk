@@ -38,7 +38,6 @@ static NSString *ReceiptProductCellIdentifier = @"MoltinReceiptProductCell";
     
     self.lbShippingCompany.text = [self.reciept valueForKeyPath:@"result.order.shipping.data.company"];
     self.lbShippingPrice.text = [self.reciept valueForKeyPath:@"result.order.shipping.data.price.data.formatted.with_tax"];
-    self.lbShippingAriveBy.text = [self.reciept valueForKeyPath:@"result.order.shipping.value"];
     
     self.lbAddressLine1.text = [self.reciept valueForKeyPath:@"result.order.bill_to.data.address_1"];
     self.lbAddressLine2.text = [self.reciept valueForKeyPath:@"result.order.bill_to.data.address_2"];
