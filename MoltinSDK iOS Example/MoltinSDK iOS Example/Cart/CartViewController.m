@@ -72,7 +72,6 @@ static NSString *CartCellIdentifier = @"MoltinCartCell";
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     __weak CartViewController *weakSelf = self;
     [[Moltin sharedInstance].cart getContentsWithsuccess:^(NSDictionary *response) {
-        NSLog(@"CART CONTENT: %@", response);
         _cartData = response;
         [weakSelf parseCartItems];
         weakSelf.lbTotalPrice.text = [_cartData valueForKeyPath:@"result.totals.post_discount.formatted.with_tax"];
@@ -143,12 +142,11 @@ static NSString *CartCellIdentifier = @"MoltinCartCell";
     [[Moltin sharedInstance].cart updateItemWithId:productId parameters:@{@"quantity" : quantity}
                                            success:^(NSDictionary *response){
                                                [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
-                                               NSLog(@"CHART UPDATE OK: %@", response);
                                                [weakSelf loadCart];
                                            }
                                            failure:^(NSDictionary *response, NSError *error) {
                                                [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
-                                               NSLog(@"ERROR: %@", error);
+                                               NSLog(@"ERROR CART UPDATE: %@", error);
                                                [weakSelf loadCart];
                                            }];
 }

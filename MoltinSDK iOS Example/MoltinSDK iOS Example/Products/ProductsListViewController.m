@@ -100,7 +100,7 @@ static NSString *ProductCellIdentifier = @"MoltinProductCell";
          } failure:^(NSDictionary *response, NSError *error) {
              [weakSelf.activityIndicator stopAnimating];
              [weakSelf.activityIndicatorTableFooter stopAnimating];
-             NSLog(@"Category listing ERROR!!! %@", error);
+             NSLog(@"ERROR PRODUCT listing: %@", error);
              isPageRefresing = NO;
          }];
     }

@@ -14,7 +14,7 @@ static NSString *CellIdentifier = @"MoltinCollectionCell";
 
 @interface CollectionsViewController ()
 
-@property (strong, nonatomic) NSArray *categories;
+@property (strong, nonatomic) NSArray *collections;
 
 @end
 
@@ -41,25 +41,23 @@ static NSString *CellIdentifier = @"MoltinCollectionCell";
     self.collectionView.collectionViewLayout = layout;
     
     [self.collectionView registerNib:[UINib nibWithNibName:@"CollectionListCell" bundle:nil] forCellWithReuseIdentifier:CellIdentifier];
-//    [self.collectionView registerClass:[CollectionViewCell class] forCellWithReuseIdentifier:CellIdentifier];
+
     //umRG34nxZVGIuCSPfYf8biBSvtABgTR8GMUtflyE
-    [[Moltin sharedInstance] setPublicId:@"wf60kt82vtzkjIMslZ1FmDyV8WUWNQlLxUiRVLS4"];
+    //wf60kt82vtzkjIMslZ1FmDyV8WUWNQlLxUiRVLS4 - winter summer
+    [[Moltin sharedInstance] setPublicId:@"umRG34nxZVGIuCSPfYf8biBSvtABgTR8GMUtflyE"];
     [[Moltin sharedInstance] setLoggingEnabled:YES];
     
     [self.activityIndicator startAnimating];
     __weak CollectionsViewController *weakSelf = self;
     [[Moltin sharedInstance].collection listingWithParameters:@{@"status" : @1} success:^(NSDictionary *response) {
         [weakSelf.activityIndicator stopAnimating];
-        weakSelf.categories = [response objectForKey:@"result"];
-        weakSelf.pageControl.numberOfPages = weakSelf.categories.count;
+        weakSelf.collections = [response objectForKey:@"result"];
+        weakSelf.pageControl.numberOfPages = weakSelf.collections.count;
         [weakSelf.collectionView reloadData];
-        
-//        NSString *imageUrl = @"";
-//        NSArray *images = [dictionary objectForKey:@"images"];
         
         NSMutableArray *imageUrls = [NSMutableArray array];
         
-        NSArray *allImages = [self.categories valueForKeyPath:@"images.url.http"];
+        NSArray *allImages = [self.collections valueForKeyPath:@"images.url.http"];
         for (NSArray *collectionImages in allImages) {
             [imageUrls addObjectsFromArray:collectionImages];
         }
@@ -67,7 +65,7 @@ static NSString *CellIdentifier = @"MoltinCollectionCell";
         
     } failure:^(NSDictionary *response, NSError *error) {
         [weakSelf.activityIndicator stopAnimating];
-        NSLog(@"Category listing ERROR!!! %@", error);
+        NSLog(@"ERROR COLLECTION LISTING %@", error);
     }];
 }
 
@@ -79,7 +77,7 @@ static NSString *CellIdentifier = @"MoltinCollectionCell";
 #pragma mark - CollectionView delegate
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return self.categories.count;
+    return self.collections.count;
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -89,7 +87,7 @@ static NSString *CellIdentifier = @"MoltinCollectionCell";
         cell = [[CollectionListCell alloc] init];
     }
     
-    NSDictionary *category = [self.categories objectAtIndex:indexPath.row];
+    NSDictionary *category = [self.collections objectAtIndex:indexPath.row];
     [cell configureWithCollectionDict:category];
     cell.delegate = self;
     

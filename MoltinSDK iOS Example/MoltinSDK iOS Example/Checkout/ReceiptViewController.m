@@ -48,10 +48,11 @@ static NSString *ReceiptProductCellIdentifier = @"MoltinReceiptProductCell";
     
     double shipping = [[self.reciept valueForKeyPath:@"result.order.shipping_price"] doubleValue];
     double total = [[self.reciept valueForKeyPath:@"result.order.total"] doubleValue];
+    double subtotal = [[self.reciept valueForKeyPath:@"result.order.subtotal"] doubleValue];
     
     NSString *currencyFormat = [self.reciept valueForKeyPath:@"result.order.currency.data.format"];
     
-    self.lbPaymentSubtotal.text = [currencyFormat stringByReplacingOccurrencesOfString:@"{price}" withString:[NSString stringWithFormat:@"%.2f", (total-shipping)]];
+    self.lbPaymentSubtotal.text = [currencyFormat stringByReplacingOccurrencesOfString:@"{price}" withString:[NSString stringWithFormat:@"%.2f", subtotal]];
     
     self.lbPaymentDelivery.text = [currencyFormat stringByReplacingOccurrencesOfString:@"{price}" withString:[NSString stringWithFormat:@"%.2f", shipping]];
     
