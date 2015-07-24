@@ -151,7 +151,7 @@
     
     
     for (NSDictionary *image in tmpImages) {
-        NSString *imageUrl = [image valueForKeyPath:@"url.http"];
+        NSString *imageUrl = [image valueForKeyPath:@"url.https"];
         [self.images addObject:imageUrl];
     }
     if (self.images.count > 0) {

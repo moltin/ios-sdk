@@ -57,7 +57,7 @@ static NSString *CellIdentifier = @"MoltinCollectionCell";
         
         NSMutableArray *imageUrls = [NSMutableArray array];
         
-        NSArray *allImages = [self.collections valueForKeyPath:@"images.url.http"];
+        NSArray *allImages = [self.collections valueForKeyPath:@"images.url.https"];
         for (NSArray *collectionImages in allImages) {
             [imageUrls addObjectsFromArray:collectionImages];
         }

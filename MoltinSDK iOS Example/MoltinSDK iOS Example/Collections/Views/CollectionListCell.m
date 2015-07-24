@@ -43,7 +43,7 @@
         NSArray *images = [dictionary objectForKey:@"images"];
         
         if (images && images.count > 0) {
-            imageUrl = [[images objectAtIndex:0] valueForKeyPath:@"url.http"];
+            imageUrl = [[images objectAtIndex:0] valueForKeyPath:@"url.https"];
         }
         
         [self.imageView sd_setImageWithURL:[NSURL URLWithString:imageUrl]];

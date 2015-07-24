@@ -37,7 +37,7 @@
     
     
     for (NSDictionary *image in tmpImages) {
-        NSString *imageUrl = [image valueForKeyPath:@"url.http"];
+        NSString *imageUrl = [image valueForKeyPath:@"url.https"];
         [self.productImageView sd_setImageWithURL:[NSURL URLWithString:imageUrl]];
         break;
     }
