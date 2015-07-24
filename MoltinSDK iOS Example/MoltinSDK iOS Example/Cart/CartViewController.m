@@ -57,6 +57,10 @@ static NSString *CartCellIdentifier = @"MoltinCartCell";
     
     self.view.backgroundColor = MOLTIN_DARK_BACKGROUND_COLOR;
     [self.tableView registerNib:[UINib nibWithNibName:@"CartListCell" bundle:nil] forCellReuseIdentifier:CartCellIdentifier];
+    
+    self.tableView.allowsMultipleSelectionDuringEditing = NO;
+
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -96,6 +100,7 @@ static NSString *CartCellIdentifier = @"MoltinCartCell";
     
     self.btnCheckout.enabled = self.lbNoProductsInCart.hidden;
     [self.tableView reloadData];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -139,6 +144,9 @@ static NSString *CartCellIdentifier = @"MoltinCartCell";
     __weak CartViewController *weakSelf = self;
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
+    
+    // if quantity is zero, the Moltin API automagically knows to remove the item from the cart
+    // update to new quantity value...
     [[Moltin sharedInstance].cart updateItemWithId:productId parameters:@{@"quantity" : quantity}
                                            success:^(NSDictionary *response){
                                                [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
@@ -149,6 +157,40 @@ static NSString *CartCellIdentifier = @"MoltinCartCell";
                                                NSLog(@"ERROR CART UPDATE: %@", error);
                                                [weakSelf loadCart];
                                            }];
+    
+}
+
+// Override to support conditional editing of the table view.
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Return YES if you want the specified item to be editable.
+    return YES;
+}
+
+// Override to support editing the table view.
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        // remove item at indexPath.row from the cart...
+        NSString *productIdString = [[self.cartItems objectAtIndex:indexPath.row] objectForKey:@"id"];
+        
+        // weakSelf allows us to refer to self safely inside of the completion handler blocks.
+        __weak CartViewController *weakSelf = self;
+        
+        // show some loading UI...
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        
+        // now remove it...
+        [[Moltin sharedInstance].cart removeItemWithId:productIdString success:^(NSDictionary *response) {
+            // hide loading dialog and refresh...
+            [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
+            [weakSelf loadCart];
+        } failure:^(NSDictionary *response, NSError *error) {
+            // log error, hide loading dialog, refresh...
+            [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
+            NSLog(@"ERROR CART UPDATE: %@", error);
+            [weakSelf loadCart];
+        }];
+        
+    }
 }
 
 @end
