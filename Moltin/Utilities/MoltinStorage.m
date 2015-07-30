@@ -11,40 +11,46 @@
 
 @implementation MoltinStorage
 
+NSString * const kMoltinStorageCurrencyKey = @"com.moltin.mcurrency";
+NSString * const kMoltinStorageCartKey = @"com.moltin.mcart";
+NSString * const kMoltinStorageTokenKey = @"com.moltin.mtoken";
+NSString * const kMoltinStorageExpirationKey = @"com.moltin.mexpires";
+
+
 + (NSString *)getCurrencyId{
-    return [self getStringForKey:@"mcurrency"];
+    return [self getStringForKey:kMoltinStorageCurrencyKey];
 }
 + (void)setCurrencyId:(NSString *) currencyId{
-    [self setString:currencyId forKey:@"mcurrency"];
+    [self setString:currencyId forKey:kMoltinStorageCurrencyKey];
 }
 
 + (NSString *)getCartId{
-    return [self getStringForKey:@"mcart"];
+    return [self getStringForKey:kMoltinStorageCartKey];
 }
 + (void)setCartId:(NSString *) cartId
 {
-    [self setString:cartId forKey:@"mcart"];
+    [self setString:cartId forKey:kMoltinStorageCartKey];
 }
 
 
 + (void)setToken:(NSString *)accessToken{
-    [self setString:accessToken forKey:@"mtoken"];
+    [self setString:accessToken forKey:kMoltinStorageTokenKey];
 }
 
 + (NSString *)getToken{
-    return [self getStringForKey:@"mtoken"];
+    return [self getStringForKey:kMoltinStorageTokenKey];
 }
 
 + (void)setTokenExpiration:(NSInteger)expiresIn{
     
     NSDate *expireDate = [NSDate dateWithTimeIntervalSinceNow:expiresIn];
     
-    [self setDouble:[expireDate timeIntervalSinceReferenceDate] forKey:@"mexpires"];
+    [self setDouble:[expireDate timeIntervalSinceReferenceDate] forKey:kMoltinStorageExpirationKey];
 }
 
 + (BOOL)isTokenExpired{
     
-    double expiresTimeInterval = [self getDoubleForKey:@"mexpires"];
+    double expiresTimeInterval = [self getDoubleForKey:kMoltinStorageExpirationKey];
     
     double currentTimeInterval = [[NSDate date] timeIntervalSinceReferenceDate];
     

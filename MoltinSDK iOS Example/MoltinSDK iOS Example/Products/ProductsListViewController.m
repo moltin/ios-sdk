@@ -80,7 +80,7 @@ static NSString *ProductCellIdentifier = @"MoltinProductCell";
         __weak ProductsListViewController *weakSelf = self;
         
         [[Moltin sharedInstance].product listingWithParameters:@{@"collection" : _collectionId,
-                                                                 @"limit" : @1,
+                                                                 @"limit" : @10,
                                                                  @"offset" : self.paginationOffset
                                                                  }
                                                        success:^(NSDictionary *response)
