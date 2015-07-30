@@ -49,7 +49,10 @@ static NSString *CellIdentifier = @"MoltinCollectionCell";
     
     [self.activityIndicator startAnimating];
     __weak CollectionsViewController *weakSelf = self;
-    [[Moltin sharedInstance].collection listingWithParameters:@{@"status" : @1} success:^(NSDictionary *response) {
+    
+    // Collection limit is 20 because that's the reasonable number of collections to have - you can increase if you wish but they'll likely fall off the page control component at the bottom, and possibly use lots of memory.
+    
+    [[Moltin sharedInstance].collection listingWithParameters:@{@"status" : @1, @"limit": @20} success:^(NSDictionary *response) {
         [weakSelf.activityIndicator stopAnimating];
         weakSelf.collections = [response objectForKey:@"result"];
         weakSelf.pageControl.numberOfPages = weakSelf.collections.count;

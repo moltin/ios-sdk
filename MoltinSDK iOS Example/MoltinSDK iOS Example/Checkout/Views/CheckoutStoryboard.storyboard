@@ -340,14 +340,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="next"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="CVC/CVV" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kOq-al-QyK" customClass="MTTextField">
-                                <rect key="frame" x="10" y="184" width="168" height="45"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="aE3-qq-eE2"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u4e-Gq-yVa">
                                 <rect key="frame" x="70" y="612" width="235" height="40"/>
                                 <state key="normal" image="btn-checkout.png">
@@ -357,6 +349,14 @@
                                     <action selector="btnCheckoutTap:" destination="zR9-sK-RDz" eventType="touchUpInside" id="Y3Z-Og-Jl9"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="CVC/CVV" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kOq-al-QyK" customClass="MTTextField">
+                                <rect key="frame" x="10" y="182" width="168" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="aE3-qq-eE2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.1764705882" green="0.22352941179999999" blue="0.25490196079999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
