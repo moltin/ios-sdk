@@ -28,6 +28,7 @@
 #define kMoltinBillingEmailStorageKey           @"com.moltin.billing.email"
 #define kMoltinBillingAddressStorageKey         @"com.moltin.billing.address"
 #define kMoltinShippingAddressStorageKey        @"com.moltin.shipping.address"
+#define kMoltinSameShippingAndBillingKey        @"com.moltin.use_billing_address_as_shipping_address"
 
 #define RGB(r, g, b) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1]
 #define RGBA(r, g, b, a) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]

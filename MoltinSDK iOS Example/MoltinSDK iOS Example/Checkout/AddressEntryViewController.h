@@ -22,9 +22,9 @@
 @property (weak, nonatomic) IBOutlet MTTextField *tfState;
 @property (weak, nonatomic) IBOutlet MTTextField *tfZip;
 @property (weak, nonatomic) IBOutlet MTTextField *tfCountry;
-@property (weak, nonatomic) IBOutlet UIButton *btnSameAddress;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *btnSameAddressHeightConstraint;
 @property (weak, nonatomic) IBOutlet UIButton *btnNext;
+
+@property (weak, nonatomic) IBOutlet UISwitch *sameAddress;
 
 @property (nonatomic) BOOL shippingAddressEntry;
 

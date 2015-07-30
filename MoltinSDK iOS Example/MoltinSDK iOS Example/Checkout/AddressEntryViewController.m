@@ -29,9 +29,7 @@
         self.tfEmail.hidden = YES;
         self.tfEmailHeightConstraint.constant = 0;
         
-        self.btnSameAddress.selected = NO;
-        self.btnSameAddress.hidden = YES;
-        self.btnSameAddressHeightConstraint.constant = 0;
+        
     }
     else{
         self.title = @"Billing address";
@@ -53,7 +51,6 @@
     }
     
     
-    [self.btnSameAddress setSelected:YES];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillShow:)
@@ -73,6 +70,34 @@
     [self.tfCountry setDoneInputAccessoryView];
     
     self.tfCountry.userInteractionEnabled = NO;
+    
+
+    if (self.shippingAddressEntry) {
+        self.sameAddress.hidden = YES;
+    } else {
+        self.sameAddress.on = [[NSUserDefaults standardUserDefaults] boolForKey:kMoltinSameShippingAndBillingKey];
+    }
+    
+    // set any saved fields up too...
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:kMoltinBillingEmailStorageKey]) {
+        self.tfEmail.text = [[NSUserDefaults standardUserDefaults] objectForKey:kMoltinBillingEmailStorageKey];
+    }
+    
+    NSString *addressKey;
+    if (self.shippingAddressEntry) {
+        // get saved shipping address and set fields...
+        addressKey = kMoltinShippingAddressStorageKey;
+    } else {
+        // get saved billing address
+        addressKey = kMoltinBillingAddressStorageKey;
+    }
+    
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:addressKey]) {
+        // okay, retrieve it and fill in text fields form retrieved data...
+        NSDictionary *addressDict = [[NSUserDefaults standardUserDefaults] dictionaryForKey:addressKey];
+        
+        [self setAddressDict:addressDict];
+    }
     
     [[Moltin sharedInstance].address fieldsWithCustomerId:@""
                                              andAddressId:@""
@@ -107,10 +132,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)btnSameAddressTap:(UIButton *)sender {
-    [sender setSelected:!sender.selected];
-}
-
 - (IBAction)btnCancelTap:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -131,14 +152,18 @@
     if (validInput) {
         NSDictionary *addressDict = [self getAddressDict];
         
-        if (self.btnSameAddress.selected) {
+        if (self.sameAddress.isOn) {
             [[NSUserDefaults standardUserDefaults] setObject:addressDict forKey:kMoltinBillingAddressStorageKey];
             [[NSUserDefaults standardUserDefaults] setObject:self.tfEmail.text forKey:kMoltinBillingEmailStorageKey];
             [[NSUserDefaults standardUserDefaults] setObject:addressDict forKey:kMoltinShippingAddressStorageKey];
             
+            [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kMoltinSameShippingAndBillingKey];
+            
             [self performSegueWithIdentifier:@"shippingMethodSegue" sender:self];
         }
         else{
+            [[NSUserDefaults standardUserDefaults] setBool:NO forKey:kMoltinSameShippingAndBillingKey];
+            
             if (self.shippingAddressEntry) {
                 [[NSUserDefaults standardUserDefaults] setObject:addressDict forKey:kMoltinShippingAddressStorageKey];
             }
@@ -174,6 +199,37 @@
              @"postcode"    : self.tfZip.text,
              };
 }
+
+-(void)setAddressDict:(NSDictionary*)addressDict {
+    // disassemble dict...
+    
+    // if address 2 exists, seperate by comma - if there's > 1 comma, the last will be the state, and the next-but-last the city.
+    NSArray *address2Components = [addressDict[@"address_2"] componentsSeparatedByString:@","];
+
+    if (address2Components) {
+        // last object is state...
+        self.tfState.text = [address2Components lastObject];
+        
+        // second to last object is city...
+        self.tfCity.text = [address2Components objectAtIndex:(address2Components.count - 2)];
+        
+        if (address2Components.count > 2) {
+            // address2 exists too...
+            self.tfAddress2.text = [address2Components firstObject];
+        }
+        
+    }
+    
+    // set other fields too...
+    self.tfFirstName.text = addressDict[@"first_name"];
+    self.tfLastName.text = addressDict[@"last_name"];
+    self.tfAddress1.text = addressDict[@"address_1"];
+    //self.tfAddress2.text = addressDict[@"address_2"];
+    self.tfCountry.text = addressDict[@"country"];
+    self.tfZip.text = addressDict[@"postcode"];
+    
+}
+
 
 #pragma makr - PickerView
 -(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{

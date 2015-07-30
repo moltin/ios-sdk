@@ -23,10 +23,10 @@
             <string>Montserrat-Bold</string>
             <string>Montserrat-Bold</string>
             <string>Montserrat-Bold</string>
-            <string>Montserrat-Bold</string>
-            <string>Montserrat-Bold</string>
         </mutableArray>
         <mutableArray key="Montserrat-Regular.otf">
+            <string>Montserrat-Regular</string>
+            <string>Montserrat-Regular</string>
             <string>Montserrat-Regular</string>
         </mutableArray>
     </customFonts>
@@ -71,7 +71,7 @@
                                         <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Zr-RZ-bRf" customClass="MTTextField">
-                                        <rect key="frame" x="10" y="65" width="169" height="45"/>
+                                        <rect key="frame" x="10" y="65" width="168.5" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="mDI-VM-ZfP"/>
                                         </constraints>
@@ -79,7 +79,7 @@
                                         <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lls-Dg-mhc" customClass="MTTextField">
-                                        <rect key="frame" x="198" y="65" width="169" height="45"/>
+                                        <rect key="frame" x="198" y="65" width="168.5" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="Dm5-cc-bTb"/>
                                         </constraints>
@@ -103,7 +103,7 @@
                                         <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="City" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KhV-go-Gtp" customClass="MTTextField">
-                                        <rect key="frame" x="10" y="230" width="169" height="45"/>
+                                        <rect key="frame" x="10" y="230" width="168.5" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="Xpo-bv-APP"/>
                                         </constraints>
@@ -111,7 +111,7 @@
                                         <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="State" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="555-Df-aMb" customClass="MTTextField">
-                                        <rect key="frame" x="198" y="230" width="169" height="45"/>
+                                        <rect key="frame" x="198" y="230" width="168.5" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="ZY4-Tj-V7p"/>
                                         </constraints>
@@ -119,7 +119,7 @@
                                         <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="ZIP" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e4D-3I-HF1" customClass="MTTextField">
-                                        <rect key="frame" x="10" y="285" width="169" height="45"/>
+                                        <rect key="frame" x="10" y="285" width="168.5" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="KuT-jQ-7gg"/>
                                         </constraints>
@@ -127,30 +127,13 @@
                                         <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Country" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RxU-BN-R7f" customClass="MTTextField">
-                                        <rect key="frame" x="198" y="285" width="169" height="45"/>
+                                        <rect key="frame" x="198" y="285" width="168.5" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="7yG-qe-ldu"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ps6-g1-Klp">
-                                        <rect key="frame" x="10" y="340" width="275" height="20"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="275" id="hgZ-7d-gaB"/>
-                                            <constraint firstAttribute="height" constant="20" id="pCa-Fc-rc5"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="12"/>
-                                        <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        <state key="normal" title="Billing address same as shipping address" image="checkbox-unchecked.png">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="selected" image="checkbox-checked.png"/>
-                                        <connections>
-                                            <action selector="btnSameAddressTap:" destination="7UH-zX-RSG" eventType="touchUpInside" id="fnA-l9-5ke"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vjr-eK-0CB">
                                         <rect key="frame" x="50" y="390" width="275" height="40"/>
                                         <constraints>
@@ -164,16 +147,30 @@
                                             <action selector="btnNextTap:" destination="7UH-zX-RSG" eventType="touchUpInside" id="osu-fM-qGM"/>
                                         </connections>
                                     </button>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tRd-0i-ypZ">
+                                        <rect key="frame" x="14" y="338" width="51" height="31"/>
+                                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="onTintColor" red="0.54509803921568623" green="0.3843137254901961" blue="0.70980392156862748" alpha="1" colorSpace="calibratedRGB"/>
+                                    </switch>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Shipping address same as billing address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Sf-mn-gaC">
+                                        <rect key="frame" x="71" y="343" width="289" height="21"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="14"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="UEh-U0-1LA" firstAttribute="leading" secondItem="Sdn-RV-n6K" secondAttribute="leading" constant="10" id="6ER-Yy-KZg"/>
                                     <constraint firstItem="6Zr-RZ-bRf" firstAttribute="top" secondItem="lls-Dg-mhc" secondAttribute="top" id="6he-Bs-hAz"/>
                                     <constraint firstAttribute="trailing" secondItem="lls-Dg-mhc" secondAttribute="trailing" constant="8" id="Dpr-Ta-c65"/>
+                                    <constraint firstItem="8Sf-mn-gaC" firstAttribute="top" secondItem="e4D-3I-HF1" secondAttribute="bottom" constant="13" id="F0w-kB-Wx8"/>
                                     <constraint firstAttribute="trailing" secondItem="VmK-57-elV" secondAttribute="trailing" constant="10" id="GOm-JV-ePr"/>
                                     <constraint firstItem="KhV-go-Gtp" firstAttribute="width" secondItem="555-Df-aMb" secondAttribute="width" id="JBS-UK-TCP"/>
                                     <constraint firstItem="VmK-57-elV" firstAttribute="top" secondItem="UEh-U0-1LA" secondAttribute="bottom" constant="10" id="JiQ-ZG-A5B"/>
+                                    <constraint firstItem="tRd-0i-ypZ" firstAttribute="top" secondItem="e4D-3I-HF1" secondAttribute="bottom" constant="8" id="KKb-qU-idG"/>
+                                    <constraint firstItem="8Sf-mn-gaC" firstAttribute="leading" secondItem="tRd-0i-ypZ" secondAttribute="trailing" constant="8" id="LmC-pT-AyQ"/>
                                     <constraint firstAttribute="trailing" secondItem="ybS-ML-sth" secondAttribute="trailing" constant="10" id="NIC-9c-Y3H"/>
-                                    <constraint firstItem="ps6-g1-Klp" firstAttribute="top" secondItem="e4D-3I-HF1" secondAttribute="bottom" constant="10" id="Ng2-dl-moD"/>
+                                    <constraint firstItem="vjr-eK-0CB" firstAttribute="top" secondItem="8Sf-mn-gaC" secondAttribute="bottom" constant="26" id="NNO-1X-tdm"/>
                                     <constraint firstAttribute="trailing" secondItem="UEh-U0-1LA" secondAttribute="trailing" constant="10" id="P2b-hM-ioG"/>
                                     <constraint firstItem="KhV-go-Gtp" firstAttribute="top" secondItem="VmK-57-elV" secondAttribute="bottom" constant="10" id="SXO-OV-Mok"/>
                                     <constraint firstItem="6Zr-RZ-bRf" firstAttribute="top" secondItem="ybS-ML-sth" secondAttribute="bottom" constant="10" id="Sjl-Rf-Gbu"/>
@@ -182,16 +179,16 @@
                                     <constraint firstItem="555-Df-aMb" firstAttribute="leading" secondItem="KhV-go-Gtp" secondAttribute="trailing" constant="20" id="VBD-vo-oQD"/>
                                     <constraint firstItem="RxU-BN-R7f" firstAttribute="leading" secondItem="e4D-3I-HF1" secondAttribute="trailing" constant="20" id="Vgk-Xf-CLw"/>
                                     <constraint firstItem="e4D-3I-HF1" firstAttribute="width" secondItem="RxU-BN-R7f" secondAttribute="width" id="XTg-dK-Aul"/>
+                                    <constraint firstItem="tRd-0i-ypZ" firstAttribute="leading" secondItem="Sdn-RV-n6K" secondAttribute="leading" constant="14" id="cLU-9O-hsY"/>
                                     <constraint firstAttribute="width" secondItem="ybS-ML-sth" secondAttribute="width" constant="20" id="ccy-5Q-8Pp"/>
                                     <constraint firstAttribute="centerX" secondItem="vjr-eK-0CB" secondAttribute="centerX" id="ghk-1A-Cmb"/>
                                     <constraint firstItem="KhV-go-Gtp" firstAttribute="leading" secondItem="Sdn-RV-n6K" secondAttribute="leading" constant="10" id="hex-WG-tBv"/>
-                                    <constraint firstItem="ps6-g1-Klp" firstAttribute="leading" secondItem="Sdn-RV-n6K" secondAttribute="leading" constant="10" id="iwk-dY-fIe"/>
                                     <constraint firstItem="e4D-3I-HF1" firstAttribute="top" secondItem="KhV-go-Gtp" secondAttribute="bottom" constant="10" id="kug-Hs-I1y"/>
+                                    <constraint firstItem="vjr-eK-0CB" firstAttribute="top" secondItem="tRd-0i-ypZ" secondAttribute="bottom" constant="21" id="lF8-8B-7jx"/>
                                     <constraint firstAttribute="trailing" secondItem="555-Df-aMb" secondAttribute="trailing" constant="8" id="mog-zH-TJb"/>
                                     <constraint firstItem="ybS-ML-sth" firstAttribute="leading" secondItem="Sdn-RV-n6K" secondAttribute="leading" constant="10" id="nLx-G0-BEK"/>
                                     <constraint firstItem="e4D-3I-HF1" firstAttribute="leading" secondItem="Sdn-RV-n6K" secondAttribute="leading" constant="10" id="nch-oA-b1H"/>
                                     <constraint firstAttribute="bottom" secondItem="vjr-eK-0CB" secondAttribute="bottom" constant="10" id="ngP-TS-Qj0"/>
-                                    <constraint firstItem="vjr-eK-0CB" firstAttribute="top" secondItem="ps6-g1-Klp" secondAttribute="bottom" constant="30" id="rPC-BD-D7N"/>
                                     <constraint firstItem="ybS-ML-sth" firstAttribute="top" secondItem="Sdn-RV-n6K" secondAttribute="top" constant="10" id="shu-zs-tTN"/>
                                     <constraint firstItem="6Zr-RZ-bRf" firstAttribute="width" secondItem="lls-Dg-mhc" secondAttribute="width" id="tLM-Hu-bXC"/>
                                     <constraint firstItem="KhV-go-Gtp" firstAttribute="top" secondItem="555-Df-aMb" secondAttribute="top" id="th7-t0-ANs"/>
@@ -215,8 +212,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="btnNext" destination="vjr-eK-0CB" id="4GU-Ic-SVg"/>
-                        <outlet property="btnSameAddress" destination="ps6-g1-Klp" id="ayT-ea-4GD"/>
-                        <outlet property="btnSameAddressHeightConstraint" destination="pCa-Fc-rc5" id="NKx-jQ-rQw"/>
+                        <outlet property="sameAddress" destination="tRd-0i-ypZ" id="fMp-oh-dwc"/>
                         <outlet property="scrollView" destination="Sdn-RV-n6K" id="e2n-Y8-WIW"/>
                         <outlet property="tfAddress1" destination="UEh-U0-1LA" id="mH5-KM-rbg"/>
                         <outlet property="tfAddress2" destination="VmK-57-elV" id="3eq-P8-IxB"/>
@@ -259,13 +255,13 @@
                                     <segue destination="zR9-sK-RDz" kind="show" identifier="creditCardSegue" id="FVR-nL-Nd1"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="TOTAL PRICE" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="po9-3I-Lhx">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="TOTAL" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="po9-3I-Lhx">
                                 <rect key="frame" x="10" y="577" width="190" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="L4d-yu-qmd"/>
                                     <constraint firstAttribute="width" constant="190" id="PW2-01-sSY"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </label>
@@ -274,7 +270,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="cCn-Z4-pR8"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="20"/>
                                 <color key="textColor" red="0.5450980392" green="0.38431372549999998" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -716,7 +712,5 @@
     <resources>
         <image name="btn-checkout.png" width="235" height="40"/>
         <image name="btn-next.png" width="275" height="40"/>
-        <image name="checkbox-checked.png" width="20" height="20"/>
-        <image name="checkbox-unchecked.png" width="20" height="20"/>
     </resources>
 </document>
