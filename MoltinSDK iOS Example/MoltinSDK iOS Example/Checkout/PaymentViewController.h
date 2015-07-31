@@ -12,11 +12,13 @@
 @interface PaymentViewController : UIViewController<UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet MTTextField *tfCardNumber;
-@property (weak, nonatomic) IBOutlet MTTextField *tfExpiryMonth;
-@property (weak, nonatomic) IBOutlet MTTextField *tfExpiryYear;
+@property (weak, nonatomic) IBOutlet MTTextField *tfExpiryDate;
 @property (weak, nonatomic) IBOutlet MTTextField *tfCvv;
 
 @property (strong, nonatomic) NSString *shippingMethodSlug;
 
 - (IBAction)btnCheckoutTap:(id)sender;
+- (IBAction)cvvValueChanged:(id)sender;
+- (IBAction)cardNumberValueChanged:(id)sender;
+
 @end

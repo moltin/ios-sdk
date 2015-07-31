@@ -13,14 +13,22 @@
 static NSString *PAYMENT_GATEWAY = @"stripe";
 static NSString *PAYMENT_METHOD  = @"purchase";
 
+static NSInteger MAX_CVV_LENGTH = 4;
+
+// apparently, no credit cards have under 12 or over 19 digits... http://validcreditcardnumbers.info/?p=9
+static NSInteger MIN_CARD_LENGTH = 12;
+static NSInteger MAX_CARD_LENGTH = 19;
+
+
 @interface PaymentViewController ()
 
 @property (strong, nonatomic) MBProgressHUD *progressHUD;
 @property (strong, nonatomic) NSString *customerId;
 @property (strong, nonatomic) NSString *orderId;
 
-@property (strong, nonatomic) UIPickerView *expiryMonthPicker;
-@property (strong, nonatomic) UIPickerView *expiryYearPicker;
+@property (strong, nonatomic) UIPickerView *expiryDatePicker;
+
+@property (nonatomic) NSArray *months;
 
 @property (nonatomic) NSInteger minYear;
 @property (nonatomic) NSInteger month;
@@ -35,24 +43,25 @@ static NSString *PAYMENT_METHOD  = @"purchase";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    NSMutableArray *months = [NSMutableArray array];
+    for (NSUInteger i = 1; i <= 12; i++) {
+        [months addObject:[NSString stringWithFormat:@"%lu", (unsigned long)i]];
+    }
+    self.months = months;
+    
     NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitYear fromDate:[NSDate date]];
     self.minYear = [components year];
     self.year = self.minYear;
-    self.month = 0;
+    self.month = 1;
     
     self.title = @"Payment";
     
-    self.expiryMonthPicker = [[UIPickerView alloc] init];
-    self.expiryMonthPicker.delegate = self;
-    self.expiryMonthPicker.dataSource = self;
-    [self.tfExpiryMonth setInputView:self.expiryMonthPicker];
-    [self.tfExpiryMonth setDoneInputAccessoryView];
+    self.expiryDatePicker = [[UIPickerView alloc] init];
+    self.expiryDatePicker.delegate = self;
+    self.expiryDatePicker.dataSource = self;
+    [self.tfExpiryDate setInputView:self.expiryDatePicker];
+    [self.tfExpiryDate setDoneInputAccessoryView];
     
-    self.expiryYearPicker = [[UIPickerView alloc] init];
-    self.expiryYearPicker.delegate = self;
-    self.expiryYearPicker.dataSource = self;
-    [self.tfExpiryYear setInputView:self.expiryYearPicker];
-    [self.tfExpiryYear setDoneInputAccessoryView];
     
     NSInteger tag = 0;
     for (MTTextField *textField in self.view.subviews) {
@@ -101,24 +110,19 @@ static NSString *PAYMENT_METHOD  = @"purchase";
 }
 
 -(void)textFieldDidBeginEditing:(UITextField *)textField{
-    if (textField == self.tfExpiryMonth && self.tfExpiryMonth.text.length == 0) {
-        self.tfExpiryMonth.text = @"1";
-    }
-    else if (textField == self.tfExpiryYear && self.tfExpiryYear.text.length == 0) {
-        self.tfExpiryYear.text = [NSString stringWithFormat:@"%ld", (long)self.minYear];
-    }
+    
 }
 
 #pragma mark - PickerView
 -(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
-    return 1;
+    return 2;
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-    if (pickerView == self.expiryMonthPicker) {
-        return 12;
+    if (component == 0) {
+        return self.months.count;
     }
-    else if (pickerView == self.expiryYearPicker)
+    else
     {
         return 10;
     }
@@ -127,22 +131,76 @@ static NSString *PAYMENT_METHOD  = @"purchase";
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    if (pickerView == self.expiryYearPicker){
-        return [NSString stringWithFormat:@"%ld", self.minYear + (long)row];
+    if (component == 0){
+        return [self.months objectAtIndex:row];
     }
-    return [NSString stringWithFormat:@"%ld", (long)row+1];
+    
+    return [[NSString stringWithFormat:@"%ld", self.minYear + (long)row] substringFromIndex:2];
+    
 }
 
--(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
-{
-    if (pickerView == self.expiryMonthPicker) {
-        self.tfExpiryMonth.text = [self pickerView:pickerView titleForRow:row forComponent:component];
+-(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+
+    NSString *dateString;
+    if (component == 0) {
+        // month selected
+        self.month = (row + 1);
+        
+        dateString = [NSString stringWithFormat:@"%@/%ld", [self pickerView:pickerView titleForRow:row forComponent:component], self.year];
+    } else {
+        // year selected
+        self.year = (self.minYear + row);
+        
+        dateString = [NSString stringWithFormat:@"%ld/%@", self.month, [self pickerView:pickerView titleForRow:row forComponent:component]];
     }
-    else if (pickerView == self.expiryYearPicker){
-        self.tfExpiryYear.text = [self pickerView:pickerView titleForRow:row forComponent:component];
-    }
+    
+    
+    self.tfExpiryDate.text = dateString;
+    
 }
 
+- (BOOL)numericStringCheck:(NSString*)string {
+    
+    NSCharacterSet *nonDigitChars = [[NSCharacterSet decimalDigitCharacterSet] invertedSet];
+    
+    if ([self.tfCvv.text rangeOfCharacterFromSet:nonDigitChars].location == NSNotFound) {
+        // definitely numeric entierly
+        return TRUE;
+    }
+    
+    return FALSE;
+}
+
+- (IBAction)cvvValueChanged:(id)sender {
+    // do some quick validation to check the CVV is a number, less than or equal to 4 digits in length (defined in MAX_CVV_LENGTH constant).
+    
+    BOOL lengthCorrect = (self.tfCvv.text.length <= MAX_CVV_LENGTH);
+
+    BOOL entirelyNumericString = [self numericStringCheck:self.tfCvv.text];
+    
+    if (lengthCorrect && entirelyNumericString) {
+        // valid.
+        [self.tfCvv clearBorder];
+    } else {
+        [self.tfCvv setInvalidInputBorder];
+    }
+    
+}
+
+- (IBAction)cardNumberValueChanged:(id)sender {
+    
+    BOOL lengthCorrect = (self.tfCardNumber.text.length <= MAX_CARD_LENGTH && self.tfCardNumber.text.length >= MIN_CARD_LENGTH);
+    
+    BOOL entirelyNumericString = [self numericStringCheck:self.tfCardNumber.text];
+    
+    if (entirelyNumericString && lengthCorrect) {
+        // valid.
+        [self.tfCardNumber clearBorder];
+    } else {
+        [self.tfCardNumber setInvalidInputBorder];
+    }
+    
+}
 
 #pragma mark - API CALLS
 - (void)getCustomer{
@@ -246,11 +304,15 @@ static NSString *PAYMENT_METHOD  = @"purchase";
 
 - (void)payment{
     
+    // convert NSIntegers to strings...
+    NSString *monthString = [[NSNumber numberWithInteger:self.month] stringValue];
+    NSString *yearString = [[NSNumber numberWithInteger:self.year] stringValue];
+
     NSDictionary *paymentParameters = @{
                                         @"data" : @{
                                                 @"number"       : self.tfCardNumber.text,
-                                                @"expiry_month" : self.tfExpiryMonth.text,
-                                                @"expiry_year"  : self.tfExpiryYear.text,
+                                                @"expiry_month" : monthString,
+                                                @"expiry_year"  : yearString,
                                                 @"cvv"          : self.tfCvv.text
                                                 }
                                         };

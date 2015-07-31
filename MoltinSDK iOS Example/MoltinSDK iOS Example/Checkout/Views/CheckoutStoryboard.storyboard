@@ -319,16 +319,22 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                <connections>
+                                    <action selector="cardNumberValueChanged:" destination="zR9-sK-RDz" eventType="editingDidEnd" id="kdT-2w-STE"/>
+                                </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Expiration month" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mI7-sL-Jf5" customClass="MTTextField">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="CVC/CVV" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mI7-sL-Jf5" customClass="MTTextField">
                                 <rect key="frame" x="10" y="129" width="168" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="DKI-8p-H0D"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
+                                <connections>
+                                    <action selector="cvvValueChanged:" destination="zR9-sK-RDz" eventType="editingDidEnd" id="2RK-cB-4mm"/>
+                                </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Expiration year" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0s3-Gb-jEH" customClass="MTTextField">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Expiration date" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0s3-Gb-jEH" customClass="MTTextField">
                                 <rect key="frame" x="198" y="129" width="167" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="tcp-kF-631"/>
@@ -345,23 +351,12 @@
                                     <action selector="btnCheckoutTap:" destination="zR9-sK-RDz" eventType="touchUpInside" id="Y3Z-Og-Jl9"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="CVC/CVV" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kOq-al-QyK" customClass="MTTextField">
-                                <rect key="frame" x="10" y="182" width="168" height="45"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="aE3-qq-eE2"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.1764705882" green="0.22352941179999999" blue="0.25490196079999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="tbG-rE-uC0" firstAttribute="leading" secondItem="lHL-YC-efm" secondAttribute="leading" constant="10" id="2kH-dN-yLT"/>
-                            <constraint firstItem="kOq-al-QyK" firstAttribute="top" secondItem="mI7-sL-Jf5" secondAttribute="bottom" constant="10" id="3aR-8g-cRX"/>
                             <constraint firstItem="0s3-Gb-jEH" firstAttribute="leading" secondItem="mI7-sL-Jf5" secondAttribute="trailing" constant="20" id="9dN-oY-tny"/>
                             <constraint firstItem="mI7-sL-Jf5" firstAttribute="top" secondItem="0s3-Gb-jEH" secondAttribute="top" id="BNJ-Bk-ON4"/>
-                            <constraint firstItem="kOq-al-QyK" firstAttribute="width" secondItem="mI7-sL-Jf5" secondAttribute="width" id="CaI-3c-IPh"/>
-                            <constraint firstItem="kOq-al-QyK" firstAttribute="leading" secondItem="lHL-YC-efm" secondAttribute="leading" constant="10" id="Lpo-Cd-lTH"/>
                             <constraint firstItem="NHV-yl-avD" firstAttribute="top" secondItem="u4e-Gq-yVa" secondAttribute="bottom" constant="15" id="QRH-Im-U68"/>
                             <constraint firstItem="tbG-rE-uC0" firstAttribute="top" secondItem="Bvh-5d-SIH" secondAttribute="bottom" constant="10" id="Scu-pj-WzI"/>
                             <constraint firstAttribute="centerX" secondItem="u4e-Gq-yVa" secondAttribute="centerX" id="Xjv-y4-FcP"/>
@@ -375,9 +370,8 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="tfCardNumber" destination="tbG-rE-uC0" id="zCQ-sp-w5a"/>
-                        <outlet property="tfCvv" destination="kOq-al-QyK" id="tJ3-sU-rai"/>
-                        <outlet property="tfExpiryMonth" destination="mI7-sL-Jf5" id="o0P-aB-MHk"/>
-                        <outlet property="tfExpiryYear" destination="0s3-Gb-jEH" id="7I2-XV-EZz"/>
+                        <outlet property="tfCvv" destination="mI7-sL-Jf5" id="8UR-69-FEx"/>
+                        <outlet property="tfExpiryDate" destination="0s3-Gb-jEH" id="xke-9p-dG9"/>
                         <segue destination="fEV-QI-RIx" kind="show" identifier="receiptSegue" id="Cy5-sQ-R8S"/>
                     </connections>
                 </viewController>
