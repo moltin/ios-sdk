@@ -48,7 +48,8 @@
         
         [self addSubview:self.lbPrice];
         
-        self.selectedView = [[UIView alloc] initWithFrame:CGRectMake(frame.size.width - 10, 0, 10, frame.size.height)];
+        static CGFloat SELECTED_METHOD_BAR_WIDTH = 7.0f;
+        self.selectedView = [[UIView alloc] initWithFrame:CGRectMake(frame.size.width - SELECTED_METHOD_BAR_WIDTH, 0, SELECTED_METHOD_BAR_WIDTH, frame.size.height)];
         self.selectedView.backgroundColor = [UIColor clearColor];
         [self addSubview:self.selectedView];
         
