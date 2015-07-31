@@ -30,8 +30,7 @@
     self.lbInfo.textColor =RGB(254, 254, 254);
 }
 
-- (void)configureWithCollectionDict:(NSDictionary *) dictionary
-{
+- (void)configureWithCollectionDict:(NSDictionary *) dictionary {
     if (dictionary) {
         self.collectionId = [dictionary valueForKey:@"id"];
         self.collectionTitle = [[dictionary valueForKey:@"title"] uppercaseString];

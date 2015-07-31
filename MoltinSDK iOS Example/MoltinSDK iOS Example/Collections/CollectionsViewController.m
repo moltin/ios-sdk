@@ -9,6 +9,7 @@
 #import "CollectionsViewController.h"
 #import "ProductsListViewController.h"
 #import <SDWebImagePrefetcher.h>
+#import "CollectionCache.h"
 
 static NSString *CellIdentifier = @"MoltinCollectionCell";
 
@@ -47,29 +48,52 @@ static NSString *CellIdentifier = @"MoltinCollectionCell";
     [[Moltin sharedInstance] setPublicId:@"umRG34nxZVGIuCSPfYf8biBSvtABgTR8GMUtflyE"];
     [[Moltin sharedInstance] setLoggingEnabled:YES];
     
-    [self.activityIndicator startAnimating];
-    __weak CollectionsViewController *weakSelf = self;
+
+    // Firstly, check the collection cache, see if there's any cached data we can use...
+    if ([[CollectionCache sharedCache] collectionArray]) {
+        // use cached data...
+        self.collections = [[CollectionCache sharedCache] collectionArray];
+
+        [self performViewSetup];
+        
+    } else {
+        // nothing cached, we need to do the fetch...
+        // Collection limit is 20 because that's the reasonable number of collections to have - you can increase if you wish but they'll likely fall off the page control component at the bottom, and possibly use lots of memory.
+        
+        [self.activityIndicator startAnimating];
+        __weak CollectionsViewController *weakSelf = self;
     
-    // Collection limit is 20 because that's the reasonable number of collections to have - you can increase if you wish but they'll likely fall off the page control component at the bottom, and possibly use lots of memory.
+        
+        [[Moltin sharedInstance].collection listingWithParameters:@{@"status" : @1, @"limit": @20} success:^(NSDictionary *response) {
+            
+            [weakSelf.activityIndicator stopAnimating];
+            weakSelf.collections = [response objectForKey:@"result"];
+            
+            [weakSelf performViewSetup];
+            
+        } failure:^(NSDictionary *response, NSError *error) {
+            [weakSelf.activityIndicator stopAnimating];
+            NSLog(@"ERROR COLLECTION LISTING %@", error);
+        }];
+
+    }
     
-    [[Moltin sharedInstance].collection listingWithParameters:@{@"status" : @1, @"limit": @20} success:^(NSDictionary *response) {
-        [weakSelf.activityIndicator stopAnimating];
-        weakSelf.collections = [response objectForKey:@"result"];
-        weakSelf.pageControl.numberOfPages = weakSelf.collections.count;
-        [weakSelf.collectionView reloadData];
-        
-        NSMutableArray *imageUrls = [NSMutableArray array];
-        
-        NSArray *allImages = [self.collections valueForKeyPath:@"images.url.https"];
-        for (NSArray *collectionImages in allImages) {
-            [imageUrls addObjectsFromArray:collectionImages];
-        }
-        [[SDWebImagePrefetcher sharedImagePrefetcher] prefetchURLs:imageUrls];
-        
-    } failure:^(NSDictionary *response, NSError *error) {
-        [weakSelf.activityIndicator stopAnimating];
-        NSLog(@"ERROR COLLECTION LISTING %@", error);
-    }];
+}
+
+- (void)performViewSetup {
+    self.pageControl.numberOfPages = self.collections.count;
+    [self.collectionView reloadData];
+    
+    NSMutableArray *imageUrls = [NSMutableArray array];
+    
+    NSArray *allImages = [self.collections valueForKeyPath:@"images.url.https"];
+    for (NSArray *collectionImages in allImages) {
+        [imageUrls addObjectsFromArray:collectionImages];
+    }
+    [[SDWebImagePrefetcher sharedImagePrefetcher] prefetchURLs:imageUrls];
+
+    [[CollectionCache sharedCache] setCollectionArray:[self.collections copy]];
+    
 }
 
 - (void)didReceiveMemoryWarning {

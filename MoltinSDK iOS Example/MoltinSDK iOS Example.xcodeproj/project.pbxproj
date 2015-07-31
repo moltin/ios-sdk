@@ -75,6 +75,7 @@
 		3EF22B251B313A6100462BFA /* cart@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EF22B241B313A6100462BFA /* cart@2x.png */; };
 		3EF22B271B3192EF00462BFA /* btn-more-info@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EF22B261B3192EF00462BFA /* btn-more-info@2x.png */; };
 		3EF22B291B32AEE500462BFA /* ProductDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EF22B281B32AEE500462BFA /* ProductDetailsView.xib */; };
+		BA68B91F1B6BC6AB0055FD5C /* CollectionCache.m in Sources */ = {isa = PBXBuildFile; fileRef = BA68B91E1B6BC6AB0055FD5C /* CollectionCache.m */; };
 		FC55015328D6E3F69210124B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD2C43979DB376E19EF5905E /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -187,6 +188,8 @@
 		3EF22B261B3192EF00462BFA /* btn-more-info@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-more-info@2x.png"; sourceTree = "<group>"; };
 		3EF22B281B32AEE500462BFA /* ProductDetailsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductDetailsView.xib; sourceTree = "<group>"; };
 		B8DAB94EF02ABE3D337E23BE /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		BA68B91D1B6BC6AB0055FD5C /* CollectionCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionCache.h; sourceTree = "<group>"; };
+		BA68B91E1B6BC6AB0055FD5C /* CollectionCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionCache.m; sourceTree = "<group>"; };
 		FD2C43979DB376E19EF5905E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -385,6 +388,7 @@
 		3EC7CE241B25BB8E00D843EB /* MoltinSDK iOS Example */ = {
 			isa = PBXGroup;
 			children = (
+				BA68B91C1B6BC68D0055FD5C /* Cache */,
 				3E3716D71B2E5C9700CFE67C /* Moltin */,
 				3E3717121B2F00E700CFE67C /* Collections */,
 				3E3717151B2F00E700CFE67C /* Products */,
@@ -476,6 +480,15 @@
 				B8DAB94EF02ABE3D337E23BE /* Pods.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		BA68B91C1B6BC68D0055FD5C /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				BA68B91D1B6BC6AB0055FD5C /* CollectionCache.h */,
+				BA68B91E1B6BC6AB0055FD5C /* CollectionCache.m */,
+			);
+			name = Cache;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -645,6 +658,7 @@
 				3E3717161B2F00E700CFE67C /* CollectionsViewController.m in Sources */,
 				3E4B5F371B3A74B4009889A9 /* ShippingMethodViewController.m in Sources */,
 				3EF22AF51B30883000462BFA /* MTNavigationController.m in Sources */,
+				BA68B91F1B6BC6AB0055FD5C /* CollectionCache.m in Sources */,
 				3E3717031B2E5C9700CFE67C /* MTCheckout.m in Sources */,
 				3E37171B1B2F019B00CFE67C /* CollectionListCell.m in Sources */,
 				3EC7CE281B25BB8E00D843EB /* main.m in Sources */,
