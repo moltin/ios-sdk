@@ -62,7 +62,8 @@ static NSInteger MAX_CARD_LENGTH = 19;
     [self.tfExpiryDate setInputView:self.expiryDatePicker];
     [self.tfExpiryDate setDoneInputAccessoryView];
     
-    
+    self.tfExpiryDate.hideCursor = TRUE;
+
     NSInteger tag = 0;
     for (MTTextField *textField in self.view.subviews) {
         if ([textField isKindOfClass:[MTTextField class]]) {
@@ -316,7 +317,7 @@ static NSInteger MAX_CARD_LENGTH = 19;
                                                 @"cvv"          : self.tfCvv.text
                                                 }
                                         };
-    
+        
     self.progressHUD.detailsLabelText = @"Proccessing payment...";
     [[Moltin sharedInstance].checkout paymentWithMethod:PAYMENT_METHOD
                                                   order:self.orderId

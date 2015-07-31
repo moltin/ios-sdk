@@ -127,8 +127,8 @@
                                 <rect key="frame" x="281" y="281" width="37" height="37"/>
                                 <color key="color" red="0.2274509804" green="0.28627450980000002" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yur-rk-dKT">
-                                <rect key="frame" x="186" y="225" width="228.5" height="150"/>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yur-rk-dKT">
+                                <rect key="frame" x="190.5" y="225" width="219.5" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="5ds-1C-j7F"/>
                                 </constraints>

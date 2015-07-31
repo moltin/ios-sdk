@@ -15,4 +15,6 @@
 - (BOOL)isEmpty;
 - (void)setDoneInputAccessoryView;
 
+@property (nonatomic) BOOL hideCursor;
+
 @end

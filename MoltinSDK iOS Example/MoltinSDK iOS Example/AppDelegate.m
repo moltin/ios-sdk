@@ -23,8 +23,8 @@
     [MTSlideNavigationController sharedInstance].rightMenu = [CartViewController sharedInstance];
     [MTSlideNavigationController sharedInstance].portraitSlideOffset = 30;
     
-    UIButton *button  = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
-    [button setImage:[UIImage imageNamed:@"cart-gray"] forState:UIControlStateNormal];
+    UIButton *button  = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 45)];
+    [button setImage:[UIImage imageNamed:@"cart"] forState:UIControlStateNormal];
     [button addTarget:[SlideNavigationController sharedInstance] action:@selector(toggleRightMenu) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
     [MTSlideNavigationController sharedInstance].rightBarButtonItem = rightBarButtonItem;

@@ -13,6 +13,7 @@
 @property (strong, nonatomic) NSArray *countries;
 @property (strong, nonatomic) UIPickerView *countryPickerView;
 @property (nonatomic) NSInteger selectedCountryIndex;
+@property (nonatomic) BOOL countryNameNeedsSet;
 @end
 
 @implementation AddressEntryViewController
@@ -70,7 +71,8 @@
     [self.tfCountry setDoneInputAccessoryView];
     
     self.tfCountry.userInteractionEnabled = NO;
-    
+    self.tfCountry.hideCursor = TRUE;
+
 
     if (self.shippingAddressEntry) {
         self.sameAddress.hidden = YES;
@@ -114,6 +116,18 @@
          NSSortDescriptor *sortByName = [NSSortDescriptor sortDescriptorWithKey:@"name"
                                                                       ascending:YES];
          self.countries = [tmp sortedArrayUsingDescriptors:@[sortByName]];
+         
+         if (self.countryNameNeedsSet) {
+             
+             // get the full country name using a predicate to convert the country code up... (if possible)
+             NSArray *possibleCountries = [self.countries filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"code == %@", self.tfCountry.text]];
+             
+             
+             if (possibleCountries && possibleCountries.count > 0) {
+                 self.tfCountry.text = [possibleCountries[0] objectForKey:@"name"];
+             }
+             
+         }
          
      } failure:^(NSDictionary *response, NSError *error) {
          NSLog(@"ERROR fetching country list: %@", response);
@@ -201,6 +215,7 @@
 }
 
 -(void)setAddressDict:(NSDictionary*)addressDict {
+    NSLog(@"%s", __PRETTY_FUNCTION__);
     // disassemble dict...
     
     // if address 2 exists, seperate by comma - if there's > 1 comma, the last will be the state, and the next-but-last the city.
@@ -213,6 +228,11 @@
         // second to last object is city...
         self.tfCity.text = [address2Components objectAtIndex:(address2Components.count - 2)];
         
+        // strip any whitespace...
+        self.tfCity.text = [self.tfCity.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        self.tfState.text = [self.tfState.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+
+        
         if (address2Components.count > 2) {
             // address2 exists too...
             self.tfAddress2.text = [address2Components firstObject];
@@ -224,8 +244,11 @@
     self.tfFirstName.text = addressDict[@"first_name"];
     self.tfLastName.text = addressDict[@"last_name"];
     self.tfAddress1.text = addressDict[@"address_1"];
-    //self.tfAddress2.text = addressDict[@"address_2"];
+
+
     self.tfCountry.text = addressDict[@"country"];
+    self.countryNameNeedsSet = TRUE;
+    
     self.tfZip.text = addressDict[@"postcode"];
     
 }

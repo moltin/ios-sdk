@@ -26,6 +26,8 @@
         self.backgroundColor = RGB(58, 73, 84);
         [self setValue:RGB(99, 117, 130) forKeyPath:@"_placeholderLabel.textColor"];
         
+        self.tintColor = [UIColor whiteColor];
+        
         self.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 15, 45)];
         self.leftViewMode = UITextFieldViewModeAlways;
         self.layer.cornerRadius = 5;
@@ -35,6 +37,14 @@
        forControlEvents:UIControlEventEditingChanged];
     }
     return self;
+}
+
+- (CGRect)caretRectForPosition:(UITextPosition *)position {
+    if (self.hideCursor) {
+        return CGRectZero;
+    } else {
+        return [super caretRectForPosition:position];
+    }
 }
 
 - (void)clearBorder{
