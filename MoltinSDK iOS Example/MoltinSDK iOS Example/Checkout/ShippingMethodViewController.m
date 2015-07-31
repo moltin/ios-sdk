@@ -95,7 +95,8 @@
     [super viewDidLoad];
     self.title = @"Shipping method";
     
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"Loading Shipping Methods";
     
     [[Moltin sharedInstance].cart checkoutWithsuccess:^(NSDictionary *response) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];

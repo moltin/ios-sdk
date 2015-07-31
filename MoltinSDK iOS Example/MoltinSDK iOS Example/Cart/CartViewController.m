@@ -73,7 +73,9 @@ static NSString *CartCellIdentifier = @"MoltinCartCell";
 }
 
 - (void)loadCart{
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"Loading Cart";
+    
     __weak CartViewController *weakSelf = self;
     [[Moltin sharedInstance].cart getContentsWithsuccess:^(NSDictionary *response) {
         _cartData = response;
@@ -142,8 +144,8 @@ static NSString *CartCellIdentifier = @"MoltinCartCell";
 -(void)updateCartWithProductId:(NSString *)productId andQuantity:(NSNumber *)quantity
 {
     __weak CartViewController *weakSelf = self;
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"Updating Cart";
     
     // if quantity is zero, the Moltin API automagically knows to remove the item from the cart
     // update to new quantity value...
@@ -176,7 +178,8 @@ static NSString *CartCellIdentifier = @"MoltinCartCell";
         __weak CartViewController *weakSelf = self;
         
         // show some loading UI...
-        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        hud.labelText = @"Updating Cart";
         
         // now remove it...
         [[Moltin sharedInstance].cart removeItemWithId:productIdString success:^(NSDictionary *response) {

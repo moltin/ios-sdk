@@ -289,7 +289,8 @@
     self.quantity = 1;
     
     self.btnAddToCart.enabled = NO;
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"Updating Cart";
     
     [[Moltin sharedInstance].cart insertItemWithId:self.productId quantity:self.quantity andModifiersOrNil:self.selectedModifiers
                                            success:^(NSDictionary *response)
@@ -343,7 +344,8 @@
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (buttonIndex != alertView.cancelButtonIndex) {
         self.btnAddToCart.enabled = NO;
-        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        hud.labelText = @"Updating Cart";
         
         [[Moltin sharedInstance].cart insertItemWithId:self.productId quantity:self.quantity andModifiersOrNil:self.selectedModifiers
                                                success:^(NSDictionary *response)
