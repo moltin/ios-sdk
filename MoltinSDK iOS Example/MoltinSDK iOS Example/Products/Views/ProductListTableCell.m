@@ -2,8 +2,8 @@
 //  ProductListTableCell.m
 //  MoltinSDK iOS Example
 //
-//  Created by Gasper Rebernak on 07/07/15.
-//  Copyright (c) 2015 Gasper Rebernak. All rights reserved.
+//  Created by Moltin on 07/07/15.
+//  Copyright (c) 2015 Moltin. All rights reserved.
 //
 
 #import "ProductListTableCell.h"
