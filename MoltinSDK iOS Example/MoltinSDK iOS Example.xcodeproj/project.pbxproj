@@ -79,6 +79,7 @@
 		BA68B9251B6C19A20055FD5C /* ProductCache.m in Sources */ = {isa = PBXBuildFile; fileRef = BA68B9241B6C19A20055FD5C /* ProductCache.m */; };
 		BAE6E20A1B6F77DA00B650BC /* ProductListLoadMoreTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BAE6E2081B6F77DA00B650BC /* ProductListLoadMoreTableViewCell.m */; };
 		BAE6E20B1B6F77DA00B650BC /* ProductListLoadMoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAE6E2091B6F77DA00B650BC /* ProductListLoadMoreTableViewCell.xib */; };
+		BAE6E20D1B6F8F7800B650BC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAE6E20C1B6F8F7800B650BC /* CoreLocation.framework */; };
 		FC55015328D6E3F69210124B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD2C43979DB376E19EF5905E /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -198,6 +199,7 @@
 		BAE6E2071B6F77DA00B650BC /* ProductListLoadMoreTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductListLoadMoreTableViewCell.h; sourceTree = "<group>"; };
 		BAE6E2081B6F77DA00B650BC /* ProductListLoadMoreTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductListLoadMoreTableViewCell.m; sourceTree = "<group>"; };
 		BAE6E2091B6F77DA00B650BC /* ProductListLoadMoreTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductListLoadMoreTableViewCell.xib; sourceTree = "<group>"; };
+		BAE6E20C1B6F8F7800B650BC /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		FD2C43979DB376E19EF5905E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -206,6 +208,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAE6E20D1B6F8F7800B650BC /* CoreLocation.framework in Frameworks */,
 				FC55015328D6E3F69210124B /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -216,6 +219,7 @@
 		23F0DAA406455E97F4787739 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BAE6E20C1B6F8F7800B650BC /* CoreLocation.framework */,
 				FD2C43979DB376E19EF5905E /* libPods.a */,
 			);
 			name = Frameworks;

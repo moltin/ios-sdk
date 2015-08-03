@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 #import "MTTextField.h"
 
-@interface AddressEntryViewController : UIViewController<UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
+@interface AddressEntryViewController : UIViewController<UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, CLLocationManagerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet MTTextField *tfEmail;
@@ -23,6 +24,9 @@
 @property (weak, nonatomic) IBOutlet MTTextField *tfZip;
 @property (weak, nonatomic) IBOutlet MTTextField *tfCountry;
 @property (weak, nonatomic) IBOutlet UIButton *btnNext;
+
+@property (nonatomic, strong) CLLocationManager *locationManager;
+@property (nonatomic, strong) CLGeocoder *geocoder;
 
 @property (weak, nonatomic) IBOutlet UISwitch *sameAddress;
 

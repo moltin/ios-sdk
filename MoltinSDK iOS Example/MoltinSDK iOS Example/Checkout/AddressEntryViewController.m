@@ -22,6 +22,7 @@
     [super viewDidLoad];
     
     
+    
     if (self.shippingAddressEntry) {
         self.title = @"Shipping address";
         self.tfAddress1.placeholder = @"Shipping address line 1";
@@ -85,6 +86,7 @@
         self.tfEmail.text = [[NSUserDefaults standardUserDefaults] objectForKey:kMoltinBillingEmailStorageKey];
     }
     
+    BOOL addressSaved = NO;
     NSString *addressKey;
     if (self.shippingAddressEntry) {
         // get saved shipping address and set fields...
@@ -95,11 +97,13 @@
     }
     
     if ([[NSUserDefaults standardUserDefaults] objectForKey:addressKey]) {
+        addressSaved = YES;
         // okay, retrieve it and fill in text fields form retrieved data...
         NSDictionary *addressDict = [[NSUserDefaults standardUserDefaults] dictionaryForKey:addressKey];
         
         [self setAddressDict:addressDict];
     }
+    
     
     [[Moltin sharedInstance].address fieldsWithCustomerId:@""
                                              andAddressId:@""
@@ -132,8 +136,27 @@
      } failure:^(NSDictionary *response, NSError *error) {
          NSLog(@"ERROR fetching country list: %@", response);
      }];
+    
+    if (!addressSaved) {
+        // start location manager
+        self.locationManager = [[CLLocationManager alloc] init];
+        
+        self.locationManager.delegate = self;
+        
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
+        
+        if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+            // in iOS 8, we need to request auth first
+            [self.locationManager requestWhenInUseAuthorization];
+        }
+        
+        [self.locationManager startUpdatingLocation];
+        
+    }
 
 }
+
+
 
 - (void)viewDidLayoutSubviews{
     if (self.scrollView.contentSize.height < self.scrollView.frame.size.height) {
@@ -253,8 +276,60 @@
     
 }
 
+#pragma mark - Location manager
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
+    if (locations && locations.count  > 0) {
+        CLLocation *location = [locations lastObject];
+        
+        // let's geocode...
+        self.geocoder = [[CLGeocoder alloc] init];
+        
+        __weak AddressEntryViewController *weakSelf = self;
+        [self.geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
+            if (placemarks && placemarks.count > 0) {
+                CLPlacemark *placemark = [placemarks firstObject];
+                                
+                if (weakSelf.tfCountry.text.length == 0) {
+                    // fill in country from placemark
+                    weakSelf.tfCountry.text = placemark.country;
+                }
+                
+                if (weakSelf.tfAddress1.text.length == 0) {
+                    // fill in street from placemark
+                    weakSelf.tfAddress1.text = placemark.thoroughfare;
+                }
+                
+                if (weakSelf.tfAddress2.text.length == 0) {
+                    // fill in address 2 from placemark
+                    weakSelf.tfAddress2.text = placemark.subLocality;
+                }
+                
+                if (weakSelf.tfState.text.length == 0) {
+                    // fill in state from placemark
+                    weakSelf.tfState.text = placemark.administrativeArea;
+                }
+                
+                if (weakSelf.tfZip.text.length == 0) {
+                    // fill in postcode from placemark
+                    weakSelf.tfZip.text = placemark.postalCode;
+                }
+                
+                if (weakSelf.tfCity.text.length == 0) {
+                    // fill in city from placemark
+                    weakSelf.tfCity.text = placemark.locality;
 
-#pragma makr - PickerView
+                }
+                
+            }
+        }];
+        
+        // one location's enough for our needs
+        [self.locationManager stopUpdatingLocation];
+        
+    }
+}
+
+#pragma mark - PickerView
 -(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
     return 1;
 }
