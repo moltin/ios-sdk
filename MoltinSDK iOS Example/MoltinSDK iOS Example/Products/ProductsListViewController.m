@@ -10,6 +10,7 @@
 #import "ProductDetailsViewController.h"
 #import "ProductListTableCell.h"
 #import "ProductListLoadMoreTableViewCell.h"
+#import "ProductCache.h"
 
 static NSString *ProductCellIdentifier = @"MoltinProductCell";
 static NSString *LoadMoreCellIdentifier = @"MoltinLoadMoreCell";
@@ -21,6 +22,7 @@ static NSString *LoadMoreCellIdentifier = @"MoltinLoadMoreCell";
 @property (strong, nonatomic) NSMutableArray *products;
 @property (strong, nonatomic) NSNumber *paginationOffset;
 @property (nonatomic) BOOL showLoadMore;
+@property (nonatomic) BOOL initialLoadDone;
 @end
 
 @implementation ProductsListViewController
@@ -32,6 +34,9 @@ static NSString *LoadMoreCellIdentifier = @"MoltinLoadMoreCell";
     self.tableView.backgroundColor = [UIColor whiteColor];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"ProductListTableCell" bundle:nil] forCellReuseIdentifier:ProductCellIdentifier];
+    
+    [self.tableView registerNib:[UINib nibWithNibName:@"ProductListLoadMoreTableViewCell" bundle:nil] forCellReuseIdentifier:LoadMoreCellIdentifier];
+
     
     self.showLoadMore =  YES;
     
@@ -65,7 +70,31 @@ static NSString *LoadMoreCellIdentifier = @"MoltinLoadMoreCell";
     
     self.products = [NSMutableArray array];
     
-    [self loadProducts];
+    [self initialLoad];
+}
+
+- (void)initialLoad {
+    // attempt a load from cache
+    NSDictionary *cachedProductSet = [[ProductCache sharedCache] cachedProductsInCollectionId:self.collectionId];
+    if (cachedProductSet) {
+
+        // we have cached data - use it!
+        NSArray *cachedProducts = [cachedProductSet objectForKey:@"products"];
+        NSNumber *cachedOffset = [cachedProductSet objectForKey:@"offset"];
+        NSNumber *cachedTotal = [cachedProductSet objectForKey:@"total"];
+
+        self.products = [NSMutableArray arrayWithArray:cachedProducts];
+        self.paginationOffset = cachedOffset;
+        self.initialLoadDone = YES;
+    
+        if (cachedProducts.count == cachedTotal.unsignedIntegerValue) {
+            self.showLoadMore = NO;
+        }
+        
+    } else {
+        // no cached data - let's go fetch some...
+        [self loadProducts];
+    }
 }
 
 - (void)loadProducts{
@@ -84,18 +113,23 @@ static NSString *LoadMoreCellIdentifier = @"MoltinLoadMoreCell";
         __weak ProductsListViewController *weakSelf = self;
         
         [[Moltin sharedInstance].product listingWithParameters:@{@"collection" : _collectionId,
-                                                                 @"limit" : @10,
+                                                                 @"limit" : @3,
                                                                  @"offset" : self.paginationOffset
                                                                  }
                                                        success:^(NSDictionary *response)
          {
+             weakSelf.initialLoadDone = YES;
              [weakSelf.activityIndicator stopAnimating];
              [weakSelf.activityIndicatorTableFooter stopAnimating];
              [weakSelf.products addObjectsFromArray:[response objectForKey:@"result"]];
              
              weakSelf.paginationOffset = [response valueForKeyPath:@"pagination.offsets.next"];
-             
              NSNumber *totalProductsInCollection = [response valueForKeyPath:@"pagination.total"];
+
+             // sync up cached products...
+             [[ProductCache sharedCache] setCachedProducts:weakSelf.products withOffset:weakSelf.paginationOffset andTotal:totalProductsInCollection ForCollectionId:weakSelf.collectionId];
+             
+             
              
              if (totalProductsInCollection.integerValue == weakSelf.products.count) {
                  // don't show option to 'Load More' - we have all products...
@@ -127,10 +161,20 @@ static NSString *LoadMoreCellIdentifier = @"MoltinLoadMoreCell";
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (self.showLoadMore && indexPath.row == self.products.count) {
+        // it's the 'load more' cell...
+        return 60;
+    }
+    
     return 120;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    
+    if (self.showLoadMore && self.initialLoadDone) {
+        return (self.products.count + 1);
+    }
+    
     return self.products.count;
 }
 
@@ -181,6 +225,12 @@ static NSString *LoadMoreCellIdentifier = @"MoltinLoadMoreCell";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (self.showLoadMore && indexPath.row == self.products.count) {
+        // it's the 'load more' cell...
+        [self loadProducts];
+        return;
+    }
+    
     NSDictionary *product = [self.products objectAtIndex:indexPath.row];
     
     ProductDetailsViewController *detailsViewController = [[ProductDetailsViewController alloc] initWithProductDictionary:product];
