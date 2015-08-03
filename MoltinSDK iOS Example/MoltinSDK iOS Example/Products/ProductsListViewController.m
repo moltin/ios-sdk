@@ -9,8 +9,10 @@
 #import "ProductsListViewController.h"
 #import "ProductDetailsViewController.h"
 #import "ProductListTableCell.h"
+#import "ProductListLoadMoreTableViewCell.h"
 
 static NSString *ProductCellIdentifier = @"MoltinProductCell";
+static NSString *LoadMoreCellIdentifier = @"MoltinLoadMoreCell";
 
 @interface ProductsListViewController (){
     BOOL isPageRefresing;
@@ -18,7 +20,7 @@ static NSString *ProductCellIdentifier = @"MoltinProductCell";
 
 @property (strong, nonatomic) NSMutableArray *products;
 @property (strong, nonatomic) NSNumber *paginationOffset;
-
+@property (nonatomic) BOOL showLoadMore;
 @end
 
 @implementation ProductsListViewController
@@ -30,6 +32,8 @@ static NSString *ProductCellIdentifier = @"MoltinProductCell";
     self.tableView.backgroundColor = [UIColor whiteColor];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"ProductListTableCell" bundle:nil] forCellReuseIdentifier:ProductCellIdentifier];
+    
+    self.showLoadMore =  YES;
     
     self.lbNoProducts.hidden = YES;
     self.lbNoProducts.shadowColor = RGB(234, 234, 234);
@@ -88,10 +92,19 @@ static NSString *ProductCellIdentifier = @"MoltinProductCell";
              [weakSelf.activityIndicator stopAnimating];
              [weakSelf.activityIndicatorTableFooter stopAnimating];
              [weakSelf.products addObjectsFromArray:[response objectForKey:@"result"]];
+             
              weakSelf.paginationOffset = [response valueForKeyPath:@"pagination.offsets.next"];
+             
+             NSNumber *totalProductsInCollection = [response valueForKeyPath:@"pagination.total"];
+             
+             if (totalProductsInCollection.integerValue == weakSelf.products.count) {
+                 // don't show option to 'Load More' - we have all products...
+                 weakSelf.showLoadMore = NO;
+             }
              
              if (weakSelf.products.count == 0) {
                  weakSelf.lbNoProducts.hidden = NO;
+                 weakSelf.showLoadMore = NO;
              }
              [weakSelf.tableView reloadData];
              isPageRefresing = NO;
@@ -122,6 +135,19 @@ static NSString *ProductCellIdentifier = @"MoltinProductCell";
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (self.showLoadMore && indexPath.row == self.products.count) {
+        // it's the 'load more' cell...
+        ProductListLoadMoreTableViewCell *loadMoreCell = [tableView dequeueReusableCellWithIdentifier:LoadMoreCellIdentifier];
+        
+        if (loadMoreCell == nil) {
+            
+            loadMoreCell = [[ProductListLoadMoreTableViewCell alloc] init];
+        }
+        
+        return loadMoreCell;
+        
+    }
     
     ProductListTableCell *cell = [tableView dequeueReusableCellWithIdentifier:ProductCellIdentifier];
     if (cell == nil) {
@@ -162,16 +188,7 @@ static NSString *ProductCellIdentifier = @"MoltinProductCell";
     
 }
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    
-    if(self.tableView.contentOffset.y >= (self.tableView.contentSize.height - self.tableView.bounds.size.height)) {
-        if(isPageRefresing == NO && self.paginationOffset.integerValue != 0)
-        {
-            [self loadProducts];
-        }
-    }
-    
-}
+
 
 #pragma mark SlideNavigationController
 

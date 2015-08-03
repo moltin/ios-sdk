@@ -77,6 +77,8 @@
 		3EF22B291B32AEE500462BFA /* ProductDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EF22B281B32AEE500462BFA /* ProductDetailsView.xib */; };
 		BA68B91F1B6BC6AB0055FD5C /* CollectionCache.m in Sources */ = {isa = PBXBuildFile; fileRef = BA68B91E1B6BC6AB0055FD5C /* CollectionCache.m */; };
 		BA68B9251B6C19A20055FD5C /* ProductCache.m in Sources */ = {isa = PBXBuildFile; fileRef = BA68B9241B6C19A20055FD5C /* ProductCache.m */; };
+		BAE6E20A1B6F77DA00B650BC /* ProductListLoadMoreTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BAE6E2081B6F77DA00B650BC /* ProductListLoadMoreTableViewCell.m */; };
+		BAE6E20B1B6F77DA00B650BC /* ProductListLoadMoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAE6E2091B6F77DA00B650BC /* ProductListLoadMoreTableViewCell.xib */; };
 		FC55015328D6E3F69210124B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD2C43979DB376E19EF5905E /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -193,6 +195,9 @@
 		BA68B91E1B6BC6AB0055FD5C /* CollectionCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionCache.m; sourceTree = "<group>"; };
 		BA68B9231B6C19A20055FD5C /* ProductCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductCache.h; sourceTree = "<group>"; };
 		BA68B9241B6C19A20055FD5C /* ProductCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductCache.m; sourceTree = "<group>"; };
+		BAE6E2071B6F77DA00B650BC /* ProductListLoadMoreTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductListLoadMoreTableViewCell.h; sourceTree = "<group>"; };
+		BAE6E2081B6F77DA00B650BC /* ProductListLoadMoreTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductListLoadMoreTableViewCell.m; sourceTree = "<group>"; };
+		BAE6E2091B6F77DA00B650BC /* ProductListLoadMoreTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductListLoadMoreTableViewCell.xib; sourceTree = "<group>"; };
 		FD2C43979DB376E19EF5905E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -234,6 +239,9 @@
 				3E1FE1141B4B8985006D9269 /* ProductListTableCell.h */,
 				3E1FE1151B4B8985006D9269 /* ProductListTableCell.m */,
 				3E1FE1161B4B8985006D9269 /* ProductListTableCell.xib */,
+				BAE6E2071B6F77DA00B650BC /* ProductListLoadMoreTableViewCell.h */,
+				BAE6E2081B6F77DA00B650BC /* ProductListLoadMoreTableViewCell.m */,
+				BAE6E2091B6F77DA00B650BC /* ProductListLoadMoreTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -577,6 +585,7 @@
 				3E2978611B3403A2002E1DC1 /* btn-back@2x.png in Resources */,
 				3E4B5F2E1B3A5CFB009889A9 /* CheckoutStoryboard.storyboard in Resources */,
 				3EC7CE361B25BB8E00D843EB /* LaunchScreen.xib in Resources */,
+				BAE6E20B1B6F77DA00B650BC /* ProductListLoadMoreTableViewCell.xib in Resources */,
 				3EF22B1E1B31273B00462BFA /* Montserrat-Hairline.otf in Resources */,
 				3E4B5F221B37C033009889A9 /* btn-minus@2x.png in Resources */,
 				3EF22B1C1B31273B00462BFA /* Montserrat-Black.otf in Resources */,
@@ -641,6 +650,7 @@
 				3E3717091B2E5C9700CFE67C /* MTGateway.m in Sources */,
 				3E37170E1B2E5C9700CFE67C /* Moltin.m in Sources */,
 				3E37170A1B2E5C9700CFE67C /* MTOrder.m in Sources */,
+				BAE6E20A1B6F77DA00B650BC /* ProductListLoadMoreTableViewCell.m in Sources */,
 				3E3716FF1B2E5C9700CFE67C /* MTAddress.m in Sources */,
 				3E2F2BCF1B2F0C2E006CD657 /* ProductDetailsViewController.m in Sources */,
 				3E37170C1B2E5C9700CFE67C /* MTShipping.m in Sources */,
