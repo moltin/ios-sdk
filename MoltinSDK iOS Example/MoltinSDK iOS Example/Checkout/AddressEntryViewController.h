@@ -29,6 +29,7 @@
 @property (nonatomic, strong) CLGeocoder *geocoder;
 
 @property (weak, nonatomic) IBOutlet UISwitch *sameAddress;
+@property (weak, nonatomic) IBOutlet UILabel *sameAddressLabel;
 
 @property (nonatomic) BOOL shippingAddressEntry;
 

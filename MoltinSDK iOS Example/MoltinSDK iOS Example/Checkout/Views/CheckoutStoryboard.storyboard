@@ -216,6 +216,7 @@
                     <connections>
                         <outlet property="btnNext" destination="vjr-eK-0CB" id="4GU-Ic-SVg"/>
                         <outlet property="sameAddress" destination="tRd-0i-ypZ" id="fMp-oh-dwc"/>
+                        <outlet property="sameAddressLabel" destination="8Sf-mn-gaC" id="djg-0E-zWV"/>
                         <outlet property="scrollView" destination="Sdn-RV-n6K" id="e2n-Y8-WIW"/>
                         <outlet property="tfAddress1" destination="UEh-U0-1LA" id="mH5-KM-rbg"/>
                         <outlet property="tfAddress2" destination="VmK-57-elV" id="3eq-P8-IxB"/>

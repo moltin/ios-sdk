@@ -77,8 +77,11 @@
 
     if (self.shippingAddressEntry) {
         self.sameAddress.hidden = YES;
+        self.sameAddressLabel.hidden = YES;
     } else {
         self.sameAddress.on = [[NSUserDefaults standardUserDefaults] boolForKey:kMoltinSameShippingAndBillingKey];
+        self.sameAddressLabel.hidden = NO;
+
     }
     
     // set any saved fields up too...
@@ -129,6 +132,9 @@
              
              if (possibleCountries && possibleCountries.count > 0) {
                  self.tfCountry.text = [possibleCountries[0] objectForKey:@"name"];
+                 self.selectedCountryIndex = [self.countries indexOfObject:possibleCountries[0]];
+                 [self.countryPickerView selectRow:self.selectedCountryIndex inComponent:0 animated:YES];
+
              }
              
          }
@@ -292,6 +298,19 @@
                 if (weakSelf.tfCountry.text.length == 0) {
                     // fill in country from placemark
                     weakSelf.tfCountry.text = placemark.country;
+                    
+                    if (weakSelf.countries && weakSelf.countries.count > 0) {
+                        // there's countries already, work out the right one...
+                        NSArray *possibleCountries = [weakSelf.countries filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"name == %@", weakSelf.tfCountry.text]];
+                        
+                        if (possibleCountries && possibleCountries.count > 0) {
+                            NSLog(@"found possible country");
+                            weakSelf.tfCountry.text = [possibleCountries[0] objectForKey:@"name"];
+                            weakSelf.selectedCountryIndex = [weakSelf.countries indexOfObject:possibleCountries[0]];
+                            [weakSelf.countryPickerView selectRow:weakSelf.selectedCountryIndex inComponent:0 animated:YES];
+                        }
+                    }
+                    
                 }
                 
                 if (weakSelf.tfAddress1.text.length == 0) {
