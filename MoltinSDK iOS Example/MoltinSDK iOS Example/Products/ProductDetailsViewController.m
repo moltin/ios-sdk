@@ -306,7 +306,15 @@
      } failure:^(NSDictionary *response, NSError *error) {
          self.btnAddToCart.enabled = YES;
          NSLog(@"ERROR: %@", error);
-         ALERT(@"ERROR", @"Faild to add product to cart.");
+         
+         NSString *errorText = @"Failed to add product to cart.";
+         if ([response objectForKey:@"errors"]) {
+             if ([[response objectForKey:@"errors"] isKindOfClass:[NSArray class]]) {
+                 errorText = [[response objectForKey:@"errors"] firstObject];
+             }
+         }
+         
+         ALERT(@"Sorry, something went wrong", errorText);
          dispatch_async(dispatch_get_main_queue(), ^{
              [MBProgressHUD hideHUDForView:self.view animated:YES];
          });
@@ -358,7 +366,16 @@
         } failure:^(NSDictionary *response, NSError *error) {
             self.btnAddToCart.enabled = YES;
             NSLog(@"ERROR: %@", error);
-            ALERT(@"ERROR", @"Faild to add product to cart.");
+
+            
+            NSString *errorText = @"Failed to add product to cart.";
+            if ([response objectForKey:@"errors"]) {
+                if ([[response objectForKey:@"errors"] isKindOfClass:[NSArray class]]) {
+                    errorText = [[response objectForKey:@"errors"] firstObject];
+                }
+            }
+            
+            ALERT(@"Sorry, something went wrong", errorText);
             dispatch_async(dispatch_get_main_queue(), ^{
                 [MBProgressHUD hideHUDForView:self.view animated:YES];
             });
