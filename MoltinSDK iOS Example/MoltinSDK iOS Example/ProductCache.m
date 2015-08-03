@@ -8,8 +8,10 @@
 
 #import "ProductCache.h"
 
-@interface ProductCache (Private)
-    @property (nonatomic, strong) NSMutableDictionary *cacheDictionary;
+@interface ProductCache () {
+    NSMutableDictionary *cacheDictionary;
+}
+
 @end
 
 @implementation ProductCache
@@ -30,17 +32,22 @@
 - (id)init {
     if (self = [super init]) {
         // instantiate the internal cache dictionary
-        self.cacheDictionary = [NSMutableDictionary new];
+        cacheDictionary = [NSMutableDictionary dictionary];
     }
     return self;
 }
 
-- (NSArray*)cachedProductsInCollectionId:(NSString*)collectionId {
-    return [self.cacheDictionary objectForKey:collectionId];
+- (NSDictionary*)cachedProductsInCollectionId:(NSString*)collectionId {
+
+    return [cacheDictionary objectForKey:collectionId];
 }
 
-- (void)setCachedProducts:(NSArray*)productsToCache ForCollectionId:(NSString*)collectionId {
-    [self.cacheDictionary setObject:productsToCache forKey:collectionId];
+- (void)setCachedProducts:(NSArray*)productsToCache withOffset:(NSNumber*)offset andTotal:(NSNumber*)total ForCollectionId:(NSString*)collectionId {
+    
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    [dict addEntriesFromDictionary:@{@"products": productsToCache, @"offset": offset, @"total": total}];
+    
+    [cacheDictionary setObject:dict forKey:collectionId];
 }
 
 

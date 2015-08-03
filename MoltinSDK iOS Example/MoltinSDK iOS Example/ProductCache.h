@@ -11,7 +11,7 @@
 @interface ProductCache : NSObject
 
 + (id)sharedCache;
-- (NSArray*)cachedProductsInCollectionId:(NSString*)collectionId;
-- (void)setCachedProducts:(NSArray*)productsToCache ForCollectionId:(NSString*)collectionId;
+- (NSDictionary*)cachedProductsInCollectionId:(NSString*)collectionId;
+- (void)setCachedProducts:(NSArray*)productsToCache withOffset:(NSNumber*)offset andTotal:(NSNumber*)total ForCollectionId:(NSString*)collectionId;
 
 @end
