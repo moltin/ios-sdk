@@ -92,8 +92,6 @@ static NSString *ApplePayMerchantId = @"merchant.com.moltin.ApplePayExampleApp";
         _cartData = response;
         [weakSelf parseCartItems];
         
-        NSLog(@"response = %@", response);
-        
         weakSelf.cartPrice = [_cartData valueForKeyPath:@"result.totals.post_discount.raw.with_tax"];
         weakSelf.lbTotalPrice.text = [_cartData valueForKeyPath:@"result.totals.post_discount.formatted.with_tax"];
         [MBProgressHUD hideHUDForView:self.view animated:YES];
@@ -183,7 +181,7 @@ static NSString *ApplePayMerchantId = @"merchant.com.moltin.ApplePayExampleApp";
     
     [[Moltin sharedInstance].cart checkoutWithsuccess:^(NSDictionary *response) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
-        NSLog(@"response = %@", response);
+
         self.shippingMethods = [response valueForKeyPath:@"result.shipping.methods"];
         [self showApplePayViewController];
     } failure:^(NSDictionary *response, NSError *error) {
@@ -230,9 +228,11 @@ static NSString *ApplePayMerchantId = @"merchant.com.moltin.ApplePayExampleApp";
         NSDecimalNumber *shippingCost = [NSDecimalNumber decimalNumberWithDecimal:[[method valueForKeyPath:@"price.data.raw.with_tax"] decimalValue]];
         PKShippingMethod *shippingMethod = [PKShippingMethod summaryItemWithLabel:[method objectForKey:@"title"] amount:shippingCost];
         shippingMethod.detail = [method objectForKey:@"company"];
-        shippingMethod.identifier = @"express";
+        shippingMethod.identifier = [method valueForKey:@"slug"];
         
         [shippingMethods addObject:shippingMethod];
+        
+   
     }
     
     request.shippingMethods = [NSArray arrayWithArray:shippingMethods];
@@ -245,23 +245,103 @@ static NSString *ApplePayMerchantId = @"merchant.com.moltin.ApplePayExampleApp";
     
 }
 
+#pragma mark - Apple Pay Delegate methods
+
 - (void)paymentAuthorizationViewController:(PKPaymentAuthorizationViewController *)controller didAuthorizePayment:(PKPayment *)payment completion:(void (^)(PKPaymentAuthorizationStatus))completion {
+    NSLog(@"%s", __PRETTY_FUNCTION__);
     
+    
+    NSDictionary *billingAddressDict = nil;
+    if (payment.billingAddress) {
+        billingAddressDict = [self createAddressDictFromAddressBookRecord:payment.billingAddress];
+        
+        if (!billingAddressDict) {
+            // something's went wrong and we don't have a billing address - fail...
+            completion(PKPaymentAuthorizationStatusInvalidBillingPostalAddress);
+            return;
+        }
+        
+    } else {
+        // we can't complete payment without a billing address!
+        // inform the payment view
+        completion(PKPaymentAuthorizationStatusInvalidBillingPostalAddress);
+        return;
+    }
     
     completion(PKPaymentAuthorizationStatusSuccess);
 }
 
+- (NSDictionary *)createAddressDictFromAddressBookRecord:(ABAddressBookRef)record {
+    NSMutableDictionary *addressDict = [NSMutableDictionary dictionary];
+    
+    addressDict[@"first_name"] = (__bridge_transfer NSString*)ABRecordCopyValue(record, kABPersonFirstNameProperty);
+    addressDict[@"last_name"] = (__bridge_transfer NSString*)ABRecordCopyValue(record, kABPersonLastNameProperty);
+    
+    ABMultiValueRef addressValues = ABRecordCopyValue(record, kABPersonAddressProperty);
+    
+    if (addressValues != NULL) {
+        if (ABMultiValueGetCount(addressValues) > 0) {
+            CFDictionaryRef dict = ABMultiValueCopyValueAtIndex(addressValues, 0);
+            
+            NSString *streetAddress = CFDictionaryGetValue(dict, kABPersonAddressStreetKey);
+            if (streetAddress) {
+                addressDict[@"address_1"] = streetAddress;
+            }
+            
+            NSString *city = CFDictionaryGetValue(dict, kABPersonAddressCityKey);
+            if (city) {
+                addressDict[@"address_2"] = city;
+            }
+            
+            NSString *state = CFDictionaryGetValue(dict, kABPersonAddressStateKey);
+            if (state) {
+                if (addressDict[@"address_2"]) {
+                    // append state to the existing address_2
+                    addressDict[@"address_2"] = [addressDict[@"address_2"] stringByAppendingString:[NSString stringWithFormat:@", %@", state]];
+                } else {
+                    // make address_2 the state instead...
+                    addressDict[@"address_2"] = state;
+                }
+            }
+            
+            NSString *postcode = CFDictionaryGetValue(dict, kABPersonAddressZIPKey);
+            if (postcode) {
+                addressDict[@"postcode"] = postcode;
+            }
+            
+            NSString *country = CFDictionaryGetValue(dict, kABPersonAddressCountryKey);
+            if (country) {
+                // TODO: perform a match to get a country code instead...
+                
+                addressDict[@"country"] = country;
+            }
+            
+            CFRelease(dict);
+            
+        }
+        
+        CFRelease(addressValues);
+        
+    } else {
+        // we don't actually have an address - return nil...
+        return nil;
+        
+    }
+    
+    return addressDict;
+    
+}
+
 - (void)paymentAuthorizationViewController:(PKPaymentAuthorizationViewController *)controller didSelectShippingAddress:(ABRecordRef)address completion:(void (^)(PKPaymentAuthorizationStatus, NSArray *, NSArray *))completion {
+    NSLog(@"%s", __PRETTY_FUNCTION__);
     
     completion(PKPaymentAuthorizationStatusSuccess, nil, nil);
 }
 
-- (void)paymentAuthorizationViewController:(PKPaymentAuthorizationViewController *)controller didSelectShippingMethod:(PKShippingMethod *)shippingMethod completion:(void (^)(PKPaymentAuthorizationStatus, NSArray *))completion {
-    
-    completion(PKPaymentAuthorizationStatusSuccess, nil);
-}
 
 - (void)paymentAuthorizationViewControllerDidFinish:(PKPaymentAuthorizationViewController *)controller {
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+
     [controller dismissViewControllerAnimated:YES completion:nil];
 }
 
