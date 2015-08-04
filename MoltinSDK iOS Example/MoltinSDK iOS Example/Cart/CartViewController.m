@@ -288,10 +288,18 @@ static NSString *ApplePayMerchantId = @"merchant.com.moltin.ApplePayExampleApp";
     // get the shipping method
     NSString *shippingMethodSlug = payment.shippingMethod.identifier;
     
+    // and the billing email
+    NSString *billingEmail = [self emailAddressFromAddressBookRecord:payment.shippingAddress];
+    if (!billingEmail) {
+        // not enough information - fail.
+        completion(PKPaymentAuthorizationStatusInvalidShippingContact);
+        return;
+    }
+    
     NSLog(@"billingAddressDict = %@", billingAddressDict);
     NSLog(@"shippingAddressDict = %@", shippingAddressDict);
     NSLog(@"shippingMethodSlug = %@", shippingMethodSlug);
-
+    NSLog(@"billingEmail = %@", billingEmail);
     
     completion(PKPaymentAuthorizationStatusSuccess);
 }
@@ -364,6 +372,31 @@ static NSString *ApplePayMerchantId = @"merchant.com.moltin.ApplePayExampleApp";
     
 }
 
+- (NSString*)emailAddressFromAddressBookRecord:(ABAddressBookRef)record {
+    ABMultiValueRef contactEmails = ABRecordCopyValue(record, kABPersonEmailProperty);
+    
+    if (!contactEmails) {
+        return nil;
+    }
+
+    CFArrayRef allEmails = ABMultiValueCopyArrayOfAllValues(contactEmails);
+    
+    if (!allEmails) {
+        return nil;
+    }
+    
+    NSArray *emails = (__bridge NSArray *)allEmails;
+
+    CFRelease(allEmails);
+    CFRelease(contactEmails);
+    
+    if (emails && emails.count > 0) {
+        return [emails firstObject];
+    } else {
+        return nil;
+    }
+    
+}
 
 - (void)paymentAuthorizationViewControllerDidFinish:(PKPaymentAuthorizationViewController *)controller {
     NSLog(@"%s", __PRETTY_FUNCTION__);
