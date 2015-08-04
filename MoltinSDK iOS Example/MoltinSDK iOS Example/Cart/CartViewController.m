@@ -268,14 +268,46 @@ static NSString *ApplePayMerchantId = @"merchant.com.moltin.ApplePayExampleApp";
         return;
     }
     
+    NSDictionary *shippingAddressDict = nil;
+    if (payment.shippingAddress) {
+        shippingAddressDict = [self createAddressDictFromAddressBookRecord:payment.shippingAddress];
+        
+        if (!shippingAddressDict) {
+            // something's went wrong and we don't have a shipping address - fail...
+            completion(PKPaymentAuthorizationStatusInvalidShippingContact);
+            return;
+        }
+        
+    } else {
+        // we can't complete payment without a shipping address!
+        // inform the payment view
+        completion(PKPaymentAuthorizationStatusInvalidShippingContact);
+        return;
+    }
+    
+    // get the shipping method
+    NSString *shippingMethodSlug = payment.shippingMethod.identifier;
+    
+    NSLog(@"billingAddressDict = %@", billingAddressDict);
+    NSLog(@"shippingAddressDict = %@", shippingAddressDict);
+    NSLog(@"shippingMethodSlug = %@", shippingMethodSlug);
+
+    
     completion(PKPaymentAuthorizationStatusSuccess);
 }
 
 - (NSDictionary *)createAddressDictFromAddressBookRecord:(ABAddressBookRef)record {
     NSMutableDictionary *addressDict = [NSMutableDictionary dictionary];
     
-    addressDict[@"first_name"] = (__bridge_transfer NSString*)ABRecordCopyValue(record, kABPersonFirstNameProperty);
-    addressDict[@"last_name"] = (__bridge_transfer NSString*)ABRecordCopyValue(record, kABPersonLastNameProperty);
+    NSString *firstName = (__bridge_transfer NSString*)ABRecordCopyValue(record, kABPersonFirstNameProperty);
+    if (firstName) {
+        addressDict[@"first_name"] = firstName;
+    }
+    
+    NSString *lastName = (__bridge_transfer NSString*)ABRecordCopyValue(record, kABPersonLastNameProperty);
+    if (lastName) {
+        addressDict[@"last_name"] = lastName;
+    }
     
     ABMultiValueRef addressValues = ABRecordCopyValue(record, kABPersonAddressProperty);
     
@@ -330,12 +362,6 @@ static NSString *ApplePayMerchantId = @"merchant.com.moltin.ApplePayExampleApp";
     
     return addressDict;
     
-}
-
-- (void)paymentAuthorizationViewController:(PKPaymentAuthorizationViewController *)controller didSelectShippingAddress:(ABRecordRef)address completion:(void (^)(PKPaymentAuthorizationStatus, NSArray *, NSArray *))completion {
-    NSLog(@"%s", __PRETTY_FUNCTION__);
-    
-    completion(PKPaymentAuthorizationStatusSuccess, nil, nil);
 }
 
 
