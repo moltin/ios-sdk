@@ -10,6 +10,7 @@
 #import <PassKit/PassKit.h>
 #import <AddressBook/AddressBook.h>
 #import "CartListCell.h"
+#import <Stripe/Stripe.h>
 
 @interface CartViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, CartListCellDelegate, UIActionSheetDelegate, PKPaymentAuthorizationViewControllerDelegate>
 
