@@ -70,7 +70,7 @@ static NSString *ApplePayMerchantId = @"merchant.com.moltin.ApplePayExampleApp";
     [self.tableView registerNib:[UINib nibWithNibName:@"CartListCell" bundle:nil] forCellReuseIdentifier:CartCellIdentifier];
     
     self.tableView.allowsMultipleSelectionDuringEditing = NO;
-
+    
     
 }
 
@@ -152,7 +152,7 @@ static NSString *ApplePayMerchantId = @"merchant.com.moltin.ApplePayExampleApp";
         // fallback to standard checkout flow
         [self presentStandardCheckoutFlow];
     }
-
+    
 }
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
@@ -181,14 +181,14 @@ static NSString *ApplePayMerchantId = @"merchant.com.moltin.ApplePayExampleApp";
     
     [[Moltin sharedInstance].cart checkoutWithsuccess:^(NSDictionary *response) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
-
+        
         self.shippingMethods = [response valueForKeyPath:@"result.shipping.methods"];
         [self showApplePayViewController];
     } failure:^(NSDictionary *response, NSError *error) {
         NSLog(@"SHIPPING ERROR: %@", error);
         [MBProgressHUD hideHUDForView:self.view animated:YES];
     }];
-
+    
     
 }
 
@@ -232,7 +232,7 @@ static NSString *ApplePayMerchantId = @"merchant.com.moltin.ApplePayExampleApp";
         
         [shippingMethods addObject:shippingMethod];
         
-   
+        
     }
     
     request.shippingMethods = [NSArray arrayWithArray:shippingMethods];
@@ -300,14 +300,82 @@ static NSString *ApplePayMerchantId = @"merchant.com.moltin.ApplePayExampleApp";
     NSLog(@"shippingAddressDict = %@", shippingAddressDict);
     NSLog(@"shippingMethodSlug = %@", shippingMethodSlug);
     NSLog(@"billingEmail = %@", billingEmail);
-
+    
     
     [Stripe createTokenWithPayment:payment
                         completion:^(STPToken *token, NSError *error) {
                             // charge your Stripe token as normal
+                            NSString *tokenValue = token.tokenId;
+                            
+                            // we can now pass tokenValue up to Moltin to charge - let's do the moltin checkout.
+                            
+                            // Firstly, we need to carry out the order with Moltin
+                            [self getCustomerIdWithEmail:billingEmail andFirstName:billingAddressDict[@"first_name"] andLastName:billingAddressDict[@"last_name"] withCompletionBlock:^(NSString *customerId) {
+                                NSLog(@"%@", customerId);
+                                
+                                
+                            }];
+                            
+                            
                         }];
     
     completion(PKPaymentAuthorizationStatusSuccess);
+}
+
+- (void)getCustomerIdWithEmail:(NSString*)email andFirstName:(NSString*)firstName andLastName:(NSString*)lastName withCompletionBlock:(void (^) (NSString *customerId))completion {
+    
+    [[Moltin sharedInstance].customer findWithParameters:@{ @"email" : email }
+                                                 success:^(NSDictionary *response)
+     {
+         NSArray *result = [response objectForKey:@"result"];
+         if (result.count == 0) {
+             // create customer
+             
+             [[Moltin sharedInstance].customer createWithParameters:@{@"first_name" : firstName, @"last_name" : lastName, @"email" : email}
+                                                            success:^(NSDictionary *response)
+              {
+                  if ([[response valueForKey:@"status"] boolValue]) {
+                      NSString *customerId = [response valueForKeyPath:@"result.id"];
+                      completion(customerId);
+                  }
+                  else{
+                      NSLog(@"ERROR CREATING CUSTOMER: %@", response);
+                      NSString *errors = [[response objectForKey:@"errors"] firstObject];
+                      ALERT(@"Error creating customer", errors);
+                      completion(nil);
+
+                  }
+                  
+              } failure:^(NSDictionary *response, NSError *error) {
+                  NSString *errorMessage = error.localizedDescription;
+                  if (response && ![[response valueForKey:@"status"] boolValue]) {
+                      NSString *responseMessage = [[response objectForKey:@"errors"] firstObject];
+                      NSLog(@"ERROR: %@", response);
+                      errorMessage = responseMessage;
+                  }
+                  ALERT(@"Error creating customer", errorMessage);
+                  completion(nil);
+
+              }];
+
+             
+         }
+         else{
+             NSString *customerId = [[result firstObject] valueForKey:@"id"];
+             completion(customerId);
+         }
+     } failure:^(NSDictionary *response, NSError *error) {         
+         NSString *errorMessage = error.localizedDescription;
+         if (response && ![[response valueForKey:@"status"] boolValue]) {
+             NSString *responseMessage = [[response objectForKey:@"errors"] firstObject];
+             NSLog(@"ERROR: %@", response);
+             errorMessage = responseMessage;
+         }
+         ALERT(@"Error", errorMessage);
+         completion(nil);
+     }];
+    
+    
 }
 
 - (NSDictionary *)createAddressDictFromAddressBookRecord:(ABAddressBookRef)record {
@@ -384,7 +452,7 @@ static NSString *ApplePayMerchantId = @"merchant.com.moltin.ApplePayExampleApp";
     if (!contactEmails) {
         return nil;
     }
-
+    
     CFArrayRef allEmails = ABMultiValueCopyArrayOfAllValues(contactEmails);
     
     if (!allEmails) {
@@ -392,7 +460,7 @@ static NSString *ApplePayMerchantId = @"merchant.com.moltin.ApplePayExampleApp";
     }
     
     NSArray *emails = (__bridge NSArray *)allEmails;
-
+    
     CFRelease(allEmails);
     CFRelease(contactEmails);
     
@@ -406,7 +474,7 @@ static NSString *ApplePayMerchantId = @"merchant.com.moltin.ApplePayExampleApp";
 
 - (void)paymentAuthorizationViewControllerDidFinish:(PKPaymentAuthorizationViewController *)controller {
     NSLog(@"%s", __PRETTY_FUNCTION__);
-
+    
     [controller dismissViewControllerAnimated:YES completion:nil];
 }
 
