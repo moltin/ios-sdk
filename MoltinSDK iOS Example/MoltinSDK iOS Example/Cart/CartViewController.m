@@ -300,6 +300,12 @@ static NSString *ApplePayMerchantId = @"merchant.com.moltin.ApplePayExampleApp";
     NSLog(@"shippingAddressDict = %@", shippingAddressDict);
     NSLog(@"shippingMethodSlug = %@", shippingMethodSlug);
     NSLog(@"billingEmail = %@", billingEmail);
+
+    
+    [Stripe createTokenWithPayment:payment
+                        completion:^(STPToken *token, NSError *error) {
+                            // charge your Stripe token as normal
+                        }];
     
     completion(PKPaymentAuthorizationStatusSuccess);
 }
