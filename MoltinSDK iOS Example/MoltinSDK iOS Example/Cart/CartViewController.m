@@ -20,6 +20,8 @@ static double ApplePayMaximumLimit = 20.00;
 // The following constant is your Apple Pay merchant ID, as registered in the Apple Developer site
 static NSString *ApplePayMerchantId = @"merchant.com.moltin.ApplePayExampleApp";
 
+static NSString *ApplePayPaymentGateway = @"stripe";
+
 @interface CartViewController ()
 
 @property (strong, nonatomic) NSNumber *cartPrice;
@@ -302,6 +304,7 @@ static NSString *ApplePayMerchantId = @"merchant.com.moltin.ApplePayExampleApp";
     NSLog(@"billingEmail = %@", billingEmail);
     
     
+    
     [Stripe createTokenWithPayment:payment
                         completion:^(STPToken *token, NSError *error) {
                             // charge your Stripe token as normal
@@ -313,6 +316,50 @@ static NSString *ApplePayMerchantId = @"merchant.com.moltin.ApplePayExampleApp";
                             [self getCustomerIdWithEmail:billingEmail andFirstName:billingAddressDict[@"first_name"] andLastName:billingAddressDict[@"last_name"] withCompletionBlock:^(NSString *customerId) {
                                 NSLog(@"%@", customerId);
                                 
+                                // if customerId is nil, transaction has failed.
+                                if (!customerId) {
+                                    // transaction failed...
+                                    
+                                    
+                                }
+                                
+                                
+                                // it seems we have a customerId, let's continue...
+                                NSDictionary *orderParameters = @{
+                                                                  @"customer" : customerId,
+                                                                  @"shipping" : shippingMethodSlug,
+                                                                  @"gateway"  : ApplePayPaymentGateway,
+                                                                  @"bill_to"  : billingAddressDict,
+                                                                  @"ship_to"  : shippingAddressDict
+                                                                  };
+                                
+                                [[Moltin sharedInstance].cart orderWithParameters:orderParameters
+                                                                          success:^(NSDictionary *response)
+                                 {
+                                     if ([[response valueForKey:@"status"] boolValue]) {
+                                         NSString *orderId = [response valueForKeyPath:@"result.id"];
+                                         // go ahead and pay...
+                                         
+                                     }
+                                     else{
+                                         // transaction failed...
+                                         NSString *responseMessage = [response valueForKey:@"error"];
+                                         NSLog(@"ERROR: %@", response);
+                                         ALERT(@"Order error", responseMessage);
+                                     }
+                                     
+                                 } failure:^(NSDictionary *response, NSError *error) {
+                                     // transaction failed...
+                                     
+                                     NSString *errorMessage = error.localizedDescription;
+                                     if (response && ![[response valueForKey:@"status"] boolValue]) {
+                                         NSString *responseMessage = [response valueForKey:@"error"];
+                                         NSLog(@"ERROR: %@", response);
+                                         errorMessage = responseMessage;
+                                     }
+                                     ALERT(@"Order error", errorMessage);
+                                 }];
+
                                 
                             }];
                             
@@ -364,7 +411,7 @@ static NSString *ApplePayMerchantId = @"merchant.com.moltin.ApplePayExampleApp";
              NSString *customerId = [[result firstObject] valueForKey:@"id"];
              completion(customerId);
          }
-     } failure:^(NSDictionary *response, NSError *error) {         
+     } failure:^(NSDictionary *response, NSError *error) {
          NSString *errorMessage = error.localizedDescription;
          if (response && ![[response valueForKey:@"status"] boolValue]) {
              NSString *responseMessage = [[response objectForKey:@"errors"] firstObject];
