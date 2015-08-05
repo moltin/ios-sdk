@@ -22,6 +22,8 @@ static NSString *ApplePayMerchantId = @"merchant.com.moltin.ApplePayExampleApp";
 
 static NSString *ApplePayPaymentGateway = @"stripe";
 
+static NSString *PAYMENT_METHOD  = @"purchase";
+
 @interface CartViewController ()
 
 @property (strong, nonatomic) NSNumber *cartPrice;
@@ -320,9 +322,11 @@ static NSString *ApplePayPaymentGateway = @"stripe";
                                 if (!customerId) {
                                     // transaction failed...
                                     
-                                    
+                                    completion(PKPaymentAuthorizationStatusFailure);
+
+                                    return;
                                 }
-                                
+    
                                 
                                 // it seems we have a customerId, let's continue...
                                 NSDictionary *orderParameters = @{
@@ -340,17 +344,69 @@ static NSString *ApplePayPaymentGateway = @"stripe";
                                          NSString *orderId = [response valueForKeyPath:@"result.id"];
                                          // go ahead and pay...
                                          
+                                         // we're paying using the value of the token that stripe has provided us with...
+                                         NSDictionary *paymentParameters = @{
+                                                                             @"data" : @{
+                                                                                     @"token"       : tokenValue
+                                                                                     }
+                                                                             };
+                                         
+                                         [[Moltin sharedInstance].checkout paymentWithMethod:PAYMENT_METHOD
+                                                                                       order:orderId
+                                                                                  parameters:paymentParameters
+                                                                                     success:^(NSDictionary *response)
+                                          {
+                                              if ([[response valueForKey:@"status"] boolValue]) {
+                                                  [[NSNotificationCenter defaultCenter] postNotificationName:kMoltinNotificationRefreshCart object:nil];
+                                                  
+                                                  NSDictionary *receipt = response;
+                                                  NSLog(@"payment success with receipt = %@", receipt);
+                                                  // TODO: show receipt properly!
+                                                  
+                                                  // success!
+                                                  completion(PKPaymentAuthorizationStatusSuccess);
+
+                                                  
+                                              }
+                                              else{
+                                                  // failed horribly...
+
+                                                  NSString *responseMessage = [response valueForKey:@"error"];
+                                                  ALERT(@"Payment error", responseMessage);
+                                                  NSLog(@"ERROR PAYMENT: %@", response);
+                                                  completion(PKPaymentAuthorizationStatusFailure);
+                                              }
+                                              
+                                          } failure:^(NSDictionary *response, NSError *error) {
+                                              
+                                              NSString *errorMessage = error.localizedDescription;
+                                              if (response && ![[response valueForKey:@"status"] boolValue]) {
+                                                  NSString *responseMessage = [response valueForKey:@"error"];
+                                                  NSLog(@"ERROR: %@", response);
+                                                  errorMessage = responseMessage;
+                                              }
+                                              ALERT(@"Payment error", errorMessage);
+                                              
+                                              completion(PKPaymentAuthorizationStatusFailure);
+
+                                          }];
+                                         
                                      }
                                      else{
                                          // transaction failed...
+                                         completion(PKPaymentAuthorizationStatusFailure);
+
                                          NSString *responseMessage = [response valueForKey:@"error"];
                                          NSLog(@"ERROR: %@", response);
                                          ALERT(@"Order error", responseMessage);
+                                         
+                                         completion(PKPaymentAuthorizationStatusFailure);
+
                                      }
                                      
                                  } failure:^(NSDictionary *response, NSError *error) {
                                      // transaction failed...
-                                     
+
                                      NSString *errorMessage = error.localizedDescription;
                                      if (response && ![[response valueForKey:@"status"] boolValue]) {
                                          NSString *responseMessage = [response valueForKey:@"error"];
@@ -358,6 +414,9 @@ static NSString *ApplePayPaymentGateway = @"stripe";
                                          errorMessage = responseMessage;
                                      }
                                      ALERT(@"Order error", errorMessage);
+                                     
+                                     completion(PKPaymentAuthorizationStatusFailure);
+
                                  }];
 
                                 
@@ -366,7 +425,7 @@ static NSString *ApplePayPaymentGateway = @"stripe";
                             
                         }];
     
-    completion(PKPaymentAuthorizationStatusSuccess);
+
 }
 
 - (void)getCustomerIdWithEmail:(NSString*)email andFirstName:(NSString*)firstName andLastName:(NSString*)lastName withCompletionBlock:(void (^) (NSString *customerId))completion {
