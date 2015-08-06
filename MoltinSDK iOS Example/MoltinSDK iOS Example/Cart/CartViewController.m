@@ -34,6 +34,7 @@ static NSString *PAYMENT_METHOD  = @"purchase";
 @property (strong, nonatomic) NSNumber *discountAmount;
 @property (strong, nonatomic) NSDictionary *cartData;
 @property (strong, nonatomic) NSArray *shippingMethods;
+@property (strong, nonatomic) NSArray *countries;
 
 @end
 
@@ -82,6 +83,28 @@ static NSString *PAYMENT_METHOD  = @"purchase";
     
     // Initialise the Stripe SDK with our API key, for Apple Pay purposes
     [Stripe setDefaultPublishableKey:StripePublishableKey];
+    
+    // get countries too.
+    
+    [[Moltin sharedInstance].address fieldsWithCustomerId:@""
+                                             andAddressId:@""
+                                                  success:^(NSDictionary *response) {
+         NSDictionary *tmpCountries = [response valueForKeyPath:@"result.country.available"];
+         
+         NSMutableArray *tmp = [NSMutableArray array];
+         for (NSString *countryCode in [tmpCountries allKeys]) {
+             [tmp addObject:@{@"code":countryCode,@"name":[tmpCountries valueForKey:countryCode]}];
+         }
+         
+         NSSortDescriptor *sortByName = [NSSortDescriptor sortDescriptorWithKey:@"name"
+                                                                      ascending:YES];
+         self.countries = [tmp sortedArrayUsingDescriptors:@[sortByName]];
+         
+     } failure:^(NSDictionary *response, NSError *error) {
+         ALERT(@"Sorry, we can't load countries at this time", @"Checkout is unavalabile without countries loaded");
+         NSLog(@"ERROR fetching country list: %@", response);
+     }];
+
     
 }
 
@@ -538,9 +561,19 @@ static NSString *PAYMENT_METHOD  = @"purchase";
             
             NSString *country = CFDictionaryGetValue(dict, kABPersonAddressCountryKey);
             if (country) {
-                // TODO: perform a match to get a country code instead...
                 
-                addressDict[@"country"] = country;
+                NSArray *possibleCountries = [self.countries filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"name == %@", country]];
+                
+                if (possibleCountries && possibleCountries.count > 0) {
+                    NSLog(@"found possible country");
+                    NSString *countryCode = [possibleCountries[0] objectForKey:@"country"];
+                    addressDict[@"country"] = countryCode;
+
+                } else {
+                    addressDict[@"country"] = country;
+ 
+                }
+                
             }
             
             CFRelease(dict);
