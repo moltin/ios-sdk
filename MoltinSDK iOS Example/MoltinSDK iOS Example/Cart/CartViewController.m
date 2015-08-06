@@ -20,6 +20,10 @@ static double ApplePayMaximumLimit = 20.00;
 // The following constant is your Apple Pay merchant ID, as registered in the Apple Developer site
 static NSString *ApplePayMerchantId = @"merchant.com.moltin.ApplePayExampleApp";
 
+// The following constant is your Stripe Publishable API key, that you use for your Moltin store's payment gateway.
+// This needs to be here for Apple Pay Purposes
+static NSString *StripePublishableKey = @"";
+
 static NSString *ApplePayPaymentGateway = @"stripe";
 
 static NSString *PAYMENT_METHOD  = @"purchase";
@@ -75,6 +79,9 @@ static NSString *PAYMENT_METHOD  = @"purchase";
     
     self.tableView.allowsMultipleSelectionDuringEditing = NO;
     
+    
+    // Initialise the Stripe SDK with our API key, for Apple Pay purposes
+    [Stripe setDefaultPublishableKey:StripePublishableKey];
     
 }
 
@@ -323,10 +330,10 @@ static NSString *PAYMENT_METHOD  = @"purchase";
                                     // transaction failed...
                                     
                                     completion(PKPaymentAuthorizationStatusFailure);
-
+                                    
                                     return;
                                 }
-    
+                                
                                 
                                 // it seems we have a customerId, let's continue...
                                 NSDictionary *orderParameters = @{
@@ -346,8 +353,8 @@ static NSString *PAYMENT_METHOD  = @"purchase";
                                          
                                          // we're paying using the value of the token that stripe has provided us with...
                                          NSDictionary *paymentParameters = @{
-                                                                             @"data" : @{
-                                                                                     @"token"       : tokenValue
+                                                                             @"data": @{
+                                                                                     @"token": tokenValue
                                                                                      }
                                                                              };
                                          
@@ -365,12 +372,12 @@ static NSString *PAYMENT_METHOD  = @"purchase";
                                                   
                                                   // success!
                                                   completion(PKPaymentAuthorizationStatusSuccess);
-
+                                                  
                                                   
                                               }
                                               else{
                                                   // failed horribly...
-
+                                                  
                                                   NSString *responseMessage = [response valueForKey:@"error"];
                                                   ALERT(@"Payment error", responseMessage);
                                                   NSLog(@"ERROR PAYMENT: %@", response);
@@ -388,25 +395,25 @@ static NSString *PAYMENT_METHOD  = @"purchase";
                                               ALERT(@"Payment error", errorMessage);
                                               
                                               completion(PKPaymentAuthorizationStatusFailure);
-
+                                              
                                           }];
                                          
                                      }
                                      else{
                                          // transaction failed...
                                          completion(PKPaymentAuthorizationStatusFailure);
-
+                                         
                                          NSString *responseMessage = [response valueForKey:@"error"];
                                          NSLog(@"ERROR: %@", response);
                                          ALERT(@"Order error", responseMessage);
                                          
                                          completion(PKPaymentAuthorizationStatusFailure);
-
+                                         
                                      }
                                      
                                  } failure:^(NSDictionary *response, NSError *error) {
                                      // transaction failed...
-
+                                     
                                      NSString *errorMessage = error.localizedDescription;
                                      if (response && ![[response valueForKey:@"status"] boolValue]) {
                                          NSString *responseMessage = [response valueForKey:@"error"];
@@ -416,16 +423,16 @@ static NSString *PAYMENT_METHOD  = @"purchase";
                                      ALERT(@"Order error", errorMessage);
                                      
                                      completion(PKPaymentAuthorizationStatusFailure);
-
+                                     
                                  }];
-
+                                
                                 
                             }];
                             
                             
                         }];
     
-
+    
 }
 
 - (void)getCustomerIdWithEmail:(NSString*)email andFirstName:(NSString*)firstName andLastName:(NSString*)lastName withCompletionBlock:(void (^) (NSString *customerId))completion {
@@ -449,7 +456,7 @@ static NSString *PAYMENT_METHOD  = @"purchase";
                       NSString *errors = [[response objectForKey:@"errors"] firstObject];
                       ALERT(@"Error creating customer", errors);
                       completion(nil);
-
+                      
                   }
                   
               } failure:^(NSDictionary *response, NSError *error) {
@@ -461,9 +468,9 @@ static NSString *PAYMENT_METHOD  = @"purchase";
                   }
                   ALERT(@"Error creating customer", errorMessage);
                   completion(nil);
-
+                  
               }];
-
+             
              
          }
          else{
