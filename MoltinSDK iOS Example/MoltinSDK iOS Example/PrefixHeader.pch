@@ -30,6 +30,10 @@
 #define kMoltinShippingAddressStorageKey        @"com.moltin.shipping.address"
 #define kMoltinSameShippingAndBillingKey        @"com.moltin.use_billing_address_as_shipping_address"
 
+#define kMoltinNotificationLightCartButton      @"com.moltin.notification.ui.cart_button.light"
+#define kMoltinNotificationDarkCartButton       @"com.moltin.notification.ui.cart_button.dark"
+
+
 #define RGB(r, g, b) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1]
 #define RGBA(r, g, b, a) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
 

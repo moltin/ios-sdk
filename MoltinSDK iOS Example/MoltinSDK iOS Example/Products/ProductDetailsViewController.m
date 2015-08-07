@@ -109,6 +109,9 @@
                                           barMetrics:UIBarMetricsDefault];
     
     [[UINavigationBar appearance] setShadowImage:[[UIImage alloc] init]];
+
+    [[NSNotificationCenter defaultCenter] postNotificationName:kMoltinNotificationDarkCartButton object:nil];
+
     
     [self setNeedsStatusBarAppearanceUpdate];
     
@@ -138,6 +141,9 @@
                                           barMetrics:UIBarMetricsDefault];
     
     [[UINavigationBar appearance] setShadowImage:[[UIImage alloc] init]];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:kMoltinNotificationLightCartButton object:nil];
+
 }
 
 - (void)didReceiveMemoryWarning {

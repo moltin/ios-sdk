@@ -23,13 +23,38 @@
     [MTSlideNavigationController sharedInstance].rightMenu = [CartViewController sharedInstance];
     [MTSlideNavigationController sharedInstance].portraitSlideOffset = 30;
     
+    [self setLightCartButton];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setLightCartButton) name:kMoltinNotificationLightCartButton object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setDarkCartButton) name:kMoltinNotificationDarkCartButton object:nil];
+
+    
+    return YES;
+}
+
+- (void)setCartButton:(BOOL)light {
+    NSString *imageName = @"cart";
+    
+    if (!light) {
+        imageName = @"cart-dark";
+        
+    }
+    
     UIButton *button  = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 45)];
-    [button setImage:[UIImage imageNamed:@"cart"] forState:UIControlStateNormal];
+    [button setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
     [button addTarget:[SlideNavigationController sharedInstance] action:@selector(toggleRightMenu) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
     [MTSlideNavigationController sharedInstance].rightBarButtonItem = rightBarButtonItem;
+    
+}
 
-    return YES;
+- (void)setLightCartButton {
+    [self setCartButton:YES];
+}
+
+- (void)setDarkCartButton {
+    [self setCartButton:NO];
+
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
