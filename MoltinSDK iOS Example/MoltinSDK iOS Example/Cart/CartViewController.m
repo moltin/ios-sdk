@@ -18,6 +18,7 @@ static NSInteger ApplePaySheetId = 100;
 static double ApplePayMaximumLimit = 20.00;
 
 // The following constant is your Apple Pay merchant ID, as registered in the Apple Developer site
+// You must also create a certificate for this merchant ID, as per the Stripe guide at https://stripe.com/docs/mobile/apple-pay
 static NSString *ApplePayMerchantId = @"merchant.com.moltin.ApplePayExampleApp";
 
 // The following constant is your Stripe Publishable API key, that you use for your Moltin store's payment gateway.
@@ -336,7 +337,6 @@ static NSString *PAYMENT_METHOD  = @"purchase";
     NSLog(@"billingEmail = %@", billingEmail);
     
     
-    
     [Stripe createTokenWithPayment:payment
                         completion:^(STPToken *token, NSError *error) {
                             // charge your Stripe token as normal
@@ -374,12 +374,8 @@ static NSString *PAYMENT_METHOD  = @"purchase";
                                          NSString *orderId = [response valueForKeyPath:@"result.id"];
                                          // go ahead and pay...
                                          
-                                         // we're paying using the value of the token that stripe has provided us with...
-                                         NSDictionary *paymentParameters = @{
-                                                                             @"data": @{
-                                                                                     @"token": tokenValue
-                                                                                     }
-                                                                             };
+                                         // we're paying using the value of the token that the Stripe API has provided us with...
+                                         NSDictionary *paymentParameters = @{ @"token": tokenValue };
                                          
                                          [[Moltin sharedInstance].checkout paymentWithMethod:PAYMENT_METHOD
                                                                                        order:orderId
@@ -566,7 +562,7 @@ static NSString *PAYMENT_METHOD  = @"purchase";
                 
                 if (possibleCountries && possibleCountries.count > 0) {
                     NSLog(@"found possible country");
-                    NSString *countryCode = [possibleCountries[0] objectForKey:@"country"];
+                    NSString *countryCode = [possibleCountries[0] objectForKey:@"code"];
                     addressDict[@"country"] = countryCode;
 
                 } else {
