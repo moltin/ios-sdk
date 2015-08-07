@@ -78,6 +78,13 @@ static NSString *CellIdentifier = @"MoltinCollectionCell";
 
     }
     
+    
+    [self setNeedsStatusBarAppearanceUpdate];
+    
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
 }
 
 - (void)performViewSetup {

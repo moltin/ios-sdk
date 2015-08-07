@@ -44,6 +44,14 @@ static NSString *LoadMoreCellIdentifier = @"MoltinLoadMoreCell";
     self.lbNoProducts.shadowColor = RGB(234, 234, 234);
     self.lbNoProducts.shadowOffset = CGSizeMake(1, 1);
     self.lbNoProducts.textColor = RGB(0, 0, 0);
+    
+    
+    [self setNeedsStatusBarAppearanceUpdate];
+    
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
 }
 
 - (void)didReceiveMemoryWarning {

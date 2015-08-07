@@ -109,10 +109,18 @@
                                           barMetrics:UIBarMetricsDefault];
     
     [[UINavigationBar appearance] setShadowImage:[[UIImage alloc] init]];
+    
+    [self setNeedsStatusBarAppearanceUpdate];
+    
 }
 
-- (void)viewWillDisappear:(BOOL)animated
-{
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleDefault;
+}
+
+
+
+- (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     
     UINavigationBar *navBar = self.navigationController.navigationBar;

@@ -66,6 +66,13 @@ static NSString *CartCellIdentifier = @"MoltinCartCell";
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self loadCart];
+    
+    [self setNeedsStatusBarAppearanceUpdate];
+    
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
 }
 
 - (void)dealloc{
