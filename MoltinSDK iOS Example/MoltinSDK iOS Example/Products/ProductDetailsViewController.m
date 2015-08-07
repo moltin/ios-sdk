@@ -41,6 +41,7 @@
 
 @interface ProductDetailsViewController ()
 
+
 @property (nonatomic) NSInteger quantity;
 @property (strong, nonatomic) NSString *productId;
 @property (strong, nonatomic) NSDictionary *productDict;
@@ -53,6 +54,9 @@
 @end
 
 @implementation ProductDetailsViewController
+
+static NSInteger ScrollingImageViewTag = 99;
+static NSInteger ScrollingImageViewHeight = 65;
 
 - (id)initWithProductDictionary:(NSDictionary *) productDict{
     self = [super initWithNibName:@"ProductDetailsView" bundle:nil];
@@ -183,7 +187,7 @@
     
     if (self.images.count > 1) {
         for (UIView *view in self.imagesScrollView.subviews) {
-            if ([view isKindOfClass:[UIImageView class]] && view.tag == 99) {
+            if ([view isKindOfClass:[UIImageView class]] && view.tag == ScrollingImageViewTag) {
                 [view removeFromSuperview];
             }
         }
@@ -191,9 +195,9 @@
         self.imagesScrollViewHeightConstraint.constant = 75;
         int i = 0;
         for (NSString *imageUrl in self.images) {
-            UIImageView *smallImage = [[UIImageView alloc] initWithFrame:CGRectMake(i*65, 0, self.imagesScrollViewHeightConstraint.constant, self.imagesScrollViewHeightConstraint.constant)];
+            UIImageView *smallImage = [[UIImageView alloc] initWithFrame:CGRectMake((i * ScrollingImageViewHeight), 0, self.imagesScrollViewHeightConstraint.constant, self.imagesScrollViewHeightConstraint.constant)];
             smallImage.userInteractionEnabled = YES;
-            smallImage.tag = 99; // tag t know witch ImageViews to remove from "imagesScrollView"
+            smallImage.tag = ScrollingImageViewTag; // tag t know witch ImageViews to remove from "imagesScrollView"
             [smallImage sd_setImageWithURL:[NSURL URLWithString:imageUrl]];
             
             [self.imagesScrollView addSubview:smallImage];
@@ -203,7 +207,7 @@
             
             i++;
         }
-        self.imagesScrollView.contentSize = CGSizeMake(i*65, 65);
+        self.imagesScrollView.contentSize = CGSizeMake((i* ScrollingImageViewHeight), ScrollingImageViewHeight);
     }
     else{
         self.imagesScrollViewHeightConstraint.constant = 0;

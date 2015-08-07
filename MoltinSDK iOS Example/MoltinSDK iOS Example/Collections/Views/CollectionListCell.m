@@ -38,6 +38,7 @@
         self.lbInfo.text = [dictionary valueForKey:@"description"];
         [self.lbInfo sizeToFit];
         
+        
         NSString *imageUrl = @"";
         NSArray *images = [dictionary objectForKey:@"images"];
         

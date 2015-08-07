@@ -41,7 +41,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="COLLECTION TITLE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fo0-wq-RfD">
-                            <rect key="frame" x="8" y="405" width="109.5" height="20"/>
+                            <rect key="frame" x="8" y="405" width="110" height="20"/>
                             <constraints>
                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="5QU-J2-ZTF"/>
                                 <constraint firstAttribute="height" constant="20" id="XbX-mP-rod"/>
@@ -61,13 +61,13 @@
                             <rect key="frame" x="168" y="141" width="37" height="37"/>
                         </activityIndicatorView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="PRODUCT TITLE" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NcG-HO-Z5j">
-                            <rect key="frame" x="8" y="435" width="184.5" height="28"/>
+                            <rect key="frame" x="8" y="435" width="185" height="28"/>
                             <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="24"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" misplaced="YES" text="$30" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="FB8-1V-SBS">
-                            <rect key="frame" x="207" y="435" width="159.5" height="28"/>
+                            <rect key="frame" x="207" y="435" width="160" height="28"/>
                             <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="24"/>
                             <color key="textColor" red="0.54509803921568623" green="0.3843137254901961" blue="0.70980392156862748" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
