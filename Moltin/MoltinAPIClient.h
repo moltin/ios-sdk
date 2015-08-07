@@ -15,7 +15,7 @@
 #define LOGGING_ENABLED [MoltinStorage loggingEnabled]
 
 #ifdef LOGGING_ENABLED
-    #define MTLog(x, ...) NSLog(@"com.moltin: " x, ##__VA_ARGS__)
+    #define MTLog(x, ...) NSLog(@"com.moltin.sdk: " x, ##__VA_ARGS__)
 #else
     #define MTLog(x, ...)
 #endif

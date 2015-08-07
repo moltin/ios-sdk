@@ -10,7 +10,7 @@
 
 @interface CollectionCache : NSObject
 
-+ (id)sharedCache;
++ (instancetype)sharedCache;
 
 @property (nonatomic, retain) NSArray *collectionArray;
 

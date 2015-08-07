@@ -12,9 +12,12 @@
 
 @implementation Moltin
 
-- (id)init{
+- (instancetype)init{
     self = [super init];
     if (self) {
+        //by default logging is disabled
+        [MoltinStorage setLoggingEnabled:NO];
+        
         self.address = [[MTAddress alloc] init];
         self.brand = [[MTBrand alloc] init];
         self.cart = [[MTCart alloc] init];
@@ -38,12 +41,12 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _sharedInstance = [[Moltin alloc] init];
-        //by default logging is disabled
-        [MoltinStorage setLoggingEnabled:NO];
+        
     });
     
     return _sharedInstance;
 }
+
 
 - (void)setPublicId:(NSString *)publicId
 {

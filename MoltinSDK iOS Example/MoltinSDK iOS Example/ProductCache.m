@@ -16,7 +16,7 @@
 
 @implementation ProductCache
 
-+ (id)sharedCache {
++ (instancetype)sharedCache {
     // ProductCache is a singleton, so we need to ensure it's only instantiated once.
     static ProductCache *sharedInstance = nil;
     

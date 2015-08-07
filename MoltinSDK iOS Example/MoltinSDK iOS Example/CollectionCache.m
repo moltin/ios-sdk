@@ -10,7 +10,7 @@
 
 @implementation CollectionCache
 
-+ (id)sharedCache {
++ (instancetype)sharedCache {
     // CollectionCache is a singleton, so we need to ensure it's only instantiated once.
     static CollectionCache *sharedInstance = nil;
     
