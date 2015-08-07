@@ -9,6 +9,7 @@
 #import "CartViewController.h"
 #import "AddressEntryViewController.h"
 #import "CartListCell.h"
+#import "ReceiptViewController.h"
 
 static NSString *CartCellIdentifier = @"MoltinCartCell";
 static NSInteger ApplePaySheetId = 100;
@@ -18,7 +19,7 @@ static NSInteger ApplePaySheetId = 100;
 static double ApplePayMaximumLimit = 20.00;
 
 // The following constant is your Apple Pay merchant ID, as registered in the Apple Developer site
-// You must also create a certificate for this merchant ID, as per the Stripe guide at https://stripe.com/docs/mobile/apple-pay
+// You must also create a certificate for this merchant ID (uploading the CSR file Stripe generate for you to the Apple Developer Site), as per the Stripe guide at https://stripe.com/docs/mobile/apple-pay
 static NSString *ApplePayMerchantId = @"merchant.com.moltin.ApplePayExampleApp";
 
 // The following constant is your Stripe Publishable API key - this must be the publishable key that corresponds to the secret key that you use for your Stripe payment gateway on your Moltin store.
@@ -176,6 +177,7 @@ static NSString *PAYMENT_METHOD  = @"purchase";
 }
 
 - (IBAction)btnCheckoutTap:(id)sender {
+    
     // see if they can use Apple Pay - if so, present the Apple Pay option, if not, don't.
     if ([self canUseApplePayForCart]) {
         // present payment method choice sheet
@@ -441,8 +443,14 @@ static NSString *PAYMENT_METHOD  = @"purchase";
                                                   [[NSNotificationCenter defaultCenter] postNotificationName:kMoltinNotificationRefreshCart object:nil];
                                                   
                                                   NSDictionary *receipt = response;
-                                                  //NSLog(@"payment success with receipt = %@", receipt);
-                                                  // TODO: show receipt properly!
+                                                  
+                                                  UIStoryboard *sb = [UIStoryboard storyboardWithName:@"CheckoutStoryboard" bundle:nil];
+                                                  ReceiptViewController *vc = [sb instantiateViewControllerWithIdentifier:@"receiptVC"];
+                                                  vc.products = self.cartItems;
+                                                  vc.reciept = receipt;
+                                                  vc.isIndividualModalView = YES;
+                                                  vc.isApplePay = YES;
+                                                  [[MTSlideNavigationController sharedInstance] pushViewController:vc animated:YES];
                                                   
                                                   // success!
                                                   completion(PKPaymentAuthorizationStatusSuccess);

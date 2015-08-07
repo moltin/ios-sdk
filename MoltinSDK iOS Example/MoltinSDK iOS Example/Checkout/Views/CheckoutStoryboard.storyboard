@@ -386,7 +386,7 @@
         <!--Receipt View Controller-->
         <scene sceneID="Jkw-s0-0l5">
             <objects>
-                <viewController id="fEV-QI-RIx" customClass="ReceiptViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="receiptVC" id="fEV-QI-RIx" customClass="ReceiptViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ok9-2q-Vo3"/>
                         <viewControllerLayoutGuide type="bottom" id="6Tp-ls-ItR"/>
