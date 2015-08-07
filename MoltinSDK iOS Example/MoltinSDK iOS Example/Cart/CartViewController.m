@@ -21,10 +21,11 @@ static double ApplePayMaximumLimit = 20.00;
 // You must also create a certificate for this merchant ID, as per the Stripe guide at https://stripe.com/docs/mobile/apple-pay
 static NSString *ApplePayMerchantId = @"merchant.com.moltin.ApplePayExampleApp";
 
-// The following constant is your Stripe Publishable API key, that you use for your Moltin store's payment gateway.
+// The following constant is your Stripe Publishable API key - this must be the publishable key that corresponds to the secret key that you use for your Stripe payment gateway on your Moltin store.
 // This needs to be here for Apple Pay Purposes
 static NSString *StripePublishableKey = @"";
 
+// The Stripe payment gateway must be enabled on your Moltin store to use Apple Pay
 static NSString *ApplePayPaymentGateway = @"stripe";
 
 static NSString *PAYMENT_METHOD  = @"purchase";
@@ -511,6 +512,8 @@ static NSString *PAYMENT_METHOD  = @"purchase";
 }
 
 - (NSDictionary *)createAddressDictFromAddressBookRecord:(ABAddressBookRef)record {
+    // extract address from record, as per the Stripe API ( https://github.com/stripe/stripe-ios/blob/master/Stripe/ApplePay/STPAPIClient%2BApplePay.m )
+    
     NSMutableDictionary *addressDict = [NSMutableDictionary dictionary];
     
     NSString *firstName = (__bridge_transfer NSString*)ABRecordCopyValue(record, kABPersonFirstNameProperty);
