@@ -78,6 +78,8 @@
 		BA68B91F1B6BC6AB0055FD5C /* CollectionCache.m in Sources */ = {isa = PBXBuildFile; fileRef = BA68B91E1B6BC6AB0055FD5C /* CollectionCache.m */; };
 		BA68B9251B6C19A20055FD5C /* ProductCache.m in Sources */ = {isa = PBXBuildFile; fileRef = BA68B9241B6C19A20055FD5C /* ProductCache.m */; };
 		BAD504F01B74E23C0011FA4C /* cart-dark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BAD504EF1B74E23C0011FA4C /* cart-dark@2x.png */; };
+		BAD504F41B7504280011FA4C /* Receipt.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD504F31B7504280011FA4C /* Receipt.m */; };
+		BAD504F71B7506CE0011FA4C /* ReceiptManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD504F61B7506CE0011FA4C /* ReceiptManager.m */; };
 		BAE6E20A1B6F77DA00B650BC /* ProductListLoadMoreTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BAE6E2081B6F77DA00B650BC /* ProductListLoadMoreTableViewCell.m */; };
 		BAE6E20B1B6F77DA00B650BC /* ProductListLoadMoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAE6E2091B6F77DA00B650BC /* ProductListLoadMoreTableViewCell.xib */; };
 		BAE6E20D1B6F8F7800B650BC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAE6E20C1B6F8F7800B650BC /* CoreLocation.framework */; };
@@ -198,6 +200,10 @@
 		BA68B9231B6C19A20055FD5C /* ProductCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductCache.h; sourceTree = "<group>"; };
 		BA68B9241B6C19A20055FD5C /* ProductCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductCache.m; sourceTree = "<group>"; };
 		BAD504EF1B74E23C0011FA4C /* cart-dark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cart-dark@2x.png"; sourceTree = "<group>"; };
+		BAD504F21B7504280011FA4C /* Receipt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Receipt.h; path = Receipts/Receipt.h; sourceTree = "<group>"; };
+		BAD504F31B7504280011FA4C /* Receipt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Receipt.m; path = Receipts/Receipt.m; sourceTree = "<group>"; };
+		BAD504F51B7506CE0011FA4C /* ReceiptManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReceiptManager.h; path = Receipts/ReceiptManager.h; sourceTree = "<group>"; };
+		BAD504F61B7506CE0011FA4C /* ReceiptManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReceiptManager.m; path = Receipts/ReceiptManager.m; sourceTree = "<group>"; };
 		BAE6E2071B6F77DA00B650BC /* ProductListLoadMoreTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductListLoadMoreTableViewCell.h; sourceTree = "<group>"; };
 		BAE6E2081B6F77DA00B650BC /* ProductListLoadMoreTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductListLoadMoreTableViewCell.m; sourceTree = "<group>"; };
 		BAE6E2091B6F77DA00B650BC /* ProductListLoadMoreTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductListLoadMoreTableViewCell.xib; sourceTree = "<group>"; };
@@ -405,6 +411,7 @@
 		3EC7CE241B25BB8E00D843EB /* MoltinSDK iOS Example */ = {
 			isa = PBXGroup;
 			children = (
+				BAD504F11B75008F0011FA4C /* Receipt persistence */,
 				BA68B91C1B6BC68D0055FD5C /* Cache */,
 				3E3716D71B2E5C9700CFE67C /* Moltin */,
 				3E3717121B2F00E700CFE67C /* Collections */,
@@ -509,6 +516,17 @@
 				BA68B9241B6C19A20055FD5C /* ProductCache.m */,
 			);
 			name = Cache;
+			sourceTree = "<group>";
+		};
+		BAD504F11B75008F0011FA4C /* Receipt persistence */ = {
+			isa = PBXGroup;
+			children = (
+				BAD504F21B7504280011FA4C /* Receipt.h */,
+				BAD504F31B7504280011FA4C /* Receipt.m */,
+				BAD504F51B7506CE0011FA4C /* ReceiptManager.h */,
+				BAD504F61B7506CE0011FA4C /* ReceiptManager.m */,
+			);
+			name = "Receipt persistence";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -658,6 +676,7 @@
 				3E3717091B2E5C9700CFE67C /* MTGateway.m in Sources */,
 				3E37170E1B2E5C9700CFE67C /* Moltin.m in Sources */,
 				3E37170A1B2E5C9700CFE67C /* MTOrder.m in Sources */,
+				BAD504F71B7506CE0011FA4C /* ReceiptManager.m in Sources */,
 				BAE6E20A1B6F77DA00B650BC /* ProductListLoadMoreTableViewCell.m in Sources */,
 				3E3716FF1B2E5C9700CFE67C /* MTAddress.m in Sources */,
 				3E2F2BCF1B2F0C2E006CD657 /* ProductDetailsViewController.m in Sources */,
@@ -668,6 +687,7 @@
 				3E3717001B2E5C9700CFE67C /* MTBrand.m in Sources */,
 				3E3222621B3D8E20006D2CBE /* PaymentViewController.m in Sources */,
 				3E3717071B2E5C9700CFE67C /* MTEntry.m in Sources */,
+				BAD504F41B7504280011FA4C /* Receipt.m in Sources */,
 				3E4B5F341B3A6549009889A9 /* MTTextField.m in Sources */,
 				3E2978651B34118F002E1DC1 /* CartViewController.m in Sources */,
 				3E37170D1B2E5C9700CFE67C /* MTTax.m in Sources */,
