@@ -28,6 +28,9 @@ static NSString *StripePublishableKey = @"";
 // The Stripe payment gateway must be enabled on your Moltin store to use Apple Pay
 static NSString *ApplePayPaymentGateway = @"stripe";
 
+// The name of the store to be shown in the Apple Pay controller (i.e. your company name, or shop name)
+static NSString *StoreName = @"Moltin";
+
 static NSString *PAYMENT_METHOD  = @"purchase";
 
 @interface CartViewController ()
@@ -246,19 +249,10 @@ static NSString *PAYMENT_METHOD  = @"purchase";
     request.requiredShippingAddressFields = PKAddressFieldAll;
     
     
-    // Payment summary items must contain a total, any discount, and then the company name being paid
-    
-    NSDecimalNumber *subtotalAmount = [NSDecimalNumber decimalNumberWithDecimal:[self.cartPrice decimalValue]];
-    PKPaymentSummaryItem *subtotal = [PKPaymentSummaryItem summaryItemWithLabel:@"Subtotal" amount:subtotalAmount];
-    
-    NSDecimalNumber *totalAmount = [NSDecimalNumber zero];
-    totalAmount = [totalAmount decimalNumberByAdding:subtotalAmount];
-    PKPaymentSummaryItem *total = [PKPaymentSummaryItem summaryItemWithLabel:@"Moltin" amount:totalAmount];
-    
-    request.paymentSummaryItems =  @[subtotal, total];
-    
     // Now set up shipping methods too...
     NSMutableArray *shippingMethods = [NSMutableArray array];
+    
+    PKShippingMethod *defaultMethod = nil;
     
     for (NSDictionary *method in self.shippingMethods) {
         NSDecimalNumber *shippingCost = [NSDecimalNumber decimalNumberWithDecimal:[[method valueForKeyPath:@"price.data.raw.with_tax"] decimalValue]];
@@ -268,10 +262,45 @@ static NSString *PAYMENT_METHOD  = @"purchase";
         
         [shippingMethods addObject:shippingMethod];
         
+        if (!defaultMethod) {
+            defaultMethod = shippingMethod;
+        }
+        
         
     }
     
     request.shippingMethods = [NSArray arrayWithArray:shippingMethods];
+
+    
+    // Payment summary items must contain a total, any discount, and then the company name being paid
+    
+    NSMutableArray *paymentItems = [NSMutableArray array];
+    
+    NSDecimalNumber *subtotalAmount = [NSDecimalNumber decimalNumberWithDecimal:[self.cartPrice decimalValue]];
+    PKPaymentSummaryItem *subtotal = [PKPaymentSummaryItem summaryItemWithLabel:@"Subtotal" amount:subtotalAmount];
+    [paymentItems addObject:subtotal];
+    
+    NSDecimalNumber *totalAmount = [NSDecimalNumber zero];
+    totalAmount = [totalAmount decimalNumberByAdding:subtotalAmount];
+    
+    // Only add shipping costs if they're not free...
+    if (defaultMethod) {
+        if (defaultMethod.amount > 0) {
+            NSDecimalNumber *shippingAmount = defaultMethod.amount;
+            PKPaymentSummaryItem *shippingTotal = [PKPaymentSummaryItem summaryItemWithLabel:@"Shipping" amount:shippingAmount];
+            
+            totalAmount = [totalAmount decimalNumberByAdding:shippingAmount];
+            [paymentItems addObject:shippingTotal];
+
+        }
+    }
+    
+
+    PKPaymentSummaryItem *total = [PKPaymentSummaryItem summaryItemWithLabel:@"Moltin" amount:totalAmount];
+    [paymentItems addObject:total];
+
+    request.paymentSummaryItems =  paymentItems;
+    
     
     PKPaymentAuthorizationViewController *applePayViewController = [[PKPaymentAuthorizationViewController alloc] initWithPaymentRequest:request];
     
@@ -283,9 +312,40 @@ static NSString *PAYMENT_METHOD  = @"purchase";
 
 #pragma mark - Apple Pay Delegate methods
 
-- (void)paymentAuthorizationViewController:(PKPaymentAuthorizationViewController *)controller didAuthorizePayment:(PKPayment *)payment completion:(void (^)(PKPaymentAuthorizationStatus))completion {
-    NSLog(@"%s", __PRETTY_FUNCTION__);
+- (void)paymentAuthorizationViewController:(PKPaymentAuthorizationViewController *)controller
+                   didSelectShippingMethod:(PKShippingMethod *)shippingMethod
+                                completion:(void (^)(PKPaymentAuthorizationStatus status,
+                                                     NSArray *summaryItems))completion {
     
+    NSMutableArray *paymentItems = [NSMutableArray array];
+    
+    NSDecimalNumber *subtotalAmount = [NSDecimalNumber decimalNumberWithDecimal:[self.cartPrice decimalValue]];
+    PKPaymentSummaryItem *subtotal = [PKPaymentSummaryItem summaryItemWithLabel:@"Subtotal" amount:subtotalAmount];
+    [paymentItems addObject:subtotal];
+    
+    NSDecimalNumber *totalAmount = [NSDecimalNumber zero];
+    totalAmount = [totalAmount decimalNumberByAdding:subtotalAmount];
+    
+    // Only add shipping costs if they're not free...
+    if (shippingMethod) {
+        if ([shippingMethod.amount integerValue] > 0) {
+            NSDecimalNumber *shippingAmount = shippingMethod.amount;
+            PKPaymentSummaryItem *shippingTotal = [PKPaymentSummaryItem summaryItemWithLabel:@"Shipping" amount:shippingAmount];
+            
+            totalAmount = [totalAmount decimalNumberByAdding:shippingAmount];
+            [paymentItems addObject:shippingTotal];
+            
+        }
+    }
+    
+    
+    PKPaymentSummaryItem *total = [PKPaymentSummaryItem summaryItemWithLabel:StoreName amount:totalAmount];
+    [paymentItems addObject:total];
+    
+    completion(PKPaymentAuthorizationStatusSuccess, paymentItems);
+}
+
+- (void)paymentAuthorizationViewController:(PKPaymentAuthorizationViewController *)controller didAuthorizePayment:(PKPayment *)payment completion:(void (^)(PKPaymentAuthorizationStatus))completion {
     
     NSDictionary *billingAddressDict = nil;
     if (payment.billingAddress) {
@@ -331,12 +391,7 @@ static NSString *PAYMENT_METHOD  = @"purchase";
         completion(PKPaymentAuthorizationStatusInvalidShippingContact);
         return;
     }
-    
-    NSLog(@"billingAddressDict = %@", billingAddressDict);
-    NSLog(@"shippingAddressDict = %@", shippingAddressDict);
-    NSLog(@"shippingMethodSlug = %@", shippingMethodSlug);
-    NSLog(@"billingEmail = %@", billingEmail);
-    
+ 
     
     [Stripe createTokenWithPayment:payment
                         completion:^(STPToken *token, NSError *error) {
@@ -347,7 +402,6 @@ static NSString *PAYMENT_METHOD  = @"purchase";
                             
                             // Firstly, we need to carry out the order with Moltin
                             [self getCustomerIdWithEmail:billingEmail andFirstName:billingAddressDict[@"first_name"] andLastName:billingAddressDict[@"last_name"] withCompletionBlock:^(NSString *customerId) {
-                                NSLog(@"%@", customerId);
                                 
                                 // if customerId is nil, transaction has failed.
                                 if (!customerId) {
@@ -387,7 +441,7 @@ static NSString *PAYMENT_METHOD  = @"purchase";
                                                   [[NSNotificationCenter defaultCenter] postNotificationName:kMoltinNotificationRefreshCart object:nil];
                                                   
                                                   NSDictionary *receipt = response;
-                                                  NSLog(@"payment success with receipt = %@", receipt);
+                                                  //NSLog(@"payment success with receipt = %@", receipt);
                                                   // TODO: show receipt properly!
                                                   
                                                   // success!
@@ -564,7 +618,6 @@ static NSString *PAYMENT_METHOD  = @"purchase";
                 NSArray *possibleCountries = [self.countries filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"name == %@", country]];
                 
                 if (possibleCountries && possibleCountries.count > 0) {
-                    NSLog(@"found possible country");
                     NSString *countryCode = [possibleCountries[0] objectForKey:@"code"];
                     addressDict[@"country"] = countryCode;
 
@@ -618,8 +671,6 @@ static NSString *PAYMENT_METHOD  = @"purchase";
 }
 
 - (void)paymentAuthorizationViewControllerDidFinish:(PKPaymentAuthorizationViewController *)controller {
-    NSLog(@"%s", __PRETTY_FUNCTION__);
-    
     [controller dismissViewControllerAnimated:YES completion:nil];
 }
 
