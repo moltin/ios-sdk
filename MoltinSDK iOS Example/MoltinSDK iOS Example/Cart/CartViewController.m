@@ -451,13 +451,26 @@ static NSString *PAYMENT_METHOD  = @"purchase";
                                                   
                                                   NSDictionary *receipt = response;
                                                   
+                                                  NSMutableDictionary *mutableReceipt = [NSMutableDictionary dictionaryWithDictionary:receipt];
+                                                  
+                                                  [mutableReceipt setObject:[NSNumber numberWithBool:TRUE] forKey:@"using_apple_pay"];
+                                                  
+                                                  // save mutalbeReceipt to the receipts persistent store too...
+                                                  Receipt *savedReceipt = [[Receipt alloc] init];
+                                                  savedReceipt.receiptData = mutableReceipt;
+                                                  savedReceipt.products = [self.cartItems copy];
+                                                  savedReceipt.creationDate = [NSDate date];
+                                                  [ReceiptManager saveReceipt:savedReceipt];
+                                                  
+                                                  
                                                   UIStoryboard *sb = [UIStoryboard storyboardWithName:@"CheckoutStoryboard" bundle:nil];
                                                   ReceiptViewController *vc = [sb instantiateViewControllerWithIdentifier:@"receiptVC"];
                                                   vc.products = self.cartItems;
-                                                  vc.reciept = receipt;
+                                                  vc.reciept = mutableReceipt;
                                                   vc.isIndividualModalView = YES;
-                                                  vc.isApplePay = YES;
                                                   [[MTSlideNavigationController sharedInstance] pushViewController:vc animated:YES];
+                                                  
+                                                  
                                                   
                                                   // success!
                                                   completion(PKPaymentAuthorizationStatusSuccess);

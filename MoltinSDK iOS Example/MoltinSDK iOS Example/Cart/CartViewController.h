@@ -12,6 +12,8 @@
 #import "CartListCell.h"
 #import <Stripe/Stripe.h>
 #import <Stripe/Stripe+ApplePay.h>
+#import "Receipt.h"
+#import "ReceiptManager.h"
 
 @interface CartViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, CartListCellDelegate, UIActionSheetDelegate, PKPaymentAuthorizationViewControllerDelegate>
 
