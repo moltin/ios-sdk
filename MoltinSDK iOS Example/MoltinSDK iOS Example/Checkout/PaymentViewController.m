@@ -147,12 +147,12 @@ static NSInteger MAX_CARD_LENGTH = 19;
         // month selected
         self.month = (row + 1);
         
-        dateString = [NSString stringWithFormat:@"%@/%ld", [self pickerView:pickerView titleForRow:row forComponent:component], self.year];
+        dateString = [NSString stringWithFormat:@"%@/%ld", [self pickerView:pickerView titleForRow:row forComponent:component], (long)self.year];
     } else {
         // year selected
         self.year = (self.minYear + row);
         
-        dateString = [NSString stringWithFormat:@"%ld/%@", self.month, [self pickerView:pickerView titleForRow:row forComponent:component]];
+        dateString = [NSString stringWithFormat:@"%ld/%@", (long)self.month, [self pickerView:pickerView titleForRow:row forComponent:component]];
     }
     
     

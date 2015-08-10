@@ -45,6 +45,10 @@ static NSString *ReceiptProductCellIdentifier = @"MoltinReceiptProductCell";
     
     self.lbPaymentCard.text = [NSString stringWithFormat:@"%@ %@", [self.reciept valueForKeyPath:@"result.data.card.brand"], [self.reciept valueForKeyPath:@"result.data.card.last4"]];
     
+    if (self.isApplePay) {
+        self.lbPaymentCard.text = @"Apple Pay";
+    }
+    
     double shipping = [[self.reciept valueForKeyPath:@"result.order.shipping_price"] doubleValue];
     double total = [[self.reciept valueForKeyPath:@"result.order.total"] doubleValue];
     double subtotal = [[self.reciept valueForKeyPath:@"result.order.subtotal"] doubleValue];
@@ -68,6 +72,11 @@ static NSString *ReceiptProductCellIdentifier = @"MoltinReceiptProductCell";
 
 - (void)btnCloseTap:(id) sender
 {
+    if (self.isIndividualModalView) {
+        [[MTSlideNavigationController sharedInstance] popToRootViewControllerAnimated:YES];
+        return;
+    }
+    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

@@ -43,7 +43,7 @@ static NSString *CellIdentifier = @"MoltinCollectionCell";
     
     [self.collectionView registerNib:[UINib nibWithNibName:@"CollectionListCell" bundle:nil] forCellWithReuseIdentifier:CellIdentifier];
 
-    //umRG34nxZVGIuCSPfYf8biBSvtABgTR8GMUtflyE
+    //umRG34nxZVGIuCSPfYf8biBSvtABgTR8GMUtflyE - MOLKEA
     //wf60kt82vtzkjIMslZ1FmDyV8WUWNQlLxUiRVLS4 - winter summer
     [[Moltin sharedInstance] setPublicId:@"umRG34nxZVGIuCSPfYf8biBSvtABgTR8GMUtflyE"];
     [[Moltin sharedInstance] setLoggingEnabled:YES];

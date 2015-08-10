@@ -26,13 +26,13 @@
 
 - (IBAction)btnMinusTap:(id)sender {
     NSInteger currentQuantity = self.lbQuantity.text.integerValue;
-    self.lbQuantity.text = [NSString stringWithFormat:@"%ld", (currentQuantity-1)];
+    self.lbQuantity.text = [NSString stringWithFormat:@"%d", (currentQuantity-1)];
     [self updateCart];
 }
 
 - (IBAction)btnPlusTap:(id)sender {
     NSInteger currentQuantity = self.lbQuantity.text.integerValue;
-    self.lbQuantity.text = [NSString stringWithFormat:@"%ld", (currentQuantity+1)];
+    self.lbQuantity.text = [NSString stringWithFormat:@"%d", (currentQuantity+1)];
     [self updateCart];
 }
 

@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <PassKit/PassKit.h>
+#import <AddressBook/AddressBook.h>
 #import "CartListCell.h"
+#import <Stripe/Stripe.h>
+#import <Stripe/Stripe+ApplePay.h>
 
-@interface CartViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, CartListCellDelegate>
+@interface CartViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, CartListCellDelegate, UIActionSheetDelegate, PKPaymentAuthorizationViewControllerDelegate>
 
 @property (strong, nonatomic) NSArray *cartItems;
 
