@@ -81,6 +81,8 @@ static NSString *CellIdentifier = @"MoltinCollectionCell";
     
     [self setNeedsStatusBarAppearanceUpdate];
     
+    
+    
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
@@ -161,6 +163,11 @@ static NSString *CellIdentifier = @"MoltinCollectionCell";
 #pragma mark SlideNavigationController
 
 - (BOOL)slideNavigationControllerShouldDisplayRightMenu
+{
+    return YES;
+}
+
+- (BOOL)slideNavigationControllerShouldDisplayLeftMenu
 {
     return YES;
 }

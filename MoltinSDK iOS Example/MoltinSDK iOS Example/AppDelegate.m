@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "CartViewController.h"
+#import "ReceiptsViewController.h"
 #import "CollectionsViewController.h"
 
 @interface AppDelegate ()
@@ -23,6 +24,8 @@
     [MTSlideNavigationController sharedInstance].rightMenu = [CartViewController sharedInstance];
     [MTSlideNavigationController sharedInstance].portraitSlideOffset = 30;
     
+    [MTSlideNavigationController sharedInstance].leftMenu = [ReceiptsViewController sharedInstance];
+
     [self setLightCartButton];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setLightCartButton) name:kMoltinNotificationLightCartButton object:nil];

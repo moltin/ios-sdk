@@ -7,7 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SavedReceiptTableViewCell.h"
+#import "Receipt.h"
+#import "ReceiptManager.h"
 
-@interface ReceiptsViewController : UIViewController
+@interface ReceiptsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+
+
+@property (strong, nonatomic) NSArray *savedOrders;
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
++ (ReceiptsViewController *)sharedInstance;
+
 
 @end

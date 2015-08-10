@@ -79,6 +79,8 @@
 		BA68B9251B6C19A20055FD5C /* ProductCache.m in Sources */ = {isa = PBXBuildFile; fileRef = BA68B9241B6C19A20055FD5C /* ProductCache.m */; };
 		BAB196751B78C08600F96B91 /* ReceiptsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB196731B78C08600F96B91 /* ReceiptsViewController.m */; };
 		BAB196761B78C08600F96B91 /* ReceiptsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAB196741B78C08600F96B91 /* ReceiptsViewController.xib */; };
+		BAB1967A1B78C15700F96B91 /* SavedReceiptTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB196781B78C15700F96B91 /* SavedReceiptTableViewCell.m */; };
+		BAB1967B1B78C15700F96B91 /* SavedReceiptTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAB196791B78C15700F96B91 /* SavedReceiptTableViewCell.xib */; };
 		BAD504F01B74E23C0011FA4C /* cart-dark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BAD504EF1B74E23C0011FA4C /* cart-dark@2x.png */; };
 		BAD504F41B7504280011FA4C /* Receipt.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD504F31B7504280011FA4C /* Receipt.m */; };
 		BAD504F71B7506CE0011FA4C /* ReceiptManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD504F61B7506CE0011FA4C /* ReceiptManager.m */; };
@@ -204,6 +206,9 @@
 		BAB196721B78C08600F96B91 /* ReceiptsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReceiptsViewController.h; path = Receipts/ReceiptsViewController.h; sourceTree = "<group>"; };
 		BAB196731B78C08600F96B91 /* ReceiptsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReceiptsViewController.m; path = Receipts/ReceiptsViewController.m; sourceTree = "<group>"; };
 		BAB196741B78C08600F96B91 /* ReceiptsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ReceiptsViewController.xib; path = Receipts/ReceiptsViewController.xib; sourceTree = "<group>"; };
+		BAB196771B78C15700F96B91 /* SavedReceiptTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SavedReceiptTableViewCell.h; path = Receipts/SavedReceiptTableViewCell.h; sourceTree = "<group>"; };
+		BAB196781B78C15700F96B91 /* SavedReceiptTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SavedReceiptTableViewCell.m; path = Receipts/SavedReceiptTableViewCell.m; sourceTree = "<group>"; };
+		BAB196791B78C15700F96B91 /* SavedReceiptTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SavedReceiptTableViewCell.xib; path = Receipts/SavedReceiptTableViewCell.xib; sourceTree = "<group>"; };
 		BAD504EF1B74E23C0011FA4C /* cart-dark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cart-dark@2x.png"; sourceTree = "<group>"; };
 		BAD504F21B7504280011FA4C /* Receipt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Receipt.h; path = Receipts/Receipt.h; sourceTree = "<group>"; };
 		BAD504F31B7504280011FA4C /* Receipt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Receipt.m; path = Receipts/Receipt.m; sourceTree = "<group>"; };
@@ -529,6 +534,9 @@
 				BAB196721B78C08600F96B91 /* ReceiptsViewController.h */,
 				BAB196731B78C08600F96B91 /* ReceiptsViewController.m */,
 				BAB196741B78C08600F96B91 /* ReceiptsViewController.xib */,
+				BAB196771B78C15700F96B91 /* SavedReceiptTableViewCell.h */,
+				BAB196781B78C15700F96B91 /* SavedReceiptTableViewCell.m */,
+				BAB196791B78C15700F96B91 /* SavedReceiptTableViewCell.xib */,
 			);
 			name = "Saved Receipts view";
 			sourceTree = "<group>";
@@ -628,6 +636,7 @@
 				3E2978611B3403A2002E1DC1 /* btn-back@2x.png in Resources */,
 				3E4B5F2E1B3A5CFB009889A9 /* CheckoutStoryboard.storyboard in Resources */,
 				3EC7CE361B25BB8E00D843EB /* LaunchScreen.xib in Resources */,
+				BAB1967B1B78C15700F96B91 /* SavedReceiptTableViewCell.xib in Resources */,
 				BAE6E20B1B6F77DA00B650BC /* ProductListLoadMoreTableViewCell.xib in Resources */,
 				3EF22B1E1B31273B00462BFA /* Montserrat-Hairline.otf in Resources */,
 				3E4B5F221B37C033009889A9 /* btn-minus@2x.png in Resources */,
@@ -715,6 +724,7 @@
 				3E3717051B2E5C9700CFE67C /* MTCurrency.m in Sources */,
 				3ECF90621B4D6CDA00EAF11B /* ReceiptProductCell.m in Sources */,
 				3E3717081B2E5C9700CFE67C /* MTFacade.m in Sources */,
+				BAB1967A1B78C15700F96B91 /* SavedReceiptTableViewCell.m in Sources */,
 				3E3717161B2F00E700CFE67C /* CollectionsViewController.m in Sources */,
 				3E4B5F371B3A74B4009889A9 /* ShippingMethodViewController.m in Sources */,
 				3EF22AF51B30883000462BFA /* MTNavigationController.m in Sources */,
