@@ -29,6 +29,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *lbPaymentTotal;
 
 @property (nonatomic) BOOL isIndividualModalView;
-@property (nonatomic) BOOL isApplePay;
 
 @end

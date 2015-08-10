@@ -45,8 +45,10 @@ static NSString *ReceiptProductCellIdentifier = @"MoltinReceiptProductCell";
     
     self.lbPaymentCard.text = [NSString stringWithFormat:@"%@ %@", [self.reciept valueForKeyPath:@"result.data.card.brand"], [self.reciept valueForKeyPath:@"result.data.card.last4"]];
     
-    if (self.isApplePay) {
-        self.lbPaymentCard.text = @"Apple Pay";
+    if ([self.reciept valueForKey:@"using_apple_pay"] && [[self.reciept valueForKey:@"using_apple_pay"] isKindOfClass:[NSNumber class]]) {
+        if ([[self.reciept valueForKey:@"using_apple_pay"] boolValue]) {
+            self.lbPaymentCard.text = @"Apple Pay";
+        }
     }
     
     double shipping = [[self.reciept valueForKeyPath:@"result.order.shipping_price"] doubleValue];
