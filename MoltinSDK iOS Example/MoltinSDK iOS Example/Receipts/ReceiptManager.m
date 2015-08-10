@@ -35,10 +35,7 @@ static NSString *FileDataKey = @"com.moltin.saved_receipt_data";
         
         NSData *encodedData = [[NSData alloc] initWithContentsOfFile:savedFilePath];
 
-        NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:encodedData];
-        Receipt *savedReceipt = [unarchiver decodeObjectForKey:FileDataKey];
-        
-        [unarchiver finishDecoding];
+        Receipt *savedReceipt = [NSKeyedUnarchiver unarchiveObjectWithData:encodedData];
         
         [receipts addObject:savedReceipt];
         
@@ -50,11 +47,8 @@ static NSString *FileDataKey = @"com.moltin.saved_receipt_data";
 + (BOOL)saveReceipt:(Receipt*)receipt {
     NSString *newFilePath = [NSString stringWithFormat:@"%@/%@.moltinreceipt", [self pathToStoreDirectory], [receipt.creationDate description]];
     
-    NSMutableData *data = [[NSMutableData alloc] init];
-    NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
-    [archiver encodeObject:data forKey:FileDataKey];
-    [archiver finishEncoding];
-    return [data writeToFile:newFilePath atomically:YES];
+    return [NSKeyedArchiver archiveRootObject:receipt toFile:newFilePath];
+
 }
 
 

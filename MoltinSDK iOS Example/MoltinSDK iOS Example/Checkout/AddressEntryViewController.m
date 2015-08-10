@@ -226,7 +226,14 @@
 
 - (NSDictionary *)getAddressDict
 {
-    NSMutableString *address2 = [NSMutableString stringWithString:self.tfAddress2.text];
+    NSString *address2Entry;
+    if (!self.tfAddress2.text || self.tfAddress2.text.length < 1) {
+        address2Entry = @"";
+    } else {
+        address2Entry = self.tfAddress2.text;
+    }
+    
+    NSMutableString *address2 = [NSMutableString stringWithString:address2Entry];
     
     [address2 appendFormat:(address2.length > 0) ? @", %@" : @"%@", self.tfCity.text];
     [address2 appendFormat:(address2.length > 0) ? @", %@" : @"%@", self.tfState.text];
@@ -250,7 +257,7 @@
     // if address 2 exists, seperate by comma - if there's > 1 comma, the last will be the state, and the next-but-last the city.
     NSArray *address2Components = [addressDict[@"address_2"] componentsSeparatedByString:@","];
 
-    if (address2Components) {
+    if (address2Components && (![address2Components isKindOfClass:[NSNull class]])) {
         // last object is state...
         self.tfState.text = [address2Components lastObject];
         

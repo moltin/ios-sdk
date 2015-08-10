@@ -77,6 +77,8 @@
 		3EF22B291B32AEE500462BFA /* ProductDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EF22B281B32AEE500462BFA /* ProductDetailsView.xib */; };
 		BA68B91F1B6BC6AB0055FD5C /* CollectionCache.m in Sources */ = {isa = PBXBuildFile; fileRef = BA68B91E1B6BC6AB0055FD5C /* CollectionCache.m */; };
 		BA68B9251B6C19A20055FD5C /* ProductCache.m in Sources */ = {isa = PBXBuildFile; fileRef = BA68B9241B6C19A20055FD5C /* ProductCache.m */; };
+		BAB196751B78C08600F96B91 /* ReceiptsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB196731B78C08600F96B91 /* ReceiptsViewController.m */; };
+		BAB196761B78C08600F96B91 /* ReceiptsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAB196741B78C08600F96B91 /* ReceiptsViewController.xib */; };
 		BAD504F01B74E23C0011FA4C /* cart-dark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BAD504EF1B74E23C0011FA4C /* cart-dark@2x.png */; };
 		BAD504F41B7504280011FA4C /* Receipt.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD504F31B7504280011FA4C /* Receipt.m */; };
 		BAD504F71B7506CE0011FA4C /* ReceiptManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD504F61B7506CE0011FA4C /* ReceiptManager.m */; };
@@ -199,6 +201,9 @@
 		BA68B91E1B6BC6AB0055FD5C /* CollectionCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionCache.m; sourceTree = "<group>"; };
 		BA68B9231B6C19A20055FD5C /* ProductCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductCache.h; sourceTree = "<group>"; };
 		BA68B9241B6C19A20055FD5C /* ProductCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductCache.m; sourceTree = "<group>"; };
+		BAB196721B78C08600F96B91 /* ReceiptsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReceiptsViewController.h; path = Receipts/ReceiptsViewController.h; sourceTree = "<group>"; };
+		BAB196731B78C08600F96B91 /* ReceiptsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReceiptsViewController.m; path = Receipts/ReceiptsViewController.m; sourceTree = "<group>"; };
+		BAB196741B78C08600F96B91 /* ReceiptsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ReceiptsViewController.xib; path = Receipts/ReceiptsViewController.xib; sourceTree = "<group>"; };
 		BAD504EF1B74E23C0011FA4C /* cart-dark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cart-dark@2x.png"; sourceTree = "<group>"; };
 		BAD504F21B7504280011FA4C /* Receipt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Receipt.h; path = Receipts/Receipt.h; sourceTree = "<group>"; };
 		BAD504F31B7504280011FA4C /* Receipt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Receipt.m; path = Receipts/Receipt.m; sourceTree = "<group>"; };
@@ -411,24 +416,24 @@
 		3EC7CE241B25BB8E00D843EB /* MoltinSDK iOS Example */ = {
 			isa = PBXGroup;
 			children = (
-				BAD504F11B75008F0011FA4C /* Receipt persistence */,
+				3EC7CE291B25BB8E00D843EB /* AppDelegate.h */,
+				3EF22AF31B30883000462BFA /* MTNavigationController.h */,
+				3E4B5F2F1B3A630C009889A9 /* MTSlideNavigationController.h */,
+				3EC7CE2A1B25BB8E00D843EB /* AppDelegate.m */,
+				3EF22AF41B30883000462BFA /* MTNavigationController.m */,
+				3E4B5F301B3A630C009889A9 /* MTSlideNavigationController.m */,
+				3EC7CE321B25BB8E00D843EB /* Images.xcassets */,
 				BA68B91C1B6BC68D0055FD5C /* Cache */,
-				3E3716D71B2E5C9700CFE67C /* Moltin */,
-				3E3717121B2F00E700CFE67C /* Collections */,
-				3E3717151B2F00E700CFE67C /* Products */,
 				3E3717111B2F00E700CFE67C /* Cart */,
 				3E4B5F241B39167E009889A9 /* Checkout */,
-				3EC7CE291B25BB8E00D843EB /* AppDelegate.h */,
-				3EC7CE2A1B25BB8E00D843EB /* AppDelegate.m */,
-				3EF22AF31B30883000462BFA /* MTNavigationController.h */,
-				3EF22AF41B30883000462BFA /* MTNavigationController.m */,
-				3E4B5F2F1B3A630C009889A9 /* MTSlideNavigationController.h */,
-				3E4B5F301B3A630C009889A9 /* MTSlideNavigationController.m */,
-				3EC7CE2F1B25BB8E00D843EB /* Main.storyboard */,
-				3EC7CE321B25BB8E00D843EB /* Images.xcassets */,
+				3E3717121B2F00E700CFE67C /* Collections */,
 				3EC7CE341B25BB8E00D843EB /* LaunchScreen.xib */,
-				3EC7CE251B25BB8E00D843EB /* Supporting Files */,
+				3EC7CE2F1B25BB8E00D843EB /* Main.storyboard */,
+				3E3716D71B2E5C9700CFE67C /* Moltin */,
+				3E3717151B2F00E700CFE67C /* Products */,
+				BAD504F11B75008F0011FA4C /* Receipt persistence */,
 				3EF22B0C1B31273B00462BFA /* Resources */,
+				3EC7CE251B25BB8E00D843EB /* Supporting Files */,
 			);
 			path = "MoltinSDK iOS Example";
 			sourceTree = "<group>";
@@ -518,9 +523,20 @@
 			name = Cache;
 			sourceTree = "<group>";
 		};
+		BAB196711B78BFC600F96B91 /* Saved Receipts view */ = {
+			isa = PBXGroup;
+			children = (
+				BAB196721B78C08600F96B91 /* ReceiptsViewController.h */,
+				BAB196731B78C08600F96B91 /* ReceiptsViewController.m */,
+				BAB196741B78C08600F96B91 /* ReceiptsViewController.xib */,
+			);
+			name = "Saved Receipts view";
+			sourceTree = "<group>";
+		};
 		BAD504F11B75008F0011FA4C /* Receipt persistence */ = {
 			isa = PBXGroup;
 			children = (
+				BAB196711B78BFC600F96B91 /* Saved Receipts view */,
 				BAD504F21B7504280011FA4C /* Receipt.h */,
 				BAD504F31B7504280011FA4C /* Receipt.m */,
 				BAD504F51B7506CE0011FA4C /* ReceiptManager.h */,
@@ -597,6 +613,7 @@
 				3EF22B291B32AEE500462BFA /* ProductDetailsView.xib in Resources */,
 				3EF22B1A1B31273B00462BFA /* Heuristica-Italic.otf in Resources */,
 				3EC7CE311B25BB8E00D843EB /* Main.storyboard in Resources */,
+				BAB196761B78C08600F96B91 /* ReceiptsViewController.xib in Resources */,
 				3E4B5F1F1B37BAA9009889A9 /* CartListCell.xib in Resources */,
 				BAD504F01B74E23C0011FA4C /* cart-dark@2x.png in Resources */,
 				3EF22B181B31273B00462BFA /* Heuristica-Bold.otf in Resources */,
@@ -705,6 +722,7 @@
 				3E3717031B2E5C9700CFE67C /* MTCheckout.m in Sources */,
 				BA68B9251B6C19A20055FD5C /* ProductCache.m in Sources */,
 				3E37171B1B2F019B00CFE67C /* CollectionListCell.m in Sources */,
+				BAB196751B78C08600F96B91 /* ReceiptsViewController.m in Sources */,
 				3EC7CE281B25BB8E00D843EB /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

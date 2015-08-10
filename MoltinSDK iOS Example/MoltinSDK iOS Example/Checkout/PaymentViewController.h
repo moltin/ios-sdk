@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "MTTextField.h"
+#import "ReceiptManager.h"
+#import "Receipt.h"
 
 @interface PaymentViewController : UIViewController<UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate>
 
