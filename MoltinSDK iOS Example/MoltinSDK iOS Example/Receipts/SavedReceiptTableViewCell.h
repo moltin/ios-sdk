@@ -13,7 +13,9 @@
 }
 
 @property (weak, nonatomic) IBOutlet UILabel *receiptNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *receiptAmountLabel;
 
 - (void)setPurchaseDate:(NSDate*)date;
+- (void)setPurchaseAmount:(NSUInteger)amount;
 
 @end

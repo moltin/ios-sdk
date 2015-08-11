@@ -23,6 +23,16 @@
     // Configure the view for the selected state
 }
 
+- (void)setPurchaseAmount:(NSUInteger)amount {
+    if (amount == 1) {
+        self.receiptAmountLabel.text = [NSString stringWithFormat:@"%lu item", (unsigned long)amount];
+
+    } else {
+        self.receiptAmountLabel.text = [NSString stringWithFormat:@"%lu items", (unsigned long)amount];
+
+    }
+}
+
 - (void)setPurchaseDate:(NSDate*)date {
     self.receiptNameLabel.text = [NSString stringWithFormat:@"Your order on %@", [formatter stringFromDate:date]];
     

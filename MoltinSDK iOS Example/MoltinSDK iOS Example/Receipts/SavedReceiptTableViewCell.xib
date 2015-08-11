@@ -50,6 +50,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="receiptAmountLabel" destination="8iT-hv-P6c" id="Gi9-74-jI8"/>
                 <outlet property="receiptNameLabel" destination="kph-SX-eyV" id="3gf-Xi-5mF"/>
             </connections>
             <point key="canvasLocation" x="312" y="375"/>

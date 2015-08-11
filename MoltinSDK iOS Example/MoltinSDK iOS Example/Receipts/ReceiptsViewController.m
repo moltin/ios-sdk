@@ -60,9 +60,7 @@ static NSString *ReceiptCellIdentifier = @"MoltinSavedReceiptCell";
     
     self.view.backgroundColor = MOLTIN_DARK_BACKGROUND_COLOR;
     [self.tableView registerNib:[UINib nibWithNibName:@"SavedReceiptTableViewCell" bundle:nil] forCellReuseIdentifier:ReceiptCellIdentifier];
-    
-    self.tableView.allowsMultipleSelectionDuringEditing = NO;
-    
+        
 }
 
 
@@ -103,6 +101,7 @@ static NSString *ReceiptCellIdentifier = @"MoltinSavedReceiptCell";
     
     Receipt *receipt = [self.savedOrders objectAtIndex:indexPath.row];
     [cell setPurchaseDate:receipt.creationDate];
+    [cell setPurchaseAmount:receipt.products.count];
     
     return cell;
 }
@@ -110,7 +109,18 @@ static NSString *ReceiptCellIdentifier = @"MoltinSavedReceiptCell";
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // load relevant receipt from savedOrders array...
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
     Receipt *selectedReceipt = [self.savedOrders objectAtIndex:indexPath.row];
+    
+    
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"CheckoutStoryboard" bundle:nil];
+    ReceiptViewController *vc = [sb instantiateViewControllerWithIdentifier:@"receiptVC"];
+    vc.products = selectedReceipt.products;
+    vc.reciept = selectedReceipt.receiptData;
+    vc.isIndividualModalView = YES;
+    [[MTSlideNavigationController sharedInstance] pushViewController:vc animated:YES];
+    
     
     
 }

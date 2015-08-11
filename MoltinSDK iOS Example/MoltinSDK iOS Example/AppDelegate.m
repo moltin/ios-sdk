@@ -31,6 +31,12 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setLightCartButton) name:kMoltinNotificationLightCartButton object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setDarkCartButton) name:kMoltinNotificationDarkCartButton object:nil];
 
+    UIButton *button  = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 45)];
+    [button setImage:[UIImage imageNamed:@"saved-orders"] forState:UIControlStateNormal];
+    [button addTarget:[SlideNavigationController sharedInstance] action:@selector(toggleLeftMenu) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+    [MTSlideNavigationController sharedInstance].leftBarButtonItem = leftBarButtonItem;
+        
     
     return YES;
 }
