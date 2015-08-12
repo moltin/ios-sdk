@@ -27,11 +27,19 @@
 
 - (void)configureWithProductDict:(NSDictionary *) product
 {
+    
+    if (!product) {
+        self.lbTitle.text = @"";
+        self.lbPrice.text = @"";
+        self.lbQuantity.text = @"";
+        return;
+    }
+    
     _productDict = product;
     
     self.lbTitle.text = [product valueForKey:@"title"];
     self.lbPrice.text = [product valueForKeyPath:@"totals.post_discount.formatted.with_tax"];
-    self.lbQuantity.text = [NSString stringWithFormat:@"Qty: %@", [product valueForKeyPath:@"quantity"]];
+    self.lbQuantity.text = [NSString stringWithFormat:@"%@", [product valueForKeyPath:@"quantity"]];
     
     NSArray *tmpImages = [product objectForKey:@"images"];
     

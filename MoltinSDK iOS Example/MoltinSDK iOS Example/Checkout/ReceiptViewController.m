@@ -33,7 +33,7 @@ static NSString *ReceiptProductCellIdentifier = @"MoltinReceiptProductCell";
     [self.tableView registerNib:[UINib nibWithNibName:@"ReceiptProductCell" bundle:nil] forCellReuseIdentifier:ReceiptProductCellIdentifier];
     
     //comment this if you want the table view to be scrollable | 120 is the tableViewCell height
-    self.tableViewHeightConstraint.constant = self.products.count * 120;
+    self.tableViewHeightConstraint.constant = self.products.count * 44;
     self.tableView.bounces = NO;
     
     self.lbShippingCompany.text = [self.reciept valueForKeyPath:@"result.order.shipping.data.company"];
@@ -45,7 +45,7 @@ static NSString *ReceiptProductCellIdentifier = @"MoltinReceiptProductCell";
     
     self.lbPaymentCard.text = [NSString stringWithFormat:@"%@ %@", [self.reciept valueForKeyPath:@"result.data.card.brand"], [self.reciept valueForKeyPath:@"result.data.card.last4"]];
     
-    if ([self.reciept valueForKey:@"using_apple_pay"] && [[self.reciept valueForKey:@"using_apple_pay"] isKindOfClass:[NSNumber class]]) {
+    if ([self.reciept valueForKey:@"using_apple_pay"]) {
         if ([[self.reciept valueForKey:@"using_apple_pay"] boolValue]) {
             self.lbPaymentCard.text = @"Apple Pay";
         }
@@ -85,10 +85,12 @@ static NSString *ReceiptProductCellIdentifier = @"MoltinReceiptProductCell";
 #pragma mark - TableView delegate
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 120;
+    return 44;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    
+
     return self.products.count;
 }
 
@@ -99,6 +101,7 @@ static NSString *ReceiptProductCellIdentifier = @"MoltinReceiptProductCell";
         
         cell = [[ReceiptProductCell alloc] init];
     }
+
     
     NSDictionary *product = [self.products objectAtIndex:indexPath.row];
     [cell configureWithProductDict:product];

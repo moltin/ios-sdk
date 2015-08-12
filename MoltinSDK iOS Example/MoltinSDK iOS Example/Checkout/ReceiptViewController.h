@@ -19,6 +19,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *lbShippingCompany;
 @property (weak, nonatomic) IBOutlet UILabel *lbShippingPrice;
 
+@property (weak, nonatomic) IBOutlet UILabel *orderDateLabel;
+
 @property (weak, nonatomic) IBOutlet UILabel *lbAddressLine1;
 @property (weak, nonatomic) IBOutlet UILabel *lbAddressLine2;
 @property (weak, nonatomic) IBOutlet UILabel *lbAddressCountry;
