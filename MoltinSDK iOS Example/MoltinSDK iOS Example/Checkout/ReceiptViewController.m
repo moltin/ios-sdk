@@ -51,6 +51,12 @@ static NSString *ReceiptProductCellIdentifier = @"MoltinReceiptProductCell";
         }
     }
     
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateStyle:NSDateFormatterShortStyle];
+    [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
+    [self.orderDateLabel setText:[NSString stringWithFormat:@"Date: %@", [dateFormatter stringFromDate:self.purchaseDate]]];
+    
+    
     double shipping = [[self.reciept valueForKeyPath:@"result.order.shipping_price"] doubleValue];
     double total = [[self.reciept valueForKeyPath:@"result.order.total"] doubleValue];
     double subtotal = [[self.reciept valueForKeyPath:@"result.order.subtotal"] doubleValue];

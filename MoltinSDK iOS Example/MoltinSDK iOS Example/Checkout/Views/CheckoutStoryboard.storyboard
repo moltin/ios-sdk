@@ -604,20 +604,12 @@
                                                 <color key="textColor" red="0.18823529410000001" green="0.18823529410000001" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
                                                 <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Product" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AkT-PS-7JK">
-                                                <rect key="frame" x="16" y="88" width="248.5" height="28"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="28" id="eec-eR-HTj"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="Courier-Bold" family="Courier" pointSize="17"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" misplaced="YES" text="Qty" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kj8-62-aSv">
-                                                <rect key="frame" x="340" y="88" width="32" height="28"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Qty" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kj8-62-aSv">
+                                                <rect key="frame" x="344" y="88" width="35" height="28"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="34.5" id="WFv-bk-Vbe"/>
                                                     <constraint firstAttribute="height" constant="28" id="dTe-lX-4V4"/>
-                                                    <constraint firstAttribute="width" constant="32" id="ydS-Ee-y60"/>
+                                                    <constraint firstAttribute="width" constant="35" id="ydS-Ee-y60"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Courier-Bold" family="Courier" pointSize="17"/>
                                                 <nil key="highlightedColor"/>
@@ -627,7 +619,7 @@
                                                     </mask>
                                                 </variation>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" misplaced="YES" text="Price" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5J2-Ev-3xz">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Price" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5J2-Ev-3xz">
                                                 <rect key="frame" x="250" y="88" width="82" height="28.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="28.5" id="G5a-Ey-XXm"/>
@@ -637,12 +629,20 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date: 11/11/11 11:11 AM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pdd-rj-aNv">
-                                                <rect key="frame" x="16" y="56" width="221" height="28"/>
+                                                <rect key="frame" x="14" y="56" width="221" height="28"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="28" id="7Qd-YA-Zm7"/>
                                                     <constraint firstAttribute="width" constant="221" id="g0S-ut-uAI"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="16"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AkT-PS-7JK">
+                                                <rect key="frame" x="14" y="88" width="248.5" height="28"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="28" id="eec-eR-HTj"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Courier-Bold" family="Courier" pointSize="17"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -651,17 +651,17 @@
                                             <constraint firstItem="AkT-PS-7JK" firstAttribute="top" secondItem="Pdd-rj-aNv" secondAttribute="bottom" constant="4" id="0US-xH-nUa"/>
                                             <constraint firstAttribute="height" constant="116" id="CzQ-XM-QFT"/>
                                             <constraint firstAttribute="trailing" secondItem="66i-9W-oqx" secondAttribute="trailing" constant="10" id="D9z-i9-H5h"/>
-                                            <constraint firstAttribute="trailing" secondItem="Kj8-62-aSv" secondAttribute="trailing" constant="17" id="E9P-ce-kXe"/>
+                                            <constraint firstAttribute="trailing" secondItem="Kj8-62-aSv" secondAttribute="trailing" constant="3" id="E9P-ce-kXe"/>
                                             <constraint firstItem="Pdd-rj-aNv" firstAttribute="top" secondItem="66i-9W-oqx" secondAttribute="bottom" constant="8" id="EFR-AG-XSD"/>
-                                            <constraint firstItem="AkT-PS-7JK" firstAttribute="leading" secondItem="UmJ-Ka-UUg" secondAttribute="leading" constant="16" id="S8H-Vo-RpB"/>
-                                            <constraint firstItem="5J2-Ev-3xz" firstAttribute="leading" secondItem="AkT-PS-7JK" secondAttribute="trailing" constant="-14.5" id="YeT-lm-e27"/>
-                                            <constraint firstItem="Kj8-62-aSv" firstAttribute="leading" secondItem="5J2-Ev-3xz" secondAttribute="trailing" constant="8" id="bKV-7l-ocF"/>
+                                            <constraint firstItem="AkT-PS-7JK" firstAttribute="leading" secondItem="UmJ-Ka-UUg" secondAttribute="leading" constant="14" id="S8H-Vo-RpB"/>
+                                            <constraint firstItem="5J2-Ev-3xz" firstAttribute="leading" secondItem="AkT-PS-7JK" secondAttribute="trailing" constant="-12.5" id="YeT-lm-e27"/>
+                                            <constraint firstItem="Kj8-62-aSv" firstAttribute="leading" secondItem="5J2-Ev-3xz" secondAttribute="trailing" constant="12" id="bKV-7l-ocF"/>
                                             <constraint firstItem="66i-9W-oqx" firstAttribute="leading" secondItem="UmJ-Ka-UUg" secondAttribute="leading" constant="10" id="bQt-Jt-pY8"/>
                                             <constraint firstItem="Kj8-62-aSv" firstAttribute="top" secondItem="Pdd-rj-aNv" secondAttribute="bottom" constant="4" id="eGs-lB-WA4"/>
                                             <constraint firstItem="66i-9W-oqx" firstAttribute="top" secondItem="UmJ-Ka-UUg" secondAttribute="top" constant="8" id="kZM-uA-mhx"/>
                                             <constraint firstItem="5J2-Ev-3xz" firstAttribute="top" secondItem="Pdd-rj-aNv" secondAttribute="bottom" constant="4" id="mGY-5i-VK8"/>
                                             <constraint firstItem="Kj8-62-aSv" firstAttribute="leading" secondItem="5J2-Ev-3xz" secondAttribute="trailing" constant="3.5" id="r72-vl-Q1L"/>
-                                            <constraint firstItem="Pdd-rj-aNv" firstAttribute="leading" secondItem="UmJ-Ka-UUg" secondAttribute="leading" constant="16" id="vrt-to-U1v"/>
+                                            <constraint firstItem="Pdd-rj-aNv" firstAttribute="leading" secondItem="UmJ-Ka-UUg" secondAttribute="leading" constant="14" id="vrt-to-U1v"/>
                                         </constraints>
                                         <variation key="default">
                                             <mask key="constraints">
@@ -715,6 +715,7 @@
                         <outlet property="lbPaymentTotal" destination="xxq-ng-NPS" id="xB9-1v-Chm"/>
                         <outlet property="lbShippingCompany" destination="PRU-Jt-drY" id="lXY-rj-D0v"/>
                         <outlet property="lbShippingPrice" destination="LJV-cD-SPH" id="4fd-vT-5ht"/>
+                        <outlet property="orderDateLabel" destination="Pdd-rj-aNv" id="f1v-ik-bbw"/>
                         <outlet property="scrollView" destination="XYt-2R-HQb" id="2B0-L9-kIU"/>
                         <outlet property="tableView" destination="0pw-Jf-li1" id="lPi-6f-WcX"/>
                         <outlet property="tableViewHeightConstraint" destination="YKk-Rh-39P" id="KES-Hz-PSD"/>

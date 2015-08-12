@@ -18,12 +18,12 @@
                         <rect key="frame" x="8" y="0.0" width="304" height="47"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="$249.99" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="wgj-aa-h2H">
-                                <rect key="frame" x="182" y="12" width="83" height="22"/>
+                                <rect key="frame" x="179" y="12" width="83" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="22" id="FeV-7W-sbM"/>
                                     <constraint firstAttribute="width" constant="82.5" id="IAj-4P-N2O"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="10" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="HYw-F5-tdr">
@@ -32,15 +32,15 @@
                                     <constraint firstAttribute="width" constant="23" id="dIA-hF-1w4"/>
                                     <constraint firstAttribute="height" constant="22" id="vOV-45-8Ft"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PRODUCT TITLE TITLE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jlV-GB-NaU">
-                                <rect key="frame" x="14" y="9" width="173" height="28"/>
+                                <rect key="frame" x="16" y="9" width="171" height="28"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="28" id="a0d-en-H0b"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="16"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -48,13 +48,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerY" secondItem="wgj-aa-h2H" secondAttribute="centerY" constant="0.5" id="LeG-at-XXY"/>
-                            <constraint firstItem="wgj-aa-h2H" firstAttribute="leading" secondItem="jlV-GB-NaU" secondAttribute="trailing" constant="-5" id="PqB-RN-M5v"/>
+                            <constraint firstItem="wgj-aa-h2H" firstAttribute="leading" secondItem="jlV-GB-NaU" secondAttribute="trailing" constant="-8" id="PqB-RN-M5v"/>
                             <constraint firstAttribute="trailing" secondItem="HYw-F5-tdr" secondAttribute="trailing" constant="13" id="VFU-AD-2fY"/>
                             <constraint firstAttribute="centerY" secondItem="HYw-F5-tdr" secondAttribute="centerY" constant="0.5" id="VOm-K9-B7H"/>
-                            <constraint firstItem="HYw-F5-tdr" firstAttribute="leading" secondItem="wgj-aa-h2H" secondAttribute="trailing" constant="3" id="VZl-FI-95u"/>
+                            <constraint firstItem="HYw-F5-tdr" firstAttribute="leading" secondItem="wgj-aa-h2H" secondAttribute="trailing" constant="6" id="VZl-FI-95u"/>
                             <constraint firstAttribute="centerY" secondItem="jlV-GB-NaU" secondAttribute="centerY" constant="0.5" id="Xgu-aG-N8W"/>
                             <constraint firstAttribute="height" constant="47" id="mWn-Zc-tN3"/>
-                            <constraint firstItem="jlV-GB-NaU" firstAttribute="leading" secondItem="gqr-cj-32L" secondAttribute="leading" constant="14" id="vKh-5w-0Cm"/>
+                            <constraint firstItem="jlV-GB-NaU" firstAttribute="leading" secondItem="gqr-cj-32L" secondAttribute="leading" constant="16" id="vKh-5w-0Cm"/>
                         </constraints>
                     </view>
                 </subviews>

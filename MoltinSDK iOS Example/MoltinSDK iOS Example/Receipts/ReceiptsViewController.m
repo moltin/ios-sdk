@@ -118,6 +118,8 @@ static NSString *ReceiptCellIdentifier = @"MoltinSavedReceiptCell";
     ReceiptViewController *vc = [sb instantiateViewControllerWithIdentifier:@"receiptVC"];
     vc.products = selectedReceipt.products;
     vc.reciept = selectedReceipt.receiptData;
+    vc.purchaseDate = selectedReceipt.creationDate;
+
     vc.isIndividualModalView = YES;
     [[MTSlideNavigationController sharedInstance] pushViewController:vc animated:YES];
     

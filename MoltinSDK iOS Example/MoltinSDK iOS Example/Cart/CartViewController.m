@@ -467,6 +467,7 @@ static NSString *PAYMENT_METHOD  = @"purchase";
                                                   ReceiptViewController *vc = [sb instantiateViewControllerWithIdentifier:@"receiptVC"];
                                                   vc.products = self.cartItems;
                                                   vc.reciept = mutableReceipt;
+                                                  vc.purchaseDate = [NSDate date];
                                                   vc.isIndividualModalView = YES;
                                                   [[MTSlideNavigationController sharedInstance] pushViewController:vc animated:YES];
                                                   

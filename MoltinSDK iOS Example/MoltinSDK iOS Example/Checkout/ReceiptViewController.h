@@ -12,6 +12,7 @@
 
 @property (strong, nonatomic) NSArray *products;
 @property (strong, nonatomic) NSDictionary *reciept;
+@property (strong, nonatomic) NSDate *purchaseDate;
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewHeightConstraint;

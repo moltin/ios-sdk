@@ -384,7 +384,8 @@ static NSInteger MAX_CARD_LENGTH = 19;
      if ([segue.identifier isEqualToString:@"receiptSegue"]) {
          ReceiptViewController *destViewController = segue.destinationViewController;
          destViewController.products = [CartViewController sharedInstance].cartItems;
-         
+         destViewController.purchaseDate = [NSDate date];
+
          [CartViewController sharedInstance].cartItems = nil;
          
          destViewController.reciept = self.receipt;
