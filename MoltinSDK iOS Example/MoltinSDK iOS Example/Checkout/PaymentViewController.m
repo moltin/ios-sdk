@@ -335,9 +335,7 @@ static NSInteger MAX_CARD_LENGTH = 19;
             receipt.products = [CartViewController sharedInstance].cartItems;
             receipt.creationDate = [NSDate date];
             [ReceiptManager saveReceipt:receipt];
-            
-            NSLog(@"saved receipts: %@", [ReceiptManager savedReceipts]);
-            
+                        
             NSString *responseMessage = [response valueForKeyPath:@"result.message"];
             self.progressHUD.detailsLabelText = responseMessage;
             [self.progressHUD hide:YES afterDelay:2];
