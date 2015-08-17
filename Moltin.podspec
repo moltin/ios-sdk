@@ -1,17 +1,17 @@
 Pod::Spec.new do |s|
   s.name         = 'Moltin'
-  s.version      = '0.0.1'
-  s.license      = { :type => 'TODO', :file => 'LICENSE' }
+  s.version      = '1.0.0'
+  s.license      = { :type => 'Copyright', :file => 'LICENSE' }
   s.homepage     = 'http://github.com/moltin/ios-sdk.git'
-  s.authors      = { 'Gasper Rebernak' => 'rebernak.gasper@gmail.com' }
+  s.authors      = { 'Moltin' => 'support@moltin.com', 'Dylan McKee' => 'dylan@djmckee.co.uk', 'Gasper Rebernak' => 'rebernak.gasper@gmail.com' }
   s.platform     = :ios, '7.0'
   s.description  = <<-DESC
-		Moltin description
+		iOS SDK for the Moltin eCommerce API.
 	DESC
-  s.summary      = 'Moltin summary'
-  s.source       = { :git => "https://github.com/moltin/ios-sdk.git", :commit => 'fee4042846d821cf7c44d43ecb88956569b69c6e'  }
+  s.summary      = 'iOS SDK for the Moltin eCommerce API'
+  s.source       = { :git => "https://github.com/moltin/ios-sdk.git", :tag => 'v1.0.0 '  }
   s.source_files = 'Moltin', 'Moltin/**/*.{h,m}'
   s.requires_arc = true
   s.dependency 'AFNetworking'
- 
+
 end
