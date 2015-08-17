@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = 'Moltin'
   s.version      = '1.0.0'
-  s.license      = { :type => 'Copyright', :file => 'LICENSE' }
+  s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.homepage     = 'http://github.com/moltin/ios-sdk.git'
   s.authors      = { 'Moltin' => 'support@moltin.com', 'Dylan McKee' => 'dylan@djmckee.co.uk', 'Gasper Rebernak' => 'rebernak.gasper@gmail.com' }
   s.platform     = :ios, '7.0'
