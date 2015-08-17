@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Montserrat-Light.otf">
+            <string>Montserrat-Light</string>
+        </mutableArray>
+        <mutableArray key="Montserrat-Regular.otf">
+            <string>Montserrat-Regular</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MoltinSavedReceiptCell" id="KGk-i7-Jjw" customClass="SavedReceiptTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11/11/11 11:11" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kph-SX-eyV">
+                        <rect key="frame" x="8" y="8" width="304" height="26"/>
+                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="150 items" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8iT-hv-P6c">
+                        <rect key="frame" x="8" y="34" width="304" height="27"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="27" id="ppq-OL-Gt0"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="14"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" red="0.2699784098241218" green="0.34424739806067434" blue="0.40625" alpha="1" colorSpace="calibratedRGB"/>
+                <constraints>
+                    <constraint firstItem="8iT-hv-P6c" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="CIk-Cu-Dqd"/>
+                    <constraint firstItem="kph-SX-eyV" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="HGq-fi-Qqb"/>
+                    <constraint firstItem="kph-SX-eyV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="LMx-td-0lg"/>
+                    <constraint firstItem="kph-SX-eyV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="TRJ-BD-ity"/>
+                    <constraint firstItem="8iT-hv-P6c" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="e9c-lz-X3z"/>
+                    <constraint firstItem="8iT-hv-P6c" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="sfZ-FJ-5gp"/>
+                    <constraint firstItem="8iT-hv-P6c" firstAttribute="top" secondItem="kph-SX-eyV" secondAttribute="bottom" id="ypV-Uq-xoU"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="receiptAmountLabel" destination="8iT-hv-P6c" id="Gi9-74-jI8"/>
+                <outlet property="receiptNameLabel" destination="kph-SX-eyV" id="3gf-Xi-5mF"/>
+            </connections>
+            <point key="canvasLocation" x="312" y="375"/>
+        </tableViewCell>
+    </objects>
+</document>

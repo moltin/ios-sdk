@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Montserrat-Bold.otf">
+            <string>Montserrat-Bold</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ReceiptsViewController">
+            <connections>
+                <outlet property="tableView" destination="of4-LS-L5U" id="nkh-q4-dib"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="of4-LS-L5U">
+                    <rect key="frame" x="0.0" y="66" width="292" height="489"/>
+                    <color key="backgroundColor" red="0.2274509804" green="0.28627450980000002" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="XD4-3H-qlV"/>
+                        <outlet property="delegate" destination="-1" id="beM-Cm-oKR"/>
+                    </connections>
+                </tableView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SAVED ORDERS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fWE-x9-dYg">
+                    <rect key="frame" x="38" y="19" width="216" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="5RH-Uq-8Li"/>
+                        <constraint firstAttribute="width" constant="216" id="ltI-M1-4Lh"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="20"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0.2274509804" green="0.28627450980000002" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="of4-LS-L5U" firstAttribute="top" secondItem="fWE-x9-dYg" secondAttribute="bottom" constant="3" id="0Z1-dt-E4l"/>
+                <constraint firstAttribute="bottom" secondItem="of4-LS-L5U" secondAttribute="bottom" constant="13" id="HF5-ll-bOZ"/>
+                <constraint firstAttribute="trailing" secondItem="of4-LS-L5U" secondAttribute="trailing" constant="28" id="TC7-Z7-KUf"/>
+                <constraint firstItem="of4-LS-L5U" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="WUy-2i-hya"/>
+                <constraint firstItem="of4-LS-L5U" firstAttribute="top" secondItem="fWE-x9-dYg" secondAttribute="bottom" constant="3" id="bJv-UM-Ps1"/>
+                <constraint firstItem="of4-LS-L5U" firstAttribute="centerX" secondItem="fWE-x9-dYg" secondAttribute="centerX" id="kGd-3h-oyA"/>
+                <constraint firstItem="of4-LS-L5U" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="66" id="r3x-m7-m32"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <point key="canvasLocation" x="319" y="385"/>
+        </view>
+    </objects>
+</document>
