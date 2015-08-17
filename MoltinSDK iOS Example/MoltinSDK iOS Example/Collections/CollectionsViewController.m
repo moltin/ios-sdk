@@ -10,6 +10,7 @@
 #import "ProductsListViewController.h"
 #import <SDWebImagePrefetcher.h>
 #import "CollectionCache.h"
+#import "AppDelegate.h"
 
 static NSString *CellIdentifier = @"MoltinCollectionCell";
 
@@ -43,9 +44,7 @@ static NSString *CellIdentifier = @"MoltinCollectionCell";
     
     [self.collectionView registerNib:[UINib nibWithNibName:@"CollectionListCell" bundle:nil] forCellWithReuseIdentifier:CellIdentifier];
 
-    //umRG34nxZVGIuCSPfYf8biBSvtABgTR8GMUtflyE - MOLKEA
-    //wf60kt82vtzkjIMslZ1FmDyV8WUWNQlLxUiRVLS4 - winter summer
-    [[Moltin sharedInstance] setPublicId:@"umRG34nxZVGIuCSPfYf8biBSvtABgTR8GMUtflyE"];
+    [[Moltin sharedInstance] setPublicId:MOLTIN_API_KEY];
     [[Moltin sharedInstance] setLoggingEnabled:YES];
     
 
