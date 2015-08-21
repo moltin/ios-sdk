@@ -1,12 +1,12 @@
-# Moltin
+# Moltin iOS-SDK
 
 The Moltin ios-sdk is a simple to use interface for the API to help you get off the ground quickly and efficiently within the iOS app.
 
 ## Installation
 There are two ways to install the Moltin SDK in your project:
 
-- using Cocoapods (recommended)
-- manual installation by copying all of the files in the Moltin directory into your project, and adding them to your target
+- Using Cocoapods (recommended)
+- Manual installation by copying all of the files in the Moltin directory into your project, and adding them to your target
 
 ### Installation with CocoaPods
 
@@ -39,7 +39,7 @@ Just set your store `public ID` from the API console on Moltin website and you a
 The majority of our API calls can be mapped to Model-esque instance and don't need any low-level API calls. A full example store app is included showing every part of the shopping process - from listing products, to adding them to a cart, and allowing the user to checkout (via credit card or Apple Pay).
 
 Get a single product by ID
-```
+```objc
 [[Moltin sharedInstance].product getWithId:@"6"
                                   callback:^(NSDictionary *response, NSError *error){
                                             if(!error) {
@@ -51,7 +51,7 @@ Get a single product by ID
 ```
 
 Creating a user's address
-```
+```objc
 [[Moltin sharedInstance].address createWithParameters:@{  @"first_name": @"Joe", @"last_name": @"Black" }
                                 			 callback:^(NSDictionary *response, NSError *error){
 						                                if(!error) {
@@ -63,10 +63,15 @@ Creating a user's address
 ```
 
 ### Using Apple Pay in the Example App
-To use Apple Pay in the example app, you must have a Stripe account and a Moltin store set up with the Stripe payment gateway turned on and associated with your Stripe account, you must also have a paid Apple Developer account, then:
+To use Apple Pay in the example app, you must have: 
+ - A Stripe account.
+ - A Moltin store set up with the Stripe payment gateway enabled and associated with your Stripe account.
+ - A paid Apple Developer account.
 
-- Change the app's bundle ID from com.moltin.Moltin to something unique
-- [Follow this guide](https://stripe.com/docs/mobile/apple-pay) to register your Merchant ID, create a certificate with Stripe and upload it to Apple
-- Change the value of the StripePublishableKey constant in CartViewController.m to your Stripe account's publishable API key
+Once you have that sorted, you can follow these steps:
+
+ - Change the app's bundle ID from com.moltin.Moltin to something unique.
+ - [Follow this guide](https://stripe.com/docs/mobile/apple-pay) to register your Merchant ID, create a certificate with Stripe and upload it to Apple.
+ - Change the value of the StripePublishableKey constant in CartViewController.m to your Stripe account's publishable API key.
 
 Then you're all set to use Apple Pay at the checkout in the demo app!
