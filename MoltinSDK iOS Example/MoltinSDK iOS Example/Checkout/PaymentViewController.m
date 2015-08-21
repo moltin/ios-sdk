@@ -15,7 +15,7 @@ static NSString *PAYMENT_METHOD  = @"purchase";
 
 static NSInteger MAX_CVV_LENGTH = 4;
 
-// apparently, no credit cards have under 12 or over 19 digits... http://validcreditcardnumbers.info/?p=9
+// Apparently, no credit cards have under 12 or over 19 digits... http://validcreditcardnumbers.info/?p=9
 static NSInteger MIN_CARD_LENGTH = 12;
 static NSInteger MAX_CARD_LENGTH = 19;
 
@@ -98,8 +98,7 @@ static NSInteger MAX_CARD_LENGTH = 19;
     }
 }
 
--(BOOL)textFieldShouldReturn:(UITextField*)textField;
-{
+-(BOOL)textFieldShouldReturn:(UITextField*)textField {
     NSInteger nextTag = textField.tag + 1;
     UIResponder* nextResponder = [textField.superview viewWithTag:nextTag];
     if (nextResponder) {
@@ -110,7 +109,7 @@ static NSInteger MAX_CARD_LENGTH = 19;
     return NO;
 }
 
--(void)textFieldDidBeginEditing:(UITextField *)textField{
+-(void)textFieldDidBeginEditing:(UITextField *)textField {
     
 }
 
@@ -164,7 +163,7 @@ static NSInteger MAX_CARD_LENGTH = 19;
     
     NSCharacterSet *nonDigitChars = [[NSCharacterSet decimalDigitCharacterSet] invertedSet];
     
-    if ([self.tfCvv.text rangeOfCharacterFromSet:nonDigitChars].location == NSNotFound) {
+    if ([string rangeOfCharacterFromSet:nonDigitChars].location == NSNotFound) {
         // definitely numeric entierly
         return TRUE;
     }
@@ -262,6 +261,8 @@ static NSInteger MAX_CARD_LENGTH = 19;
         }
         ALERT(@"Error creating customer", errorMessage);
     }];
+
+
 }
 
 - (void)order{
