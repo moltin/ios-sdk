@@ -2,6 +2,8 @@
 
 The Moltin ios-sdk is a simple to use interface for the API to help you get off the ground quickly and efficiently within the iOS app.
 
+For full usage examples, check out the [Objective-C](https://github.com/moltin/ios-objc-example) example app, or the [Swift](https://github.com/moltin/ios-swift-example) example app.
+
 ## Installation
 There are two ways to install the Moltin SDK in your project:
 
@@ -61,17 +63,3 @@ Creating a user's address
 						                                }
                                 }];
 ```
-
-### Using Apple Pay in the Example App
-To use Apple Pay in the example app, you must have: 
- - A Stripe account.
- - A Moltin store set up with the Stripe payment gateway enabled and associated with your Stripe account.
- - A paid Apple Developer account.
-
-Once you have that sorted, you can follow these steps:
-
- - Change the app's bundle ID from com.moltin.Moltin to something unique.
- - [Follow this guide](https://stripe.com/docs/mobile/apple-pay) to register your Merchant ID, create a certificate with Stripe and upload it to Apple.
- - Change the value of the StripePublishableKey constant in CartViewController.m to your Stripe account's publishable API key.
-
-Then you're all set to use Apple Pay at the checkout in the demo app!
