@@ -7,7 +7,7 @@ For full usage examples, check out the [Objective-C](https://github.com/moltin/i
 ## Installation
 There are two ways to install the Moltin SDK in your project:
 
-- Using Cocoapods (recommended)
+- Using CocoaPods (recommended)
 - Manual installation by copying all of the files in the Moltin directory into your project, and adding them to your target
 
 ### Installation with CocoaPods
