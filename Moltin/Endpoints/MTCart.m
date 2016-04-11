@@ -20,14 +20,20 @@
 - (id)init{
     return [super initWithEndpoint:@"carts"];
 }
+
+- (NSString*)generateNewCartIdentifier {
+    NSString *identifier = [[[NSUUID UUID] UUIDString] stringByReplacingOccurrencesOfString:@"-" withString:@""].lowercaseString;
+    [MoltinStorage setCartId:_identifier];
+    return identifier;
+}
+
 - (NSString *)identifier{
     _identifier = [MoltinStorage getCartId];
 
     if (_identifier == nil || _identifier.length == 0) {
-        _identifier = [[[NSUUID UUID] UUIDString] stringByReplacingOccurrencesOfString:@"-" withString:@""].lowercaseString;
-        [MoltinStorage setCartId:_identifier];
+        _identifier = [self generateNewCartIdentifier];
     }
-    
+
     return _identifier;
 }
 
@@ -38,14 +44,14 @@
 - (void)insertItemWithId:(NSString *) itemId quantity:(NSInteger) quantity andModifiersOrNil:(NSDictionary *) modifiers success:(MTSuccessCallback)success failure:(MTFailureCallback)failure
 {
     NSDictionary *parameters;
-    
+
     if (modifiers) {
         parameters = @{@"id" : itemId, @"quantity": [NSNumber numberWithInteger:quantity], @"modifier": modifiers};
     }
     else{
         parameters = @{@"id" : itemId, @"quantity": [NSNumber numberWithInteger:quantity]};
     }
-    
+
     NSString *endpoint = [NSString stringWithFormat:@"%@/%@", self.endpoint, self.identifier];
     [super postWithEndpoint:endpoint andParameters:parameters success:success failure:failure];
 }
@@ -81,14 +87,14 @@
 
 - (void)orderWithParameters:(NSDictionary *) parameters success:(MTSuccessCallback)success failure:(MTFailureCallback)failure{
     NSString *endpoint = [NSString stringWithFormat:@"%@/%@/checkout", self.endpoint, self.identifier];
-    
+
     [super postWithEndpoint:endpoint andParameters:parameters success:success failure:failure];
 }
 
 - (void)discountWithCode:(NSString *) code success:(MTSuccessCallback)success failure:(MTFailureCallback)failure{
-    
+
     NSString *endpoint = [NSString stringWithFormat:@"%@/%@/discount", self.endpoint, self.identifier];
-    
+
     if (code == nil || code.length == 0) {
         [super deleteWithEndpoint:endpoint success:success failure:failure];
     }

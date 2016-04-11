@@ -10,6 +10,9 @@
 
 @interface MTCart : MTFacade
 
+
+- (NSString*)generateNewCartIdentifier;
+- (NSString *)identifier;
 - (void)getContentsWithsuccess:(MTSuccessCallback)success failure:(MTFailureCallback)failure;
 - (void)insertItemWithId:(NSString *) itemId quantity:(NSInteger) quantity andModifiersOrNil:(NSDictionary *) modifiers success:(MTSuccessCallback)success failure:(MTFailureCallback)failure;
 - (void)updateItemWithId:(NSString *) itemId parameters:(NSDictionary *) parameters success:(MTSuccessCallback)success failure:(MTFailureCallback)failure;
