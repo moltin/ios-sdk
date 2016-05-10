@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
 		iOS SDK for the Moltin eCommerce API.
 	DESC
   s.summary      = 'iOS SDK for the Moltin eCommerce API'
-  s.source       = { :git => "https://github.com/moltin/ios-sdk.git", :tag => 'v1.1'  }
+  s.source       = { :git => "https://github.com/moltin/ios-sdk.git", :tag => 'v1.1.1'  }
   s.source_files = 'Moltin', 'Moltin/**/*.{h,m}'
   s.requires_arc = true
   s.dependency 'AFNetworking'
