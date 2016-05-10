@@ -32,7 +32,7 @@
 }
 
 -(void)loginWithCustomerId:(NSString *)customerId andPassword:(NSString *)password success:(MTSuccessCallback)success failure:(MTFailureCallback)failure{
-    NSString *endpoint = [NSString stringWithFormat:@"%@/authenticate", self.endpoint];
+    NSString *endpoint = [NSString stringWithFormat:@"%@/token", self.endpoint];
 
     NSDictionary *parameters = @{@"id ": customerId, @"password": password};
 
