@@ -23,13 +23,17 @@
 
 - (NSString*)generateNewCartIdentifier {
     NSString *identifier = [[[NSUUID UUID] UUIDString] stringByReplacingOccurrencesOfString:@"-" withString:@""].lowercaseString;
-    [MoltinStorage setCartId:_identifier];
+
+    // Persist new card ID.
+    [MoltinStorage setCartId:identifier];
+
     return identifier;
 }
 
 - (NSString *)identifier{
     _identifier = [MoltinStorage getCartId];
 
+    // If there's no existing identifier, generate and persist a new ID.
     if (_identifier == nil || _identifier.length == 0) {
         _identifier = [self generateNewCartIdentifier];
     }
