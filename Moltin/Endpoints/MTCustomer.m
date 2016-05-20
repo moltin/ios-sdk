@@ -82,7 +82,7 @@
 }
 
 -(void)getCustomerOrdersWithToken:(NSString*)token success:(MTSuccessCallback)success failure:(MTFailureCallback)failure {
-    NSString *endpoint = [NSString stringWithFormat:@"orders", token];
+    NSString *endpoint = [NSString stringWithFormat:@"%@/orders", self.endpoint];
 
     NSDictionary *parameters = @{@"customer": token};
 
