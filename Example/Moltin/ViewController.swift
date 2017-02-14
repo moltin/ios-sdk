@@ -7,12 +7,22 @@
 //
 
 import UIKit
+import Moltin
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        Moltin.product.list { result in
+            switch result {
+            case .failuer(let error):
+                print(error)
+            case .success(let result):
+                print(result)
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {

@@ -1,0 +1,22 @@
+PODS:
+  - Alamofire (4.3.0)
+  - Gloss (1.2.0)
+  - Moltin (0.1.0):
+    - Alamofire (= 4.3.0)
+    - Gloss (~> 1.2.0)
+
+DEPENDENCIES:
+  - Moltin (from `../`)
+
+EXTERNAL SOURCES:
+  Moltin:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
+  Gloss: ec49584b2e8144e39810b6db6285433316e0c1c7
+  Moltin: 8797a0a8173e2318398be0fb2c3db37e7efc2c6c
+
+PODFILE CHECKSUM: dbd6766529828b8c3c923cd4509be065cedfc10d
+
+COCOAPODS: 1.2.0.beta.3
