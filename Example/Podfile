@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'Moltin_Example' do
+  pod 'Moltin', :path => '../'
+
+  target 'Moltin_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
