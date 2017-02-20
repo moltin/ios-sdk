@@ -16,4 +16,8 @@ public struct CategoryRequest {
     public func get(withCategoryID id: String, include: [MoltinQuery.Include]? = nil, completion: @escaping (Result<Category?>) -> ()) {
         MoltinAPI.objectRequest(request: Router.getCategory(id: id, include: include), completion: completion)
     }
+    
+    public func getTree(completion: @escaping (Result<[Category]>) -> ()) {
+        MoltinAPI.arrayRequest(request: Router.getCategoryTree, completion: completion)
+    }
 }

@@ -25,6 +25,7 @@ public struct Category {
     public let name: String
     public let slug: String
     public let description: String
+    public let children: [Category]
     public let json: JSON
 }
 
@@ -42,5 +43,15 @@ extension Category: JSONAPIDecodable {
         self.slug = slug
         self.description = description
         self.json = json
+        
+        guard let childrenJSON: [JSON] = "children" <~~ json,
+            0 < childrenJSON.count else {
+            self.children = []
+            return
+        }
+        
+        self.children = childrenJSON.flatMap {
+            return Category(json: $0, includedJSON: nil)
+        }
     }
 }

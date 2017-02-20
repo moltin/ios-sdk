@@ -36,6 +36,7 @@ enum Router: URLRequestConvertible {
     
     case listCategories(query: MoltinQuery?)
     case getCategory(id: String, include: [MoltinQuery.Include]?)
+    case getCategoryTree
     
     case getCart(reference: String)
     
@@ -76,6 +77,8 @@ enum Router: URLRequestConvertible {
             return "/v2/categories"
         case .getCategory(let id, let _):
             return "/v2/categories/\(id)"
+        case .getCategoryTree:
+            return "/v2/categories/tree"
         case .getCart(let reference):
             return "/v2/carts/\(reference)"
         }
