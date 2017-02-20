@@ -10,11 +10,6 @@ import Foundation
 import Alamofire
 import Gloss
 
-public enum Result<T> {
-    case success(result: T)
-    case failuer(error: Error)
-}
-
 enum Router: URLRequestConvertible {
     static let baseURLString: String = {
         return "https://api.moltin.com"
@@ -24,12 +19,18 @@ enum Router: URLRequestConvertible {
     
     case authenticate
     
-    case listProducts(query: ProductQuery?)
+    case listCollections(query: MoltinQuery?)
+    case getCollection(id: String)
+    
+    case listProducts(query: MoltinQuery?)
     case getProduct(id: String)
+    
+    case listCurrencies
+    case getCurrency(id: String)
     
     private var method: HTTPMethod {
         switch self {
-        case .listProducts, .getProduct:
+        case .listCollections, .getCollection, .listProducts, .getProduct, .listCurrencies, .getCurrency:
             return .get
         case .authenticate:
             return .post
@@ -40,16 +41,24 @@ enum Router: URLRequestConvertible {
         switch self {
         case .authenticate:
             return "/oauth/access_token"
+        case .listCollections:
+            return "/v2/collections"
+        case .getCollection(let id):
+            return "/v2/collections/\(id)"
         case .listProducts:
             return "/v2/products"
         case .getProduct(let id):
-            return "/v2/prdocuts/\(id)"
+            return "/v2/prodcuts/\(id)"
+        case .listCurrencies:
+            return "/v2/currencies"
+        case .getCurrency(let id):
+            return "/v2/currencies/\(id)"
         }
     }
     
     private var queryItems: [URLQueryItem]? {
         switch self {
-        case .listProducts(let query):
+        case .listProducts(let query), .listCollections(let query):
             guard let query = query else {
                 return nil
             }
@@ -75,7 +84,7 @@ enum Router: URLRequestConvertible {
             if let include = query.include {
                 queryItems.append(URLQueryItem(name: "include", value: include.reduce("") {
                     $0 + ",\($1.rawValue)"
-                }))
+                }.trimmingCharacters(in: CharacterSet(charactersIn: ","))))
             }
             
             return queryItems
@@ -95,7 +104,7 @@ enum Router: URLRequestConvertible {
         var headerDictionary = ["Accept" : "application/json"]
         
         if let authToken = Router.auth.token {
-            headerDictionary["Authorization"] = authToken
+            headerDictionary["Authorization"] = "Bearer " + authToken
         }
         
         switch self {

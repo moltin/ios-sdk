@@ -9,20 +9,31 @@
 import Foundation
 import Gloss
 
-public struct Product {
-    let id: String
-    let name: String
-    let slug: String
-    let sku: String
-    let description: String
-    let height: Measurement<UnitLength>?
-    let width: Measurement<UnitLength>?
-    let length: Measurement<UnitLength>?
-    let weight: Measurement<UnitMass>?
+protocol HasProducts {
+    var products: [Product] { get set }
+    mutating func addProducts(fromJSON json: [JSON], requiredIDs: [String])
 }
 
-extension Product: Decodable {
-    public init?(json: JSON) {
+extension HasProducts {
+    mutating func addProducts(fromJSON json: [JSON], requiredIDs: [String]) {
+        self.products = includedObjectsArray(fromJSONArray: json, requiredIDs: requiredIDs)
+    }
+}
+
+public struct Product: HasFiles, HasCollections, HasCategories {
+    public let id: String
+    public let name: String
+    public let slug: String
+    public let sku: String
+    public let description: String
+    public var files: [File] = []
+    public var collections: [Collection] = []
+    public var categories: [Category] = []
+    public let json: JSON
+}
+
+extension Product: JSONAPIDecodable {
+    public init?(json: JSON, includedJSON: JSON?) {
         guard let id: String = "id" <~~ json,
             let name: String = "name" <~~ json,
             let slug: String = "slug" <~~ json,
@@ -36,10 +47,25 @@ extension Product: Decodable {
         self.slug = slug
         self.sku = sku
         self.description = description
+        self.json = json
         
-        height = nil
-        width = nil
-        length = nil
-        weight = nil
+        guard let includedJSON = includedJSON else {
+            return
+        }
+        
+        if let includedFilesJSON: [JSON] = "files" <~~ includedJSON,
+            let relatedFilesJSON: [JSON] = "relationships.files.data" <~~ json {
+            self.addFiles(fromJSON: includedFilesJSON, requiredIDs: relatedFilesJSON.flatMap { $0["id"] as? String })
+        }
+        
+        if let includedCollectionJSON: [JSON] = "collections" <~~ includedJSON,
+            let relatedCollectionJSON: [JSON] = "relationships.collections.data" <~~ json {
+            self.addCollections(fromJSON: includedCollectionJSON, requiredIDs: relatedCollectionJSON.flatMap { $0["id"] as? String })
+        }
+        
+        if let includedCategoryJSON: [JSON] = "categories" <~~ includedJSON,
+            let relatedCategoryJSON: [JSON] = "relationships.categories.data" <~~ json {
+            self.addCategories(fromJSON: includedCategoryJSON, requiredIDs: relatedCategoryJSON.flatMap { $0["id"] as? String })
+        }
     }
 }

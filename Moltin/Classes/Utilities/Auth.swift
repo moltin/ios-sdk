@@ -59,17 +59,12 @@ class Auth {
     
     private func appendFormData(data: MultipartFormData) {
         guard let clientID = Moltin.clientID else {
+            fatalError("Please set the Moltin.clientID before making a request")
             return
         }
         
         data.append(clientID.data(using: .utf8)!, withName: "client_id")
-        
-        if let authToken = self.token {
-            data.append(authToken.data(using: .utf8)!, withName: "refresh_token")
-            data.append("refresh_token".data(using: .utf8)!, withName: "grant_type")
-        } else {
-            data.append("implicit".data(using: .utf8)!, withName: "grant_type")
-        }
+        data.append("implicit".data(using: .utf8)!, withName: "grant_type")
     }
     
     private func processAuthenticationRequest(request: UploadRequest, completion: @escaping () -> ()) {

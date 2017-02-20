@@ -15,14 +15,38 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        Moltin.product.list { result in
+//        Moltin.product.list { result in
+//            switch result {
+//            case .failure(let error):
+//                print(error)
+//            case .success(let result):
+//                print(result)
+//            }
+//        }
+//        
+//        Moltin.currency.list { result in
+//            print(result)
+//        }
+        
+        let query = MoltinQuery(offset: nil, limit: 10, sort: nil, filter: nil, include: [.categories])
+
+        Moltin.product.list(withQuery: query) { result in
             switch result {
-            case .failuer(let error):
+            case .failure(let error):
                 print(error)
-            case .success(let result):
-                print(result)
+            case .success(let products):
+                products.forEach { print($0.name) }
             }
         }
+        
+//        Moltin.collection.list(withQuery: query) { result in
+//            switch result {
+//            case .failure(let error):
+//                print(error)
+//            case .success(let collections):
+//                collections.forEach { print($0.name) }
+//            }
+//        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,4 +55,3 @@ class ViewController: UIViewController {
     }
 
 }
-
