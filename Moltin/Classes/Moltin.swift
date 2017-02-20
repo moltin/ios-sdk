@@ -11,9 +11,12 @@ import Foundation
 public struct Moltin {
     public static var clientID: String? = nil
     
-//    public static let collection = CollectionRequest()
+    public static let brand = BrandRequest()
+    public static let category = CategoryRequest()
+    public static let collection = CollectionRequest()
+    public static let currency = CurrencyRequest()
+    public static let file = FileRequest()
     public static let product = ProductRequest()
-//    public static let currency = CurrencyRequest()
     
     init() {
         fatalError("Do not instantiate Moltin, it is only used as an interface.")

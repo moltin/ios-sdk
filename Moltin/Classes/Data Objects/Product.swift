@@ -20,7 +20,7 @@ extension HasProducts {
     }
 }
 
-public struct Product: HasFiles, HasCollections, HasCategories {
+public struct Product: HasFiles, HasCollections, HasCategories, HasBrands {
     public let id: String
     public let name: String
     public let slug: String
@@ -29,6 +29,7 @@ public struct Product: HasFiles, HasCollections, HasCategories {
     public var files: [File] = []
     public var collections: [Collection] = []
     public var categories: [Category] = []
+    public var brands: [Brand] = []
     public let json: JSON
 }
 
@@ -66,6 +67,11 @@ extension Product: JSONAPIDecodable {
         if let includedCategoryJSON: [JSON] = "categories" <~~ includedJSON,
             let relatedCategoryJSON: [JSON] = "relationships.categories.data" <~~ json {
             self.addCategories(fromJSON: includedCategoryJSON, requiredIDs: relatedCategoryJSON.flatMap { $0["id"] as? String })
+        }
+        
+        if let includedBrandJSON: [JSON] = "brands" <~~ includedJSON,
+            let relatedBrandJSON: [JSON] = "relationships.brands.data" <~~ json {
+            self.addBrands(fromJSON: includedBrandJSON, requiredIDs: relatedBrandJSON.flatMap { $0["id"] as? String })
         }
     }
 }

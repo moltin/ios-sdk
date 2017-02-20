@@ -28,12 +28,23 @@ enum Router: URLRequestConvertible {
     case listCurrencies
     case getCurrency(id: String)
     
+    case listFiles(query: MoltinQuery?)
+    case getFile(id: String)
+    
+    case listBrands(query: MoltinQuery?)
+    case getBrand(id: String)
+    
+    case listCategories(query: MoltinQuery?)
+    case getCategory(id: String)
+    
+    case getCart(reference: String)
+    
     private var method: HTTPMethod {
         switch self {
-        case .listCollections, .getCollection, .listProducts, .getProduct, .listCurrencies, .getCurrency:
-            return .get
         case .authenticate:
             return .post
+        default:
+            return .get
         }
     }
     
@@ -53,12 +64,31 @@ enum Router: URLRequestConvertible {
             return "/v2/currencies"
         case .getCurrency(let id):
             return "/v2/currencies/\(id)"
+        case .listFiles:
+            return "/v2/files"
+        case .getFile(let id):
+            return "/v2/files/\(id)"
+        case .listBrands:
+            return "/v2/brands"
+        case .getBrand(let id):
+            return "/v2/brands/\(id)"
+        case .listCategories:
+            return "/v2/categories"
+        case .getCategory(let id):
+            return "/v2/categories/\(id)"
+        case .getCart(let reference):
+            return "/v2/carts/\(reference)"
         }
     }
     
     private var queryItems: [URLQueryItem]? {
         switch self {
-        case .listProducts(let query), .listCollections(let query):
+        case .listProducts(let query),
+             .listCollections(let query),
+             .listFiles(let query),
+             .listBrands(let query),
+             .listCategories(let query):
+            
             guard let query = query else {
                 return nil
             }
@@ -81,7 +111,8 @@ enum Router: URLRequestConvertible {
                 queryItems.append(URLQueryItem(name: "filter", value: "\(filter)"))
             }
             
-            if let include = query.include {
+            if let include = query.include,
+                0 < include.count {
                 queryItems.append(URLQueryItem(name: "include", value: include.reduce("") {
                     $0 + ",\($1.rawValue)"
                 }.trimmingCharacters(in: CharacterSet(charactersIn: ","))))
