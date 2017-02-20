@@ -14,6 +14,6 @@ public struct CollectionRequest {
     }
     
     public func get(withCollectionID id: String, include: [MoltinQuery.Include]? = nil, completion: @escaping (Result<Collection?>) -> ()) {
-        MoltinAPI.objectRequest(request: Router.getCollection(id: id), completion: completion)
+        MoltinAPI.objectRequest(request: Router.getCollection(id: id, include: include), completion: completion)
     }
 }

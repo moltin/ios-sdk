@@ -14,6 +14,6 @@ public struct ProductRequest {
     }
     
     public func get(withProductID id: String, include: [MoltinQuery.Include]? = nil, completion: @escaping (Result<Product?>) -> ()) {
-        MoltinAPI.objectRequest(request: Router.getProduct(id: id), completion: completion)
+        MoltinAPI.objectRequest(request: Router.getProduct(id: id, include: include), completion: completion)
     }
 }

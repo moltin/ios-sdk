@@ -14,6 +14,6 @@ public struct BrandRequest {
     }
     
     public func get(withBrandID id: String, include: [MoltinQuery.Include]? = nil, completion: @escaping (Result<Brand?>) -> ()) {
-        MoltinAPI.objectRequest(request: Router.getBrand(id: id), completion: completion)
+        MoltinAPI.objectRequest(request: Router.getBrand(id: id, include: include), completion: completion)
     }
 }

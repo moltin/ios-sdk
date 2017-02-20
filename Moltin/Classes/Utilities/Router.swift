@@ -20,10 +20,10 @@ enum Router: URLRequestConvertible {
     case authenticate
     
     case listCollections(query: MoltinQuery?)
-    case getCollection(id: String)
+    case getCollection(id: String, include: [MoltinQuery.Include]?)
     
     case listProducts(query: MoltinQuery?)
-    case getProduct(id: String)
+    case getProduct(id: String, include: [MoltinQuery.Include]?)
     
     case listCurrencies
     case getCurrency(id: String)
@@ -32,10 +32,10 @@ enum Router: URLRequestConvertible {
     case getFile(id: String)
     
     case listBrands(query: MoltinQuery?)
-    case getBrand(id: String)
+    case getBrand(id: String, include: [MoltinQuery.Include]?)
     
     case listCategories(query: MoltinQuery?)
-    case getCategory(id: String)
+    case getCategory(id: String, include: [MoltinQuery.Include]?)
     
     case getCart(reference: String)
     
@@ -54,11 +54,11 @@ enum Router: URLRequestConvertible {
             return "/oauth/access_token"
         case .listCollections:
             return "/v2/collections"
-        case .getCollection(let id):
+        case .getCollection(let id, let _):
             return "/v2/collections/\(id)"
         case .listProducts:
             return "/v2/products"
-        case .getProduct(let id):
+        case .getProduct(let id, let _):
             return "/v2/prodcuts/\(id)"
         case .listCurrencies:
             return "/v2/currencies"
@@ -70,11 +70,11 @@ enum Router: URLRequestConvertible {
             return "/v2/files/\(id)"
         case .listBrands:
             return "/v2/brands"
-        case .getBrand(let id):
+        case .getBrand(let id, let _):
             return "/v2/brands/\(id)"
         case .listCategories:
             return "/v2/categories"
-        case .getCategory(let id):
+        case .getCategory(let id, let _):
             return "/v2/categories/\(id)"
         case .getCart(let reference):
             return "/v2/carts/\(reference)"
@@ -111,14 +111,26 @@ enum Router: URLRequestConvertible {
                 queryItems.append(URLQueryItem(name: "filter", value: "\(filter)"))
             }
             
-            if let include = query.include,
-                0 < include.count {
+            if let include = query.include, 0 < include.count {
                 queryItems.append(URLQueryItem(name: "include", value: include.reduce("") {
                     $0 + ",\($1.rawValue)"
-                }.trimmingCharacters(in: CharacterSet(charactersIn: ","))))
+                    }.trimmingCharacters(in: CharacterSet(charactersIn: ","))))
             }
             
             return queryItems
+        case .getBrand(let _, let include),
+             .getCategory(let _, let include),
+             .getCollection(let _, let include),
+             .getProduct(let _, let include):
+            guard let include = include, 0 < include.count else {
+                    return nil
+            }
+            
+            return [
+                URLQueryItem(name: "include", value: include.reduce("") {
+                    $0 + ",\($1.rawValue)"
+                    }.trimmingCharacters(in: CharacterSet(charactersIn: ",")))
+            ]
         default:
             return nil
         }
