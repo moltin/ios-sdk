@@ -13,6 +13,7 @@ public struct Moltin {
     
     public static let brand = BrandRequest()
     public static let category = CategoryRequest()
+    public static let cart = CartRequest()
     public static let collection = CollectionRequest()
     public static let currency = CurrencyRequest()
     public static let file = FileRequest()

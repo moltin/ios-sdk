@@ -10,7 +10,7 @@ import Foundation
 import Gloss
 
 public struct Cart {
-    let id: String
+    public let id: String
 }
 
 extension Cart : JSONAPIDecodable {

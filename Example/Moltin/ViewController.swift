@@ -26,12 +26,31 @@ class ViewController: UIViewController {
 //            }
 //        }
         
-        Moltin.category.getTree { result in
+//        Moltin.category.getTree { result in
+//            switch result {
+//            case .failure(let error):
+//                print(error)
+//            case .success(let products):
+//                products.forEach { print($0.name) }
+//            }
+//        }
+        
+//        Moltin.collection.list { result in
+//            switch result {
+//            case .failure(let error):
+//                print(error)
+//            case .success(let products):
+//                products.forEach { print($0.name) }
+//            }
+//        }
+        
+        Moltin.cart.getNewCart {
+            result in
             switch result {
             case .failure(let error):
                 print(error)
-            case .success(let products):
-                products.forEach { print($0.name) }
+            case .success(let cart):
+                print(cart?.id)
             }
         }
     }

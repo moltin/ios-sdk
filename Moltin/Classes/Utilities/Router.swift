@@ -39,11 +39,20 @@ enum Router: URLRequestConvertible {
     case getCategoryTree
     
     case getCart(reference: String)
+    case listItems(cartID: String)
+    case addItem(cartID: String, productID: String, quantity: UInt)
+    case addCustomItem(customItem: CustomItem, cartID: String)
+    case updateQuantity(cartID: String, itemID: String, quantity: UInt)
+    case deleteItem(cartID: String, itemID: String)
     
     private var method: HTTPMethod {
         switch self {
-        case .authenticate:
+        case .authenticate, .addItem, .addCustomItem:
             return .post
+        case .updateQuantity:
+            return .put
+        case .deleteItem:
+            return .delete
         default:
             return .get
         }
@@ -79,8 +88,12 @@ enum Router: URLRequestConvertible {
             return "/v2/categories/\(id)"
         case .getCategoryTree:
             return "/v2/categories/tree"
-        case .getCart(let reference):
-            return "/v2/carts/\(reference)"
+        case .getCart(let id):
+            return "/v2/carts/\(id)"
+        case .listItems(let id), .addItem(let id, _, _), .addCustomItem(_, let id):
+            return "/v2/carts/\(id)/items"
+        case .updateQuantity(let cartID, let itemID, _), .deleteItem(let cartID, let itemID):
+            return "/v2/carts/\(cartID)/items/\(itemID)"
         }
     }
     
@@ -126,7 +139,7 @@ enum Router: URLRequestConvertible {
              .getCollection(let _, let include),
              .getProduct(let _, let include):
             guard let include = include, 0 < include.count else {
-                    return nil
+                return nil
             }
             
             return [
@@ -141,6 +154,27 @@ enum Router: URLRequestConvertible {
     
     private var bodyContent: JSON? {
         switch self {
+        case .addItem(_, let productID, let quantity):
+            return [
+                "data" : [
+                    "type" : "cart_item",
+                    "id" : productID,
+                    "quantity" : quantity
+                ]
+            ]
+        case .addCustomItem(let customItem, _):
+            return [
+                "data" : [
+                    "type" : "custom_item",
+                    "name" : customItem.name,
+                    "description" : customItem.description,
+                    "sku" : customItem.sku,
+                    "quantity" : "\(customItem.quantity)",
+                    "price" : [
+                        "amount" : "\(customItem.price)"
+                    ]
+                ]
+            ]
         default:
             return nil
         }
