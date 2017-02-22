@@ -8,24 +8,11 @@
 
 import Foundation
 
-public struct MoltinConfig {
-    let clientID: String
-    let language: String?
-    let currencyCode: String?
-    let locale: String?
-}
-
 public struct Moltin {
-    public static func config(_ config: MoltinConfig) {
-        clientID = config.clientID
-        language = config.language
-        currencyCode = config.currencyCode
-        locale = config.locale
-    }
-    
     public static var clientID: String? = nil
-    public static var language: String? = nil
+    
     public static var currencyCode: String? = nil
+    public static var language: String? = nil
     public static var locale: String? = nil
     
     public static let brand = BrandRequest()
