@@ -45,9 +45,11 @@ enum Router: URLRequestConvertible {
     case updateQuantity(cartID: String, itemID: String, quantity: UInt)
     case deleteItem(cartID: String, itemID: String)
     
+    case checkout(cartID: String, customer: Customer, billingAddress: Address, shippingAddress: Address)
+    
     private var method: HTTPMethod {
         switch self {
-        case .authenticate, .addItem, .addCustomItem:
+        case .authenticate, .addItem, .addCustomItem, .checkout:
             return .post
         case .updateQuantity:
             return .put
@@ -94,6 +96,8 @@ enum Router: URLRequestConvertible {
             return "/v2/carts/\(id)/items"
         case .updateQuantity(let cartID, let itemID, _), .deleteItem(let cartID, let itemID):
             return "/v2/carts/\(cartID)/items/\(itemID)"
+        case .checkout(let id, _, _, _):
+            return "/v2/carts/\(id)/checkout"
         }
     }
     
@@ -173,6 +177,14 @@ enum Router: URLRequestConvertible {
                     "price" : [
                         "amount" : "\(customItem.price)"
                     ]
+                ]
+            ]
+        case .checkout(_, let customer, let billingAddress, let shippingAddress):
+            return [
+                "data" : [
+                    "customer" : customer.dictionaryRepresentation,
+                    "shipping_address" : shippingAddress.dictionaryRepresentation(includeInstructions: true),
+                    "billing_address" : billingAddress.dictionaryRepresentation(includeInstructions: false)
                 ]
             ]
         default:

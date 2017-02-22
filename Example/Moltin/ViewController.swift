@@ -44,15 +44,17 @@ class ViewController: UIViewController {
 //            }
 //        }
         
-        Moltin.cart.getNewCart {
-            result in
-            switch result {
-            case .failure(let error):
-                print(error)
-            case .success(let cart):
-                print(cart?.id)
-            }
-        }
+//        Moltin.cart.getNewCart {
+//            result in
+//            switch result {
+//            case .failure(let error):
+//                print(error)
+//            case .success(let cart):
+//                print(cart?.id)
+//            }
+//        }
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
