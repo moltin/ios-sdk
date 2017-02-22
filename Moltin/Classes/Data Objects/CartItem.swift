@@ -24,6 +24,7 @@ public struct CartItem {
     public let name: String
     public let sku: String
     public let quantity: Int
+    public let json: JSON
 }
 
 extension CartItem: JSONAPIDecodable {
@@ -41,5 +42,6 @@ extension CartItem: JSONAPIDecodable {
         self.name = name
         self.sku = sku
         self.quantity = quantity
+        self.json = json
     }
 }

@@ -24,6 +24,7 @@ public struct File {
     public let id: String
     public let url: URL
     public let fileName: String
+    public let json: JSON
 }
 
 extension File: JSONAPIDecodable {
@@ -38,5 +39,6 @@ extension File: JSONAPIDecodable {
         self.id = id
         self.url = url
         self.fileName = fileName
+        self.json = json
     }
 }

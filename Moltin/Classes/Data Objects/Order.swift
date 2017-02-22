@@ -37,6 +37,7 @@ public struct Order {
     public let customer: Customer
     public let shippingAddress: Address
     public let billingAddress: Address
+    public let json: JSON
 }
 
 extension Order: JSONAPIDecodable {
@@ -64,5 +65,6 @@ extension Order: JSONAPIDecodable {
         self.customer = customer
         self.shippingAddress = shippingAddress
         self.billingAddress = billingAddress
+        self.json = json
     }
 }

@@ -25,6 +25,7 @@ public struct Collection {
     public let name: String
     public let slug: String
     public let description: String
+    public let json: JSON
 }
 
 extension Collection: JSONAPIDecodable {
@@ -40,5 +41,6 @@ extension Collection: JSONAPIDecodable {
         self.name = name
         self.slug = slug
         self.description = description
+        self.json = json
     }
 }

@@ -10,6 +10,7 @@ import Foundation
 import Gloss
 
 protocol JSONAPIDecodable {
+    var json: JSON { get }
     init?(json: JSON, includedJSON: JSON?)
 }
 

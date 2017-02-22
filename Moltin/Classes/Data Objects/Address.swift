@@ -20,6 +20,7 @@ public struct Address {
     public let county: String
     public let country: String
     public let shippingInstructions: String?
+    public let json: JSON
     
     func dictionaryRepresentation(includeInstructions: Bool) -> [String : String] {
         var dictionary = [
@@ -62,5 +63,6 @@ extension Address: JSONAPIDecodable {
         self.county = county
         self.country = country
         self.shippingInstructions = "instructions" <~~ json
+        self.json = json
     }
 }

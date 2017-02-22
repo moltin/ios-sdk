@@ -14,6 +14,7 @@ public struct Currency {
     public let code: String
     public let exchangeRate: Double
     public let format: String
+    public let json: JSON
 }
 
 extension Currency: JSONAPIDecodable {
@@ -29,5 +30,6 @@ extension Currency: JSONAPIDecodable {
         self.code = code
         self.exchangeRate = exchangeRate
         self.format = format
+        self.json = json
     }
 }

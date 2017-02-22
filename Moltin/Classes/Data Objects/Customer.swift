@@ -13,6 +13,7 @@ import Gloss
 public struct Customer {
     public let name: String
     public let email: String
+    public let json: JSON
     
     var dictionaryRepresentation: [String : Any] {
         return [
@@ -31,5 +32,6 @@ extension Customer: JSONAPIDecodable {
         
         self.name = name
         self.email = email
+        self.json = json
     }
 }

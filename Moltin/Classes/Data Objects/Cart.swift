@@ -11,6 +11,7 @@ import Gloss
 
 public struct Cart {
     public let id: String
+    public let json: JSON
 }
 
 extension Cart : JSONAPIDecodable {
@@ -20,5 +21,6 @@ extension Cart : JSONAPIDecodable {
         }
         
         self.id = id
+        self.json = json
     }
 }
