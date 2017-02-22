@@ -11,6 +11,10 @@ import Foundation
 public struct Moltin {
     public static var clientID: String? = nil
     
+    public static var defaultLanguage: String? = nil
+    public static var defaultCurrency: String? = nil
+    public static var defaultLocale: String? = nil
+    
     public static let brand = BrandRequest()
     public static let cart = CartRequest()
     public static let category = CategoryRequest()

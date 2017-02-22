@@ -199,6 +199,10 @@ enum Router: URLRequestConvertible {
             headerDictionary["Authorization"] = "Bearer " + authToken
         }
         
+        headerDictionary["X-MOLTIN-LANGUAGE"] = Moltin.defaultLanguage
+        headerDictionary["X-MOLTIN-LOCALE"] = Moltin.defaultLocale
+        headerDictionary["X-MOLTIN-CURRENCY"] = Moltin.defaultCurrency
+        
         switch self {
         case .authenticate:
             headerDictionary["Content-Type"] = "application/x-www-form-urlencoded"
