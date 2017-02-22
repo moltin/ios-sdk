@@ -20,12 +20,20 @@ extension HasProducts {
     }
 }
 
+public struct MTDimension {
+    let width: MTMeasurement<MTUnitLength>
+    let height: MTMeasurement<MTUnitLength>
+    let length: MTMeasurement<MTUnitLength>
+}
+
 public struct Product: HasFiles, HasCollections, HasCategories, HasBrands {
     public let id: String
     public let name: String
     public let slug: String
     public let sku: String
     public let description: String
+    public let dimensions: MTDimension?
+    public let weight: MTMeasurement<MTUnitMass>?
     public var files: [File] = []
     public var collections: [Collection] = []
     public var categories: [Category] = []
@@ -49,6 +57,22 @@ extension Product: JSONAPIDecodable {
         self.sku = sku
         self.description = description
         self.json = json
+        
+        if let weightValue: Double = "weight.g.value" <~~ json {
+            weight = MTMeasurement(value: weightValue, unit: .grams)
+        } else {
+            weight = nil
+        }
+        
+        if let widthValue: Double = "dimensions.width.cm.value" <~~ json,
+            let heightValue: Double = "dimensions.height.cm.value" <~~ json,
+            let lengthValue: Double = "dimensions.length.cm.value" <~~ json {
+            dimensions = MTDimension(width: MTMeasurement(value: widthValue, unit: .centimeters),
+                                    height: MTMeasurement(value: heightValue, unit: .centimeters),
+                                    length: MTMeasurement(value: lengthValue, unit: .centimeters))
+        } else {
+            dimensions = nil
+        }
         
         guard let includedJSON = includedJSON else {
             return
