@@ -199,9 +199,9 @@ enum Router: URLRequestConvertible {
             headerDictionary["Authorization"] = "Bearer " + authToken
         }
         
-        headerDictionary["X-MOLTIN-LANGUAGE"] = Moltin.defaultLanguage
-        headerDictionary["X-MOLTIN-LOCALE"] = Moltin.defaultLocale
-        headerDictionary["X-MOLTIN-CURRENCY"] = Moltin.defaultCurrency
+        headerDictionary["X-MOLTIN-LANGUAGE"] = Moltin.language
+        headerDictionary["X-MOLTIN-LOCALE"] = Moltin.locale
+        headerDictionary["X-MOLTIN-CURRENCY"] = Moltin.currencyCode
         
         switch self {
         case .authenticate:
