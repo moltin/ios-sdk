@@ -37,6 +37,11 @@ public struct Order {
     public let customer: Customer
     public let shippingAddress: Address
     public let billingAddress: Address
+    public let totalProductCount: Int?
+    public let uniqueProductCount: Int?
+    public let valueWithTax: Value?
+    public let valueWithoutTax: Value?
+    public let gateways: [PaymentGateway]
     public let json: JSON
 }
 
@@ -65,6 +70,28 @@ extension Order: JSONAPIDecodable {
         self.customer = customer
         self.shippingAddress = shippingAddress
         self.billingAddress = billingAddress
+        
+        self.totalProductCount = "meta.counts.products.total" <~~ json
+        self.uniqueProductCount = "meta.counts.products.unique" <~~ json
+        
+        if let valueJSON: JSON = "meta.value.with_tax" <~~ json {
+            self.valueWithTax = Value(json: valueJSON, includedJSON: nil)
+        } else {
+            self.valueWithTax = nil
+        }
+        
+        if let valueJSON: JSON = "meta.value.without_tax" <~~ json {
+            self.valueWithoutTax = Value(json: valueJSON, includedJSON: nil)
+        } else {
+            self.valueWithoutTax = nil
+        }
+        
+        if let gatewaysJSON: [JSON] = "meta.gateways" <~~ json {
+            self.gateways = [PaymentGateway].from(jsonArray: gatewaysJSON, includedJSON: nil)
+        } else {
+            self.gateways = []
+        }
+        
         self.json = json
     }
 }
