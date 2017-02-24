@@ -8,12 +8,12 @@
 
 import Foundation
 
-public struct CollectionRequest {
-    public func list(withQuery query: MoltinQuery? = nil, completion: @escaping (Result<[Collection]>) -> ()) {
+public struct ProductCollectionRequest {
+    public func list(withQuery query: MoltinQuery? = nil, completion: @escaping (Result<[ProductCollection]>) -> ()) {
         MoltinAPI.arrayRequest(request: Router.listCollections(query: query), completion: completion)
     }
     
-    public func get(withCollectionID id: String, include: [MoltinQuery.Include]? = nil, completion: @escaping (Result<Collection?>) -> ()) {
+    public func get(withCollectionID id: String, include: [MoltinQuery.Include]? = nil, completion: @escaping (Result<ProductCollection?>) -> ()) {
         MoltinAPI.objectRequest(request: Router.getCollection(id: id, include: include), completion: completion)
     }
 }

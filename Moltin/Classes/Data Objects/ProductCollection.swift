@@ -10,7 +10,7 @@ import Foundation
 import Gloss
 
 protocol HasCollections {
-    var collections: [Collection] { get set }
+    var collections: [ProductCollection] { get set }
     mutating func addCollections(fromJSON json: [JSON], requiredIDs: [String])
 }
 
@@ -20,7 +20,7 @@ extension HasCollections {
     }
 }
 
-public struct Collection {
+public struct ProductCollection {
     public let id: String
     public let name: String
     public let slug: String
@@ -28,7 +28,7 @@ public struct Collection {
     public let json: JSON
 }
 
-extension Collection: JSONAPIDecodable {
+extension ProductCollection: JSONAPIDecodable {
     public init?(json: JSON, includedJSON: JSON?) {
         guard let id: String = "id" <~~ json,
             let name: String = "name" <~~ json,

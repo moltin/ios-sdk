@@ -10,7 +10,7 @@ import Foundation
 import Gloss
 
 protocol HasCategories {
-    var categories: [Category] { get set }
+    var categories: [ProductCategory] { get set }
     mutating func addCategories(fromJSON json: [JSON], requiredIDs: [String])
 }
 
@@ -20,16 +20,16 @@ extension HasCategories {
     }
 }
 
-public struct Category {
+public struct ProductCategory {
     public let id: String
     public let name: String
     public let slug: String
     public let description: String
-    public let children: [Category]
+    public let children: [ProductCategory]
     public let json: JSON
 }
 
-extension Category: JSONAPIDecodable {
+extension ProductCategory: JSONAPIDecodable {
     public init?(json: JSON, includedJSON: JSON?) {
         guard let id: String = "id" <~~ json,
             let name: String = "name" <~~ json,
@@ -51,7 +51,7 @@ extension Category: JSONAPIDecodable {
         }
         
         self.children = childrenJSON.flatMap {
-            return Category(json: $0, includedJSON: nil)
+            return ProductCategory(json: $0, includedJSON: nil)
         }
     }
 }

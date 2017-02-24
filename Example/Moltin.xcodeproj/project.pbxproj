@@ -13,6 +13,19 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		AE7D09ABB5F501726F82DF78 /* Pods_Moltin_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FD132F2B7873A947A6BEB3E /* Pods_Moltin_Example.framework */; };
+		F6548D3E1E6092E70000F300 /* Heuristica-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F6548D321E6092E70000F300 /* Heuristica-Bold.otf */; };
+		F6548D3F1E6092E70000F300 /* Heuristica-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = F6548D331E6092E70000F300 /* Heuristica-BoldItalic.otf */; };
+		F6548D401E6092E70000F300 /* Heuristica-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = F6548D341E6092E70000F300 /* Heuristica-Italic.otf */; };
+		F6548D411E6092E70000F300 /* Heuristica-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = F6548D351E6092E70000F300 /* Heuristica-Regular.otf */; };
+		F6548D421E6092E70000F300 /* SIL Open Font License.txt in Resources */ = {isa = PBXBuildFile; fileRef = F6548D361E6092E70000F300 /* SIL Open Font License.txt */; };
+		F6548D431E6092E70000F300 /* Montserrat-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = F6548D381E6092E70000F300 /* Montserrat-Black.otf */; };
+		F6548D441E6092E70000F300 /* Montserrat-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F6548D391E6092E70000F300 /* Montserrat-Bold.otf */; };
+		F6548D451E6092E70000F300 /* Montserrat-Hairline.otf in Resources */ = {isa = PBXBuildFile; fileRef = F6548D3A1E6092E70000F300 /* Montserrat-Hairline.otf */; };
+		F6548D461E6092E70000F300 /* Montserrat-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = F6548D3B1E6092E70000F300 /* Montserrat-Light.otf */; };
+		F6548D471E6092E70000F300 /* Montserrat-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = F6548D3C1E6092E70000F300 /* Montserrat-Regular.otf */; };
+		F6548D481E6092E70000F300 /* SIL Open Font License.txt in Resources */ = {isa = PBXBuildFile; fileRef = F6548D3D1E6092E70000F300 /* SIL Open Font License.txt */; };
+		F6548D4A1E60952A0000F300 /* FontExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6548D491E60952A0000F300 /* FontExtensions.swift */; };
+		F6548D4D1E60A7770000F300 /* CustomStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6548D4C1E60A7770000F300 /* CustomStyles.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +44,19 @@
 		8E6FA17C355B2CC0017176BF /* Pods-Moltin_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moltin_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Moltin_Example/Pods-Moltin_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		CD4790D0C8B2F585B4B3ECC0 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		D189BE551076D1B21681DF84 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		F6548D321E6092E70000F300 /* Heuristica-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Heuristica-Bold.otf"; sourceTree = "<group>"; };
+		F6548D331E6092E70000F300 /* Heuristica-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Heuristica-BoldItalic.otf"; sourceTree = "<group>"; };
+		F6548D341E6092E70000F300 /* Heuristica-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Heuristica-Italic.otf"; sourceTree = "<group>"; };
+		F6548D351E6092E70000F300 /* Heuristica-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Heuristica-Regular.otf"; sourceTree = "<group>"; };
+		F6548D361E6092E70000F300 /* SIL Open Font License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SIL Open Font License.txt"; sourceTree = "<group>"; };
+		F6548D381E6092E70000F300 /* Montserrat-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Black.otf"; sourceTree = "<group>"; };
+		F6548D391E6092E70000F300 /* Montserrat-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.otf"; sourceTree = "<group>"; };
+		F6548D3A1E6092E70000F300 /* Montserrat-Hairline.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Hairline.otf"; sourceTree = "<group>"; };
+		F6548D3B1E6092E70000F300 /* Montserrat-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.otf"; sourceTree = "<group>"; };
+		F6548D3C1E6092E70000F300 /* Montserrat-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.otf"; sourceTree = "<group>"; };
+		F6548D3D1E6092E70000F300 /* SIL Open Font License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SIL Open Font License.txt"; sourceTree = "<group>"; };
+		F6548D491E60952A0000F300 /* FontExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FontExtensions.swift; path = Fonts/FontExtensions.swift; sourceTree = "<group>"; };
+		F6548D4C1E60A7770000F300 /* CustomStyles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomStyles.swift; path = "Customer Styles/CustomStyles.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +112,8 @@
 		607FACD21AFB9204008FA782 /* Example for Moltin */ = {
 			isa = PBXGroup;
 			children = (
+				F6548D4B1E60A75F0000F300 /* Custom Styles */,
+				F6548D181E6092620000F300 /* Fonts */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
@@ -113,6 +141,51 @@
 				D189BE551076D1B21681DF84 /* LICENSE */,
 			);
 			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		F6548D181E6092620000F300 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				F6548D311E6092E70000F300 /* heuristica */,
+				F6548D371E6092E70000F300 /* montserrat */,
+				F6548D491E60952A0000F300 /* FontExtensions.swift */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
+		F6548D311E6092E70000F300 /* heuristica */ = {
+			isa = PBXGroup;
+			children = (
+				F6548D321E6092E70000F300 /* Heuristica-Bold.otf */,
+				F6548D331E6092E70000F300 /* Heuristica-BoldItalic.otf */,
+				F6548D341E6092E70000F300 /* Heuristica-Italic.otf */,
+				F6548D351E6092E70000F300 /* Heuristica-Regular.otf */,
+				F6548D361E6092E70000F300 /* SIL Open Font License.txt */,
+			);
+			name = heuristica;
+			path = Fonts/heuristica;
+			sourceTree = "<group>";
+		};
+		F6548D371E6092E70000F300 /* montserrat */ = {
+			isa = PBXGroup;
+			children = (
+				F6548D381E6092E70000F300 /* Montserrat-Black.otf */,
+				F6548D391E6092E70000F300 /* Montserrat-Bold.otf */,
+				F6548D3A1E6092E70000F300 /* Montserrat-Hairline.otf */,
+				F6548D3B1E6092E70000F300 /* Montserrat-Light.otf */,
+				F6548D3C1E6092E70000F300 /* Montserrat-Regular.otf */,
+				F6548D3D1E6092E70000F300 /* SIL Open Font License.txt */,
+			);
+			name = montserrat;
+			path = Fonts/montserrat;
+			sourceTree = "<group>";
+		};
+		F6548D4B1E60A75F0000F300 /* Custom Styles */ = {
+			isa = PBXGroup;
+			children = (
+				F6548D4C1E60A7770000F300 /* CustomStyles.swift */,
+			);
+			name = "Custom Styles";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,9 +250,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6548D411E6092E70000F300 /* Heuristica-Regular.otf in Resources */,
+				F6548D451E6092E70000F300 /* Montserrat-Hairline.otf in Resources */,
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
+				F6548D3F1E6092E70000F300 /* Heuristica-BoldItalic.otf in Resources */,
+				F6548D421E6092E70000F300 /* SIL Open Font License.txt in Resources */,
+				F6548D471E6092E70000F300 /* Montserrat-Regular.otf in Resources */,
+				F6548D431E6092E70000F300 /* Montserrat-Black.otf in Resources */,
+				F6548D481E6092E70000F300 /* SIL Open Font License.txt in Resources */,
+				F6548D441E6092E70000F300 /* Montserrat-Bold.otf in Resources */,
+				F6548D401E6092E70000F300 /* Heuristica-Italic.otf in Resources */,
+				F6548D3E1E6092E70000F300 /* Heuristica-Bold.otf in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
+				F6548D461E6092E70000F300 /* Montserrat-Light.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,8 +322,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6548D4D1E60A7770000F300 /* CustomStyles.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				F6548D4A1E60952A0000F300 /* FontExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

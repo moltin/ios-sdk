@@ -1,11 +1,14 @@
 PODS:
   - Alamofire (4.3.0)
+  - AlamofireImage (3.2.0):
+    - Alamofire (~> 4.1)
   - Gloss (1.2.1)
   - Moltin (0.1.0):
     - Alamofire (= 4.3.0)
     - Gloss (~> 1.2.0)
 
 DEPENDENCIES:
+  - AlamofireImage (~> 3.2)
   - Moltin (from `../`)
 
 EXTERNAL SOURCES:
@@ -14,9 +17,10 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
+  AlamofireImage: 157ed682cc81d3b9db4fb90c1f12180ac552d93b
   Gloss: 9ab33b8ede01e4232571d43a6bf9259b85d1de69
   Moltin: d9b9169a192cfb739cd38dcbbb5e72944d3f02ce
 
-PODFILE CHECKSUM: 46306d24858a33b800aa4c6bcf6e99f530c5eb2c
+PODFILE CHECKSUM: fca30a678436f266409c9e027ffafb7df34d8b62
 
 COCOAPODS: 1.2.0.beta.3
