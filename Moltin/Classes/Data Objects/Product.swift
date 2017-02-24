@@ -35,8 +35,8 @@ public struct Product: HasFiles, HasCollections, HasCategories, HasBrands {
     public let dimensions: MTDimension?
     public let weight: MTMeasurement<MTUnitMass>?
     public var files: [File] = []
-    public var collections: [Collection] = []
-    public var categories: [Category] = []
+    public var collections: [ProductCollection] = []
+    public var categories: [ProductCategory] = []
     public var brands: [Brand] = []
     public let json: JSON
 }
