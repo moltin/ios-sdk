@@ -26,7 +26,7 @@ class ViewController: UIViewController {
 //            }
 //        }
 
-        Moltin.product.get(withProductID: "2165f0d5-3782-41dc-a000-4a415778becb", include: [.files, .collections, .categories, .brands]) { result in
+        Moltin.product.get(withProductID: "234", include: [.files, .collections, .categories, .brands]) { result in
             switch result {
             case .failure(_):
                 break
@@ -50,14 +50,14 @@ class ViewController: UIViewController {
 //            }
 //        }
         
-//        Moltin.collection.list { result in
-//            switch result {
-//            case .failure(let error):
-//                print(error)
-//            case .success(let products):
-//                products.forEach { print($0.name) }
-//            }
-//        }
+        Moltin.collection.list { result in
+            switch result {
+            case .failure(let error):
+                print(error)
+            case .success(let products):
+                products.forEach { print($0.name) }
+            }
+        }
         
 //        Moltin.cart.getNewCart {
 //            result in
