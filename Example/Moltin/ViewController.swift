@@ -25,8 +25,21 @@ class ViewController: UIViewController {
 //                products.forEach { print($0.name) }
 //            }
 //        }
+
+        Moltin.product.get(withProductID: "2165f0d5-3782-41dc-a000-4a415778becb", include: [.files, .collections, .categories, .brands]) { result in
+            switch result {
+            case .failure(_):
+                break
+            case .success(let product):
+                guard let product = product else {
+                    return
+                }
+                
+                print(product)
+            }
+        }
         
-        Moltin.currency.list { _ in }
+//        Moltin.currency.list { _ in }
         
 //        Moltin.category.getTree { result in
 //            switch result {

@@ -71,7 +71,7 @@ enum Router: URLRequestConvertible {
         case .listProducts:
             return "/v2/products"
         case .getProduct(let id, let _):
-            return "/v2/prodcuts/\(id)"
+            return "/v2/products/\(id)"
         case .listCurrencies:
             return "/v2/currencies"
         case .getCurrency(let id):
