@@ -40,7 +40,7 @@ struct MoltinAPI {
         case .success(let json):
             guard let json = json as? JSON,
                 let objectJSON: JSON = "data" <~~ json,
-                let object: T = T(json: objectJSON, includedJSON: "included" <~~ json) else {
+                let object: T = T(json: objectJSON, includedJSON: index("included" <~~ json)) else {
                     completion(Result.success(result: nil))
                     return
             }
@@ -60,8 +60,31 @@ struct MoltinAPI {
                     return
             }
             
-            let array = [T].from(jsonArray: jsonArray, includedJSON: "included" <~~ json)
+            
+            let array = [T].from(jsonArray: jsonArray, includedJSON: index("included" <~~ json))
             completion(Result.success(result: array))
         }
+    }
+    
+    private static func index(_ includeDictionary: [String : [JSON]]?) -> [String : JSON] {
+        guard let includeDictionary = includeDictionary else {
+            return [:]
+        }
+        
+        var dictionary: [String : JSON] = [:]
+
+        includeDictionary.forEach {
+            _, array in
+            
+            array.forEach {
+                guard let id : String = "id" <~~ $0 else {
+                    return
+                }
+                
+                dictionary[id] = $0
+            }
+        }
+        
+        return dictionary
     }
 }

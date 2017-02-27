@@ -16,7 +16,7 @@ public struct Value: JSONAPIDecodable {
     public let formatted: String
     let json: JSON
     
-    init?(json: JSON, includedJSON: JSON?) {
+    init?(json: JSON, includedJSON: [String : JSON]?) {
         guard let amount: Int = "amount" <~~ json,
             let currency: String = "currency" <~~ json,
             let formatted: String = "formatted" <~~ json else {

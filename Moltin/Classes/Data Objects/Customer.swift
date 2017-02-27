@@ -24,7 +24,7 @@ public struct Customer {
 }
 
 extension Customer: JSONAPIDecodable {
-    init?(json: JSON, includedJSON: JSON?) {
+    init?(json: JSON, includedJSON: [String : JSON]?) {
         guard let name: String = "name" <~~ json,
             let email: String = "email" <~~ json else {
                 return nil

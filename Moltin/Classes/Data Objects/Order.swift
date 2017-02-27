@@ -46,7 +46,7 @@ public struct Order {
 }
 
 extension Order: JSONAPIDecodable {
-    init?(json: JSON, includedJSON: JSON?) {
+    init?(json: JSON, includedJSON: [String : JSON]?) {
         guard let id: String = "id" <~~ json,
             let statusString: String = "status" <~~ json,
             let status = Status(rawValue: statusString),

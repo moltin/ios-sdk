@@ -11,12 +11,12 @@ import Gloss
 
 protocol HasCollections {
     var collections: [ProductCollection] { get set }
-    mutating func addCollections(fromJSON json: [JSON], requiredIDs: [String])
+    mutating func addCollections(fromJSON json: [String : JSON], requiredIDs: [String])
 }
 
 extension HasCollections {
-    mutating func addCollections(fromJSON json: [JSON], requiredIDs: [String]) {
-        self.collections = includedObjectsArray(fromJSONArray: json, requiredIDs: requiredIDs)
+    mutating func addCollections(fromJSON json: [String : JSON], requiredIDs: [String]) {
+        self.collections = includedObjectsArray(fromIncludedJSON: json, requiredIDs: requiredIDs)
     }
 }
 
@@ -29,7 +29,7 @@ public struct ProductCollection {
 }
 
 extension ProductCollection: JSONAPIDecodable {
-    public init?(json: JSON, includedJSON: JSON?) {
+    public init?(json: JSON, includedJSON: [String : JSON]?) {
         guard let id: String = "id" <~~ json,
             let name: String = "name" <~~ json,
             let slug: String = "slug" <~~ json,

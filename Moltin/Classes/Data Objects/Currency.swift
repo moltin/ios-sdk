@@ -18,7 +18,7 @@ public struct Currency {
 }
 
 extension Currency: JSONAPIDecodable {
-    public init?(json: JSON, includedJSON: JSON?) {
+    public init?(json: JSON, includedJSON: [String : JSON]?) {
         guard let id: String = "id" <~~ json,
             let code: String = "code" <~~ json,
             let exchangeRate: Double = "exchange_rate" <~~ json,

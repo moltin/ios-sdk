@@ -13,6 +13,7 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		AE7D09ABB5F501726F82DF78 /* Pods_Moltin_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FD132F2B7873A947A6BEB3E /* Pods_Moltin_Example.framework */; };
+		F60FC8F01E647231001E977B /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60FC8EF1E647231001E977B /* ProductListViewController.swift */; };
 		F6548D3E1E6092E70000F300 /* Heuristica-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F6548D321E6092E70000F300 /* Heuristica-Bold.otf */; };
 		F6548D3F1E6092E70000F300 /* Heuristica-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = F6548D331E6092E70000F300 /* Heuristica-BoldItalic.otf */; };
 		F6548D401E6092E70000F300 /* Heuristica-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = F6548D341E6092E70000F300 /* Heuristica-Italic.otf */; };
@@ -44,6 +45,7 @@
 		8E6FA17C355B2CC0017176BF /* Pods-Moltin_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moltin_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Moltin_Example/Pods-Moltin_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		CD4790D0C8B2F585B4B3ECC0 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		D189BE551076D1B21681DF84 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		F60FC8EF1E647231001E977B /* ProductListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductListViewController.swift; sourceTree = "<group>"; };
 		F6548D321E6092E70000F300 /* Heuristica-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Heuristica-Bold.otf"; sourceTree = "<group>"; };
 		F6548D331E6092E70000F300 /* Heuristica-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Heuristica-BoldItalic.otf"; sourceTree = "<group>"; };
 		F6548D341E6092E70000F300 /* Heuristica-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Heuristica-Italic.otf"; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				F6548D181E6092620000F300 /* Fonts */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
+				F60FC8EF1E647231001E977B /* ProductListViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -324,6 +327,7 @@
 			files = (
 				F6548D4D1E60A7770000F300 /* CustomStyles.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				F60FC8F01E647231001E977B /* ProductListViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				F6548D4A1E60952A0000F300 /* FontExtensions.swift in Sources */,
 			);

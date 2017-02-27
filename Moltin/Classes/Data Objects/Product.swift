@@ -11,12 +11,12 @@ import Gloss
 
 protocol HasProducts {
     var products: [Product] { get set }
-    mutating func addProducts(fromJSON json: [JSON], requiredIDs: [String])
+    mutating func addProducts(fromIncludedJSON includes: [String : JSON], requiredIDs: [String])
 }
 
 extension HasProducts {
-    mutating func addProducts(fromJSON json: [JSON], requiredIDs: [String]) {
-        self.products = includedObjectsArray(fromJSONArray: json, requiredIDs: requiredIDs)
+    mutating func addProducts(fromIncludedJSON includes: [String : JSON], requiredIDs: [String]) {
+        self.products = includedObjectsArray(fromIncludedJSON: includes, requiredIDs: requiredIDs)
     }
 }
 
@@ -42,7 +42,7 @@ public struct Product: HasFiles, HasCollections, HasCategories, HasBrands {
 }
 
 extension Product: JSONAPIDecodable {
-    public init?(json: JSON, includedJSON: JSON?) {
+    public init?(json: JSON, includedJSON: [String : JSON]?) {
         guard let id: String = "id" <~~ json,
             let name: String = "name" <~~ json,
             let slug: String = "slug" <~~ json,
@@ -78,24 +78,20 @@ extension Product: JSONAPIDecodable {
             return
         }
         
-        if let includedFilesJSON: [JSON] = "files" <~~ includedJSON,
-            let relatedFilesJSON: [JSON] = "relationships.files.data" <~~ json {
-            self.addFiles(fromJSON: includedFilesJSON, requiredIDs: relatedFilesJSON.flatMap { $0["id"] as? String })
+        if let relatedFilesJSON: [JSON] = "relationships.files.data" <~~ json {
+            self.addFiles(fromJSON: includedJSON, requiredIDs: relatedFilesJSON.flatMap { $0["id"] as? String })
         }
         
-        if let includedCollectionJSON: [JSON] = "collections" <~~ includedJSON,
-            let relatedCollectionJSON: [JSON] = "relationships.collections.data" <~~ json {
-            self.addCollections(fromJSON: includedCollectionJSON, requiredIDs: relatedCollectionJSON.flatMap { $0["id"] as? String })
+        if let relatedCollectionJSON: [JSON] = "relationships.collections.data" <~~ json {
+            self.addCollections(fromJSON: includedJSON, requiredIDs: relatedCollectionJSON.flatMap { $0["id"] as? String })
         }
         
-        if let includedCategoryJSON: [JSON] = "categories" <~~ includedJSON,
-            let relatedCategoryJSON: [JSON] = "relationships.categories.data" <~~ json {
-            self.addCategories(fromJSON: includedCategoryJSON, requiredIDs: relatedCategoryJSON.flatMap { $0["id"] as? String })
+        if let relatedCategoryJSON: [JSON] = "relationships.categories.data" <~~ json {
+            self.addCategories(fromJSON: includedJSON, requiredIDs: relatedCategoryJSON.flatMap { $0["id"] as? String })
         }
         
-        if let includedBrandJSON: [JSON] = "brands" <~~ includedJSON,
-            let relatedBrandJSON: [JSON] = "relationships.brands.data" <~~ json {
-            self.addBrands(fromJSON: includedBrandJSON, requiredIDs: relatedBrandJSON.flatMap { $0["id"] as? String })
+        if let relatedBrandJSON: [JSON] = "relationships.brands.data" <~~ json {
+            self.addBrands(fromJSON: includedJSON, requiredIDs: relatedBrandJSON.flatMap { $0["id"] as? String })
         }
     }
 }

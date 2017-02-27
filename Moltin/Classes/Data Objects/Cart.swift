@@ -15,7 +15,7 @@ public struct Cart {
 }
 
 extension Cart : JSONAPIDecodable {
-    public init?(json: JSON, includedJSON: JSON?) {
+    public init?(json: JSON, includedJSON: [String : JSON]?) {
         guard let id: String = "id" <~~ json else {
                 return nil
         }
