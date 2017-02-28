@@ -31,6 +31,7 @@ class ProductListViewController: UICollectionViewController {
         super.viewDidLoad()
         
         title = category.name.uppercased()
+        setCartBarButtonItem()
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .done, target: nil, action: nil)
         
