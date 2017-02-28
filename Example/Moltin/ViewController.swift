@@ -23,6 +23,7 @@ class ViewController: UIViewController {
         
         title = "COLLECTIONS"
         
+        setCartBarButtonItem()
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .done, target: nil, action: nil)
         
         collectionView = {

@@ -20,6 +20,7 @@ class ProductDetailViewController: UIViewController {
         title = "PRODUCT"
         
         view.backgroundColor = .white
+        setCartBarButtonItem()
         
         let imageGallery: ImageGalleryViewController = {
             let i = ImageGalleryViewController()
@@ -146,8 +147,8 @@ class ProductDetailViewController: UIViewController {
             switch result {
             case .failure(let error):
                 print(error)
-            case .success(let cartItemList):
-                print(cartItemList)
+            case .success(_):
+                self.showCart()
             }
         }
     }

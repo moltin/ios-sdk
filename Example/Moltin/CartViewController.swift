@@ -11,9 +11,17 @@ import UIKit
 class CartViewController: UIViewController {
     static var cartReference: String?
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        title = "Cart"
+        
+        view.backgroundColor = .white
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(close))
+    }
+    
+    func close() {
+        dismiss(animated: true, completion: nil)
     }
 }
