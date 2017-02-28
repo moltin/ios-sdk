@@ -9,28 +9,18 @@
 import Foundation
 import Gloss
 
-protocol HasCategories {
-    var categories: [ProductCategory] { get set }
-    mutating func addCategories(fromJSON json: [JSON], requiredIDs: [String])
-}
-
-extension HasCategories {
-    mutating func addCategories(fromJSON json: [JSON], requiredIDs: [String]) {
-        self.categories = includedObjectsArray(fromJSONArray: json, requiredIDs: requiredIDs)
-    }
-}
-
 public struct ProductCategory {
     public let id: String
     public let name: String
     public let slug: String
     public let description: String
-    public let children: [ProductCategory]
+    public var children: [ProductCategory] = []
+    public var products: [Product] = []
     public let json: JSON
 }
 
 extension ProductCategory: JSONAPIDecodable {
-    public init?(json: JSON, includedJSON: JSON?) {
+    public init?(json: JSON, includedJSON: [String : JSON]?) {
         guard let id: String = "id" <~~ json,
             let name: String = "name" <~~ json,
             let slug: String = "slug" <~~ json,
@@ -44,14 +34,13 @@ extension ProductCategory: JSONAPIDecodable {
         self.description = description
         self.json = json
         
-        guard let childrenJSON: [JSON] = "children" <~~ json,
-            0 < childrenJSON.count else {
-            self.children = []
-            return
+        if let childrenJSON: [JSON] = "children" <~~ json,
+            0 < childrenJSON.count {
+            self.children = childrenJSON.flatMap {
+                return ProductCategory(json: $0, includedJSON: nil)
+            }
         }
         
-        self.children = childrenJSON.flatMap {
-            return ProductCategory(json: $0, includedJSON: nil)
-        }
+        self.products = relatedObjects(fromJSON: json, withKeyPath: "relationships.products.data", includedJSON: includedJSON)
     }
 }

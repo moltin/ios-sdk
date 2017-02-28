@@ -9,24 +9,13 @@
 import Foundation
 import Gloss
 
-protocol HasProducts {
-    var products: [Product] { get set }
-    mutating func addProducts(fromJSON json: [JSON], requiredIDs: [String])
-}
-
-extension HasProducts {
-    mutating func addProducts(fromJSON json: [JSON], requiredIDs: [String]) {
-        self.products = includedObjectsArray(fromJSONArray: json, requiredIDs: requiredIDs)
-    }
-}
-
 public struct MTDimension {
-    let width: MTMeasurement<MTUnitLength>
-    let height: MTMeasurement<MTUnitLength>
-    let length: MTMeasurement<MTUnitLength>
+    public let width: MTMeasurement<MTUnitLength>
+    public let height: MTMeasurement<MTUnitLength>
+    public let length: MTMeasurement<MTUnitLength>
 }
 
-public struct Product: HasFiles, HasCollections, HasCategories, HasBrands {
+public struct Product {
     public let id: String
     public let name: String
     public let slug: String
@@ -39,10 +28,13 @@ public struct Product: HasFiles, HasCollections, HasCategories, HasBrands {
     public var categories: [ProductCategory] = []
     public var brands: [Brand] = []
     public let json: JSON
+    public var prices: [Price] = []
+    public var displayPriceWithTax: DisplayPrice?
+    public var displayPriceWithoutTax: DisplayPrice?
 }
 
 extension Product: JSONAPIDecodable {
-    public init?(json: JSON, includedJSON: JSON?) {
+    public init?(json: JSON, includedJSON: [String : JSON]?) {
         guard let id: String = "id" <~~ json,
             let name: String = "name" <~~ json,
             let slug: String = "slug" <~~ json,
@@ -64,6 +56,22 @@ extension Product: JSONAPIDecodable {
             weight = nil
         }
         
+        if let pricesArrayJSON: [JSON] = "price" <~~ json {
+            prices = [Price].from(jsonArray: pricesArrayJSON, includedJSON: nil)
+        }
+        
+        if let displayPriceWithTaxJSON: JSON = "meta.display_price.with_tax" <~~ json {
+            displayPriceWithTax = DisplayPrice(json: displayPriceWithTaxJSON, includedJSON: nil)
+        } else {
+            displayPriceWithTax = nil
+        }
+        
+        if let displayPriceWithoutTaxJSON: JSON = "meta.display_price.without_tax" <~~ json {
+            displayPriceWithoutTax = DisplayPrice(json: displayPriceWithoutTaxJSON, includedJSON: nil)
+        } else {
+            displayPriceWithoutTax = nil
+        }
+        
         if let widthValue: Double = "dimensions.width.cm.value" <~~ json,
             let heightValue: Double = "dimensions.height.cm.value" <~~ json,
             let lengthValue: Double = "dimensions.length.cm.value" <~~ json {
@@ -74,28 +82,9 @@ extension Product: JSONAPIDecodable {
             dimensions = nil
         }
         
-        guard let includedJSON = includedJSON else {
-            return
-        }
-        
-        if let includedFilesJSON: [JSON] = "files" <~~ includedJSON,
-            let relatedFilesJSON: [JSON] = "relationships.files.data" <~~ json {
-            self.addFiles(fromJSON: includedFilesJSON, requiredIDs: relatedFilesJSON.flatMap { $0["id"] as? String })
-        }
-        
-        if let includedCollectionJSON: [JSON] = "collections" <~~ includedJSON,
-            let relatedCollectionJSON: [JSON] = "relationships.collections.data" <~~ json {
-            self.addCollections(fromJSON: includedCollectionJSON, requiredIDs: relatedCollectionJSON.flatMap { $0["id"] as? String })
-        }
-        
-        if let includedCategoryJSON: [JSON] = "categories" <~~ includedJSON,
-            let relatedCategoryJSON: [JSON] = "relationships.categories.data" <~~ json {
-            self.addCategories(fromJSON: includedCategoryJSON, requiredIDs: relatedCategoryJSON.flatMap { $0["id"] as? String })
-        }
-        
-        if let includedBrandJSON: [JSON] = "brands" <~~ includedJSON,
-            let relatedBrandJSON: [JSON] = "relationships.brands.data" <~~ json {
-            self.addBrands(fromJSON: includedBrandJSON, requiredIDs: relatedBrandJSON.flatMap { $0["id"] as? String })
-        }
+        self.files = relatedObjects(fromJSON: json, withKeyPath: "relationships.files.data", includedJSON: includedJSON)
+        self.collections = relatedObjects(fromJSON: json, withKeyPath: "relationships.collections.data", includedJSON: includedJSON)
+        self.categories = relatedObjects(fromJSON: json, withKeyPath: "relationships.categories.data", includedJSON: includedJSON)
+        self.brands = relatedObjects(fromJSON: json, withKeyPath: "relationships.brands.data", includedJSON: includedJSON)
     }
 }

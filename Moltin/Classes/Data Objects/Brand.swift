@@ -9,17 +9,6 @@
 import Foundation
 import Gloss
 
-protocol HasBrands {
-    var brands: [Brand] { get set }
-    mutating func addBrands(fromJSON json: [JSON], requiredIDs: [String])
-}
-
-extension HasBrands {
-    mutating func addBrands(fromJSON json: [JSON], requiredIDs: [String]) {
-        self.brands = includedObjectsArray(fromJSONArray: json, requiredIDs: requiredIDs)
-    }
-}
-
 public struct Brand {
     public let id: String
     public let name: String
@@ -29,7 +18,7 @@ public struct Brand {
 }
 
 extension Brand: JSONAPIDecodable {
-    public init?(json: JSON, includedJSON: JSON?) {
+    public init?(json: JSON, includedJSON: [String : JSON]?) {
         guard let id: String = "id" <~~ json,
             let name: String = "name" <~~ json,
             let slug: String = "slug" <~~ json,

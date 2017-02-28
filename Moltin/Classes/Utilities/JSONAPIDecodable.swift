@@ -11,31 +11,33 @@ import Gloss
 
 protocol JSONAPIDecodable {
     var json: JSON { get }
-    init?(json: JSON, includedJSON: JSON?)
+    init?(json: JSON, includedJSON includes: [String : JSON]?)
+    func relatedObjects<T: JSONAPIDecodable>(fromJSON json: JSON, withKeyPath keyPath: String, includedJSON includes: [String : JSON]?) -> [T]
 }
 
-func includedObjectsArray<T: JSONAPIDecodable>(fromJSONArray jsonArray: [JSON], requiredIDs: [String]) -> [T] {
-    let filteredJSON = jsonArray.filter {
-        guard let id: String = "id" <~~ $0 else {
-            return false
+extension JSONAPIDecodable {
+    func relatedObjects<T: JSONAPIDecodable>(fromJSON json: JSON, withKeyPath keyPath: String, includedJSON includes: [String : JSON]?) -> [T] {
+        guard let includes = includes,
+            let relationshipJSON: [JSON] = keyPath <~~ json else {
+                return []
         }
         
-        return requiredIDs.contains(id)
+        return relationshipJSON
+            .flatMap { $0["id"] as? String }
+            .flatMap {
+                guard let json = includes[$0] else {
+                    return nil
+                }
+                
+                return T(json: json, includedJSON: nil)
+        }
     }
-    
-    return [T].from(jsonArray: filteredJSON, includedJSON: nil)
 }
 
 extension Array where Element: JSONAPIDecodable {
-    static func from(jsonArray: [JSON], includedJSON: JSON?) -> [Element] {
-        var models: [Element] = []
-        
-        jsonArray.forEach {
-            if let model = Element(json: $0, includedJSON: includedJSON) {
-                models.append(model)
-            }
+    static func from(jsonArray: [JSON], includedJSON: [String : JSON]?) -> [Element] {
+        return jsonArray.flatMap {
+            Element(json: $0, includedJSON: includedJSON)
         }
-        
-        return models
     }
 }

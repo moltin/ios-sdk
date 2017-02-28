@@ -15,7 +15,7 @@ public struct PaymentGateway: JSONAPIDecodable {
     public let slug: String
     let json: JSON
     
-    init?(json: JSON, includedJSON: JSON?) {
+    init?(json: JSON, includedJSON: [String : JSON]?) {
         guard let name: String = "name" <~~ json,
             let slug: String = "slug" <~~ json else {
                 return nil

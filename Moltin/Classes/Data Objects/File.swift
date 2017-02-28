@@ -9,17 +9,6 @@
 import Foundation
 import Gloss
 
-protocol HasFiles {
-    var files: [File] { get set }
-    mutating func addFiles(fromJSON json: [JSON], requiredIDs: [String])
-}
-
-extension HasFiles {
-    mutating func addFiles(fromJSON json: [JSON], requiredIDs: [String]) {
-        self.files = includedObjectsArray(fromJSONArray: json, requiredIDs: requiredIDs)
-    }
-}
-
 public struct File {
     public let id: String
     public let url: URL
@@ -28,7 +17,7 @@ public struct File {
 }
 
 extension File: JSONAPIDecodable {
-    public init?(json: JSON, includedJSON: JSON?) {
+    public init?(json: JSON, includedJSON: [String : JSON]?) {
         guard let id: String = "id" <~~ json,
             let urlString: String = "link.href" <~~ json,
             let url = URL(string: urlString),

@@ -44,7 +44,7 @@ public struct Address {
 }
 
 extension Address: JSONAPIDecodable {
-    init?(json: JSON, includedJSON: JSON?) {
+    init?(json: JSON, includedJSON: [String : JSON]?) {
         guard let firstName: String = "first_name" <~~ json,
             let lastName: String = "last_name" <~~ json,
             let line1: String = "line_1" <~~ json,

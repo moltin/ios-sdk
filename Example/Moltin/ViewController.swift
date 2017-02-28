@@ -15,13 +15,15 @@ class ViewController: UIViewController {
     var collectionView: UICollectionView!
     var collectionViewLayout: UICollectionViewFlowLayout!
     
-    var collections: [Product] = []
+    var categories: [ProductCategory] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
         title = "COLLECTIONS"
+        
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .done, target: nil, action: nil)
         
         collectionView = {
             collectionViewLayout = UICollectionViewFlowLayout()
@@ -51,14 +53,15 @@ class ViewController: UIViewController {
         collectionView.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor).isActive = true
         collectionView.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor).isActive = true
         
-        let query = MoltinQuery(offset: nil, limit: 5, sort: nil, filter: nil, include: [.files])
+        let query = MoltinQuery(offset: nil, limit: nil, sort: nil, filter: nil, include: [.products])
 
-        Moltin.product.list(withQuery: query) { result in
+        Moltin.category.list(withQuery: query) { result in
             switch result {
             case .failure(let error):
                 print(error)
-            case .success(let products):
-                self.collections = products
+            case .success(let categories):
+                let filteredCategories = categories.filter { !$0.products.isEmpty }
+                self.categories = filteredCategories
                 self.collectionView.reloadData()
             }
         }
@@ -67,21 +70,30 @@ class ViewController: UIViewController {
 
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return collections.count
+        return categories.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionCell", for: indexPath) as! ProductCollectionCollectionViewCell
         
-        let collection = collections[indexPath.item]
+        let category = categories[indexPath.item]
         
-        cell.collectionNameLabel.text = collection.name
+        cell.collectionNameLabel.text = category.name
         
-        if let file = collection.files.first {
-            cell.collectionImageView.af_setImage(withURL: file.url)
-        }
+//        if let file = category.files.first {
+//            cell.collectionImageView.af_setImage(withURL: file.url)
+//        }
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let category = categories[indexPath.item]
+        
+        let controller = ProductListViewController()
+        controller.category = category
+        
+        show(controller, sender: nil)
     }
 }
 
