@@ -32,8 +32,9 @@ class ProductListViewController: UICollectionViewController {
         
         title = category.name.uppercased()
         
-        collectionView?.backgroundColor = UIColor(white: 0.9, alpha: 1.0)
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .done, target: nil, action: nil)
         
+        collectionView?.backgroundColor = UIColor(white: 0.9, alpha: 1.0)
         collectionView?.register(ProductCollectionViewCell.self, forCellWithReuseIdentifier: "ProductCell")
         
         getProducts()
@@ -71,6 +72,15 @@ class ProductListViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return products.count
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let product = products[indexPath.item]
+        
+        let controller = ProductDetailViewController()
+        controller.product = product
+        controller.category = category
+        show(controller, sender: nil)
     }
 }
 
