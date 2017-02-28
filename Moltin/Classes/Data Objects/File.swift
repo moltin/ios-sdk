@@ -9,17 +9,6 @@
 import Foundation
 import Gloss
 
-protocol HasFiles {
-    var files: [File] { get set }
-    mutating func addFiles(fromJSON json: [String : JSON], requiredIDs: [String])
-}
-
-extension HasFiles {
-    mutating func addFiles(fromJSON json: [String : JSON], requiredIDs: [String]) {
-        self.files = includedObjectsArray(fromIncludedJSON: json, requiredIDs: requiredIDs)
-    }
-}
-
 public struct File {
     public let id: String
     public let url: URL

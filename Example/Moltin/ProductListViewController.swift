@@ -40,7 +40,7 @@ class ProductListViewController: UICollectionViewController {
     }
     
     private func getProducts() {
-        let query = MoltinQuery(offset: nil, limit: nil, sort: nil, filter: nil, include: [.files])
+        let query = MoltinQuery(offset: nil, limit: nil, sort: nil, filter: nil, include: [.files, .brands, .categories])
         
         Moltin.product.list(withQuery: query) { result in
             switch result {
@@ -60,6 +60,7 @@ class ProductListViewController: UICollectionViewController {
         
         cell.productNameLabel.text = product.name
         cell.categoryNameLabel.text = category.name
+        cell.priceLabel.text = product.displayPriceWithTax?.formatted
         
         if let file = product.files.first {
             cell.productImageView.af_setImage(withURL: file.url)
@@ -83,17 +84,23 @@ class ProductCollectionViewCell: UICollectionViewCell {
     let productNameLabel: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = UIFont.montserratBlack(size: 20)
-        l.numberOfLines = 2
+        l.font = UIFont.montserratBlack(size: 16)
         return l
     }()
     
     let categoryNameLabel: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = UIFont.montserratBlack(size: 16)
+        l.font = UIFont.montserratBlack(size: 14)
         l.textColor = .lightGray
-        l.numberOfLines = 0
+        return l
+    }()
+    
+    let priceLabel: UILabel = {
+        let l = UILabel()
+        l.translatesAutoresizingMaskIntoConstraints = false
+        l.font = UIFont.montserratLight(size: 20)
+        l.textColor = UIColor(red:0.54, green:0.39, blue:0.70, alpha:1.00)
         return l
     }()
     
@@ -110,11 +117,20 @@ class ProductCollectionViewCell: UICollectionViewCell {
         
         backgroundColor = .white
         
-        let labelStackView: UIStackView = {
+        let descriptionStackView: UIStackView = {
             let s = UIStackView(arrangedSubviews: [categoryNameLabel, productNameLabel])
             s.translatesAutoresizingMaskIntoConstraints = false
             s.axis = .vertical
-            s.spacing = 8
+            s.spacing = 6
+            s.alignment = .leading
+            return s
+        }()
+        
+        let labelStackView: UIStackView = {
+            let s = UIStackView(arrangedSubviews: [descriptionStackView, priceLabel])
+            s.translatesAutoresizingMaskIntoConstraints = false
+            s.spacing = 12
+            s.axis = .vertical
             s.alignment = .leading
             return s
         }()

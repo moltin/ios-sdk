@@ -23,7 +23,7 @@ class ViewController: UIViewController {
         
         title = "COLLECTIONS"
         
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: nil, style: .done, target: nil, action: nil)
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .done, target: nil, action: nil)
         
         collectionView = {
             collectionViewLayout = UICollectionViewFlowLayout()

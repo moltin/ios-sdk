@@ -9,17 +9,6 @@
 import Foundation
 import Gloss
 
-protocol HasBrands {
-    var brands: [Brand] { get set }
-    mutating func addBrands(fromJSON json: [String : JSON], requiredIDs: [String])
-}
-
-extension HasBrands {
-    mutating func addBrands(fromJSON json: [String : JSON], requiredIDs: [String]) {
-        self.brands = includedObjectsArray(fromIncludedJSON: json, requiredIDs: requiredIDs)
-    }
-}
-
 public struct Brand {
     public let id: String
     public let name: String

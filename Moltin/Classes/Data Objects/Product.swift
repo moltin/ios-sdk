@@ -9,24 +9,53 @@
 import Foundation
 import Gloss
 
-protocol HasProducts {
-    var products: [Product] { get set }
-    mutating func addProducts(fromIncludedJSON includes: [String : JSON], requiredIDs: [String])
+public struct MTDimension {
+    public let width: MTMeasurement<MTUnitLength>
+    public let height: MTMeasurement<MTUnitLength>
+    public let length: MTMeasurement<MTUnitLength>
 }
 
-extension HasProducts {
-    mutating func addProducts(fromIncludedJSON includes: [String : JSON], requiredIDs: [String]) {
-        self.products = includedObjectsArray(fromIncludedJSON: includes, requiredIDs: requiredIDs)
+public struct Price: JSONAPIDecodable {
+    public let amount: Int
+    public let currency: String
+    public let includesTax: Bool
+    public let json: JSON
+    
+    init?(json: JSON, includedJSON includes: [String : JSON]?) {
+        guard let amount: Int = "amount" <~~ json,
+            let currency: String = "currency" <~~ json,
+            let includesTax: Bool = "includes_tax" <~~ json else {
+                return nil
+        }
+        
+        self.amount = amount
+        self.currency = currency
+        self.includesTax = includesTax
+        self.json = json
     }
 }
 
-public struct MTDimension {
-    let width: MTMeasurement<MTUnitLength>
-    let height: MTMeasurement<MTUnitLength>
-    let length: MTMeasurement<MTUnitLength>
+public struct DisplayPrice {
+    public let amount: Int
+    public let currency: String
+    public let formatted: String
+    public let json: JSON
+    
+    init?(json: JSON, includedJSON includes: [String : JSON]?) {
+        guard let amount: Int = "amount" <~~ json,
+            let currency: String = "currency" <~~ json,
+            let formatted: String = "formatted" <~~ json else {
+                return nil
+        }
+        
+        self.amount = amount
+        self.currency = currency
+        self.formatted = formatted
+        self.json = json
+    }
 }
 
-public struct Product: HasFiles, HasCollections, HasCategories, HasBrands {
+public struct Product {
     public let id: String
     public let name: String
     public let slug: String
@@ -39,6 +68,9 @@ public struct Product: HasFiles, HasCollections, HasCategories, HasBrands {
     public var categories: [ProductCategory] = []
     public var brands: [Brand] = []
     public let json: JSON
+    public var prices: [Price] = []
+    public var displayPriceWithTax: DisplayPrice?
+    public var displayPriceWithoutTax: DisplayPrice?
 }
 
 extension Product: JSONAPIDecodable {
@@ -64,6 +96,22 @@ extension Product: JSONAPIDecodable {
             weight = nil
         }
         
+        if let pricesArrayJSON: [JSON] = "price" <~~ json {
+            prices = [Price].from(jsonArray: pricesArrayJSON, includedJSON: nil)
+        }
+        
+        if let displayPriceWithTaxJSON: JSON = "meta.display_price.with_tax" <~~ json {
+            displayPriceWithTax = DisplayPrice(json: displayPriceWithTaxJSON, includedJSON: nil)
+        } else {
+            displayPriceWithTax = nil
+        }
+        
+        if let displayPriceWithoutTaxJSON: JSON = "meta.display_price.without_tax" <~~ json {
+            displayPriceWithoutTax = DisplayPrice(json: displayPriceWithoutTaxJSON, includedJSON: nil)
+        } else {
+            displayPriceWithoutTax = nil
+        }
+        
         if let widthValue: Double = "dimensions.width.cm.value" <~~ json,
             let heightValue: Double = "dimensions.height.cm.value" <~~ json,
             let lengthValue: Double = "dimensions.length.cm.value" <~~ json {
@@ -74,24 +122,9 @@ extension Product: JSONAPIDecodable {
             dimensions = nil
         }
         
-        guard let includedJSON = includedJSON else {
-            return
-        }
-        
-        if let relatedFilesJSON: [JSON] = "relationships.files.data" <~~ json {
-            self.addFiles(fromJSON: includedJSON, requiredIDs: relatedFilesJSON.flatMap { $0["id"] as? String })
-        }
-        
-        if let relatedCollectionJSON: [JSON] = "relationships.collections.data" <~~ json {
-            self.addCollections(fromJSON: includedJSON, requiredIDs: relatedCollectionJSON.flatMap { $0["id"] as? String })
-        }
-        
-        if let relatedCategoryJSON: [JSON] = "relationships.categories.data" <~~ json {
-            self.addCategories(fromJSON: includedJSON, requiredIDs: relatedCategoryJSON.flatMap { $0["id"] as? String })
-        }
-        
-        if let relatedBrandJSON: [JSON] = "relationships.brands.data" <~~ json {
-            self.addBrands(fromJSON: includedJSON, requiredIDs: relatedBrandJSON.flatMap { $0["id"] as? String })
-        }
+        self.files = relatedObjects(fromJSON: json, withKeyPath: "relationships.files.data", includedJSON: includedJSON)
+        self.collections = relatedObjects(fromJSON: json, withKeyPath: "relationships.collections.data", includedJSON: includedJSON)
+        self.categories = relatedObjects(fromJSON: json, withKeyPath: "relationships.categories.data", includedJSON: includedJSON)
+        self.brands = relatedObjects(fromJSON: json, withKeyPath: "relationships.brands.data", includedJSON: includedJSON)
     }
 }

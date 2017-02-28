@@ -9,18 +9,7 @@
 import Foundation
 import Gloss
 
-protocol HasCategories {
-    var categories: [ProductCategory] { get set }
-    mutating func addCategories(fromJSON json: [String : JSON], requiredIDs: [String])
-}
-
-extension HasCategories {
-    mutating func addCategories(fromJSON json: [String : JSON], requiredIDs: [String]) {
-        self.categories = includedObjectsArray(fromIncludedJSON: json, requiredIDs: requiredIDs)
-    }
-}
-
-public struct ProductCategory: HasProducts {
+public struct ProductCategory {
     public let id: String
     public let name: String
     public let slug: String
@@ -52,11 +41,6 @@ extension ProductCategory: JSONAPIDecodable {
             }
         }
         
-        
-        
-        if let includedJSON = includedJSON,
-            let relatedProductsJSON: [JSON] = "relationships.products.data" <~~ json {
-            self.addProducts(fromIncludedJSON: includedJSON, requiredIDs: relatedProductsJSON.flatMap { $0["id"] as? String })
-        }
+        self.products = relatedObjects(fromJSON: json, withKeyPath: "relationships.products.data", includedJSON: includedJSON)
     }
 }

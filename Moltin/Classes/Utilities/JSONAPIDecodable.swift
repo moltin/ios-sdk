@@ -12,15 +12,25 @@ import Gloss
 protocol JSONAPIDecodable {
     var json: JSON { get }
     init?(json: JSON, includedJSON includes: [String : JSON]?)
+    func relatedObjects<T: JSONAPIDecodable>(fromJSON json: JSON, withKeyPath keyPath: String, includedJSON includes: [String : JSON]?) -> [T]
 }
 
-func includedObjectsArray<T: JSONAPIDecodable>(fromIncludedJSON includes: [String: JSON], requiredIDs: [String]) -> [T] {
-    return requiredIDs.flatMap {
-        guard let json = includes[$0] else {
-            return nil
+extension JSONAPIDecodable {
+    func relatedObjects<T: JSONAPIDecodable>(fromJSON json: JSON, withKeyPath keyPath: String, includedJSON includes: [String : JSON]?) -> [T] {
+        guard let includes = includes,
+            let relationshipJSON: [JSON] = keyPath <~~ json else {
+                return []
         }
         
-        return T(json: json, includedJSON: nil)
+        return relationshipJSON
+            .flatMap { $0["id"] as? String }
+            .flatMap {
+                guard let json = includes[$0] else {
+                    return nil
+                }
+                
+                return T(json: json, includedJSON: nil)
+        }
     }
 }
 

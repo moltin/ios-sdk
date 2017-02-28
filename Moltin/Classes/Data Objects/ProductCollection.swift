@@ -9,17 +9,6 @@
 import Foundation
 import Gloss
 
-protocol HasCollections {
-    var collections: [ProductCollection] { get set }
-    mutating func addCollections(fromJSON json: [String : JSON], requiredIDs: [String])
-}
-
-extension HasCollections {
-    mutating func addCollections(fromJSON json: [String : JSON], requiredIDs: [String]) {
-        self.collections = includedObjectsArray(fromIncludedJSON: json, requiredIDs: requiredIDs)
-    }
-}
-
 public struct ProductCollection {
     public let id: String
     public let name: String
