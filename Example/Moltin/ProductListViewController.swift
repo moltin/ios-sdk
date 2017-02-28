@@ -47,8 +47,8 @@ class ProductListViewController: UICollectionViewController {
             switch result {
             case .failure(let error):
                 print(error)
-            case .success(let products):
-                self.products = products
+            case .success(let list):
+                self.products = list.products
                 self.collectionView?.reloadData()
             }
         }

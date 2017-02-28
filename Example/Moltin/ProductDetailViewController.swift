@@ -81,6 +81,7 @@ class ProductDetailViewController: UIViewController {
             let b = UIButton(type: .custom)
             b.translatesAutoresizingMaskIntoConstraints = false
             b.setTitle("Add to cart", for: .normal)
+            b.addTarget(self, action: #selector(addProductToCart), for: .touchUpInside)
             b.backgroundColor = UIColor(red:0.62, green:0.49, blue:0.75, alpha:1.00)
             b.heightAnchor.constraint(equalToConstant: 44).isActive = true
             b.layer.cornerRadius = 22
@@ -120,5 +121,34 @@ class ProductDetailViewController: UIViewController {
         scrollView.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor).isActive = true
         
         mainStackView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+    }
+    
+    func addProductToCart() {
+        guard let reference = CartViewController.cartReference else {
+            Moltin.cart.getNew { result in
+                switch result {
+                case .failure(let error):
+                    print(error)
+                case .success(let cart):
+                    guard let actualCart = cart else {
+                        return
+                    }
+                    
+                    CartViewController.cartReference = actualCart.id
+                    self.addProductToCart()
+                }
+            }
+            
+            return
+        }
+        
+        Moltin.cart.add(itemWithProductID: product.id, andQuantity: 1, toCartID: reference) { result in
+            switch result {
+            case .failure(let error):
+                print(error)
+            case .success(let cartItemList):
+                print(cartItemList)
+            }
+        }
     }
 }

@@ -15,6 +15,10 @@ public struct MTDimension {
     public let length: MTMeasurement<MTUnitLength>
 }
 
+public struct ProductListMeta {
+    public let totalCount: Int
+}
+
 public struct Product {
     public let id: String
     public let name: String

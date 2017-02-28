@@ -16,6 +16,7 @@
 		F60FC8F01E647231001E977B /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60FC8EF1E647231001E977B /* ProductListViewController.swift */; };
 		F60FC8F51E658030001E977B /* ImageGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60FC8F41E658030001E977B /* ImageGalleryViewController.swift */; };
 		F60FC8F71E6585D7001E977B /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60FC8F61E6585D7001E977B /* ProductDetailViewController.swift */; };
+		F60FC8F91E6598AE001E977B /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60FC8F81E6598AE001E977B /* CartViewController.swift */; };
 		F6548D3E1E6092E70000F300 /* Heuristica-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F6548D321E6092E70000F300 /* Heuristica-Bold.otf */; };
 		F6548D3F1E6092E70000F300 /* Heuristica-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = F6548D331E6092E70000F300 /* Heuristica-BoldItalic.otf */; };
 		F6548D401E6092E70000F300 /* Heuristica-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = F6548D341E6092E70000F300 /* Heuristica-Italic.otf */; };
@@ -50,6 +51,7 @@
 		F60FC8EF1E647231001E977B /* ProductListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductListViewController.swift; sourceTree = "<group>"; };
 		F60FC8F41E658030001E977B /* ImageGalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageGalleryViewController.swift; sourceTree = "<group>"; };
 		F60FC8F61E6585D7001E977B /* ProductDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
+		F60FC8F81E6598AE001E977B /* CartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		F6548D321E6092E70000F300 /* Heuristica-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Heuristica-Bold.otf"; sourceTree = "<group>"; };
 		F6548D331E6092E70000F300 /* Heuristica-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Heuristica-BoldItalic.otf"; sourceTree = "<group>"; };
 		F6548D341E6092E70000F300 /* Heuristica-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Heuristica-Italic.otf"; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				607FACD31AFB9204008FA782 /* Supporting Files */,
 				F60FC8F41E658030001E977B /* ImageGalleryViewController.swift */,
 				F60FC8F61E6585D7001E977B /* ProductDetailViewController.swift */,
+				F60FC8F81E6598AE001E977B /* CartViewController.swift */,
 			);
 			name = "Example for Moltin";
 			path = Moltin;
@@ -335,6 +338,7 @@
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				F60FC8F71E6585D7001E977B /* ProductDetailViewController.swift in Sources */,
 				F60FC8F51E658030001E977B /* ImageGalleryViewController.swift in Sources */,
+				F60FC8F91E6598AE001E977B /* CartViewController.swift in Sources */,
 				F60FC8F01E647231001E977B /* ProductListViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				F6548D4A1E60952A0000F300 /* FontExtensions.swift in Sources */,
