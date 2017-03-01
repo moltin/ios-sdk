@@ -140,6 +140,8 @@ extension CartViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         let item = cartItems[indexPath.item]
         
+        print("Populating cell: \(cell)\nAt index path: \(indexPath.item)")
+        
         Moltin.product.get(withProductID: item.productID, include: [.files]) { result in
             switch result {
             case .failure(_):
@@ -148,15 +150,17 @@ extension CartViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 guard let product = product,
                     let file = product.files.first,
                     let cell = collectionView.cellForItem(at: indexPath) as? CartItemCell else {
-                    return
+                        print("Failed to get cell at index path: \(indexPath.item)")
+                        return
                 }
                 
+                print("Setting image on cell: \(cell)\nAt index path: \(indexPath.item)")
                 cell.productImageView.af_setImage(withURL: file.url)
             }
         }
         
         cell.productNameLabel.text = item.name
-        cell.productPriceLabel.text = "£12.34"
+        cell.productPriceLabel.text = item.totalPriceWithTax?.formatted
         cell.quantityLabel.text = "\(item.quantity)"
         
         return cell
@@ -183,6 +187,7 @@ class CartItemCell: UICollectionViewCell {
         l.translatesAutoresizingMaskIntoConstraints = false
         l.font = UIFont.montserratRegular(size: 15)
         l.textColor = .white
+        l.setContentHuggingPriority(UILayoutPriorityRequired, for: .vertical)
         return l
     }()
     
@@ -191,6 +196,7 @@ class CartItemCell: UICollectionViewCell {
         l.translatesAutoresizingMaskIntoConstraints = false
         l.font = UIFont.montserratRegular(size: 13)
         l.textColor = UIColor(red:0.62, green:0.49, blue:0.75, alpha:1.00)
+        l.setContentHuggingPriority(UILayoutPriorityRequired, for: .vertical)
         return l
     }()
     

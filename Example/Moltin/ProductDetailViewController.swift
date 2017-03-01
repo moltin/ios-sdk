@@ -125,13 +125,17 @@ class ProductDetailViewController: UIViewController {
     }
     
     func addProductToCart() {
+        navigationController?.present(LoadingViewController(text: "Updating cart"), animated: true, completion: nil)
+        
         guard let reference = CartViewController.cartReference else {
             Moltin.cart.getNew { result in
                 switch result {
                 case .failure(let error):
                     print(error)
+                    self.navigationController?.dismiss(animated: true, completion: nil)
                 case .success(let cart):
                     guard let actualCart = cart else {
+                        self.navigationController?.dismiss(animated: true, completion: nil)
                         return
                     }
                     
@@ -144,11 +148,13 @@ class ProductDetailViewController: UIViewController {
         }
         
         Moltin.cart.add(itemWithProductID: product.id, andQuantity: 1, toCartID: reference) { result in
-            switch result {
-            case .failure(let error):
-                print(error)
-            case .success(_):
-                self.showCart()
+            self.navigationController?.dismiss(animated: true) {                
+                switch result {
+                case .failure(let error):
+                    print(error)
+                case .success(_):
+                    self.showCart()
+                }
             }
         }
     }

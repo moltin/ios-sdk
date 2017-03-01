@@ -15,7 +15,7 @@ public typealias CartItemList = (items: [CartItem], meta: CartMeta?)
 public struct CartRequest {
     public func getNew(completion: @escaping (Result<Cart?>) -> ()) {
         let reference = UUID().uuidString
-            
+        
         MoltinAPI.objectRequest(request: Router.getCart(reference: reference), completion: completion)
     }
     
