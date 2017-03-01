@@ -30,7 +30,7 @@ public struct Price: JSONAPIDecodable {
     }
 }
 
-public struct DisplayPrice {
+public struct DisplayPrice: JSONAPIDecodable {
     public let amount: Int
     public let currency: String
     public let formatted: String

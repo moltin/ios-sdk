@@ -33,6 +33,30 @@ struct MoltinAPI {
         }
     }
     
+    static func arrayWithMetaRequest<T: JSONAPIDecodable>(request: URLRequestConvertible, completion: @escaping (Result<([T], JSON?)>) -> ()) {
+        Router.auth.authenticate {
+            Alamofire.request(request).responseJSON { response in
+                self.processArrayWithMeta(response: response, completion: completion)
+            }
+        }
+    }
+    
+    private static func processArrayWithMeta<T: JSONAPIDecodable>(response: DataResponse<Any>, completion: @escaping (Result<([T], JSON?)>) -> ()) {
+        switch response.result {
+        case .failure(let error):
+            completion(Result.failure(error: error))
+        case .success(let json):
+            guard let json = json as? JSON,
+                let jsonArray: [JSON] = "data" <~~ json else {
+                    completion(Result.success(result: ([], nil)))
+                    return
+            }
+            
+            let array = [T].from(jsonArray: jsonArray, includedJSON: index("included" <~~ json))
+            completion(Result.success(result: (array, "meta" <~~ json)))
+        }
+    }
+    
     private static func processObject<T: JSONAPIDecodable>(response: DataResponse<Any>, completion: @escaping (Result<T?>) -> ()) {
         switch response.result {
         case .failure(let error):
@@ -59,7 +83,6 @@ struct MoltinAPI {
                     completion(Result.success(result: []))
                     return
             }
-            
             
             let array = [T].from(jsonArray: jsonArray, includedJSON: index("included" <~~ json))
             completion(Result.success(result: array))
