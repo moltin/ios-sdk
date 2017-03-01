@@ -30,7 +30,7 @@ class CartStepperView: UIControl {
         b.backgroundColor = UIColor(red:0.39, green:0.46, blue:0.51, alpha:1.00)
         b.setTitle("+", for: .normal)
         b.titleLabel?.textColor = .white
-        b.titleLabel?.font = UIFont.montserratHairline(size: 16)
+        b.titleLabel?.font = UIFont.montserratLight(size: 40)
         b.addTarget(self, action: #selector(increment), for: .touchUpInside)
         b.widthAnchor.constraint(equalTo: b.heightAnchor).isActive = true
         return b
@@ -42,7 +42,7 @@ class CartStepperView: UIControl {
         b.backgroundColor = UIColor(red:0.39, green:0.46, blue:0.51, alpha:1.00)
         b.setTitle("-", for: .normal)
         b.titleLabel?.textColor = .white
-        b.titleLabel?.font = UIFont.montserratHairline(size: 16)
+        b.titleLabel?.font = UIFont.montserratLight(size: 40)
         b.addTarget(self, action: #selector(decrement), for: .touchUpInside)
         b.widthAnchor.constraint(equalTo: b.heightAnchor).isActive = true
         return b
