@@ -18,4 +18,16 @@ extension UIViewController {
         let navController = UINavigationController(rootViewController: controller)
         present(navController, animated: true, completion: nil)
     }
+    
+    func showLoadingScreen(text: String, completion: (() -> ())? = nil) {
+        let controller: UIViewController = navigationController ?? self
+        
+        controller.present(LoadingViewController(text: text), animated: true, completion: completion)
+    }
+    
+    func hideLoadingScreen(completion: (() -> ())? = nil) {
+        let controller: UIViewController = navigationController ?? self
+        
+        controller.dismiss(animated: true, completion: completion)
+    }
 }
