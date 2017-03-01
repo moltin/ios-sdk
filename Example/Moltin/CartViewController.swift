@@ -161,9 +161,34 @@ extension CartViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         cell.productNameLabel.text = item.name
         cell.productPriceLabel.text = item.totalPriceWithTax?.formatted
-        cell.quantityLabel.text = "\(item.quantity)"
+        cell.stepperView.value = UInt(item.quantity)
+        cell.updateQuantityAction = {
+            quantity in
+            self.update(itemID: item.id, toQuantity: quantity)
+        }
         
         return cell
+    }
+    
+    func update(itemID: String, toQuantity quantity: UInt) {
+        guard let ref = CartViewController.cartReference else {
+            return
+        }
+        
+        showLoadingScreen(text: "Updating cart")
+        
+        Moltin.cart.update(cartItemID: itemID, toQuantity: quantity, inCartID: ref) { result in
+            self.hideLoadingScreen() {
+                switch result {
+                case .failure(let error):
+                    print(error)
+                case .success(let cartList):
+                    self.cartItems = cartList.items
+                    self.cartMeta = cartList.meta
+                    self.collectionView.reloadData()
+                }
+            }
+        }
     }
 }
 
@@ -187,7 +212,6 @@ class CartItemCell: UICollectionViewCell {
         l.translatesAutoresizingMaskIntoConstraints = false
         l.font = UIFont.montserratRegular(size: 15)
         l.textColor = .white
-        l.setContentHuggingPriority(UILayoutPriorityRequired, for: .vertical)
         return l
     }()
     
@@ -196,19 +220,17 @@ class CartItemCell: UICollectionViewCell {
         l.translatesAutoresizingMaskIntoConstraints = false
         l.font = UIFont.montserratRegular(size: 13)
         l.textColor = UIColor(red:0.62, green:0.49, blue:0.75, alpha:1.00)
-        l.setContentHuggingPriority(UILayoutPriorityRequired, for: .vertical)
         return l
     }()
     
-    let quantityLabel: UILabel = {
-        let l = UILabel()
-        l.translatesAutoresizingMaskIntoConstraints = false
-        l.textAlignment = .center
-        l.font = UIFont.montserratRegular(size: 20)
-        l.backgroundColor = .white
-        l.setContentHuggingPriority(500, for: .vertical)
-        return l
+    lazy var stepperView: CartStepperView = {
+        let s = CartStepperView(initialValue: 0)
+        s.translatesAutoresizingMaskIntoConstraints = false
+        s.addTarget(self, action: #selector(updateQuantity), for: .valueChanged)
+        return s
     }()
+    
+    var updateQuantityAction: (UInt) -> () = { _ in }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -216,7 +238,7 @@ class CartItemCell: UICollectionViewCell {
         backgroundColor = UIColor(red:0.17, green:0.22, blue:0.26, alpha:1.00)
         
         let labelStackView: UIStackView = {
-            let s = UIStackView(arrangedSubviews: [productNameLabel, productPriceLabel, quantityLabel])
+            let s = UIStackView(arrangedSubviews: [productNameLabel, productPriceLabel, stepperView])
             s.translatesAutoresizingMaskIntoConstraints = false
             s.axis = .vertical
             s.spacing = 6
@@ -244,5 +266,16 @@ class CartItemCell: UICollectionViewCell {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func updateQuantity() {
+        updateQuantityAction(stepperView.value)
+    }
+    
+    override func prepareForReuse() {
+        stepperView.value = 0
+        productImageView.image = nil
+        productNameLabel.text = ""
+        productPriceLabel.text = ""
     }
 }

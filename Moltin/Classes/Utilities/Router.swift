@@ -192,6 +192,14 @@ enum Router: URLRequestConvertible {
             ]
         case .payment(_, let paymentMethod):
             return ["data" : paymentMethod.dictionary]
+        case .updateQuantity(_, let itemID, let quantity):
+            return [
+                "data" : [
+                    "type" : "cart_item",
+                    "id" : itemID,
+                    "quantity" : quantity
+                ]
+            ]
         default:
             return nil
         }
