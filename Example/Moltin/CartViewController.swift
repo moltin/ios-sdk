@@ -160,7 +160,7 @@ extension CartViewController: UICollectionViewDelegate, UICollectionViewDataSour
         }
         
         cell.productNameLabel.text = item.name
-        cell.productPriceLabel.text = item.totalPriceWithTax?.formatted
+        cell.productPriceLabel.text = item.totalDisplayPriceWithTax?.formatted
         cell.stepperView.value = UInt(item.quantity)
         cell.updateQuantityAction = {
             quantity in

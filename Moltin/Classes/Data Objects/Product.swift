@@ -9,7 +9,7 @@
 import Foundation
 import Gloss
 
-public struct MTDimension {
+public struct ProductDimension {
     public let width: MTMeasurement<MTUnitLength>
     public let height: MTMeasurement<MTUnitLength>
     public let length: MTMeasurement<MTUnitLength>
@@ -20,12 +20,19 @@ public struct ProductListMeta {
 }
 
 public struct Product {
+    
+    public enum CommodityType: String {
+        case physical
+        case digital
+    }
+    
     public let id: String
     public let name: String
     public let slug: String
     public let sku: String
     public let description: String
-    public let dimensions: MTDimension?
+    public let commodityType: CommodityType
+    public let dimensions: ProductDimension?
     public let weight: MTMeasurement<MTUnitMass>?
     public var files: [File] = []
     public var collections: [ProductCollection] = []
@@ -43,7 +50,9 @@ extension Product: JSONAPIDecodable {
             let name: String = "name" <~~ json,
             let slug: String = "slug" <~~ json,
             let sku: String = "sku" <~~ json,
-            let description: String = "description" <~~ json else {
+            let description: String = "description" <~~ json,
+            let commodityTypeString: String = "commodity_type" <~~ json,
+            let commodityType = CommodityType(rawValue: commodityTypeString) else {
                 return nil
         }
         
@@ -53,6 +62,7 @@ extension Product: JSONAPIDecodable {
         self.sku = sku
         self.description = description
         self.json = json
+        self.commodityType = commodityType
         
         if let weightValue: Double = "weight.g.value" <~~ json {
             weight = MTMeasurement(value: weightValue, unit: .grams)
@@ -79,7 +89,7 @@ extension Product: JSONAPIDecodable {
         if let widthValue: Double = "dimensions.width.cm.value" <~~ json,
             let heightValue: Double = "dimensions.height.cm.value" <~~ json,
             let lengthValue: Double = "dimensions.length.cm.value" <~~ json {
-            dimensions = MTDimension(width: MTMeasurement(value: widthValue, unit: .centimeters),
+            dimensions = ProductDimension(width: MTMeasurement(value: widthValue, unit: .centimeters),
                                     height: MTMeasurement(value: heightValue, unit: .centimeters),
                                     length: MTMeasurement(value: lengthValue, unit: .centimeters))
         } else {

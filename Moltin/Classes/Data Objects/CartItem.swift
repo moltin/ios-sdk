@@ -24,10 +24,12 @@ public struct CartItem {
     public let name: String
     public let sku: String
     public let quantity: Int
-    public let unitPriceWithTax: DisplayPrice?
-    public let totalPriceWithTax: DisplayPrice?
-    public let unitPriceWithoutTax: DisplayPrice?
-    public let totalPriceWithoutTax: DisplayPrice?
+    public let unitPrice: Price
+    public let valuePrice: Price
+    public let unitDisplayPriceWithTax: DisplayPrice?
+    public let totalDisplayPriceWithTax: DisplayPrice?
+    public let unitDisplayPriceWithoutTax: DisplayPrice?
+    public let totalDisplayPriceWithoutTax: DisplayPrice?
     public let json: JSON
 }
 
@@ -37,7 +39,11 @@ extension CartItem: JSONAPIDecodable {
             let productID: String = "product_id" <~~ json,
             let name: String = "name" <~~ json,
             let sku: String = "sku" <~~ json,
-            let quantity: Int = "quantity" <~~ json else {
+            let quantity: Int = "quantity" <~~ json,
+            let unitPriceJSON: JSON = "unit_price" <~~ json,
+            let unitPrice = Price(json: unitPriceJSON, includedJSON: nil),
+            let valuePriceJSON: JSON = "value_price" <~~ json,
+            let valuePrice = Price(json: valuePriceJSON, includedJSON: nil) else {
                 return nil
         }
         
@@ -46,29 +52,31 @@ extension CartItem: JSONAPIDecodable {
         self.name = name
         self.sku = sku
         self.quantity = quantity
+        self.unitPrice = unitPrice
+        self.valuePrice = valuePrice
         
         if let priceJSON: JSON = "meta.display_price.with_tax.unit" <~~ json {
-            unitPriceWithTax = DisplayPrice(json: priceJSON, includedJSON: nil)
+            unitDisplayPriceWithTax = DisplayPrice(json: priceJSON, includedJSON: nil)
         } else {
-            unitPriceWithTax = nil
+            unitDisplayPriceWithTax = nil
         }
         
         if let priceJSON: JSON = "meta.display_price.without_tax.unit" <~~ json {
-            unitPriceWithoutTax = DisplayPrice(json: priceJSON, includedJSON: nil)
+            unitDisplayPriceWithoutTax = DisplayPrice(json: priceJSON, includedJSON: nil)
         } else {
-            unitPriceWithoutTax = nil
+            unitDisplayPriceWithoutTax = nil
         }
         
         if let priceJSON: JSON = "meta.display_price.with_tax.value" <~~ json {
-            totalPriceWithTax = DisplayPrice(json: priceJSON, includedJSON: nil)
+            totalDisplayPriceWithTax = DisplayPrice(json: priceJSON, includedJSON: nil)
         } else {
-            totalPriceWithTax = nil
+            totalDisplayPriceWithTax = nil
         }
         
         if let priceJSON: JSON = "meta.display_price.without_tax.value" <~~ json {
-            totalPriceWithoutTax = DisplayPrice(json: priceJSON, includedJSON: nil)
+            totalDisplayPriceWithoutTax = DisplayPrice(json: priceJSON, includedJSON: nil)
         } else {
-            totalPriceWithoutTax = nil
+            totalDisplayPriceWithoutTax = nil
         }
         
         self.json = json

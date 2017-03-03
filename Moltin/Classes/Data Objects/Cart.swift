@@ -10,11 +10,16 @@ import Foundation
 import Gloss
 
 public struct CartMeta: JSONAPIDecodable {
+    public var availablePaymentGateways: [PaymentGateway] = []
     public let displayPriceWithTax: DisplayPrice?
     public let displayPriceWithoutTax: DisplayPrice?
     public let json: JSON
     
     init?(json: JSON, includedJSON includes: [String : JSON]?) {
+        if let paymentGatewaysArray: [JSON] = "available_payment_methods" <~~ json {
+            availablePaymentGateways = [PaymentGateway].from(jsonArray: paymentGatewaysArray, includedJSON: nil)
+        }
+        
         if let priceJSON: JSON = "display_price.with_tax" <~~ json {
             displayPriceWithTax = DisplayPrice(json: priceJSON, includedJSON: nil)
         } else {

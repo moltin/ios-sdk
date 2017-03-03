@@ -13,7 +13,7 @@ import Gloss
 public struct Order {
     public enum Status: String {
         case incomplete
-        case cacelled
+        case cancelled
         case complete
     }
     
@@ -39,8 +39,8 @@ public struct Order {
     public let billingAddress: Address
     public let totalProductCount: Int?
     public let uniqueProductCount: Int?
-    public let valueWithTax: Value?
-    public let valueWithoutTax: Value?
+    public let valueWithTax: DisplayPrice?
+    public let valueWithoutTax: DisplayPrice?
     public let gateways: [PaymentGateway]
     public let json: JSON
 }
@@ -75,13 +75,13 @@ extension Order: JSONAPIDecodable {
         self.uniqueProductCount = "meta.counts.products.unique" <~~ json
         
         if let valueJSON: JSON = "meta.value.with_tax" <~~ json {
-            self.valueWithTax = Value(json: valueJSON, includedJSON: nil)
+            self.valueWithTax = DisplayPrice(json: valueJSON, includedJSON: nil)
         } else {
             self.valueWithTax = nil
         }
         
         if let valueJSON: JSON = "meta.value.without_tax" <~~ json {
-            self.valueWithoutTax = Value(json: valueJSON, includedJSON: nil)
+            self.valueWithoutTax = DisplayPrice(json: valueJSON, includedJSON: nil)
         } else {
             self.valueWithoutTax = nil
         }
