@@ -14,7 +14,11 @@ import AlamofireImage
 class CartViewController: UIViewController {
     static var cartReference: String?
     
-    var cartItems: [CartItem] = []
+    var cartItems: [CartItem] = [] {
+        didSet {
+            addToCartButton.isEnabled = cartItems.count > 0
+        }
+    }
     var cartMeta: CartMeta? = nil {
         didSet {
             guard let cartMeta = cartMeta else {
@@ -62,13 +66,15 @@ class CartViewController: UIViewController {
     }()
     
     let addToCartButton: UIButton = {
-        let b = UIButton(type: .custom)
+        let b = UIButton(type: UIButtonType.system)
         b.translatesAutoresizingMaskIntoConstraints = false
         b.setTitle("Checkout", for: .normal)
+        b.tintColor = .white
         b.backgroundColor = UIColor(red:0.62, green:0.49, blue:0.75, alpha:1.00)
         b.heightAnchor.constraint(equalToConstant: 44).isActive = true
         b.layer.cornerRadius = 22
         b.layer.masksToBounds = true
+        b.isEnabled = false
         return b
     }()
     
@@ -160,7 +166,7 @@ extension CartViewController: UICollectionViewDelegate, UICollectionViewDataSour
         }
         
         cell.productNameLabel.text = item.name
-        cell.productPriceLabel.text = item.totalPriceWithTax?.formatted
+        cell.productPriceLabel.text = item.totalDisplayPriceWithTax?.formatted
         cell.stepperView.value = UInt(item.quantity)
         cell.updateQuantityAction = {
             quantity in

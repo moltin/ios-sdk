@@ -34,10 +34,10 @@ extension ProductCategory: JSONAPIDecodable {
         self.description = description
         self.json = json
         
-        if let childrenJSON: [JSON] = "children" <~~ json,
+        if let childrenJSON: [JSON] = "relationships.children" <~~ json,
             0 < childrenJSON.count {
             self.children = childrenJSON.flatMap {
-                return ProductCategory(json: $0, includedJSON: nil)
+                ProductCategory(json: $0, includedJSON: includedJSON)
             }
         }
         

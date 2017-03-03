@@ -20,6 +20,14 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        let categoryQuery = MoltinQuery(offset: nil,
+                                        limit: nil,
+                                        sort: nil,
+                                        filter: nil,
+                                        include: [.brands, .categories, .collections, .files, .products])
+        Moltin.category.list(withQuery: categoryQuery) {
+            _ in
+        }
         
         title = "COLLECTIONS"
         
