@@ -42,7 +42,7 @@ extension CartItem: JSONAPIDecodable {
             let quantity: Int = "quantity" <~~ json,
             let unitPriceJSON: JSON = "unit_price" <~~ json,
             let unitPrice = Price(json: unitPriceJSON, includedJSON: nil),
-            let valuePriceJSON: JSON = "value_price" <~~ json,
+            let valuePriceJSON: JSON = "value" <~~ json,
             let valuePrice = Price(json: valuePriceJSON, includedJSON: nil) else {
                 return nil
         }

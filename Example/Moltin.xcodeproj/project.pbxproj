@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0DB421791E69C64A001AF552 /* CollectAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB421781E69C64A001AF552 /* CollectAddressViewController.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -37,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		08ADA67C30CB8F5BA174DB64 /* Pods-Moltin_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moltin_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Moltin_Example/Pods-Moltin_Example.release.xcconfig"; sourceTree = "<group>"; };
+		0DB421781E69C64A001AF552 /* CollectAddressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectAddressViewController.swift; sourceTree = "<group>"; };
 		3B9EB113604549868646C2B7 /* Moltin.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Moltin.podspec; path = ../Moltin.podspec; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* Moltin_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Moltin_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				F60FC8F81E6598AE001E977B /* CartViewController.swift */,
 				F60FC8FF1E671720001E977B /* LoadingViewController.swift */,
 				F60FC9011E6720A5001E977B /* CartStepperView.swift */,
+				0DB421781E69C64A001AF552 /* CollectAddressViewController.swift */,
 			);
 			name = "Example for Moltin";
 			path = Moltin;
@@ -359,6 +362,7 @@
 				F60FC9021E6720A5001E977B /* CartStepperView.swift in Sources */,
 				F60FC8F91E6598AE001E977B /* CartViewController.swift in Sources */,
 				F60FC8F01E647231001E977B /* ProductListViewController.swift in Sources */,
+				0DB421791E69C64A001AF552 /* CollectAddressViewController.swift in Sources */,
 				F60FC9001E671720001E977B /* LoadingViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				F6548D4A1E60952A0000F300 /* FontExtensions.swift in Sources */,
