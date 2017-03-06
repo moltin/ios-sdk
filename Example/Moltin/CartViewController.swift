@@ -66,17 +66,11 @@ class CartViewController: UIViewController {
     }()
     
     let addToCartButton: UIButton = {
-        let b = UIButton(type: UIButtonType.system)
-        b.translatesAutoresizingMaskIntoConstraints = false
-        b.setTitle("Checkout", for: .normal)
-        b.tintColor = .white
-        b.backgroundColor = UIColor(red:0.62, green:0.49, blue:0.75, alpha:1.00)
-        b.heightAnchor.constraint(equalToConstant: 44).isActive = true
-        b.layer.cornerRadius = 22
-        b.layer.masksToBounds = true
+        let b = UIButton.moltinButton(withTitle: "Checkout", target: self, selector: #selector(checkout))
         b.isEnabled = false
         return b
     }()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -133,6 +127,24 @@ class CartViewController: UIViewController {
     
     func close() {
         dismiss(animated: true, completion: nil)
+    }
+    
+    func checkout() {
+        CheckoutFlowController(cartID: CartViewController.cartReference!, navigationController: navigationController!) {
+            result in
+            switch result {
+            case .failure(let error):
+                print(error)
+            case .success(let order):
+                guard let order = order else {
+                    _ = self.navigationController?.popToRootViewController(animated: true)
+                    print("No order returned!")
+                    return
+                }
+                
+                print("Present payment for order: \(order.id)")
+            }
+        }.start()
     }
 }
 

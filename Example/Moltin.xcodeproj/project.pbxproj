@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0DB421791E69C64A001AF552 /* CollectAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB421781E69C64A001AF552 /* CollectAddressViewController.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 		F60FC8FE1E65CBDB001E977B /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60FC8FD1E65CBDB001E977B /* UIViewController.swift */; };
 		F60FC9001E671720001E977B /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60FC8FF1E671720001E977B /* LoadingViewController.swift */; };
 		F60FC9021E6720A5001E977B /* CartStepperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60FC9011E6720A5001E977B /* CartStepperView.swift */; };
+		F639E2681E6D68450009C5E7 /* CheckoutFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F639E2671E6D68450009C5E7 /* CheckoutFlowController.swift */; };
 		F6548D3E1E6092E70000F300 /* Heuristica-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F6548D321E6092E70000F300 /* Heuristica-Bold.otf */; };
 		F6548D3F1E6092E70000F300 /* Heuristica-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = F6548D331E6092E70000F300 /* Heuristica-BoldItalic.otf */; };
 		F6548D401E6092E70000F300 /* Heuristica-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = F6548D341E6092E70000F300 /* Heuristica-Italic.otf */; };
@@ -33,10 +35,14 @@
 		F6548D481E6092E70000F300 /* SIL Open Font License.txt in Resources */ = {isa = PBXBuildFile; fileRef = F6548D3D1E6092E70000F300 /* SIL Open Font License.txt */; };
 		F6548D4A1E60952A0000F300 /* FontExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6548D491E60952A0000F300 /* FontExtensions.swift */; };
 		F6548D4D1E60A7770000F300 /* CustomStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6548D4C1E60A7770000F300 /* CustomStyles.swift */; };
+		F6D7F74E1E6DA88600D9C368 /* EntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D7F74D1E6DA88600D9C368 /* EntryView.swift */; };
+		F6D7F7501E6DB04D00D9C368 /* CollectCustomerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D7F74F1E6DB04D00D9C368 /* CollectCustomerViewController.swift */; };
+		F6D7F7521E6DB2B400D9C368 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D7F7511E6DB2B400D9C368 /* UIButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		08ADA67C30CB8F5BA174DB64 /* Pods-Moltin_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moltin_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Moltin_Example/Pods-Moltin_Example.release.xcconfig"; sourceTree = "<group>"; };
+		0DB421781E69C64A001AF552 /* CollectAddressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectAddressViewController.swift; sourceTree = "<group>"; };
 		3B9EB113604549868646C2B7 /* Moltin.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Moltin.podspec; path = ../Moltin.podspec; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* Moltin_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Moltin_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -58,6 +64,7 @@
 		F60FC8FD1E65CBDB001E977B /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewController.swift; path = Extensions/UIViewController.swift; sourceTree = "<group>"; };
 		F60FC8FF1E671720001E977B /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		F60FC9011E6720A5001E977B /* CartStepperView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartStepperView.swift; sourceTree = "<group>"; };
+		F639E2671E6D68450009C5E7 /* CheckoutFlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutFlowController.swift; sourceTree = "<group>"; };
 		F6548D321E6092E70000F300 /* Heuristica-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Heuristica-Bold.otf"; sourceTree = "<group>"; };
 		F6548D331E6092E70000F300 /* Heuristica-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Heuristica-BoldItalic.otf"; sourceTree = "<group>"; };
 		F6548D341E6092E70000F300 /* Heuristica-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Heuristica-Italic.otf"; sourceTree = "<group>"; };
@@ -71,6 +78,9 @@
 		F6548D3D1E6092E70000F300 /* SIL Open Font License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SIL Open Font License.txt"; sourceTree = "<group>"; };
 		F6548D491E60952A0000F300 /* FontExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FontExtensions.swift; path = Fonts/FontExtensions.swift; sourceTree = "<group>"; };
 		F6548D4C1E60A7770000F300 /* CustomStyles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomStyles.swift; path = "Customer Styles/CustomStyles.swift"; sourceTree = "<group>"; };
+		F6D7F74D1E6DA88600D9C368 /* EntryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryView.swift; sourceTree = "<group>"; };
+		F6D7F74F1E6DB04D00D9C368 /* CollectCustomerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectCustomerViewController.swift; sourceTree = "<group>"; };
+		F6D7F7511E6DB2B400D9C368 /* UIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +151,10 @@
 				F60FC8F81E6598AE001E977B /* CartViewController.swift */,
 				F60FC8FF1E671720001E977B /* LoadingViewController.swift */,
 				F60FC9011E6720A5001E977B /* CartStepperView.swift */,
+				F639E2671E6D68450009C5E7 /* CheckoutFlowController.swift */,
+				0DB421781E69C64A001AF552 /* CollectAddressViewController.swift */,
+				F6D7F74D1E6DA88600D9C368 /* EntryView.swift */,
+				F6D7F74F1E6DB04D00D9C368 /* CollectCustomerViewController.swift */,
 			);
 			name = "Example for Moltin";
 			path = Moltin;
@@ -168,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				F60FC8FD1E65CBDB001E977B /* UIViewController.swift */,
+				F6D7F7511E6DB2B400D9C368 /* UIButton.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -354,12 +369,17 @@
 				F6548D4D1E60A7770000F300 /* CustomStyles.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				F60FC8FE1E65CBDB001E977B /* UIViewController.swift in Sources */,
+				F6D7F7521E6DB2B400D9C368 /* UIButton.swift in Sources */,
 				F60FC8F71E6585D7001E977B /* ProductDetailViewController.swift in Sources */,
 				F60FC8F51E658030001E977B /* ImageGalleryViewController.swift in Sources */,
+				F639E2681E6D68450009C5E7 /* CheckoutFlowController.swift in Sources */,
+				F6D7F7501E6DB04D00D9C368 /* CollectCustomerViewController.swift in Sources */,
 				F60FC9021E6720A5001E977B /* CartStepperView.swift in Sources */,
 				F60FC8F91E6598AE001E977B /* CartViewController.swift in Sources */,
 				F60FC8F01E647231001E977B /* ProductListViewController.swift in Sources */,
+				0DB421791E69C64A001AF552 /* CollectAddressViewController.swift in Sources */,
 				F60FC9001E671720001E977B /* LoadingViewController.swift in Sources */,
+				F6D7F74E1E6DA88600D9C368 /* EntryView.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				F6548D4A1E60952A0000F300 /* FontExtensions.swift in Sources */,
 			);
