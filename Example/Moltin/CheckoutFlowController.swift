@@ -65,7 +65,16 @@ class CheckoutFlowController {
     }
     
     func start() {
-        presentBillingAddressController()
+        presentCustomerController()
+    }
+    
+    func presentCustomerController() {
+        let controller = CollectCustomerViewController() {
+            customer in
+            self.customer = customer
+            self.presentBillingAddressController()
+        }
+        navigationController.pushViewController(controller, animated: true)
     }
     
     func presentBillingAddressController() {
@@ -81,15 +90,6 @@ class CheckoutFlowController {
         let controller = CollectAddressViewController(addressType: .shipping) {
             address in
             self.shippingAddress = address
-            self.presentCustomerController()
-        }
-        navigationController.pushViewController(controller, animated: true)
-    }
-    
-    func presentCustomerController() {
-        let controller = CollectCustomerViewController() {
-            customer in
-            self.customer = customer
             self.checkout()
         }
         navigationController.pushViewController(controller, animated: true)
