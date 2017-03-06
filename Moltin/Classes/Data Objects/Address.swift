@@ -22,6 +22,19 @@ public struct Address {
     public let shippingInstructions: String?
     public let json: JSON
     
+    public init(firstName: String, lastName: String, companyName: String?, line1: String, line2: String?, postcode: String, county: String, country: String, shippingInstructions: String?) {
+        self.firstName = firstName
+        self.lastName = lastName
+        self.companyName = companyName
+        self.line1 = line1
+        self.line2 = line2
+        self.postcode = postcode
+        self.county = county
+        self.country = country
+        self.shippingInstructions = shippingInstructions
+        self.json = [:]
+    }
+    
     func dictionaryRepresentation(includeInstructions: Bool) -> [String : String] {
         var dictionary = [
             "first_name" : firstName,

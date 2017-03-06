@@ -74,7 +74,8 @@ class CartViewController: UIViewController {
         b.heightAnchor.constraint(equalToConstant: 44).isActive = true
         b.layer.cornerRadius = 22
         b.layer.masksToBounds = true
-        b.isEnabled = false
+//        b.isEnabled = false
+        b.addTarget(self, action: #selector(checkout(sender:)), for: .touchUpInside)
         return b
     }()
     
@@ -133,6 +134,13 @@ class CartViewController: UIViewController {
     
     func close() {
         dismiss(animated: true, completion: nil)
+    }
+    
+    func checkout(sender: UIButton) {
+        let addressViewController = CollectAddressViewController(addressType: .billing) { address in
+            print(address)
+        }
+        show(addressViewController, sender: self)
     }
 }
 
