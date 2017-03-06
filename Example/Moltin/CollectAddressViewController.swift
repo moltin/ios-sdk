@@ -22,6 +22,7 @@ protocol Validatable {
 class EntryView: UIView {
     
     let textField = UITextField()
+    var isRequired = true
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -29,15 +30,29 @@ class EntryView: UIView {
     
     init() {
         super.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        translatesAutoresizingMaskIntoConstraints = false
+        backgroundColor = UIColor(red:0.23, green:0.29, blue:0.33, alpha:1.00)
+        layer.cornerRadius = 4
+        layer.borderWidth = 2
+        layer.borderColor = UIColor.clear.cgColor
+        
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.textAlignment = .center
-        textField.textColor = .lightGray
-        textField.tintColor = .lightGray
+        textField.textAlignment = .left
+        textField.font = .montserratBold(size: 14)
+        textField.textColor = .white
         addSubview(textField)
-        textField.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        textField.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        
+        textField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20).isActive = true
+        textField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 20).isActive = true
         textField.topAnchor.constraint(equalTo: topAnchor).isActive = true
         textField.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        heightAnchor.constraint(equalToConstant: 40).isActive = true
+    }
+    
+    func setPlaceholder(_ placeholder: String) {
+        textField.attributedPlaceholder = NSMutableAttributedString(string: placeholder,
+                                                                    attributes: [NSForegroundColorAttributeName: UIColor(red:0.39, green:0.46, blue:0.51, alpha:1.00),
+                                                                                 NSFontAttributeName: UIFont.montserratBold(size: 14)])
     }
     
 }
@@ -45,14 +60,22 @@ class EntryView: UIView {
 extension EntryView: Validatable {
     
     func isValid() -> Bool {
-        return true
+        if !isRequired {
+            return true
+        }
+        
+        guard let text = textField.text else {
+            return false
+        }
+        
+        return text.characters.count > 0
     }
     
     func displayValidity() {
         if isValid() {
-            layer.borderColor = UIColor.red.cgColor
+            layer.borderColor = UIColor.clear.cgColor
         } else {
-            layer.borderColor = UIColor.green.cgColor
+            layer.borderColor = UIColor.red.cgColor
         }
     }
     
@@ -60,10 +83,21 @@ extension EntryView: Validatable {
 
 class CollectAddressViewController: UIViewController {
     
+    let firstNameEntryView = EntryView()
+    let lastNameEntryView = EntryView()
+    let companyNameEntryView = EntryView()
     let lineOneEntryView = EntryView()
     let lineTwoEntryView = EntryView()
+    let countyEntryView = EntryView()
+    let postcodeEntryView = EntryView()
+    let countryEntryView = EntryView()
+    let shippingInstructionsEntryView = EntryView()
     let submitButton = UIButton(type: .custom)
     
+    var validatableFields: [Validatable] = []
+    
+    let nameStackView = UIStackView()
+    let countyPostcodeStackView = UIStackView()
     let stackView = UIStackView()
     
     let addressType: AddressType
@@ -83,44 +117,89 @@ class CollectAddressViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .darkGray
+        view.backgroundColor = UIColor(red:0.17, green:0.22, blue:0.26, alpha:1.00)
         
-        lineOneEntryView.translatesAutoresizingMaskIntoConstraints = false
-        lineOneEntryView.textField.placeholder = "Line One"
-        lineOneEntryView.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        firstNameEntryView.setPlaceholder("First Name")
+        lastNameEntryView.setPlaceholder("Last Name")
+        companyNameEntryView.setPlaceholder("Company Name (Optional)")
+        companyNameEntryView.isRequired = false
         
-        lineTwoEntryView.translatesAutoresizingMaskIntoConstraints = false
-        lineTwoEntryView.textField.placeholder = "Line Two (Optional)"
-        lineTwoEntryView.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        lineOneEntryView.setPlaceholder("Line One")
+        lineTwoEntryView.setPlaceholder("Line Two (Optional)")
+        lineTwoEntryView.isRequired = false
+        
+        countyEntryView.setPlaceholder("County")
+        postcodeEntryView.setPlaceholder("Postcode")
+        countryEntryView.setPlaceholder("Country")
+        shippingInstructionsEntryView.setPlaceholder("Shipping Instructions (Optional)")
+        shippingInstructionsEntryView.isRequired = false
         
         submitButton.setTitle("Submit", for: .normal)
-        submitButton.addTarget(self, action: #selector(submitAddress(sender:)), for: .touchUpInside)
+        submitButton.addTarget(self, action: #selector(submitAddress), for: .touchUpInside)
+        
+        nameStackView.translatesAutoresizingMaskIntoConstraints = false
+        nameStackView.distribution = .fillEqually
+        nameStackView.spacing = 20
+        nameStackView.addArrangedSubviews(subviews: [firstNameEntryView,
+                                                     lastNameEntryView])
+        
+        countyPostcodeStackView.translatesAutoresizingMaskIntoConstraints = false
+        countyPostcodeStackView.distribution = .fillEqually
+        countyPostcodeStackView.spacing = 20
+        countyPostcodeStackView.addArrangedSubviews(subviews: [countyEntryView,
+                                                               postcodeEntryView])
         
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
+        stackView.spacing = 10
         
         view.addSubview(stackView)
         
-        stackView.addArrangedSubviews(subviews: [
-            lineOneEntryView,
-            lineTwoEntryView,
-            submitButton,
-            ])
+        stackView.addArrangedSubviews(subviews: [nameStackView,
+                                                 companyNameEntryView,
+                                                 lineOneEntryView,
+                                                 lineTwoEntryView,
+                                                 countyPostcodeStackView,
+                                                 countryEntryView,
+                                                 shippingInstructionsEntryView,
+                                                 submitButton,
+                                                 ])
         
-        stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        stackView.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10).isActive = true
+        stackView.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor, constant: 10).isActive = true
+        
+        validatableFields = [firstNameEntryView,
+                             lastNameEntryView,
+                             lineOneEntryView,
+                             lineTwoEntryView,
+                             countyEntryView,
+                             postcodeEntryView,
+                             countryEntryView]
     }
     
-    func submitAddress(sender: UIButton) {
-        let address = Address(firstName: "Matt",
-                              lastName: "Hallatt",
-                              companyName: "Hallatt Co",
-                              line1: "Line 1",
-                              line2: "Line 2",
-                              postcode: "POST CDE",
-                              county: "County",
-                              country: "Country",
+    func submitAddress() {
+        
+        validatableFields.forEach { field in
+            field.displayValidity()
+        }
+        
+        let invalidCount = validatableFields.reduce(0) { result, item in
+            result + (item.isValid() ? 0 : 1)
+        }
+        
+        if invalidCount > 0 {
+            return
+        }
+        
+        let address = Address(firstName: firstNameEntryView.textField.text!,
+                              lastName: lastNameEntryView.textField.text!,
+                              companyName: companyNameEntryView.textField.text!,
+                              line1: lineOneEntryView.textField.text!,
+                              line2: lineTwoEntryView.textField.text!,
+                              postcode: postcodeEntryView.textField.text!,
+                              county: countyEntryView.textField.text!,
+                              country: countryEntryView.textField.text!,
                               shippingInstructions: "Don't get wet")
         addressCompletion(address)
     }

@@ -74,7 +74,7 @@ class CartViewController: UIViewController {
         b.heightAnchor.constraint(equalToConstant: 44).isActive = true
         b.layer.cornerRadius = 22
         b.layer.masksToBounds = true
-        b.isEnabled = false
+//        b.isEnabled = false
         b.addTarget(self, action: #selector(checkout(sender:)), for: .touchUpInside)
         return b
     }()
