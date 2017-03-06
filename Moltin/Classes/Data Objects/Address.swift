@@ -22,7 +22,15 @@ public struct Address {
     public let shippingInstructions: String?
     public let json: JSON
     
-    public init(firstName: String, lastName: String, companyName: String?, line1: String, line2: String?, postcode: String, county: String, country: String, shippingInstructions: String?) {
+    public init(firstName: String,
+                lastName: String,
+                companyName: String?,
+                line1: String,
+                line2: String?,
+                postcode: String,
+                county: String,
+                country: String,
+                shippingInstructions: String?) {
         self.firstName = firstName
         self.lastName = lastName
         self.companyName = companyName

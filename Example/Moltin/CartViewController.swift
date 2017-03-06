@@ -66,18 +66,11 @@ class CartViewController: UIViewController {
     }()
     
     let addToCartButton: UIButton = {
-        let b = UIButton(type: UIButtonType.system)
-        b.translatesAutoresizingMaskIntoConstraints = false
-        b.setTitle("Checkout", for: .normal)
-        b.tintColor = .white
-        b.backgroundColor = UIColor(red:0.62, green:0.49, blue:0.75, alpha:1.00)
-        b.heightAnchor.constraint(equalToConstant: 44).isActive = true
-        b.layer.cornerRadius = 22
-        b.layer.masksToBounds = true
+        let b = UIButton.moltinButton(withTitle: "Checkout", target: self, selector: #selector(checkout))
         b.isEnabled = false
-        b.addTarget(self, action: #selector(checkout), for: .touchUpInside)
         return b
     }()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()

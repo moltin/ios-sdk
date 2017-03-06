@@ -18,7 +18,7 @@ public struct Customer {
     public init(name: String, email: String) {
         self.name = name
         self.email = email
-        self.json = ["name" : name, "email" : email]
+        self.json = [:]
     }
     
     var dictionaryRepresentation: [String : Any] {

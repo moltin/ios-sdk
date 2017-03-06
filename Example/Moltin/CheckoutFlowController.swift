@@ -10,45 +10,6 @@ import UIKit
 
 import Moltin
 
-class CollectCustomerViewController: UIViewController {
-    let completion: (Customer) -> ()
-    
-    init(completion: @escaping (Customer) -> ()) {
-        self.completion = completion
-        
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        view.backgroundColor = .darkGray
-        
-        let button: UIButton = {
-            let b = UIButton(type: .system)
-            b.translatesAutoresizingMaskIntoConstraints = false
-            b.setTitle("Complete", for: .normal)
-            b.addTarget(self, action: #selector(complete), for: .touchUpInside)
-            return b
-        }()
-        
-        view.addSubview(button)
-        
-        button.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        button.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        button.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-    }
-    
-    func complete() {
-        let customer = Customer(name: "Oliver Foggin", email: "oliverfoggin@me.com")
-        completion(customer)
-    }
-}
-
 class CheckoutFlowController {
     let cartID: String
     let navigationController: UINavigationController
