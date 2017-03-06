@@ -74,8 +74,8 @@ class CartViewController: UIViewController {
         b.heightAnchor.constraint(equalToConstant: 44).isActive = true
         b.layer.cornerRadius = 22
         b.layer.masksToBounds = true
-//        b.isEnabled = false
-        b.addTarget(self, action: #selector(checkout(sender:)), for: .touchUpInside)
+        b.isEnabled = false
+        b.addTarget(self, action: #selector(checkout), for: .touchUpInside)
         return b
     }()
     
@@ -136,11 +136,22 @@ class CartViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    func checkout(sender: UIButton) {
-        let addressViewController = CollectAddressViewController(addressType: .billing) { address in
-            print(address)
-        }
-        show(addressViewController, sender: self)
+    func checkout() {
+        CheckoutFlowController(cartID: CartViewController.cartReference!, navigationController: navigationController!) {
+            result in
+            switch result {
+            case .failure(let error):
+                print(error)
+            case .success(let order):
+                guard let order = order else {
+                    _ = self.navigationController?.popToRootViewController(animated: true)
+                    print("No order returned!")
+                    return
+                }
+                
+                print("Present payment for order: \(order.id)")
+            }
+        }.start()
     }
 }
 

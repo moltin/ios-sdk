@@ -15,6 +15,12 @@ public struct Customer {
     public let email: String
     public let json: JSON
     
+    public init(name: String, email: String) {
+        self.name = name
+        self.email = email
+        self.json = ["name" : name, "email" : email]
+    }
+    
     var dictionaryRepresentation: [String : Any] {
         return [
             "name" : name,

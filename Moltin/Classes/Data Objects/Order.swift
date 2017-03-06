@@ -39,8 +39,8 @@ public struct Order {
     public let billingAddress: Address
     public let totalProductCount: Int?
     public let uniqueProductCount: Int?
-    public let valueWithTax: DisplayPrice?
-    public let valueWithoutTax: DisplayPrice?
+    public var displayPriceWithTax: DisplayPrice?
+    public var displayPriceWithoutTax: DisplayPrice?
     public let gateways: [PaymentGateway]
     public let json: JSON
 }
@@ -52,7 +52,7 @@ extension Order: JSONAPIDecodable {
             let status = Status(rawValue: statusString),
             let paymentString: String = "payment" <~~ json,
             let payment = Payment(rawValue: paymentString),
-            let shippingString: String = "shipping_address" <~~ json,
+            let shippingString: String = "shipping" <~~ json,
             let shipping = Shipping(rawValue: shippingString),
             let customerJSON: JSON = "customer" <~~ json,
             let customer = Customer(json: customerJSON, includedJSON: nil),
@@ -74,16 +74,16 @@ extension Order: JSONAPIDecodable {
         self.totalProductCount = "meta.counts.products.total" <~~ json
         self.uniqueProductCount = "meta.counts.products.unique" <~~ json
         
-        if let valueJSON: JSON = "meta.value.with_tax" <~~ json {
-            self.valueWithTax = DisplayPrice(json: valueJSON, includedJSON: nil)
+        if let valueJSON: JSON = "meta.display_price.with_tax" <~~ json {
+            self.displayPriceWithTax = DisplayPrice(json: valueJSON, includedJSON: nil)
         } else {
-            self.valueWithTax = nil
+            self.displayPriceWithTax = nil
         }
         
-        if let valueJSON: JSON = "meta.value.without_tax" <~~ json {
-            self.valueWithoutTax = DisplayPrice(json: valueJSON, includedJSON: nil)
+        if let valueJSON: JSON = "meta.display_price.without_tax" <~~ json {
+            self.displayPriceWithoutTax = DisplayPrice(json: valueJSON, includedJSON: nil)
         } else {
-            self.valueWithoutTax = nil
+            self.displayPriceWithoutTax = nil
         }
         
         if let gatewaysJSON: [JSON] = "meta.gateways" <~~ json {
