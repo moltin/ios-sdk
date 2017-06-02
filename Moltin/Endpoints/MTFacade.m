@@ -89,7 +89,7 @@
 
 -(void)raiseUnsupportedException
 {
-    [NSException raise:[NSString stringWithFormat:@"Unsupported call for %@ endpoint", self.endpoint.uppercaseString] format:nil];
+    [NSException raise:self.endpoint.uppercaseString format:@"Unsupported call for endpoint"];
 }
 
 @end
