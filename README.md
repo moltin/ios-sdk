@@ -1,6 +1,6 @@
 # Moltin iOS-SDK
 
-Please note that this branch is applicable to the deprecated V1 moltin API only, please visit the [v2 branch](https://github.com/moltin/ios-sdk/tree/v2) for the new SDK.
+**Please note that this branch is applicable to the deprecated V1 moltin API only, please visit the [v2 branch](https://github.com/moltin/ios-sdk/tree/v2) for the new SDK.**
 
 The Moltin ios-sdk is a simple to use interface for the API to help you get off the ground quickly and efficiently within the iOS app.
 
