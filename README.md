@@ -17,7 +17,7 @@ Moltin is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod "Moltin"
+pod 'Moltin', :branch => 'v2'
 ```
 
 ## Author
