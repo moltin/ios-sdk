@@ -25,7 +25,7 @@ public struct Order {
     }
     
     public enum Shipping: String {
-        case unfulfilled = "unfulfilled"
+        case unfulfilled
         case fulfilled
     }
     
