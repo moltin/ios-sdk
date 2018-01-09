@@ -25,9 +25,8 @@ public struct Order {
     }
     
     public enum Shipping: String {
-        case notShipped = "not_shipped"
-        case partial
-        case shipped
+        case unfulfilled = "unfulfilled"
+        case fulfilled
     }
     
     public let id: String
