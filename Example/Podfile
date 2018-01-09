@@ -2,5 +2,5 @@ use_frameworks!
 
 target 'Moltin_Example' do
   pod 'Moltin', :git => 'https://github.com/moltin/ios-sdk.git', :branch => 'v2'
-  pod 'AlamofireImage', '~> 3.2'
+  pod 'AlamofireImage', '~> 3.3'
 end
