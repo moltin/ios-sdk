@@ -148,7 +148,7 @@ class ProductRequestTests: XCTestCase {
         
         
         let expectationToFulfill = expectation(description: "ProductRequest calls the method and runs the callback closure")
-        
+
         productRequest.get(forID: "51b56d92-ab99-4802-a2c1-be150848c629") { (result: Result<MyCustomProduct>) in
             switch result {
             case .success(let response):

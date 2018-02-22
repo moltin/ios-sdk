@@ -35,12 +35,12 @@ public class MoltinRequest {
     
     // MARK: - Default Calls
     
-    public func all<T>(completionHandler: @escaping CollectionRequestHandler<T>) {
+    public func all<T>(withPath path: String, completionHandler: @escaping CollectionRequestHandler<T>) {
         let urlRequest: URLRequest
         do {
             urlRequest = try self.http.buildURLRequest(
                 withConfiguration: self.config,
-                withPath: self.endpoint,
+                withPath: path,
                 withQueryParameters: self.query.toURLQueryItems()
             )
         } catch MoltinError.unacceptableRequest {
@@ -63,12 +63,12 @@ public class MoltinRequest {
         }
     }
     
-    public func get<T: Codable>(forID id: String, completionHandler: @escaping ObjectRequestHandler<T>) {
+    public func get<T: Codable>(withPath path: String, completionHandler: @escaping ObjectRequestHandler<T>) {
         let urlRequest: URLRequest
         do {
             urlRequest = try self.http.buildURLRequest(
                 withConfiguration: self.config,
-                withPath: "/\(self.endpoint)\(id)/",
+                withPath: path,
                 withQueryParameters: self.query.toURLQueryItems()
             )
         } catch MoltinError.unacceptableRequest {

@@ -4,7 +4,7 @@
 
 public class {{ case.name|upperFirstLetter }}Request: MoltinRequest {
 
-    private var path: String = "{{ case.annotations.path }}"
+    private var endpoint: String = "{{ case.annotations.path }}"
 
     public typealias DefaultCollectionRequestHandler = CollectionRequestHandler<[{{ case.annotations.model }}]>
     public typealias DefaultObjectRequestHandler = ObjectRequestHandler<{{ case.annotations.model }}>
@@ -17,8 +17,16 @@ public class {{ case.name|upperFirstLetter }}Request: MoltinRequest {
             - completionHandler: The handler to be called on success or failure
     */
     public func all(completionHandler: @escaping DefaultCollectionRequestHandler) {
-        super.all(completionHandler: completionHandler)
+        super.all(withPath: "\(self.endpoint)", completionHandler: completionHandler)
     }
+
+    {% if case|annotated:"hasCustomType" %}    
+
+    public func all<T: Codable>(completionHandler: @escaping CollectionRequestHandler<[T]>) {
+        super.all(withPath: "\(self.endpoint)", completionHandler: completionHandler)
+    }
+
+    {% endif %}
     
     /*
         Return get an instance of {{ case.name }} by `id`
@@ -28,8 +36,28 @@ public class {{ case.name|upperFirstLetter }}Request: MoltinRequest {
             - completionHandler: The handler to be called on success or failure
     */
     public func get(forID id: String, completionHandler: @escaping DefaultObjectRequestHandler) {
-        super.get(forID: id, completionHandler: completionHandler)
+        super.get(withPath: "\(self.endpoint)/\(id)", completionHandler: completionHandler)
     }
+
+    {% if case|annotated:"hasCustomType" %}    
+
+    public func get<T: Codable>(forID id: String, completionHandler: @escaping ObjectRequestHandler<T>) {
+        super.get(withPath: "\(self.endpoint)/\(id)", completionHandler: completionHandler)
+    }
+
+    {% endif %}
+
+    {% if case|annotated:"hasTree" %}
+    /*
+        Return the tree of a resource
+
+        - parameters:
+            - completionHandler: The handler to be called on success or failure
+    */
+    public func tree(completionHandler: @escaping DefaultCollectionRequestHandler) {
+        super.all(withPath: "\(self.endpoint)/tree", completionHandler: completionHandler)
+    }
+    {% endif %}
 }
 {% endfor %}
 // sourcery:end
