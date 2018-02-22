@@ -57,6 +57,15 @@ public class {{ case.name|upperFirstLetter }}Request: MoltinRequest {
     public func tree(completionHandler: @escaping DefaultCollectionRequestHandler) {
         super.list(withPath: "\(self.endpoint)/tree", completionHandler: completionHandler)
     }
+
+    {% if case|annotated:"hasCustomType" %}    
+
+    public func tree<T: Codable>(completionHandler: @escaping CollectionRequestHandler<[T]>) {
+        super.list(withPath: "\(self.endpoint)/tree", completionHandler: completionHandler)
+    }
+
+    {% endif %}
+
     {% endif %}
 }
 {% endfor %}

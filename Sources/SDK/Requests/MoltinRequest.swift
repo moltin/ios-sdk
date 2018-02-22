@@ -113,7 +113,7 @@ public class MoltinRequest {
         return self
     }
     
-    public func filter(operator op: String, key: String, value: String) -> Self {
+    public func filter(operator op: MoltinFilterOperator, key: String, value: String) -> Self {
         self.query.withFilter.append((op, key, value))
         return self
     }

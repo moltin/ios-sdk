@@ -34,4 +34,13 @@ public struct MoltinConfig {
             host: "api.moltin.com",
             version: "v2")
     }
+    
+    static func `default`(withClientID clientID: String, withLocale locale: Locale) -> MoltinConfig {
+        return MoltinConfig(
+            clientID: clientID,
+            scheme: "https",
+            host: "api.moltin.com",
+            version: "v2",
+            locale: locale)
+    }
 }

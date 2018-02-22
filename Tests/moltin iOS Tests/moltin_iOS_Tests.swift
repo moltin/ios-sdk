@@ -35,8 +35,7 @@ class moltin_iOS_Tests: XCTestCase {
     
     func testCustomLocale() {
         let locale = Locale(identifier: "fr_FR")
-        var config = MoltinConfig.default(withClientID: "12345")
-        config.locale = locale
+        let config = MoltinConfig.default(withClientID: "12345", withLocale: locale)
         let moltin = Moltin(withClientID: "12345", withConfiguration: config)
         XCTAssert(moltin.config.locale == locale)
     }
@@ -56,7 +55,7 @@ class moltin_iOS_Tests: XCTestCase {
     func testRequestHandlesSingleFilter() {
         let moltin = Moltin(withClientID: "12345")
         let request = moltin.product
-            .filter(operator: "eq", key: "test", value: "hello")
+            .filter(operator: .eq, key: "test", value: "hello")
         
         let urlRequest = try? request.http.buildURLRequest(
             withConfiguration: moltin.config,
@@ -74,8 +73,8 @@ class moltin_iOS_Tests: XCTestCase {
     func testRequestHandlesMultipleFilter() {
         let moltin = Moltin(withClientID: "12345")
         let request = moltin.product
-            .filter(operator: "eq", key: "test", value: "hello")
-            .filter(operator: "eq", key: "other", value: "thing")
+            .filter(operator: .eq, key: "test", value: "hello")
+            .filter(operator: .eq, key: "other", value: "thing")
         
         let urlRequest = try? request.http.buildURLRequest(
             withConfiguration: moltin.config,
@@ -184,7 +183,7 @@ class moltin_iOS_Tests: XCTestCase {
         let moltin = Moltin(withClientID: "12345")
         let request = moltin.product
             .include([.files, .category])
-            .filter(operator: "eq", key: "test", value: "one")
+            .filter(operator: .eq, key: "test", value: "one")
             .limit(1)
             .offset(2)
             .sort("key")

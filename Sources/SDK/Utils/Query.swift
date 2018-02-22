@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct MoltinInclude: RawRepresentable, Equatable, Hashable, Comparable {
+public struct MoltinInclude: RawRepresentable, Equatable {
     
     public typealias RawValue = String
     
@@ -17,17 +17,19 @@ public struct MoltinInclude: RawRepresentable, Equatable, Hashable, Comparable {
     static let products = MoltinInclude(rawValue: "products")
     static let category = MoltinInclude(rawValue: "category")
     
-    //MARK: Hashable
-    
-    public var hashValue: Int {
-        return rawValue.hashValue
+    public init(rawValue: String) {
+        self.rawValue = rawValue
     }
     
-    //MARK: Comparable
+}
+
+public struct MoltinFilterOperator: RawRepresentable, Equatable {
     
-    public static func <(lhs: MoltinInclude, rhs: MoltinInclude) -> Bool {
-        return lhs.rawValue < rhs.rawValue
-    }
+    public typealias RawValue = String
+    
+    public var rawValue: String
+    
+    static let eq  = MoltinFilterOperator(rawValue: "eq")
     
     public init(rawValue: String) {
         self.rawValue = rawValue
@@ -35,16 +37,12 @@ public struct MoltinInclude: RawRepresentable, Equatable, Hashable, Comparable {
     
 }
 
-extension MoltinInclude {
-    static var main_image = MoltinInclude(rawValue: "main_image")
-}
-
 public class MoltinQuery {
     var withIncludes: [MoltinInclude]?
     var withSorting: String?
     var withLimit: String?
     var withOffset: String?
-    var withFilter: [(String, String, String)] = []
+    var withFilter: [(MoltinFilterOperator, String, String)] = []
     
     func toURLQueryItems() -> [URLQueryItem] {
         var queryParams: [URLQueryItem] = []
@@ -67,7 +65,7 @@ public class MoltinQuery {
         
         if self.withFilter.count > 0 {
             let filterString = self.withFilter.map { (op, key, value) -> String in
-                return "\(op)(\(key), \(value))"
+                return "\(op.rawValue)(\(key), \(value))"
             }.joined(separator: ":")
             queryParams.append(URLQueryItem(name: "filter", value: filterString))
         }

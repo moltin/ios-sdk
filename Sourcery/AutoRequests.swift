@@ -1,11 +1,11 @@
 private enum MoltinAPIEndpoints {
-    /// sourcery: model = Brand, path = "/brands", hasTree
+    /// sourcery: model = Brand, path = "/brands", hasTree, hasCustomType
     case brand
 
-    /// sourcery: model = Category, path = "/categories", hasTree
+    /// sourcery: model = Category, path = "/categories", hasTree, hasCustomType
     case category
 
-    /// sourcery: model = Collection, path = "/collections", hasTree
+    /// sourcery: model = Collection, path = "/collections", hasTree, hasCustomType
     case collection
 
     /// sourcery: model = Currency, path = "/currencies"
