@@ -85,4 +85,104 @@ class AuthRequestTests: XCTestCase {
         }
     }
     
+    func testAuthTokenRefreshRequired() {
+        let auth = MoltinAuth(withConfiguration: MoltinConfig.default(withClientID: "12345"))
+        auth.token = nil
+        auth.expires = nil
+        
+        let expectationToFulfill = expectation(description: "Auth calls the method and runs the callback closure")
+        
+        auth.authenticate { (result) in
+            switch result {
+            case .success(_):
+                XCTFail()
+            default: XCTAssertTrue(true)
+            }
+            
+            expectationToFulfill.fulfill()
+        }
+        
+        waitForExpectations(timeout: 1) { error in
+            if let error = error {
+                XCTFail("waitForExpectationsWithTimeout errored: \(error)")
+            }
+        }
+    }
+    
+    func testAuthCouldNotConfigure() {
+        let auth = MoltinAuth(withConfiguration: MoltinConfig.default(withClientID: "12345"))
+        auth.token = nil
+        auth.expires = nil
+        auth.http = MockedMoltinHTTP(withSession: MockURLSession())
+        
+        let expectationToFulfill = expectation(description: "Auth calls the method and runs the callback closure")
+        
+        auth.authenticate { (result) in
+            switch result {
+            case .success(_):
+                XCTFail()
+            default: XCTAssertTrue(true)
+            }
+            
+            expectationToFulfill.fulfill()
+        }
+        
+        waitForExpectations(timeout: 1) { error in
+            if let error = error {
+                XCTFail("waitForExpectationsWithTimeout errored: \(error)")
+            }
+        }
+    }
+    
+    func testAuthenticationFailed() {
+        let auth = MoltinAuth(withConfiguration: MoltinConfig.default(withClientID: "12345"))
+        auth.token = nil
+        auth.expires = nil
+        let session = MockURLSession()
+        session.nextError = MoltinError.couldNotAuthenticate
+        auth.http = MoltinHTTP(withSession: session)
+        
+        let expectationToFulfill = expectation(description: "Auth calls the method and runs the callback closure")
+        
+        auth.authenticate { (result) in
+            switch result {
+            case .success(_):
+                XCTFail()
+            default: XCTAssertTrue(true)
+            }
+            
+            expectationToFulfill.fulfill()
+        }
+        
+        waitForExpectations(timeout: 1) { error in
+            if let error = error {
+                XCTFail("waitForExpectationsWithTimeout errored: \(error)")
+            }
+        }
+    }
+    
+    func testAuthTokenNoRefreshRequired() {
+        let auth = MoltinAuth(withConfiguration: MoltinConfig.default(withClientID: "12345"))
+        auth.token = "12345"
+        auth.expires = Date().addingTimeInterval(10000)
+        
+        let expectationToFulfill = expectation(description: "Auth calls the method and runs the callback closure")
+        
+        auth.authenticate { (result) in
+            switch result {
+            case .success(let response):
+                XCTAssert(response.token == auth.token)
+            default: XCTFail()
+            }
+            
+            expectationToFulfill.fulfill()
+        }
+        
+        waitForExpectations(timeout: 1) { error in
+            if let error = error {
+                XCTFail("waitForExpectationsWithTimeout errored: \(error)")
+            }
+        }
+    }
+    
 }

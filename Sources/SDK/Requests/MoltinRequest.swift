@@ -43,23 +43,13 @@ public class MoltinRequest {
                 withPath: path,
                 withQueryParameters: self.query.toURLQueryItems()
             )
-        } catch MoltinError.unacceptableRequest {
-            completionHandler(.failure(error: MoltinError.unacceptableRequest))
-            return
         } catch {
             completionHandler(.failure(error: error))
             return
         }
         
-        self.auth.authenticate { (result) in
-            switch result {
-            case .success(_):
-                self.http.executeRequest(urlRequest) { [weak self] (data, response, error) in
-                    self?.parser.collectionHandler(withData: data, withResponse: response, completionHandler: completionHandler)
-                }
-            case .failure(let error):
-                completionHandler(.failure(error: error))
-            }
+        self.send(withURLRequest: urlRequest) { [weak self] (data, response, error) in
+            self?.parser.collectionHandler(withData: data, withResponse: response, completionHandler: completionHandler)
         }
     }
     
@@ -71,22 +61,25 @@ public class MoltinRequest {
                 withPath: path,
                 withQueryParameters: self.query.toURLQueryItems()
             )
-        } catch MoltinError.unacceptableRequest {
-            completionHandler(.failure(error: MoltinError.unacceptableRequest))
-            return
         } catch {
             completionHandler(.failure(error: error))
             return
         }
         
+        self.send(withURLRequest: urlRequest) { [weak self] (data, response, error) in
+            self?.parser.singleObjectHandler(withData: data, withResponse: response, completionHandler: completionHandler)
+        }
+    }
+    
+    private func send(withURLRequest urlRequest: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> ()) {
         self.auth.authenticate { (result) in
             switch result {
             case .success(_):
-                self.http.executeRequest(urlRequest) { [weak self] (data, response, error) in
-                    self?.parser.singleObjectHandler(withData: data, withResponse: response, completionHandler: completionHandler)
+                self.http.executeRequest(urlRequest) { (data, response, error) in
+                    completionHandler(data, response, error)
                 }
             case .failure(let error):
-                completionHandler(.failure(error: error))
+                completionHandler(nil, nil, error)
             }
         }
     }

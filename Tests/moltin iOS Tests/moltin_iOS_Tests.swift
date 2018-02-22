@@ -40,7 +40,22 @@ class moltin_iOS_Tests: XCTestCase {
         XCTAssert(moltin.config.locale == locale)
     }
     
-    func testRequestHandlesCorrectConfig() {
+    func testHTTPHandlesIncorrectConfig() {
+        let moltin = Moltin(withClientID: "12345")
+        let request = moltin.product
+        let session = MockURLSession()
+        request.http = MockedMoltinHTTP(withSession: session)
+        
+        XCTAssertThrowsError(try request.http.buildURLRequest(
+            withConfiguration: moltin.config,
+            withPath: "/test",
+            withQueryParameters:request.query.toURLQueryItems()
+        )) { (error) -> Void in
+            XCTAssertEqual(error as? MoltinError, MoltinError.unacceptableRequest)
+        }
+    }
+    
+    func testHTTPHandlesCorrectConfig() {
         let moltin = Moltin(withClientID: "12345")
         let request = moltin.product
         
@@ -50,6 +65,84 @@ class moltin_iOS_Tests: XCTestCase {
             withQueryParameters:request.query.toURLQueryItems()
         )
         XCTAssertNotNil(urlRequest)
+    }
+    
+    func testSingleObjectRequestHandlesNoData() {
+        let moltin = Moltin(withClientID: "12345")
+        let request = moltin.product
+        let session = MockURLSession()
+        session.nextError = MoltinError.noData
+        request.http = MoltinHTTP(withSession: session)
+        
+        let expectationToFulfill = expectation(description: "ProductRequest calls the method and runs the callback closure")
+        
+        request.get(forID: "test") { (result) in
+            switch result {
+            case .failure(let error):
+                XCTAssertEqual(error as? MoltinError, MoltinError.noData)
+            default: XCTFail()
+            }
+            
+            expectationToFulfill.fulfill()
+        }
+        
+        waitForExpectations(timeout: 1) { error in
+            if let error = error {
+                XCTFail("waitForExpectationsWithTimeout errored: \(error)")
+            }
+        }
+    }
+    
+    func testSingleObjectRequestHandlesIncorrectConfig() {
+        let moltin = Moltin(withClientID: "12345")
+        let request = moltin.product
+        let session = MockURLSession()
+        session.nextError = MoltinError.noData
+        request.http = MockedMoltinHTTP(withSession: session)
+        
+        let expectationToFulfill = expectation(description: "ProductRequest calls the method and runs the callback closure")
+        
+        request.get(forID: "test") { (result) in
+            switch result {
+            case .failure(let error):
+                XCTAssertEqual(error as? MoltinError, MoltinError.unacceptableRequest)
+            default: break
+            }
+            
+            expectationToFulfill.fulfill()
+        }
+        
+        waitForExpectations(timeout: 1) { error in
+            if let error = error {
+                XCTFail("waitForExpectationsWithTimeout errored: \(error)")
+            }
+        }
+    }
+    
+    func testCollectionRequestHandlesIncorrectConfig() {
+        let moltin = Moltin(withClientID: "12345")
+        let request = moltin.product
+        let session = MockURLSession()
+        session.nextError = MoltinError.noData
+        request.http = MockedMoltinHTTP(withSession: session)
+        
+        let expectationToFulfill = expectation(description: "ProductRequest calls the method and runs the callback closure")
+        
+        request.all { (result) in
+            switch result {
+            case .failure(let error):
+                XCTAssertEqual(error as? MoltinError, MoltinError.unacceptableRequest)
+            default: break
+            }
+            
+            expectationToFulfill.fulfill()
+        }
+        
+        waitForExpectations(timeout: 1) { error in
+            if let error = error {
+                XCTFail("waitForExpectationsWithTimeout errored: \(error)")
+            }
+        }
     }
     
     func testRequestHandlesSingleFilter() {

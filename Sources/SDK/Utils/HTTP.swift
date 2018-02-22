@@ -39,7 +39,7 @@ class MoltinHTTP {
         return URLRequest(url: url)
     }
     
-    private func buildURL(withConfiguration configuration: MoltinConfig,
+    func buildURL(withConfiguration configuration: MoltinConfig,
                           withEndpoint endpoint: String,
                           withQueryParameters queryParams: [URLQueryItem]) -> URL? {
         

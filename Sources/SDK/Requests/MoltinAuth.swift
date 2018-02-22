@@ -19,7 +19,7 @@ class MoltinAuth {
         }
     }
     
-    private var expires: Date? {
+    var expires: Date? {
         didSet {
             UserDefaults.standard.set(self.expires, forKey: "Moltin.auth.expires")
             UserDefaults.standard.synchronize()
@@ -43,7 +43,7 @@ class MoltinAuth {
         return expires <= Date()
     }
     
-    func authenticate(completionHandler: @escaping (Result<(String?, Date?)>) -> ()) {
+    func authenticate(completionHandler: @escaping (Result<(token: String?, expires: Date?)>) -> ()) {
         guard self.requiresRefresh else {
             completionHandler(.success(result: (self.token, self.expires)))
             return
@@ -56,9 +56,6 @@ class MoltinAuth {
                 withPath: "/oauth/access_token",
                 withQueryParameters: []
             )
-        } catch MoltinError.unacceptableRequest {
-            completionHandler(.failure(error: MoltinError.unacceptableRequest))
-            return
         } catch {
             completionHandler(.failure(error: error))
             return

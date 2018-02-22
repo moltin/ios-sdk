@@ -29,6 +29,15 @@ class MockURLSessionDataTask: URLSessionDataTaskProtocol {
     }
 }
 
+class MockedMoltinHTTP: MoltinHTTP {
+    
+    override func buildURL(withConfiguration configuration: MoltinConfig,
+                          withEndpoint endpoint: String,
+                          withQueryParameters queryParams: [URLQueryItem]) -> URL? {
+        return nil
+    }
+}
+
 
 class MockFactory {
     
