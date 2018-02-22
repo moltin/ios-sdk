@@ -17,13 +17,13 @@ public class {{ case.name|upperFirstLetter }}Request: MoltinRequest {
             - completionHandler: The handler to be called on success or failure
     */
     public func all(completionHandler: @escaping DefaultCollectionRequestHandler) {
-        super.all(withPath: "\(self.endpoint)", completionHandler: completionHandler)
+        super.list(withPath: "\(self.endpoint)", completionHandler: completionHandler)
     }
 
     {% if case|annotated:"hasCustomType" %}    
 
     public func all<T: Codable>(completionHandler: @escaping CollectionRequestHandler<[T]>) {
-        super.all(withPath: "\(self.endpoint)", completionHandler: completionHandler)
+        super.list(withPath: "\(self.endpoint)", completionHandler: completionHandler)
     }
 
     {% endif %}
@@ -55,7 +55,7 @@ public class {{ case.name|upperFirstLetter }}Request: MoltinRequest {
             - completionHandler: The handler to be called on success or failure
     */
     public func tree(completionHandler: @escaping DefaultCollectionRequestHandler) {
-        super.all(withPath: "\(self.endpoint)/tree", completionHandler: completionHandler)
+        super.list(withPath: "\(self.endpoint)/tree", completionHandler: completionHandler)
     }
     {% endif %}
 }

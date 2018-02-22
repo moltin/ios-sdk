@@ -35,7 +35,7 @@ public class MoltinRequest {
     
     // MARK: - Default Calls
     
-    public func all<T>(withPath path: String, completionHandler: @escaping CollectionRequestHandler<T>) {
+    func list<T>(withPath path: String, completionHandler: @escaping CollectionRequestHandler<T>) {
         let urlRequest: URLRequest
         do {
             urlRequest = try self.http.buildURLRequest(
@@ -63,7 +63,7 @@ public class MoltinRequest {
         }
     }
     
-    public func get<T: Codable>(withPath path: String, completionHandler: @escaping ObjectRequestHandler<T>) {
+    func get<T: Codable>(withPath path: String, completionHandler: @escaping ObjectRequestHandler<T>) {
         let urlRequest: URLRequest
         do {
             urlRequest = try self.http.buildURLRequest(

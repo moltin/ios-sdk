@@ -17,7 +17,7 @@ public class BrandRequest: MoltinRequest {
             - completionHandler: The handler to be called on success or failure
     */
     public func all(completionHandler: @escaping DefaultCollectionRequestHandler) {
-        super.all(withPath: "\(self.endpoint)", completionHandler: completionHandler)
+        super.list(withPath: "\(self.endpoint)", completionHandler: completionHandler)
     }
 
     /*
@@ -39,7 +39,7 @@ public class BrandRequest: MoltinRequest {
             - completionHandler: The handler to be called on success or failure
     */
     public func tree(completionHandler: @escaping DefaultCollectionRequestHandler) {
-        super.all(withPath: "\(self.endpoint)/tree", completionHandler: completionHandler)
+        super.list(withPath: "\(self.endpoint)/tree", completionHandler: completionHandler)
     }
 }
 // MARK: CategoryRequest - AutoMoltinRequest
@@ -58,7 +58,7 @@ public class CategoryRequest: MoltinRequest {
             - completionHandler: The handler to be called on success or failure
     */
     public func all(completionHandler: @escaping DefaultCollectionRequestHandler) {
-        super.all(withPath: "\(self.endpoint)", completionHandler: completionHandler)
+        super.list(withPath: "\(self.endpoint)", completionHandler: completionHandler)
     }
 
     /*
@@ -80,7 +80,7 @@ public class CategoryRequest: MoltinRequest {
             - completionHandler: The handler to be called on success or failure
     */
     public func tree(completionHandler: @escaping DefaultCollectionRequestHandler) {
-        super.all(withPath: "\(self.endpoint)/tree", completionHandler: completionHandler)
+        super.list(withPath: "\(self.endpoint)/tree", completionHandler: completionHandler)
     }
 }
 // MARK: CollectionRequest - AutoMoltinRequest
@@ -99,7 +99,7 @@ public class CollectionRequest: MoltinRequest {
             - completionHandler: The handler to be called on success or failure
     */
     public func all(completionHandler: @escaping DefaultCollectionRequestHandler) {
-        super.all(withPath: "\(self.endpoint)", completionHandler: completionHandler)
+        super.list(withPath: "\(self.endpoint)", completionHandler: completionHandler)
     }
 
     /*
@@ -121,7 +121,7 @@ public class CollectionRequest: MoltinRequest {
             - completionHandler: The handler to be called on success or failure
     */
     public func tree(completionHandler: @escaping DefaultCollectionRequestHandler) {
-        super.all(withPath: "\(self.endpoint)/tree", completionHandler: completionHandler)
+        super.list(withPath: "\(self.endpoint)/tree", completionHandler: completionHandler)
     }
 }
 // MARK: CurrencyRequest - AutoMoltinRequest
@@ -140,7 +140,7 @@ public class CurrencyRequest: MoltinRequest {
             - completionHandler: The handler to be called on success or failure
     */
     public func all(completionHandler: @escaping DefaultCollectionRequestHandler) {
-        super.all(withPath: "\(self.endpoint)", completionHandler: completionHandler)
+        super.list(withPath: "\(self.endpoint)", completionHandler: completionHandler)
     }
 
     /*
@@ -172,7 +172,7 @@ public class FileRequest: MoltinRequest {
             - completionHandler: The handler to be called on success or failure
     */
     public func all(completionHandler: @escaping DefaultCollectionRequestHandler) {
-        super.all(withPath: "\(self.endpoint)", completionHandler: completionHandler)
+        super.list(withPath: "\(self.endpoint)", completionHandler: completionHandler)
     }
 
     /*
@@ -204,7 +204,7 @@ public class FlowRequest: MoltinRequest {
             - completionHandler: The handler to be called on success or failure
     */
     public func all(completionHandler: @escaping DefaultCollectionRequestHandler) {
-        super.all(withPath: "\(self.endpoint)", completionHandler: completionHandler)
+        super.list(withPath: "\(self.endpoint)", completionHandler: completionHandler)
     }
 
     /*
@@ -236,12 +236,12 @@ public class ProductRequest: MoltinRequest {
             - completionHandler: The handler to be called on success or failure
     */
     public func all(completionHandler: @escaping DefaultCollectionRequestHandler) {
-        super.all(withPath: "\(self.endpoint)", completionHandler: completionHandler)
+        super.list(withPath: "\(self.endpoint)", completionHandler: completionHandler)
     }
 
 
     public func all<T: Codable>(completionHandler: @escaping CollectionRequestHandler<[T]>) {
-        super.all(withPath: "\(self.endpoint)", completionHandler: completionHandler)
+        super.list(withPath: "\(self.endpoint)", completionHandler: completionHandler)
     }
 
     /*
