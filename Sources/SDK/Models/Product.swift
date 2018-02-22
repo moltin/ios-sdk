@@ -8,5 +8,9 @@
 import Foundation
 
 public class Product: Codable {
+    var id: String
     
+    internal init(withID id: String) {
+        self.id = id
+    }
 }

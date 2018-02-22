@@ -11,7 +11,32 @@ import XCTest
 import moltin
 
 class MyCustomProduct: Product {
+    let author: Author
     
+    private enum CodingKeys : String, CodingKey { case author }
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.author = try container.decode(Author.self, forKey: .author)
+        try super.init(from: decoder)
+    }
+    
+    internal init(withID id: String, withAuthor author: Author) {
+        self.author = author
+        super.init(withID: id)
+    }
+}
+
+class Author: Codable, Equatable {
+    let name: String
+    
+    init(withName name: String) {
+        self.name = name
+    }
+    
+    static func ==(lhs: Author, rhs: Author) -> Bool {
+        return lhs.name == rhs.name
+    }
 }
 
 class ProductRequestTests: XCTestCase {
@@ -43,7 +68,7 @@ class ProductRequestTests: XCTestCase {
         let moltin = Moltin(withClientID: "12345")
         let productRequest = moltin.product
         let mockSession = MockURLSession()
-        mockSession.nextData = multiProductJson.data(using: .utf8)!
+        mockSession.nextData = self.multiProductJson.data(using: .utf8)!
         productRequest.http = MoltinHTTP(withSession: mockSession)
         
         let expectationToFulfill = expectation(description: "ProductRequest calls the method and runs the callback closure")
@@ -73,16 +98,17 @@ class ProductRequestTests: XCTestCase {
         let moltin = Moltin(withClientID: "12345")
         let productRequest = moltin.product
         let mockSession = MockURLSession()
-        mockSession.nextData = multiProductJson.data(using: .utf8)!
+        mockSession.nextData = self.productJson.data(using: .utf8)!
         productRequest.http = MoltinHTTP(withSession: mockSession)
         
         let expectationToFulfill = expectation(description: "ProductRequest calls the method and runs the callback closure")
         
-        productRequest.get(forID: "12345") { (result) in
+        productRequest.get(forID: "51b56d92-ab99-4802-a2c1-be150848c629") { (result) in
             switch result {
             case .success(let response):
-                let product = Product()
+                let product = Product(withID: "51b56d92-ab99-4802-a2c1-be150848c629")
                 XCTAssert(type(of: product) == type(of: response))
+                XCTAssert(product.id == response.id)
                 break
             case .failure(_):
                 XCTFail("Response returned error")
@@ -103,7 +129,7 @@ class ProductRequestTests: XCTestCase {
         let moltin = Moltin(withClientID: "12345")
         let productRequest = moltin.product
         let mockSession = MockURLSession()
-        mockSession.nextData = multiProductJson.data(using: .utf8)!
+        mockSession.nextData = self.multiProductJson.data(using: .utf8)!
         productRequest.http = MoltinHTTP(withSession: mockSession)
         
         let expectationToFulfill = expectation(description: "ProductRequest calls the method and runs the callback closure")
@@ -133,16 +159,21 @@ class ProductRequestTests: XCTestCase {
         let moltin = Moltin(withClientID: "12345")
         let productRequest = moltin.product
         let mockSession = MockURLSession()
-        mockSession.nextData = multiProductJson.data(using: .utf8)!
+        mockSession.nextData = self.productJson.data(using: .utf8)!
         productRequest.http = MoltinHTTP(withSession: mockSession)
         
         let expectationToFulfill = expectation(description: "ProductRequest calls the method and runs the callback closure")
         
-        productRequest.get(forID: "12345") { (result: Result<MyCustomProduct>) in
+        productRequest.get(forID: "51b56d92-ab99-4802-a2c1-be150848c629") { (result: Result<MyCustomProduct>) in
             switch result {
             case .success(let response):
-                let product = MyCustomProduct()
+                let author = Author(withName: "Craig")
+                let product = MyCustomProduct(
+                    withID: "51b56d92-ab99-4802-a2c1-be150848c629",
+                    withAuthor: author)
                 XCTAssert(type(of: product) == type(of: response))
+                XCTAssert(product.id == response.id)
+                XCTAssert(product.author == response.author)
                 break
             case .failure(_):
                 XCTFail("Response returned error")
