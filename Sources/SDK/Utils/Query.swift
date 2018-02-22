@@ -10,6 +10,7 @@ import Foundation
 public class MoltinQuery {
     public enum Include: String {
         case files
+        case category
     }
     
     var withIncludes: [Include]?

@@ -23,7 +23,7 @@ class MoltinParser {
         completionHandler(Result.success(result: object))
     }
     
-    func collectionHandler<T: Codable>(withData data: Data?, withResponse: URLResponse?, completionHandler: @escaping CollectionRequestHandler<T>) {
+    func collectionHandler<T>(withData data: Data?, withResponse: URLResponse?, completionHandler: @escaping CollectionRequestHandler<T>) {
         let productJson = """
                 {
                   "data":

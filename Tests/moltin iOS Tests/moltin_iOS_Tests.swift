@@ -68,7 +68,7 @@ class moltin_iOS_Tests: XCTestCase {
         let components = URLComponents(url: urlRequest!.url!, resolvingAgainstBaseURL: false)
         XCTAssertNotNil(components)
         XCTAssertNotNil(components?.query)
-        XCTAssertTrue(components!.query! == "filter=eq(test, hello)")
+        XCTAssert(components!.query! == "filter=eq(test, hello)")
     }
     
     func testRequestHandlesMultipleFilter() {
@@ -87,7 +87,7 @@ class moltin_iOS_Tests: XCTestCase {
         let components = URLComponents(url: urlRequest!.url!, resolvingAgainstBaseURL: false)
         XCTAssertNotNil(components)
         XCTAssertNotNil(components?.query)
-        XCTAssertTrue(components!.query! == "filter=eq(test, hello):eq(other, thing)")
+        XCTAssert(components!.query! == "filter=eq(test, hello):eq(other, thing)")
     }
     
     func testRequestHandlesLimit() {
@@ -105,7 +105,7 @@ class moltin_iOS_Tests: XCTestCase {
         let components = URLComponents(url: urlRequest!.url!, resolvingAgainstBaseURL: false)
         XCTAssertNotNil(components)
         XCTAssertNotNil(components?.query)
-        XCTAssertTrue(components!.query! == "limit=1")
+        XCTAssert(components!.query! == "limit=1")
     }
     
     func testRequestHandlesOffset() {
@@ -123,7 +123,83 @@ class moltin_iOS_Tests: XCTestCase {
         let components = URLComponents(url: urlRequest!.url!, resolvingAgainstBaseURL: false)
         XCTAssertNotNil(components)
         XCTAssertNotNil(components?.query)
-        XCTAssertTrue(components!.query! == "limit=1")
+        XCTAssert(components!.query! == "offset=1")
+    }
+    
+    func testRequestHandlesSort() {
+        let moltin = Moltin(withClientID: "12345")
+        let request = moltin.product
+            .sort("test")
+        
+        let urlRequest = try? request.http.buildURLRequest(
+            withConfiguration: moltin.config,
+            withPath: "/test",
+            withQueryParameters:request.query.toURLQueryItems()
+        )
+        XCTAssertNotNil(urlRequest)
+        
+        let components = URLComponents(url: urlRequest!.url!, resolvingAgainstBaseURL: false)
+        XCTAssertNotNil(components)
+        XCTAssertNotNil(components?.query)
+        XCTAssert(components!.query! == "sort=test")
+    }
+    
+    func testRequestHandlesSingleInclude() {
+        let moltin = Moltin(withClientID: "12345")
+        let request = moltin.product
+            .include([.files])
+        
+        let urlRequest = try? request.http.buildURLRequest(
+            withConfiguration: moltin.config,
+            withPath: "/test",
+            withQueryParameters:request.query.toURLQueryItems()
+        )
+        XCTAssertNotNil(urlRequest)
+        
+        let components = URLComponents(url: urlRequest!.url!, resolvingAgainstBaseURL: false)
+        XCTAssertNotNil(components)
+        XCTAssertNotNil(components?.query)
+        XCTAssert(components!.query! == "includes=files")
+    }
+    
+    func testRequestHandlesMultipleIncludes() {
+        let moltin = Moltin(withClientID: "12345")
+        let request = moltin.product
+            .include([.files, .category])
+        
+        let urlRequest = try? request.http.buildURLRequest(
+            withConfiguration: moltin.config,
+            withPath: "/test",
+            withQueryParameters:request.query.toURLQueryItems()
+        )
+        XCTAssertNotNil(urlRequest)
+        
+        let components = URLComponents(url: urlRequest!.url!, resolvingAgainstBaseURL: false)
+        XCTAssertNotNil(components)
+        XCTAssertNotNil(components?.query)
+        XCTAssert(components!.query! == "includes=files,category")
+    }
+    
+    func testRequestHandlesMultipleParameters() {
+        let moltin = Moltin(withClientID: "12345")
+        let request = moltin.product
+            .include([.files, .category])
+            .filter(operator: "eq", key: "test", value: "one")
+            .limit(1)
+            .offset(2)
+            .sort("key")
+        
+        let urlRequest = try? request.http.buildURLRequest(
+            withConfiguration: moltin.config,
+            withPath: "/test",
+            withQueryParameters:request.query.toURLQueryItems()
+        )
+        XCTAssertNotNil(urlRequest)
+        
+        let components = URLComponents(url: urlRequest!.url!, resolvingAgainstBaseURL: false)
+        XCTAssertNotNil(components)
+        XCTAssertNotNil(components?.query)
+        XCTAssert(components!.query! == "includes=files,category&sort=key&limit=1&offset=2&filter=eq(test, one)")
     }
     
 }

@@ -33,7 +33,7 @@ public class MoltinRequest {
     
     // MARK: - Default Calls
     
-    public func all<T: Codable>(completionHandler: @escaping CollectionRequestHandler<T>) {
+    public func all<T>(completionHandler: @escaping CollectionRequestHandler<T>) {
         let urlRequest: URLRequest
         do {
             urlRequest = try self.http.buildURLRequest(
