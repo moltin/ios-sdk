@@ -47,14 +47,19 @@
 		C3715BDC203EE6E500287C1B /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BDA203EE6E500287C1B /* Category.swift */; };
 		C3715BDD203EE6E500287C1B /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BDA203EE6E500287C1B /* Category.swift */; };
 		C3715BDE203EE6E500287C1B /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BDA203EE6E500287C1B /* Category.swift */; };
-		C3715BE0203EE8EE00287C1B /* HTTPMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BDF203EE8EE00287C1B /* HTTPMock.swift */; };
-		C3715BE1203EE8EE00287C1B /* HTTPMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BDF203EE8EE00287C1B /* HTTPMock.swift */; };
-		C3715BE2203EE8EE00287C1B /* HTTPMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BDF203EE8EE00287C1B /* HTTPMock.swift */; };
-		C3715BE3203EE8EE00287C1B /* HTTPMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BDF203EE8EE00287C1B /* HTTPMock.swift */; };
 		C3715BE5203EE93900287C1B /* URLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BE4203EE93900287C1B /* URLSession.swift */; };
 		C3715BE6203EE93900287C1B /* URLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BE4203EE93900287C1B /* URLSession.swift */; };
 		C3715BE7203EE93900287C1B /* URLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BE4203EE93900287C1B /* URLSession.swift */; };
 		C3715BE8203EE93900287C1B /* URLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BE4203EE93900287C1B /* URLSession.swift */; };
+		C3715BEA203F1A3900287C1B /* MoltinAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BE9203F1A3900287C1B /* MoltinAuth.swift */; };
+		C3715BEB203F1A3900287C1B /* MoltinAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BE9203F1A3900287C1B /* MoltinAuth.swift */; };
+		C3715BEC203F1A3900287C1B /* MoltinAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BE9203F1A3900287C1B /* MoltinAuth.swift */; };
+		C3715BED203F1A3900287C1B /* MoltinAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BE9203F1A3900287C1B /* MoltinAuth.swift */; };
+		C3715BF4203F542600287C1B /* AuthTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BEE203F53A000287C1B /* AuthTests.swift */; };
+		C3715BF5203F544900287C1B /* HTTPMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BDF203EE8EE00287C1B /* HTTPMock.swift */; };
+		C3715BF6203F544A00287C1B /* HTTPMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BDF203EE8EE00287C1B /* HTTPMock.swift */; };
+		C3715BF7203F544B00287C1B /* HTTPMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BDF203EE8EE00287C1B /* HTTPMock.swift */; };
+		C3715BF8203F544B00287C1B /* HTTPMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BDF203EE8EE00287C1B /* HTTPMock.swift */; };
 		C3779232203EC6D000C20FEC /* Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3779231203EC6D000C20FEC /* Query.swift */; };
 		C38141FE203DCFC400B9FDA3 /* ProductRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38141FD203DCFC400B9FDA3 /* ProductRequestTests.swift */; };
 		C392E9C9203DB630006CD1D0 /* moltin.h in Headers */ = {isa = PBXBuildFile; fileRef = C392E9C7203DB630006CD1D0 /* moltin.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -153,6 +158,8 @@
 		C3715BDA203EE6E500287C1B /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		C3715BDF203EE8EE00287C1B /* HTTPMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMock.swift; sourceTree = "<group>"; };
 		C3715BE4203EE93900287C1B /* URLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSession.swift; sourceTree = "<group>"; };
+		C3715BE9203F1A3900287C1B /* MoltinAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoltinAuth.swift; sourceTree = "<group>"; };
+		C3715BEE203F53A000287C1B /* AuthTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTests.swift; sourceTree = "<group>"; };
 		C3779231203EC6D000C20FEC /* Query.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Query.swift; sourceTree = "<group>"; };
 		C38141FD203DCFC400B9FDA3 /* ProductRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductRequestTests.swift; sourceTree = "<group>"; };
 		C392E9C5203DB630006CD1D0 /* moltin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = moltin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -285,6 +292,7 @@
 			children = (
 				C3715BCA203EE6BB00287C1B /* Requests.swift */,
 				C3434C0E203DDA0500883C84 /* MoltinRequest.swift */,
+				C3715BE9203F1A3900287C1B /* MoltinAuth.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -348,6 +356,7 @@
 				C392EA16203DB7EB006CD1D0 /* Info.plist */,
 				C38141FD203DCFC400B9FDA3 /* ProductRequestTests.swift */,
 				C3715BDF203EE8EE00287C1B /* HTTPMock.swift */,
+				C3715BEE203F53A000287C1B /* AuthTests.swift */,
 			);
 			path = "moltin iOS Tests";
 			sourceTree = "<group>";
@@ -768,14 +777,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3715BF8203F544B00287C1B /* HTTPMock.swift in Sources */,
 				C3434C0F203DDA0500883C84 /* MoltinRequest.swift in Sources */,
 				C3779232203EC6D000C20FEC /* Query.swift in Sources */,
 				C3715BD6203EE6DE00287C1B /* Brand.swift in Sources */,
 				C3434C18203DDAD500883C84 /* Pagination.swift in Sources */,
 				C3715BCB203EE6BB00287C1B /* Requests.swift in Sources */,
+				C3715BEA203F1A3900287C1B /* MoltinAuth.swift in Sources */,
 				C318D029203EC4D100B7A81E /* HTTP.swift in Sources */,
 				C392E9F9203DB6E1006CD1D0 /* Moltin.swift in Sources */,
-				C3715BE0203EE8EE00287C1B /* HTTPMock.swift in Sources */,
 				C3715BE5203EE93900287C1B /* URLSession.swift in Sources */,
 				C3434C1D203DDAFF00883C84 /* Error.swift in Sources */,
 				C3715BD1203EE6D400287C1B /* Product.swift in Sources */,
@@ -790,9 +800,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3434C11203DDA1F00883C84 /* MoltinRequest.swift in Sources */,
+				C3715BF7203F544B00287C1B /* HTTPMock.swift in Sources */,
 				C3434C19203DDAD500883C84 /* Pagination.swift in Sources */,
 				C3715BD2203EE6D400287C1B /* Product.swift in Sources */,
-				C3715BE1203EE8EE00287C1B /* HTTPMock.swift in Sources */,
 				C3715BD7203EE6DE00287C1B /* Brand.swift in Sources */,
 				C318D02C203EC5AB00B7A81E /* HTTP.swift in Sources */,
 				C392E9FA203DB6E1006CD1D0 /* Moltin.swift in Sources */,
@@ -800,6 +810,7 @@
 				C3715BE6203EE93900287C1B /* URLSession.swift in Sources */,
 				C3715BCC203EE6BB00287C1B /* Requests.swift in Sources */,
 				C318D02D203EC5AB00B7A81E /* Parser.swift in Sources */,
+				C3715BEB203F1A3900287C1B /* MoltinAuth.swift in Sources */,
 				C3434C23203DDB1F00883C84 /* Config.swift in Sources */,
 				C3715BDC203EE6E500287C1B /* Category.swift in Sources */,
 			);
@@ -810,9 +821,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3434C13203DDA1F00883C84 /* MoltinRequest.swift in Sources */,
+				C3715BF6203F544A00287C1B /* HTTPMock.swift in Sources */,
 				C3434C1A203DDAD500883C84 /* Pagination.swift in Sources */,
 				C3715BD3203EE6D400287C1B /* Product.swift in Sources */,
-				C3715BE2203EE8EE00287C1B /* HTTPMock.swift in Sources */,
 				C3715BD8203EE6DE00287C1B /* Brand.swift in Sources */,
 				C318D02E203EC5AB00B7A81E /* HTTP.swift in Sources */,
 				C392E9FB203DB6E1006CD1D0 /* Moltin.swift in Sources */,
@@ -820,6 +831,7 @@
 				C3715BE7203EE93900287C1B /* URLSession.swift in Sources */,
 				C3715BCD203EE6BB00287C1B /* Requests.swift in Sources */,
 				C318D02F203EC5AB00B7A81E /* Parser.swift in Sources */,
+				C3715BEC203F1A3900287C1B /* MoltinAuth.swift in Sources */,
 				C3434C24203DDB1F00883C84 /* Config.swift in Sources */,
 				C3715BDD203EE6E500287C1B /* Category.swift in Sources */,
 			);
@@ -830,9 +842,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3434C15203DDA2000883C84 /* MoltinRequest.swift in Sources */,
+				C3715BF5203F544900287C1B /* HTTPMock.swift in Sources */,
 				C3434C1B203DDAD500883C84 /* Pagination.swift in Sources */,
 				C3715BD4203EE6D400287C1B /* Product.swift in Sources */,
-				C3715BE3203EE8EE00287C1B /* HTTPMock.swift in Sources */,
 				C3715BD9203EE6DE00287C1B /* Brand.swift in Sources */,
 				C318D030203EC5AC00B7A81E /* HTTP.swift in Sources */,
 				C392E9FC203DB6E1006CD1D0 /* Moltin.swift in Sources */,
@@ -840,6 +852,7 @@
 				C3715BE8203EE93900287C1B /* URLSession.swift in Sources */,
 				C3715BCE203EE6BB00287C1B /* Requests.swift in Sources */,
 				C318D031203EC5AC00B7A81E /* Parser.swift in Sources */,
+				C3715BED203F1A3900287C1B /* MoltinAuth.swift in Sources */,
 				C3434C25203DDB1F00883C84 /* Config.swift in Sources */,
 				C3715BDE203EE6E500287C1B /* Category.swift in Sources */,
 			);
@@ -851,6 +864,7 @@
 			files = (
 				C392EA15203DB7EB006CD1D0 /* moltin_iOS_Tests.swift in Sources */,
 				C38141FE203DCFC400B9FDA3 /* ProductRequestTests.swift in Sources */,
+				C3715BF4203F542600287C1B /* AuthTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,12 +12,12 @@
 		<key>moltin iOS Example.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>5</integer>
+			<integer>4</integer>
 		</dict>
 		<key>moltin iOS Tests.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>4</integer>
+			<integer>5</integer>
 		</dict>
 		<key>moltin iOS.xcscheme_^#shared#^_</key>
 		<dict>

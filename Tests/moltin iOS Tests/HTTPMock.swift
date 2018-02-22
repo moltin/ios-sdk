@@ -28,3 +28,27 @@ class MockURLSessionDataTask: URLSessionDataTaskProtocol {
         self.resumeWasCalled = true
     }
 }
+
+
+class MockFactory {
+    
+    static let authJSON = """
+    {
+        "access_token": "123asdasd123",
+        "expires": 1001010
+    }
+    """
+    
+    static func mockedProductRequest(withJSON json: String) -> (Moltin, ProductRequest) {
+        let moltin = Moltin(withClientID: "12345")
+        let productRequest = moltin.product
+        let mockSession = MockURLSession()
+        mockSession.nextData = json.data(using: .utf8)!
+        productRequest.http = MoltinHTTP(withSession: mockSession)
+        let mockAuthSession = MockURLSession()
+        mockAuthSession.nextData = MockFactory.authJSON.data(using: .utf8)!
+        productRequest.auth.http = MoltinHTTP(withSession: mockAuthSession)
+        
+        return (moltin, productRequest)
+    }
+}

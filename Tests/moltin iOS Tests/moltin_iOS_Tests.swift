@@ -24,7 +24,7 @@ class moltin_iOS_Tests: XCTestCase {
     
     func testClientIDSetup() {
         let moltin = Moltin(withClientID: "12345")
-        XCTAssert(moltin.clientID == "12345")
+        XCTAssert(moltin.config.clientID == "12345")
     }
     
     func testDefaultLocale() {
@@ -35,7 +35,7 @@ class moltin_iOS_Tests: XCTestCase {
     
     func testCustomLocale() {
         let locale = Locale(identifier: "fr_FR")
-        var config = MoltinConfig.default()
+        var config = MoltinConfig.default(withClientID: "12345")
         config.locale = locale
         let moltin = Moltin(withClientID: "12345", withConfiguration: config)
         XCTAssert(moltin.config.locale == locale)

@@ -7,7 +7,7 @@
 
 import Foundation
 
-public typealias HTTPRequestHandler = (Data?, URLResponse?) -> ()
+public typealias HTTPRequestHandler = (Data?, URLResponse?, Error?) -> ()
 public typealias CollectionRequestHandler<T: Codable> = (Result<PaginatedResponse<T>>) -> ()
 public typealias ObjectRequestHandler<T: Codable> = (Result<T>) -> ()
 
@@ -21,7 +21,7 @@ class MoltinHTTP {
     
     func executeRequest(_ request: URLRequest, completionHandler: @escaping HTTPRequestHandler) {
         self.session.dataTask(with: request) { (data, response, error) in
-            completionHandler(data, response)
+            completionHandler(data, response, error)
         }.resume()
     }
     

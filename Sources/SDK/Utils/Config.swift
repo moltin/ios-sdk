@@ -8,25 +8,28 @@
 import Foundation
 
 public struct MoltinConfig {
+    public var clientID: String
     public var scheme: String
     public var host: String
     public var version: String
     
     public var locale: Locale = Locale.current
     
-    init(scheme: String, host: String, version: String) {
+    init(clientID: String, scheme: String, host: String, version: String) {
+        self.clientID = clientID
         self.scheme = scheme
         self.host = host
         self.version = version
     }
     
-    init(scheme: String, host: String, version: String, locale: Locale) {
-        self.init(scheme: scheme, host: host, version: version)
+    init(clientID: String, scheme: String, host: String, version: String, locale: Locale) {
+        self.init(clientID: clientID, scheme: scheme, host: host, version: version)
         self.locale = locale
     }
     
-    static func `default`() -> MoltinConfig {
+    static func `default`(withClientID clientID: String) -> MoltinConfig {
         return MoltinConfig(
+            clientID: clientID,
             scheme: "https",
             host: "api.moltin.com",
             version: "v2")

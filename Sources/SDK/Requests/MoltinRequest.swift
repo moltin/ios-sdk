@@ -21,6 +21,7 @@ public class MoltinRequest {
     private var endpoint: String = ""
     
     internal var query: MoltinQuery
+    internal var auth: MoltinAuth
     
     // MARK: - Init
     
@@ -29,6 +30,7 @@ public class MoltinRequest {
         self.http = MoltinHTTP(withSession: URLSession.shared)
         self.parser = MoltinParser()
         self.query = MoltinQuery()
+        self.auth = MoltinAuth(withConfiguration: self.config)
     }
     
     // MARK: - Default Calls
@@ -49,8 +51,15 @@ public class MoltinRequest {
             return
         }
         
-        self.http.executeRequest(urlRequest) { [weak self] (data, response) in
-            self?.parser.collectionHandler(withData: data, withResponse: response, completionHandler: completionHandler)
+        self.auth.authenticate { (result) in
+            switch result {
+            case .success(_):
+                self.http.executeRequest(urlRequest) { [weak self] (data, response, error) in
+                    self?.parser.collectionHandler(withData: data, withResponse: response, completionHandler: completionHandler)
+                }
+            case .failure(let error):
+                completionHandler(.failure(error: error))
+            }
         }
     }
     
@@ -70,8 +79,15 @@ public class MoltinRequest {
             return
         }
         
-        self.http.executeRequest(urlRequest) { [weak self] (data, response) in
-            self?.parser.singleObjectHandler(withData: data, withResponse: response, completionHandler: completionHandler)
+        self.auth.authenticate { (result) in
+            switch result {
+            case .success(_):
+                self.http.executeRequest(urlRequest) { [weak self] (data, response, error) in
+                    self?.parser.singleObjectHandler(withData: data, withResponse: response, completionHandler: completionHandler)
+                }
+            case .failure(let error):
+                completionHandler(.failure(error: error))
+            }
         }
     }
     

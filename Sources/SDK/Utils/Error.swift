@@ -8,6 +8,7 @@
 import Foundation
 
 public enum MoltinError : Error {
+    case couldNotAuthenticate
     case unacceptableRequest
     case noData
 }

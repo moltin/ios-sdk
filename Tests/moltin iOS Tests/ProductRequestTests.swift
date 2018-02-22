@@ -65,11 +65,7 @@ class ProductRequestTests: XCTestCase {
                 """
 
     func testProductRequestReturnsProducts() {
-        let moltin = Moltin(withClientID: "12345")
-        let productRequest = moltin.product
-        let mockSession = MockURLSession()
-        mockSession.nextData = self.multiProductJson.data(using: .utf8)!
-        productRequest.http = MoltinHTTP(withSession: mockSession)
+        let (_, productRequest) = MockFactory.mockedProductRequest(withJSON: self.multiProductJson)
         
         let expectationToFulfill = expectation(description: "ProductRequest calls the method and runs the callback closure")
         
@@ -95,11 +91,7 @@ class ProductRequestTests: XCTestCase {
     }
     
     func testProductRequestReturnSingleProduct() {
-        let moltin = Moltin(withClientID: "12345")
-        let productRequest = moltin.product
-        let mockSession = MockURLSession()
-        mockSession.nextData = self.productJson.data(using: .utf8)!
-        productRequest.http = MoltinHTTP(withSession: mockSession)
+        let (_, productRequest) = MockFactory.mockedProductRequest(withJSON: self.productJson)
         
         let expectationToFulfill = expectation(description: "ProductRequest calls the method and runs the callback closure")
         
@@ -126,11 +118,7 @@ class ProductRequestTests: XCTestCase {
     }
     
     func testProductRequestReturnsCustomProducts() {
-        let moltin = Moltin(withClientID: "12345")
-        let productRequest = moltin.product
-        let mockSession = MockURLSession()
-        mockSession.nextData = self.multiProductJson.data(using: .utf8)!
-        productRequest.http = MoltinHTTP(withSession: mockSession)
+        let (_, productRequest) = MockFactory.mockedProductRequest(withJSON: self.multiProductJson)
         
         let expectationToFulfill = expectation(description: "ProductRequest calls the method and runs the callback closure")
         
@@ -156,11 +144,8 @@ class ProductRequestTests: XCTestCase {
     }
     
     func testProductRequestReturnCustomSingleProduct() {
-        let moltin = Moltin(withClientID: "12345")
-        let productRequest = moltin.product
-        let mockSession = MockURLSession()
-        mockSession.nextData = self.productJson.data(using: .utf8)!
-        productRequest.http = MoltinHTTP(withSession: mockSession)
+        let (_, productRequest) = MockFactory.mockedProductRequest(withJSON: self.productJson)
+        
         
         let expectationToFulfill = expectation(description: "ProductRequest calls the method and runs the callback closure")
         
