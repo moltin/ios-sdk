@@ -10,35 +10,20 @@ import Foundation
 class MoltinParser {
     
     func singleObjectHandler<T: Codable>(withData data: Data?, withResponse: URLResponse?, completionHandler: @escaping ObjectRequestHandler<T>) {
-        let productJson = """
-                {
-                  "id": "51b56d92-ab99-4802-a2c1-be150848c629",
-                  "author": {
-                    "name": "Craig"
-                  }
-                }
-                """
-        let jsonData = productJson.data(using: .utf8)!
-        let object: T = self.parseObject(data: jsonData)
+        guard let data = data else {
+            completionHandler(Result.failure(error: MoltinError.noData))
+            return
+        }
+        let object: T = self.parseObject(data: data)
         completionHandler(Result.success(result: object))
     }
     
     func collectionHandler<T>(withData data: Data?, withResponse: URLResponse?, completionHandler: @escaping CollectionRequestHandler<T>) {
-        let productJson = """
-                {
-                  "data":
-                    [{
-                      "id": "51b56d92-ab99-4802-a2c1-be150848c629",
-                      "author": {
-                        "name": "Craig"
-                      }
-                    }],
-                    "meta": {
-                    }
-                }
-                """
-        let jsonData = productJson.data(using: .utf8)!
-        let paginatedResponse: PaginatedResponse<T> = self.parseCollection(data: jsonData)
+        guard let data = data else {
+            completionHandler(Result.failure(error: MoltinError.noData))
+            return
+        }
+        let paginatedResponse: PaginatedResponse<T> = self.parseCollection(data: data)
         completionHandler(Result.success(result: paginatedResponse))
     }
     

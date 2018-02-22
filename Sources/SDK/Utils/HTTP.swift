@@ -13,8 +13,14 @@ public typealias ObjectRequestHandler<T: Codable> = (Result<T>) -> ()
 
 class MoltinHTTP {
     
+    let session: URLSessionProtocol
+    
+    init(withSession session: URLSessionProtocol) {
+        self.session = session
+    }
+    
     func executeRequest(_ request: URLRequest, completionHandler: @escaping HTTPRequestHandler) {
-        URLSession.shared.dataTask(with: request) { (data, response, error) in
+        self.session.dataTask(with: request) { (data, response, error) in
             completionHandler(data, response)
         }.resume()
     }

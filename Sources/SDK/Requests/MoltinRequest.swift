@@ -26,7 +26,7 @@ public class MoltinRequest {
     
     public init(withConfiguration configuration: MoltinConfig) {
         self.config = configuration
-        self.http = MoltinHTTP()
+        self.http = MoltinHTTP(withSession: URLSession.shared)
         self.parser = MoltinParser()
         self.query = MoltinQuery()
     }

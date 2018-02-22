@@ -9,4 +9,5 @@ import Foundation
 
 public enum MoltinError : Error {
     case unacceptableRequest
+    case noData
 }

@@ -1,0 +1,35 @@
+// sourcery:file:Requests.swift
+{% for case in type.MoltinAPIEndpoints.cases %}
+// MARK: {{ case.name|upperFirstLetter }}Request - AutoMoltinRequest
+
+public class {{ case.name|upperFirstLetter }}Request: MoltinRequest {
+
+    private var path: String = "{{ case.annotations.path }}"
+
+    public typealias DefaultCollectionRequestHandler = CollectionRequestHandler<[{{ case.annotations.model }}]>
+    public typealias DefaultObjectRequestHandler = ObjectRequestHandler<{{ case.annotations.model }}>
+    
+
+    /*
+        Return all instances of type {{ case.name }}
+
+        - parameters:
+            - completionHandler: The handler to be called on success or failure
+    */
+    public func all(completionHandler: @escaping DefaultCollectionRequestHandler) {
+        super.all(completionHandler: completionHandler)
+    }
+    
+    /*
+        Return get an instance of {{ case.name }} by `id`
+
+        - parameters:
+            - forID: The ID of the object
+            - completionHandler: The handler to be called on success or failure
+    */
+    public func get(forID id: String, completionHandler: @escaping DefaultObjectRequestHandler) {
+        super.get(forID: id, completionHandler: completionHandler)
+    }
+}
+{% endfor %}
+// sourcery:end
