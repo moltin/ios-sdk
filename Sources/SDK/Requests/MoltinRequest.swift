@@ -77,7 +77,7 @@ public class MoltinRequest {
     
     // MARK: - Modifiers
     
-    public func include(_ includes: [MoltinQuery.Include]) -> Self {
+    public func include(_ includes: [MoltinInclude]) -> Self {
         self.query.withIncludes = includes
         return self
     }

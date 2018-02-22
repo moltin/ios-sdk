@@ -7,13 +7,40 @@
 
 import Foundation
 
-public class MoltinQuery {
-    public enum Include: String {
-        case files
-        case category
+public struct MoltinInclude: RawRepresentable, Equatable, Hashable, Comparable {
+    
+    public typealias RawValue = String
+    
+    public var rawValue: String
+    
+    static let files  = MoltinInclude(rawValue: "files")
+    static let products = MoltinInclude(rawValue: "products")
+    static let category = MoltinInclude(rawValue: "category")
+    
+    //MARK: Hashable
+    
+    public var hashValue: Int {
+        return rawValue.hashValue
     }
     
-    var withIncludes: [Include]?
+    //MARK: Comparable
+    
+    public static func <(lhs: MoltinInclude, rhs: MoltinInclude) -> Bool {
+        return lhs.rawValue < rhs.rawValue
+    }
+    
+    public init(rawValue: String) {
+        self.rawValue = rawValue
+    }
+    
+}
+
+extension MoltinInclude {
+    static var main_image = MoltinInclude(rawValue: "main_image")
+}
+
+public class MoltinQuery {
+    var withIncludes: [MoltinInclude]?
     var withSorting: String?
     var withLimit: String?
     var withOffset: String?
