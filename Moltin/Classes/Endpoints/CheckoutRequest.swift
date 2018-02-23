@@ -18,7 +18,7 @@ public struct CheckoutRequest {
                                                          shippingAddress: shippingAddress), completion: completion)
     }
     
-    public func pay(forOrderID orderID: String, withPaymentMethod paymentMethod: PaymentMethod, completion: @escaping (DefaultDataResponse) -> ()) {
-        Alamofire.request(Router.authenticate).response(completionHandler: completion)
+    public func pay(forOrderID orderID: String, withPaymentMethod paymentMethod: PaymentMethod, completion: @escaping (Result<Order?>) -> ()) {
+        MoltinAPI.objectRequest(request: Router.payment(orderID: orderID, paymentMethod: paymentMethod), completion: completion)
     }
 }

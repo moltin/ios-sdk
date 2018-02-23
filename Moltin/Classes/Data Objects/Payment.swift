@@ -11,6 +11,7 @@ import Foundation
 import Gloss
 
 public enum PaymentMethod {
+    case stripeToken(token: String)
     case stripeCard(firstName: String, lastName: String, cardNumber: String, expMonth: String, expYear: String, cvv: String)
     case braintreeCustomerID(customerID: String, customFields: [String : String]?)
     case braintreeToken(paymentToken: String, customFields: [String : String]?)
@@ -18,6 +19,12 @@ public enum PaymentMethod {
     
     var dictionary: [String : Any] {
         switch self {
+        case .stripeToken(let token):
+            return [
+                "gateway" : "stripe",
+                "method" : "purchase",
+                "payment" : token
+            ]
         case .stripeCard(let firstName, let lastName, let cardNumber, let expMonth, let expYear, let cvv):
             return [
                 "gateway" : "stripe",
