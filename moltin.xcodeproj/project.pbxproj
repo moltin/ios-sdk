@@ -76,8 +76,9 @@
 		C3715C0A203F59F300287C1B /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BFB203F59A100287C1B /* Currency.swift */; };
 		C3715C0B203F59F300287C1B /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BFD203F59CA00287C1B /* File.swift */; };
 		C3715C0C203F59F300287C1B /* Flow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BFF203F59D000287C1B /* Flow.swift */; };
+		C3715C0F204014F400287C1B /* TreeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715C0D204014CA00287C1B /* TreeRequest.swift */; };
 		C3779232203EC6D000C20FEC /* Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3779231203EC6D000C20FEC /* Query.swift */; };
-		C38141FE203DCFC400B9FDA3 /* ProductRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38141FD203DCFC400B9FDA3 /* ProductRequestTests.swift */; };
+		C38141FE203DCFC400B9FDA3 /* RequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38141FD203DCFC400B9FDA3 /* RequestTests.swift */; };
 		C392E9C9203DB630006CD1D0 /* moltin.h in Headers */ = {isa = PBXBuildFile; fileRef = C392E9C7203DB630006CD1D0 /* moltin.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C392E9F5203DB6AE006CD1D0 /* moltin.h in Headers */ = {isa = PBXBuildFile; fileRef = C392E9C7203DB630006CD1D0 /* moltin.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C392E9F6203DB6AE006CD1D0 /* moltin.h in Headers */ = {isa = PBXBuildFile; fileRef = C392E9C7203DB630006CD1D0 /* moltin.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -86,7 +87,7 @@
 		C392E9FA203DB6E1006CD1D0 /* Moltin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C392E9F8203DB6E1006CD1D0 /* Moltin.swift */; };
 		C392E9FB203DB6E1006CD1D0 /* Moltin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C392E9F8203DB6E1006CD1D0 /* Moltin.swift */; };
 		C392E9FC203DB6E1006CD1D0 /* Moltin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C392E9F8203DB6E1006CD1D0 /* Moltin.swift */; };
-		C392EA15203DB7EB006CD1D0 /* moltin_iOS_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C392EA14203DB7EB006CD1D0 /* moltin_iOS_Tests.swift */; };
+		C392EA15203DB7EB006CD1D0 /* MoltinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C392EA14203DB7EB006CD1D0 /* MoltinTests.swift */; };
 		C392EA17203DB7EB006CD1D0 /* moltin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C392E9C5203DB630006CD1D0 /* moltin.framework */; };
 		C392EA24203DB800006CD1D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C392EA23203DB800006CD1D0 /* AppDelegate.swift */; };
 		C392EA26203DB800006CD1D0 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C392EA25203DB800006CD1D0 /* MasterViewController.swift */; };
@@ -103,6 +104,8 @@
 		C392EA52203DB823006CD1D0 /* moltin WatchKit Example.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = C392EA37203DB822006CD1D0 /* moltin WatchKit Example.app */; };
 		C392EA61203DB836006CD1D0 /* moltin_tvOS_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C392EA60203DB836006CD1D0 /* moltin_tvOS_Tests.swift */; };
 		C392EA63203DB836006CD1D0 /* moltin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C392E9DF203DB64E006CD1D0 /* moltin.framework */; };
+		C3FB57A8204028870007288D /* CartRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FB57A7204028870007288D /* CartRequest.swift */; };
+		C3FB57AA2040782C0007288D /* moltin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C392E9C5203DB630006CD1D0 /* moltin.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -180,8 +183,9 @@
 		C3715BFB203F59A100287C1B /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		C3715BFD203F59CA00287C1B /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		C3715BFF203F59D000287C1B /* Flow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flow.swift; sourceTree = "<group>"; };
+		C3715C0D204014CA00287C1B /* TreeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeRequest.swift; sourceTree = "<group>"; };
 		C3779231203EC6D000C20FEC /* Query.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Query.swift; sourceTree = "<group>"; };
-		C38141FD203DCFC400B9FDA3 /* ProductRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductRequestTests.swift; sourceTree = "<group>"; };
+		C38141FD203DCFC400B9FDA3 /* RequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTests.swift; sourceTree = "<group>"; };
 		C392E9C5203DB630006CD1D0 /* moltin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = moltin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C392E9C7203DB630006CD1D0 /* moltin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = moltin.h; sourceTree = "<group>"; };
 		C392E9C8203DB630006CD1D0 /* Info-iOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-iOS.plist"; sourceTree = "<group>"; };
@@ -196,7 +200,7 @@
 		C392EA08203DB773006CD1D0 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C392EA09203DB77F006CD1D0 /* moltin.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = moltin.podspec; sourceTree = "<group>"; };
 		C392EA12203DB7EB006CD1D0 /* moltin iOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "moltin iOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C392EA14203DB7EB006CD1D0 /* moltin_iOS_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = moltin_iOS_Tests.swift; sourceTree = "<group>"; };
+		C392EA14203DB7EB006CD1D0 /* MoltinTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoltinTests.swift; sourceTree = "<group>"; };
 		C392EA16203DB7EB006CD1D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C392EA21203DB800006CD1D0 /* moltin iOS Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "moltin iOS Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C392EA23203DB800006CD1D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -218,6 +222,7 @@
 		C392EA5E203DB836006CD1D0 /* moltin tvOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "moltin tvOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C392EA60203DB836006CD1D0 /* moltin_tvOS_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = moltin_tvOS_Tests.swift; sourceTree = "<group>"; };
 		C392EA62203DB836006CD1D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C3FB57A7204028870007288D /* CartRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -261,6 +266,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3FB57AA2040782C0007288D /* moltin.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,6 +319,7 @@
 				C3715BCA203EE6BB00287C1B /* Requests.swift */,
 				C3434C0E203DDA0500883C84 /* MoltinRequest.swift */,
 				C3715BE9203F1A3900287C1B /* MoltinAuth.swift */,
+				C3FB57A7204028870007288D /* CartRequest.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -341,6 +348,7 @@
 				C392EA69203DB849006CD1D0 /* Examples */,
 				C392EA6A203DB84E006CD1D0 /* Tests */,
 				C392E9AB203DB600006CD1D0 /* Products */,
+				C3FB57A92040782C0007288D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -376,11 +384,12 @@
 		C392EA13203DB7EB006CD1D0 /* moltin iOS Tests */ = {
 			isa = PBXGroup;
 			children = (
-				C392EA14203DB7EB006CD1D0 /* moltin_iOS_Tests.swift */,
+				C392EA14203DB7EB006CD1D0 /* MoltinTests.swift */,
 				C392EA16203DB7EB006CD1D0 /* Info.plist */,
-				C38141FD203DCFC400B9FDA3 /* ProductRequestTests.swift */,
+				C38141FD203DCFC400B9FDA3 /* RequestTests.swift */,
 				C3715BDF203EE8EE00287C1B /* HTTPMock.swift */,
 				C3715BEE203F53A000287C1B /* AuthTests.swift */,
+				C3715C0D204014CA00287C1B /* TreeRequest.swift */,
 			);
 			path = "moltin iOS Tests";
 			sourceTree = "<group>";
@@ -446,6 +455,13 @@
 				C392EA5F203DB836006CD1D0 /* moltin tvOS Tests */,
 			);
 			path = Tests;
+			sourceTree = "<group>";
+		};
+		C3FB57A92040782C0007288D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -816,6 +832,7 @@
 				C3715BE5203EE93900287C1B /* URLSession.swift in Sources */,
 				C3434C1D203DDAFF00883C84 /* Error.swift in Sources */,
 				C3715BD1203EE6D400287C1B /* Product.swift in Sources */,
+				C3FB57A8204028870007288D /* CartRequest.swift in Sources */,
 				C3715BFC203F59A100287C1B /* Currency.swift in Sources */,
 				C318D02B203EC50200B7A81E /* Parser.swift in Sources */,
 				C3434C22203DDB1F00883C84 /* Config.swift in Sources */,
@@ -902,8 +919,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C392EA15203DB7EB006CD1D0 /* moltin_iOS_Tests.swift in Sources */,
-				C38141FE203DCFC400B9FDA3 /* ProductRequestTests.swift in Sources */,
+				C392EA15203DB7EB006CD1D0 /* MoltinTests.swift in Sources */,
+				C3715C0F204014F400287C1B /* TreeRequest.swift in Sources */,
+				C38141FE203DCFC400B9FDA3 /* RequestTests.swift in Sources */,
 				C3715BF4203F542600287C1B /* AuthTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

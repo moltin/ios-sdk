@@ -6,14 +6,13 @@
 //
 
 import UIKit
-
 import moltin
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
 
     var window: UIWindow?
-
+    let moltin = Moltin(withClientID: "bJp5DRgPSrXFCft3AEWeJpX3pNU7A6dc0cfgi7K9Yd")
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -22,7 +21,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
         splitViewController.delegate = self
         
-        let moltin = Moltin(withClientID: "12345")
+        self.moltin.product.all { (result) in
+            switch result {
+                case .success(let response):
+                    print(response.data)
+                case .failure(let error):
+                    print(error)
+            }
+        }
         
         return true
     }

@@ -9,6 +9,9 @@ import Foundation
 
 public enum MoltinError : Error {
     case couldNotAuthenticate
+    case couldNotSetData
+    case couldNotParseData
     case unacceptableRequest
     case noData
+    case referenceLost
 }

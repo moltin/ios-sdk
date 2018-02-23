@@ -10,7 +10,7 @@ import XCTest
 @testable
 import moltin
 
-class moltin_iOS_Tests: XCTestCase {
+class MoltinTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
@@ -23,33 +23,33 @@ class moltin_iOS_Tests: XCTestCase {
     }
     
     func testClientIDSetup() {
+        let config = MoltinConfig.default(withClientID: "12345")
         let moltin = Moltin(withClientID: "12345")
-        XCTAssert(moltin.config.clientID == "12345")
+        XCTAssert(moltin.config == config)
     }
     
     func testDefaultLocale() {
-        let currentLocale = Locale.current
+        let config = MoltinConfig.default(withClientID: "12345", withLocale: Locale.current)
         let moltin = Moltin(withClientID: "12345")
-        XCTAssert(moltin.config.locale == currentLocale)
+        XCTAssert(moltin.config == config)
     }
     
     func testCustomLocale() {
         let locale = Locale(identifier: "fr_FR")
         let config = MoltinConfig.default(withClientID: "12345", withLocale: locale)
         let moltin = Moltin(withClientID: "12345", withConfiguration: config)
-        XCTAssert(moltin.config.locale == locale)
+        XCTAssert(moltin.config == config)
     }
     
     func testHTTPHandlesIncorrectConfig() {
         let moltin = Moltin(withClientID: "12345")
-        let request = moltin.product
         let session = MockURLSession()
-        request.http = MockedMoltinHTTP(withSession: session)
+        let http = MockedMoltinHTTP(withSession: session)
         
-        XCTAssertThrowsError(try request.http.buildURLRequest(
+        XCTAssertThrowsError(try http.buildURLRequest(
             withConfiguration: moltin.config,
             withPath: "/test",
-            withQueryParameters:request.query.toURLQueryItems()
+            withQueryParameters:[]
         )) { (error) -> Void in
             XCTAssertEqual(error as? MoltinError, MoltinError.unacceptableRequest)
         }
@@ -57,12 +57,12 @@ class moltin_iOS_Tests: XCTestCase {
     
     func testHTTPHandlesCorrectConfig() {
         let moltin = Moltin(withClientID: "12345")
-        let request = moltin.product
+        let http = MoltinHTTP(withSession: MockURLSession())
         
-        let urlRequest = try? request.http.buildURLRequest(
+        let urlRequest = try? http.buildURLRequest(
             withConfiguration: moltin.config,
             withPath: "/test",
-            withQueryParameters:request.query.toURLQueryItems()
+            withQueryParameters:[]
         )
         XCTAssertNotNil(urlRequest)
     }

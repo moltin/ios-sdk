@@ -44,3 +44,13 @@ public struct MoltinConfig {
             locale: locale)
     }
 }
+
+extension MoltinConfig: Equatable {}
+
+public func ==(lhs: MoltinConfig, rhs: MoltinConfig) -> Bool {
+    return lhs.clientID == rhs.clientID &&
+        lhs.scheme == rhs.scheme &&
+        lhs.host == rhs.host &&
+        lhs.version == rhs.version &&
+        lhs.locale == rhs.locale
+}

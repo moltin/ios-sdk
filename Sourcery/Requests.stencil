@@ -1,72 +1,12 @@
 // sourcery:file:Requests.swift
 {% for case in type.MoltinAPIEndpoints.cases %}
+
 // MARK: {{ case.name|upperFirstLetter }}Request - AutoMoltinRequest
 
-public class {{ case.name|upperFirstLetter }}Request: MoltinRequest {
-
-    private var endpoint: String = "{{ case.annotations.path }}"
-
-    public typealias DefaultCollectionRequestHandler = CollectionRequestHandler<[{{ case.annotations.model }}]>
-    public typealias DefaultObjectRequestHandler = ObjectRequestHandler<{{ case.annotations.model }}>
-    
-
-    /*
-        Return all instances of type {{ case.name }}
-
-        - parameters:
-            - completionHandler: The handler to be called on success or failure
-    */
-    public func all(completionHandler: @escaping DefaultCollectionRequestHandler) {
-        super.list(withPath: "\(self.endpoint)", completionHandler: completionHandler)
-    }
-
-    {% if case|annotated:"hasCustomType" %}    
-
-    public func all<T: Codable>(completionHandler: @escaping CollectionRequestHandler<[T]>) {
-        super.list(withPath: "\(self.endpoint)", completionHandler: completionHandler)
-    }
-
-    {% endif %}
-    
-    /*
-        Return get an instance of {{ case.name }} by `id`
-
-        - parameters:
-            - forID: The ID of the object
-            - completionHandler: The handler to be called on success or failure
-    */
-    public func get(forID id: String, completionHandler: @escaping DefaultObjectRequestHandler) {
-        super.get(withPath: "\(self.endpoint)/\(id)", completionHandler: completionHandler)
-    }
-
-    {% if case|annotated:"hasCustomType" %}    
-
-    public func get<T: Codable>(forID id: String, completionHandler: @escaping ObjectRequestHandler<T>) {
-        super.get(withPath: "\(self.endpoint)/\(id)", completionHandler: completionHandler)
-    }
-
-    {% endif %}
-
-    {% if case|annotated:"hasTree" %}
-    /*
-        Return the tree of a resource
-
-        - parameters:
-            - completionHandler: The handler to be called on success or failure
-    */
-    public func tree(completionHandler: @escaping DefaultCollectionRequestHandler) {
-        super.list(withPath: "\(self.endpoint)/tree", completionHandler: completionHandler)
-    }
-
-    {% if case|annotated:"hasCustomType" %}    
-
-    public func tree<T: Codable>(completionHandler: @escaping CollectionRequestHandler<[T]>) {
-        super.list(withPath: "\(self.endpoint)/tree", completionHandler: completionHandler)
-    }
-
-    {% endif %}
-
-    {% endif %}
+public class {{ case.name|upperFirstLetter }}Request: MoltinRequest, Request{% if case|annotated:"hasCustomType" %}, CustomTypeRequest{% endif %}{% if case|annotated:"hasTree" %}, TreeRequest{% if case|annotated:"hasCustomType" %}, CustomTypeTreeRequest{% endif %}{% endif %}
+{
+    public var endpoint: String = "{{ case.annotations.path }}"
+    public typealias ContainedType = {{ case.annotations.model }}
 }
 {% endfor %}
 // sourcery:end

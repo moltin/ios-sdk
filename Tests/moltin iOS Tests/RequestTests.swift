@@ -39,7 +39,7 @@ class Author: Codable, Equatable {
     }
 }
 
-class ProductRequestTests: XCTestCase {
+class RequestTests: XCTestCase {
     
     let productJson = """
                 {
@@ -74,6 +74,7 @@ class ProductRequestTests: XCTestCase {
             case .success(let response):
                 let products: [Product]? = []
                 XCTAssert(type(of: response.data) == type(of: products))
+                XCTAssert(response.data?.count != 0)
                 break
             case .failure(_):
                 XCTFail("Response returned error")
@@ -127,6 +128,7 @@ class ProductRequestTests: XCTestCase {
             case .success(let response):
                 let products: [MyCustomProduct]? = []
                 XCTAssert(type(of: response.data) == type(of: products))
+                XCTAssert(response.data?.count != 0)
                 break
             case .failure(_):
                 XCTFail("Response returned error")
