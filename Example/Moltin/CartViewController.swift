@@ -143,6 +143,15 @@ class CartViewController: UIViewController {
                 }
                 
                 print("Present payment for order: \(order.id)")
+                Moltin.checkout.pay(forOrderID: order.id, withPaymentMethod: .stripeToken(token: "tok_visa"), completion: { (result) in
+                    switch result {
+                    case .success(_):
+                        print("Success")
+                    case .failure(let error):
+                        print(error)
+                    }
+                    self.navigationController?.popToRootViewController(animated: true)
+                })
             }
         }.start()
     }
