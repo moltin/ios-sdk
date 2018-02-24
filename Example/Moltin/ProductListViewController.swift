@@ -42,7 +42,7 @@ class ProductListViewController: UICollectionViewController {
     }
     
     private func getProducts() {
-        let query = MoltinQuery(offset: nil, limit: nil, sort: nil, filter: nil, include: [.files, .brands, .categories])
+        let query = MoltinQuery(offset: nil, limit: nil, sort: nil, filter: nil, include: [.files, .brands, .categories, .main_image])
         
         Moltin.product.list(withQuery: query) { result in
             switch result {
@@ -64,7 +64,7 @@ class ProductListViewController: UICollectionViewController {
         cell.categoryNameLabel.text = category.name
         cell.priceLabel.text = product.displayPriceWithTax?.formatted
         
-        if let file = product.files.first {
+        if let file = product.main_image {
             cell.productImageView.af_setImage(withURL: file.url)
         }
         

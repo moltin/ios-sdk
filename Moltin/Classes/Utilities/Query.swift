@@ -15,6 +15,7 @@ public struct MoltinQuery {
         case collections
         case files
         case products
+        case main_image
     }
     
     let offset: Int?

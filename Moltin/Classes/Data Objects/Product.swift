@@ -42,6 +42,7 @@ public struct Product {
     public var prices: [Price] = []
     public var displayPriceWithTax: DisplayPrice?
     public var displayPriceWithoutTax: DisplayPrice?
+    public var main_image: File?
 }
 
 extension Product: JSONAPIDecodable {
@@ -100,5 +101,17 @@ extension Product: JSONAPIDecodable {
         self.collections = relatedObjects(fromJSON: json, withKeyPath: "relationships.collections.data", includedJSON: includedJSON)
         self.categories = relatedObjects(fromJSON: json, withKeyPath: "relationships.categories.data", includedJSON: includedJSON)
         self.brands = relatedObjects(fromJSON: json, withKeyPath: "relationships.brands.data", includedJSON: includedJSON)
+        
+        if let main_image: JSON = "relationships.main_image.data" <~~ json {
+            if let fileJSON = includedJSON?.first(where: { (key, value) -> Bool in
+                if key == main_image["id"] as? String {
+                    return true
+                }
+                return false
+            })?.value {
+                self.main_image = File(json: fileJSON, includedJSON: nil)
+            }
+        }
+        
     }
 }
