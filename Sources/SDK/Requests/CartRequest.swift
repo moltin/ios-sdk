@@ -16,7 +16,7 @@ public class Customer: Codable {
 public class Order: Codable { }
 public class CustomItem: Codable { }
 
-public class CartRequest : MoltinRequest, Request {
+public class CartRequest : MoltinRequest {
     public var endpoint: String = "/carts"
     public typealias ContainedType = Cart
     

@@ -23,80 +23,80 @@ public enum Result<T> {
     case failure(error: Error)
 }
 
-public protocol BaseRequest {
-    func list<T>(withPath path: String, completionHandler: @escaping CollectionRequestHandler<T>)
-    func get<T: Codable>(withPath path: String, completionHandler: @escaping ObjectRequestHandler<T>)
-    
-    func post<T: Codable>(withPath path: String, withData data: [String: Any], completionHandler: @escaping ObjectRequestHandler<T>)
-    func put<T: Codable>(withPath path: String, withData data: [String: Any], completionHandler: @escaping ObjectRequestHandler<T>)
-    func delete<T: Codable>(withPath path: String, completionHandler: @escaping ObjectRequestHandler<T>)
-}
+//public protocol BaseRequest {
+//    func list<T>(withPath path: String, completionHandler: @escaping CollectionRequestHandler<T>)
+//    func get<T: Codable>(withPath path: String, completionHandler: @escaping ObjectRequestHandler<T>)
+//    
+//    func post<T: Codable>(withPath path: String, withData data: [String: Any], completionHandler: @escaping ObjectRequestHandler<T>)
+//    func put<T: Codable>(withPath path: String, withData data: [String: Any], completionHandler: @escaping ObjectRequestHandler<T>)
+//    func delete<T: Codable>(withPath path: String, completionHandler: @escaping ObjectRequestHandler<T>)
+//}
+//
+//public protocol Request: BaseRequest {
+//    var endpoint: String { get }
+//    
+//    associatedtype ContainedType: Codable
+//    
+//    typealias DefaultCollectionRequestHandler = CollectionRequestHandler<[ContainedType]>
+//    typealias DefaultObjectRequestHandler = ObjectRequestHandler<ContainedType>
+//    
+//    func all(completionHandler: @escaping DefaultCollectionRequestHandler)
+//    func get(forID id: String, completionHandler: @escaping DefaultObjectRequestHandler)
+//}
+//
+//extension Request {
+//    
+//    public func all(completionHandler: @escaping DefaultCollectionRequestHandler) {
+//        self.list(withPath: "\(self.endpoint)", completionHandler: completionHandler)
+//    }
+//    
+//    public func get(forID id: String, completionHandler: @escaping DefaultObjectRequestHandler) {
+//        self.get(withPath: "\(self.endpoint)/\(id)", completionHandler: completionHandler)
+//    }
+//    
+//}
+//
+//public protocol CustomTypeRequest: Request {
+//    func all<T: Codable>(completionHandler: @escaping CollectionRequestHandler<[T]>)
+//    func get<T: Codable>(forID id: String, completionHandler: @escaping ObjectRequestHandler<T>)
+//}
+//
+//extension CustomTypeRequest {
+//    
+//    public func all<T: Codable>(completionHandler: @escaping CollectionRequestHandler<[T]>) {
+//        self.list(withPath: "\(self.endpoint)", completionHandler: completionHandler)
+//    }
+//    
+//    public func get<T: Codable>(forID id: String, completionHandler: @escaping ObjectRequestHandler<T>) {
+//        self.get(withPath: "\(self.endpoint)/\(id)", completionHandler: completionHandler)
+//    }
+//}
+//
+//public protocol TreeRequest: Request {
+//    func tree(completionHandler: @escaping DefaultCollectionRequestHandler)
+//}
+//
+//extension TreeRequest {
+//    
+//    public func tree(completionHandler: @escaping DefaultCollectionRequestHandler) {
+//        self.list(withPath: "\(self.endpoint)/tree", completionHandler: completionHandler)
+//    }
+//    
+//}
+//
+//public protocol CustomTypeTreeRequest: Request {
+//    func tree<T: Codable>(completionHandler: @escaping CollectionRequestHandler<[T]>)
+//}
+//
+//extension CustomTypeTreeRequest {
+//    
+//    public func tree<T: Codable>(completionHandler: @escaping CollectionRequestHandler<[T]>) {
+//        self.list(withPath: "\(self.endpoint)/tree", completionHandler: completionHandler)
+//    }
+//    
+//}
 
-public protocol Request: BaseRequest {
-    var endpoint: String { get }
-    
-    associatedtype ContainedType: Codable
-    
-    typealias DefaultCollectionRequestHandler = CollectionRequestHandler<[ContainedType]>
-    typealias DefaultObjectRequestHandler = ObjectRequestHandler<ContainedType>
-    
-    func all(completionHandler: @escaping DefaultCollectionRequestHandler)
-    func get(forID id: String, completionHandler: @escaping DefaultObjectRequestHandler)
-}
-
-extension Request {
-    
-    public func all(completionHandler: @escaping DefaultCollectionRequestHandler) {
-        self.list(withPath: "\(self.endpoint)", completionHandler: completionHandler)
-    }
-    
-    public func get(forID id: String, completionHandler: @escaping DefaultObjectRequestHandler) {
-        self.get(withPath: "\(self.endpoint)/\(id)", completionHandler: completionHandler)
-    }
-    
-}
-
-public protocol CustomTypeRequest: Request {
-    func all<T: Codable>(completionHandler: @escaping CollectionRequestHandler<[T]>)
-    func get<T: Codable>(forID id: String, completionHandler: @escaping ObjectRequestHandler<T>)
-}
-
-extension CustomTypeRequest {
-    
-    public func all<T: Codable>(completionHandler: @escaping CollectionRequestHandler<[T]>) {
-        self.list(withPath: "\(self.endpoint)", completionHandler: completionHandler)
-    }
-    
-    public func get<T: Codable>(forID id: String, completionHandler: @escaping ObjectRequestHandler<T>) {
-        self.get(withPath: "\(self.endpoint)/\(id)", completionHandler: completionHandler)
-    }
-}
-
-public protocol TreeRequest: Request {
-    func tree(completionHandler: @escaping DefaultCollectionRequestHandler)
-}
-
-extension TreeRequest {
-    
-    public func tree(completionHandler: @escaping DefaultCollectionRequestHandler) {
-        self.list(withPath: "\(self.endpoint)/tree", completionHandler: completionHandler)
-    }
-    
-}
-
-public protocol CustomTypeTreeRequest: Request {
-    func tree<T: Codable>(completionHandler: @escaping CollectionRequestHandler<[T]>)
-}
-
-extension CustomTypeTreeRequest {
-    
-    public func tree<T: Codable>(completionHandler: @escaping CollectionRequestHandler<[T]>) {
-        self.list(withPath: "\(self.endpoint)/tree", completionHandler: completionHandler)
-    }
-    
-}
-
-public class MoltinRequest: BaseRequest {
+public class MoltinRequest {
     
     internal var config: MoltinConfig
     internal var http: MoltinHTTP
@@ -117,7 +117,7 @@ public class MoltinRequest: BaseRequest {
     
     // MARK: - Default Calls
     
-    public func list<T>(withPath path: String, completionHandler: @escaping CollectionRequestHandler<T>) {
+    func list<T>(withPath path: String, completionHandler: @escaping CollectionRequestHandler<T>) {
         let urlRequest: URLRequest
         do {
             urlRequest = try self.http.buildURLRequest(
@@ -139,7 +139,7 @@ public class MoltinRequest: BaseRequest {
         }
     }
     
-    public func get<T: Codable>(withPath path: String, completionHandler: @escaping ObjectRequestHandler<T>) {
+    func get<T: Codable>(withPath path: String, completionHandler: @escaping ObjectRequestHandler<T>) {
         let urlRequest: URLRequest
         do {
             urlRequest = try self.http.buildURLRequest(
@@ -157,7 +157,7 @@ public class MoltinRequest: BaseRequest {
         }
     }
     
-    public func post<T: Codable>(withPath path: String, withData data: [String : Any], completionHandler: @escaping ObjectRequestHandler<T>) {
+    func post<T: Codable>(withPath path: String, withData data: [String : Any], completionHandler: @escaping ObjectRequestHandler<T>) {
         let urlRequest: URLRequest
         do {
             urlRequest = try self.http.buildURLRequest(
@@ -177,7 +177,7 @@ public class MoltinRequest: BaseRequest {
         }
     }
     
-    public func put<T: Codable>(withPath path: String, withData data: [String : Any], completionHandler: @escaping ObjectRequestHandler<T>) {
+    func put<T: Codable>(withPath path: String, withData data: [String : Any], completionHandler: @escaping ObjectRequestHandler<T>) {
         let urlRequest: URLRequest
         do {
             urlRequest = try self.http.buildURLRequest(
@@ -197,7 +197,7 @@ public class MoltinRequest: BaseRequest {
         }
     }
     
-    public func delete<T: Codable>(withPath path: String, completionHandler: @escaping ObjectRequestHandler<T>) {
+    func delete<T: Codable>(withPath path: String, completionHandler: @escaping ObjectRequestHandler<T>) {
         let urlRequest: URLRequest
         do {
             urlRequest = try self.http.buildURLRequest(

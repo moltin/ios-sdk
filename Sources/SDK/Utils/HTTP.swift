@@ -45,7 +45,7 @@ class MoltinHTTP {
         
         if let data = data {
             do {
-                request.httpBody = try JSONSerialization.data(withJSONObject: data ?? [], options: [])
+                request.httpBody = try JSONSerialization.data(withJSONObject: data, options: [])
             } catch {
                 throw MoltinError.couldNotSetData
             }

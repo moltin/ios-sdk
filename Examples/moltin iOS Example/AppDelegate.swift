@@ -23,10 +23,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         
         self.moltin.product.all { (result) in
             switch result {
-                case .success(let response):
-                    print(response.data)
-                case .failure(let error):
-                    print(error)
+            case .success(let response):
+                print(response.data)
+            case .failure(let error):
+                print(error)
+            }
+        }
+        
+        self.moltin.product.all { (result) in
+            switch result {
+            case .success(let response):
+                print(response.data)
+            case .failure(let error):
+                print(error)
             }
         }
         
