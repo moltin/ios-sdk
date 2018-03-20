@@ -8,9 +8,10 @@
 import Foundation
 
 public class Brand: Codable {
-    var id: String
-    
-    internal init(withID id: String) {
-        self.id = id
-    }
+    public let id: String
+    public let type: String
+    public let name: String
+    public let slug: String
+    public let description: String
+    public let status: String
 }
