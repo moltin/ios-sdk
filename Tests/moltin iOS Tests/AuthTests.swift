@@ -38,7 +38,7 @@ class AuthRequestTests: XCTestCase {
         
         let expectationToFulfill = expectation(description: "ProductRequest calls the method and runs the callback closure")
         
-        productRequest.all { (result) in
+        let _ = productRequest.all { (result) in
             switch result {
             case .success(_):
                 XCTAssertTrue(true)
@@ -65,7 +65,7 @@ class AuthRequestTests: XCTestCase {
         
         let expectationToFulfill = expectation(description: "ProductRequest calls the method and runs the callback closure")
         
-        productRequest.all { (result) in
+        let _ = productRequest.all { (result) in
             switch result {
             case .success(_):
                 XCTFail()

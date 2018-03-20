@@ -14,13 +14,20 @@ public typealias ObjectRequestHandler<T: Codable> = (Result<T>) -> ()
 class MoltinHTTP {
     
     let session: URLSessionProtocol
+    let dataSerializer: DataSerializer
     
-    init(withSession session: URLSessionProtocol) {
+    init(withSession session: URLSessionProtocol,
+         withSerializer serializer: DataSerializer = MoltinDataSerializer()) {
         self.session = session
+        self.dataSerializer = serializer
     }
     
-    func executeRequest(_ request: URLRequest, completionHandler: @escaping HTTPRequestHandler) {        
-        self.session.dataTask(with: request) { (data, response, error) in
+    func executeRequest(_ request: URLRequest?, completionHandler: @escaping HTTPRequestHandler) {
+        guard let urlRequest = request else {
+            completionHandler(nil, nil, MoltinError.unacceptableRequest)
+            return
+        }
+        self.session.dataTask(with: urlRequest) { (data, response, error) in
             completionHandler(data, response, error)
         }.resume()
     }
@@ -44,11 +51,7 @@ class MoltinHTTP {
         request.httpMethod = method.description
         
         if let data = data {
-            do {
-                request.httpBody = try JSONSerialization.data(withJSONObject: data, options: [])
-            } catch {
-                throw MoltinError.couldNotSetData
-            }
+            request.httpBody = try self.dataSerializer.serialize(data)
         }
         
         return request
@@ -75,17 +78,25 @@ class MoltinHTTP {
         return urlComponents.url
     }
     
-    func configureRequest(_ urlRequest: URLRequest, withAuth auth: MoltinAuth) -> URLRequest {
+    func configureRequest(_ urlRequest: URLRequest, withToken token: String?, withConfig config: MoltinConfig?) -> URLRequest {
         var mutableRequest = urlRequest
         
-        mutableRequest.addValue("Bearer " + (auth.token ?? ""), forHTTPHeaderField: "Authorization")
+        if let token = token {
+            mutableRequest.addValue("Bearer " + token, forHTTPHeaderField: "Authorization")
+        }
         mutableRequest.addValue("application/json", forHTTPHeaderField: "Accept")
         mutableRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        mutableRequest.addValue(auth.config.locale.languageCode ?? "", forHTTPHeaderField: "X-MOLTIN-LANGUAGE")
-        mutableRequest.addValue(auth.config.locale.identifier, forHTTPHeaderField: "X-MOLTIN-LOCALE")
-        mutableRequest.addValue(auth.config.locale.currencyCode ?? "", forHTTPHeaderField: "X-MOLTIN-CURRENCY")
-        
+        if let config = config {
+            mutableRequest.addValue(config.locale.identifier, forHTTPHeaderField: "X-MOLTIN-LOCALE")
+            if let languageCode = config.locale.languageCode {
+                mutableRequest.addValue(languageCode, forHTTPHeaderField: "X-MOLTIN-LANGUAGE")
+            }
+            
+            if let currencyCode = config.locale.currencyCode {
+                mutableRequest.addValue(currencyCode, forHTTPHeaderField: "X-MOLTIN-CURRENCY")
+            }
+        }
         
         return mutableRequest
     }

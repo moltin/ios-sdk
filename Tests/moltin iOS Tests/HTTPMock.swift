@@ -39,6 +39,13 @@ class MockedMoltinHTTP: MoltinHTTP {
     }
 }
 
+class MockedMoltinDataSerializer: DataSerializer {
+    
+    func serialize(_ data: Any) throws -> Data {
+        throw MoltinError.couldNotSetData
+    }
+}
+
 
 class MockFactory {
     
@@ -48,6 +55,97 @@ class MockFactory {
         "expires": 1001010
     }
     """
+    
+    static func mockedBrandRequest(withJSON json: String) -> (Moltin, BrandRequest) {
+        let moltin = Moltin(withClientID: "12345")
+        let request = moltin.brand
+        let mockSession = MockURLSession()
+        mockSession.nextData = json.data(using: .utf8)!
+        request.http = MoltinHTTP(withSession: mockSession)
+        let mockAuthSession = MockURLSession()
+        mockAuthSession.nextData = MockFactory.authJSON.data(using: .utf8)!
+        request.auth.http = MoltinHTTP(withSession: mockAuthSession)
+        
+        return (moltin, request)
+    }
+    
+    static func mockedCartRequest(withJSON json: String) -> (Moltin, CartRequest) {
+        let moltin = Moltin(withClientID: "12345")
+        let request = moltin.cart
+        let mockSession = MockURLSession()
+        mockSession.nextData = json.data(using: .utf8)!
+        request.http = MoltinHTTP(withSession: mockSession)
+        let mockAuthSession = MockURLSession()
+        mockAuthSession.nextData = MockFactory.authJSON.data(using: .utf8)!
+        request.auth.http = MoltinHTTP(withSession: mockAuthSession)
+        
+        return (moltin, request)
+    }
+    
+    static func mockedCollectionRequest(withJSON json: String) -> (Moltin, CollectionRequest) {
+        let moltin = Moltin(withClientID: "12345")
+        let request = moltin.collection
+        let mockSession = MockURLSession()
+        mockSession.nextData = json.data(using: .utf8)!
+        request.http = MoltinHTTP(withSession: mockSession)
+        let mockAuthSession = MockURLSession()
+        mockAuthSession.nextData = MockFactory.authJSON.data(using: .utf8)!
+        request.auth.http = MoltinHTTP(withSession: mockAuthSession)
+        
+        return (moltin, request)
+    }
+    
+    static func mockedCurrencyRequest(withJSON json: String) -> (Moltin, CurrencyRequest) {
+        let moltin = Moltin(withClientID: "12345")
+        let request = moltin.currency
+        let mockSession = MockURLSession()
+        mockSession.nextData = json.data(using: .utf8)!
+        request.http = MoltinHTTP(withSession: mockSession)
+        let mockAuthSession = MockURLSession()
+        mockAuthSession.nextData = MockFactory.authJSON.data(using: .utf8)!
+        request.auth.http = MoltinHTTP(withSession: mockAuthSession)
+        
+        return (moltin, request)
+    }
+    
+    static func mockedFileRequest(withJSON json: String) -> (Moltin, FileRequest) {
+        let moltin = Moltin(withClientID: "12345")
+        let request = moltin.file
+        let mockSession = MockURLSession()
+        mockSession.nextData = json.data(using: .utf8)!
+        request.http = MoltinHTTP(withSession: mockSession)
+        let mockAuthSession = MockURLSession()
+        mockAuthSession.nextData = MockFactory.authJSON.data(using: .utf8)!
+        request.auth.http = MoltinHTTP(withSession: mockAuthSession)
+        
+        return (moltin, request)
+    }
+    
+    static func mockedFlowRequest(withJSON json: String) -> (Moltin, FlowRequest) {
+        let moltin = Moltin(withClientID: "12345")
+        let request = moltin.flow
+        let mockSession = MockURLSession()
+        mockSession.nextData = json.data(using: .utf8)!
+        request.http = MoltinHTTP(withSession: mockSession)
+        let mockAuthSession = MockURLSession()
+        mockAuthSession.nextData = MockFactory.authJSON.data(using: .utf8)!
+        request.auth.http = MoltinHTTP(withSession: mockAuthSession)
+        
+        return (moltin, request)
+    }
+    
+    static func mockedCategoryRequest(withJSON json: String) -> (Moltin, CategoryRequest) {
+        let moltin = Moltin(withClientID: "12345")
+        let request = moltin.category
+        let mockSession = MockURLSession()
+        mockSession.nextData = json.data(using: .utf8)!
+        request.http = MoltinHTTP(withSession: mockSession)
+        let mockAuthSession = MockURLSession()
+        mockAuthSession.nextData = MockFactory.authJSON.data(using: .utf8)!
+        request.auth.http = MoltinHTTP(withSession: mockAuthSession)
+        
+        return (moltin, request)
+    }
     
     static func mockedProductRequest(withJSON json: String) -> (Moltin, ProductRequest) {
         // Set up moltin
@@ -68,16 +166,5 @@ class MockFactory {
         return (moltin, productRequest)
     }
     
-    static func mockedBrandRequest(withJSON json: String) -> (Moltin, BrandRequest) {
-        let moltin = Moltin(withClientID: "12345")
-        let request = moltin.brand
-        let mockSession = MockURLSession()
-        mockSession.nextData = json.data(using: .utf8)!
-        request.http = MoltinHTTP(withSession: mockSession)
-        let mockAuthSession = MockURLSession()
-        mockAuthSession.nextData = MockFactory.authJSON.data(using: .utf8)!
-        request.auth.http = MoltinHTTP(withSession: mockAuthSession)
-        
-        return (moltin, request)
-    }
+    
 }

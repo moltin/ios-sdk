@@ -51,7 +51,9 @@ class MoltinTests: XCTestCase {
             withPath: "/test",
             withQueryParameters:[]
         )) { (error) -> Void in
-            XCTAssertEqual(error as? MoltinError, MoltinError.unacceptableRequest)
+            if case MoltinError.unacceptableRequest = error {} else {
+                XCTAssertTrue(false, "error")
+            }
         }
     }
     
@@ -76,10 +78,12 @@ class MoltinTests: XCTestCase {
         
         let expectationToFulfill = expectation(description: "ProductRequest calls the method and runs the callback closure")
         
-        request.get(forID: "test") { (result) in
+        let _ = request.get(forID: "test") { (result) in
             switch result {
             case .failure(let error):
-                XCTAssertEqual(error as? MoltinError, MoltinError.noData)
+                if case MoltinError.noData = error {} else {
+                    XCTAssertTrue(false, "error")
+                }
             default: XCTFail()
             }
             
@@ -102,10 +106,12 @@ class MoltinTests: XCTestCase {
         
         let expectationToFulfill = expectation(description: "ProductRequest calls the method and runs the callback closure")
         
-        request.get(forID: "test") { (result) in
+        let _ = request.get(forID: "test") { (result) in
             switch result {
             case .failure(let error):
-                XCTAssertEqual(error as? MoltinError, MoltinError.unacceptableRequest)
+                if case MoltinError.unacceptableRequest = error {} else {
+                    XCTAssertTrue(false, "error")
+                }
             default: break
             }
             
@@ -128,10 +134,12 @@ class MoltinTests: XCTestCase {
         
         let expectationToFulfill = expectation(description: "ProductRequest calls the method and runs the callback closure")
         
-        request.all { (result) in
+        let _ = request.all { (result) in
             switch result {
             case .failure(let error):
-                XCTAssertEqual(error as? MoltinError, MoltinError.unacceptableRequest)
+                if case MoltinError.unacceptableRequest = error {} else {
+                    XCTAssertTrue(false, "error")
+                }
             default: break
             }
             
@@ -292,6 +300,134 @@ class MoltinTests: XCTestCase {
         XCTAssertNotNil(components)
         XCTAssertNotNil(components?.query)
         XCTAssert(components!.query! == "includes=files,category&sort=key&limit=1&offset=2&filter=eq(test, one)")
+    }
+    
+    func testRequestHandlesNoData() {
+        let moltin = Moltin(withClientID: "12345")
+        let http = MoltinHTTP(withSession: MockURLSession())
+        
+        let urlRequest = try? http.buildURLRequest(
+            withConfiguration: moltin.config,
+            withPath: "/test",
+            withQueryParameters:[]
+        )
+        XCTAssertNotNil(urlRequest)
+        XCTAssertNil(urlRequest?.httpBody)
+    }
+    
+    func testRequestHandlesMalformedData() {
+        let moltin = Moltin(withClientID: "12345")
+        let http = MoltinHTTP(withSession: MockURLSession(), withSerializer: MockedMoltinDataSerializer())
+        
+        XCTAssertThrowsError(try http.buildURLRequest(
+            withConfiguration: moltin.config,
+            withPath: "/test",
+            withQueryParameters:[],
+            withMethod: .GET,
+            withData: [:]
+        )) { (error) -> Void in
+            if case MoltinError.couldNotSetData = error {} else {
+                XCTAssertTrue(false, "error")
+            }
+        }
+    }
+    
+    func testMissingRequest() {
+        let http = MoltinHTTP(withSession: MockURLSession())
+        let completionHandler: HTTPRequestHandler = { (data, response, error) in
+            if error == nil {
+               XCTFail()
+            }
+            if case .unacceptableRequest? = error as? MoltinError {} else {
+                XCTAssertTrue(false, "error")
+            }
+        }
+        
+        http.executeRequest(nil, completionHandler: completionHandler)
+        
+    }
+    
+    func testEmptyLocaleSettings() {
+        let locale = Locale(identifier: "")
+        let config = MoltinConfig.default(withClientID: "12345", withLocale: locale)
+        let http = MoltinHTTP(withSession: MockURLSession())
+        if let urlRequest = try? http.buildURLRequest(
+            withConfiguration: config,
+            withPath: "/test",
+            withQueryParameters:[],
+            withMethod: .GET,
+            withData: [:]
+            ) {
+            let request = http.configureRequest(urlRequest, withToken: nil, withConfig: config)
+            XCTAssertNil(request.allHTTPHeaderFields?["X-MOLTIN-LANGUAGE"])
+            XCTAssertNil(request.allHTTPHeaderFields?["X-MOLTIN-CURRENCY"])
+        } else {
+            XCTFail()
+        }
+    }
+    
+    func testMalformedDataParser() {
+        let parser = MoltinParser()
+        let malformedData = "{'akjsdkla}".data(using: .utf8)!
+        
+        
+        parser.singleObjectHandler(withData: malformedData, withResponse: nil) { (result: Result<Product>) in
+            switch result {
+            case .success(_):
+                XCTFail()
+            case .failure(let error):
+                if case MoltinError.couldNotParseData(_) = error {} else {
+                    XCTAssertTrue(false, "error")
+                }
+            }
+        }
+        
+        parser.collectionHandler(withData: malformedData, withResponse: nil) { (result: Result<PaginatedResponse<Product>>) in
+            switch result {
+            case .success(_):
+                XCTFail()
+            case .failure(let error):
+                if case MoltinError.couldNotParseData(_) = error {} else {
+                    XCTAssertTrue(false, "error")
+                }
+            }
+        }
+    }
+    
+    func testParamsAreNotShared() {
+        let moltin = Moltin(withClientID: "12345")
+        var request = moltin.product
+            .include([.files, .category])
+            .filter(operator: .eq, key: "test", value: "one")
+            .limit(1)
+            .offset(2)
+            .sort("key")
+        
+        let urlRequest = try? request.http.buildURLRequest(
+            withConfiguration: moltin.config,
+            withPath: "/test",
+            withQueryParameters:request.query.toURLQueryItems()
+        )
+        XCTAssertNotNil(urlRequest)
+        
+        let components = URLComponents(url: urlRequest!.url!, resolvingAgainstBaseURL: false)
+        XCTAssertNotNil(components)
+        XCTAssertNotNil(components?.query)
+        XCTAssert(components!.query! == "includes=files,category&sort=key&limit=1&offset=2&filter=eq(test, one)")
+        
+        request = moltin.product.limit(5).offset(8)
+        let secondUrlRequest = try? request.http.buildURLRequest(
+            withConfiguration: moltin.config,
+            withPath: "/test",
+            withQueryParameters:request.query.toURLQueryItems()
+        )
+        XCTAssertNotNil(urlRequest)
+        
+        let secondComponents = URLComponents(url: secondUrlRequest!.url!, resolvingAgainstBaseURL: false)
+        XCTAssertNotNil(secondComponents)
+        XCTAssertNotNil(secondComponents?.query)
+        
+        XCTAssert(secondComponents!.query! == "limit=5&offset=8")
     }
     
 }

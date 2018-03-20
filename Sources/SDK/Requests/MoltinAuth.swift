@@ -62,18 +62,14 @@ class MoltinAuth {
             return
         }
         
-        urlRequest.httpMethod = "POST"
-        urlRequest.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
-        urlRequest.setValue("application/json", forHTTPHeaderField: "Accept")
-        
-        urlRequest.setValue(self.config.locale.languageCode ?? "", forHTTPHeaderField: "X-MOLTIN-LANGUAGE")
-        urlRequest.setValue(self.config.locale.identifier ?? "", forHTTPHeaderField: "X-MOLTIN-LOCALE")
-        urlRequest.setValue(self.config.locale.currencyCode ?? "", forHTTPHeaderField: "X-MOLTIN-CURRENCY")
+        var request = self.http.configureRequest(urlRequest, withToken: nil, withConfig: self.config)
+        request.httpMethod = "POST"
+        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         
         let data = "client_id=\(self.config.clientID)&grant_type=implicit".data(using: .utf8, allowLossyConversion: false)
-        urlRequest.httpBody = data
+        request.httpBody = data
         
-        self.http.executeRequest(urlRequest) { (data, response, error) in
+        self.http.executeRequest(request) { (data, response, error) in
             if let error = error {
                 completionHandler(.failure(error: error))
                 return

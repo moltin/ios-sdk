@@ -1,0 +1,19 @@
+//
+//  DataSerializer.swift
+//  moltin iOS
+//
+//  Created by Craig Tweedy on 26/02/2018.
+//
+
+import Foundation
+
+protocol DataSerializer {
+    func serialize(_ data: Any) throws -> Data
+}
+
+class MoltinDataSerializer: DataSerializer {
+    
+    func serialize(_ data: Any) throws -> Data {
+        return try JSONSerialization.data(withJSONObject: data, options: [])
+    }
+}

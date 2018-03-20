@@ -23,79 +23,6 @@ public enum Result<T> {
     case failure(error: Error)
 }
 
-//public protocol BaseRequest {
-//    func list<T>(withPath path: String, completionHandler: @escaping CollectionRequestHandler<T>)
-//    func get<T: Codable>(withPath path: String, completionHandler: @escaping ObjectRequestHandler<T>)
-//    
-//    func post<T: Codable>(withPath path: String, withData data: [String: Any], completionHandler: @escaping ObjectRequestHandler<T>)
-//    func put<T: Codable>(withPath path: String, withData data: [String: Any], completionHandler: @escaping ObjectRequestHandler<T>)
-//    func delete<T: Codable>(withPath path: String, completionHandler: @escaping ObjectRequestHandler<T>)
-//}
-//
-//public protocol Request: BaseRequest {
-//    var endpoint: String { get }
-//    
-//    associatedtype ContainedType: Codable
-//    
-//    typealias DefaultCollectionRequestHandler = CollectionRequestHandler<[ContainedType]>
-//    typealias DefaultObjectRequestHandler = ObjectRequestHandler<ContainedType>
-//    
-//    func all(completionHandler: @escaping DefaultCollectionRequestHandler)
-//    func get(forID id: String, completionHandler: @escaping DefaultObjectRequestHandler)
-//}
-//
-//extension Request {
-//    
-//    public func all(completionHandler: @escaping DefaultCollectionRequestHandler) {
-//        self.list(withPath: "\(self.endpoint)", completionHandler: completionHandler)
-//    }
-//    
-//    public func get(forID id: String, completionHandler: @escaping DefaultObjectRequestHandler) {
-//        self.get(withPath: "\(self.endpoint)/\(id)", completionHandler: completionHandler)
-//    }
-//    
-//}
-//
-//public protocol CustomTypeRequest: Request {
-//    func all<T: Codable>(completionHandler: @escaping CollectionRequestHandler<[T]>)
-//    func get<T: Codable>(forID id: String, completionHandler: @escaping ObjectRequestHandler<T>)
-//}
-//
-//extension CustomTypeRequest {
-//    
-//    public func all<T: Codable>(completionHandler: @escaping CollectionRequestHandler<[T]>) {
-//        self.list(withPath: "\(self.endpoint)", completionHandler: completionHandler)
-//    }
-//    
-//    public func get<T: Codable>(forID id: String, completionHandler: @escaping ObjectRequestHandler<T>) {
-//        self.get(withPath: "\(self.endpoint)/\(id)", completionHandler: completionHandler)
-//    }
-//}
-//
-//public protocol TreeRequest: Request {
-//    func tree(completionHandler: @escaping DefaultCollectionRequestHandler)
-//}
-//
-//extension TreeRequest {
-//    
-//    public func tree(completionHandler: @escaping DefaultCollectionRequestHandler) {
-//        self.list(withPath: "\(self.endpoint)/tree", completionHandler: completionHandler)
-//    }
-//    
-//}
-//
-//public protocol CustomTypeTreeRequest: Request {
-//    func tree<T: Codable>(completionHandler: @escaping CollectionRequestHandler<[T]>)
-//}
-//
-//extension CustomTypeTreeRequest {
-//    
-//    public func tree<T: Codable>(completionHandler: @escaping CollectionRequestHandler<[T]>) {
-//        self.list(withPath: "\(self.endpoint)/tree", completionHandler: completionHandler)
-//    }
-//    
-//}
-
 public class MoltinRequest {
     
     internal var config: MoltinConfig
@@ -110,14 +37,17 @@ public class MoltinRequest {
     public init(withConfiguration configuration: MoltinConfig) {
         self.config = configuration
         self.http = MoltinHTTP(withSession: URLSession.shared)
-        self.parser = MoltinParser()
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601Full)
+    
+        self.parser = MoltinParser(withDecoder: decoder)
         self.query = MoltinQuery()
         self.auth = MoltinAuth(withConfiguration: self.config)
     }
     
     // MARK: - Default Calls
     
-    func list<T>(withPath path: String, completionHandler: @escaping CollectionRequestHandler<T>) {
+    func list<T>(withPath path: String, completionHandler: @escaping CollectionRequestHandler<T>) -> Self {
         let urlRequest: URLRequest
         do {
             urlRequest = try self.http.buildURLRequest(
@@ -127,19 +57,17 @@ public class MoltinRequest {
             )
         } catch {
             completionHandler(.failure(error: error))
-            return
+            return self
         }
         
         self.send(withURLRequest: urlRequest) { [weak self] (data, response, error) in
-            guard let strongSelf = self else {
-                completionHandler(.failure(error: MoltinError.referenceLost))
-                return
-            }
-            strongSelf.parser.collectionHandler(withData: data, withResponse: response, completionHandler: completionHandler)
+            self?.parser.collectionHandler(withData: data, withResponse: response, completionHandler: completionHandler)
         }
+        
+        return self
     }
     
-    func get<T: Codable>(withPath path: String, completionHandler: @escaping ObjectRequestHandler<T>) {
+    func get<T: Codable>(withPath path: String, completionHandler: @escaping ObjectRequestHandler<T>) -> Self {
         let urlRequest: URLRequest
         do {
             urlRequest = try self.http.buildURLRequest(
@@ -149,15 +77,17 @@ public class MoltinRequest {
             )
         } catch {
             completionHandler(.failure(error: error))
-            return
+            return self
         }
         
         self.send(withURLRequest: urlRequest) { [weak self] (data, response, error) in
             self?.parser.singleObjectHandler(withData: data, withResponse: response, completionHandler: completionHandler)
         }
+        
+        return self
     }
     
-    func post<T: Codable>(withPath path: String, withData data: [String : Any], completionHandler: @escaping ObjectRequestHandler<T>) {
+    func post<T: Codable>(withPath path: String, withData data: [String : Any], completionHandler: @escaping ObjectRequestHandler<T>) -> Self {
         let urlRequest: URLRequest
         do {
             urlRequest = try self.http.buildURLRequest(
@@ -169,15 +99,17 @@ public class MoltinRequest {
             )
         } catch {
             completionHandler(.failure(error: error))
-            return
+            return self
         }
         
         self.send(withURLRequest: urlRequest) { [weak self] (data, response, error) in
             self?.parser.singleObjectHandler(withData: data, withResponse: response, completionHandler: completionHandler)
         }
+        
+        return self
     }
     
-    func put<T: Codable>(withPath path: String, withData data: [String : Any], completionHandler: @escaping ObjectRequestHandler<T>) {
+    func put<T: Codable>(withPath path: String, withData data: [String : Any], completionHandler: @escaping ObjectRequestHandler<T>) -> Self {
         let urlRequest: URLRequest
         do {
             urlRequest = try self.http.buildURLRequest(
@@ -189,15 +121,17 @@ public class MoltinRequest {
             )
         } catch {
             completionHandler(.failure(error: error))
-            return
+            return self
         }
         
         self.send(withURLRequest: urlRequest) { [weak self] (data, response, error) in
             self?.parser.singleObjectHandler(withData: data, withResponse: response, completionHandler: completionHandler)
         }
+        
+        return self
     }
     
-    func delete<T: Codable>(withPath path: String, completionHandler: @escaping ObjectRequestHandler<T>) {
+    func delete<T: Codable>(withPath path: String, completionHandler: @escaping ObjectRequestHandler<T>) -> Self {
         let urlRequest: URLRequest
         do {
             urlRequest = try self.http.buildURLRequest(
@@ -208,24 +142,22 @@ public class MoltinRequest {
             )
         } catch {
             completionHandler(.failure(error: error))
-            return
+            return self
         }
         
         self.send(withURLRequest: urlRequest) { [weak self] (data, response, error) in
             self?.parser.singleObjectHandler(withData: data, withResponse: response, completionHandler: completionHandler)
         }
+        
+        return self
     }
     
     private func send(withURLRequest urlRequest: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> ()) {
         self.auth.authenticate { [weak self] (result) in
-            guard let strongSelf = self else {
-                completionHandler(nil, nil, MoltinError.referenceLost)
-                return
-            }
             switch result {
-            case .success(_):
-                let request = strongSelf.http.configureRequest(urlRequest, withAuth: strongSelf.auth)
-                strongSelf.http.executeRequest(request) { (data, response, error) in
+            case .success(let result):
+                let request = self?.http.configureRequest(urlRequest, withToken: result.token, withConfig: self?.config)
+                self?.http.executeRequest(request) { (data, response, error) in
                     completionHandler(data, response, error)
                 }
             case .failure(let error):

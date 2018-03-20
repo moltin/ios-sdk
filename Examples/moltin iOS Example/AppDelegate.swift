@@ -13,6 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
     var window: UIWindow?
     let moltin = Moltin(withClientID: "bJp5DRgPSrXFCft3AEWeJpX3pNU7A6dc0cfgi7K9Yd")
+    var request: MoltinRequest?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -21,16 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
         splitViewController.delegate = self
         
-        self.moltin.product.all { (result) in
-            switch result {
-            case .success(let response):
-                print(response.data)
-            case .failure(let error):
-                print(error)
-            }
-        }
-        
-        self.moltin.product.all { (result) in
+        self.request = self.moltin.currency.all { (result) in
             switch result {
             case .success(let response):
                 print(response.data)

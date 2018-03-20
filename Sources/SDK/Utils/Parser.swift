@@ -9,6 +9,12 @@ import Foundation
 
 class MoltinParser {
     
+    var decoder: JSONDecoder
+    
+    init(withDecoder decoder: JSONDecoder) {
+        self.decoder = decoder
+    }
+    
     func singleObjectHandler<T: Codable>(withData data: Data?, withResponse: URLResponse?, completionHandler: @escaping ObjectRequestHandler<T>) {
         guard let data = data else {
             completionHandler(Result.failure(error: MoltinError.noData))
@@ -39,9 +45,9 @@ class MoltinParser {
     private func parseCollection<T: Codable>(data: Data) throws  -> PaginatedResponse<T> {
         let collection: PaginatedResponse<T>
         do {
-            collection = try JSONDecoder().decode(PaginatedResponse<T>.self, from: data)
+            collection = try self.decoder.decode(PaginatedResponse<T>.self, from: data)
         } catch {
-            throw MoltinError.couldNotParseData
+            throw MoltinError.couldNotParseData(underlyingError: error as? DecodingError)
         }
         return collection
     }
@@ -49,9 +55,9 @@ class MoltinParser {
     private func parseObject<T: Codable>(data: Data) throws -> T {
         let object: T
         do {
-            object = try JSONDecoder().decode(T.self, from: data)
+            object = try self.decoder.decode(T.self, from: data)
         } catch {
-            throw MoltinError.couldNotParseData
+            throw MoltinError.couldNotParseData(underlyingError: error as? DecodingError)
         }
         return object
     }

@@ -1,13 +1,13 @@
 //
-//  Collection.swift
-//  moltin
+//  Order.swift
+//  moltin iOS
 //
-//  Created by Craig Tweedy on 22/02/2018.
+//  Created by Craig Tweedy on 26/02/2018.
 //
 
 import Foundation
 
-public class Collection: Codable {
+public class Order: Codable {
     var id: String
     
     internal init(withID id: String) {

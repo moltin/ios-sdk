@@ -10,8 +10,7 @@ import Foundation
 public enum MoltinError : Error {
     case couldNotAuthenticate
     case couldNotSetData
-    case couldNotParseData
+    case couldNotParseData(underlyingError: DecodingError?)
     case unacceptableRequest
     case noData
-    case referenceLost
 }
