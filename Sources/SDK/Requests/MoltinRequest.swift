@@ -39,6 +39,18 @@ public class MoltinRequest {
         self.http = MoltinHTTP(withSession: URLSession.shared)
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601Full)
+        decoder.dateDecodingStrategy = .custom({ (decoder) -> Date in
+            let dateString = try decoder.singleValueContainer().decode(String.self)
+            if let date = DateFormatter.iso8601Full.date(from: dateString) {
+                return date
+            }
+            
+            if let date = DateFormatter.iso8601NoMilli.date(from: dateString) {
+                return date
+            }
+            
+            throw MoltinError.couldNotParseDate
+        })
     
         self.parser = MoltinParser(withDecoder: decoder)
         self.query = MoltinQuery()

@@ -10,7 +10,16 @@ import Foundation
 public struct ProductPrice: Codable {
     public let amount: Int
     public let currency: String
-    public let includes_tax: Bool
+    public let includesTax: Bool
+    
+    enum CodingKeys: String, CodingKey {
+        case includesTax = "includes_tax"
+        
+        case amount
+        case currency
+    }
+    
+    
 }
 
 public struct ProductStock: Codable {
@@ -45,10 +54,20 @@ public struct ProductRelationshipData: Codable {
 public class ProductRelationships: Codable {
     public let variations: ProductRelationshipMany?
     public let files: ProductRelationshipMany?
-    public let main_image: ProductRelationshipSingle?
+    public let mainImage: ProductRelationshipSingle?
     public let categories: ProductRelationshipMany?
     public let collections: ProductRelationshipMany?
     public let brands: ProductRelationshipMany?
+    
+    enum CodingKeys: String, CodingKey {
+        case mainImage = "main_image"
+        
+        case files
+        case variations
+        case categories
+        case collections
+        case brands
+    }
 }
 
 public class ProductMeta: Codable {
@@ -56,8 +75,18 @@ public class ProductMeta: Codable {
     public let stock: ProductStock
     public let displayPrice: DisplayPrices
     public let variations: [ProductVariation]?
-    public let variation_matrix: [String: String]?
+    public let variationMatrix: [String: String]?
     public let relationships: ProductRelationships?
+    
+    enum CodingKeys: String, CodingKey {
+        case displayPrice = "display_price"
+        case variationMatrix = "variation_matrix"
+        
+        case timestamps
+        case stock
+        case variations
+        case relationships
+    }
 }
 
 public class Product: Codable {
@@ -72,4 +101,19 @@ public class Product: Codable {
     public let status: String
     public let commodityType: String
     public let meta: ProductMeta
+    
+    enum CodingKeys: String, CodingKey {
+        case manageStock = "manage_stock"
+        case commodityType = "commodity_type"
+        
+        case id
+        case type
+        case name
+        case slug
+        case sku
+        case description
+        case price
+        case status
+        case meta
+    }
 }

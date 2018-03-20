@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
         splitViewController.delegate = self
         
-        self.request = self.moltin.cart.items(forCartID: "12345") { (result) in
+        self.request = self.moltin.product.all { (result) in
             switch result {
             case .success(let response):
                 print(response)

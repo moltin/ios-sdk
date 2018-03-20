@@ -12,6 +12,7 @@ public enum MoltinError : Error {
     case couldNotSetData
     case couldNotParseData(underlyingError: DecodingError?)
     case couldNotFindDataKey
+    case couldNotParseDate
     case unacceptableRequest
     case noData
 }
