@@ -8,9 +8,7 @@
 import Foundation
 
 public class Customer: Codable {
-    let id: String
-    
-    internal init(withID id: String) {
-        self.id = id
-    }
+    public var id: String?
+    public var email: String?
+    public var name: String?
 }

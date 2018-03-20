@@ -16,7 +16,6 @@ public class Address: Codable {
     public let instructions: String
     public let companyName: String
     public let line1: String
-    public let line1: String
     public let city: String
     public let county: String
     public let postcode: String

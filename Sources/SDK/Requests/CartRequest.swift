@@ -135,14 +135,14 @@ public class CartRequest : MoltinRequest {
     
     internal func buildCartCheckoutData(withCustomer customer: Customer, withBillingAddress billingAddress: Address, withShippingAddress shippingAddress: Address?) -> [String: Any] {
         var data: [String: Any] = [:]
-        let customerData: [String: Any] = ["id": customer.id]
+        let customerData: [String: Any] = ["id": customer.id ?? ""]
         data["customer"] = customerData
         var billingAddressData: [String: Any] = [:]
-        billingAddressData["line_1"] = billingAddress.line_1
+        billingAddressData["line_1"] = billingAddress.line1
         data["billing_address"] = billingAddressData
         if let address = shippingAddress {
             var shippingAddressData: [String: Any] = [:]
-            shippingAddressData["line_1"] = address.line_1
+            shippingAddressData["line_1"] = address.line1
             data["shipping_address"] = shippingAddressData
         } else {
             data["shipping_address"] = data["billing_address"]
