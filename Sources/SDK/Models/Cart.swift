@@ -48,16 +48,32 @@ public class Cart: Codable {
 public class CartItem: Codable {
     public let id: String
     public let type: String
-    public let product_id: String
+    public let productId: String
     public let name: String
     public let description: String
     public let sku: String
     public let quantity: Int
-    public let manage_stock: Bool
-    public let unit_price: ProductPrice
+    public let manageStock: Bool
+    public let unitPrice: ProductPrice
     public let value: ProductPrice
     public let links: [String: String]
     public let meta: CartItemMeta
+    
+    enum CodingKeys: String, CodingKey {
+        case productId = "product_id"
+        case manageStock = "manage_stock"
+        case unitPrice = "unit_price"
+        
+        case id
+        case type
+        case name
+        case description
+        case sku
+        case quantity
+        case value
+        case links
+        case meta
+    }
 }
 
 public enum CartItemType: String {

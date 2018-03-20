@@ -31,6 +31,22 @@ public class Field: Codable {
     public let links: [String: String]
     public let relationships: [String: [String: [String: String]]]
     public let meta: FieldMeta
+    
+    enum CodingKeys: String, CodingKey {
+        case fieldType = "field_type"
+        
+        case id
+        case type
+        case slug
+        case name
+        case description
+        case required
+        case unique
+        case enabled
+        case links
+        case relationships
+        case meta
+    }
 }
 
 public class Flow: Codable {

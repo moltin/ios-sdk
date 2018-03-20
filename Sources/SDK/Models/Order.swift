@@ -10,6 +10,11 @@ import Foundation
 public class OrderMeta: Codable {
     public let displayPrice: DisplayPrices
     public let timestamps: Timestamps
+    
+    enum CodingKeys: String, CodingKey {
+        case displayPrice = "display_price"
+        case timestamps
+    }
 }
 
 public class OrderRelationships: Codable {
@@ -29,4 +34,18 @@ public class Order: Codable {
     public let links: [String: String]
     public let meta: OrderMeta
     public let relationships: OrderRelationships
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case type
+        case status
+        case payment
+        case shipping
+        case customer
+        case shippingAddress = "shipping_address"
+        case billingAddress = "billing_address"
+        case links
+        case meta
+        case relationships
+    }
 }
