@@ -8,9 +8,17 @@
 import Foundation
 
 public class Address: Codable {
-    var line_1: String
-    
-    internal init(withAddressLine1 line_1: String) {
-        self.line_1 = line_1
-    }
+    public let id: String
+    public let type: String
+    public let firstName: String
+    public let lastName: String
+    public let name: String
+    public let instructions: String
+    public let companyName: String
+    public let line1: String
+    public let line1: String
+    public let city: String
+    public let county: String
+    public let postcode: String
+    public let country: String
 }
