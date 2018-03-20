@@ -93,7 +93,7 @@ class MyCustomFile: Product {
 }
 
 
-class MyCustomFlow: Product {
+class MyCustomField: Product {
     let author: Author
     private enum CodingKeys : String, CodingKey { case author }
     required init(from decoder: Decoder) throws {
@@ -825,9 +825,9 @@ class FileRequestTests: XCTestCase {
 
 
 }
-// MARK: FlowRequestTest - AutoMoltinRequest
+// MARK: FieldRequestTest - AutoMoltinRequest
 
-class FlowRequestTests: XCTestCase {
+class FieldRequestTests: XCTestCase {
     let productJson = """
                 {
                   "id": "51b56d92-ab99-4802-a2c1-be150848c629",
@@ -859,14 +859,14 @@ class FlowRequestTests: XCTestCase {
         }
     """
 
-    func testFlowRequestReturnsFlows() {
-        let (_, flowRequest) = MockFactory.mockedFlowRequest(withJSON: self.multiProductJson)
-        let expectationToFulfill = expectation(description: "FlowRequest calls the method and runs the callback closure")
-        let _ = flowRequest.all { (result) in
+    func testFieldRequestReturnsFields() {
+        let (_, fieldRequest) = MockFactory.mockedFieldRequest(withJSON: self.multiProductJson)
+        let expectationToFulfill = expectation(description: "FieldRequest calls the method and runs the callback closure")
+        let _ = fieldRequest.all { (result) in
             switch result {
             case .success(let response):
-                let flows: [moltin.Flow]? = []
-                XCTAssert(type(of: response.data) == type(of: flows))
+                let fields: [moltin.Field]? = []
+                XCTAssert(type(of: response.data) == type(of: fields))
                 XCTAssert(response.data?.count != 0)
                 break
             case .failure(_):
@@ -881,15 +881,15 @@ class FlowRequestTests: XCTestCase {
             }
         }
     }
-    func testFlowRequestReturnSingleFlow() {
-        let (_, flowRequest) = MockFactory.mockedFlowRequest(withJSON: self.productJson)
-        let expectationToFulfill = expectation(description: "FlowRequest calls the method and runs the callback closure")
-        let _ = flowRequest.get(forID: "51b56d92-ab99-4802-a2c1-be150848c629") { (result) in
+    func testFieldRequestReturnSingleField() {
+        let (_, fieldRequest) = MockFactory.mockedFieldRequest(withJSON: self.productJson)
+        let expectationToFulfill = expectation(description: "FieldRequest calls the method and runs the callback closure")
+        let _ = fieldRequest.get(forID: "51b56d92-ab99-4802-a2c1-be150848c629") { (result) in
             switch result {
             case .success(let response):
-                let flow = moltin.Flow(withID: "51b56d92-ab99-4802-a2c1-be150848c629")
-                XCTAssert(type(of: flow) == type(of: response))
-                XCTAssert(flow.id == response.id)
+                let field = moltin.Field(withID: "51b56d92-ab99-4802-a2c1-be150848c629")
+                XCTAssert(type(of: field) == type(of: response))
+                XCTAssert(field.id == response.id)
                 break
             case .failure(_):
                 XCTFail("Response returned error")

@@ -14,8 +14,8 @@ private enum MoltinAPIEndpoints {
     /// sourcery: model = File, path = "/files"
     case file
 
-    /// sourcery: model = Flow, path = "/flows"
-    case flow
+    /// sourcery: model = Field, path = "/fields"
+    case field
 
     /// sourcery: model = Product, path = "/products", hasCustomType
     case product

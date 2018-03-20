@@ -19,6 +19,11 @@
 		C336E56120614A9C008C2005 /* Prices.swift in Sources */ = {isa = PBXBuildFile; fileRef = C336E55F20614A9C008C2005 /* Prices.swift */; };
 		C336E56220614A9C008C2005 /* Prices.swift in Sources */ = {isa = PBXBuildFile; fileRef = C336E55F20614A9C008C2005 /* Prices.swift */; };
 		C336E56320614A9C008C2005 /* Prices.swift in Sources */ = {isa = PBXBuildFile; fileRef = C336E55F20614A9C008C2005 /* Prices.swift */; };
+		C336E565206155B2008C2005 /* FlowRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C336E564206155B2008C2005 /* FlowRequest.swift */; };
+		C336E566206155B2008C2005 /* FlowRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C336E564206155B2008C2005 /* FlowRequest.swift */; };
+		C336E567206155B2008C2005 /* FlowRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C336E564206155B2008C2005 /* FlowRequest.swift */; };
+		C336E568206155B2008C2005 /* FlowRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C336E564206155B2008C2005 /* FlowRequest.swift */; };
+		C336E56E206155DF008C2005 /* FlowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C336E569206155BE008C2005 /* FlowTests.swift */; };
 		C3434C0F203DDA0500883C84 /* MoltinRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3434C0E203DDA0500883C84 /* MoltinRequest.swift */; };
 		C3434C11203DDA1F00883C84 /* MoltinRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3434C0E203DDA0500883C84 /* MoltinRequest.swift */; };
 		C3434C13203DDA1F00883C84 /* MoltinRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3434C0E203DDA0500883C84 /* MoltinRequest.swift */; };
@@ -179,6 +184,8 @@
 		C318D028203EC4D100B7A81E /* HTTP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTP.swift; sourceTree = "<group>"; };
 		C318D02A203EC50200B7A81E /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		C336E55F20614A9C008C2005 /* Prices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Prices.swift; sourceTree = "<group>"; };
+		C336E564206155B2008C2005 /* FlowRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowRequest.swift; sourceTree = "<group>"; };
+		C336E569206155BE008C2005 /* FlowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowTests.swift; sourceTree = "<group>"; };
 		C3434C0E203DDA0500883C84 /* MoltinRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoltinRequest.swift; sourceTree = "<group>"; };
 		C3434C17203DDAD500883C84 /* Pagination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pagination.swift; sourceTree = "<group>"; };
 		C3434C1C203DDAFF00883C84 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
@@ -341,6 +348,7 @@
 				C3434C0E203DDA0500883C84 /* MoltinRequest.swift */,
 				C3715BE9203F1A3900287C1B /* MoltinAuth.swift */,
 				C3FB57A7204028870007288D /* CartRequest.swift */,
+				C336E564206155B2008C2005 /* FlowRequest.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -417,6 +425,7 @@
 				C3715BDF203EE8EE00287C1B /* HTTPMock.swift */,
 				C3715BEE203F53A000287C1B /* AuthTests.swift */,
 				C3821AE220443C5F001EF864 /* CartTests.swift */,
+				C336E569206155BE008C2005 /* FlowTests.swift */,
 			);
 			path = "moltin iOS Tests";
 			sourceTree = "<group>";
@@ -847,6 +856,7 @@
 				C3FF2701206124D700CA226D /* DateFormatter.swift in Sources */,
 				C3715BF8203F544B00287C1B /* HTTPMock.swift in Sources */,
 				C3715C00203F59D000287C1B /* Flow.swift in Sources */,
+				C336E565206155B2008C2005 /* FlowRequest.swift in Sources */,
 				C3434C0F203DDA0500883C84 /* MoltinRequest.swift in Sources */,
 				C3821AEA20444127001EF864 /* Customer.swift in Sources */,
 				C3779232203EC6D000C20FEC /* Query.swift in Sources */,
@@ -884,6 +894,7 @@
 				C3434C19203DDAD500883C84 /* Pagination.swift in Sources */,
 				C3715BD2203EE6D400287C1B /* Product.swift in Sources */,
 				C3715C02203F59F200287C1B /* Currency.swift in Sources */,
+				C336E566206155B2008C2005 /* FlowRequest.swift in Sources */,
 				C3715BD7203EE6DE00287C1B /* Brand.swift in Sources */,
 				C318D02C203EC5AB00B7A81E /* HTTP.swift in Sources */,
 				C3715C01203F59F200287C1B /* Collection.swift in Sources */,
@@ -910,6 +921,7 @@
 				C3434C1A203DDAD500883C84 /* Pagination.swift in Sources */,
 				C3715BD3203EE6D400287C1B /* Product.swift in Sources */,
 				C3715C06203F59F200287C1B /* Currency.swift in Sources */,
+				C336E567206155B2008C2005 /* FlowRequest.swift in Sources */,
 				C3715BD8203EE6DE00287C1B /* Brand.swift in Sources */,
 				C318D02E203EC5AB00B7A81E /* HTTP.swift in Sources */,
 				C3715C05203F59F200287C1B /* Collection.swift in Sources */,
@@ -936,6 +948,7 @@
 				C3434C1B203DDAD500883C84 /* Pagination.swift in Sources */,
 				C3715BD4203EE6D400287C1B /* Product.swift in Sources */,
 				C3715C0A203F59F300287C1B /* Currency.swift in Sources */,
+				C336E568206155B2008C2005 /* FlowRequest.swift in Sources */,
 				C3715BD9203EE6DE00287C1B /* Brand.swift in Sources */,
 				C318D030203EC5AC00B7A81E /* HTTP.swift in Sources */,
 				C3715C09203F59F300287C1B /* Collection.swift in Sources */,
@@ -957,6 +970,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C336E56E206155DF008C2005 /* FlowTests.swift in Sources */,
 				C392EA15203DB7EB006CD1D0 /* MoltinTests.swift in Sources */,
 				C38141FE203DCFC400B9FDA3 /* RequestTests.swift in Sources */,
 				C3715BF4203F542600287C1B /* AuthTests.swift in Sources */,

@@ -239,17 +239,17 @@ public class FileRequest: MoltinRequest {
 
 
 }
-// MARK: FlowRequest - AutoMoltinRequest
+// MARK: FieldRequest - AutoMoltinRequest
 
-public class FlowRequest: MoltinRequest {
+public class FieldRequest: MoltinRequest {
 
-    public var endpoint: String = "/flows"
+    public var endpoint: String = "/fields"
 
-    public typealias DefaultCollectionRequestHandler = CollectionRequestHandler<[Flow]>
-    public typealias DefaultObjectRequestHandler = ObjectRequestHandler<Flow>
+    public typealias DefaultCollectionRequestHandler = CollectionRequestHandler<[Field]>
+    public typealias DefaultObjectRequestHandler = ObjectRequestHandler<Field>
 
     /*
-        Return all instances of type flow
+        Return all instances of type field
 
         - parameters:
             - completionHandler: The handler to be called on success or failure
@@ -259,7 +259,7 @@ public class FlowRequest: MoltinRequest {
     }
 
     /*
-        Return get an instance of flow by `id`
+        Return get an instance of field by `id`
 
         - parameters:
             - forID: The ID of the object
