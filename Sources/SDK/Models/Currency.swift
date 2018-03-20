@@ -22,6 +22,6 @@ public class Currency: Codable {
     public let decimal_places: Int
     public let `default`: Bool
     public let enabled: Bool
-    public let links: [String: String] = [:]
+    public let links: [String: String]
     public let meta: CurrencyMeta
 }

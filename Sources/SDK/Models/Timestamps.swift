@@ -9,5 +9,5 @@ import Foundation
 
 public class Timestamps: Codable {
     public let created_at: Date
-    public let updated_at: Date
+    public let updated_at: Date?
 }
