@@ -55,7 +55,15 @@ class MoltinParser {
     private func parseObject<T: Codable>(data: Data) throws -> T {
         let object: T
         do {
-            object = try self.decoder.decode(T.self, from: data)
+            
+            let parsedData = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+            guard let jsonObject = parsedData?["data"] as? [String: Any] else {
+                throw MoltinError.couldNotFindDataKey
+            }
+            let jsonData = try JSONSerialization.data(withJSONObject: jsonObject, options: [])
+            object = try self.decoder.decode(T.self, from: jsonData)
+        } catch MoltinError.couldNotFindDataKey {
+          throw MoltinError.couldNotFindDataKey
         } catch {
             throw MoltinError.couldNotParseData(underlyingError: error as? DecodingError)
         }

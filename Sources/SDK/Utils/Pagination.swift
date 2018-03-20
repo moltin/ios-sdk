@@ -11,11 +11,11 @@ public class PaginatedResponse<T: Codable>: Codable {
     public typealias ContainedType = T
     
     public var data: ContainedType?
-    public let links: [String: String] = [:]
-    public let meta: PaginationMeta = PaginationMeta()
+    public var links: [String: String]?
+    public var meta: PaginationMeta?
 }
 
 public class PaginationMeta: Codable {
-    public let results: [String: String] = [:]
-    public let page: [String: String] = [:]
+    public let results: [String: String]?
+    public let page: [String: String]?
 }

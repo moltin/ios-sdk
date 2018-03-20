@@ -7,89 +7,69 @@
 
 import Foundation
 
-class ProductPrice: Codable {
-    var amount: Int = 0
-    var currency: String = ""
-    var includes_tax: Bool = false
+public struct ProductPrice: Codable {
+    public let amount: Int
+    public let currency: String
+    public let includes_tax: Bool
 }
 
-class ProductTimestamps: Codable {
-    var createdAt: Date = Date()
-    var updatedAt: Date = Date()
+public struct ProductStock: Codable {
+    public let level: Int
+    public let availability: String
 }
 
-class ProductStock: Codable {
-    var level: Int = 0
-    var availability: String = "out-stock"
+public class ProductVariationOption: Codable {
+    public let id: String
+    public let name: String
+    public let description: String
 }
 
-class ProductDisplayPrice: Codable {
-    var amount: Int = 0
-    var currency: String = ""
-    var formatted: String = ""
+public class ProductVariation: Codable {
+    public let id: String
+    public let options: [ProductVariationOption]
 }
 
-class ProductDisplayPrices: Codable {
-    var withTax: ProductDisplayPrice = ProductDisplayPrice()
-    var withoutTax: ProductDisplayPrice = ProductDisplayPrice()
+public class ProductRelationshipMany: Codable {
+    public let data: [ProductRelationshipData]?
 }
 
-class ProductVariationOption: Codable {
-    var id: String = ""
-    var name: String = ""
-    var description: String = ""
+public class ProductRelationshipSingle: Codable {
+    public let data: ProductRelationshipData?
 }
 
-class ProductVariation: Codable {
-    var id: String = ""
-    var options: [ProductVariationOption] = []
+public struct ProductRelationshipData: Codable {
+    public let type: String
+    public let id: String
 }
 
-class ProductRelationshipMany: Codable {
-    var data: [ProductRelationshipData] = []
+public class ProductRelationships: Codable {
+    public let variations: ProductRelationshipMany?
+    public let files: ProductRelationshipMany?
+    public let main_image: ProductRelationshipSingle?
+    public let categories: ProductRelationshipMany?
+    public let collections: ProductRelationshipMany?
+    public let brands: ProductRelationshipMany?
 }
 
-class ProductRelationshipSingle: Codable {
-    var data: ProductRelationshipData?
-}
-
-class ProductRelationshipData: Codable {
-    var type: String = ""
-    var id: String = ""
-}
-
-class ProductRelationships: Codable {
-    var variations: ProductRelationshipMany?
-    var files: ProductRelationshipMany?
-    var main_image: ProductRelationshipSingle?
-    var categories: ProductRelationshipMany?
-    var collections: ProductRelationshipMany?
-    var brands: ProductRelationshipMany?
-}
-
-class ProductMeta: Codable {
-    var timestamps: ProductTimestamps = ProductTimestamps()
-    var stock: ProductStock = ProductStock()
-    var displayPrice: ProductDisplayPrices = ProductDisplayPrices()
-    var variations: [ProductVariation] = []
-    var variation_matrix: [String: String] = [:]
-    var relationships: ProductRelationships = ProductRelationships()
+public class ProductMeta: Codable {
+    public let timestamps: Timestamps
+    public let stock: ProductStock
+    public let displayPrice: DisplayPrices
+    public let variations: [ProductVariation]?
+    public let variation_matrix: [String: String]?
+    public let relationships: ProductRelationships?
 }
 
 public class Product: Codable {
-    var id: String = ""
-    var type: String = ""
-    var name: String = ""
-    var slug: String = ""
-    var sku: String = ""
-    var manageStock: Bool = false
-    var description: String = ""
-    var price: [ProductPrice] = []
-    var status: String = ""
-    var commodityType: String = ""
-    var meta: ProductMeta = ProductMeta()
-    
-    internal init(withID id: String) {
-        self.id = id
-    }
+    public let id: String
+    public let type: String
+    public let name: String
+    public let slug: String
+    public let sku: String
+    public let manageStock: Bool
+    public let description: String
+    public let price: [ProductPrice]?
+    public let status: String
+    public let commodityType: String
+    public let meta: ProductMeta
 }

@@ -15,6 +15,10 @@
 		C318D02F203EC5AB00B7A81E /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C318D02A203EC50200B7A81E /* Parser.swift */; };
 		C318D030203EC5AC00B7A81E /* HTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = C318D028203EC4D100B7A81E /* HTTP.swift */; };
 		C318D031203EC5AC00B7A81E /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C318D02A203EC50200B7A81E /* Parser.swift */; };
+		C336E56020614A9C008C2005 /* Prices.swift in Sources */ = {isa = PBXBuildFile; fileRef = C336E55F20614A9C008C2005 /* Prices.swift */; };
+		C336E56120614A9C008C2005 /* Prices.swift in Sources */ = {isa = PBXBuildFile; fileRef = C336E55F20614A9C008C2005 /* Prices.swift */; };
+		C336E56220614A9C008C2005 /* Prices.swift in Sources */ = {isa = PBXBuildFile; fileRef = C336E55F20614A9C008C2005 /* Prices.swift */; };
+		C336E56320614A9C008C2005 /* Prices.swift in Sources */ = {isa = PBXBuildFile; fileRef = C336E55F20614A9C008C2005 /* Prices.swift */; };
 		C3434C0F203DDA0500883C84 /* MoltinRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3434C0E203DDA0500883C84 /* MoltinRequest.swift */; };
 		C3434C11203DDA1F00883C84 /* MoltinRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3434C0E203DDA0500883C84 /* MoltinRequest.swift */; };
 		C3434C13203DDA1F00883C84 /* MoltinRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3434C0E203DDA0500883C84 /* MoltinRequest.swift */; };
@@ -174,6 +178,7 @@
 /* Begin PBXFileReference section */
 		C318D028203EC4D100B7A81E /* HTTP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTP.swift; sourceTree = "<group>"; };
 		C318D02A203EC50200B7A81E /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		C336E55F20614A9C008C2005 /* Prices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Prices.swift; sourceTree = "<group>"; };
 		C3434C0E203DDA0500883C84 /* MoltinRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoltinRequest.swift; sourceTree = "<group>"; };
 		C3434C17203DDAD500883C84 /* Pagination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pagination.swift; sourceTree = "<group>"; };
 		C3434C1C203DDAFF00883C84 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
@@ -355,6 +360,7 @@
 				C3821AE920444127001EF864 /* Customer.swift */,
 				C3821AEB2044412C001EF864 /* Order.swift */,
 				C3FF26FE2061205800CA226D /* Timestamps.swift */,
+				C336E55F20614A9C008C2005 /* Prices.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -851,6 +857,7 @@
 				C3715BEA203F1A3900287C1B /* MoltinAuth.swift in Sources */,
 				C3715BFE203F59CA00287C1B /* File.swift in Sources */,
 				C3715BFA203F598500287C1B /* Collection.swift in Sources */,
+				C336E56020614A9C008C2005 /* Prices.swift in Sources */,
 				C318D029203EC4D100B7A81E /* HTTP.swift in Sources */,
 				C3821AEC2044412C001EF864 /* Order.swift in Sources */,
 				C392E9F9203DB6E1006CD1D0 /* Moltin.swift in Sources */,
@@ -884,6 +891,7 @@
 				C3434C1E203DDAFF00883C84 /* Error.swift in Sources */,
 				C3715BE6203EE93900287C1B /* URLSession.swift in Sources */,
 				C3715C03203F59F200287C1B /* File.swift in Sources */,
+				C336E56120614A9C008C2005 /* Prices.swift in Sources */,
 				C3715BCC203EE6BB00287C1B /* Requests.swift in Sources */,
 				C318D02D203EC5AB00B7A81E /* Parser.swift in Sources */,
 				C3715BEB203F1A3900287C1B /* MoltinAuth.swift in Sources */,
@@ -909,6 +917,7 @@
 				C3434C1F203DDAFF00883C84 /* Error.swift in Sources */,
 				C3715BE7203EE93900287C1B /* URLSession.swift in Sources */,
 				C3715C07203F59F200287C1B /* File.swift in Sources */,
+				C336E56220614A9C008C2005 /* Prices.swift in Sources */,
 				C3715BCD203EE6BB00287C1B /* Requests.swift in Sources */,
 				C318D02F203EC5AB00B7A81E /* Parser.swift in Sources */,
 				C3715BEC203F1A3900287C1B /* MoltinAuth.swift in Sources */,
@@ -934,6 +943,7 @@
 				C3434C20203DDAFF00883C84 /* Error.swift in Sources */,
 				C3715BE8203EE93900287C1B /* URLSession.swift in Sources */,
 				C3715C0B203F59F300287C1B /* File.swift in Sources */,
+				C336E56320614A9C008C2005 /* Prices.swift in Sources */,
 				C3715BCE203EE6BB00287C1B /* Requests.swift in Sources */,
 				C318D031203EC5AC00B7A81E /* Parser.swift in Sources */,
 				C3715BED203F1A3900287C1B /* MoltinAuth.swift in Sources */,
