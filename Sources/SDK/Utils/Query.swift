@@ -32,6 +32,11 @@ public struct MoltinFilterOperator: RawRepresentable, Equatable {
     public var rawValue: String
     
     static let eq  = MoltinFilterOperator(rawValue: "eq")
+    static let like  = MoltinFilterOperator(rawValue: "like")
+    static let gt  = MoltinFilterOperator(rawValue: "gt")
+    static let ge  = MoltinFilterOperator(rawValue: "ge")
+    static let lt  = MoltinFilterOperator(rawValue: "lt")
+    static let le  = MoltinFilterOperator(rawValue: "le")
     
     public init(rawValue: String) {
         self.rawValue = rawValue
