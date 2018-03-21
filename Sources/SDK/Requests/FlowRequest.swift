@@ -56,7 +56,7 @@ public class FlowRequest: MoltinRequest {
      - forSlug: The slug of the flow
      - completionHandler: The handler to be called on success or failure
      */
-    public func entries<T: Codable>(forSlug slug: String, completionHandler: @escaping CollectionRequestHandler<T>) -> MoltinRequest {
+    public func entries<T>(forSlug slug: String, completionHandler: @escaping CollectionRequestHandler<T>) -> MoltinRequest {
         return super.get(withPath: "\(self.endpoint)/\(slug)", completionHandler: completionHandler)
     }
     

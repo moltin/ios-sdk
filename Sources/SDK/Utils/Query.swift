@@ -13,11 +13,12 @@ public struct MoltinInclude: RawRepresentable, Equatable {
     
     public var rawValue: String
     
-    static let files  = MoltinInclude(rawValue: "files")
-    static let products = MoltinInclude(rawValue: "products")
-    static let category = MoltinInclude(rawValue: "category")
-    static let mainImage = MoltinInclude(rawValue: "main_image")
-    static let images = MoltinInclude(rawValue: "images")
+    public static let files  = MoltinInclude(rawValue: "files")
+    public static let products = MoltinInclude(rawValue: "products")
+    public static let collections = MoltinInclude(rawValue: "collections")
+    public static let brands = MoltinInclude(rawValue: "brands")
+    public static let category = MoltinInclude(rawValue: "category")
+    public static let mainImage = MoltinInclude(rawValue: "main_image")
     
     public init(rawValue: String) {
         self.rawValue = rawValue
@@ -55,7 +56,7 @@ public class MoltinQuery {
         var queryParams: [URLQueryItem] = []
         
         if let includes = self.withIncludes {
-            queryParams.append(URLQueryItem(name: "includes", value: includes.map { $0.rawValue }.joined(separator: ",")))
+            queryParams.append(URLQueryItem(name: "include", value: includes.map { $0.rawValue }.joined(separator: ",")))
         }
         
         if let sort = self.withSorting {

@@ -76,7 +76,6 @@ public class ProductMeta: Codable {
     public let displayPrice: DisplayPrices
     public let variations: [ProductVariation]?
     public let variationMatrix: [String: String]?
-    public let relationships: ProductRelationships?
     
     enum CodingKeys: String, CodingKey {
         case displayPrice = "display_price"
@@ -85,7 +84,6 @@ public class ProductMeta: Codable {
         case timestamps
         case stock
         case variations
-        case relationships
     }
 }
 
@@ -101,6 +99,10 @@ public class Product: Codable {
     public let status: String
     public let commodityType: String
     public let meta: ProductMeta
+    public let relationships: ProductRelationships?
+    
+    public var mainImage: File?
+    public var files: [File]?
     
     enum CodingKeys: String, CodingKey {
         case manageStock = "manage_stock"
@@ -115,5 +117,37 @@ public class Product: Codable {
         case price
         case status
         case meta
+        case relationships
+    }
+    
+    required public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let includes: [String: Any] = decoder.userInfo[.includes] as? [String: Any] ?? [:]
+        
+        self.id = try container.decode(String.self, forKey: .id)
+        self.type = try container.decode(String.self, forKey: .type)
+        self.name = try container.decode(String.self, forKey: .name)
+        self.slug = try container.decode(String.self, forKey: .slug)
+        self.sku = try container.decode(String.self, forKey: .sku)
+        self.description = try container.decode(String.self, forKey: .description)
+        self.price = try container.decode([ProductPrice].self, forKey: .price)
+        self.status = try container.decode(String.self, forKey: .status)
+        self.meta = try container.decode(ProductMeta.self, forKey: .meta)
+        self.relationships = try container.decode(ProductRelationships.self, forKey: .relationships)
+        
+        self.manageStock = try container.decode(Bool.self, forKey: .manageStock)
+        self.commodityType = try container.decode(String.self, forKey: .commodityType)
+        
+        
+        
+        
+        let mainImageId = self.relationships?.mainImage?.data?.id
+        let mainImagesIncludes: [[String: Any]] = includes["main_images"] as? [[String: Any]] ?? []
+        
+        self.mainImage = try self.extractObject(withKey: "id", withValue: mainImageId, fromIncludes: mainImagesIncludes)
+        
+        let fileIds = (self.relationships?.files?.data ?? []).map { $0.id }
+        let fileIncludes: [[String: Any]] = includes["files"] as? [[String: Any]] ?? []
+        self.files = try self.extractArray(withKey: "id", withValues: fileIds, fromIncludes: fileIncludes)
     }
 }

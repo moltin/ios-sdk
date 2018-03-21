@@ -7,6 +7,10 @@
 
 import Foundation
 
+extension CodingUserInfoKey {
+    static let includes = CodingUserInfoKey(rawValue: "com.moltin.includes")!
+}
+
 class MoltinParser {
     
     var decoder: JSONDecoder
@@ -45,6 +49,8 @@ class MoltinParser {
     private func parseCollection<T: Codable>(data: Data) throws  -> PaginatedResponse<T> {
         let collection: PaginatedResponse<T>
         do {
+            let parsedData = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+            self.decoder.userInfo[.includes] = parsedData?["included"] as? [String: Any] ?? [:]
             collection = try self.decoder.decode(PaginatedResponse<T>.self, from: data)
         } catch {
             throw MoltinError.couldNotParseData(underlyingError: error as? DecodingError)
@@ -61,6 +67,7 @@ class MoltinParser {
                 throw MoltinError.couldNotFindDataKey
             }
             let jsonData = try JSONSerialization.data(withJSONObject: jsonObject, options: [])
+            self.decoder.userInfo[.includes] = parsedData?["included"] as? [String: Any] ?? [:]
             object = try self.decoder.decode(T.self, from: jsonData)
         } catch MoltinError.couldNotFindDataKey {
           throw MoltinError.couldNotFindDataKey
