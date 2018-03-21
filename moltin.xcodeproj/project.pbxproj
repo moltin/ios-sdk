@@ -20,12 +20,49 @@
 		C336E56220614A9C008C2005 /* Prices.swift in Sources */ = {isa = PBXBuildFile; fileRef = C336E55F20614A9C008C2005 /* Prices.swift */; };
 		C336E56320614A9C008C2005 /* Prices.swift in Sources */ = {isa = PBXBuildFile; fileRef = C336E55F20614A9C008C2005 /* Prices.swift */; };
 		C336E565206155B2008C2005 /* FlowRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C336E564206155B2008C2005 /* FlowRequest.swift */; };
-		C336E566206155B2008C2005 /* FlowRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C336E564206155B2008C2005 /* FlowRequest.swift */; };
 		C336E567206155B2008C2005 /* FlowRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C336E564206155B2008C2005 /* FlowRequest.swift */; };
 		C336E568206155B2008C2005 /* FlowRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C336E564206155B2008C2005 /* FlowRequest.swift */; };
 		C336E56E206155DF008C2005 /* FlowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C336E569206155BE008C2005 /* FlowTests.swift */; };
+		C336E58920626ADD008C2005 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C336E58820626ADD008C2005 /* AppDelegate.swift */; };
+		C336E58B20626ADD008C2005 /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C336E58A20626ADD008C2005 /* ProductsViewController.swift */; };
+		C336E58D20626ADD008C2005 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C336E58C20626ADD008C2005 /* CartViewController.swift */; };
+		C336E59020626ADD008C2005 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C336E58E20626ADD008C2005 /* Main.storyboard */; };
+		C336E59220626ADD008C2005 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C336E59120626ADD008C2005 /* Assets.xcassets */; };
+		C336E597206275CA008C2005 /* moltin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C392E9DF203DB64E006CD1D0 /* moltin.framework */; };
+		C336E59920627627008C2005 /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BCA203EE6BB00287C1B /* Requests.swift */; };
+		C336E59A20627627008C2005 /* MoltinRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3434C0E203DDA0500883C84 /* MoltinRequest.swift */; };
+		C336E59B20627627008C2005 /* MoltinAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BE9203F1A3900287C1B /* MoltinAuth.swift */; };
+		C336E59C20627627008C2005 /* CartRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FB57A7204028870007288D /* CartRequest.swift */; };
+		C336E59D20627627008C2005 /* FlowRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C336E564206155B2008C2005 /* FlowRequest.swift */; };
+		C336E59E20627627008C2005 /* CartRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FB57A7204028870007288D /* CartRequest.swift */; };
+		C336E59F20627628008C2005 /* CartRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FB57A7204028870007288D /* CartRequest.swift */; };
+		C336E5A02062762C008C2005 /* Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3779231203EC6D000C20FEC /* Query.swift */; };
+		C336E5A12062762C008C2005 /* DataSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3821AE0204422C5001EF864 /* DataSerializer.swift */; };
+		C336E5A22062762C008C2005 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FF2700206124D700CA226D /* DateFormatter.swift */; };
+		C336E5A32062762D008C2005 /* Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3779231203EC6D000C20FEC /* Query.swift */; };
+		C336E5A42062762D008C2005 /* DataSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3821AE0204422C5001EF864 /* DataSerializer.swift */; };
+		C336E5A52062762D008C2005 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FF2700206124D700CA226D /* DateFormatter.swift */; };
+		C336E5A62062762D008C2005 /* Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3779231203EC6D000C20FEC /* Query.swift */; };
+		C336E5A72062762D008C2005 /* DataSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3821AE0204422C5001EF864 /* DataSerializer.swift */; };
+		C336E5A82062762D008C2005 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FF2700206124D700CA226D /* DateFormatter.swift */; };
+		C336E5A920627631008C2005 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3821AE5204440F5001EF864 /* Cart.swift */; };
+		C336E5AA20627631008C2005 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3821AE7204440FD001EF864 /* Address.swift */; };
+		C336E5AB20627631008C2005 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3821AE920444127001EF864 /* Customer.swift */; };
+		C336E5AC20627631008C2005 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3821AEB2044412C001EF864 /* Order.swift */; };
+		C336E5AD20627631008C2005 /* Timestamps.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FF26FE2061205800CA226D /* Timestamps.swift */; };
+		C336E5AE20627632008C2005 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3821AE5204440F5001EF864 /* Cart.swift */; };
+		C336E5AF20627632008C2005 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3821AE7204440FD001EF864 /* Address.swift */; };
+		C336E5B020627632008C2005 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3821AE920444127001EF864 /* Customer.swift */; };
+		C336E5B120627632008C2005 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3821AEB2044412C001EF864 /* Order.swift */; };
+		C336E5B220627632008C2005 /* Timestamps.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FF26FE2061205800CA226D /* Timestamps.swift */; };
+		C336E5B320627633008C2005 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3821AE5204440F5001EF864 /* Cart.swift */; };
+		C336E5B420627633008C2005 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3821AE7204440FD001EF864 /* Address.swift */; };
+		C336E5B520627633008C2005 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3821AE920444127001EF864 /* Customer.swift */; };
+		C336E5B620627633008C2005 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3821AEB2044412C001EF864 /* Order.swift */; };
+		C336E5B720627633008C2005 /* Timestamps.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FF26FE2061205800CA226D /* Timestamps.swift */; };
+		C336E5C6206278B2008C2005 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C336E5C4206278B2008C2005 /* ProductCollectionViewCell.swift */; };
+		C336E5C7206278B2008C2005 /* ProductCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C336E5C5206278B2008C2005 /* ProductCollectionViewCell.xib */; };
 		C3434C0F203DDA0500883C84 /* MoltinRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3434C0E203DDA0500883C84 /* MoltinRequest.swift */; };
-		C3434C11203DDA1F00883C84 /* MoltinRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3434C0E203DDA0500883C84 /* MoltinRequest.swift */; };
 		C3434C13203DDA1F00883C84 /* MoltinRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3434C0E203DDA0500883C84 /* MoltinRequest.swift */; };
 		C3434C15203DDA2000883C84 /* MoltinRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3434C0E203DDA0500883C84 /* MoltinRequest.swift */; };
 		C3434C18203DDAD500883C84 /* Pagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3434C17203DDAD500883C84 /* Pagination.swift */; };
@@ -41,7 +78,6 @@
 		C3434C24203DDB1F00883C84 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3434C21203DDB1F00883C84 /* Config.swift */; };
 		C3434C25203DDB1F00883C84 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3434C21203DDB1F00883C84 /* Config.swift */; };
 		C3715BCB203EE6BB00287C1B /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BCA203EE6BB00287C1B /* Requests.swift */; };
-		C3715BCC203EE6BB00287C1B /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BCA203EE6BB00287C1B /* Requests.swift */; };
 		C3715BCD203EE6BB00287C1B /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BCA203EE6BB00287C1B /* Requests.swift */; };
 		C3715BCE203EE6BB00287C1B /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BCA203EE6BB00287C1B /* Requests.swift */; };
 		C3715BD1203EE6D400287C1B /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BD0203EE6D400287C1B /* Product.swift */; };
@@ -61,7 +97,6 @@
 		C3715BE7203EE93900287C1B /* URLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BE4203EE93900287C1B /* URLSession.swift */; };
 		C3715BE8203EE93900287C1B /* URLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BE4203EE93900287C1B /* URLSession.swift */; };
 		C3715BEA203F1A3900287C1B /* MoltinAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BE9203F1A3900287C1B /* MoltinAuth.swift */; };
-		C3715BEB203F1A3900287C1B /* MoltinAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BE9203F1A3900287C1B /* MoltinAuth.swift */; };
 		C3715BEC203F1A3900287C1B /* MoltinAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BE9203F1A3900287C1B /* MoltinAuth.swift */; };
 		C3715BED203F1A3900287C1B /* MoltinAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BE9203F1A3900287C1B /* MoltinAuth.swift */; };
 		C3715BF4203F542600287C1B /* AuthTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BEE203F53A000287C1B /* AuthTests.swift */; };
@@ -186,6 +221,15 @@
 		C336E55F20614A9C008C2005 /* Prices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Prices.swift; sourceTree = "<group>"; };
 		C336E564206155B2008C2005 /* FlowRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowRequest.swift; sourceTree = "<group>"; };
 		C336E569206155BE008C2005 /* FlowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowTests.swift; sourceTree = "<group>"; };
+		C336E58620626ADD008C2005 /* moltin tvOS Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "moltin tvOS Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C336E58820626ADD008C2005 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C336E58A20626ADD008C2005 /* ProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
+		C336E58C20626ADD008C2005 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
+		C336E58F20626ADD008C2005 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C336E59120626ADD008C2005 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C336E59320626ADD008C2005 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C336E5C4206278B2008C2005 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
+		C336E5C5206278B2008C2005 /* ProductCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCollectionViewCell.xib; sourceTree = "<group>"; };
 		C3434C0E203DDA0500883C84 /* MoltinRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoltinRequest.swift; sourceTree = "<group>"; };
 		C3434C17203DDAD500883C84 /* Pagination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pagination.swift; sourceTree = "<group>"; };
 		C3434C1C203DDAFF00883C84 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
@@ -252,6 +296,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		C336E58320626ADD008C2005 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C336E597206275CA008C2005 /* moltin.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C392E9C1203DB630006CD1D0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -314,6 +366,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C336E58720626ADD008C2005 /* moltin tvOS Example */ = {
+			isa = PBXGroup;
+			children = (
+				C336E58820626ADD008C2005 /* AppDelegate.swift */,
+				C336E58A20626ADD008C2005 /* ProductsViewController.swift */,
+				C336E58C20626ADD008C2005 /* CartViewController.swift */,
+				C336E58E20626ADD008C2005 /* Main.storyboard */,
+				C336E59120626ADD008C2005 /* Assets.xcassets */,
+				C336E59320626ADD008C2005 /* Info.plist */,
+				C336E5C4206278B2008C2005 /* ProductCollectionViewCell.swift */,
+				C336E5C5206278B2008C2005 /* ProductCollectionViewCell.xib */,
+			);
+			name = "moltin tvOS Example";
+			path = "../moltin tvOS Example";
+			sourceTree = "<group>";
+		};
 		C3434C16203DDACA00883C84 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -399,6 +467,7 @@
 				C392EA37203DB822006CD1D0 /* moltin WatchKit Example.app */,
 				C392EA43203DB823006CD1D0 /* moltin WatchKit Example Extension.appex */,
 				C392EA5E203DB836006CD1D0 /* moltin tvOS Tests.xctest */,
+				C336E58620626ADD008C2005 /* moltin tvOS Example.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -477,6 +546,7 @@
 		C392EA69203DB849006CD1D0 /* Examples */ = {
 			isa = PBXGroup;
 			children = (
+				C336E58720626ADD008C2005 /* moltin tvOS Example */,
 				C392EA22203DB800006CD1D0 /* moltin iOS Example */,
 				C392EA38203DB822006CD1D0 /* moltin WatchKit Example */,
 				C392EA47203DB823006CD1D0 /* moltin WatchKit Example Extension */,
@@ -538,6 +608,23 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		C336E58520626ADD008C2005 /* moltin tvOS Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C336E59420626ADD008C2005 /* Build configuration list for PBXNativeTarget "moltin tvOS Example" */;
+			buildPhases = (
+				C336E58220626ADD008C2005 /* Sources */,
+				C336E58320626ADD008C2005 /* Frameworks */,
+				C336E58420626ADD008C2005 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "moltin tvOS Example";
+			productName = "moltin tvOS Example";
+			productReference = C336E58620626ADD008C2005 /* moltin tvOS Example.app */;
+			productType = "com.apple.product-type.application";
+		};
 		C392E9C4203DB630006CD1D0 /* moltin iOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C392E9CA203DB630006CD1D0 /* Build configuration list for PBXNativeTarget "moltin iOS" */;
@@ -705,9 +792,13 @@
 		C392E99F203DB5ED006CD1D0 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0930;
+				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0930;
 				TargetAttributes = {
+					C336E58520626ADD008C2005 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
 					C392E9C4203DB630006CD1D0 = {
 						CreatedOnToolsVersion = 9.3;
 						LastSwiftMigration = 0930;
@@ -772,11 +863,22 @@
 				C392EA36203DB822006CD1D0 /* moltin WatchKit Example */,
 				C392EA42203DB823006CD1D0 /* moltin WatchKit Example Extension */,
 				C392EA5D203DB836006CD1D0 /* moltin tvOS Tests */,
+				C336E58520626ADD008C2005 /* moltin tvOS Example */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		C336E58420626ADD008C2005 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C336E59220626ADD008C2005 /* Assets.xcassets in Resources */,
+				C336E59020626ADD008C2005 /* Main.storyboard in Resources */,
+				C336E5C7206278B2008C2005 /* ProductCollectionViewCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C392E9C3203DB630006CD1D0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -849,6 +951,17 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		C336E58220626ADD008C2005 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C336E58D20626ADD008C2005 /* CartViewController.swift in Sources */,
+				C336E58920626ADD008C2005 /* AppDelegate.swift in Sources */,
+				C336E5C6206278B2008C2005 /* ProductCollectionViewCell.swift in Sources */,
+				C336E58B20626ADD008C2005 /* ProductsViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C392E9C0203DB630006CD1D0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -889,26 +1002,35 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C3434C11203DDA1F00883C84 /* MoltinRequest.swift in Sources */,
+				C336E5A82062762D008C2005 /* DateFormatter.swift in Sources */,
 				C3715BF7203F544B00287C1B /* HTTPMock.swift in Sources */,
+				C336E5B420627633008C2005 /* Address.swift in Sources */,
+				C336E5B320627633008C2005 /* Cart.swift in Sources */,
 				C3434C19203DDAD500883C84 /* Pagination.swift in Sources */,
 				C3715BD2203EE6D400287C1B /* Product.swift in Sources */,
+				C336E5B620627633008C2005 /* Order.swift in Sources */,
 				C3715C02203F59F200287C1B /* Currency.swift in Sources */,
-				C336E566206155B2008C2005 /* FlowRequest.swift in Sources */,
 				C3715BD7203EE6DE00287C1B /* Brand.swift in Sources */,
+				C336E59B20627627008C2005 /* MoltinAuth.swift in Sources */,
+				C336E59D20627627008C2005 /* FlowRequest.swift in Sources */,
+				C336E5A72062762D008C2005 /* DataSerializer.swift in Sources */,
 				C318D02C203EC5AB00B7A81E /* HTTP.swift in Sources */,
+				C336E59A20627627008C2005 /* MoltinRequest.swift in Sources */,
 				C3715C01203F59F200287C1B /* Collection.swift in Sources */,
 				C392E9FA203DB6E1006CD1D0 /* Moltin.swift in Sources */,
 				C3434C1E203DDAFF00883C84 /* Error.swift in Sources */,
+				C336E59920627627008C2005 /* Requests.swift in Sources */,
 				C3715BE6203EE93900287C1B /* URLSession.swift in Sources */,
 				C3715C03203F59F200287C1B /* File.swift in Sources */,
 				C336E56120614A9C008C2005 /* Prices.swift in Sources */,
-				C3715BCC203EE6BB00287C1B /* Requests.swift in Sources */,
+				C336E5A62062762D008C2005 /* Query.swift in Sources */,
+				C336E59C20627627008C2005 /* CartRequest.swift in Sources */,
 				C318D02D203EC5AB00B7A81E /* Parser.swift in Sources */,
-				C3715BEB203F1A3900287C1B /* MoltinAuth.swift in Sources */,
 				C3715C04203F59F200287C1B /* Flow.swift in Sources */,
+				C336E5B520627633008C2005 /* Customer.swift in Sources */,
 				C3434C23203DDB1F00883C84 /* Config.swift in Sources */,
 				C3715BDC203EE6E500287C1B /* Category.swift in Sources */,
+				C336E5B720627633008C2005 /* Timestamps.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -916,12 +1038,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C336E5A52062762D008C2005 /* DateFormatter.swift in Sources */,
 				C3434C13203DDA1F00883C84 /* MoltinRequest.swift in Sources */,
+				C336E5AF20627632008C2005 /* Address.swift in Sources */,
+				C336E5AE20627632008C2005 /* Cart.swift in Sources */,
 				C3715BF6203F544A00287C1B /* HTTPMock.swift in Sources */,
 				C3434C1A203DDAD500883C84 /* Pagination.swift in Sources */,
+				C336E5B120627632008C2005 /* Order.swift in Sources */,
 				C3715BD3203EE6D400287C1B /* Product.swift in Sources */,
 				C3715C06203F59F200287C1B /* Currency.swift in Sources */,
 				C336E567206155B2008C2005 /* FlowRequest.swift in Sources */,
+				C336E59E20627627008C2005 /* CartRequest.swift in Sources */,
+				C336E5A42062762D008C2005 /* DataSerializer.swift in Sources */,
 				C3715BD8203EE6DE00287C1B /* Brand.swift in Sources */,
 				C318D02E203EC5AB00B7A81E /* HTTP.swift in Sources */,
 				C3715C05203F59F200287C1B /* Collection.swift in Sources */,
@@ -931,11 +1059,14 @@
 				C3715C07203F59F200287C1B /* File.swift in Sources */,
 				C336E56220614A9C008C2005 /* Prices.swift in Sources */,
 				C3715BCD203EE6BB00287C1B /* Requests.swift in Sources */,
+				C336E5A32062762D008C2005 /* Query.swift in Sources */,
 				C318D02F203EC5AB00B7A81E /* Parser.swift in Sources */,
 				C3715BEC203F1A3900287C1B /* MoltinAuth.swift in Sources */,
 				C3715C08203F59F200287C1B /* Flow.swift in Sources */,
+				C336E5B020627632008C2005 /* Customer.swift in Sources */,
 				C3434C24203DDB1F00883C84 /* Config.swift in Sources */,
 				C3715BDD203EE6E500287C1B /* Category.swift in Sources */,
+				C336E5B220627632008C2005 /* Timestamps.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -943,12 +1074,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C336E5A22062762C008C2005 /* DateFormatter.swift in Sources */,
 				C3434C15203DDA2000883C84 /* MoltinRequest.swift in Sources */,
+				C336E5AA20627631008C2005 /* Address.swift in Sources */,
+				C336E5A920627631008C2005 /* Cart.swift in Sources */,
 				C3715BF5203F544900287C1B /* HTTPMock.swift in Sources */,
 				C3434C1B203DDAD500883C84 /* Pagination.swift in Sources */,
+				C336E5AC20627631008C2005 /* Order.swift in Sources */,
 				C3715BD4203EE6D400287C1B /* Product.swift in Sources */,
 				C3715C0A203F59F300287C1B /* Currency.swift in Sources */,
 				C336E568206155B2008C2005 /* FlowRequest.swift in Sources */,
+				C336E59F20627628008C2005 /* CartRequest.swift in Sources */,
+				C336E5A12062762C008C2005 /* DataSerializer.swift in Sources */,
 				C3715BD9203EE6DE00287C1B /* Brand.swift in Sources */,
 				C318D030203EC5AC00B7A81E /* HTTP.swift in Sources */,
 				C3715C09203F59F300287C1B /* Collection.swift in Sources */,
@@ -958,11 +1095,14 @@
 				C3715C0B203F59F300287C1B /* File.swift in Sources */,
 				C336E56320614A9C008C2005 /* Prices.swift in Sources */,
 				C3715BCE203EE6BB00287C1B /* Requests.swift in Sources */,
+				C336E5A02062762C008C2005 /* Query.swift in Sources */,
 				C318D031203EC5AC00B7A81E /* Parser.swift in Sources */,
 				C3715BED203F1A3900287C1B /* MoltinAuth.swift in Sources */,
 				C3715C0C203F59F300287C1B /* Flow.swift in Sources */,
+				C336E5AB20627631008C2005 /* Customer.swift in Sources */,
 				C3434C25203DDB1F00883C84 /* Config.swift in Sources */,
 				C3715BDE203EE6E500287C1B /* Category.swift in Sources */,
+				C336E5AD20627631008C2005 /* Timestamps.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1031,6 +1171,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		C336E58E20626ADD008C2005 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C336E58F20626ADD008C2005 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
 		C392EA29203DB800006CD1D0 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1058,6 +1206,131 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		C336E59520626ADD008C2005 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 6NTG7K23S9;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "moltin tvOS Example/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.moltin.moltin-tvOS-Example";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 11.2;
+			};
+			name = Debug;
+		};
+		C336E59620626ADD008C2005 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 6NTG7K23S9;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "moltin tvOS Example/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.moltin.moltin-tvOS-Example";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 11.2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		C392E9A3203DB5ED006CD1D0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2305,6 +2578,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		C336E59420626ADD008C2005 /* Build configuration list for PBXNativeTarget "moltin tvOS Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C336E59520626ADD008C2005 /* Debug */,
+				C336E59620626ADD008C2005 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C392E9A2203DB5ED006CD1D0 /* Build configuration list for PBXProject "moltin" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
