@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
 
     s.homepage     = "https://moltin.com"
     s.license      = { :type => 'MIT', :file => 'LICENSE' }
-    s.authors      = { "Craig Twedy" => "craig.tweedy@moltin.com" }
+    s.authors      = { "Craig Tweedy" => "craig.tweedy@moltin.com" }
 
     s.platforms    = { :ios => "10.0", :osx => "10.10", :watchos => "3.0", :tvos => "10.0" }
 
