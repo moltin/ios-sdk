@@ -18,7 +18,8 @@ public class FileMeta: Codable {
 }
 
 public class File: Codable {
-    public let id: String
+    
+    public var id: String
     public let type: String
     public let fileName: String
     public let mimeType: String

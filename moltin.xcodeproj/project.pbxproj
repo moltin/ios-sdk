@@ -66,6 +66,10 @@
 		C336E5CB20629600008C2005 /* CodableExtract.swift in Sources */ = {isa = PBXBuildFile; fileRef = C336E5C820629477008C2005 /* CodableExtract.swift */; };
 		C336E5CC20629600008C2005 /* CodableExtract.swift in Sources */ = {isa = PBXBuildFile; fileRef = C336E5C820629477008C2005 /* CodableExtract.swift */; };
 		C336E5CD20629601008C2005 /* CodableExtract.swift in Sources */ = {isa = PBXBuildFile; fileRef = C336E5C820629477008C2005 /* CodableExtract.swift */; };
+		C336E5D02064062C008C2005 /* Relationship.swift in Sources */ = {isa = PBXBuildFile; fileRef = C336E5CE2064057B008C2005 /* Relationship.swift */; };
+		C336E5D12064062D008C2005 /* Relationship.swift in Sources */ = {isa = PBXBuildFile; fileRef = C336E5CE2064057B008C2005 /* Relationship.swift */; };
+		C336E5D22064062D008C2005 /* Relationship.swift in Sources */ = {isa = PBXBuildFile; fileRef = C336E5CE2064057B008C2005 /* Relationship.swift */; };
+		C336E5D32064062E008C2005 /* Relationship.swift in Sources */ = {isa = PBXBuildFile; fileRef = C336E5CE2064057B008C2005 /* Relationship.swift */; };
 		C3434C0F203DDA0500883C84 /* MoltinRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3434C0E203DDA0500883C84 /* MoltinRequest.swift */; };
 		C3434C13203DDA1F00883C84 /* MoltinRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3434C0E203DDA0500883C84 /* MoltinRequest.swift */; };
 		C3434C15203DDA2000883C84 /* MoltinRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3434C0E203DDA0500883C84 /* MoltinRequest.swift */; };
@@ -235,6 +239,7 @@
 		C336E5C4206278B2008C2005 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
 		C336E5C5206278B2008C2005 /* ProductCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCollectionViewCell.xib; sourceTree = "<group>"; };
 		C336E5C820629477008C2005 /* CodableExtract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableExtract.swift; sourceTree = "<group>"; };
+		C336E5CE2064057B008C2005 /* Relationship.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Relationship.swift; sourceTree = "<group>"; };
 		C3434C0E203DDA0500883C84 /* MoltinRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoltinRequest.swift; sourceTree = "<group>"; };
 		C3434C17203DDAD500883C84 /* Pagination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pagination.swift; sourceTree = "<group>"; };
 		C3434C1C203DDAFF00883C84 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
@@ -443,6 +448,7 @@
 				C3821AEB2044412C001EF864 /* Order.swift */,
 				C3FF26FE2061205800CA226D /* Timestamps.swift */,
 				C336E55F20614A9C008C2005 /* Prices.swift */,
+				C336E5CE2064057B008C2005 /* Relationship.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -976,6 +982,7 @@
 				C3715BF8203F544B00287C1B /* HTTPMock.swift in Sources */,
 				C3715C00203F59D000287C1B /* Flow.swift in Sources */,
 				C336E565206155B2008C2005 /* FlowRequest.swift in Sources */,
+				C336E5D32064062E008C2005 /* Relationship.swift in Sources */,
 				C3434C0F203DDA0500883C84 /* MoltinRequest.swift in Sources */,
 				C3821AEA20444127001EF864 /* Customer.swift in Sources */,
 				C3779232203EC6D000C20FEC /* Query.swift in Sources */,
@@ -1013,6 +1020,7 @@
 				C3715BF7203F544B00287C1B /* HTTPMock.swift in Sources */,
 				C336E5B420627633008C2005 /* Address.swift in Sources */,
 				C336E5B320627633008C2005 /* Cart.swift in Sources */,
+				C336E5D22064062D008C2005 /* Relationship.swift in Sources */,
 				C3434C19203DDAD500883C84 /* Pagination.swift in Sources */,
 				C3715BD2203EE6D400287C1B /* Product.swift in Sources */,
 				C336E5B620627633008C2005 /* Order.swift in Sources */,
@@ -1050,6 +1058,7 @@
 				C3434C13203DDA1F00883C84 /* MoltinRequest.swift in Sources */,
 				C336E5AF20627632008C2005 /* Address.swift in Sources */,
 				C336E5AE20627632008C2005 /* Cart.swift in Sources */,
+				C336E5D12064062D008C2005 /* Relationship.swift in Sources */,
 				C3715BF6203F544A00287C1B /* HTTPMock.swift in Sources */,
 				C3434C1A203DDAD500883C84 /* Pagination.swift in Sources */,
 				C336E5B120627632008C2005 /* Order.swift in Sources */,
@@ -1087,6 +1096,7 @@
 				C3434C15203DDA2000883C84 /* MoltinRequest.swift in Sources */,
 				C336E5AA20627631008C2005 /* Address.swift in Sources */,
 				C336E5A920627631008C2005 /* Cart.swift in Sources */,
+				C336E5D02064062C008C2005 /* Relationship.swift in Sources */,
 				C3715BF5203F544900287C1B /* HTTPMock.swift in Sources */,
 				C3434C1B203DDAD500883C84 /* Pagination.swift in Sources */,
 				C336E5AC20627631008C2005 /* Order.swift in Sources */,
