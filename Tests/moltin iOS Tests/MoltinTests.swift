@@ -75,6 +75,9 @@ class MoltinTests: XCTestCase {
         let session = MockURLSession()
         session.nextError = MoltinError.noData
         request.http = MoltinHTTP(withSession: session)
+        let authSession = MockURLSession()
+        authSession.nextData = MockFactory.authJSON.data(using: .utf8)!
+        request.auth.http = MoltinHTTP(withSession: authSession)
         
         let expectationToFulfill = expectation(description: "ProductRequest calls the method and runs the callback closure")
         
@@ -259,7 +262,8 @@ class MoltinTests: XCTestCase {
         let components = URLComponents(url: urlRequest!.url!, resolvingAgainstBaseURL: false)
         XCTAssertNotNil(components)
         XCTAssertNotNil(components?.query)
-        XCTAssert(components!.query! == "includes=files")
+        
+        XCTAssert(components!.query! == "include=files")
     }
     
     func testRequestHandlesMultipleIncludes() {
@@ -277,7 +281,7 @@ class MoltinTests: XCTestCase {
         let components = URLComponents(url: urlRequest!.url!, resolvingAgainstBaseURL: false)
         XCTAssertNotNil(components)
         XCTAssertNotNil(components?.query)
-        XCTAssert(components!.query! == "includes=files,category")
+        XCTAssert(components!.query! == "include=files,categories")
     }
     
     func testRequestHandlesMultipleParameters() {
@@ -299,7 +303,7 @@ class MoltinTests: XCTestCase {
         let components = URLComponents(url: urlRequest!.url!, resolvingAgainstBaseURL: false)
         XCTAssertNotNil(components)
         XCTAssertNotNil(components?.query)
-        XCTAssert(components!.query! == "includes=files,category&sort=key&limit=1&offset=2&filter=eq(test, one)")
+        XCTAssert(components!.query! == "include=files,categories&sort=key&limit=1&offset=2&filter=eq(test, one)")
     }
     
     func testRequestHandlesNoData() {
@@ -413,7 +417,7 @@ class MoltinTests: XCTestCase {
         let components = URLComponents(url: urlRequest!.url!, resolvingAgainstBaseURL: false)
         XCTAssertNotNil(components)
         XCTAssertNotNil(components?.query)
-        XCTAssert(components!.query! == "includes=files,category&sort=key&limit=1&offset=2&filter=eq(test, one)")
+        XCTAssert(components!.query! == "include=files,categories&sort=key&limit=1&offset=2&filter=eq(test, one)")
         
         request = moltin.product.limit(5).offset(8)
         let secondUrlRequest = try? request.http.buildURLRequest(

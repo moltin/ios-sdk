@@ -22,14 +22,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
         splitViewController.delegate = self
         
-        self.request = self.moltin.category.include([.products]).all { (result) in
-            switch result {
-            case .success(let response):
-                print(response)
-            case .failure(let error):
-                print(error)
-            }
-        }
+//        self.request = self.moltin.category.include([.products]).all { (result) in
+//            switch result {
+//            case .success(let response):
+//                print(response)
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
         
         return true
     }

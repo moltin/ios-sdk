@@ -33,6 +33,13 @@ class AuthRequestTests: XCTestCase {
     }
     """
     
+    let validAuthJson = """
+    {
+        "access_token": "123asdasd123",
+        "expires": 99999999999999999999
+    }
+    """
+    
     func testAuthAuthenticatesSuccessfullyAndPassesThrough() {
         let (_, productRequest) = MockFactory.mockedProductRequest(withJSON: self.multiProductJson)
         
@@ -43,7 +50,7 @@ class AuthRequestTests: XCTestCase {
             case .success(_):
                 XCTAssertTrue(true)
                 break
-            case .failure(_):
+            case .failure(let error):
                 XCTFail("Could not authenticate")
                 break
             }
@@ -90,6 +97,9 @@ class AuthRequestTests: XCTestCase {
         auth.token = nil
         auth.expires = nil
         
+        let mockAuthSession = MockURLSession()
+        auth.http = MoltinHTTP(withSession: mockAuthSession)
+        
         let expectationToFulfill = expectation(description: "Auth calls the method and runs the callback closure")
         
         auth.authenticate { (result) in
@@ -113,7 +123,8 @@ class AuthRequestTests: XCTestCase {
         let auth = MoltinAuth(withConfiguration: MoltinConfig.default(withClientID: "12345"))
         auth.token = nil
         auth.expires = nil
-        auth.http = MockedMoltinHTTP(withSession: MockURLSession())
+        let mockAuthSession = MockURLSession()
+        auth.http = MoltinHTTP(withSession: mockAuthSession)
         
         let expectationToFulfill = expectation(description: "Auth calls the method and runs the callback closure")
         
@@ -165,6 +176,9 @@ class AuthRequestTests: XCTestCase {
         let auth = MoltinAuth(withConfiguration: MoltinConfig.default(withClientID: "12345"))
         auth.token = "12345"
         auth.expires = Date().addingTimeInterval(10000)
+        
+        let session = MockURLSession()
+        auth.http = MoltinHTTP(withSession: session)
         
         let expectationToFulfill = expectation(description: "Auth calls the method and runs the callback closure")
         

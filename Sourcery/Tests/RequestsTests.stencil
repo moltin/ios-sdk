@@ -22,17 +22,12 @@ class Author: Codable, Equatable {
 class MyCustom{{ case.name|upperFirstLetter }}: moltin.{{ case.name|upperFirstLetter }} {
     let author: Author
     
-    private enum {{ case.name|upperFirstLetter }}CodingKeys : String, CodingKey { case author }
+    enum {{ case.name|upperFirstLetter }}CodingKeys : String, CodingKey { case author }
     
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: {{ case.name|upperFirstLetter }}CodingKeys.self)
         self.author = try container.decode(Author.self, forKey: .author)
         try super.init(from: decoder)
-    }
-    
-    internal init(withID id: String, withAuthor author: Author) {
-        self.author = author
-        super.init(withID: id)
     }
 }
 
@@ -83,8 +78,7 @@ class {{ case.name|upperFirstLetter }}RequestTests: XCTestCase {
         let _ = {{ case.name }}Request.all { (result) in
             switch result {
             case .success(let response):
-                let {{ case.name }}s: [moltin.{{ case.name|upperFirstLetter }}]? = []
-                XCTAssert(type(of: response.data) == type(of: {{ case.name }}s))
+                XCTAssert(type(of: response.data) == [moltin.{{ case.name|upperFirstLetter }}].self)
                 XCTAssert(response.data?.count != 0)
                 break
             case .failure(_):
@@ -110,9 +104,8 @@ class {{ case.name|upperFirstLetter }}RequestTests: XCTestCase {
         let _ = {{ case.name }}Request.get(forID: "51b56d92-ab99-4802-a2c1-be150848c629") { (result) in
             switch result {
             case .success(let response):
-                let {{ case.name }} = moltin.{{ case.name|upperFirstLetter }}(withID: "51b56d92-ab99-4802-a2c1-be150848c629")
-                XCTAssert(type(of: {{ case.name }}) == type(of: response))
-                XCTAssert({{ case.name }}.id == response.id)
+                XCTAssert(type(of: response) == moltin.{{ case.name|upperFirstLetter }}.self)
+                XCTAssert(response.id == "51b56d92-ab99-4802-a2c1-be150848c629")
                 break
             case .failure(_):
                 XCTFail("Response returned error")
@@ -139,8 +132,7 @@ class {{ case.name|upperFirstLetter }}RequestTests: XCTestCase {
         let _ = {{ case.name }}Request.all { (result: Result<PaginatedResponse<[MyCustom{{ case.name|upperFirstLetter }}]>>) in
             switch result {
             case .success(let response):
-                let {{ case.name }}s: [MyCustom{{ case.name|upperFirstLetter }}]? = []
-                XCTAssert(type(of: response.data) == type(of: {{ case.name }}s))
+                XCTAssert(type(of: response.data) == [MyCustom{{ case.name|upperFirstLetter }}].self)
                 XCTAssert(response.data?.count != 0)
                 break
             case .failure(_):
@@ -168,12 +160,9 @@ class {{ case.name|upperFirstLetter }}RequestTests: XCTestCase {
             switch result {
             case .success(let response):
                 let author = Author(withName: "Craig")
-                let {{ case.name }} = MyCustom{{ case.name|upperFirstLetter }}(
-                    withID: "51b56d92-ab99-4802-a2c1-be150848c629",
-                    withAuthor: author)
-                XCTAssert(type(of: {{ case.name }}) == type(of: response))
-                XCTAssert({{ case.name }}.id == response.id)
-                XCTAssert({{ case.name }}.author == response.author)
+                XCTAssert(type(of: response) == MyCustom{{ case.name|upperFirstLetter }}.self)
+                XCTAssert(response.id == "51b56d92-ab99-4802-a2c1-be150848c629")
+                XCTAssert(response.author == author)
                 break
             case .failure(_):
                 XCTFail("Response returned error")
@@ -202,8 +191,7 @@ class {{ case.name|upperFirstLetter }}RequestTests: XCTestCase {
         let _ = {{ case.name }}Request.tree { (result) in
             switch result {
             case .success(let response):
-                let {{ case.name }}s: [moltin.{{ case.name|upperFirstLetter }}]? = []
-                XCTAssert(type(of: {{ case.name }}s) == type(of: response.data))
+                XCTAssert(type(of: response.data) == [moltin.{{ case.name|upperFirstLetter}}].self)
                 XCTAssert(response.data?.count != 0)
                 break
             case .failure(_):
@@ -231,8 +219,7 @@ class {{ case.name|upperFirstLetter }}RequestTests: XCTestCase {
         let _ = {{ case.name }}Request.tree { (result: Result<PaginatedResponse<[MyCustom{{ case.name|upperFirstLetter }}]>>) in
             switch result {
             case .success(let response):
-                let {{ case.name }}s: [MyCustom{{ case.name|upperFirstLetter }}]? = []
-                XCTAssert(type(of: {{ case.name }}s) == type(of: response.data))
+                XCTAssert(type(of: response.data) == [MyCustom{{ case.name|upperFirstLetter}}].self)
                 XCTAssert(response.data?.count != 0)
                 break
             case .failure(_):

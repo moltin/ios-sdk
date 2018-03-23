@@ -8,19 +8,19 @@
 import Foundation
 
 public class Address: Codable {
-    public let id: String
-    public let type: String
-    public let firstName: String
-    public let lastName: String
-    public let name: String
-    public let instructions: String
-    public let companyName: String
-    public let line1: String
-    public let line2: String
-    public let city: String
-    public let county: String
-    public let postcode: String
-    public let country: String
+    public var id: String?
+    public let type: String = "address"
+    public var firstName: String
+    public var lastName: String
+    public var name: String?
+    public var instructions: String?
+    public var companyName: String?
+    public var line1: String?
+    public var line2: String?
+    public var city: String?
+    public var county: String?
+    public var postcode: String?
+    public var country: String?
     
     enum CodingKeys: String, CodingKey {
         case firstName = "firstName"
@@ -37,5 +37,12 @@ public class Address: Codable {
         case county
         case postcode
         case country
+    }
+    
+    init(
+        withFirstName firstName: String,
+        withLastName lastName: String) {
+        self.firstName = firstName
+        self.lastName = lastName
     }
 }

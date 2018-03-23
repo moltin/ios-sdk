@@ -27,12 +27,12 @@ public class CartRequest : MoltinRequest {
     }
     
     
-    public func addProduct(_ product: Product,
+    public func addProduct(withID productID: String,
                            ofQuantity quantity: Int,
                            toCart cart: String,
                            completionHandler: @escaping ObjectRequestHandler<Cart>) -> MoltinRequest {
         
-        let data = self.buildCartItem(withID: product.id,
+        let data = self.buildCartItem(withID: productID,
                                       ofQuantity: quantity)
         
         return self.post(withPath: "\(self.endpoint)/\(cart)/items",
