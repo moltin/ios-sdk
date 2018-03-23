@@ -18,107 +18,81 @@ class Author: Codable, Equatable {
 }
 
 
-class MyCustomBrand: Product {
+public class MyCustomBrand: Brand {
     let author: Author
-    private enum CodingKeys : String, CodingKey { case author }
-    required init(from decoder: Decoder) throws {
+    enum CodingKeys : String, CodingKey {
+        case author
+    }
+    required public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.author = try container.decode(Author.self, forKey: .author)
         try super.init(from: decoder)
-    }
-    internal init(withID id: String, withAuthor author: Author) {
-        self.author = author
-        super.init(withID: id)
     }
 }
 
 
-class MyCustomCategory: Product {
+class MyCustomCategory: moltin.Category {
     let author: Author
-    private enum CodingKeys : String, CodingKey { case author }
+    enum CodingKeys : String, CodingKey { case author }
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.author = try container.decode(Author.self, forKey: .author)
         try super.init(from: decoder)
-    }
-    internal init(withID id: String, withAuthor author: Author) {
-        self.author = author
-        super.init(withID: id)
     }
 }
 
 
-class MyCustomCollection: Product {
+class MyCustomCollection: moltin.Collection {
     let author: Author
-    private enum CodingKeys : String, CodingKey { case author }
+    enum CodingKeys : String, CodingKey { case author }
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.author = try container.decode(Author.self, forKey: .author)
         try super.init(from: decoder)
-    }
-    internal init(withID id: String, withAuthor author: Author) {
-        self.author = author
-        super.init(withID: id)
     }
 }
 
 
-class MyCustomCurrency: Product {
+class MyCustomCurrency: moltin.Currency {
     let author: Author
-    private enum CodingKeys : String, CodingKey { case author }
+    enum CurrencyCodingKeys : String, CodingKey { case author }
     required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let container = try decoder.container(keyedBy: CurrencyCodingKeys.self)
         self.author = try container.decode(Author.self, forKey: .author)
         try super.init(from: decoder)
-    }
-    internal init(withID id: String, withAuthor author: Author) {
-        self.author = author
-        super.init(withID: id)
     }
 }
 
 
-class MyCustomFile: Product {
+class MyCustomFile: moltin.File {
     let author: Author
-    private enum CodingKeys : String, CodingKey { case author }
+    enum FileCodingKeys : String, CodingKey { case author }
     required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let container = try decoder.container(keyedBy: FileCodingKeys.self)
         self.author = try container.decode(Author.self, forKey: .author)
         try super.init(from: decoder)
-    }
-    internal init(withID id: String, withAuthor author: Author) {
-        self.author = author
-        super.init(withID: id)
     }
 }
 
 
-class MyCustomField: Product {
+class MyCustomField: Field {
     let author: Author
-    private enum CodingKeys : String, CodingKey { case author }
+    private enum FieldCodingKeys : String, CodingKey { case author }
     required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let container = try decoder.container(keyedBy: FieldCodingKeys.self)
         self.author = try container.decode(Author.self, forKey: .author)
         try super.init(from: decoder)
-    }
-    internal init(withID id: String, withAuthor author: Author) {
-        self.author = author
-        super.init(withID: id)
     }
 }
 
 
 class MyCustomProduct: Product {
     let author: Author
-    private enum CodingKeys : String, CodingKey { case author }
+    private enum ProductCodingKeys : String, CodingKey { case author }
     required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let container = try decoder.container(keyedBy: ProductCodingKeys.self)
         self.author = try container.decode(Author.self, forKey: .author)
         try super.init(from: decoder)
-    }
-    internal init(withID id: String, withAuthor author: Author) {
-        self.author = author
-        super.init(withID: id)
     }
 }
 
@@ -185,9 +159,12 @@ class BrandRequestTests: XCTestCase {
         let _ = brandRequest.get(forID: "51b56d92-ab99-4802-a2c1-be150848c629") { (result) in
             switch result {
             case .success(let response):
-                let brand = moltin.Brand(withID: "51b56d92-ab99-4802-a2c1-be150848c629")
-                XCTAssert(type(of: brand) == type(of: response))
-                XCTAssert(brand.id == response.id)
+                if let brand: Brand = MockObjectFactory.object(fromJSON: ["id": "51b56d92-ab99-4802-a2c1-be150848c629"]) {
+                    XCTAssert(type(of: brand) == type(of: response))
+                    XCTAssert(brand.id == response.id)
+                } else {
+                    XCTFail("Response returned error")
+                }
                 break
             case .failure(_):
                 XCTFail("Response returned error")
@@ -231,13 +208,13 @@ class BrandRequestTests: XCTestCase {
         let _ = brandRequest.get(forID: "51b56d92-ab99-4802-a2c1-be150848c629") { (result: Result<MyCustomBrand>) in
             switch result {
             case .success(let response):
-                let author = Author(withName: "Craig")
-                let brand = MyCustomBrand(
-                    withID: "51b56d92-ab99-4802-a2c1-be150848c629",
-                    withAuthor: author)
-                XCTAssert(type(of: brand) == type(of: response))
-                XCTAssert(brand.id == response.id)
-                XCTAssert(brand.author == response.author)
+                if let brand: MyCustomBrand = MockObjectFactory.object(fromJSON: ["id": "51b56d92-ab99-4802-a2c1-be150848c629", "author": ["name": "Craig"]]) {
+                    XCTAssert(type(of: brand) == type(of: response))
+                    XCTAssert(brand.id == response.id)
+                    XCTAssert(brand.author == response.author)
+                } else {
+                    XCTFail("Response returned error")
+                }
                 break
             case .failure(_):
                 XCTFail("Response returned error")

@@ -46,6 +46,20 @@ class MockedMoltinDataSerializer: DataSerializer {
     }
 }
 
+class MockObjectFactory {
+    
+    static func object<T: Codable>(fromJSON json: [String: Any]) -> T? {
+        let decoder = JSONDecoder.dateFormattingDecoder()
+        do {
+            let data = try JSONSerialization.data(withJSONObject: json, options: [])
+            let obj = try decoder.decode(T.self, from: data)
+            return obj
+        } catch {
+            return nil
+        }
+    }
+}
+
 
 class MockFactory {
     
@@ -111,6 +125,19 @@ class MockFactory {
     static func mockedFileRequest(withJSON json: String) -> (Moltin, FileRequest) {
         let moltin = Moltin(withClientID: "12345")
         let request = moltin.file
+        let mockSession = MockURLSession()
+        mockSession.nextData = json.data(using: .utf8)!
+        request.http = MoltinHTTP(withSession: mockSession)
+        let mockAuthSession = MockURLSession()
+        mockAuthSession.nextData = MockFactory.authJSON.data(using: .utf8)!
+        request.auth.http = MoltinHTTP(withSession: mockAuthSession)
+        
+        return (moltin, request)
+    }
+    
+    static func mockedFieldRequest(withJSON json: String) -> (Moltin, FieldRequest) {
+        let moltin = Moltin(withClientID: "12345")
+        let request = moltin.field
         let mockSession = MockURLSession()
         mockSession.nextData = json.data(using: .utf8)!
         request.http = MoltinHTTP(withSession: mockSession)

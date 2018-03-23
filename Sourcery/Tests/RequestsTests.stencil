@@ -19,13 +19,13 @@ class Author: Codable, Equatable {
 
 {% for case in type.MoltinAPIEndpoints.cases %}
 
-class MyCustom{{ case.name|upperFirstLetter }}: Product {
+class MyCustom{{ case.name|upperFirstLetter }}: moltin.{{ case.name|upperFirstLetter }} {
     let author: Author
     
-    private enum CodingKeys : String, CodingKey { case author }
+    private enum {{ case.name|upperFirstLetter }}CodingKeys : String, CodingKey { case author }
     
     required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let container = try decoder.container(keyedBy: {{ case.name|upperFirstLetter }}CodingKeys.self)
         self.author = try container.decode(Author.self, forKey: .author)
         try super.init(from: decoder)
     }

@@ -265,7 +265,7 @@ class MoltinTests: XCTestCase {
     func testRequestHandlesMultipleIncludes() {
         let moltin = Moltin(withClientID: "12345")
         let request = moltin.product
-            .include([.files, .category])
+            .include([.files, .categories])
         
         let urlRequest = try? request.http.buildURLRequest(
             withConfiguration: moltin.config,
@@ -283,7 +283,7 @@ class MoltinTests: XCTestCase {
     func testRequestHandlesMultipleParameters() {
         let moltin = Moltin(withClientID: "12345")
         let request = moltin.product
-            .include([.files, .category])
+            .include([.files, .categories])
             .filter(operator: .eq, key: "test", value: "one")
             .limit(1)
             .offset(2)
@@ -367,7 +367,7 @@ class MoltinTests: XCTestCase {
     }
     
     func testMalformedDataParser() {
-        let parser = MoltinParser()
+        let parser = MoltinParser(withDecoder: JSONDecoder.dateFormattingDecoder())
         let malformedData = "{'akjsdkla}".data(using: .utf8)!
         
         
@@ -397,7 +397,7 @@ class MoltinTests: XCTestCase {
     func testParamsAreNotShared() {
         let moltin = Moltin(withClientID: "12345")
         var request = moltin.product
-            .include([.files, .category])
+            .include([.files, .categories])
             .filter(operator: .eq, key: "test", value: "one")
             .limit(1)
             .offset(2)

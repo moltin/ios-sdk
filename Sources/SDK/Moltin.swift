@@ -34,6 +34,10 @@ public class Moltin {
         return FileRequest(withConfiguration: self.config)
     }
     
+    public var field: FieldRequest {
+        return FieldRequest(withConfiguration: self.config)
+    }
+    
     public var flow: FlowRequest {
         return FlowRequest(withConfiguration: self.config)
     }
