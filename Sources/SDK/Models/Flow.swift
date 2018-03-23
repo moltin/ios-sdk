@@ -28,8 +28,7 @@ public class Field: Codable {
 //    public let `default`: Any
     public let enabled: Bool
 //    public let validationRules: [String: Any]
-    public let links: [String: String]
-    public let relationships: [String: [String: [String: String]]]
+    public let relationships: Relationships
     public let meta: FieldMeta
     
     enum CodingKeys: String, CodingKey {
@@ -43,7 +42,6 @@ public class Field: Codable {
         case required
         case unique
         case enabled
-        case links
         case relationships
         case meta
     }

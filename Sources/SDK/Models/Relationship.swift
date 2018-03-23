@@ -44,6 +44,8 @@ public class Relationships: Codable {
     public var flow: RelationshipSingle?
     public var items: RelationshipMany?
     public var customer: RelationshipSingle?
+    public var cart_item: RelationshipSingle?
+    public var products: RelationshipMany?
     
     enum CodingKeys: String, CodingKey {
         case mainImage = "main_image"
@@ -55,5 +57,7 @@ public class Relationships: Codable {
         case flow
         case items
         case customer
+        case cart_item
+        case products
     }
 }

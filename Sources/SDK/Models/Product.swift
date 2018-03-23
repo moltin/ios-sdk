@@ -62,7 +62,7 @@ public class Product: Codable, HasRelationship {
     public let slug: String
     public let sku: String
     public let manageStock: Bool
-    public let propertyDescription: String
+    public let description: String
     public let price: [ProductPrice]?
     public let status: String
     public let commodityType: String
@@ -84,7 +84,7 @@ public class Product: Codable, HasRelationship {
         case name
         case slug
         case sku
-        case propertyDescription = "description"
+        case description
         case price
         case status
         case meta
@@ -100,7 +100,7 @@ public class Product: Codable, HasRelationship {
         self.name = try container.decode(String.self, forKey: .name)
         self.slug = try container.decode(String.self, forKey: .slug)
         self.sku = try container.decode(String.self, forKey: .sku)
-        self.propertyDescription = try container.decode(String.self, forKey: .propertyDescription)
+        self.description = try container.decode(String.self, forKey: .description)
         self.price = try container.decode([ProductPrice].self, forKey: .price)
         self.status = try container.decode(String.self, forKey: .status)
         self.meta = try container.decode(ProductMeta.self, forKey: .meta)

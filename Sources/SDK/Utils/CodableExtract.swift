@@ -62,7 +62,7 @@ extension Decodable {
 
 extension JSONDecoder {
     static public func dateFormattingDecoder() -> JSONDecoder {
-        let decoder = JSONDecoder.dateFormattingDecoder()
+        let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601Full)
         decoder.dateDecodingStrategy = .custom({ (decoder) -> Date in
             let dateString = try decoder.singleValueContainer().decode(String.self)

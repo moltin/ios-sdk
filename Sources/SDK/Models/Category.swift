@@ -7,11 +7,46 @@
 
 import Foundation
 
-public class Category: Codable {
+public class Category: Codable, HasRelationship {
     public let id: String
     public let type: String
     public let name: String
     public let slug: String
     public let description: String
     public let status: String
+    public let relationships: Relationships
+    
+    public var categories: [Category]?
+    public var products: [Product]?
+    
+    required public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let includes: IncludesContainer = decoder.userInfo[.includes] as? IncludesContainer ?? [:]
+        
+        self.id = try container.decode(String.self, forKey: .id)
+        self.type = try container.decode(String.self, forKey: .type)
+        self.name = try container.decode(String.self, forKey: .name)
+        self.slug = try container.decode(String.self, forKey: .slug)
+        self.description = try container.decode(String.self, forKey: .description)
+        self.status = try container.decode(String.self, forKey: .status)
+        self.relationships = try container.decode(Relationships.self, forKey: .relationships)
+        
+        
+        try self.decodeRelationships(fromRelationships: self.relationships, withIncludes: includes)
+    }
 }
+
+extension Category {
+    func decodeRelationships(
+        fromRelationships relationships: Relationships?,
+        withIncludes includes: IncludesContainer) throws {
+        
+        self.categories = try self.decodeMany(fromRelationships: self.relationships[keyPath: \Relationships.categories],
+                                          withIncludes: includes["categories"])
+        
+        self.products = try self.decodeMany(fromRelationships: self.relationships[keyPath: \Relationships.products],
+                                            withIncludes: includes["products"])
+    }
+}
+
+
