@@ -51,7 +51,11 @@ class AuthRequestTests: XCTestCase {
                 XCTAssertTrue(true)
                 break
             case .failure(let error):
-                XCTFail("Could not authenticate")
+                if let error = error as? MoltinError {
+                    XCTFail(error.localizedDescription)
+                } else {
+                    XCTFail(error.localizedDescription)
+                }
                 break
             }
             

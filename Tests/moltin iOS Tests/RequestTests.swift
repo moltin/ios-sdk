@@ -473,8 +473,10 @@ class CollectionRequestTests: XCTestCase {
         }
     """
 
-    func testCollectionRequestReturnsCollections() {
-        let (_, collectionRequest) = MockFactory.mockedCollectionRequest(withJSON: self.multiProductJson)
+
+    
+    
+    let (_, collectionRequest) = MockFactory.mockedCollectionRequest(withJSON: self.multiProductJson)
         let expectationToFulfill = expectation(description: "CollectionRequest calls the method and runs the callback closure")
         let _ = collectionRequest.all { (result) in
             switch result {
