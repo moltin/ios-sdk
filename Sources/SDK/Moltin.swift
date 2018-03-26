@@ -49,4 +49,8 @@ public class Moltin {
     public init(withClientID clientID: String, withConfiguration configuration: MoltinConfig? = nil) {
         self.config = configuration ?? MoltinConfig.default(withClientID: clientID)
     }
+    
+    public init(withConfiguration configuration: MoltinConfig) {
+        self.config = configuration
+    }
 }
