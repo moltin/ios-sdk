@@ -45,6 +45,13 @@ jobs:
           path: ~/Library/Logs/scan
           destination: scan-logs
 
+  update_documentation:
+    macos:
+      xcode: "9.2.0"
+    
+    steps:
+      - run: echo "hello"
+
   update_cocoapods:
     macos:
       xcode: "9.2.0"
@@ -81,9 +88,12 @@ workflows:
           filters:
             branches:
               only: master
-      - tag:
+      - update_documentation:
           requires:
             - update_cocoapods
+      - tag:
+          requires:
+            - update_documentation
           filters:
             branches:
               only: master
