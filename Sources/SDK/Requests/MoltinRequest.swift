@@ -44,7 +44,8 @@ public class MoltinRequest {
     
     // MARK: - Default Calls
     
-    func list<T>(withPath path: String, completionHandler: @escaping CollectionRequestHandler<T>) -> Self {
+    
+    @discardableResult func list<T>(withPath path: String, completionHandler: @escaping CollectionRequestHandler<T>) -> Self {
         let urlRequest: URLRequest
         do {
             urlRequest = try self.http.buildURLRequest(
@@ -57,14 +58,14 @@ public class MoltinRequest {
             return self
         }
         
-        self.send(withURLRequest: urlRequest) { [weak self] (data, response, error) in
-            self?.parser.collectionHandler(withData: data, withResponse: response, completionHandler: completionHandler)
+        self.send(withURLRequest: urlRequest) { (data, response, error) in
+            self.parser.collectionHandler(withData: data, withResponse: response, completionHandler: completionHandler)
         }
         
         return self
     }
     
-    func get<T: Codable>(withPath path: String, completionHandler: @escaping ObjectRequestHandler<T>) -> Self {
+    @discardableResult func get<T: Codable>(withPath path: String, completionHandler: @escaping ObjectRequestHandler<T>) -> Self {
         let urlRequest: URLRequest
         do {
             urlRequest = try self.http.buildURLRequest(
@@ -77,14 +78,14 @@ public class MoltinRequest {
             return self
         }
         
-        self.send(withURLRequest: urlRequest) { [weak self] (data, response, error) in
-            self?.parser.singleObjectHandler(withData: data, withResponse: response, completionHandler: completionHandler)
+        self.send(withURLRequest: urlRequest) { (data, response, error) in
+            self.parser.singleObjectHandler(withData: data, withResponse: response, completionHandler: completionHandler)
         }
         
         return self
     }
     
-    func post<T: Codable>(withPath path: String, withData data: [String : Any], completionHandler: @escaping ObjectRequestHandler<T>) -> Self {
+    @discardableResult func post<T: Codable>(withPath path: String, withData data: [String : Any], completionHandler: @escaping ObjectRequestHandler<T>) -> Self {
         let urlRequest: URLRequest
         do {
             urlRequest = try self.http.buildURLRequest(
@@ -99,14 +100,14 @@ public class MoltinRequest {
             return self
         }
         
-        self.send(withURLRequest: urlRequest) { [weak self] (data, response, error) in
-            self?.parser.singleObjectHandler(withData: data, withResponse: response, completionHandler: completionHandler)
+        self.send(withURLRequest: urlRequest) { (data, response, error) in
+            self.parser.singleObjectHandler(withData: data, withResponse: response, completionHandler: completionHandler)
         }
         
         return self
     }
     
-    func put<T: Codable>(withPath path: String, withData data: [String : Any], completionHandler: @escaping ObjectRequestHandler<T>) -> Self {
+    @discardableResult func put<T: Codable>(withPath path: String, withData data: [String : Any], completionHandler: @escaping ObjectRequestHandler<T>) -> Self {
         let urlRequest: URLRequest
         do {
             urlRequest = try self.http.buildURLRequest(
@@ -121,14 +122,14 @@ public class MoltinRequest {
             return self
         }
         
-        self.send(withURLRequest: urlRequest) { [weak self] (data, response, error) in
-            self?.parser.singleObjectHandler(withData: data, withResponse: response, completionHandler: completionHandler)
+        self.send(withURLRequest: urlRequest) { (data, response, error) in
+            self.parser.singleObjectHandler(withData: data, withResponse: response, completionHandler: completionHandler)
         }
         
         return self
     }
     
-    func delete<T: Codable>(withPath path: String, completionHandler: @escaping ObjectRequestHandler<T>) -> Self {
+    @discardableResult func delete<T: Codable>(withPath path: String, completionHandler: @escaping ObjectRequestHandler<T>) -> Self {
         let urlRequest: URLRequest
         do {
             urlRequest = try self.http.buildURLRequest(
@@ -142,8 +143,8 @@ public class MoltinRequest {
             return self
         }
         
-        self.send(withURLRequest: urlRequest) { [weak self] (data, response, error) in
-            self?.parser.singleObjectHandler(withData: data, withResponse: response, completionHandler: completionHandler)
+        self.send(withURLRequest: urlRequest) { (data, response, error) in
+            self.parser.singleObjectHandler(withData: data, withResponse: response, completionHandler: completionHandler)
         }
         
         return self

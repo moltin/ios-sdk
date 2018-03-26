@@ -27,6 +27,7 @@ class MoltinHTTP {
             completionHandler(nil, nil, MoltinError.unacceptableRequest)
             return
         }
+        
         self.session.dataTask(with: urlRequest) { (data, response, error) in
             completionHandler(data, response, error)
         }.resume()

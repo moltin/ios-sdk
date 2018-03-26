@@ -16,12 +16,11 @@ public class BrandRequest: MoltinRequest {
         - parameters:
             - completionHandler: The handler to be called on success or failure
     */
-    public func all(completionHandler: @escaping DefaultCollectionRequestHandler) -> MoltinRequest {
+    @discardableResult public func all(completionHandler: @escaping DefaultCollectionRequestHandler) -> MoltinRequest {
         return super.list(withPath: "\(self.endpoint)", completionHandler: completionHandler)
     }
 
-
-    public func all<T: Codable>(completionHandler: @escaping CollectionRequestHandler<[T]>) -> MoltinRequest {
+    @discardableResult public func all<T: Codable>(completionHandler: @escaping CollectionRequestHandler<[T]>) -> MoltinRequest {
         return super.list(withPath: "\(self.endpoint)", completionHandler: completionHandler)
     }
 
@@ -32,12 +31,11 @@ public class BrandRequest: MoltinRequest {
             - forID: The ID of the object
             - completionHandler: The handler to be called on success or failure
     */
-    public func get(forID id: String, completionHandler: @escaping DefaultObjectRequestHandler) -> MoltinRequest {
+    @discardableResult public func get(forID id: String, completionHandler: @escaping DefaultObjectRequestHandler) -> MoltinRequest {
         return super.get(withPath: "\(self.endpoint)/\(id)", completionHandler: completionHandler)
     }
 
-
-    public func get<T: Codable>(forID id: String, completionHandler: @escaping ObjectRequestHandler<T>) -> MoltinRequest {
+    @discardableResult public func get<T: Codable>(forID id: String, completionHandler: @escaping ObjectRequestHandler<T>) -> MoltinRequest {
         return super.get(withPath: "\(self.endpoint)/\(id)", completionHandler: completionHandler)
     }
 
@@ -48,12 +46,11 @@ public class BrandRequest: MoltinRequest {
         - parameters:
             - completionHandler: The handler to be called on success or failure
     */
-    public func tree(completionHandler: @escaping DefaultCollectionRequestHandler) -> MoltinRequest {
+    @discardableResult public func tree(completionHandler: @escaping DefaultCollectionRequestHandler) -> MoltinRequest {
         return super.list(withPath: "\(self.endpoint)/tree", completionHandler: completionHandler)
     }
 
-
-    public func tree<T: Codable>(completionHandler: @escaping CollectionRequestHandler<[T]>) -> MoltinRequest {
+    @discardableResult public func tree<T: Codable>(completionHandler: @escaping CollectionRequestHandler<[T]>) -> MoltinRequest {
         return super.list(withPath: "\(self.endpoint)/tree", completionHandler: completionHandler)
     }
 
@@ -74,12 +71,11 @@ public class CategoryRequest: MoltinRequest {
         - parameters:
             - completionHandler: The handler to be called on success or failure
     */
-    public func all(completionHandler: @escaping DefaultCollectionRequestHandler) -> MoltinRequest {
+    @discardableResult public func all(completionHandler: @escaping DefaultCollectionRequestHandler) -> MoltinRequest {
         return super.list(withPath: "\(self.endpoint)", completionHandler: completionHandler)
     }
 
-
-    public func all<T: Codable>(completionHandler: @escaping CollectionRequestHandler<[T]>) -> MoltinRequest {
+    @discardableResult public func all<T: Codable>(completionHandler: @escaping CollectionRequestHandler<[T]>) -> MoltinRequest {
         return super.list(withPath: "\(self.endpoint)", completionHandler: completionHandler)
     }
 
@@ -90,12 +86,11 @@ public class CategoryRequest: MoltinRequest {
             - forID: The ID of the object
             - completionHandler: The handler to be called on success or failure
     */
-    public func get(forID id: String, completionHandler: @escaping DefaultObjectRequestHandler) -> MoltinRequest {
+    @discardableResult public func get(forID id: String, completionHandler: @escaping DefaultObjectRequestHandler) -> MoltinRequest {
         return super.get(withPath: "\(self.endpoint)/\(id)", completionHandler: completionHandler)
     }
 
-
-    public func get<T: Codable>(forID id: String, completionHandler: @escaping ObjectRequestHandler<T>) -> MoltinRequest {
+    @discardableResult public func get<T: Codable>(forID id: String, completionHandler: @escaping ObjectRequestHandler<T>) -> MoltinRequest {
         return super.get(withPath: "\(self.endpoint)/\(id)", completionHandler: completionHandler)
     }
 
@@ -106,12 +101,11 @@ public class CategoryRequest: MoltinRequest {
         - parameters:
             - completionHandler: The handler to be called on success or failure
     */
-    public func tree(completionHandler: @escaping DefaultCollectionRequestHandler) -> MoltinRequest {
+    @discardableResult public func tree(completionHandler: @escaping DefaultCollectionRequestHandler) -> MoltinRequest {
         return super.list(withPath: "\(self.endpoint)/tree", completionHandler: completionHandler)
     }
 
-
-    public func tree<T: Codable>(completionHandler: @escaping CollectionRequestHandler<[T]>) -> MoltinRequest {
+    @discardableResult public func tree<T: Codable>(completionHandler: @escaping CollectionRequestHandler<[T]>) -> MoltinRequest {
         return super.list(withPath: "\(self.endpoint)/tree", completionHandler: completionHandler)
     }
 
@@ -132,12 +126,11 @@ public class CollectionRequest: MoltinRequest {
         - parameters:
             - completionHandler: The handler to be called on success or failure
     */
-    public func all(completionHandler: @escaping DefaultCollectionRequestHandler) -> MoltinRequest {
+    @discardableResult public func all(completionHandler: @escaping DefaultCollectionRequestHandler) -> MoltinRequest {
         return super.list(withPath: "\(self.endpoint)", completionHandler: completionHandler)
     }
 
-
-    public func all<T: Codable>(completionHandler: @escaping CollectionRequestHandler<[T]>) -> MoltinRequest {
+    @discardableResult public func all<T: Codable>(completionHandler: @escaping CollectionRequestHandler<[T]>) -> MoltinRequest {
         return super.list(withPath: "\(self.endpoint)", completionHandler: completionHandler)
     }
 
@@ -148,12 +141,11 @@ public class CollectionRequest: MoltinRequest {
             - forID: The ID of the object
             - completionHandler: The handler to be called on success or failure
     */
-    public func get(forID id: String, completionHandler: @escaping DefaultObjectRequestHandler) -> MoltinRequest {
+    @discardableResult public func get(forID id: String, completionHandler: @escaping DefaultObjectRequestHandler) -> MoltinRequest {
         return super.get(withPath: "\(self.endpoint)/\(id)", completionHandler: completionHandler)
     }
 
-
-    public func get<T: Codable>(forID id: String, completionHandler: @escaping ObjectRequestHandler<T>) -> MoltinRequest {
+    @discardableResult public func get<T: Codable>(forID id: String, completionHandler: @escaping ObjectRequestHandler<T>) -> MoltinRequest {
         return super.get(withPath: "\(self.endpoint)/\(id)", completionHandler: completionHandler)
     }
 
@@ -164,12 +156,11 @@ public class CollectionRequest: MoltinRequest {
         - parameters:
             - completionHandler: The handler to be called on success or failure
     */
-    public func tree(completionHandler: @escaping DefaultCollectionRequestHandler) -> MoltinRequest {
+    @discardableResult public func tree(completionHandler: @escaping DefaultCollectionRequestHandler) -> MoltinRequest {
         return super.list(withPath: "\(self.endpoint)/tree", completionHandler: completionHandler)
     }
 
-
-    public func tree<T: Codable>(completionHandler: @escaping CollectionRequestHandler<[T]>) -> MoltinRequest {
+    @discardableResult public func tree<T: Codable>(completionHandler: @escaping CollectionRequestHandler<[T]>) -> MoltinRequest {
         return super.list(withPath: "\(self.endpoint)/tree", completionHandler: completionHandler)
     }
 
@@ -190,7 +181,7 @@ public class CurrencyRequest: MoltinRequest {
         - parameters:
             - completionHandler: The handler to be called on success or failure
     */
-    public func all(completionHandler: @escaping DefaultCollectionRequestHandler) -> MoltinRequest {
+    @discardableResult public func all(completionHandler: @escaping DefaultCollectionRequestHandler) -> MoltinRequest {
         return super.list(withPath: "\(self.endpoint)", completionHandler: completionHandler)
     }
 
@@ -201,7 +192,7 @@ public class CurrencyRequest: MoltinRequest {
             - forID: The ID of the object
             - completionHandler: The handler to be called on success or failure
     */
-    public func get(forID id: String, completionHandler: @escaping DefaultObjectRequestHandler) -> MoltinRequest {
+    @discardableResult public func get(forID id: String, completionHandler: @escaping DefaultObjectRequestHandler) -> MoltinRequest {
         return super.get(withPath: "\(self.endpoint)/\(id)", completionHandler: completionHandler)
     }
 
@@ -222,7 +213,7 @@ public class FileRequest: MoltinRequest {
         - parameters:
             - completionHandler: The handler to be called on success or failure
     */
-    public func all(completionHandler: @escaping DefaultCollectionRequestHandler) -> MoltinRequest {
+    @discardableResult public func all(completionHandler: @escaping DefaultCollectionRequestHandler) -> MoltinRequest {
         return super.list(withPath: "\(self.endpoint)", completionHandler: completionHandler)
     }
 
@@ -233,7 +224,7 @@ public class FileRequest: MoltinRequest {
             - forID: The ID of the object
             - completionHandler: The handler to be called on success or failure
     */
-    public func get(forID id: String, completionHandler: @escaping DefaultObjectRequestHandler) -> MoltinRequest {
+    @discardableResult public func get(forID id: String, completionHandler: @escaping DefaultObjectRequestHandler) -> MoltinRequest {
         return super.get(withPath: "\(self.endpoint)/\(id)", completionHandler: completionHandler)
     }
 
@@ -254,7 +245,7 @@ public class FieldRequest: MoltinRequest {
         - parameters:
             - completionHandler: The handler to be called on success or failure
     */
-    public func all(completionHandler: @escaping DefaultCollectionRequestHandler) -> MoltinRequest {
+    @discardableResult public func all(completionHandler: @escaping DefaultCollectionRequestHandler) -> MoltinRequest {
         return super.list(withPath: "\(self.endpoint)", completionHandler: completionHandler)
     }
 
@@ -265,7 +256,7 @@ public class FieldRequest: MoltinRequest {
             - forID: The ID of the object
             - completionHandler: The handler to be called on success or failure
     */
-    public func get(forID id: String, completionHandler: @escaping DefaultObjectRequestHandler) -> MoltinRequest {
+    @discardableResult public func get(forID id: String, completionHandler: @escaping DefaultObjectRequestHandler) -> MoltinRequest {
         return super.get(withPath: "\(self.endpoint)/\(id)", completionHandler: completionHandler)
     }
 
@@ -286,12 +277,11 @@ public class ProductRequest: MoltinRequest {
         - parameters:
             - completionHandler: The handler to be called on success or failure
     */
-    public func all(completionHandler: @escaping DefaultCollectionRequestHandler) -> MoltinRequest {
+    @discardableResult public func all(completionHandler: @escaping DefaultCollectionRequestHandler) -> MoltinRequest {
         return super.list(withPath: "\(self.endpoint)", completionHandler: completionHandler)
     }
 
-
-    public func all<T: Codable>(completionHandler: @escaping CollectionRequestHandler<[T]>) -> MoltinRequest {
+    @discardableResult public func all<T: Codable>(completionHandler: @escaping CollectionRequestHandler<[T]>) -> MoltinRequest {
         return super.list(withPath: "\(self.endpoint)", completionHandler: completionHandler)
     }
 
@@ -302,12 +292,11 @@ public class ProductRequest: MoltinRequest {
             - forID: The ID of the object
             - completionHandler: The handler to be called on success or failure
     */
-    public func get(forID id: String, completionHandler: @escaping DefaultObjectRequestHandler) -> MoltinRequest {
+    @discardableResult public func get(forID id: String, completionHandler: @escaping DefaultObjectRequestHandler) -> MoltinRequest {
         return super.get(withPath: "\(self.endpoint)/\(id)", completionHandler: completionHandler)
     }
 
-
-    public func get<T: Codable>(forID id: String, completionHandler: @escaping ObjectRequestHandler<T>) -> MoltinRequest {
+    @discardableResult public func get<T: Codable>(forID id: String, completionHandler: @escaping ObjectRequestHandler<T>) -> MoltinRequest {
         return super.get(withPath: "\(self.endpoint)/\(id)", completionHandler: completionHandler)
     }
 

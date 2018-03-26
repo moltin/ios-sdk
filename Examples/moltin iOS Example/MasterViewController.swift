@@ -6,11 +6,13 @@
 //
 
 import UIKit
+import moltin
 
 class MasterViewController: UITableViewController {
 
     var detailViewController: DetailViewController? = nil
     var objects = [Any]()
+    let moltin = Moltin(withClientID: "bJp5DRgPSrXFCft3AEWeJpX3pNU7A6dc0cfgi7K9Yd")
 
 
     override func viewDidLoad() {
@@ -38,9 +40,18 @@ class MasterViewController: UITableViewController {
 
     @objc
     func insertNewObject(_ sender: Any) {
-        objects.insert(NSDate(), at: 0)
-        let indexPath = IndexPath(row: 0, section: 0)
-        tableView.insertRows(at: [indexPath], with: .automatic)
+//        objects.insert(NSDate(), at: 0)
+//        let indexPath = IndexPath(row: 0, section: 0)
+//        tableView.insertRows(at: [indexPath], with: .automatic)
+        
+        self.moltin.product.include([.products]).all { (result) in
+            switch result {
+            case .success(let response):
+                print(response)
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
 
     // MARK: - Segues

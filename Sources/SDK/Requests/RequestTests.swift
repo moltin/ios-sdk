@@ -18,107 +18,79 @@ class Author: Codable, Equatable {
 }
 
 
-class MyCustomBrand: Product {
+class MyCustomBrand: moltin.Brand {
     let author: Author
-    private enum CodingKeys : String, CodingKey { case author }
+    enum BrandCodingKeys : String, CodingKey { case author }
     required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let container = try decoder.container(keyedBy: BrandCodingKeys.self)
         self.author = try container.decode(Author.self, forKey: .author)
         try super.init(from: decoder)
-    }
-    internal init(withID id: String, withAuthor author: Author) {
-        self.author = author
-        super.init(withID: id)
     }
 }
 
 
-class MyCustomCategory: Product {
+class MyCustomCategory: moltin.Category {
     let author: Author
-    private enum CodingKeys : String, CodingKey { case author }
+    enum CategoryCodingKeys : String, CodingKey { case author }
     required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let container = try decoder.container(keyedBy: CategoryCodingKeys.self)
         self.author = try container.decode(Author.self, forKey: .author)
         try super.init(from: decoder)
-    }
-    internal init(withID id: String, withAuthor author: Author) {
-        self.author = author
-        super.init(withID: id)
     }
 }
 
 
-class MyCustomCollection: Product {
+class MyCustomCollection: moltin.Collection {
     let author: Author
-    private enum CodingKeys : String, CodingKey { case author }
+    enum CollectionCodingKeys : String, CodingKey { case author }
     required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let container = try decoder.container(keyedBy: CollectionCodingKeys.self)
         self.author = try container.decode(Author.self, forKey: .author)
         try super.init(from: decoder)
-    }
-    internal init(withID id: String, withAuthor author: Author) {
-        self.author = author
-        super.init(withID: id)
     }
 }
 
 
-class MyCustomCurrency: Product {
+class MyCustomCurrency: moltin.Currency {
     let author: Author
-    private enum CodingKeys : String, CodingKey { case author }
+    enum CurrencyCodingKeys : String, CodingKey { case author }
     required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let container = try decoder.container(keyedBy: CurrencyCodingKeys.self)
         self.author = try container.decode(Author.self, forKey: .author)
         try super.init(from: decoder)
-    }
-    internal init(withID id: String, withAuthor author: Author) {
-        self.author = author
-        super.init(withID: id)
     }
 }
 
 
-class MyCustomFile: Product {
+class MyCustomFile: moltin.File {
     let author: Author
-    private enum CodingKeys : String, CodingKey { case author }
+    enum FileCodingKeys : String, CodingKey { case author }
     required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let container = try decoder.container(keyedBy: FileCodingKeys.self)
         self.author = try container.decode(Author.self, forKey: .author)
         try super.init(from: decoder)
-    }
-    internal init(withID id: String, withAuthor author: Author) {
-        self.author = author
-        super.init(withID: id)
     }
 }
 
 
-class MyCustomField: Product {
+class MyCustomField: moltin.Field {
     let author: Author
-    private enum CodingKeys : String, CodingKey { case author }
+    enum FieldCodingKeys : String, CodingKey { case author }
     required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let container = try decoder.container(keyedBy: FieldCodingKeys.self)
         self.author = try container.decode(Author.self, forKey: .author)
         try super.init(from: decoder)
-    }
-    internal init(withID id: String, withAuthor author: Author) {
-        self.author = author
-        super.init(withID: id)
     }
 }
 
 
-class MyCustomProduct: Product {
+class MyCustomProduct: moltin.Product {
     let author: Author
-    private enum CodingKeys : String, CodingKey { case author }
+    enum ProductCodingKeys : String, CodingKey { case author }
     required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let container = try decoder.container(keyedBy: ProductCodingKeys.self)
         self.author = try container.decode(Author.self, forKey: .author)
         try super.init(from: decoder)
-    }
-    internal init(withID id: String, withAuthor author: Author) {
-        self.author = author
-        super.init(withID: id)
     }
 }
 
@@ -163,8 +135,7 @@ class BrandRequestTests: XCTestCase {
         let _ = brandRequest.all { (result) in
             switch result {
             case .success(let response):
-                let brands: [moltin.Brand]? = []
-                XCTAssert(type(of: response.data) == type(of: brands))
+                XCTAssert(type(of: response.data) == [moltin.Brand].self)
                 XCTAssert(response.data?.count != 0)
                 break
             case .failure(_):
@@ -185,9 +156,8 @@ class BrandRequestTests: XCTestCase {
         let _ = brandRequest.get(forID: "51b56d92-ab99-4802-a2c1-be150848c629") { (result) in
             switch result {
             case .success(let response):
-                let brand = moltin.Brand(withID: "51b56d92-ab99-4802-a2c1-be150848c629")
-                XCTAssert(type(of: brand) == type(of: response))
-                XCTAssert(brand.id == response.id)
+                XCTAssert(type(of: response) == moltin.Brand.self)
+                XCTAssert(response.id == "51b56d92-ab99-4802-a2c1-be150848c629")
                 break
             case .failure(_):
                 XCTFail("Response returned error")
@@ -208,8 +178,7 @@ class BrandRequestTests: XCTestCase {
         let _ = brandRequest.all { (result: Result<PaginatedResponse<[MyCustomBrand]>>) in
             switch result {
             case .success(let response):
-                let brands: [MyCustomBrand]? = []
-                XCTAssert(type(of: response.data) == type(of: brands))
+                XCTAssert(type(of: response.data) == [MyCustomBrand].self)
                 XCTAssert(response.data?.count != 0)
                 break
             case .failure(_):
@@ -232,12 +201,9 @@ class BrandRequestTests: XCTestCase {
             switch result {
             case .success(let response):
                 let author = Author(withName: "Craig")
-                let brand = MyCustomBrand(
-                    withID: "51b56d92-ab99-4802-a2c1-be150848c629",
-                    withAuthor: author)
-                XCTAssert(type(of: brand) == type(of: response))
-                XCTAssert(brand.id == response.id)
-                XCTAssert(brand.author == response.author)
+                XCTAssert(type(of: response) == MyCustomBrand.self)
+                XCTAssert(response.id == "51b56d92-ab99-4802-a2c1-be150848c629")
+                XCTAssert(response.author == author)
                 break
             case .failure(_):
                 XCTFail("Response returned error")
@@ -260,8 +226,7 @@ class BrandRequestTests: XCTestCase {
         let _ = brandRequest.tree { (result) in
             switch result {
             case .success(let response):
-                let brands: [moltin.Brand]? = []
-                XCTAssert(type(of: brands) == type(of: response.data))
+                XCTAssert(type(of: response.data) == [moltin.Brand].self)
                 XCTAssert(response.data?.count != 0)
                 break
             case .failure(_):
@@ -284,8 +249,7 @@ class BrandRequestTests: XCTestCase {
         let _ = brandRequest.tree { (result: Result<PaginatedResponse<[MyCustomBrand]>>) in
             switch result {
             case .success(let response):
-                let brands: [MyCustomBrand]? = []
-                XCTAssert(type(of: brands) == type(of: response.data))
+                XCTAssert(type(of: response.data) == [MyCustomBrand].self)
                 XCTAssert(response.data?.count != 0)
                 break
             case .failure(_):
@@ -343,8 +307,7 @@ class CategoryRequestTests: XCTestCase {
         let _ = categoryRequest.all { (result) in
             switch result {
             case .success(let response):
-                let categorys: [moltin.Category]? = []
-                XCTAssert(type(of: response.data) == type(of: categorys))
+                XCTAssert(type(of: response.data) == [moltin.Category].self)
                 XCTAssert(response.data?.count != 0)
                 break
             case .failure(_):
@@ -365,9 +328,8 @@ class CategoryRequestTests: XCTestCase {
         let _ = categoryRequest.get(forID: "51b56d92-ab99-4802-a2c1-be150848c629") { (result) in
             switch result {
             case .success(let response):
-                let category = moltin.Category(withID: "51b56d92-ab99-4802-a2c1-be150848c629")
-                XCTAssert(type(of: category) == type(of: response))
-                XCTAssert(category.id == response.id)
+                XCTAssert(type(of: response) == moltin.Category.self)
+                XCTAssert(response.id == "51b56d92-ab99-4802-a2c1-be150848c629")
                 break
             case .failure(_):
                 XCTFail("Response returned error")
@@ -388,8 +350,7 @@ class CategoryRequestTests: XCTestCase {
         let _ = categoryRequest.all { (result: Result<PaginatedResponse<[MyCustomCategory]>>) in
             switch result {
             case .success(let response):
-                let categorys: [MyCustomCategory]? = []
-                XCTAssert(type(of: response.data) == type(of: categorys))
+                XCTAssert(type(of: response.data) == [MyCustomCategory].self)
                 XCTAssert(response.data?.count != 0)
                 break
             case .failure(_):
@@ -412,12 +373,9 @@ class CategoryRequestTests: XCTestCase {
             switch result {
             case .success(let response):
                 let author = Author(withName: "Craig")
-                let category = MyCustomCategory(
-                    withID: "51b56d92-ab99-4802-a2c1-be150848c629",
-                    withAuthor: author)
-                XCTAssert(type(of: category) == type(of: response))
-                XCTAssert(category.id == response.id)
-                XCTAssert(category.author == response.author)
+                XCTAssert(type(of: response) == MyCustomCategory.self)
+                XCTAssert(response.id == "51b56d92-ab99-4802-a2c1-be150848c629")
+                XCTAssert(response.author == author)
                 break
             case .failure(_):
                 XCTFail("Response returned error")
@@ -440,8 +398,7 @@ class CategoryRequestTests: XCTestCase {
         let _ = categoryRequest.tree { (result) in
             switch result {
             case .success(let response):
-                let categorys: [moltin.Category]? = []
-                XCTAssert(type(of: categorys) == type(of: response.data))
+                XCTAssert(type(of: response.data) == [moltin.Category].self)
                 XCTAssert(response.data?.count != 0)
                 break
             case .failure(_):
@@ -464,8 +421,7 @@ class CategoryRequestTests: XCTestCase {
         let _ = categoryRequest.tree { (result: Result<PaginatedResponse<[MyCustomCategory]>>) in
             switch result {
             case .success(let response):
-                let categorys: [MyCustomCategory]? = []
-                XCTAssert(type(of: categorys) == type(of: response.data))
+                XCTAssert(type(of: response.data) == [MyCustomCategory].self)
                 XCTAssert(response.data?.count != 0)
                 break
             case .failure(_):
@@ -523,8 +479,7 @@ class CollectionRequestTests: XCTestCase {
         let _ = collectionRequest.all { (result) in
             switch result {
             case .success(let response):
-                let collections: [moltin.Collection]? = []
-                XCTAssert(type(of: response.data) == type(of: collections))
+                XCTAssert(type(of: response.data) == [moltin.Collection].self)
                 XCTAssert(response.data?.count != 0)
                 break
             case .failure(_):
@@ -545,9 +500,8 @@ class CollectionRequestTests: XCTestCase {
         let _ = collectionRequest.get(forID: "51b56d92-ab99-4802-a2c1-be150848c629") { (result) in
             switch result {
             case .success(let response):
-                let collection = moltin.Collection(withID: "51b56d92-ab99-4802-a2c1-be150848c629")
-                XCTAssert(type(of: collection) == type(of: response))
-                XCTAssert(collection.id == response.id)
+                XCTAssert(type(of: response) == moltin.Collection.self)
+                XCTAssert(response.id == "51b56d92-ab99-4802-a2c1-be150848c629")
                 break
             case .failure(_):
                 XCTFail("Response returned error")
@@ -568,8 +522,7 @@ class CollectionRequestTests: XCTestCase {
         let _ = collectionRequest.all { (result: Result<PaginatedResponse<[MyCustomCollection]>>) in
             switch result {
             case .success(let response):
-                let collections: [MyCustomCollection]? = []
-                XCTAssert(type(of: response.data) == type(of: collections))
+                XCTAssert(type(of: response.data) == [MyCustomCollection].self)
                 XCTAssert(response.data?.count != 0)
                 break
             case .failure(_):
@@ -592,12 +545,9 @@ class CollectionRequestTests: XCTestCase {
             switch result {
             case .success(let response):
                 let author = Author(withName: "Craig")
-                let collection = MyCustomCollection(
-                    withID: "51b56d92-ab99-4802-a2c1-be150848c629",
-                    withAuthor: author)
-                XCTAssert(type(of: collection) == type(of: response))
-                XCTAssert(collection.id == response.id)
-                XCTAssert(collection.author == response.author)
+                XCTAssert(type(of: response) == MyCustomCollection.self)
+                XCTAssert(response.id == "51b56d92-ab99-4802-a2c1-be150848c629")
+                XCTAssert(response.author == author)
                 break
             case .failure(_):
                 XCTFail("Response returned error")
@@ -620,8 +570,7 @@ class CollectionRequestTests: XCTestCase {
         let _ = collectionRequest.tree { (result) in
             switch result {
             case .success(let response):
-                let collections: [moltin.Collection]? = []
-                XCTAssert(type(of: collections) == type(of: response.data))
+                XCTAssert(type(of: response.data) == [moltin.Collection].self)
                 XCTAssert(response.data?.count != 0)
                 break
             case .failure(_):
@@ -644,8 +593,7 @@ class CollectionRequestTests: XCTestCase {
         let _ = collectionRequest.tree { (result: Result<PaginatedResponse<[MyCustomCollection]>>) in
             switch result {
             case .success(let response):
-                let collections: [MyCustomCollection]? = []
-                XCTAssert(type(of: collections) == type(of: response.data))
+                XCTAssert(type(of: response.data) == [MyCustomCollection].self)
                 XCTAssert(response.data?.count != 0)
                 break
             case .failure(_):
@@ -703,8 +651,7 @@ class CurrencyRequestTests: XCTestCase {
         let _ = currencyRequest.all { (result) in
             switch result {
             case .success(let response):
-                let currencys: [moltin.Currency]? = []
-                XCTAssert(type(of: response.data) == type(of: currencys))
+                XCTAssert(type(of: response.data) == [moltin.Currency].self)
                 XCTAssert(response.data?.count != 0)
                 break
             case .failure(_):
@@ -725,9 +672,8 @@ class CurrencyRequestTests: XCTestCase {
         let _ = currencyRequest.get(forID: "51b56d92-ab99-4802-a2c1-be150848c629") { (result) in
             switch result {
             case .success(let response):
-                let currency = moltin.Currency(withID: "51b56d92-ab99-4802-a2c1-be150848c629")
-                XCTAssert(type(of: currency) == type(of: response))
-                XCTAssert(currency.id == response.id)
+                XCTAssert(type(of: response) == moltin.Currency.self)
+                XCTAssert(response.id == "51b56d92-ab99-4802-a2c1-be150848c629")
                 break
             case .failure(_):
                 XCTFail("Response returned error")
@@ -784,8 +730,7 @@ class FileRequestTests: XCTestCase {
         let _ = fileRequest.all { (result) in
             switch result {
             case .success(let response):
-                let files: [moltin.File]? = []
-                XCTAssert(type(of: response.data) == type(of: files))
+                XCTAssert(type(of: response.data) == [moltin.File].self)
                 XCTAssert(response.data?.count != 0)
                 break
             case .failure(_):
@@ -806,9 +751,8 @@ class FileRequestTests: XCTestCase {
         let _ = fileRequest.get(forID: "51b56d92-ab99-4802-a2c1-be150848c629") { (result) in
             switch result {
             case .success(let response):
-                let file = moltin.File(withID: "51b56d92-ab99-4802-a2c1-be150848c629")
-                XCTAssert(type(of: file) == type(of: response))
-                XCTAssert(file.id == response.id)
+                XCTAssert(type(of: response) == moltin.File.self)
+                XCTAssert(response.id == "51b56d92-ab99-4802-a2c1-be150848c629")
                 break
             case .failure(_):
                 XCTFail("Response returned error")
@@ -865,8 +809,7 @@ class FieldRequestTests: XCTestCase {
         let _ = fieldRequest.all { (result) in
             switch result {
             case .success(let response):
-                let fields: [moltin.Field]? = []
-                XCTAssert(type(of: response.data) == type(of: fields))
+                XCTAssert(type(of: response.data) == [moltin.Field].self)
                 XCTAssert(response.data?.count != 0)
                 break
             case .failure(_):
@@ -887,9 +830,8 @@ class FieldRequestTests: XCTestCase {
         let _ = fieldRequest.get(forID: "51b56d92-ab99-4802-a2c1-be150848c629") { (result) in
             switch result {
             case .success(let response):
-                let field = moltin.Field(withID: "51b56d92-ab99-4802-a2c1-be150848c629")
-                XCTAssert(type(of: field) == type(of: response))
-                XCTAssert(field.id == response.id)
+                XCTAssert(type(of: response) == moltin.Field.self)
+                XCTAssert(response.id == "51b56d92-ab99-4802-a2c1-be150848c629")
                 break
             case .failure(_):
                 XCTFail("Response returned error")
@@ -946,8 +888,7 @@ class ProductRequestTests: XCTestCase {
         let _ = productRequest.all { (result) in
             switch result {
             case .success(let response):
-                let products: [moltin.Product]? = []
-                XCTAssert(type(of: response.data) == type(of: products))
+                XCTAssert(type(of: response.data) == [moltin.Product].self)
                 XCTAssert(response.data?.count != 0)
                 break
             case .failure(_):
@@ -968,9 +909,8 @@ class ProductRequestTests: XCTestCase {
         let _ = productRequest.get(forID: "51b56d92-ab99-4802-a2c1-be150848c629") { (result) in
             switch result {
             case .success(let response):
-                let product = moltin.Product(withID: "51b56d92-ab99-4802-a2c1-be150848c629")
-                XCTAssert(type(of: product) == type(of: response))
-                XCTAssert(product.id == response.id)
+                XCTAssert(type(of: response) == moltin.Product.self)
+                XCTAssert(response.id == "51b56d92-ab99-4802-a2c1-be150848c629")
                 break
             case .failure(_):
                 XCTFail("Response returned error")
@@ -991,8 +931,7 @@ class ProductRequestTests: XCTestCase {
         let _ = productRequest.all { (result: Result<PaginatedResponse<[MyCustomProduct]>>) in
             switch result {
             case .success(let response):
-                let products: [MyCustomProduct]? = []
-                XCTAssert(type(of: response.data) == type(of: products))
+                XCTAssert(type(of: response.data) == [MyCustomProduct].self)
                 XCTAssert(response.data?.count != 0)
                 break
             case .failure(_):
@@ -1015,12 +954,9 @@ class ProductRequestTests: XCTestCase {
             switch result {
             case .success(let response):
                 let author = Author(withName: "Craig")
-                let product = MyCustomProduct(
-                    withID: "51b56d92-ab99-4802-a2c1-be150848c629",
-                    withAuthor: author)
-                XCTAssert(type(of: product) == type(of: response))
-                XCTAssert(product.id == response.id)
-                XCTAssert(product.author == response.author)
+                XCTAssert(type(of: response) == MyCustomProduct.self)
+                XCTAssert(response.id == "51b56d92-ab99-4802-a2c1-be150848c629")
+                XCTAssert(response.author == author)
                 break
             case .failure(_):
                 XCTFail("Response returned error")
