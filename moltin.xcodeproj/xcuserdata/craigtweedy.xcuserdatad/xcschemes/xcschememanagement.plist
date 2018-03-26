@@ -4,10 +4,15 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>ObjC-Test.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>9</integer>
+		</dict>
 		<key>moltin WatchKit Example.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>7</integer>
+			<integer>6</integer>
 		</dict>
 		<key>moltin iOS Example.xcscheme</key>
 		<dict>
@@ -32,12 +37,12 @@
 		<key>moltin tvOS Example.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>8</integer>
+			<integer>7</integer>
 		</dict>
 		<key>moltin tvOS Tests.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>6</integer>
+			<integer>8</integer>
 		</dict>
 		<key>moltin tvOS.xcscheme_^#shared#^_</key>
 		<dict>

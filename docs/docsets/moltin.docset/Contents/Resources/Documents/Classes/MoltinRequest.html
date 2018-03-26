@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>MoltinRequest Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/MoltinRequest" class="dashAnchor"></a>
+    <a title="MoltinRequest Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">moltin Docs</a> (21% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">moltin Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        MoltinRequest Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/Address.html">Address</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Brand.html">Brand</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/BrandRequest.html">BrandRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Cart.html">Cart</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CartItem.html">CartItem</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CartItemMeta.html">CartItemMeta</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CartMeta.html">CartMeta</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CartRequest.html">CartRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Category.html">Category</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CategoryRequest.html">CategoryRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Collection.html">Collection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CollectionRequest.html">CollectionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Currency.html">Currency</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CurrencyMeta.html">CurrencyMeta</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CurrencyRequest.html">CurrencyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:6moltin14CustomCartItemC">CustomCartItem</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Customer.html">Customer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Entry.html">Entry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Field.html">Field</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FieldRequest.html">FieldRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/File.html">File</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FileMeta.html">FileMeta</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FileRequest.html">FileRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Flow.html">Flow</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FlowRequest.html">FlowRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Moltin.html">Moltin</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:6moltin11MoltinQueryC">MoltinQuery</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MoltinRequest.html">MoltinRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Order.html">Order</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/OrderMeta.html">OrderMeta</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/OrderRelationships.html">OrderRelationships</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PaginatedResponse.html">PaginatedResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PaginationMeta.html">PaginationMeta</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Product.html">Product</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ProductMeta.html">ProductMeta</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ProductRequest.html">ProductRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ProductVariation.html">ProductVariation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ProductVariationOption.html">ProductVariationOption</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RelationshipMany.html">RelationshipMany</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RelationshipSingle.html">RelationshipSingle</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Relationships.html">Relationships</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Timestamps.html">Timestamps</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/CartItemType.html">CartItemType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/MoltinError.html">MoltinError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/Result.html">Result</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/Decodable.html">Decodable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/JSONDecoder.html">JSONDecoder</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:6moltin2eeoiSbAA12MoltinConfigV_ADtF">==(_:_:)</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/CartItemDisplayPrice.html">CartItemDisplayPrice</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CartItemDisplayPrices.html">CartItemDisplayPrices</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/DisplayPrice.html">DisplayPrice</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/DisplayPrices.html">DisplayPrices</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/FieldMeta.html">FieldMeta</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/FileDimensions.html">FileDimensions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/MoltinConfig.html">MoltinConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/MoltinFilterOperator.html">MoltinFilterOperator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/MoltinInclude.html">MoltinInclude</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ProductPrice.html">ProductPrice</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ProductStock.html">ProductStock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/RelationshipData.html">RelationshipData</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>MoltinRequest</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">MoltinRequest</span></code></pre>
+
+                </div>
+              </div>
+            <p>Undocumented</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Init"></a>
+                <a name="//apple_ref/swift/Section/Init" class="dashAnchor"></a>
+                <a href="#/Init">
+                  <h3 class="section-name">Init</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:6moltin13MoltinRequestCAcA0B6ConfigV17withConfiguration_tcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(withConfiguration:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6moltin13MoltinRequestCAcA0B6ConfigV17withConfiguration_tcfc">init(withConfiguration:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">withConfiguration</span> <span class="nv">configuration</span><span class="p">:</span> <span class="kt"><a href="../Structs/MoltinConfig.html">MoltinConfig</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Modifiers"></a>
+                <a name="//apple_ref/swift/Section/Modifiers" class="dashAnchor"></a>
+                <a href="#/Modifiers">
+                  <h3 class="section-name">Modifiers</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:6moltin13MoltinRequestC7includeACXDSayAA0B7IncludeVGF"></a>
+                    <a name="//apple_ref/swift/Method/include(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6moltin13MoltinRequestC7includeACXDSayAA0B7IncludeVGF">include(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">include</span><span class="p">(</span><span class="n">_</span> <span class="nv">includes</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Structs/MoltinInclude.html">MoltinInclude</a></span><span class="p">])</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:6moltin13MoltinRequestC5limitACXDSiF"></a>
+                    <a name="//apple_ref/swift/Method/limit(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6moltin13MoltinRequestC5limitACXDSiF">limit(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">limit</span><span class="p">(</span><span class="n">_</span> <span class="nv">limit</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:6moltin13MoltinRequestC4sortACXDSSF"></a>
+                    <a name="//apple_ref/swift/Method/sort(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6moltin13MoltinRequestC4sortACXDSSF">sort(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">sort</span><span class="p">(</span><span class="n">_</span> <span class="nv">sort</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:6moltin13MoltinRequestC6offsetACXDSiF"></a>
+                    <a name="//apple_ref/swift/Method/offset(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6moltin13MoltinRequestC6offsetACXDSiF">offset(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">offset</span><span class="p">(</span><span class="n">_</span> <span class="nv">offset</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:6moltin13MoltinRequestC6filterACXDAA0B14FilterOperatorV8operator_SS3keySS5valuetF"></a>
+                    <a name="//apple_ref/swift/Method/filter(operator:key:value:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6moltin13MoltinRequestC6filterACXDAA0B14FilterOperatorV8operator_SS3keySS5valuetF">filter(operator:key:value:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">filter</span><span class="p">(</span><span class="k">operator</span> <span class="nv">op</span><span class="p">:</span> <span class="kt"><a href="../Structs/MoltinFilterOperator.html">MoltinFilterOperator</a></span><span class="p">,</span> <span class="nv">key</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2018 <a class="link" href="https://moltin.com" target="_blank" rel="external">Craig Tweedy</a>. All rights reserved. (Last updated: 2018-03-26)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
