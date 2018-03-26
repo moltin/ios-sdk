@@ -7,11 +7,31 @@
 
 import Foundation
 
+/// An entry point to make API calls relating to `Cart`
 public class CartRequest : MoltinRequest {
+    /**
+     The API endpoint for this resource.
+     */
     public var endpoint: String = "/carts"
     
+    /**
+     A typealias which allows automatic casting of a collection to `[CartItem]`.
+     */
     public typealias DefaultCollectionRequestHandler = CollectionRequestHandler<[CartItem]>
     
+    /**
+     Return instance of type `Cart` by `id`
+     
+    - Author:
+        Craig Tweedy
+     
+     - parameters:
+        - forID: The ID of the object
+        - completionHandler: The handler to be called on success or failure
+     
+     - returns:
+        A instance of `MoltinRequest` which encapsulates the request.
+     */
     public func get(forID id: String,
                     completionHandler: @escaping ObjectRequestHandler<Cart>) -> MoltinRequest {
         
@@ -19,6 +39,19 @@ public class CartRequest : MoltinRequest {
                 completionHandler: completionHandler)
     }
     
+    /**
+     Returns an array of `CartItem` for a requested `Cart`
+     
+     - Author:
+        Craig Tweedy
+     
+     - parameters:
+        - forCartID: The ID of the object
+        - completionHandler: The handler to be called on success or failure
+     
+     - returns:
+        A instance of `MoltinRequest` which encapsulates the request.
+     */
     public func items(forCartID id: String,
                       completionHandler: @escaping DefaultCollectionRequestHandler) -> MoltinRequest {
         
@@ -26,7 +59,21 @@ public class CartRequest : MoltinRequest {
             completionHandler: completionHandler)
     }
     
-    
+    /**
+     Adds an amount of products with `productID` to a specified `Cart` with `toCart`
+     
+     - Author:
+        Craig Tweedy
+     
+     - parameters:
+        - withID: The ID of the product
+        - ofQuantity: The amount of this product to add to the cart
+        - toCart: The cart ID to add this product to
+        - completionHandler: The handler to be called on success or failure
+     
+     - returns:
+        A instance of `MoltinRequest` which encapsulates the request.
+     */
     public func addProduct(withID productID: String,
                            ofQuantity quantity: Int,
                            toCart cart: String,
@@ -40,7 +87,20 @@ public class CartRequest : MoltinRequest {
             completionHandler: completionHandler)
     }
     
-    
+    /**
+     Adds a custom cart item to a cart
+     
+     - Author:
+        Craig Tweedy
+     
+     - parameters:
+        - customItem: The custom cart item to add to this cart
+        - toCart: The cart ID to add this item to
+        - completionHandler: The handler to be called on success or failure
+     
+     - returns:
+        A instance of `MoltinRequest` which encapsulates the request.
+     */
     public func addCustomItem(_ customItem: CustomCartItem,
                               toCart cart: String,
                               completionHandler: @escaping ObjectRequestHandler<Cart>) -> MoltinRequest {
@@ -51,7 +111,20 @@ public class CartRequest : MoltinRequest {
             completionHandler: completionHandler)
     }
     
-    
+    /**
+     Adds a promotion to a cart
+     
+     - Author:
+        Craig Tweedy
+     
+     - parameters:
+        - promotion: The promotion code
+        - toCart: The cart ID to add this promo to
+        - completionHandler: The handler to be called on success or failure
+     
+     - returns:
+        A instance of `MoltinRequest` which encapsulates the request.
+     */
     public func addPromotion(_ promotion: String,
                              toCart cart: String,
                              completionHandler: @escaping ObjectRequestHandler<CartItem>) -> MoltinRequest {
@@ -64,7 +137,20 @@ public class CartRequest : MoltinRequest {
             completionHandler: completionHandler)
     }
     
-
+    /**
+     Removes an item from the cart
+     
+     - Author:
+        Craig Tweedy
+     
+     - parameters:
+        - itemID: The cart item ID to remove
+        - fromCart: The cart ID to remove this item from
+        - completionHandler: The handler to be called on success or failure
+     
+     - returns:
+        A instance of `MoltinRequest` which encapsulates the request.
+     */
     public func removeItem(_ itemID: String,
                            fromCart cart: String,
                            completionHandler: @escaping ObjectRequestHandler<Cart>) -> MoltinRequest {
@@ -73,7 +159,21 @@ public class CartRequest : MoltinRequest {
             completionHandler: completionHandler)
     }
     
-
+    /**
+     Updates an item in the cart
+     
+     - Author:
+        Craig Tweedy
+     
+     - parameters:
+        - itemID: The item ID to update
+        - withQuantity: The amount of this item ID to update too.
+        - inCart: The cart ID to update this item in
+        - completionHandler: The handler to be called on success or failure
+     
+     - returns:
+        A instance of `MoltinRequest` which encapsulates the request.
+     */
     public func updateItem(_ itemID: String,
                            withQuantity quantity: Int,
                            inCart cart: String,
@@ -87,7 +187,22 @@ public class CartRequest : MoltinRequest {
             completionHandler: completionHandler)
     }
     
-
+    /**
+        Begins the checkout process for this cart
+     
+     - Author:
+        Craig Tweedy
+     
+     - parameters:
+        - cart: The cart ID to checkout
+        - withCustomer: A customer to check this cart out with
+        - withBillingAddress: The billing address for this checkout process
+        - withShippingAddress: An optional shipping address for this checkout process
+        - completionHandler: The handler to be called on success or failure
+     
+     - returns:
+        A instance of `MoltinRequest` which encapsulates the request.
+     */
     public func checkout(cart: String,
                          withCustomer customer: Customer,
                          withBillingAddress billingAddress: Address,
@@ -103,6 +218,19 @@ public class CartRequest : MoltinRequest {
             completionHandler: completionHandler)
     }
     
+    /**
+     Delete a cart
+     
+     - Author:
+        Craig Tweedy
+     
+     - parameters:
+        - cart: The cart ID to delete
+        - completionHandler: The handler to be called on success or failure
+     
+     - returns:
+        A instance of `MoltinRequest` which encapsulates the request.
+     */
     public func deleteCart(_ cart: String,
                            completionHandler: @escaping ObjectRequestHandler<Cart>) -> MoltinRequest {
         

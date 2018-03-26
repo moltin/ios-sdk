@@ -1,0 +1,69 @@
+#!/bin/bash
+
+# ----- Check for dependencies
+
+JAZZY=$(which jazzy)
+if [ $? != 0 ]; then
+    echo -e "Jazzy is required to generate documentation. Install it with:\n"
+    echo -e "    gem install jazzy\n"
+    exit
+fi
+echo "Using jazzy: $JAZZY"
+
+
+# ----- Commandline options
+
+if [ "$OUTPUT_PATH" == "" ]; then
+  OUTPUT_PATH=$([ "$2" == "" ] && echo "docs/output" || echo "$2")
+fi
+
+
+# ----- Configuration
+
+ORGANISATION=Moltin
+NAME=ios-sdk
+TMP=docs/tmp
+GITHUB=https://github.com/$ORGANISATION/$NAME
+
+PREPROC=docs/scripts/doc-preprocessor
+
+# ----- Setup and generate docs
+
+# Clean $TMP folder
+if [ -d "$TMP" ]; then rm -rf "$TMP"; fi
+mkdir -p $TMP/{compile,docs,api}
+
+# cp docs/*.md $TMP/api/
+
+# Split the README into sections
+$PREPROC README.md "$TMP/docs/Requirements.md" --section "Requirements" --title "Requirements"
+$PREPROC README.md "$TMP/docs/Installation.md" --section "Installation" --title "Installation"
+$PREPROC README.md "$TMP/docs/Usage.md" --section "Usage" --title "Usage"
+$PREPROC README.md "$TMP/docs/Authentication.md" --section "Authentication" --title "Authentication"
+$PREPROC README.md "$TMP/docs/Filtering.md" --section "Filtering" --title "Filtering"
+$PREPROC README.md "$TMP/docs/Flows.md" --section "Flows" --title "Flows"
+$PREPROC README.md "$TMP/docs/Further Documentation.md" --section "Further Documentation" --title "Further Documentation"
+$PREPROC README.md "$TMP/docs/Communication.md" --section "Communication" --title "Communication"
+
+# Copy remaining root docs
+# $PREPROC CONTRIBUTING.md "$TMP/docs/Contributing.md"
+# $PREPROC CHANGELOG.md "$TMP/docs/Changelog.md" --title "Changelog"
+$PREPROC LICENSE "$TMP/docs/License.md" --title "License"
+
+# Copy over the Getting started guide
+# $PREPROC "Docs/Getting Started Guide.md" "$TMP/docs/Getting Started Guide.md"
+
+# Create the documentation landing page by combining:
+#
+# - Docs/templates/heading.md
+# - README.md#introduction
+# - Docs/templates/toc.md
+#
+# cat docs/templates/heading.md $TMP/compile/intro.md docs/templates/toc.md > $TMP/compile/readme-raw.md
+# $PREPROC "$TMP/compile/readme-raw.md" "$TMP/compile/README.md"
+# cp $TMP/compile/README.md $TMP/api/Documentation.md
+
+# Compile our Docs/tmp + generate API docs using jazzy
+jazzy
+
+rm -rf docs/tmp

@@ -80,11 +80,6 @@ let config = MoltinConfig.default(
 let moltin = Moltin(withConfiguration: config)
 ```
 
-## Authentication
-
-Authentication is handled silently for you as part of the SDK. The SDK will cache credentials to ensure that it is not making unnecessary requests.
-
-The iOS SDK only supports `Implicit` authentication currently.
 ## Available Resources
 - Brands
 - Carts
@@ -97,21 +92,26 @@ The iOS SDK only supports `Implicit` authentication currently.
 - Entries
 - Products
 
-## Filtering
+# Authentication
 
-### Operations
+Authentication is handled silently for you as part of the SDK. The SDK will cache credentials to ensure that it is not making unnecessary requests.
+
+The iOS SDK only supports `Implicit` authentication currently.
+
+# Filtering
+
+## Operations
 - Filter
 - Sort
 - Offset / Limt
 - Include
 
-### Filter
+## Filter
 ```swift
-moltin.product
-    .filter(operator: .eq, key: "name", value: "ProductName")
+moltin.product.filter(operator: .eq, key: "name", value: "ProductName")
 ```
 
-### Sort
+## Sort
 ```swift
 moltin.product.sort("order")
 ```
@@ -119,7 +119,7 @@ moltin.product.sort("order")
 moltin.product.sort("-order")
 ```
 
-### Offset / Limit
+## Offset / Limit
 
 ```swift
 moltin.product.limit(10).offset(20).all {
@@ -135,7 +135,7 @@ moltin.product.include([.mainImage, .files]).all {
 }
 ```
 
-## Flows
+# Flows
 
 If you've implemented a custom field on a resource by using flows, you can cast this to a type of your choice by type-hinting your result, so long as this type conforms to `Codable`:
 
@@ -180,7 +180,7 @@ class MyCustomProduct: moltin.Product {
 
 This will allow you to add additional types as you need, but ensures the base type, such as product, is still parsed correctly.
 
-# Documentation
+# Further Documentation
 
 Find more general documentation on the [API docs](https://docs.moltin.com).
 
