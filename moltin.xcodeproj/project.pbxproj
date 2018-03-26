@@ -388,8 +388,7 @@
 				C336E5C4206278B2008C2005 /* ProductCollectionViewCell.swift */,
 				C336E5C5206278B2008C2005 /* ProductCollectionViewCell.xib */,
 			);
-			name = "moltin tvOS Example";
-			path = "../moltin tvOS Example";
+			path = "moltin tvOS Example";
 			sourceTree = "<group>";
 		};
 		C3434C16203DDACA00883C84 /* Utils */ = {
@@ -1277,7 +1276,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "moltin tvOS Example/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Examples/moltin tvOS Example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1337,7 +1336,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "moltin tvOS Example/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Examples/moltin tvOS Example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.moltin.moltin-tvOS-Example";

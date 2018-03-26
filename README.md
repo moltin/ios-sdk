@@ -4,6 +4,9 @@
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Twitter](https://img.shields.io/badge/twitter-@Moltin-blue.svg?style=flat)](http://twitter.com/Moltin)
 
+iOS/macOS/tvOS/watchOS SDK for the [Moltin](https://moltin.com) platform, written in Swift.
+
+
 # Requirements
 
 - iOS 10.0+ / macOS 10.10+ / tvOS 10.0+ / watchOS 3.0+
@@ -16,6 +19,11 @@
 Add the following to your `Podfile`:
 ```
 pod 'Moltin', '~> 2.1'
+```
+
+Or, quickly try out our examples:
+```bash
+pod try Moltin
 ```
 ## Carthage
 
@@ -32,7 +40,6 @@ dependencies: [
 ]
 ```
 
-## Manual
 # Usage
 
 ## Making a request
@@ -170,6 +177,10 @@ class MyCustomProduct: moltin.Product {
 ```
 
 This will allow you to add additional types as you need, but ensures the base type, such as product, is still parsed correctly.
+
+# Documentation
+
+Find more general documentation on the [API docs](https://docs.moltin.com).
 
 # Communication
 
