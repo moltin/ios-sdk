@@ -14,7 +14,7 @@
     <a title="MoltinRequest Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">moltin Docs</a> (24% documented)</p>
+        <p><a href="../index.html">moltin Docs</a> (29% documented)</p>
         <p class="header-right"><a href="https://github.com/moltin/ios-sdk"><img src="../img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -277,7 +277,8 @@
 
                 </div>
               </div>
-            <p>Undocumented</p>
+            <p>Base class which various endpoints extend from.
+This class is responsible for orchestrating a request, by constructing queries, authenticating calls, and parsing data.</p>
 
           </section>
           <section class="section task-group-section">
@@ -341,7 +342,12 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Add some includes to the query</p>
+<div class="aside aside-author">
+    <p class="aside-title">Author</p>
+    <p>Craig Tweedy</p>
+
+</div>
 
                       </div>
                       <div class="declaration">
@@ -351,6 +357,29 @@
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">include</span><span class="p">(</span><span class="n">_</span> <span class="nv">includes</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Structs/MoltinInclude.html">MoltinInclude</a></span><span class="p">])</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>includes</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An array of <code><a href="../Structs/MoltinInclude.html">MoltinInclude</a></code> to append to the request</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A instance of <code>MoltinRequest</code> which encapsulates the request.</p>
                       </div>
                     </section>
                   </div>
@@ -368,7 +397,12 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Add a limit parameter to the query</p>
+<div class="aside aside-author">
+    <p class="aside-title">Author</p>
+    <p>Craig Tweedy</p>
+
+</div>
 
                       </div>
                       <div class="declaration">
@@ -378,6 +412,29 @@
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">limit</span><span class="p">(</span><span class="n">_</span> <span class="nv">limit</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>limit</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The amount of items to return</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A instance of <code>MoltinRequest</code> which encapsulates the request.</p>
                       </div>
                     </section>
                   </div>
@@ -395,7 +452,12 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Add a sort parameter to the query</p>
+<div class="aside aside-author">
+    <p class="aside-title">Author</p>
+    <p>Craig Tweedy</p>
+
+</div>
 
                       </div>
                       <div class="declaration">
@@ -405,6 +467,29 @@
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">sort</span><span class="p">(</span><span class="n">_</span> <span class="nv">sort</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>sort</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The sort order to use</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A instance of <code>MoltinRequest</code> which encapsulates the request.</p>
                       </div>
                     </section>
                   </div>
@@ -422,7 +507,12 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Add an offset parameter to the query</p>
+<div class="aside aside-author">
+    <p class="aside-title">Author</p>
+    <p>Craig Tweedy</p>
+
+</div>
 
                       </div>
                       <div class="declaration">
@@ -432,6 +522,29 @@
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">offset</span><span class="p">(</span><span class="n">_</span> <span class="nv">offset</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>offset</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The amount of items to offset by</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A instance of <code>MoltinRequest</code> which encapsulates the request.</p>
                       </div>
                     </section>
                   </div>
@@ -449,7 +562,12 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Add an filter parameter to the query</p>
+<div class="aside aside-author">
+    <p class="aside-title">Author</p>
+    <p>Craig Tweedy</p>
+
+</div>
 
                       </div>
                       <div class="declaration">
@@ -459,6 +577,53 @@
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">filter</span><span class="p">(</span><span class="k">operator</span> <span class="nv">op</span><span class="p">:</span> <span class="kt"><a href="../Structs/MoltinFilterOperator.html">MoltinFilterOperator</a></span><span class="p">,</span> <span class="nv">key</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>operator</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code><a href="../Structs/MoltinFilterOperator.html">MoltinFilterOperator</a></code> to use</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The key for the filter</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>value</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The value for the filter</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A instance of <code>MoltinRequest</code> which encapsulates the request.</p>
                       </div>
                     </section>
                   </div>

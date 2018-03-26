@@ -18,11 +18,17 @@ enum HTTPMethod: String, CustomStringConvertible {
     case DELETE
 }
 
+/// Boxes up results into success or failure cases
+/// This enum will either return success, with the corresponding value with the correct type, or return failure, with the corresponding error
 public enum Result<T> {
+    /// Holds the success result
     case success(result: T)
+    /// Holds the failure error
     case failure(error: Error)
 }
 
+/// Base class which various endpoints extend from.
+/// This class is responsible for orchestrating a request, by constructing queries, authenticating calls, and parsing data.
 public class MoltinRequest {
     
     internal var config: MoltinConfig
@@ -44,7 +50,16 @@ public class MoltinRequest {
     
     // MARK: - Default Calls
     
-    
+    /**
+     Return all instances of type `T`, which must be `Codable`.
+     - Author:
+        Craig Tweedy
+    - parameters:
+        - withPath: The resource path to call
+        - completionHandler: The handler to be called on success or failure
+     - returns:
+     A instance of `MoltinRequest` which encapsulates the request.
+     */
     @discardableResult func list<T>(withPath path: String, completionHandler: @escaping CollectionRequestHandler<T>) -> Self {
         let urlRequest: URLRequest
         do {
@@ -65,6 +80,16 @@ public class MoltinRequest {
         return self
     }
     
+    /**
+     Return a single instance of type `T`, which must be `Codable`.
+    - Author:
+        Craig Tweedy
+     - parameters:
+        - withPath: The resource path to call
+        - completionHandler: The handler to be called on success or failure
+     - returns:
+        A instance of `MoltinRequest` which encapsulates the request.
+     */
     @discardableResult func get<T: Codable>(withPath path: String, completionHandler: @escaping ObjectRequestHandler<T>) -> Self {
         let urlRequest: URLRequest
         do {
@@ -85,6 +110,19 @@ public class MoltinRequest {
         return self
     }
     
+    /**
+     Construct a creation request, and return an instance of type `T`, which must be `Codable`
+     
+     - Author:
+     Craig Tweedy
+
+     - parameters:
+        - withPath: The resource path to call
+        - withData: The data with which to create the resource
+        - completionHandler: The handler to be called on success or failure
+     - returns:
+        A instance of `MoltinRequest` which encapsulates the request.
+     */
     @discardableResult func post<T: Codable>(withPath path: String, withData data: [String : Any], completionHandler: @escaping ObjectRequestHandler<T>) -> Self {
         let urlRequest: URLRequest
         do {
@@ -107,6 +145,19 @@ public class MoltinRequest {
         return self
     }
     
+    /**
+     Construct an update request, and return an instance of type `T`, which must be `Codable`
+     
+     - Author:
+     Craig Tweedy
+     
+     - parameters:
+        - withPath: The resource path to call
+        - withData: The data with which to update the resource
+        - completionHandler: The handler to be called on success or failure
+     - returns:
+     A instance of `MoltinRequest` which encapsulates the request.
+     */
     @discardableResult func put<T: Codable>(withPath path: String, withData data: [String : Any], completionHandler: @escaping ObjectRequestHandler<T>) -> Self {
         let urlRequest: URLRequest
         do {
@@ -129,6 +180,18 @@ public class MoltinRequest {
         return self
     }
     
+    /**
+     Construct a deletion request, and return an instance of type `T`, which must be `Codable`
+     
+     - Author:
+     Craig Tweedy
+     
+     - parameters:
+        - withPath: The resource path to call
+        - completionHandler: The handler to be called on success or failure
+     - returns:
+        A instance of `MoltinRequest` which encapsulates the request.
+     */
     @discardableResult func delete<T: Codable>(withPath path: String, completionHandler: @escaping ObjectRequestHandler<T>) -> Self {
         let urlRequest: URLRequest
         do {
@@ -166,26 +229,88 @@ public class MoltinRequest {
     
     // MARK: - Modifiers
     
+    /**
+     Add some includes to the query
+     
+     - Author:
+     Craig Tweedy
+     
+     - parameters:
+        - includes: An array of `MoltinInclude` to append to the request
+     
+     - returns:
+     A instance of `MoltinRequest` which encapsulates the request.
+     */
     public func include(_ includes: [MoltinInclude]) -> Self {
         self.query.withIncludes = includes
         return self
     }
     
+    /**
+     Add a limit parameter to the query
+     
+     - Author:
+        Craig Tweedy
+     
+     - parameters:
+        - limit: The amount of items to return
+     
+     - returns:
+     A instance of `MoltinRequest` which encapsulates the request.
+     */
     public func limit(_ limit: Int) -> Self {
         self.query.withLimit = "\(limit)"
         return self
     }
     
+    /**
+     Add a sort parameter to the query
+     
+     - Author:
+     Craig Tweedy
+     
+     - parameters:
+        - sort: The sort order to use
+     
+     - returns:
+     A instance of `MoltinRequest` which encapsulates the request.
+     */
     public func sort(_ sort: String) -> Self {
         self.query.withSorting = sort
         return self
     }
     
+    /**
+     Add an offset parameter to the query
+     
+     - Author:
+     Craig Tweedy
+     
+     - parameters:
+        - offset: The amount of items to offset by
+     
+     - returns:
+     A instance of `MoltinRequest` which encapsulates the request.
+     */
     public func offset(_ offset: Int) -> Self {
         self.query.withOffset = "\(offset)"
         return self
     }
     
+    /**
+     Add an filter parameter to the query
+     
+     - Author:
+     Craig Tweedy
+     
+     - parameters:
+        - operator: The `MoltinFilterOperator` to use
+        - key: The key for the filter
+        - value: The value for the filter
+     
+     - returns:
+     A instance of `MoltinRequest` which encapsulates the request.
+     */
     public func filter(operator op: MoltinFilterOperator, key: String, value: String) -> Self {
         self.query.withFilter.append((op, key, value))
         return self

@@ -1605,317 +1605,191 @@
     },
     {
       "file": "/Users/craigtweedy/Projects/Moltin/iOS/new/moltin/Sources/SDK/Requests/MoltinRequest.swift",
-      "line": 21,
-      "symbol": "Result",
-      "symbol_kind": "source.lang.swift.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/craigtweedy/Projects/Moltin/iOS/new/moltin/Sources/SDK/Requests/MoltinRequest.swift",
-      "line": 22,
-      "symbol": "Result.success",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/craigtweedy/Projects/Moltin/iOS/new/moltin/Sources/SDK/Requests/MoltinRequest.swift",
-      "line": 23,
-      "symbol": "Result.failure",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/craigtweedy/Projects/Moltin/iOS/new/moltin/Sources/SDK/Requests/MoltinRequest.swift",
-      "line": 26,
-      "symbol": "MoltinRequest",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/craigtweedy/Projects/Moltin/iOS/new/moltin/Sources/SDK/Requests/MoltinRequest.swift",
-      "line": 37,
+      "line": 43,
       "symbol": "MoltinRequest.init(withConfiguration:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/craigtweedy/Projects/Moltin/iOS/new/moltin/Sources/SDK/Requests/MoltinRequest.swift",
-      "line": 169,
-      "symbol": "MoltinRequest.include(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/craigtweedy/Projects/Moltin/iOS/new/moltin/Sources/SDK/Requests/MoltinRequest.swift",
-      "line": 174,
-      "symbol": "MoltinRequest.limit(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/craigtweedy/Projects/Moltin/iOS/new/moltin/Sources/SDK/Requests/MoltinRequest.swift",
-      "line": 179,
-      "symbol": "MoltinRequest.sort(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/craigtweedy/Projects/Moltin/iOS/new/moltin/Sources/SDK/Requests/MoltinRequest.swift",
-      "line": 184,
-      "symbol": "MoltinRequest.offset(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/craigtweedy/Projects/Moltin/iOS/new/moltin/Sources/SDK/Requests/MoltinRequest.swift",
-      "line": 189,
-      "symbol": "MoltinRequest.filter(operator:key:value:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
       "file": "/Users/craigtweedy/Projects/Moltin/iOS/new/moltin/Sources/SDK/Utils/CodableExtract.swift",
-      "line": 15,
-      "symbol": "Decodable.decodeSingle(fromRelationships:withIncludes:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/craigtweedy/Projects/Moltin/iOS/new/moltin/Sources/SDK/Utils/CodableExtract.swift",
-      "line": 25,
-      "symbol": "Decodable.decodeMany(fromRelationships:withIncludes:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/craigtweedy/Projects/Moltin/iOS/new/moltin/Sources/SDK/Utils/CodableExtract.swift",
-      "line": 64,
+      "line": 66,
       "symbol": "JSONDecoder.dateFormattingDecoder()",
       "symbol_kind": "source.lang.swift.decl.function.method.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/craigtweedy/Projects/Moltin/iOS/new/moltin/Sources/SDK/Utils/Config.swift",
-      "line": 10,
-      "symbol": "MoltinConfig",
-      "symbol_kind": "source.lang.swift.decl.struct",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/craigtweedy/Projects/Moltin/iOS/new/moltin/Sources/SDK/Utils/Config.swift",
-      "line": 11,
+      "line": 12,
       "symbol": "MoltinConfig.clientID",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/craigtweedy/Projects/Moltin/iOS/new/moltin/Sources/SDK/Utils/Config.swift",
-      "line": 12,
+      "line": 13,
       "symbol": "MoltinConfig.scheme",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/craigtweedy/Projects/Moltin/iOS/new/moltin/Sources/SDK/Utils/Config.swift",
-      "line": 13,
+      "line": 14,
       "symbol": "MoltinConfig.host",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/craigtweedy/Projects/Moltin/iOS/new/moltin/Sources/SDK/Utils/Config.swift",
-      "line": 14,
+      "line": 15,
       "symbol": "MoltinConfig.version",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/craigtweedy/Projects/Moltin/iOS/new/moltin/Sources/SDK/Utils/Config.swift",
-      "line": 16,
+      "line": 17,
       "symbol": "MoltinConfig.locale",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/craigtweedy/Projects/Moltin/iOS/new/moltin/Sources/SDK/Utils/Config.swift",
-      "line": 50,
+      "line": 51,
       "symbol": "==(_:_:)",
       "symbol_kind": "source.lang.swift.decl.function.free",
       "warning": "undocumented"
     },
     {
       "file": "/Users/craigtweedy/Projects/Moltin/iOS/new/moltin/Sources/SDK/Utils/Error.swift",
-      "line": 10,
-      "symbol": "MoltinError",
-      "symbol_kind": "source.lang.swift.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/craigtweedy/Projects/Moltin/iOS/new/moltin/Sources/SDK/Utils/Error.swift",
-      "line": 11,
+      "line": 12,
       "symbol": "MoltinError.couldNotAuthenticate",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/craigtweedy/Projects/Moltin/iOS/new/moltin/Sources/SDK/Utils/Error.swift",
-      "line": 12,
+      "line": 13,
       "symbol": "MoltinError.couldNotSetData",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/craigtweedy/Projects/Moltin/iOS/new/moltin/Sources/SDK/Utils/Error.swift",
-      "line": 13,
+      "line": 14,
       "symbol": "MoltinError.couldNotParseData",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/craigtweedy/Projects/Moltin/iOS/new/moltin/Sources/SDK/Utils/Error.swift",
-      "line": 14,
+      "line": 15,
       "symbol": "MoltinError.couldNotFindDataKey",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/craigtweedy/Projects/Moltin/iOS/new/moltin/Sources/SDK/Utils/Error.swift",
-      "line": 15,
+      "line": 16,
       "symbol": "MoltinError.couldNotParseDate",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/craigtweedy/Projects/Moltin/iOS/new/moltin/Sources/SDK/Utils/Error.swift",
-      "line": 16,
+      "line": 17,
       "symbol": "MoltinError.unacceptableRequest",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/craigtweedy/Projects/Moltin/iOS/new/moltin/Sources/SDK/Utils/Error.swift",
-      "line": 17,
+      "line": 18,
       "symbol": "MoltinError.noData",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/craigtweedy/Projects/Moltin/iOS/new/moltin/Sources/SDK/Utils/Error.swift",
-      "line": 19,
+      "line": 20,
       "symbol": "MoltinError.localizedDescription",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/craigtweedy/Projects/Moltin/iOS/new/moltin/Sources/SDK/Utils/Pagination.swift",
-      "line": 10,
-      "symbol": "PaginatedResponse",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/craigtweedy/Projects/Moltin/iOS/new/moltin/Sources/SDK/Utils/Pagination.swift",
-      "line": 13,
+      "line": 14,
       "symbol": "PaginatedResponse.data",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/craigtweedy/Projects/Moltin/iOS/new/moltin/Sources/SDK/Utils/Pagination.swift",
-      "line": 14,
+      "line": 15,
       "symbol": "PaginatedResponse.links",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/craigtweedy/Projects/Moltin/iOS/new/moltin/Sources/SDK/Utils/Pagination.swift",
-      "line": 15,
+      "line": 16,
       "symbol": "PaginatedResponse.meta",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/craigtweedy/Projects/Moltin/iOS/new/moltin/Sources/SDK/Utils/Pagination.swift",
-      "line": 18,
-      "symbol": "PaginationMeta",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/craigtweedy/Projects/Moltin/iOS/new/moltin/Sources/SDK/Utils/Pagination.swift",
-      "line": 19,
+      "line": 21,
       "symbol": "PaginationMeta.results",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/craigtweedy/Projects/Moltin/iOS/new/moltin/Sources/SDK/Utils/Pagination.swift",
-      "line": 20,
+      "line": 22,
       "symbol": "PaginationMeta.page",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/craigtweedy/Projects/Moltin/iOS/new/moltin/Sources/SDK/Utils/Query.swift",
-      "line": 10,
-      "symbol": "MoltinInclude",
-      "symbol_kind": "source.lang.swift.decl.struct",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/craigtweedy/Projects/Moltin/iOS/new/moltin/Sources/SDK/Utils/Query.swift",
-      "line": 16,
+      "line": 18,
       "symbol": "MoltinInclude.files",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/craigtweedy/Projects/Moltin/iOS/new/moltin/Sources/SDK/Utils/Query.swift",
-      "line": 17,
+      "line": 19,
       "symbol": "MoltinInclude.products",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/craigtweedy/Projects/Moltin/iOS/new/moltin/Sources/SDK/Utils/Query.swift",
-      "line": 18,
+      "line": 20,
       "symbol": "MoltinInclude.collections",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/craigtweedy/Projects/Moltin/iOS/new/moltin/Sources/SDK/Utils/Query.swift",
-      "line": 19,
+      "line": 21,
       "symbol": "MoltinInclude.brands",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/craigtweedy/Projects/Moltin/iOS/new/moltin/Sources/SDK/Utils/Query.swift",
-      "line": 20,
+      "line": 22,
       "symbol": "MoltinInclude.categories",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/craigtweedy/Projects/Moltin/iOS/new/moltin/Sources/SDK/Utils/Query.swift",
-      "line": 21,
+      "line": 23,
       "symbol": "MoltinInclude.mainImage",
       "symbol_kind": "source.lang.swift.decl.var.static",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/craigtweedy/Projects/Moltin/iOS/new/moltin/Sources/SDK/Utils/Query.swift",
-      "line": 29,
-      "symbol": "MoltinFilterOperator",
-      "symbol_kind": "source.lang.swift.decl.struct",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/craigtweedy/Projects/Moltin/iOS/new/moltin/Sources/SDK/Utils/Query.swift",
-      "line": 48,
-      "symbol": "MoltinQuery",
-      "symbol_kind": "source.lang.swift.decl.class",
       "warning": "undocumented"
     }
   ],

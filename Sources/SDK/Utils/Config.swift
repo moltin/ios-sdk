@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// `MoltinConfig` holds information about the general configuration of the SDK, such as the client ID or the locale, for use during API calls.
 public struct MoltinConfig {
     public var clientID: String
     public var scheme: String

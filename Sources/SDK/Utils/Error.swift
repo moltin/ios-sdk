@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// `MoltinError` encapsultes various errors that the SDK can return, as well as returning additional information if there are errors such as decoding errors
 public enum MoltinError : Error {
     case couldNotAuthenticate
     case couldNotSetData

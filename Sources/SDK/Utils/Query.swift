@@ -7,6 +7,8 @@
 
 import Foundation
 
+/// `MoltinInclude` represents various resources which can be included into other API calls, such as including the collections assigned to products
+/// This struct is for use in the `MoltinRequest.include(...)` method
 public struct MoltinInclude: RawRepresentable, Equatable {
     
     public typealias RawValue = String
@@ -26,6 +28,8 @@ public struct MoltinInclude: RawRepresentable, Equatable {
     
 }
 
+/// `MoltinFilterOperator` represents various operations that can be applied to `MoltinRequest.filter(...)`
+/// These parameters allow a user to filter resources.
 public struct MoltinFilterOperator: RawRepresentable, Equatable {
     
     public typealias RawValue = String
@@ -45,6 +49,7 @@ public struct MoltinFilterOperator: RawRepresentable, Equatable {
     
 }
 
+/// `MoltinQuery` encapsulates all query parameters applied to a request, as well as converting these parameters to `[URLQueryItem]`
 public class MoltinQuery {
     var withIncludes: [MoltinInclude]?
     var withSorting: String?

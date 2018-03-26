@@ -13,7 +13,7 @@
     <a title="Moltin Core  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">moltin Docs</a> (24% documented)</p>
+        <p><a href="index.html">moltin Docs</a> (29% documented)</p>
         <p class="header-right"><a href="https://github.com/moltin/ios-sdk"><img src="img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -321,7 +321,7 @@ Create this class with a Moltin client ID and an optional configuration to acces
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p><code>MoltinConfig</code> holds information about the general configuration of the SDK, such as the client ID or the locale, for use during API calls.</p>
 
                         <a href="Structs/MoltinConfig.html" class="slightly-smaller">See more</a>
                       </div>
@@ -353,7 +353,7 @@ Create this class with a Moltin client ID and an optional configuration to acces
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p><code>MoltinQuery</code> encapsulates all query parameters applied to a request, as well as converting these parameters to <code>[URLQueryItem]</code></p>
 
                       </div>
                       <div class="declaration">
@@ -380,7 +380,8 @@ Create this class with a Moltin client ID and an optional configuration to acces
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p><code>MoltinFilterOperator</code> represents various operations that can be applied to <code><a href="Classes/MoltinRequest.html#/s:6moltin13MoltinRequestC6filterACXDAA0B14FilterOperatorV8operator_SS3keySS5valuetF">MoltinRequest.filter(...)</a></code>
+These parameters allow a user to filter resources.</p>
 
                         <a href="Structs/MoltinFilterOperator.html" class="slightly-smaller">See more</a>
                       </div>
@@ -408,7 +409,8 @@ Create this class with a Moltin client ID and an optional configuration to acces
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p><code>MoltinInclude</code> represents various resources which can be included into other API calls, such as including the collections assigned to products
+This struct is for use in the <code><a href="Classes/MoltinRequest.html#/s:6moltin13MoltinRequestC7includeACXDSayAA0B7IncludeVGF">MoltinRequest.include(...)</a></code> method</p>
 
                         <a href="Structs/MoltinInclude.html" class="slightly-smaller">See more</a>
                       </div>
@@ -440,7 +442,7 @@ Create this class with a Moltin client ID and an optional configuration to acces
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p><code>MoltinError</code> encapsultes various errors that the SDK can return, as well as returning additional information if there are errors such as decoding errors</p>
 
                         <a href="Enums/MoltinError.html" class="slightly-smaller">See more</a>
                       </div>
@@ -472,7 +474,8 @@ Create this class with a Moltin client ID and an optional configuration to acces
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Boxes up results into success or failure cases
+This enum will either return success, with the corresponding value with the correct type, or return failure, with the corresponding error</p>
 
                         <a href="Enums/Result.html" class="slightly-smaller">See more</a>
                       </div>
@@ -504,7 +507,7 @@ Create this class with a Moltin client ID and an optional configuration to acces
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p><code>PaginationResponse</code> wraps around a list endpoint response, to give context to the user about the pagination information</p>
 
                         <a href="Classes/PaginatedResponse.html" class="slightly-smaller">See more</a>
                       </div>
@@ -532,7 +535,7 @@ Create this class with a Moltin client ID and an optional configuration to acces
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p><code>PaginationMeta</code> gives information about the pagination details to the user, such as result information and page information</p>
 
                         <a href="Classes/PaginationMeta.html" class="slightly-smaller">See more</a>
                       </div>

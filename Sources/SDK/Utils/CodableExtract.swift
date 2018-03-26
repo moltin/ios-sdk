@@ -12,6 +12,7 @@ public typealias IncludesData = [[String: Any]]
 
 extension Decodable {
     
+    /// Faciliates the use of extracting a single object from `includes` based on `relationships`, and converting that object to type `T`, which must be `Codable`
     public func decodeSingle<T: Codable>(
         fromRelationships relationships: RelationshipSingle?,
         withIncludes includes: IncludesData? = []) throws -> T? {
@@ -22,6 +23,7 @@ extension Decodable {
         return data
     }
     
+    /// Faciliates the use of extracting multiple objects from `includes` based on `relationships`, and converting those objects to type `T`, which must be `Codable`
     public func decodeMany<T: Codable>(
         fromRelationships relationships: RelationshipMany?,
         withIncludes includes: IncludesData? = []) throws -> [T]? {

@@ -1605,71 +1605,8 @@
     },
     {
       "file": "/Users/craigtweedy/Projects/Moltin/iOS/new/moltin/Sources/SDK/Requests/MoltinRequest.swift",
-      "line": 21,
-      "symbol": "Result",
-      "symbol_kind": "source.lang.swift.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/craigtweedy/Projects/Moltin/iOS/new/moltin/Sources/SDK/Requests/MoltinRequest.swift",
-      "line": 22,
-      "symbol": "Result.success",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/craigtweedy/Projects/Moltin/iOS/new/moltin/Sources/SDK/Requests/MoltinRequest.swift",
-      "line": 23,
-      "symbol": "Result.failure",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/craigtweedy/Projects/Moltin/iOS/new/moltin/Sources/SDK/Requests/MoltinRequest.swift",
-      "line": 26,
-      "symbol": "MoltinRequest",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/craigtweedy/Projects/Moltin/iOS/new/moltin/Sources/SDK/Requests/MoltinRequest.swift",
-      "line": 37,
+      "line": 43,
       "symbol": "MoltinRequest.init(withConfiguration:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/craigtweedy/Projects/Moltin/iOS/new/moltin/Sources/SDK/Requests/MoltinRequest.swift",
-      "line": 169,
-      "symbol": "MoltinRequest.include(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/craigtweedy/Projects/Moltin/iOS/new/moltin/Sources/SDK/Requests/MoltinRequest.swift",
-      "line": 174,
-      "symbol": "MoltinRequest.limit(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/craigtweedy/Projects/Moltin/iOS/new/moltin/Sources/SDK/Requests/MoltinRequest.swift",
-      "line": 179,
-      "symbol": "MoltinRequest.sort(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/craigtweedy/Projects/Moltin/iOS/new/moltin/Sources/SDK/Requests/MoltinRequest.swift",
-      "line": 184,
-      "symbol": "MoltinRequest.offset(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/craigtweedy/Projects/Moltin/iOS/new/moltin/Sources/SDK/Requests/MoltinRequest.swift",
-      "line": 189,
-      "symbol": "MoltinRequest.filter(operator:key:value:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
