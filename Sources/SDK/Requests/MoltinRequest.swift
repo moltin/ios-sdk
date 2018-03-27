@@ -40,6 +40,15 @@ public class MoltinRequest {
     
     // MARK: - Init
     
+    /**
+     Initialise a new `MoltinRequest` with some standard configuration
+     
+     - Author:
+     Craig Tweedy
+     
+     - parameters:
+        - withConfiguration: A `MoltinConfig` object
+    */
     public init(withConfiguration configuration: MoltinConfig) {
         self.config = configuration
         self.http = MoltinHTTP(withSession: URLSession.shared)

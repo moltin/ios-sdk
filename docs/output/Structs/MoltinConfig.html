@@ -4,272 +4,295 @@
     <title>MoltinConfig Structure Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
-    <meta charset='utf-8'>
+    <meta charset="utf-8">
     <script src="../js/jquery.min.js" defer></script>
     <script src="../js/jazzy.js" defer></script>
     
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
+
     <a name="//apple_ref/swift/Struct/MoltinConfig" class="dashAnchor"></a>
+
     <a title="MoltinConfig Structure Reference"></a>
-    <header>
-      <div class="content-wrapper">
-        <p><a href="../index.html">moltin Docs</a> (29% documented)</p>
-        <p class="header-right"><a href="https://github.com/moltin/ios-sdk"><img src="../img/gh.png"/>View on GitHub</a></p>
-      </div>
-    </header>
-    <div class="content-wrapper">
-      <p id="breadcrumbs">
-        <a href="../index.html">moltin Reference</a>
-        <img id="carat" src="../img/carat.png" />
-        MoltinConfig Structure Reference
+
+    <header class="header">
+      <p class="header-col header-col--primary">
+        <a class="header-link" href="../index.html">
+          moltin Docs
+        </a>
+         (100% documented)
       </p>
-    </div>
+    
+      <p class="header-col--secondary">
+        <form role="search" action="../search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
+      </p>
+    
+        <p class="header-col header-col--secondary">
+          <a class="header-link" href="https://github.com/moltin/ios-sdk">
+            <img class="header-icon" src="../img/gh.png"/>
+            View on GitHub
+          </a>
+        </p>
+    
+    </header>
+
+    <p class="breadcrumbs">
+      <a class="breadcrumb" href="../index.html">moltin Reference</a>
+      <img class="carat" src="../img/carat.png" />
+      MoltinConfig Structure Reference
+    </p>
+
     <div class="content-wrapper">
-      <nav class="sidebar">
+      <nav class="navigation">
         <ul class="nav-groups">
           <li class="nav-group-name">
-            <a href="../Guides.html">Guides</a>
+            <a class="nav-group-name-link" href="../Guides.html">Guides</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../requirements.html">Requirements</a>
+                <a class="nav-group-task-link" href="../requirements.html">Requirements</a>
               </li>
               <li class="nav-group-task">
-                <a href="../installation.html">Installation</a>
+                <a class="nav-group-task-link" href="../installation.html">Installation</a>
               </li>
               <li class="nav-group-task">
-                <a href="../usage.html">Usage</a>
+                <a class="nav-group-task-link" href="../usage.html">Usage</a>
               </li>
               <li class="nav-group-task">
-                <a href="../authentication.html">Authentication</a>
+                <a class="nav-group-task-link" href="../authentication.html">Authentication</a>
               </li>
               <li class="nav-group-task">
-                <a href="../filtering.html">Filtering</a>
+                <a class="nav-group-task-link" href="../filtering.html">Filtering</a>
               </li>
               <li class="nav-group-task">
-                <a href="../flows.html">Flows</a>
+                <a class="nav-group-task-link" href="../flows.html">Flows</a>
               </li>
               <li class="nav-group-task">
-                <a href="../further-documentation.html">Further Documentation</a>
+                <a class="nav-group-task-link" href="../further-documentation.html">Further Documentation</a>
               </li>
               <li class="nav-group-task">
-                <a href="../communication.html">Communication</a>
+                <a class="nav-group-task-link" href="../communication.html">Communication</a>
               </li>
               <li class="nav-group-task">
-                <a href="../license.html">License</a>
+                <a class="nav-group-task-link" href="../license.html">License</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="../Moltin Core.html">Moltin Core</a>
+            <a class="nav-group-name-link" href="../Moltin Core.html">Moltin Core</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Classes/Moltin.html">Moltin</a>
+                <a class="nav-group-task-link" href="../Classes/Moltin.html">Moltin</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/MoltinConfig.html">MoltinConfig</a>
+                <a class="nav-group-task-link" href="../Structs/MoltinConfig.html">MoltinConfig</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Moltin Core.html#/s:6moltin11MoltinQueryC">MoltinQuery</a>
+                <a class="nav-group-task-link" href="../Moltin Core.html#/s:6moltin11MoltinQueryC">MoltinQuery</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Enums/MoltinError.html">MoltinError</a>
+                <a class="nav-group-task-link" href="../Enums/MoltinError.html">MoltinError</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/MoltinFilterOperator.html">MoltinFilterOperator</a>
+                <a class="nav-group-task-link" href="../Structs/MoltinFilterOperator.html">MoltinFilterOperator</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/MoltinInclude.html">MoltinInclude</a>
+                <a class="nav-group-task-link" href="../Structs/MoltinInclude.html">MoltinInclude</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Enums/Result.html">Result</a>
+                <a class="nav-group-task-link" href="../Enums/Result.html">Result</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/PaginatedResponse.html">PaginatedResponse</a>
+                <a class="nav-group-task-link" href="../Classes/PaginatedResponse.html">PaginatedResponse</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/PaginationMeta.html">PaginationMeta</a>
+                <a class="nav-group-task-link" href="../Classes/PaginationMeta.html">PaginationMeta</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="../Resources.html">Resources</a>
+            <a class="nav-group-name-link" href="../Resources.html">Resources</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Classes/BrandRequest.html">BrandRequest</a>
+                <a class="nav-group-task-link" href="../Classes/BrandRequest.html">BrandRequest</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/CartRequest.html">CartRequest</a>
+                <a class="nav-group-task-link" href="../Classes/CartRequest.html">CartRequest</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/CategoryRequest.html">CategoryRequest</a>
+                <a class="nav-group-task-link" href="../Classes/CategoryRequest.html">CategoryRequest</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/CollectionRequest.html">CollectionRequest</a>
+                <a class="nav-group-task-link" href="../Classes/CollectionRequest.html">CollectionRequest</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/CurrencyRequest.html">CurrencyRequest</a>
+                <a class="nav-group-task-link" href="../Classes/CurrencyRequest.html">CurrencyRequest</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/FieldRequest.html">FieldRequest</a>
+                <a class="nav-group-task-link" href="../Classes/FieldRequest.html">FieldRequest</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/FileRequest.html">FileRequest</a>
+                <a class="nav-group-task-link" href="../Classes/FileRequest.html">FileRequest</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/FlowRequest.html">FlowRequest</a>
+                <a class="nav-group-task-link" href="../Classes/FlowRequest.html">FlowRequest</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/ProductRequest.html">ProductRequest</a>
+                <a class="nav-group-task-link" href="../Classes/ProductRequest.html">ProductRequest</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/MoltinRequest.html">MoltinRequest</a>
+                <a class="nav-group-task-link" href="../Classes/MoltinRequest.html">MoltinRequest</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="../Models.html">Models</a>
+            <a class="nav-group-name-link" href="../Models.html">Models</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Classes/Address.html">Address</a>
+                <a class="nav-group-task-link" href="../Classes/Address.html">Address</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/Brand.html">Brand</a>
+                <a class="nav-group-task-link" href="../Classes/Brand.html">Brand</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/Cart.html">Cart</a>
+                <a class="nav-group-task-link" href="../Classes/Cart.html">Cart</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/CartMeta.html">CartMeta</a>
+                <a class="nav-group-task-link" href="../Classes/CartMeta.html">CartMeta</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/CartItem.html">CartItem</a>
+                <a class="nav-group-task-link" href="../Classes/CartItem.html">CartItem</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/CartItemMeta.html">CartItemMeta</a>
+                <a class="nav-group-task-link" href="../Classes/CartItemMeta.html">CartItemMeta</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Enums/CartItemType.html">CartItemType</a>
+                <a class="nav-group-task-link" href="../Enums/CartItemType.html">CartItemType</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/CartItemDisplayPrice.html">CartItemDisplayPrice</a>
+                <a class="nav-group-task-link" href="../Structs/CartItemDisplayPrice.html">CartItemDisplayPrice</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/CartItemDisplayPrices.html">CartItemDisplayPrices</a>
+                <a class="nav-group-task-link" href="../Structs/CartItemDisplayPrices.html">CartItemDisplayPrices</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/Category.html">Category</a>
+                <a class="nav-group-task-link" href="../Classes/Category.html">Category</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/Collection.html">Collection</a>
+                <a class="nav-group-task-link" href="../Classes/Collection.html">Collection</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/Currency.html">Currency</a>
+                <a class="nav-group-task-link" href="../Classes/Currency.html">Currency</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/CurrencyMeta.html">CurrencyMeta</a>
+                <a class="nav-group-task-link" href="../Classes/CurrencyMeta.html">CurrencyMeta</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Models.html#/s:6moltin14CustomCartItemC">CustomCartItem</a>
+                <a class="nav-group-task-link" href="../Models.html#/s:6moltin14CustomCartItemC">CustomCartItem</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/Customer.html">Customer</a>
+                <a class="nav-group-task-link" href="../Classes/Customer.html">Customer</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/DisplayPrice.html">DisplayPrice</a>
+                <a class="nav-group-task-link" href="../Structs/DisplayPrice.html">DisplayPrice</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/DisplayPrices.html">DisplayPrices</a>
+                <a class="nav-group-task-link" href="../Structs/DisplayPrices.html">DisplayPrices</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/Entry.html">Entry</a>
+                <a class="nav-group-task-link" href="../Classes/Entry.html">Entry</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/Field.html">Field</a>
+                <a class="nav-group-task-link" href="../Classes/Field.html">Field</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/FieldMeta.html">FieldMeta</a>
+                <a class="nav-group-task-link" href="../Structs/FieldMeta.html">FieldMeta</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/File.html">File</a>
+                <a class="nav-group-task-link" href="../Classes/File.html">File</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/FileMeta.html">FileMeta</a>
+                <a class="nav-group-task-link" href="../Classes/FileMeta.html">FileMeta</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/FileDimensions.html">FileDimensions</a>
+                <a class="nav-group-task-link" href="../Structs/FileDimensions.html">FileDimensions</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/Flow.html">Flow</a>
+                <a class="nav-group-task-link" href="../Classes/Flow.html">Flow</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/Order.html">Order</a>
+                <a class="nav-group-task-link" href="../Classes/Order.html">Order</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/OrderMeta.html">OrderMeta</a>
+                <a class="nav-group-task-link" href="../Classes/OrderMeta.html">OrderMeta</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/OrderRelationships.html">OrderRelationships</a>
+                <a class="nav-group-task-link" href="../Classes/OrderRelationships.html">OrderRelationships</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/Product.html">Product</a>
+                <a class="nav-group-task-link" href="../Classes/Product.html">Product</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/ProductMeta.html">ProductMeta</a>
+                <a class="nav-group-task-link" href="../Classes/ProductMeta.html">ProductMeta</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/ProductVariation.html">ProductVariation</a>
+                <a class="nav-group-task-link" href="../Classes/ProductVariation.html">ProductVariation</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/ProductVariationOption.html">ProductVariationOption</a>
+                <a class="nav-group-task-link" href="../Classes/ProductVariationOption.html">ProductVariationOption</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/ProductPrice.html">ProductPrice</a>
+                <a class="nav-group-task-link" href="../Structs/ProductPrice.html">ProductPrice</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/ProductStock.html">ProductStock</a>
+                <a class="nav-group-task-link" href="../Structs/ProductStock.html">ProductStock</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/Relationships.html">Relationships</a>
+                <a class="nav-group-task-link" href="../Classes/Relationships.html">Relationships</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/RelationshipData.html">RelationshipData</a>
+                <a class="nav-group-task-link" href="../Structs/RelationshipData.html">RelationshipData</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/RelationshipSingle.html">RelationshipSingle</a>
+                <a class="nav-group-task-link" href="../Classes/RelationshipSingle.html">RelationshipSingle</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/RelationshipMany.html">RelationshipMany</a>
+                <a class="nav-group-task-link" href="../Classes/RelationshipMany.html">RelationshipMany</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/Timestamps.html">Timestamps</a>
+                <a class="nav-group-task-link" href="../Classes/Timestamps.html">Timestamps</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="../Utils.html">Utils</a>
+            <a class="nav-group-name-link" href="../Utils.html">Utils</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Extensions/Decodable.html">Decodable</a>
+                <a class="nav-group-task-link" href="../Extensions/Decodable.html">Decodable</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Extensions/JSONDecoder.html">JSONDecoder</a>
+                <a class="nav-group-task-link" href="../Extensions/JSONDecoder.html">JSONDecoder</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="../Other Functions.html">Other Functions</a>
+            <a class="nav-group-name-link" href="../Other Functions.html">Other Functions</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Other Functions.html#/s:6moltin2eeoiSbAA12MoltinConfigV_ADtF">==(_:_:)</a>
+                <a class="nav-group-task-link" href="../Other Functions.html#/s:6moltin2eeoiSbAA12MoltinConfigV_ADtF">==(_:_:)</a>
               </li>
             </ul>
           </li>
         </ul>
       </nav>
       <article class="main-content">
-        <section>
-          <section class="section">
+
+        <section class="section">
+          <div class="section-content">
             <h1>MoltinConfig</h1>
               <div class="declaration">
                 <div class="language">
@@ -279,10 +302,13 @@
               </div>
             <p><code>MoltinConfig</code> holds information about the general configuration of the SDK, such as the client ID or the locale, for use during API calls.</p>
 
-          </section>
-          <section class="section task-group-section">
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-content">
             <div class="task-group">
-              <ul>
+              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
@@ -296,7 +322,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The moltin client ID to use to connect to a store</p>
 
                       </div>
                       <div class="declaration">
@@ -323,7 +349,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>HTTP or HTTPS</p>
 
                       </div>
                       <div class="declaration">
@@ -350,7 +376,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The URL host of the API</p>
 
                       </div>
                       <div class="declaration">
@@ -377,7 +403,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The version of the API</p>
 
                       </div>
                       <div class="declaration">
@@ -404,7 +430,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The locale to use for langauges and currencies</p>
 
                       </div>
                       <div class="declaration">
@@ -420,14 +446,15 @@
                 </li>
               </ul>
             </div>
-          </section>
+          </div>
         </section>
-        <section id="footer">
-          <p>© <a class="link" href="https://moltin.com/" target="_blank" rel="external">Moltin</a>. See <a class="link" href="https://github.com/moltin/ios-sdk/blob/master/LICENSE.md" target="_blank" rel="external">license</a> for more details.</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
-        </section>
+
       </article>
     </div>
+    <section class="footer">
+      <p>© <a class="link" href="https://moltin.com/" target="_blank" rel="external">Moltin</a>. See <a class="link" href="https://github.com/moltin/ios-sdk/blob/master/LICENSE.md" target="_blank" rel="external">license</a> for more details.</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+    </section>
   </body>
 </div>
 </html>

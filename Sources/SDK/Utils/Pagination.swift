@@ -11,13 +11,18 @@ import Foundation
 public class PaginatedResponse<T: Codable>: Codable {
     public typealias ContainedType = T
     
+    /// The data returned for this response
     public var data: ContainedType?
+    /// The external links for this response
     public var links: [String: String?]?
+    /// The meta information for this response
     public var meta: PaginationMeta?
 }
 
 /// `PaginationMeta` gives information about the pagination details to the user, such as result information and page information
 public class PaginationMeta: Codable {
+    /// The results information for this paginated response
     public let results: [String: Int]?
+    /// The page information for this response
     public let page: [String: Int]?
 }

@@ -7,16 +7,26 @@
 
 import Foundation
 
+/// Represents a `Brand` in Moltin
 public class Brand: Codable, HasRelationship {
+    /// The id of this brand
     public let id: String
+    /// The type of this object
     public let type: String
+    /// The name of this brand
     public let name: String
+    /// The slug of this brand
     public let slug: String
+    /// The description of this brand
     public let description: String
+    /// draft / live
     public let status: String
-    public let relationships: Relationships
+    /// The relationships this brand has
+    public let relationships: Relationships?
     
+    /// The brands this brand is associated with
     public var brands: [Brand]?
+    /// The products this brand is associated with
     public var products: [Product]?
     
     required public init(from decoder: Decoder) throws {
@@ -41,10 +51,10 @@ extension Brand {
         fromRelationships relationships: Relationships?,
         withIncludes includes: IncludesContainer) throws {
         
-        self.brands = try self.decodeMany(fromRelationships: self.relationships[keyPath: \Relationships.brands],
+        self.brands = try self.decodeMany(fromRelationships: self.relationships?[keyPath: \Relationships.brands],
                                       withIncludes: includes["brands"])
         
-        self.products = try self.decodeMany(fromRelationships: self.relationships[keyPath: \Relationships.products],
+        self.products = try self.decodeMany(fromRelationships: self.relationships?[keyPath: \Relationships.products],
                                       withIncludes: includes["products"])
     }
 }

@@ -7,17 +7,22 @@
 
 import Foundation
 
+/// An entry point to make API calls relating to `Flow` and `Entry` objects
 public class FlowRequest: MoltinRequest {
-    
+    /// The API endpoint for this resource.
     public var endpoint: String = "/flows"
     
+    /// The default collection handler type for `Flow` requests
     public typealias DefaultFlowCollectionRequestHandler = CollectionRequestHandler<[Flow]>
+    /// The default object handler type for `Flow` requests
     public typealias DefaultFlowObjectRequestHandler = ObjectRequestHandler<Flow>
     
-    public typealias DefaultEntryCollectionRequestHandler = CollectionRequestHandler<[Flow]>
-    public typealias DefaultEntryObjectRequestHandler = ObjectRequestHandler<Flow>
+    /// The default collection handler type for `Entry` requests
+    public typealias DefaultEntryCollectionRequestHandler = CollectionRequestHandler<[Entry]>
+    /// The default object handler type for `Entry` requests
+    public typealias DefaultEntryObjectRequestHandler = ObjectRequestHandler<Entry>
     
-    /*
+    /**
      Return all instances of type flow
      
      - parameters:
@@ -27,7 +32,7 @@ public class FlowRequest: MoltinRequest {
         return super.list(withPath: "\(self.endpoint)", completionHandler: completionHandler)
     }
     
-    /*
+    /**
      Return get an instance of flow by `id`
      
      - parameters:
@@ -38,7 +43,7 @@ public class FlowRequest: MoltinRequest {
         return super.get(withPath: "\(self.endpoint)/\(id)", completionHandler: completionHandler)
     }
     
-    /*
+    /**
      Return all entries for the flow with the slug `slug`
      
      - parameters:
@@ -49,7 +54,7 @@ public class FlowRequest: MoltinRequest {
         return super.get(withPath: "\(self.endpoint)/\(slug)/entries", completionHandler: completionHandler)
     }
     
-    /*
+    /**
      Return all custom entries for the flow with the slug `slug`
      
      - parameters:
@@ -60,7 +65,7 @@ public class FlowRequest: MoltinRequest {
         return super.get(withPath: "\(self.endpoint)/\(slug)", completionHandler: completionHandler)
     }
     
-    /*
+    /**
      Return an entry for the flow with the slug `slug` and an ID of `id`
      
      - parameters:
@@ -72,7 +77,7 @@ public class FlowRequest: MoltinRequest {
         return super.get(withPath: "\(self.endpoint)/\(slug)/entries/\(id)", completionHandler: completionHandler)
     }
     
-    /*
+    /**
      Return a custom entry for the flow with the slug `slug` and an ID of `id`
      
      - parameters:

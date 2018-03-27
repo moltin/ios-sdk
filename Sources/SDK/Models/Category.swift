@@ -7,16 +7,26 @@
 
 import Foundation
 
+/// Represents a `Category` in Moltin
 public class Category: Codable, HasRelationship {
+    /// The id of this category
     public let id: String
+    /// The type of this object
     public let type: String
+    /// The name of this category
     public let name: String
+    /// The slug of this category
     public let slug: String
+    /// The description of this category
     public let description: String
+    /// live / draft
     public let status: String
-    public let relationships: Relationships
+    /// The relationships this category has
+    public let relationships: Relationships?
     
+    /// The categories associated with this category
     public var categories: [Category]?
+    /// The products associated with this category
     public var products: [Product]?
     
     required public init(from decoder: Decoder) throws {
@@ -41,10 +51,10 @@ extension Category {
         fromRelationships relationships: Relationships?,
         withIncludes includes: IncludesContainer) throws {
         
-        self.categories = try self.decodeMany(fromRelationships: self.relationships[keyPath: \Relationships.categories],
+        self.categories = try self.decodeMany(fromRelationships: self.relationships?[keyPath: \Relationships.categories],
                                           withIncludes: includes["categories"])
         
-        self.products = try self.decodeMany(fromRelationships: self.relationships[keyPath: \Relationships.products],
+        self.products = try self.decodeMany(fromRelationships: self.relationships?[keyPath: \Relationships.products],
                                             withIncludes: includes["products"])
     }
 }

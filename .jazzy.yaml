@@ -8,7 +8,7 @@ output: docs/output
 documentation: "docs/tmp/docs/*.md"
 readme: "docs/tmp/compile/README.md"
 abstract: "docs/tmp/api/*.md"
-theme: apple
+theme: fullwidth
 
 custom_categories:
   - name: Guides

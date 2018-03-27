@@ -7,9 +7,13 @@
 
 import Foundation
 
+/// Represents a price on a `Product`
 public struct ProductPrice: Codable {
+    /// The amount this product can sell for
     public let amount: Int
+    /// The currency this price is in
     public let currency: String
+    /// Whether this price includes tax
     public let includesTax: Bool
     
     enum CodingKeys: String, CodingKey {
@@ -18,31 +22,45 @@ public struct ProductPrice: Codable {
         case amount
         case currency
     }
-    
-    
 }
 
+/// Represents stock levels on a `Product`
 public struct ProductStock: Codable {
+    /// The level of stock a product has
     public let level: Int
+    /// in-stock / out-stock
     public let availability: String
 }
 
+/// Represents variation options on a `Product`
 public class ProductVariationOption: Codable {
+    /// The id of this option
     public let id: String
+    /// The name of this option
     public let name: String
+    /// The description of this option
     public let description: String
 }
 
+/// Represents variations on a `Product`
 public class ProductVariation: Codable {
+    /// The id of this variation
     public let id: String
+    /// The options this variation has
     public let options: [ProductVariationOption]
 }
 
+/// Represents the meta properties of a `Product`
 public class ProductMeta: Codable {
+    /// The timestamps of this product
     public let timestamps: Timestamps
+    /// The stock information of this product
     public let stock: ProductStock
+    /// The display price information of this product
     public let displayPrice: DisplayPrices
+    /// The variations this product has
     public let variations: [ProductVariation]?
+    /// The variation matrix of this product
     public let variationMatrix: [String: String]?
     
     enum CodingKeys: String, CodingKey {
@@ -55,24 +73,42 @@ public class ProductMeta: Codable {
     }
 }
 
+/// Represents a `Product` in moltin
 public class Product: Codable, HasRelationship {
+    /// The id of this product
     public let id: String
+    /// The type of this object
     public let type: String
+    /// The name of this product
     public let name: String
+    /// The slug of this product
     public let slug: String
+    /// The SKU of this product
     public let sku: String
+    /// Whether or not moltin manages the stock of this product
     public let manageStock: Bool
+    /// The description of this product
     public let description: String
+    /// The price information for this product
     public let price: [ProductPrice]?
+    /// draft / live
     public let status: String
+    /// Physical / Digital
     public let commodityType: String
+    /// The meta information for this product
     public let meta: ProductMeta
+    /// The relationships this product has
     public let relationships: Relationships?
     
+    /// The main image of this product
     public var mainImage: File?
+    /// The files this product has
     public var files: [File]?
+    /// The categories this product belongs to
     public var categories: [Category]?
+    /// The brands this product belongs to
     public var brands: [Brand]?
+    /// The collections this product belongs to
     public var collections: [Collection]?
     
     enum CodingKeys: String, CodingKey {

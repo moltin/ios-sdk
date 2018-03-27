@@ -15,11 +15,17 @@ public struct MoltinInclude: RawRepresentable, Equatable {
     
     public var rawValue: String
     
+    /// Includes `File` objects
     public static let files  = MoltinInclude(rawValue: "files")
+    /// Includes `Product` objects
     public static let products = MoltinInclude(rawValue: "products")
+    /// Includes `Collection` objects
     public static let collections = MoltinInclude(rawValue: "collections")
+    /// Includes `Brand` objects
     public static let brands = MoltinInclude(rawValue: "brands")
+    /// Includes `Category` objects
     public static let categories = MoltinInclude(rawValue: "categories")
+    /// Includes a `File` object representing the main image
     public static let mainImage = MoltinInclude(rawValue: "main_image")
     
     public init(rawValue: String) {
@@ -36,12 +42,12 @@ public struct MoltinFilterOperator: RawRepresentable, Equatable {
     
     public var rawValue: String
     
-    static let eq  = MoltinFilterOperator(rawValue: "eq")
-    static let like  = MoltinFilterOperator(rawValue: "like")
-    static let gt  = MoltinFilterOperator(rawValue: "gt")
-    static let ge  = MoltinFilterOperator(rawValue: "ge")
-    static let lt  = MoltinFilterOperator(rawValue: "lt")
-    static let le  = MoltinFilterOperator(rawValue: "le")
+    static let equal                = MoltinFilterOperator(rawValue: "eq")
+    static let like                 = MoltinFilterOperator(rawValue: "like")
+    static let greaterThan          = MoltinFilterOperator(rawValue: "gt")
+    static let greaterThanOrEqual   = MoltinFilterOperator(rawValue: "ge")
+    static let lessThan             = MoltinFilterOperator(rawValue: "lt")
+    static let lessThanOrEqual      = MoltinFilterOperator(rawValue: "le")
     
     public init(rawValue: String) {
         self.rawValue = rawValue

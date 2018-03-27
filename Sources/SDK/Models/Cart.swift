@@ -7,7 +7,9 @@
 
 import Foundation
 
+/// The meta information for a `Cart`
 public class CartMeta: Codable {
+    /// The display price information for this cart
     public let displayPrice: DisplayPrices
     
     enum CodingKeys: String, CodingKey {
@@ -15,13 +17,19 @@ public class CartMeta: Codable {
     }
 }
 
+/// The display price for a `CartItem`
 public struct CartItemDisplayPrice: Codable {
+    /// The unit price for a cart item
     public let unit: DisplayPrice
+    /// The value price (based on quantity) for a cart item
     public let value: DisplayPrice
 }
 
+/// The display prices information for a `CartItem`
 public struct CartItemDisplayPrices: Codable {
+    /// The display price for this cart item including tax
     public let withTax: CartItemDisplayPrice
+    /// The display price for this cart item without tax
     public let withoutTax: CartItemDisplayPrice
     
     enum CodingKeys: String, CodingKey {
@@ -30,7 +38,9 @@ public struct CartItemDisplayPrices: Codable {
     }
 }
 
+/// The meta information for this `CartItem`
 public class CartItemMeta: Codable {
+    /// The display price for this cart item
     public let displayPrice: CartItemDisplayPrices
     
     enum CodingKeys: String, CodingKey {
@@ -38,25 +48,43 @@ public class CartItemMeta: Codable {
     }
 }
 
+/// Represents a `Cart` in Moltin
 public class Cart: Codable {
+    /// The id for this cart
     public let id: String
+    /// The type of this object
     public let type: String
+    /// The external links for this cart
     public let links: [String: String]
+    /// The meta information for this cart
     public let meta: CartMeta
 }
 
+/// Represents a `CartItem` in Moltin
 public class CartItem: Codable {
+    /// The id for this cart item
     public let id: String
+    /// The type of this object
     public let type: String
+    /// The product ID for this `CartItem`
     public let productId: String
+    /// The name of this cart item
     public let name: String
+    /// The description of this cart item
     public let description: String
+    /// The SKU of this cart item
     public let sku: String
+    /// The quantity of this cart item
     public let quantity: Int
+    /// Whether or not moltin manages stock for this cart item
     public let manageStock: Bool
+    /// The price for this cart item
     public let unitPrice: ProductPrice
+    /// The price for this cart item, taking into account quantity
     public let value: ProductPrice
+    /// The external links for this cart item
     public let links: [String: String]
+    /// The meta information for this cart
     public let meta: CartItemMeta
     
     enum CodingKeys: String, CodingKey {
@@ -76,12 +104,17 @@ public class CartItem: Codable {
     }
 }
 
+/// Represents various types of cart items
 public enum CartItemType: String {
+    /// A standard cart item
     case cartItem = "cart_item"
+    /// A promo item
     case promotionItem = "promotion_item"
 }
 
+/// A custom cart item
 public class CustomCartItem: Codable {
+    /// The SKU of this cart item
     var sku: String
     
     internal init(withSKU sku: String) {

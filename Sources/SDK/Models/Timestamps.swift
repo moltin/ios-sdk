@@ -7,8 +7,11 @@
 
 import Foundation
 
+/// Represents common timestamps returned from Moltin
 public class Timestamps: Codable {
+    /// When the resource was created
     public let createdAt: Date
+    /// When the resource was updated
     public let updatedAt: Date?
     
     enum CodingKeys: String, CodingKey {

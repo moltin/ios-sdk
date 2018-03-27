@@ -7,28 +7,45 @@
 
 import Foundation
 
+/// Represents a `Entry` in Moltin
 public class Entry: Codable {
+    /// The id of this entry
     public let id: String
+    /// The type of this object
     public let type: String
 }
 
+/// Represents the meta information for a `Field`
 public struct FieldMeta: Codable {
+    /// The timestamps for this `Field`
     public let timestamps: Timestamps
 }
 
+/// Represents a `Field` in Moltin
 public class Field: Codable {
+    /// The id of this field
     public let id: String
+    /// The type of this object
     public let type: String
+    /// The type of this field - string / integer / boolean / float / date / relationship
     public let fieldType: String
+    /// The slug for this field
     public let slug: String
+    /// The name for this field
     public let name: String
+    /// The description of this field
     public let description: String
+    /// Whether this field is required or not
     public let required: Bool
+    /// Whether this field is unique or not
     public let unique: Bool
 //    public let `default`: Any
+    /// Whether this field is enabled or not
     public let enabled: Bool
 //    public let validationRules: [String: Any]
-    public let relationships: Relationships
+    /// The relationships for this Field
+    public let relationships: Relationships?
+    /// The meta information for this Field
     public let meta: FieldMeta
     
     enum CodingKeys: String, CodingKey {
@@ -47,11 +64,18 @@ public class Field: Codable {
     }
 }
 
+/// Represents a `Flow` in Moltin
 public class Flow: Codable {
+    /// The id of this flow
     public let id: String
+    /// The type of this object
     public let type: String
+    /// The name of this flow
     public let name: String
+    /// The slug of this flow
     public let slug: String
+    /// The description of this flow
     public let description: String
+    /// Whether this flow is enabled or not
     public let enabled: Bool
 }

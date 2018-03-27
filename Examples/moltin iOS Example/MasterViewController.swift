@@ -43,8 +43,7 @@ class MasterViewController: UITableViewController {
 //        objects.insert(NSDate(), at: 0)
 //        let indexPath = IndexPath(row: 0, section: 0)
 //        tableView.insertRows(at: [indexPath], with: .automatic)
-        
-        self.moltin.product.include([.products]).all { (result) in
+        self.moltin.product.include([.products, .files]).all { (result) in
             switch result {
             case .success(let response):
                 print(response)

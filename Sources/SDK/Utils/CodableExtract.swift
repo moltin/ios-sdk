@@ -63,6 +63,7 @@ extension Decodable {
 }
 
 extension JSONDecoder {
+    /// Returns a default `JSONDecoder` which can decode ISO8601 dates with and without milliseconds
     static public func dateFormattingDecoder() -> JSONDecoder {
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601Full)
