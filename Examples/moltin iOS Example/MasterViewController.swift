@@ -12,7 +12,7 @@ class MasterViewController: UITableViewController {
 
     var detailViewController: DetailViewController? = nil
     var objects = [Any]()
-    let moltin = Moltin(withClientID: "bJp5DRgPSrXFCft3AEWeJpX3pNU7A6dc0cfgi7K9Yd")
+    let moltin = Moltin(withClientID: "j6hSilXRQfxKohTndUuVrErLcSJWP15P347L6Im0M4")
 
 
     override func viewDidLoad() {

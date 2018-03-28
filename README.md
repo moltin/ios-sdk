@@ -1,4 +1,4 @@
-# WIP!
+# Moltin iOS SDK
 
 ![Moltin](https://raw.githubusercontent.com/moltin/ios-sdk/master/moltin.png)
 
