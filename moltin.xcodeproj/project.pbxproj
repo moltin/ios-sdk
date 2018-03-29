@@ -70,6 +70,8 @@
 		C336E5D12064062D008C2005 /* Relationship.swift in Sources */ = {isa = PBXBuildFile; fileRef = C336E5CE2064057B008C2005 /* Relationship.swift */; };
 		C336E5D22064062D008C2005 /* Relationship.swift in Sources */ = {isa = PBXBuildFile; fileRef = C336E5CE2064057B008C2005 /* Relationship.swift */; };
 		C336E5D32064062E008C2005 /* Relationship.swift in Sources */ = {isa = PBXBuildFile; fileRef = C336E5CE2064057B008C2005 /* Relationship.swift */; };
+		C336E5F8206C0A18008C2005 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C336E5F6206C0A12008C2005 /* MasterViewController.swift */; };
+		C336E608206C1E02008C2005 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C336E604206C1DFD008C2005 /* CategoryCollectionViewCell.swift */; };
 		C3434C0F203DDA0500883C84 /* MoltinRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3434C0E203DDA0500883C84 /* MoltinRequest.swift */; };
 		C3434C13203DDA1F00883C84 /* MoltinRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3434C0E203DDA0500883C84 /* MoltinRequest.swift */; };
 		C3434C15203DDA2000883C84 /* MoltinRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3434C0E203DDA0500883C84 /* MoltinRequest.swift */; };
@@ -85,6 +87,16 @@
 		C3434C23203DDB1F00883C84 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3434C21203DDB1F00883C84 /* Config.swift */; };
 		C3434C24203DDB1F00883C84 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3434C21203DDB1F00883C84 /* Config.swift */; };
 		C3434C25203DDB1F00883C84 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3434C21203DDB1F00883C84 /* Config.swift */; };
+		C354B545206CE1EE00D26446 /* CategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C336E605206C1DFD008C2005 /* CategoryCollectionViewCell.xib */; };
+		C354B54A206CE3FC00D26446 /* MasterSectionHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C354B546206CE37900D26446 /* MasterSectionHeaderCollectionReusableView.swift */; };
+		C354B54B206CE40200D26446 /* MasterSectionHeaderCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C354B547206CE37900D26446 /* MasterSectionHeaderCollectionReusableView.xib */; };
+		C354B54D206CEAE400D26446 /* moltin.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C392E9C5203DB630006CD1D0 /* moltin.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C354B553206CEE9500D26446 /* ProductCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C354B552206CEE9500D26446 /* ProductCategory.swift */; };
+		C354B556206CEF4D00D26446 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C354B555206CEF4D00D26446 /* UIColor.swift */; };
+		C354B558206D033400D26446 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C354B557206D033400D26446 /* UIImageView.swift */; };
+		C354B560206D0F4B00D26446 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C354B55E206D0F4B00D26446 /* ProductCollectionViewCell.swift */; };
+		C354B561206D0F4B00D26446 /* ProductCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C354B55F206D0F4B00D26446 /* ProductCollectionViewCell.xib */; };
+		C354B563206D134500D26446 /* CustomProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = C354B562206D134500D26446 /* CustomProduct.swift */; };
 		C3715BCB203EE6BB00287C1B /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BCA203EE6BB00287C1B /* Requests.swift */; };
 		C3715BCD203EE6BB00287C1B /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BCA203EE6BB00287C1B /* Requests.swift */; };
 		C3715BCE203EE6BB00287C1B /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BCA203EE6BB00287C1B /* Requests.swift */; };
@@ -147,7 +159,6 @@
 		C392EA15203DB7EB006CD1D0 /* MoltinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C392EA14203DB7EB006CD1D0 /* MoltinTests.swift */; };
 		C392EA17203DB7EB006CD1D0 /* moltin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C392E9C5203DB630006CD1D0 /* moltin.framework */; };
 		C392EA24203DB800006CD1D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C392EA23203DB800006CD1D0 /* AppDelegate.swift */; };
-		C392EA26203DB800006CD1D0 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C392EA25203DB800006CD1D0 /* MasterViewController.swift */; };
 		C392EA28203DB800006CD1D0 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C392EA27203DB800006CD1D0 /* DetailViewController.swift */; };
 		C392EA2B203DB800006CD1D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C392EA29203DB800006CD1D0 /* Main.storyboard */; };
 		C392EA2D203DB801006CD1D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C392EA2C203DB801006CD1D0 /* Assets.xcassets */; };
@@ -168,6 +179,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		C354B54E206CEAE400D26446 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C392E99F203DB5ED006CD1D0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C392E9C4203DB630006CD1D0;
+			remoteInfo = "moltin iOS";
+		};
 		C392EA18203DB7EB006CD1D0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C392E99F203DB5ED006CD1D0 /* Project object */;
@@ -199,6 +217,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		C354B550206CEAE400D26446 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C354B54D206CEAE400D26446 /* moltin.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C392EA51203DB823006CD1D0 /* Embed Watch Content */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -240,10 +269,21 @@
 		C336E5C5206278B2008C2005 /* ProductCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCollectionViewCell.xib; sourceTree = "<group>"; };
 		C336E5C820629477008C2005 /* CodableExtract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableExtract.swift; sourceTree = "<group>"; };
 		C336E5CE2064057B008C2005 /* Relationship.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Relationship.swift; sourceTree = "<group>"; };
+		C336E5F6206C0A12008C2005 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		C336E604206C1DFD008C2005 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		C336E605206C1DFD008C2005 /* CategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCollectionViewCell.xib; sourceTree = "<group>"; };
 		C3434C0E203DDA0500883C84 /* MoltinRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoltinRequest.swift; sourceTree = "<group>"; };
 		C3434C17203DDAD500883C84 /* Pagination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pagination.swift; sourceTree = "<group>"; };
 		C3434C1C203DDAFF00883C84 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		C3434C21203DDB1F00883C84 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		C354B546206CE37900D26446 /* MasterSectionHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterSectionHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
+		C354B547206CE37900D26446 /* MasterSectionHeaderCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MasterSectionHeaderCollectionReusableView.xib; sourceTree = "<group>"; };
+		C354B552206CEE9500D26446 /* ProductCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCategory.swift; sourceTree = "<group>"; };
+		C354B555206CEF4D00D26446 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		C354B557206D033400D26446 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
+		C354B55E206D0F4B00D26446 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
+		C354B55F206D0F4B00D26446 /* ProductCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCollectionViewCell.xib; sourceTree = "<group>"; };
+		C354B562206D134500D26446 /* CustomProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProduct.swift; sourceTree = "<group>"; };
 		C3715BCA203EE6BB00287C1B /* Requests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Requests.swift; sourceTree = "<group>"; };
 		C3715BD0203EE6D400287C1B /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		C3715BD5203EE6DE00287C1B /* Brand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brand.swift; sourceTree = "<group>"; };
@@ -282,7 +322,6 @@
 		C392EA16203DB7EB006CD1D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C392EA21203DB800006CD1D0 /* moltin iOS Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "moltin iOS Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C392EA23203DB800006CD1D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C392EA25203DB800006CD1D0 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		C392EA27203DB800006CD1D0 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		C392EA2A203DB800006CD1D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C392EA2C203DB801006CD1D0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -391,6 +430,17 @@
 			path = "moltin tvOS Example";
 			sourceTree = "<group>";
 		};
+		C336E5FB206C0B8D008C2005 /* CollectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				C336E604206C1DFD008C2005 /* CategoryCollectionViewCell.swift */,
+				C336E605206C1DFD008C2005 /* CategoryCollectionViewCell.xib */,
+				C354B546206CE37900D26446 /* MasterSectionHeaderCollectionReusableView.swift */,
+				C354B547206CE37900D26446 /* MasterSectionHeaderCollectionReusableView.xib */,
+			);
+			path = CollectionCell;
+			sourceTree = "<group>";
+		};
 		C3434C16203DDACA00883C84 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -406,6 +456,33 @@
 				C336E5C820629477008C2005 /* CodableExtract.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		C354B551206CEE7B00D26446 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C354B552206CEE9500D26446 /* ProductCategory.swift */,
+				C354B562206D134500D26446 /* CustomProduct.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C354B554206CEF4400D26446 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C354B555206CEF4D00D26446 /* UIColor.swift */,
+				C354B557206D033400D26446 /* UIImageView.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C354B559206D0DE200D26446 /* ProductCell */ = {
+			isa = PBXGroup;
+			children = (
+				C354B55E206D0F4B00D26446 /* ProductCollectionViewCell.swift */,
+				C354B55F206D0F4B00D26446 /* ProductCollectionViewCell.xib */,
+			);
+			path = ProductCell;
 			sourceTree = "<group>";
 		};
 		C367EE23203DCED3004BAC1E /* SDK */ = {
@@ -513,8 +590,12 @@
 		C392EA22203DB800006CD1D0 /* moltin iOS Example */ = {
 			isa = PBXGroup;
 			children = (
+				C354B559206D0DE200D26446 /* ProductCell */,
+				C354B554206CEF4400D26446 /* Extensions */,
+				C354B551206CEE7B00D26446 /* Models */,
+				C336E5FB206C0B8D008C2005 /* CollectionCell */,
 				C392EA23203DB800006CD1D0 /* AppDelegate.swift */,
-				C392EA25203DB800006CD1D0 /* MasterViewController.swift */,
+				C336E5F6206C0A12008C2005 /* MasterViewController.swift */,
 				C392EA27203DB800006CD1D0 /* DetailViewController.swift */,
 				C392EA29203DB800006CD1D0 /* Main.storyboard */,
 				C392EA2C203DB801006CD1D0 /* Assets.xcassets */,
@@ -734,11 +815,13 @@
 				C392EA1E203DB800006CD1D0 /* Frameworks */,
 				C392EA1F203DB800006CD1D0 /* Resources */,
 				C392EA51203DB823006CD1D0 /* Embed Watch Content */,
+				C354B550206CEAE400D26446 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				C392EA50203DB823006CD1D0 /* PBXTargetDependency */,
+				C354B54F206CEAE400D26446 /* PBXTargetDependency */,
 			);
 			name = "moltin iOS Example";
 			productName = "moltin iOS Example";
@@ -929,6 +1012,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C354B54B206CE40200D26446 /* MasterSectionHeaderCollectionReusableView.xib in Resources */,
+				C354B545206CE1EE00D26446 /* CategoryCollectionViewCell.xib in Resources */,
+				C354B561206D0F4B00D26446 /* ProductCollectionViewCell.xib in Resources */,
 				C392EA30203DB801006CD1D0 /* LaunchScreen.storyboard in Resources */,
 				C392EA2D203DB801006CD1D0 /* Assets.xcassets in Resources */,
 				C392EA2B203DB800006CD1D0 /* Main.storyboard in Resources */,
@@ -1141,8 +1227,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C354B558206D033400D26446 /* UIImageView.swift in Sources */,
+				C336E608206C1E02008C2005 /* CategoryCollectionViewCell.swift in Sources */,
+				C354B563206D134500D26446 /* CustomProduct.swift in Sources */,
+				C354B556206CEF4D00D26446 /* UIColor.swift in Sources */,
+				C354B553206CEE9500D26446 /* ProductCategory.swift in Sources */,
+				C354B54A206CE3FC00D26446 /* MasterSectionHeaderCollectionReusableView.swift in Sources */,
+				C336E5F8206C0A18008C2005 /* MasterViewController.swift in Sources */,
 				C392EA28203DB800006CD1D0 /* DetailViewController.swift in Sources */,
-				C392EA26203DB800006CD1D0 /* MasterViewController.swift in Sources */,
+				C354B560206D0F4B00D26446 /* ProductCollectionViewCell.swift in Sources */,
 				C392EA24203DB800006CD1D0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1167,6 +1260,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		C354B54F206CEAE400D26446 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C392E9C4203DB630006CD1D0 /* moltin iOS */;
+			targetProxy = C354B54E206CEAE400D26446 /* PBXContainerItemProxy */;
+		};
 		C392EA19203DB7EB006CD1D0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = C392E9C4203DB630006CD1D0 /* moltin iOS */;
@@ -1401,6 +1499,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 6NTG7K23S9;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1478,6 +1577,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 6NTG7K23S9;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -2081,6 +2181,7 @@
 		C392EA33203DB801006CD1D0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -2115,6 +2216,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 6NTG7K23S9;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -2132,7 +2234,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Examples/moltin iOS Example/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -2149,6 +2251,7 @@
 		C392EA34203DB801006CD1D0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -2183,6 +2286,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 6NTG7K23S9;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -2194,7 +2298,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Examples/moltin iOS Example/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.moltin.moltin-iOS-Example";
@@ -2243,6 +2347,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 6NTG7K23S9;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -2311,6 +2416,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 6NTG7K23S9;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -2374,6 +2480,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 6NTG7K23S9;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -2444,6 +2551,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 6NTG7K23S9;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
