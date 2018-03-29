@@ -8,7 +8,7 @@
 import Foundation
 
 /// Represents a `Collection` in Moltin
-public class Collection: Codable, HasRelationship {
+open class Collection: Codable, HasRelationship {
     /// The id of this collection
     public let id: String
     /// The type of this object

@@ -56,7 +56,7 @@ public struct MoltinFilterOperator: RawRepresentable, Equatable {
 }
 
 /// `MoltinQuery` encapsulates all query parameters applied to a request, as well as converting these parameters to `[URLQueryItem]`
-public class MoltinQuery {
+open class MoltinQuery {
     var withIncludes: [MoltinInclude]?
     var withSorting: String?
     var withLimit: String?

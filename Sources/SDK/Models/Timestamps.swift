@@ -8,7 +8,7 @@
 import Foundation
 
 /// Represents common timestamps returned from Moltin
-public class Timestamps: Codable {
+open class Timestamps: Codable {
     /// When the resource was created
     public let createdAt: Date
     /// When the resource was updated

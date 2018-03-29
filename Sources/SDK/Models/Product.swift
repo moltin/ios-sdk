@@ -57,11 +57,11 @@ public class ProductMeta: Codable {
     /// The stock information of this product
     public let stock: ProductStock
     /// The display price information of this product
-    public let displayPrice: DisplayPrices
+    public let displayPrice: DisplayPrices?
     /// The variations this product has
     public let variations: [ProductVariation]?
     /// The variation matrix of this product
-    public let variationMatrix: [String: String]?
+    public let variationMatrix: [[String: String]]?
     
     enum CodingKeys: String, CodingKey {
         case displayPrice = "display_price"
@@ -74,7 +74,7 @@ public class ProductMeta: Codable {
 }
 
 /// Represents a `Product` in moltin
-public class Product: Codable, HasRelationship {
+open class Product: Codable, HasRelationship {
     /// The id of this product
     public let id: String
     /// The type of this object

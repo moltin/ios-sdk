@@ -8,7 +8,7 @@
 import Foundation
 
 /// Represents a `Customer` in Moltin
-public class Customer: Codable {
+open class Customer: Codable {
     /// The ID of this customer
     public var id: String?
     /// The email of this customer

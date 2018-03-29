@@ -61,7 +61,7 @@ public struct RelationshipData: Codable {
 }
 
 /// Represents all possible relationships a resource can have within Moltin
-public class Relationships: Codable {
+open class Relationships: Codable {
     /// The `File` relationships
     public var files: RelationshipMany?
     /// The main image (`File`) relationship

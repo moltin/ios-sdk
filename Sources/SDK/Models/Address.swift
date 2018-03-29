@@ -8,7 +8,7 @@
 import Foundation
 
 /// Represents a `Address` in Moltin
-public class Address: Codable {
+open class Address: Codable {
     /// The ID of this address
     public var id: String?
     /// The type of this object

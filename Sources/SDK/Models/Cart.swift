@@ -49,7 +49,7 @@ public class CartItemMeta: Codable {
 }
 
 /// Represents a `Cart` in Moltin
-public class Cart: Codable {
+open class Cart: Codable {
     /// The id for this cart
     public let id: String
     /// The type of this object
@@ -61,7 +61,7 @@ public class Cart: Codable {
 }
 
 /// Represents a `CartItem` in Moltin
-public class CartItem: Codable {
+open class CartItem: Codable {
     /// The id for this cart item
     public let id: String
     /// The type of this object
@@ -113,7 +113,7 @@ public enum CartItemType: String {
 }
 
 /// A custom cart item
-public class CustomCartItem: Codable {
+open class CustomCartItem: Codable {
     /// The SKU of this cart item
     var sku: String
     

@@ -22,7 +22,7 @@ public struct MoltinConfig {
     public var locale: Locale = Locale.current
     
     /// Initialise the config with a clientID, scheme, host, and version
-    init(clientID: String, scheme: String, host: String, version: String) {
+    public init(clientID: String, scheme: String, host: String, version: String) {
         self.clientID = clientID
         self.scheme = scheme
         self.host = host
@@ -30,13 +30,13 @@ public struct MoltinConfig {
     }
     
     /// Initialise the config with a clientID, scheme, host, version, and locale
-    init(clientID: String, scheme: String, host: String, version: String, locale: Locale) {
+    public init(clientID: String, scheme: String, host: String, version: String, locale: Locale) {
         self.init(clientID: clientID, scheme: scheme, host: host, version: version)
         self.locale = locale
     }
     
     /// Returns a default config set up with a clientID
-    static func `default`(withClientID clientID: String) -> MoltinConfig {
+    static public func `default`(withClientID clientID: String) -> MoltinConfig {
         return MoltinConfig(
             clientID: clientID,
             scheme: "https",
@@ -45,7 +45,7 @@ public struct MoltinConfig {
     }
     
     /// Returns a default config set up with a clientID and a locale
-    static func `default`(withClientID clientID: String, withLocale locale: Locale) -> MoltinConfig {
+    static public func `default`(withClientID clientID: String, withLocale locale: Locale) -> MoltinConfig {
         return MoltinConfig(
             clientID: clientID,
             scheme: "https",

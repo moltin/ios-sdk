@@ -14,7 +14,7 @@ public class CurrencyMeta: Codable {
 }
 
 /// Represents a `Currency` in Moltin
-public class Currency: Codable {
+open class Currency: Codable {
     /// The id of this currency
     public let id: String
     /// The type of this object

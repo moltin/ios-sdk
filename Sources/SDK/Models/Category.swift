@@ -8,7 +8,7 @@
 import Foundation
 
 /// Represents a `Category` in Moltin
-public class Category: Codable, HasRelationship {
+open class Category: Codable, HasRelationship {
     /// The id of this category
     public let id: String
     /// The type of this object

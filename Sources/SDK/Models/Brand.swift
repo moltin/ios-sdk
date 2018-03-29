@@ -8,7 +8,7 @@
 import Foundation
 
 /// Represents a `Brand` in Moltin
-public class Brand: Codable, HasRelationship {
+open class Brand: Codable, HasRelationship {
     /// The id of this brand
     public let id: String
     /// The type of this object

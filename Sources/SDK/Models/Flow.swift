@@ -8,7 +8,7 @@
 import Foundation
 
 /// Represents a `Entry` in Moltin
-public class Entry: Codable {
+open class Entry: Codable {
     /// The id of this entry
     public let id: String
     /// The type of this object
@@ -22,7 +22,7 @@ public struct FieldMeta: Codable {
 }
 
 /// Represents a `Field` in Moltin
-public class Field: Codable {
+open class Field: Codable {
     /// The id of this field
     public let id: String
     /// The type of this object
@@ -65,7 +65,7 @@ public class Field: Codable {
 }
 
 /// Represents a `Flow` in Moltin
-public class Flow: Codable {
+open class Flow: Codable {
     /// The id of this flow
     public let id: String
     /// The type of this object

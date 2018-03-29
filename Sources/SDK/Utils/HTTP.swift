@@ -88,6 +88,9 @@ class MoltinHTTP {
         mutableRequest.addValue("application/json", forHTTPHeaderField: "Accept")
         mutableRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
+        mutableRequest.addValue("swift", forHTTPHeaderField: "X-MOLTIN-SDK-LANGUAGE")
+        mutableRequest.addValue("2.1.0", forHTTPHeaderField: "X-MOLTIN-SDK-VERSION")
+        
         if let config = config {
             mutableRequest.addValue(config.locale.identifier, forHTTPHeaderField: "X-MOLTIN-LOCALE")
             if let languageCode = config.locale.languageCode {

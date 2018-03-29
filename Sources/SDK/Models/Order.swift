@@ -29,7 +29,7 @@ public class OrderRelationships: Codable {
 }
 
 /// Represents a `Order` in Moltin
-public class Order: Codable {
+open class Order: Codable {
     /// This id of this order
     public let id: String
     /// The type of this object

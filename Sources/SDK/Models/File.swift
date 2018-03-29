@@ -24,7 +24,7 @@ public class FileMeta: Codable {
 }
 
 /// Represents a `File` in Moltin
-public class File: Codable {
+open class File: Codable {
     /// The id of this file
     public var id: String
     /// The type of object
