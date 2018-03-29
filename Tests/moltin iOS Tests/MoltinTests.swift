@@ -159,7 +159,7 @@ class MoltinTests: XCTestCase {
     func testRequestHandlesSingleFilter() {
         let moltin = Moltin(withClientID: "12345")
         let request = moltin.product
-            .filter(operator: .eq, key: "test", value: "hello")
+            .filter(operator: .equal, key: "test", value: "hello")
         
         let urlRequest = try? request.http.buildURLRequest(
             withConfiguration: moltin.config,
@@ -177,8 +177,8 @@ class MoltinTests: XCTestCase {
     func testRequestHandlesMultipleFilter() {
         let moltin = Moltin(withClientID: "12345")
         let request = moltin.product
-            .filter(operator: .eq, key: "test", value: "hello")
-            .filter(operator: .eq, key: "other", value: "thing")
+            .filter(operator: .equal, key: "test", value: "hello")
+            .filter(operator: .equal, key: "other", value: "thing")
         
         let urlRequest = try? request.http.buildURLRequest(
             withConfiguration: moltin.config,
@@ -288,7 +288,7 @@ class MoltinTests: XCTestCase {
         let moltin = Moltin(withClientID: "12345")
         let request = moltin.product
             .include([.files, .categories])
-            .filter(operator: .eq, key: "test", value: "one")
+            .filter(operator: .equal, key: "test", value: "one")
             .limit(1)
             .offset(2)
             .sort("key")
@@ -402,7 +402,7 @@ class MoltinTests: XCTestCase {
         let moltin = Moltin(withClientID: "12345")
         var request = moltin.product
             .include([.files, .categories])
-            .filter(operator: .eq, key: "test", value: "one")
+            .filter(operator: .equal, key: "test", value: "one")
             .limit(1)
             .offset(2)
             .sort("key")
