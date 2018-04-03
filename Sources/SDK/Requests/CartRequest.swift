@@ -219,6 +219,29 @@ public class CartRequest : MoltinRequest {
     }
     
     /**
+     Pay for an order
+     
+     - Author:
+     Craig Tweedy
+     
+     - parameters:
+     - forOrderID: The order to pay for
+     - withPaymentMethod: The payment method to pay with
+     - completionHandler: The handler to be called on success or failure
+     
+     - returns:
+     A instance of `MoltinRequest` which encapsulates the request.
+     */
+    public func pay(forOrderID order: String,
+                    withPaymentMethod paymentMethod: PaymentMethod,
+                    completionHandler: @escaping ObjectRequestHandler<Order>) -> MoltinRequest {
+        
+        return self.post(withPath: "/orders/\(order)/payments",
+            withData: paymentMethod.paymentData,
+            completionHandler: completionHandler)
+    }
+    
+    /**
      Delete a cart
      
      - Author:
