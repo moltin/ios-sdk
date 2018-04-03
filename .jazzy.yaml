@@ -1,0 +1,100 @@
+module: moltin
+author: Moltin
+author_url: https://moltin.com
+github_url: https://github.com/moltin/ios-sdk
+copyright: '© [Moltin](https://moltin.com/). See [license](https://github.com/moltin/ios-sdk/blob/master/LICENSE.md) for more details.'
+
+output: docs
+documentation: "docs/tmp/docs/*.md"
+readme: "docs/tmp/compile/README.md"
+abstract: "docs/tmp/api/*.md"
+theme: fullwidth
+
+custom_categories:
+  - name: Guides
+    children:
+      - Requirements
+      - Installation
+      - Usage
+      - Authentication
+      - Filtering
+      - Flows
+      - Further Documentation
+      - Communication
+      - License
+  - name: Moltin Core
+    children:
+      - Moltin
+      - MoltinConfig
+      - MoltinQuery
+      - MoltinError
+      - MoltinFilterOperator
+      - MoltinInclude
+      - Result
+      - PaginatedResponse
+      - PaginationMeta
+  - name: Resources
+    children:
+      - BrandRequest
+      - CartRequest
+      - CategoryRequest
+      - CollectionRequest
+      - CurrencyRequest
+      - FieldRequest
+      - FileRequest
+      - FlowRequest
+      - ProductRequest
+      - MoltinRequest
+  - name: Models
+    children:
+      - Address
+      - Brand
+      - Cart
+      - CartMeta
+      - CartItem
+      - CartItemMeta
+      - CartItemType
+      - CartItemDisplayPrice
+      - CartItemDisplayPrices
+      - Category
+      - Collection
+      - Currency
+      - CurrencyMeta
+      - CustomCartItem
+      - Customer
+      - DisplayPrice
+      - DisplayPrices
+      - Entry
+      - Field
+      - FieldMeta
+      - File
+      - FileMeta
+      - FileDimensions
+      - Flow
+      - Order
+      - OrderMeta
+      - OrderRelationships
+      - Product
+      - ProductMeta
+      - ProductVariation
+      - ProductVariationOption
+      - ProductPrice
+      - ProductStock
+      - Relationships
+      - RelationshipData
+      - RelationshipSingle
+      - RelationshipMany
+      - Timestamps
+  - name: Payment Methods
+    children:
+      - StripeCard
+      - StripeToken
+      - BraintreeCustomerID
+      - BraintreePaymentToken
+      - BraintreePaymentNonce
+      - PaymentMethod
+
+  - name: Utils
+    children:
+      - Decodable
+      - JSONDecoder

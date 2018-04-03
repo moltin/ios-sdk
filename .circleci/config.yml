@@ -1,0 +1,121 @@
+# iOS CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/ios-migrating-from-1-2/ for more details
+#
+
+version: 2
+jobs:
+
+  swiftlint:
+    docker:
+      - image: dantoml/swiftlint:latest
+    steps:
+      - checkout
+      - run: swiftlint lint --reporter junit | tee result.xml
+      - store_artifacts:
+          path: result.xml
+      - store_test_results:
+          path: result.xml
+
+  test_iOS:
+    macos:
+      xcode: "9.2.0"
+
+    steps:
+      - checkout
+      - run: fastlane ios test
+      - store_test_results:
+          path: fastlane/test_output/
+      - store_artifacts:
+          path: ~/Library/Logs/scan
+          destination: scan-logs
+
+  test_tvOS:
+    macos:
+      xcode: "9.2.0"
+
+    steps:
+      - checkout
+      - run: fastlane ios test_tv
+      - store_test_results:
+          path: fastlane/test_output/
+      - store_artifacts:
+          path: ~/Library/Logs/scan
+          destination: scan-logs
+
+  test_macOS:
+    macos:
+      xcode: "9.2.0"
+
+    steps:
+      - checkout
+      - run: fastlane mac test
+      - store_test_results:
+          path: fastlane/test_output/
+      - store_artifacts:
+          path: ~/Library/Logs/scan
+          destination: scan-logs
+
+  update_documentation:
+    macos:
+      xcode: "9.2.0"
+    
+    steps:
+      - run: echo "hello"
+
+  update_cocoapods:
+    macos:
+      xcode: "9.2.0"
+    
+    steps:
+      - run: echo "hello"
+
+  tag:
+    macos:
+      xcode: "9.2.0"
+
+    steps:
+      - run: echo "hello"
+
+  push:
+    macos:
+      xcode: "9.2.0"
+    
+    steps:
+      - run: echo "hello"
+
+workflows:
+  version: 2
+  build-test-and-deploy:
+    jobs:
+      - swiftlint
+      - test_iOS:
+          requires:
+            - swiftlint
+      - test_tvOS:
+          requires:
+            - swiftlint
+      # - test_macOS
+      - update_cocoapods:
+          requires:
+            - test_iOS
+            # - test_macOS
+            - test_tvOS
+          filters:
+            branches:
+              only: master
+      - update_documentation:
+          requires:
+            - update_cocoapods
+      - tag:
+          requires:
+            - update_documentation
+          filters:
+            branches:
+              only: master
+      - push:
+          requires:
+            - tag
+          filters:
+            branches:
+              only: master

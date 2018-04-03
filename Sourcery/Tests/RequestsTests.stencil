@@ -1,0 +1,201 @@
+// sourcery:file:RequestTests.swift
+
+import XCTest
+
+@testable
+import moltin
+
+class Author: Codable, Equatable {
+    let name: String
+    
+    init(withName name: String) {
+        self.name = name
+    }
+    
+    static func ==(lhs: Author, rhs: Author) -> Bool {
+        return lhs.name == rhs.name
+    }
+}
+
+{% for case in type.MoltinAPIEndpoints.cases %}
+
+class MyCustom{{ case.name|upperFirstLetter }}: moltin.{{ case.name|upperFirstLetter }} {
+    let author: Author
+    
+    enum {{ case.name|upperFirstLetter }}CodingKeys : String, CodingKey { case author }
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: {{ case.name|upperFirstLetter }}CodingKeys.self)
+        self.author = try container.decode(Author.self, forKey: .author)
+        try super.init(from: decoder)
+    }
+}
+
+{% endfor %}
+
+{% for case in type.MoltinAPIEndpoints.cases %}
+// MARK: {{ case.name|upperFirstLetter }}RequestTest - AutoMoltinRequest
+
+class {{ case.name|upperFirstLetter }}RequestTests: XCTestCase {
+
+    func test{{ case.name|upperFirstLetter }}RequestReturns{{ case.name|upperFirstLetter }}s() {
+        let (_, {{ case.name }}Request) = MockFactory.mocked{{ case.name|upperFirstLetter }}Request(withJSON: self.multiProductJson)
+        
+        let expectationToFulfill = expectation(description: "{{ case.name|upperFirstLetter }}Request calls the method and runs the callback closure")
+        
+        let _ = {{ case.name }}Request.all { (result) in
+            switch result {
+            case .success(let response):
+                XCTAssert(type(of: response.data) == [moltin.{{ case.name|upperFirstLetter }}].self)
+                XCTAssert(response.data?.count != 0)
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
+            }
+            
+            expectationToFulfill.fulfill()
+        }
+        
+        waitForExpectations(timeout: 1) { error in
+            if let error = error {
+                XCTFail("waitForExpectationsWithTimeout errored: \(error)")
+            }
+        }
+    }
+    
+    func test{{ case.name|upperFirstLetter }}RequestReturnSingle{{ case.name|upperFirstLetter }}() {
+        let (_, {{ case.name }}Request) = MockFactory.mocked{{ case.name|upperFirstLetter }}Request(withJSON: self.productJson)
+        
+        let expectationToFulfill = expectation(description: "{{ case.name|upperFirstLetter }}Request calls the method and runs the callback closure")
+        
+        let _ = {{ case.name }}Request.get(forID: "51b56d92-ab99-4802-a2c1-be150848c629") { (result) in
+            switch result {
+            case .success(let response):
+                XCTAssert(type(of: response) == moltin.{{ case.name|upperFirstLetter }}.self)
+                XCTAssert(response.id == "51b56d92-ab99-4802-a2c1-be150848c629")
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
+            }
+            
+            expectationToFulfill.fulfill()
+        }
+        
+        waitForExpectations(timeout: 1) { error in
+            if let error = error {
+                XCTFail("waitForExpectationsWithTimeout errored: \(error)")
+            }
+        }
+    }
+
+    {% if case|annotated:"hasCustomType" %}  
+    
+    func test{{ case.name|upperFirstLetter }}RequestReturnsCustom{{ case.name|upperFirstLetter }}s() {
+        let (_, {{ case.name }}Request) = MockFactory.mocked{{ case.name|upperFirstLetter }}Request(withJSON: self.multiProductJson)
+        
+        let expectationToFulfill = expectation(description: "{{ case.name|upperFirstLetter }}Request calls the method and runs the callback closure")
+        
+        let _ = {{ case.name }}Request.all { (result: Result<PaginatedResponse<[MyCustom{{ case.name|upperFirstLetter }}]>>) in
+            switch result {
+            case .success(let response):
+                XCTAssert(type(of: response.data) == [MyCustom{{ case.name|upperFirstLetter }}].self)
+                XCTAssert(response.data?.count != 0)
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
+            }
+            
+            expectationToFulfill.fulfill()
+        }
+        
+        waitForExpectations(timeout: 1) { error in
+            if let error = error {
+                XCTFail("waitForExpectationsWithTimeout errored: \(error)")
+            }
+        }
+    }
+    
+    func test{{ case.name|upperFirstLetter }}RequestReturnCustomSingle{{ case.name|upperFirstLetter }}() {
+        let (_, {{ case.name }}Request) = MockFactory.mocked{{ case.name|upperFirstLetter }}Request(withJSON: self.productJson)
+        
+        
+        let expectationToFulfill = expectation(description: "{{ case.name|upperFirstLetter }}Request calls the method and runs the callback closure")
+
+        let _ = {{ case.name }}Request.get(forID: "51b56d92-ab99-4802-a2c1-be150848c629") { (result: Result<MyCustom{{ case.name|upperFirstLetter }}>) in
+            switch result {
+            case .success(let response):
+                let author = Author(withName: "Craig")
+                XCTAssert(type(of: response) == MyCustom{{ case.name|upperFirstLetter }}.self)
+                XCTAssert(response.id == "51b56d92-ab99-4802-a2c1-be150848c629")
+                XCTAssert(response.author == author)
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
+            }
+            
+            expectationToFulfill.fulfill()
+        }
+        
+        waitForExpectations(timeout: 1) { error in
+            if let error = error {
+                XCTFail("waitForExpectationsWithTimeout errored: \(error)")
+            }
+        }
+    }
+
+    {% endif %}
+
+    {% if case|annotated:"hasTree" %}
+
+    func testRequestReturnTree() {
+        let (_, {{ case.name}}Request) = MockFactory.mocked{{ case.name|upperFirstLetter }}Request(withJSON: self.treeJson)
+        
+        let expectationToFulfill = expectation(description: "{{ case.name|upperFirstLetter }}Request calls the method and runs the callback closure")
+        
+        let _ = {{ case.name }}Request.tree { (result) in
+            switch result {
+            case .success(let response):
+                XCTAssert(type(of: response.data) == [moltin.{{ case.name|upperFirstLetter}}].self)
+                XCTAssert(response.data?.count != 0)
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
+            }
+            
+            expectationToFulfill.fulfill()
+        }
+        
+        waitForExpectations(timeout: 1) { error in
+            if let error = error {
+                XCTFail("waitForExpectationsWithTimeout errored: \(error)")
+            }
+        }
+    }
+
+    {% if case|annotated:"hasCustomType" %}
+
+    func testRequestReturnCustomTree() {
+        let (_, {{ case.name }}Request) = MockFactory.mocked{{ case.name|upperFirstLetter }}Request(withJSON: self.treeJson)
+        
+        let expectationToFulfill = expectation(description: "Request calls the method and runs the callback closure")
+        
+        let _ = {{ case.name }}Request.tree { (result: Result<PaginatedResponse<[MyCustom{{ case.name|upperFirstLetter }}]>>) in
+            switch result {
+            case .success(let response):
+                XCTAssert(type(of: response.data) == [MyCustom{{ case.name|upperFirstLetter}}].self)
+                XCTAssert(response.data?.count != 0)
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
+            }
+            
+            expectationToFulfill.fulfill()
+        }
+        
+        waitForExpectations(timeout: 1) { error in
+            if let error = error {
+                XCTFail("waitForExpectationsWithTimeout errored: \(error)")
+            }
+        }
+    }
+
+    {% endif %}
+
+    {% endif %}
+}
+{% endfor %}
+// sourcery:end

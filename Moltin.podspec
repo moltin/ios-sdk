@@ -1,43 +1,25 @@
-#
-# Be sure to run `pod lib lint Moltin.podspec' to ensure this is a
-# valid spec before submitting.
-#
-# Any lines starting with a # are optional, but their use is encouraged
-# To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html
-#
-
 Pod::Spec.new do |s|
-  s.name             = 'Moltin'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of Moltin.'
+    s.name         = "Moltin"
+    s.version      = "3.0.0"
+    s.summary      = "eCommerce made simple"
 
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
+    s.description  = <<-DESC
+        moltin makes eCommerce simple with a wide range of SDKs and integrations.
+    DESC
 
-  s.description      = <<-DESC
-TODO: Add long description of the pod here.
-                       DESC
+    s.homepage     = "https://moltin.com"
+    s.license      = { :type => 'MIT', :file => 'LICENSE' }
+    s.authors      = { "Craig Tweedy" => "craig.tweedy@moltin.com" }
 
-  s.homepage         = 'https://github.com/Oliver Foggin/Moltin'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
-  s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'Oliver Foggin' => 'oliver@gospelware.co.uk' }
-  s.source           = { :git => 'https://github.com/Oliver Foggin/Moltin.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+    s.platforms    = { :ios => "10.0", :osx => "10.10", :watchos => "3.0", :tvos => "10.0" }
 
-  s.ios.deployment_target = '9.0'
+    s.source       = { :git => "https://github.com/moltin/ios-sdk.git", :tag => s.version }
 
-  s.source_files = 'Moltin/Classes/**/*'
-  
-  # s.resource_bundles = {
-  #   'Moltin' => ['Moltin/Assets/*.png']
-  # }
+    s.source_files = "Sources/*.{h,m}"
+    s.requires_arc = true
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-    s.dependency 'Alamofire', '4.5.0'
-    s.dependency 'Gloss', '~> 2.0.0'
+    s.ios.deployment_target = "10.0"
+    s.osx.deployment_target = "10.10"
+    s.tvos.deployment_target = "10.0"
+    s.watchos.deployment_target = "3.0"
 end

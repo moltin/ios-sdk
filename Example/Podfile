@@ -1,6 +1,0 @@
-use_frameworks!
-
-target 'Moltin_Example' do
-  pod 'Moltin', :path => ".."
-  pod 'AlamofireImage', '~> 3.3'
-end

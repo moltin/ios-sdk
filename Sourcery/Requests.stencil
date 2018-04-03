@@ -1,0 +1,138 @@
+// sourcery:file:Requests.swift
+{% for case in type.MoltinAPIEndpoints.cases %}
+// MARK: {{ case.name|upperFirstLetter }}Request - AutoMoltinRequest
+
+/// An entry point to make API calls relating to `{{ case.name|upperFirstLetter }}`
+public class {{ case.name|upperFirstLetter }}Request: MoltinRequest {
+
+    /**
+     The API endpoint for this resource.
+    */
+    public var endpoint: String = "{{ case.annotations.path }}"
+
+    /**
+     A typealias which allows automatic casting of a collection to `[{{ case.annotations.model }}]`.
+    */
+    public typealias DefaultCollectionRequestHandler = CollectionRequestHandler<[{{ case.annotations.model }}]>
+    
+    /**
+     A typealias which allows automatic casting of an object to `{{ case.annotations.model }}`.
+    */
+    public typealias DefaultObjectRequestHandler = ObjectRequestHandler<{{ case.annotations.model }}>
+    
+
+    /**
+     Return all instances of type `{{ case.name|upperFirstLetter }}`
+     
+     - Author:
+     Craig Tweedy
+     
+     - parameters:
+        - completionHandler: The handler to be called on success or failure
+     
+     - returns:
+        A instance of `MoltinRequest` which encapsulates the request.
+     */
+    @discardableResult public func all(completionHandler: @escaping DefaultCollectionRequestHandler) -> MoltinRequest {
+        return super.list(withPath: "\(self.endpoint)", completionHandler: completionHandler)
+    }
+
+    {% if case|annotated:"hasCustomType" %} 
+    
+    /**
+     Return all instances of type `{{ case.name|upperFirstLetter }}`, cast to type `T`, which must be `Codable`.
+     
+     - Author:
+     Craig Tweedy
+     
+     - parameters:
+        - completionHandler: The handler to be called on success or failure
+     
+     - returns:
+        A instance of `MoltinRequest` which encapsulates the request.
+     */
+    @discardableResult public func all<T: Codable>(completionHandler: @escaping CollectionRequestHandler<[T]>) -> MoltinRequest {
+        return super.list(withPath: "\(self.endpoint)", completionHandler: completionHandler)
+    }
+
+    {% endif %}
+ 
+    /**
+     Return all instances of type `{{ case.name|upperFirstLetter }}` by `id`
+     
+     - Author:
+     Craig Tweedy
+     
+     - parameters:
+        - forID: The ID of the object
+        - completionHandler: The handler to be called on success or failure
+     
+     - returns:
+        A instance of `MoltinRequest` which encapsulates the request.
+     */
+    @discardableResult public func get(forID id: String, completionHandler: @escaping DefaultObjectRequestHandler) -> MoltinRequest {
+        return super.get(withPath: "\(self.endpoint)/\(id)", completionHandler: completionHandler)
+    }
+
+    {% if case|annotated:"hasCustomType" %}    
+
+    /**
+    Return all instances of type `{{ case.name|upperFirstLetter }}` by `id`, cast to type `T`, which must be `Codable`.
+    
+    - Author:
+    Craig Tweedy
+    
+    - parameters:
+        - forID: The ID of the object
+        - completionHandler: The handler to be called on success or failure
+    
+    - returns:
+        A instance of `MoltinRequest` which encapsulates the request.
+    */
+    @discardableResult public func get<T: Codable>(forID id: String, completionHandler: @escaping ObjectRequestHandler<T>) -> MoltinRequest {
+        return super.get(withPath: "\(self.endpoint)/\(id)", completionHandler: completionHandler)
+    }
+
+    {% endif %}
+
+    {% if case|annotated:"hasTree" %}
+    /**
+    Return the tree of `{{ case.name|upperFirstLetter }}`
+    
+    - Author:
+    Craig Tweedy
+    
+    - parameters:
+        - completionHandler: The handler to be called on success or failure
+    
+    - returns:
+        A instance of `MoltinRequest` which encapsulates the request.
+    */
+    @discardableResult public func tree(completionHandler: @escaping DefaultCollectionRequestHandler) -> MoltinRequest {
+        return super.list(withPath: "\(self.endpoint)/tree", completionHandler: completionHandler)
+    }
+
+    {% if case|annotated:"hasCustomType" %}
+
+    /**
+    Return the tree of `{{ case.name|upperFirstLetter }}`, cast to type `T`, which must be `Codable`.
+    
+    - Author:
+    Craig Tweedy
+    
+    - parameters:
+        - completionHandler: The handler to be called on success or failure
+    
+    - returns:
+        A instance of `MoltinRequest` which encapsulates the request.
+    */
+    @discardableResult public func tree<T: Codable>(completionHandler: @escaping CollectionRequestHandler<[T]>) -> MoltinRequest {
+        return super.list(withPath: "\(self.endpoint)/tree", completionHandler: completionHandler)
+    }
+
+    {% endif %}
+
+    {% endif %}
+}
+{% endfor %}
+// sourcery:end

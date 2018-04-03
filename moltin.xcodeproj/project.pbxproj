@@ -1,0 +1,2890 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C318D029203EC4D100B7A81E /* HTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = C318D028203EC4D100B7A81E /* HTTP.swift */; };
+		C318D02B203EC50200B7A81E /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C318D02A203EC50200B7A81E /* Parser.swift */; };
+		C318D02C203EC5AB00B7A81E /* HTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = C318D028203EC4D100B7A81E /* HTTP.swift */; };
+		C318D02D203EC5AB00B7A81E /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C318D02A203EC50200B7A81E /* Parser.swift */; };
+		C318D02E203EC5AB00B7A81E /* HTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = C318D028203EC4D100B7A81E /* HTTP.swift */; };
+		C318D02F203EC5AB00B7A81E /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C318D02A203EC50200B7A81E /* Parser.swift */; };
+		C318D030203EC5AC00B7A81E /* HTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = C318D028203EC4D100B7A81E /* HTTP.swift */; };
+		C318D031203EC5AC00B7A81E /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C318D02A203EC50200B7A81E /* Parser.swift */; };
+		C336E56020614A9C008C2005 /* Prices.swift in Sources */ = {isa = PBXBuildFile; fileRef = C336E55F20614A9C008C2005 /* Prices.swift */; };
+		C336E56120614A9C008C2005 /* Prices.swift in Sources */ = {isa = PBXBuildFile; fileRef = C336E55F20614A9C008C2005 /* Prices.swift */; };
+		C336E56220614A9C008C2005 /* Prices.swift in Sources */ = {isa = PBXBuildFile; fileRef = C336E55F20614A9C008C2005 /* Prices.swift */; };
+		C336E56320614A9C008C2005 /* Prices.swift in Sources */ = {isa = PBXBuildFile; fileRef = C336E55F20614A9C008C2005 /* Prices.swift */; };
+		C336E565206155B2008C2005 /* FlowRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C336E564206155B2008C2005 /* FlowRequest.swift */; };
+		C336E567206155B2008C2005 /* FlowRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C336E564206155B2008C2005 /* FlowRequest.swift */; };
+		C336E568206155B2008C2005 /* FlowRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C336E564206155B2008C2005 /* FlowRequest.swift */; };
+		C336E56E206155DF008C2005 /* FlowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C336E569206155BE008C2005 /* FlowTests.swift */; };
+		C336E58920626ADD008C2005 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C336E58820626ADD008C2005 /* AppDelegate.swift */; };
+		C336E58B20626ADD008C2005 /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C336E58A20626ADD008C2005 /* ProductsViewController.swift */; };
+		C336E58D20626ADD008C2005 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C336E58C20626ADD008C2005 /* CartViewController.swift */; };
+		C336E59020626ADD008C2005 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C336E58E20626ADD008C2005 /* Main.storyboard */; };
+		C336E59220626ADD008C2005 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C336E59120626ADD008C2005 /* Assets.xcassets */; };
+		C336E597206275CA008C2005 /* moltin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C392E9DF203DB64E006CD1D0 /* moltin.framework */; };
+		C336E59920627627008C2005 /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BCA203EE6BB00287C1B /* Requests.swift */; };
+		C336E59A20627627008C2005 /* MoltinRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3434C0E203DDA0500883C84 /* MoltinRequest.swift */; };
+		C336E59B20627627008C2005 /* MoltinAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BE9203F1A3900287C1B /* MoltinAuth.swift */; };
+		C336E59C20627627008C2005 /* CartRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FB57A7204028870007288D /* CartRequest.swift */; };
+		C336E59D20627627008C2005 /* FlowRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C336E564206155B2008C2005 /* FlowRequest.swift */; };
+		C336E59E20627627008C2005 /* CartRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FB57A7204028870007288D /* CartRequest.swift */; };
+		C336E59F20627628008C2005 /* CartRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FB57A7204028870007288D /* CartRequest.swift */; };
+		C336E5A02062762C008C2005 /* Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3779231203EC6D000C20FEC /* Query.swift */; };
+		C336E5A12062762C008C2005 /* DataSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3821AE0204422C5001EF864 /* DataSerializer.swift */; };
+		C336E5A22062762C008C2005 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FF2700206124D700CA226D /* DateFormatter.swift */; };
+		C336E5A32062762D008C2005 /* Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3779231203EC6D000C20FEC /* Query.swift */; };
+		C336E5A42062762D008C2005 /* DataSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3821AE0204422C5001EF864 /* DataSerializer.swift */; };
+		C336E5A52062762D008C2005 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FF2700206124D700CA226D /* DateFormatter.swift */; };
+		C336E5A62062762D008C2005 /* Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3779231203EC6D000C20FEC /* Query.swift */; };
+		C336E5A72062762D008C2005 /* DataSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3821AE0204422C5001EF864 /* DataSerializer.swift */; };
+		C336E5A82062762D008C2005 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FF2700206124D700CA226D /* DateFormatter.swift */; };
+		C336E5A920627631008C2005 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3821AE5204440F5001EF864 /* Cart.swift */; };
+		C336E5AA20627631008C2005 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3821AE7204440FD001EF864 /* Address.swift */; };
+		C336E5AB20627631008C2005 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3821AE920444127001EF864 /* Customer.swift */; };
+		C336E5AC20627631008C2005 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3821AEB2044412C001EF864 /* Order.swift */; };
+		C336E5AD20627631008C2005 /* Timestamps.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FF26FE2061205800CA226D /* Timestamps.swift */; };
+		C336E5AE20627632008C2005 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3821AE5204440F5001EF864 /* Cart.swift */; };
+		C336E5AF20627632008C2005 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3821AE7204440FD001EF864 /* Address.swift */; };
+		C336E5B020627632008C2005 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3821AE920444127001EF864 /* Customer.swift */; };
+		C336E5B120627632008C2005 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3821AEB2044412C001EF864 /* Order.swift */; };
+		C336E5B220627632008C2005 /* Timestamps.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FF26FE2061205800CA226D /* Timestamps.swift */; };
+		C336E5B320627633008C2005 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3821AE5204440F5001EF864 /* Cart.swift */; };
+		C336E5B420627633008C2005 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3821AE7204440FD001EF864 /* Address.swift */; };
+		C336E5B520627633008C2005 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3821AE920444127001EF864 /* Customer.swift */; };
+		C336E5B620627633008C2005 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3821AEB2044412C001EF864 /* Order.swift */; };
+		C336E5B720627633008C2005 /* Timestamps.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FF26FE2061205800CA226D /* Timestamps.swift */; };
+		C336E5C6206278B2008C2005 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C336E5C4206278B2008C2005 /* ProductCollectionViewCell.swift */; };
+		C336E5C7206278B2008C2005 /* ProductCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C336E5C5206278B2008C2005 /* ProductCollectionViewCell.xib */; };
+		C336E5CA206295FF008C2005 /* CodableExtract.swift in Sources */ = {isa = PBXBuildFile; fileRef = C336E5C820629477008C2005 /* CodableExtract.swift */; };
+		C336E5CB20629600008C2005 /* CodableExtract.swift in Sources */ = {isa = PBXBuildFile; fileRef = C336E5C820629477008C2005 /* CodableExtract.swift */; };
+		C336E5CC20629600008C2005 /* CodableExtract.swift in Sources */ = {isa = PBXBuildFile; fileRef = C336E5C820629477008C2005 /* CodableExtract.swift */; };
+		C336E5CD20629601008C2005 /* CodableExtract.swift in Sources */ = {isa = PBXBuildFile; fileRef = C336E5C820629477008C2005 /* CodableExtract.swift */; };
+		C336E5D02064062C008C2005 /* Relationship.swift in Sources */ = {isa = PBXBuildFile; fileRef = C336E5CE2064057B008C2005 /* Relationship.swift */; };
+		C336E5D12064062D008C2005 /* Relationship.swift in Sources */ = {isa = PBXBuildFile; fileRef = C336E5CE2064057B008C2005 /* Relationship.swift */; };
+		C336E5D22064062D008C2005 /* Relationship.swift in Sources */ = {isa = PBXBuildFile; fileRef = C336E5CE2064057B008C2005 /* Relationship.swift */; };
+		C336E5D32064062E008C2005 /* Relationship.swift in Sources */ = {isa = PBXBuildFile; fileRef = C336E5CE2064057B008C2005 /* Relationship.swift */; };
+		C336E5F8206C0A18008C2005 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C336E5F6206C0A12008C2005 /* MasterViewController.swift */; };
+		C336E608206C1E02008C2005 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C336E604206C1DFD008C2005 /* CategoryCollectionViewCell.swift */; };
+		C3434C0F203DDA0500883C84 /* MoltinRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3434C0E203DDA0500883C84 /* MoltinRequest.swift */; };
+		C3434C13203DDA1F00883C84 /* MoltinRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3434C0E203DDA0500883C84 /* MoltinRequest.swift */; };
+		C3434C15203DDA2000883C84 /* MoltinRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3434C0E203DDA0500883C84 /* MoltinRequest.swift */; };
+		C3434C18203DDAD500883C84 /* Pagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3434C17203DDAD500883C84 /* Pagination.swift */; };
+		C3434C19203DDAD500883C84 /* Pagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3434C17203DDAD500883C84 /* Pagination.swift */; };
+		C3434C1A203DDAD500883C84 /* Pagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3434C17203DDAD500883C84 /* Pagination.swift */; };
+		C3434C1B203DDAD500883C84 /* Pagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3434C17203DDAD500883C84 /* Pagination.swift */; };
+		C3434C1D203DDAFF00883C84 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3434C1C203DDAFF00883C84 /* Error.swift */; };
+		C3434C1E203DDAFF00883C84 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3434C1C203DDAFF00883C84 /* Error.swift */; };
+		C3434C1F203DDAFF00883C84 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3434C1C203DDAFF00883C84 /* Error.swift */; };
+		C3434C20203DDAFF00883C84 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3434C1C203DDAFF00883C84 /* Error.swift */; };
+		C3434C22203DDB1F00883C84 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3434C21203DDB1F00883C84 /* Config.swift */; };
+		C3434C23203DDB1F00883C84 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3434C21203DDB1F00883C84 /* Config.swift */; };
+		C3434C24203DDB1F00883C84 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3434C21203DDB1F00883C84 /* Config.swift */; };
+		C3434C25203DDB1F00883C84 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3434C21203DDB1F00883C84 /* Config.swift */; };
+		C354B545206CE1EE00D26446 /* CategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C336E605206C1DFD008C2005 /* CategoryCollectionViewCell.xib */; };
+		C354B54A206CE3FC00D26446 /* MasterSectionHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C354B546206CE37900D26446 /* MasterSectionHeaderCollectionReusableView.swift */; };
+		C354B54B206CE40200D26446 /* MasterSectionHeaderCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C354B547206CE37900D26446 /* MasterSectionHeaderCollectionReusableView.xib */; };
+		C354B54D206CEAE400D26446 /* moltin.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C392E9C5203DB630006CD1D0 /* moltin.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C354B553206CEE9500D26446 /* ProductCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C354B552206CEE9500D26446 /* ProductCategory.swift */; };
+		C354B556206CEF4D00D26446 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C354B555206CEF4D00D26446 /* UIColor.swift */; };
+		C354B558206D033400D26446 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C354B557206D033400D26446 /* UIImageView.swift */; };
+		C354B560206D0F4B00D26446 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C354B55E206D0F4B00D26446 /* ProductCollectionViewCell.swift */; };
+		C354B561206D0F4B00D26446 /* ProductCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C354B55F206D0F4B00D26446 /* ProductCollectionViewCell.xib */; };
+		C354B563206D134500D26446 /* CustomProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = C354B562206D134500D26446 /* CustomProduct.swift */; };
+		C354B567206D1C1B00D26446 /* Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = C354B565206D1BA200D26446 /* Products.swift */; };
+		C354B569206D1D0C00D26446 /* Brands.swift in Sources */ = {isa = PBXBuildFile; fileRef = C354B568206D1D0C00D26446 /* Brands.swift */; };
+		C354B56B2073721300D26446 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = C354B56A2073721300D26446 /* Category.swift */; };
+		C354B56D2073740200D26446 /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C354B56C2073740200D26446 /* Collection.swift */; };
+		C354B56F2073754200D26446 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = C354B56E2073754200D26446 /* Currency.swift */; };
+		C354B5712073773C00D26446 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = C354B5702073773C00D26446 /* File.swift */; };
+		C354B5732073780000D26446 /* Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = C354B5722073780000D26446 /* Field.swift */; };
+		C354B5752073791A00D26446 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = C354B5742073791A00D26446 /* Cart.swift */; };
+		C354B57820738A5300D26446 /* PaymentMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = C354B576207389A500D26446 /* PaymentMethod.swift */; };
+		C354B57920738A5400D26446 /* PaymentMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = C354B576207389A500D26446 /* PaymentMethod.swift */; };
+		C354B57A20738A5400D26446 /* PaymentMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = C354B576207389A500D26446 /* PaymentMethod.swift */; };
+		C354B57B20738A5500D26446 /* PaymentMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = C354B576207389A500D26446 /* PaymentMethod.swift */; };
+		C3715BCB203EE6BB00287C1B /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BCA203EE6BB00287C1B /* Requests.swift */; };
+		C3715BCD203EE6BB00287C1B /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BCA203EE6BB00287C1B /* Requests.swift */; };
+		C3715BCE203EE6BB00287C1B /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BCA203EE6BB00287C1B /* Requests.swift */; };
+		C3715BD1203EE6D400287C1B /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BD0203EE6D400287C1B /* Product.swift */; };
+		C3715BD2203EE6D400287C1B /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BD0203EE6D400287C1B /* Product.swift */; };
+		C3715BD3203EE6D400287C1B /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BD0203EE6D400287C1B /* Product.swift */; };
+		C3715BD4203EE6D400287C1B /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BD0203EE6D400287C1B /* Product.swift */; };
+		C3715BD6203EE6DE00287C1B /* Brand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BD5203EE6DE00287C1B /* Brand.swift */; };
+		C3715BD7203EE6DE00287C1B /* Brand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BD5203EE6DE00287C1B /* Brand.swift */; };
+		C3715BD8203EE6DE00287C1B /* Brand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BD5203EE6DE00287C1B /* Brand.swift */; };
+		C3715BD9203EE6DE00287C1B /* Brand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BD5203EE6DE00287C1B /* Brand.swift */; };
+		C3715BDB203EE6E500287C1B /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BDA203EE6E500287C1B /* Category.swift */; };
+		C3715BDC203EE6E500287C1B /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BDA203EE6E500287C1B /* Category.swift */; };
+		C3715BDD203EE6E500287C1B /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BDA203EE6E500287C1B /* Category.swift */; };
+		C3715BDE203EE6E500287C1B /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BDA203EE6E500287C1B /* Category.swift */; };
+		C3715BE5203EE93900287C1B /* URLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BE4203EE93900287C1B /* URLSession.swift */; };
+		C3715BE6203EE93900287C1B /* URLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BE4203EE93900287C1B /* URLSession.swift */; };
+		C3715BE7203EE93900287C1B /* URLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BE4203EE93900287C1B /* URLSession.swift */; };
+		C3715BE8203EE93900287C1B /* URLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BE4203EE93900287C1B /* URLSession.swift */; };
+		C3715BEA203F1A3900287C1B /* MoltinAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BE9203F1A3900287C1B /* MoltinAuth.swift */; };
+		C3715BEC203F1A3900287C1B /* MoltinAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BE9203F1A3900287C1B /* MoltinAuth.swift */; };
+		C3715BED203F1A3900287C1B /* MoltinAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BE9203F1A3900287C1B /* MoltinAuth.swift */; };
+		C3715BF4203F542600287C1B /* AuthTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BEE203F53A000287C1B /* AuthTests.swift */; };
+		C3715BF5203F544900287C1B /* HTTPMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BDF203EE8EE00287C1B /* HTTPMock.swift */; };
+		C3715BF6203F544A00287C1B /* HTTPMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BDF203EE8EE00287C1B /* HTTPMock.swift */; };
+		C3715BF7203F544B00287C1B /* HTTPMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BDF203EE8EE00287C1B /* HTTPMock.swift */; };
+		C3715BF8203F544B00287C1B /* HTTPMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BDF203EE8EE00287C1B /* HTTPMock.swift */; };
+		C3715BFA203F598500287C1B /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BF9203F598500287C1B /* Collection.swift */; };
+		C3715BFC203F59A100287C1B /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BFB203F59A100287C1B /* Currency.swift */; };
+		C3715BFE203F59CA00287C1B /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BFD203F59CA00287C1B /* File.swift */; };
+		C3715C00203F59D000287C1B /* Flow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BFF203F59D000287C1B /* Flow.swift */; };
+		C3715C01203F59F200287C1B /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BF9203F598500287C1B /* Collection.swift */; };
+		C3715C02203F59F200287C1B /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BFB203F59A100287C1B /* Currency.swift */; };
+		C3715C03203F59F200287C1B /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BFD203F59CA00287C1B /* File.swift */; };
+		C3715C04203F59F200287C1B /* Flow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BFF203F59D000287C1B /* Flow.swift */; };
+		C3715C05203F59F200287C1B /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BF9203F598500287C1B /* Collection.swift */; };
+		C3715C06203F59F200287C1B /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BFB203F59A100287C1B /* Currency.swift */; };
+		C3715C07203F59F200287C1B /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BFD203F59CA00287C1B /* File.swift */; };
+		C3715C08203F59F200287C1B /* Flow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BFF203F59D000287C1B /* Flow.swift */; };
+		C3715C09203F59F300287C1B /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BF9203F598500287C1B /* Collection.swift */; };
+		C3715C0A203F59F300287C1B /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BFB203F59A100287C1B /* Currency.swift */; };
+		C3715C0B203F59F300287C1B /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BFD203F59CA00287C1B /* File.swift */; };
+		C3715C0C203F59F300287C1B /* Flow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3715BFF203F59D000287C1B /* Flow.swift */; };
+		C3779232203EC6D000C20FEC /* Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3779231203EC6D000C20FEC /* Query.swift */; };
+		C38141FE203DCFC400B9FDA3 /* RequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38141FD203DCFC400B9FDA3 /* RequestTests.swift */; };
+		C3821AE1204422C5001EF864 /* DataSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3821AE0204422C5001EF864 /* DataSerializer.swift */; };
+		C3821AE420443C7D001EF864 /* CartTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3821AE220443C5F001EF864 /* CartTests.swift */; };
+		C3821AE6204440F5001EF864 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3821AE5204440F5001EF864 /* Cart.swift */; };
+		C3821AE8204440FD001EF864 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3821AE7204440FD001EF864 /* Address.swift */; };
+		C3821AEA20444127001EF864 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3821AE920444127001EF864 /* Customer.swift */; };
+		C3821AEC2044412C001EF864 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3821AEB2044412C001EF864 /* Order.swift */; };
+		C392E9C9203DB630006CD1D0 /* moltin.h in Headers */ = {isa = PBXBuildFile; fileRef = C392E9C7203DB630006CD1D0 /* moltin.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C392E9F5203DB6AE006CD1D0 /* moltin.h in Headers */ = {isa = PBXBuildFile; fileRef = C392E9C7203DB630006CD1D0 /* moltin.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C392E9F6203DB6AE006CD1D0 /* moltin.h in Headers */ = {isa = PBXBuildFile; fileRef = C392E9C7203DB630006CD1D0 /* moltin.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C392E9F7203DB6AF006CD1D0 /* moltin.h in Headers */ = {isa = PBXBuildFile; fileRef = C392E9C7203DB630006CD1D0 /* moltin.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C392E9F9203DB6E1006CD1D0 /* Moltin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C392E9F8203DB6E1006CD1D0 /* Moltin.swift */; };
+		C392E9FA203DB6E1006CD1D0 /* Moltin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C392E9F8203DB6E1006CD1D0 /* Moltin.swift */; };
+		C392E9FB203DB6E1006CD1D0 /* Moltin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C392E9F8203DB6E1006CD1D0 /* Moltin.swift */; };
+		C392E9FC203DB6E1006CD1D0 /* Moltin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C392E9F8203DB6E1006CD1D0 /* Moltin.swift */; };
+		C392EA15203DB7EB006CD1D0 /* MoltinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C392EA14203DB7EB006CD1D0 /* MoltinTests.swift */; };
+		C392EA17203DB7EB006CD1D0 /* moltin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C392E9C5203DB630006CD1D0 /* moltin.framework */; };
+		C392EA24203DB800006CD1D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C392EA23203DB800006CD1D0 /* AppDelegate.swift */; };
+		C392EA28203DB800006CD1D0 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C392EA27203DB800006CD1D0 /* DetailViewController.swift */; };
+		C392EA2B203DB800006CD1D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C392EA29203DB800006CD1D0 /* Main.storyboard */; };
+		C392EA2D203DB801006CD1D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C392EA2C203DB801006CD1D0 /* Assets.xcassets */; };
+		C392EA30203DB801006CD1D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C392EA2E203DB801006CD1D0 /* LaunchScreen.storyboard */; };
+		C392EA3B203DB822006CD1D0 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C392EA39203DB822006CD1D0 /* Interface.storyboard */; };
+		C392EA3D203DB823006CD1D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C392EA3C203DB823006CD1D0 /* Assets.xcassets */; };
+		C392EA44203DB823006CD1D0 /* moltin WatchKit Example Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C392EA43203DB823006CD1D0 /* moltin WatchKit Example Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C392EA49203DB823006CD1D0 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C392EA48203DB823006CD1D0 /* InterfaceController.swift */; };
+		C392EA4B203DB823006CD1D0 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C392EA4A203DB823006CD1D0 /* ExtensionDelegate.swift */; };
+		C392EA4D203DB823006CD1D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C392EA4C203DB823006CD1D0 /* Assets.xcassets */; };
+		C392EA52203DB823006CD1D0 /* moltin WatchKit Example.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = C392EA37203DB822006CD1D0 /* moltin WatchKit Example.app */; };
+		C392EA61203DB836006CD1D0 /* moltin_tvOS_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C392EA60203DB836006CD1D0 /* moltin_tvOS_Tests.swift */; };
+		C392EA63203DB836006CD1D0 /* moltin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C392E9DF203DB64E006CD1D0 /* moltin.framework */; };
+		C3FB57A8204028870007288D /* CartRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FB57A7204028870007288D /* CartRequest.swift */; };
+		C3FB57AA2040782C0007288D /* moltin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C392E9C5203DB630006CD1D0 /* moltin.framework */; };
+		C3FF26FF2061205900CA226D /* Timestamps.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FF26FE2061205800CA226D /* Timestamps.swift */; };
+		C3FF2701206124D700CA226D /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FF2700206124D700CA226D /* DateFormatter.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C354B54E206CEAE400D26446 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C392E99F203DB5ED006CD1D0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C392E9C4203DB630006CD1D0;
+			remoteInfo = "moltin iOS";
+		};
+		C392EA18203DB7EB006CD1D0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C392E99F203DB5ED006CD1D0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C392E9C4203DB630006CD1D0;
+			remoteInfo = "moltin iOS";
+		};
+		C392EA45203DB823006CD1D0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C392E99F203DB5ED006CD1D0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C392EA42203DB823006CD1D0;
+			remoteInfo = "moltin WatchKit Example Extension";
+		};
+		C392EA4F203DB823006CD1D0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C392E99F203DB5ED006CD1D0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C392EA36203DB822006CD1D0;
+			remoteInfo = "moltin WatchKit Example";
+		};
+		C392EA64203DB836006CD1D0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C392E99F203DB5ED006CD1D0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C392E9DE203DB64E006CD1D0;
+			remoteInfo = "moltin tvOS";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C354B550206CEAE400D26446 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C354B54D206CEAE400D26446 /* moltin.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C392EA51203DB823006CD1D0 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				C392EA52203DB823006CD1D0 /* moltin WatchKit Example.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C392EA56203DB823006CD1D0 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				C392EA44203DB823006CD1D0 /* moltin WatchKit Example Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		C318D028203EC4D100B7A81E /* HTTP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTP.swift; sourceTree = "<group>"; };
+		C318D02A203EC50200B7A81E /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		C336E55F20614A9C008C2005 /* Prices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Prices.swift; sourceTree = "<group>"; };
+		C336E564206155B2008C2005 /* FlowRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowRequest.swift; sourceTree = "<group>"; };
+		C336E569206155BE008C2005 /* FlowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowTests.swift; sourceTree = "<group>"; };
+		C336E58620626ADD008C2005 /* moltin tvOS Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "moltin tvOS Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C336E58820626ADD008C2005 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C336E58A20626ADD008C2005 /* ProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
+		C336E58C20626ADD008C2005 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
+		C336E58F20626ADD008C2005 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C336E59120626ADD008C2005 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C336E59320626ADD008C2005 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C336E5C4206278B2008C2005 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
+		C336E5C5206278B2008C2005 /* ProductCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCollectionViewCell.xib; sourceTree = "<group>"; };
+		C336E5C820629477008C2005 /* CodableExtract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableExtract.swift; sourceTree = "<group>"; };
+		C336E5CE2064057B008C2005 /* Relationship.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Relationship.swift; sourceTree = "<group>"; };
+		C336E5F6206C0A12008C2005 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		C336E604206C1DFD008C2005 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		C336E605206C1DFD008C2005 /* CategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCollectionViewCell.xib; sourceTree = "<group>"; };
+		C3434C0E203DDA0500883C84 /* MoltinRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoltinRequest.swift; sourceTree = "<group>"; };
+		C3434C17203DDAD500883C84 /* Pagination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pagination.swift; sourceTree = "<group>"; };
+		C3434C1C203DDAFF00883C84 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		C3434C21203DDB1F00883C84 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		C354B546206CE37900D26446 /* MasterSectionHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterSectionHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
+		C354B547206CE37900D26446 /* MasterSectionHeaderCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MasterSectionHeaderCollectionReusableView.xib; sourceTree = "<group>"; };
+		C354B552206CEE9500D26446 /* ProductCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCategory.swift; sourceTree = "<group>"; };
+		C354B555206CEF4D00D26446 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		C354B557206D033400D26446 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
+		C354B55E206D0F4B00D26446 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
+		C354B55F206D0F4B00D26446 /* ProductCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCollectionViewCell.xib; sourceTree = "<group>"; };
+		C354B562206D134500D26446 /* CustomProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProduct.swift; sourceTree = "<group>"; };
+		C354B565206D1BA200D26446 /* Products.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Products.swift; sourceTree = "<group>"; };
+		C354B568206D1D0C00D26446 /* Brands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brands.swift; sourceTree = "<group>"; };
+		C354B56A2073721300D26446 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		C354B56C2073740200D26446 /* Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
+		C354B56E2073754200D26446 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
+		C354B5702073773C00D26446 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		C354B5722073780000D26446 /* Field.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Field.swift; sourceTree = "<group>"; };
+		C354B5742073791A00D26446 /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
+		C354B576207389A500D26446 /* PaymentMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethod.swift; sourceTree = "<group>"; };
+		C3715BCA203EE6BB00287C1B /* Requests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Requests.swift; sourceTree = "<group>"; };
+		C3715BD0203EE6D400287C1B /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		C3715BD5203EE6DE00287C1B /* Brand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brand.swift; sourceTree = "<group>"; };
+		C3715BDA203EE6E500287C1B /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		C3715BDF203EE8EE00287C1B /* HTTPMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMock.swift; sourceTree = "<group>"; };
+		C3715BE4203EE93900287C1B /* URLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSession.swift; sourceTree = "<group>"; };
+		C3715BE9203F1A3900287C1B /* MoltinAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoltinAuth.swift; sourceTree = "<group>"; };
+		C3715BEE203F53A000287C1B /* AuthTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTests.swift; sourceTree = "<group>"; };
+		C3715BF9203F598500287C1B /* Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
+		C3715BFB203F59A100287C1B /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
+		C3715BFD203F59CA00287C1B /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		C3715BFF203F59D000287C1B /* Flow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flow.swift; sourceTree = "<group>"; };
+		C3779231203EC6D000C20FEC /* Query.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Query.swift; sourceTree = "<group>"; };
+		C38141FD203DCFC400B9FDA3 /* RequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTests.swift; sourceTree = "<group>"; };
+		C3821AE0204422C5001EF864 /* DataSerializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSerializer.swift; sourceTree = "<group>"; };
+		C3821AE220443C5F001EF864 /* CartTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTests.swift; sourceTree = "<group>"; };
+		C3821AE5204440F5001EF864 /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
+		C3821AE7204440FD001EF864 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
+		C3821AE920444127001EF864 /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
+		C3821AEB2044412C001EF864 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		C392E9C5203DB630006CD1D0 /* moltin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = moltin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C392E9C7203DB630006CD1D0 /* moltin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = moltin.h; sourceTree = "<group>"; };
+		C392E9C8203DB630006CD1D0 /* Info-iOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-iOS.plist"; sourceTree = "<group>"; };
+		C392E9D2203DB641006CD1D0 /* moltin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = moltin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C392E9D5203DB641006CD1D0 /* Info-watchOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-watchOS.plist"; sourceTree = "<group>"; };
+		C392E9DF203DB64E006CD1D0 /* moltin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = moltin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C392E9E2203DB64E006CD1D0 /* Info-tvOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-tvOS.plist"; sourceTree = "<group>"; };
+		C392E9EC203DB65B006CD1D0 /* moltin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = moltin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C392E9EF203DB65B006CD1D0 /* Info-macOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-macOS.plist"; sourceTree = "<group>"; };
+		C392E9F8203DB6E1006CD1D0 /* Moltin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Moltin.swift; sourceTree = "<group>"; };
+		C392E9FE203DB75B006CD1D0 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		C392EA08203DB773006CD1D0 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		C392EA09203DB77F006CD1D0 /* Moltin.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = Moltin.podspec; sourceTree = "<group>"; };
+		C392EA12203DB7EB006CD1D0 /* moltin iOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "moltin iOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C392EA14203DB7EB006CD1D0 /* MoltinTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoltinTests.swift; sourceTree = "<group>"; };
+		C392EA16203DB7EB006CD1D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C392EA21203DB800006CD1D0 /* moltin iOS Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "moltin iOS Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C392EA23203DB800006CD1D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C392EA27203DB800006CD1D0 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		C392EA2A203DB800006CD1D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C392EA2C203DB801006CD1D0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C392EA2F203DB801006CD1D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C392EA31203DB801006CD1D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C392EA37203DB822006CD1D0 /* moltin WatchKit Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "moltin WatchKit Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C392EA3A203DB822006CD1D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		C392EA3C203DB823006CD1D0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C392EA3E203DB823006CD1D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C392EA43203DB823006CD1D0 /* moltin WatchKit Example Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "moltin WatchKit Example Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C392EA48203DB823006CD1D0 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		C392EA4A203DB823006CD1D0 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		C392EA4C203DB823006CD1D0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C392EA4E203DB823006CD1D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C392EA5E203DB836006CD1D0 /* moltin tvOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "moltin tvOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C392EA60203DB836006CD1D0 /* moltin_tvOS_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = moltin_tvOS_Tests.swift; sourceTree = "<group>"; };
+		C392EA62203DB836006CD1D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C3FB57A7204028870007288D /* CartRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartRequest.swift; sourceTree = "<group>"; };
+		C3FF26FE2061205800CA226D /* Timestamps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timestamps.swift; sourceTree = "<group>"; };
+		C3FF2700206124D700CA226D /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C336E58320626ADD008C2005 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C336E597206275CA008C2005 /* moltin.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C392E9C1203DB630006CD1D0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C392E9CE203DB641006CD1D0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C392E9DB203DB64E006CD1D0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C392E9E8203DB65B006CD1D0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C392EA0F203DB7EB006CD1D0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C392EA17203DB7EB006CD1D0 /* moltin.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C392EA1E203DB800006CD1D0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3FB57AA2040782C0007288D /* moltin.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C392EA40203DB823006CD1D0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C392EA5B203DB836006CD1D0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C392EA63203DB836006CD1D0 /* moltin.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C336E58720626ADD008C2005 /* moltin tvOS Example */ = {
+			isa = PBXGroup;
+			children = (
+				C336E58820626ADD008C2005 /* AppDelegate.swift */,
+				C336E58A20626ADD008C2005 /* ProductsViewController.swift */,
+				C336E58C20626ADD008C2005 /* CartViewController.swift */,
+				C336E58E20626ADD008C2005 /* Main.storyboard */,
+				C336E59120626ADD008C2005 /* Assets.xcassets */,
+				C336E59320626ADD008C2005 /* Info.plist */,
+				C336E5C4206278B2008C2005 /* ProductCollectionViewCell.swift */,
+				C336E5C5206278B2008C2005 /* ProductCollectionViewCell.xib */,
+			);
+			path = "moltin tvOS Example";
+			sourceTree = "<group>";
+		};
+		C336E5FB206C0B8D008C2005 /* CollectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				C336E604206C1DFD008C2005 /* CategoryCollectionViewCell.swift */,
+				C336E605206C1DFD008C2005 /* CategoryCollectionViewCell.xib */,
+				C354B546206CE37900D26446 /* MasterSectionHeaderCollectionReusableView.swift */,
+				C354B547206CE37900D26446 /* MasterSectionHeaderCollectionReusableView.xib */,
+			);
+			path = CollectionCell;
+			sourceTree = "<group>";
+		};
+		C3434C16203DDACA00883C84 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C3434C17203DDAD500883C84 /* Pagination.swift */,
+				C3434C1C203DDAFF00883C84 /* Error.swift */,
+				C3434C21203DDB1F00883C84 /* Config.swift */,
+				C318D028203EC4D100B7A81E /* HTTP.swift */,
+				C318D02A203EC50200B7A81E /* Parser.swift */,
+				C3779231203EC6D000C20FEC /* Query.swift */,
+				C3715BE4203EE93900287C1B /* URLSession.swift */,
+				C3821AE0204422C5001EF864 /* DataSerializer.swift */,
+				C3FF2700206124D700CA226D /* DateFormatter.swift */,
+				C336E5C820629477008C2005 /* CodableExtract.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		C354B551206CEE7B00D26446 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C354B552206CEE9500D26446 /* ProductCategory.swift */,
+				C354B562206D134500D26446 /* CustomProduct.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C354B554206CEF4400D26446 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C354B555206CEF4D00D26446 /* UIColor.swift */,
+				C354B557206D033400D26446 /* UIImageView.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C354B559206D0DE200D26446 /* ProductCell */ = {
+			isa = PBXGroup;
+			children = (
+				C354B55E206D0F4B00D26446 /* ProductCollectionViewCell.swift */,
+				C354B55F206D0F4B00D26446 /* ProductCollectionViewCell.xib */,
+			);
+			path = ProductCell;
+			sourceTree = "<group>";
+		};
+		C354B564206D1B9600D26446 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				C354B565206D1BA200D26446 /* Products.swift */,
+				C354B568206D1D0C00D26446 /* Brands.swift */,
+				C354B56A2073721300D26446 /* Category.swift */,
+				C354B56C2073740200D26446 /* Collection.swift */,
+				C354B56E2073754200D26446 /* Currency.swift */,
+				C354B5702073773C00D26446 /* File.swift */,
+				C354B5722073780000D26446 /* Field.swift */,
+				C354B5742073791A00D26446 /* Cart.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		C367EE23203DCED3004BAC1E /* SDK */ = {
+			isa = PBXGroup;
+			children = (
+				C3715BCF203EE6CC00287C1B /* Models */,
+				C3434C16203DDACA00883C84 /* Utils */,
+				C367EE24203DCEDB004BAC1E /* Requests */,
+				C392E9F8203DB6E1006CD1D0 /* Moltin.swift */,
+			);
+			path = SDK;
+			sourceTree = "<group>";
+		};
+		C367EE24203DCEDB004BAC1E /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				C3715BCA203EE6BB00287C1B /* Requests.swift */,
+				C3434C0E203DDA0500883C84 /* MoltinRequest.swift */,
+				C3715BE9203F1A3900287C1B /* MoltinAuth.swift */,
+				C3FB57A7204028870007288D /* CartRequest.swift */,
+				C336E564206155B2008C2005 /* FlowRequest.swift */,
+			);
+			path = Requests;
+			sourceTree = "<group>";
+		};
+		C3715BCF203EE6CC00287C1B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C3715BD0203EE6D400287C1B /* Product.swift */,
+				C3715BD5203EE6DE00287C1B /* Brand.swift */,
+				C3715BDA203EE6E500287C1B /* Category.swift */,
+				C3715BF9203F598500287C1B /* Collection.swift */,
+				C3715BFB203F59A100287C1B /* Currency.swift */,
+				C3715BFD203F59CA00287C1B /* File.swift */,
+				C3715BFF203F59D000287C1B /* Flow.swift */,
+				C3821AE5204440F5001EF864 /* Cart.swift */,
+				C3821AE7204440FD001EF864 /* Address.swift */,
+				C3821AE920444127001EF864 /* Customer.swift */,
+				C3821AEB2044412C001EF864 /* Order.swift */,
+				C3FF26FE2061205800CA226D /* Timestamps.swift */,
+				C336E55F20614A9C008C2005 /* Prices.swift */,
+				C336E5CE2064057B008C2005 /* Relationship.swift */,
+				C354B576207389A500D26446 /* PaymentMethod.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C392E99E203DB5ED006CD1D0 = {
+			isa = PBXGroup;
+			children = (
+				C392E9FE203DB75B006CD1D0 /* LICENSE */,
+				C392EA08203DB773006CD1D0 /* README.md */,
+				C392EA09203DB77F006CD1D0 /* Moltin.podspec */,
+				C392E9F4203DB681006CD1D0 /* Sources */,
+				C392EA69203DB849006CD1D0 /* Examples */,
+				C392EA6A203DB84E006CD1D0 /* Tests */,
+				C392E9AB203DB600006CD1D0 /* Products */,
+				C3FB57A92040782C0007288D /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		C392E9AB203DB600006CD1D0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C392E9C5203DB630006CD1D0 /* moltin.framework */,
+				C392E9D2203DB641006CD1D0 /* moltin.framework */,
+				C392E9DF203DB64E006CD1D0 /* moltin.framework */,
+				C392E9EC203DB65B006CD1D0 /* moltin.framework */,
+				C392EA12203DB7EB006CD1D0 /* moltin iOS Tests.xctest */,
+				C392EA21203DB800006CD1D0 /* moltin iOS Example.app */,
+				C392EA37203DB822006CD1D0 /* moltin WatchKit Example.app */,
+				C392EA43203DB823006CD1D0 /* moltin WatchKit Example Extension.appex */,
+				C392EA5E203DB836006CD1D0 /* moltin tvOS Tests.xctest */,
+				C336E58620626ADD008C2005 /* moltin tvOS Example.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C392E9F4203DB681006CD1D0 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				C367EE23203DCED3004BAC1E /* SDK */,
+				C392E9C7203DB630006CD1D0 /* moltin.h */,
+				C392E9C8203DB630006CD1D0 /* Info-iOS.plist */,
+				C392E9D5203DB641006CD1D0 /* Info-watchOS.plist */,
+				C392E9E2203DB64E006CD1D0 /* Info-tvOS.plist */,
+				C392E9EF203DB65B006CD1D0 /* Info-macOS.plist */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		C392EA13203DB7EB006CD1D0 /* moltin iOS Tests */ = {
+			isa = PBXGroup;
+			children = (
+				C354B564206D1B9600D26446 /* Data */,
+				C392EA14203DB7EB006CD1D0 /* MoltinTests.swift */,
+				C392EA16203DB7EB006CD1D0 /* Info.plist */,
+				C38141FD203DCFC400B9FDA3 /* RequestTests.swift */,
+				C3715BDF203EE8EE00287C1B /* HTTPMock.swift */,
+				C3715BEE203F53A000287C1B /* AuthTests.swift */,
+				C3821AE220443C5F001EF864 /* CartTests.swift */,
+				C336E569206155BE008C2005 /* FlowTests.swift */,
+			);
+			path = "moltin iOS Tests";
+			sourceTree = "<group>";
+		};
+		C392EA22203DB800006CD1D0 /* moltin iOS Example */ = {
+			isa = PBXGroup;
+			children = (
+				C354B559206D0DE200D26446 /* ProductCell */,
+				C354B554206CEF4400D26446 /* Extensions */,
+				C354B551206CEE7B00D26446 /* Models */,
+				C336E5FB206C0B8D008C2005 /* CollectionCell */,
+				C392EA23203DB800006CD1D0 /* AppDelegate.swift */,
+				C336E5F6206C0A12008C2005 /* MasterViewController.swift */,
+				C392EA27203DB800006CD1D0 /* DetailViewController.swift */,
+				C392EA29203DB800006CD1D0 /* Main.storyboard */,
+				C392EA2C203DB801006CD1D0 /* Assets.xcassets */,
+				C392EA2E203DB801006CD1D0 /* LaunchScreen.storyboard */,
+				C392EA31203DB801006CD1D0 /* Info.plist */,
+			);
+			path = "moltin iOS Example";
+			sourceTree = "<group>";
+		};
+		C392EA38203DB822006CD1D0 /* moltin WatchKit Example */ = {
+			isa = PBXGroup;
+			children = (
+				C392EA39203DB822006CD1D0 /* Interface.storyboard */,
+				C392EA3C203DB823006CD1D0 /* Assets.xcassets */,
+				C392EA3E203DB823006CD1D0 /* Info.plist */,
+			);
+			path = "moltin WatchKit Example";
+			sourceTree = "<group>";
+		};
+		C392EA47203DB823006CD1D0 /* moltin WatchKit Example Extension */ = {
+			isa = PBXGroup;
+			children = (
+				C392EA48203DB823006CD1D0 /* InterfaceController.swift */,
+				C392EA4A203DB823006CD1D0 /* ExtensionDelegate.swift */,
+				C392EA4C203DB823006CD1D0 /* Assets.xcassets */,
+				C392EA4E203DB823006CD1D0 /* Info.plist */,
+			);
+			path = "moltin WatchKit Example Extension";
+			sourceTree = "<group>";
+		};
+		C392EA5F203DB836006CD1D0 /* moltin tvOS Tests */ = {
+			isa = PBXGroup;
+			children = (
+				C392EA60203DB836006CD1D0 /* moltin_tvOS_Tests.swift */,
+				C392EA62203DB836006CD1D0 /* Info.plist */,
+			);
+			path = "moltin tvOS Tests";
+			sourceTree = "<group>";
+		};
+		C392EA69203DB849006CD1D0 /* Examples */ = {
+			isa = PBXGroup;
+			children = (
+				C336E58720626ADD008C2005 /* moltin tvOS Example */,
+				C392EA22203DB800006CD1D0 /* moltin iOS Example */,
+				C392EA38203DB822006CD1D0 /* moltin WatchKit Example */,
+				C392EA47203DB823006CD1D0 /* moltin WatchKit Example Extension */,
+			);
+			path = Examples;
+			sourceTree = "<group>";
+		};
+		C392EA6A203DB84E006CD1D0 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				C392EA13203DB7EB006CD1D0 /* moltin iOS Tests */,
+				C392EA5F203DB836006CD1D0 /* moltin tvOS Tests */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		C3FB57A92040782C0007288D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		C392E9C2203DB630006CD1D0 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C392E9C9203DB630006CD1D0 /* moltin.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C392E9CF203DB641006CD1D0 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C392E9F5203DB6AE006CD1D0 /* moltin.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C392E9DC203DB64E006CD1D0 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C392E9F6203DB6AE006CD1D0 /* moltin.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C392E9E9203DB65B006CD1D0 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C392E9F7203DB6AF006CD1D0 /* moltin.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		C336E58520626ADD008C2005 /* moltin tvOS Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C336E59420626ADD008C2005 /* Build configuration list for PBXNativeTarget "moltin tvOS Example" */;
+			buildPhases = (
+				C336E58220626ADD008C2005 /* Sources */,
+				C336E58320626ADD008C2005 /* Frameworks */,
+				C336E58420626ADD008C2005 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "moltin tvOS Example";
+			productName = "moltin tvOS Example";
+			productReference = C336E58620626ADD008C2005 /* moltin tvOS Example.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C392E9C4203DB630006CD1D0 /* moltin iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C392E9CA203DB630006CD1D0 /* Build configuration list for PBXNativeTarget "moltin iOS" */;
+			buildPhases = (
+				C392E9C0203DB630006CD1D0 /* Sources */,
+				C392E9C1203DB630006CD1D0 /* Frameworks */,
+				C392E9C2203DB630006CD1D0 /* Headers */,
+				C392E9C3203DB630006CD1D0 /* Resources */,
+				C354B57C20739A6600D26446 /* Swiftlint */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "moltin iOS";
+			productName = "moltin iOS";
+			productReference = C392E9C5203DB630006CD1D0 /* moltin.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		C392E9D1203DB641006CD1D0 /* moltin watchOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C392E9D9203DB641006CD1D0 /* Build configuration list for PBXNativeTarget "moltin watchOS" */;
+			buildPhases = (
+				C392E9CD203DB641006CD1D0 /* Sources */,
+				C392E9CE203DB641006CD1D0 /* Frameworks */,
+				C392E9CF203DB641006CD1D0 /* Headers */,
+				C392E9D0203DB641006CD1D0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "moltin watchOS";
+			productName = "moltin watchOS";
+			productReference = C392E9D2203DB641006CD1D0 /* moltin.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		C392E9DE203DB64E006CD1D0 /* moltin tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C392E9E4203DB64E006CD1D0 /* Build configuration list for PBXNativeTarget "moltin tvOS" */;
+			buildPhases = (
+				C392E9DA203DB64E006CD1D0 /* Sources */,
+				C392E9DB203DB64E006CD1D0 /* Frameworks */,
+				C392E9DC203DB64E006CD1D0 /* Headers */,
+				C392E9DD203DB64E006CD1D0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "moltin tvOS";
+			productName = "moltin tvOS";
+			productReference = C392E9DF203DB64E006CD1D0 /* moltin.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		C392E9EB203DB65B006CD1D0 /* moltin macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C392E9F1203DB65B006CD1D0 /* Build configuration list for PBXNativeTarget "moltin macOS" */;
+			buildPhases = (
+				C392E9E7203DB65B006CD1D0 /* Sources */,
+				C392E9E8203DB65B006CD1D0 /* Frameworks */,
+				C392E9E9203DB65B006CD1D0 /* Headers */,
+				C392E9EA203DB65B006CD1D0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "moltin macOS";
+			productName = "moltin macOS";
+			productReference = C392E9EC203DB65B006CD1D0 /* moltin.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		C392EA11203DB7EB006CD1D0 /* moltin iOS Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C392EA1C203DB7EB006CD1D0 /* Build configuration list for PBXNativeTarget "moltin iOS Tests" */;
+			buildPhases = (
+				C392EA0E203DB7EB006CD1D0 /* Sources */,
+				C392EA0F203DB7EB006CD1D0 /* Frameworks */,
+				C392EA10203DB7EB006CD1D0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C392EA19203DB7EB006CD1D0 /* PBXTargetDependency */,
+			);
+			name = "moltin iOS Tests";
+			productName = "moltin iOS Tests";
+			productReference = C392EA12203DB7EB006CD1D0 /* moltin iOS Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C392EA20203DB800006CD1D0 /* moltin iOS Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C392EA32203DB801006CD1D0 /* Build configuration list for PBXNativeTarget "moltin iOS Example" */;
+			buildPhases = (
+				C392EA1D203DB800006CD1D0 /* Sources */,
+				C392EA1E203DB800006CD1D0 /* Frameworks */,
+				C392EA1F203DB800006CD1D0 /* Resources */,
+				C392EA51203DB823006CD1D0 /* Embed Watch Content */,
+				C354B550206CEAE400D26446 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C392EA50203DB823006CD1D0 /* PBXTargetDependency */,
+				C354B54F206CEAE400D26446 /* PBXTargetDependency */,
+			);
+			name = "moltin iOS Example";
+			productName = "moltin iOS Example";
+			productReference = C392EA21203DB800006CD1D0 /* moltin iOS Example.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C392EA36203DB822006CD1D0 /* moltin WatchKit Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C392EA57203DB823006CD1D0 /* Build configuration list for PBXNativeTarget "moltin WatchKit Example" */;
+			buildPhases = (
+				C392EA35203DB822006CD1D0 /* Resources */,
+				C392EA56203DB823006CD1D0 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C392EA46203DB823006CD1D0 /* PBXTargetDependency */,
+			);
+			name = "moltin WatchKit Example";
+			productName = "moltin WatchKit Example";
+			productReference = C392EA37203DB822006CD1D0 /* moltin WatchKit Example.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		C392EA42203DB823006CD1D0 /* moltin WatchKit Example Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C392EA53203DB823006CD1D0 /* Build configuration list for PBXNativeTarget "moltin WatchKit Example Extension" */;
+			buildPhases = (
+				C392EA3F203DB823006CD1D0 /* Sources */,
+				C392EA40203DB823006CD1D0 /* Frameworks */,
+				C392EA41203DB823006CD1D0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "moltin WatchKit Example Extension";
+			productName = "moltin WatchKit Example Extension";
+			productReference = C392EA43203DB823006CD1D0 /* moltin WatchKit Example Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
+		C392EA5D203DB836006CD1D0 /* moltin tvOS Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C392EA66203DB836006CD1D0 /* Build configuration list for PBXNativeTarget "moltin tvOS Tests" */;
+			buildPhases = (
+				C392EA5A203DB836006CD1D0 /* Sources */,
+				C392EA5B203DB836006CD1D0 /* Frameworks */,
+				C392EA5C203DB836006CD1D0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C392EA65203DB836006CD1D0 /* PBXTargetDependency */,
+			);
+			name = "moltin tvOS Tests";
+			productName = "moltin tvOS Tests";
+			productReference = C392EA5E203DB836006CD1D0 /* moltin tvOS Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C392E99F203DB5ED006CD1D0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0930;
+				TargetAttributes = {
+					C336E58520626ADD008C2005 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					C392E9C4203DB630006CD1D0 = {
+						CreatedOnToolsVersion = 9.3;
+						LastSwiftMigration = 0930;
+						ProvisioningStyle = Automatic;
+					};
+					C392E9D1203DB641006CD1D0 = {
+						CreatedOnToolsVersion = 9.3;
+						LastSwiftMigration = 0930;
+						ProvisioningStyle = Automatic;
+					};
+					C392E9DE203DB64E006CD1D0 = {
+						CreatedOnToolsVersion = 9.3;
+						LastSwiftMigration = 0930;
+						ProvisioningStyle = Automatic;
+					};
+					C392E9EB203DB65B006CD1D0 = {
+						CreatedOnToolsVersion = 9.3;
+						LastSwiftMigration = 0930;
+						ProvisioningStyle = Automatic;
+					};
+					C392EA11203DB7EB006CD1D0 = {
+						CreatedOnToolsVersion = 9.3;
+						ProvisioningStyle = Automatic;
+					};
+					C392EA20203DB800006CD1D0 = {
+						CreatedOnToolsVersion = 9.3;
+						ProvisioningStyle = Automatic;
+					};
+					C392EA36203DB822006CD1D0 = {
+						CreatedOnToolsVersion = 9.3;
+						ProvisioningStyle = Automatic;
+					};
+					C392EA42203DB823006CD1D0 = {
+						CreatedOnToolsVersion = 9.3;
+						ProvisioningStyle = Automatic;
+					};
+					C392EA5D203DB836006CD1D0 = {
+						CreatedOnToolsVersion = 9.3;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = C392E9A2203DB5ED006CD1D0 /* Build configuration list for PBXProject "moltin" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C392E99E203DB5ED006CD1D0;
+			productRefGroup = C392E9AB203DB600006CD1D0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C392E9C4203DB630006CD1D0 /* moltin iOS */,
+				C392E9D1203DB641006CD1D0 /* moltin watchOS */,
+				C392E9DE203DB64E006CD1D0 /* moltin tvOS */,
+				C392E9EB203DB65B006CD1D0 /* moltin macOS */,
+				C392EA11203DB7EB006CD1D0 /* moltin iOS Tests */,
+				C392EA20203DB800006CD1D0 /* moltin iOS Example */,
+				C392EA36203DB822006CD1D0 /* moltin WatchKit Example */,
+				C392EA42203DB823006CD1D0 /* moltin WatchKit Example Extension */,
+				C392EA5D203DB836006CD1D0 /* moltin tvOS Tests */,
+				C336E58520626ADD008C2005 /* moltin tvOS Example */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C336E58420626ADD008C2005 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C336E59220626ADD008C2005 /* Assets.xcassets in Resources */,
+				C336E59020626ADD008C2005 /* Main.storyboard in Resources */,
+				C336E5C7206278B2008C2005 /* ProductCollectionViewCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C392E9C3203DB630006CD1D0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C392E9D0203DB641006CD1D0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C392E9DD203DB64E006CD1D0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C392E9EA203DB65B006CD1D0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C392EA10203DB7EB006CD1D0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C392EA1F203DB800006CD1D0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C354B54B206CE40200D26446 /* MasterSectionHeaderCollectionReusableView.xib in Resources */,
+				C354B545206CE1EE00D26446 /* CategoryCollectionViewCell.xib in Resources */,
+				C354B561206D0F4B00D26446 /* ProductCollectionViewCell.xib in Resources */,
+				C392EA30203DB801006CD1D0 /* LaunchScreen.storyboard in Resources */,
+				C392EA2D203DB801006CD1D0 /* Assets.xcassets in Resources */,
+				C392EA2B203DB800006CD1D0 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C392EA35203DB822006CD1D0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C392EA3D203DB823006CD1D0 /* Assets.xcassets in Resources */,
+				C392EA3B203DB822006CD1D0 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C392EA41203DB823006CD1D0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C392EA4D203DB823006CD1D0 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C392EA5C203DB836006CD1D0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C354B57C20739A6600D26446 /* Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Swiftlint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C336E58220626ADD008C2005 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C336E58D20626ADD008C2005 /* CartViewController.swift in Sources */,
+				C336E58920626ADD008C2005 /* AppDelegate.swift in Sources */,
+				C336E5C6206278B2008C2005 /* ProductCollectionViewCell.swift in Sources */,
+				C336E58B20626ADD008C2005 /* ProductsViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C392E9C0203DB630006CD1D0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3FF2701206124D700CA226D /* DateFormatter.swift in Sources */,
+				C3715BF8203F544B00287C1B /* HTTPMock.swift in Sources */,
+				C3715C00203F59D000287C1B /* Flow.swift in Sources */,
+				C336E565206155B2008C2005 /* FlowRequest.swift in Sources */,
+				C336E5D32064062E008C2005 /* Relationship.swift in Sources */,
+				C3434C0F203DDA0500883C84 /* MoltinRequest.swift in Sources */,
+				C3821AEA20444127001EF864 /* Customer.swift in Sources */,
+				C3779232203EC6D000C20FEC /* Query.swift in Sources */,
+				C3715BD6203EE6DE00287C1B /* Brand.swift in Sources */,
+				C3434C18203DDAD500883C84 /* Pagination.swift in Sources */,
+				C3715BCB203EE6BB00287C1B /* Requests.swift in Sources */,
+				C3FF26FF2061205900CA226D /* Timestamps.swift in Sources */,
+				C3715BEA203F1A3900287C1B /* MoltinAuth.swift in Sources */,
+				C354B57B20738A5500D26446 /* PaymentMethod.swift in Sources */,
+				C3715BFE203F59CA00287C1B /* File.swift in Sources */,
+				C3715BFA203F598500287C1B /* Collection.swift in Sources */,
+				C336E56020614A9C008C2005 /* Prices.swift in Sources */,
+				C318D029203EC4D100B7A81E /* HTTP.swift in Sources */,
+				C3821AEC2044412C001EF864 /* Order.swift in Sources */,
+				C392E9F9203DB6E1006CD1D0 /* Moltin.swift in Sources */,
+				C3715BE5203EE93900287C1B /* URLSession.swift in Sources */,
+				C3821AE1204422C5001EF864 /* DataSerializer.swift in Sources */,
+				C3434C1D203DDAFF00883C84 /* Error.swift in Sources */,
+				C3821AE6204440F5001EF864 /* Cart.swift in Sources */,
+				C3821AE8204440FD001EF864 /* Address.swift in Sources */,
+				C3715BD1203EE6D400287C1B /* Product.swift in Sources */,
+				C3FB57A8204028870007288D /* CartRequest.swift in Sources */,
+				C3715BFC203F59A100287C1B /* Currency.swift in Sources */,
+				C336E5CD20629601008C2005 /* CodableExtract.swift in Sources */,
+				C318D02B203EC50200B7A81E /* Parser.swift in Sources */,
+				C3434C22203DDB1F00883C84 /* Config.swift in Sources */,
+				C3715BDB203EE6E500287C1B /* Category.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C392E9CD203DB641006CD1D0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C336E5A82062762D008C2005 /* DateFormatter.swift in Sources */,
+				C3715BF7203F544B00287C1B /* HTTPMock.swift in Sources */,
+				C336E5B420627633008C2005 /* Address.swift in Sources */,
+				C336E5B320627633008C2005 /* Cart.swift in Sources */,
+				C336E5D22064062D008C2005 /* Relationship.swift in Sources */,
+				C3434C19203DDAD500883C84 /* Pagination.swift in Sources */,
+				C3715BD2203EE6D400287C1B /* Product.swift in Sources */,
+				C336E5B620627633008C2005 /* Order.swift in Sources */,
+				C3715C02203F59F200287C1B /* Currency.swift in Sources */,
+				C3715BD7203EE6DE00287C1B /* Brand.swift in Sources */,
+				C336E59B20627627008C2005 /* MoltinAuth.swift in Sources */,
+				C336E59D20627627008C2005 /* FlowRequest.swift in Sources */,
+				C336E5A72062762D008C2005 /* DataSerializer.swift in Sources */,
+				C354B57A20738A5400D26446 /* PaymentMethod.swift in Sources */,
+				C318D02C203EC5AB00B7A81E /* HTTP.swift in Sources */,
+				C336E59A20627627008C2005 /* MoltinRequest.swift in Sources */,
+				C3715C01203F59F200287C1B /* Collection.swift in Sources */,
+				C392E9FA203DB6E1006CD1D0 /* Moltin.swift in Sources */,
+				C3434C1E203DDAFF00883C84 /* Error.swift in Sources */,
+				C336E59920627627008C2005 /* Requests.swift in Sources */,
+				C3715BE6203EE93900287C1B /* URLSession.swift in Sources */,
+				C3715C03203F59F200287C1B /* File.swift in Sources */,
+				C336E56120614A9C008C2005 /* Prices.swift in Sources */,
+				C336E5A62062762D008C2005 /* Query.swift in Sources */,
+				C336E59C20627627008C2005 /* CartRequest.swift in Sources */,
+				C318D02D203EC5AB00B7A81E /* Parser.swift in Sources */,
+				C3715C04203F59F200287C1B /* Flow.swift in Sources */,
+				C336E5B520627633008C2005 /* Customer.swift in Sources */,
+				C336E5CC20629600008C2005 /* CodableExtract.swift in Sources */,
+				C3434C23203DDB1F00883C84 /* Config.swift in Sources */,
+				C3715BDC203EE6E500287C1B /* Category.swift in Sources */,
+				C336E5B720627633008C2005 /* Timestamps.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C392E9DA203DB64E006CD1D0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C336E5A52062762D008C2005 /* DateFormatter.swift in Sources */,
+				C3434C13203DDA1F00883C84 /* MoltinRequest.swift in Sources */,
+				C336E5AF20627632008C2005 /* Address.swift in Sources */,
+				C336E5AE20627632008C2005 /* Cart.swift in Sources */,
+				C336E5D12064062D008C2005 /* Relationship.swift in Sources */,
+				C3715BF6203F544A00287C1B /* HTTPMock.swift in Sources */,
+				C3434C1A203DDAD500883C84 /* Pagination.swift in Sources */,
+				C336E5B120627632008C2005 /* Order.swift in Sources */,
+				C3715BD3203EE6D400287C1B /* Product.swift in Sources */,
+				C3715C06203F59F200287C1B /* Currency.swift in Sources */,
+				C336E567206155B2008C2005 /* FlowRequest.swift in Sources */,
+				C336E59E20627627008C2005 /* CartRequest.swift in Sources */,
+				C336E5A42062762D008C2005 /* DataSerializer.swift in Sources */,
+				C354B57920738A5400D26446 /* PaymentMethod.swift in Sources */,
+				C3715BD8203EE6DE00287C1B /* Brand.swift in Sources */,
+				C318D02E203EC5AB00B7A81E /* HTTP.swift in Sources */,
+				C3715C05203F59F200287C1B /* Collection.swift in Sources */,
+				C392E9FB203DB6E1006CD1D0 /* Moltin.swift in Sources */,
+				C3434C1F203DDAFF00883C84 /* Error.swift in Sources */,
+				C3715BE7203EE93900287C1B /* URLSession.swift in Sources */,
+				C3715C07203F59F200287C1B /* File.swift in Sources */,
+				C336E56220614A9C008C2005 /* Prices.swift in Sources */,
+				C3715BCD203EE6BB00287C1B /* Requests.swift in Sources */,
+				C336E5A32062762D008C2005 /* Query.swift in Sources */,
+				C318D02F203EC5AB00B7A81E /* Parser.swift in Sources */,
+				C3715BEC203F1A3900287C1B /* MoltinAuth.swift in Sources */,
+				C3715C08203F59F200287C1B /* Flow.swift in Sources */,
+				C336E5B020627632008C2005 /* Customer.swift in Sources */,
+				C336E5CB20629600008C2005 /* CodableExtract.swift in Sources */,
+				C3434C24203DDB1F00883C84 /* Config.swift in Sources */,
+				C3715BDD203EE6E500287C1B /* Category.swift in Sources */,
+				C336E5B220627632008C2005 /* Timestamps.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C392E9E7203DB65B006CD1D0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C336E5A22062762C008C2005 /* DateFormatter.swift in Sources */,
+				C3434C15203DDA2000883C84 /* MoltinRequest.swift in Sources */,
+				C336E5AA20627631008C2005 /* Address.swift in Sources */,
+				C336E5A920627631008C2005 /* Cart.swift in Sources */,
+				C336E5D02064062C008C2005 /* Relationship.swift in Sources */,
+				C3715BF5203F544900287C1B /* HTTPMock.swift in Sources */,
+				C3434C1B203DDAD500883C84 /* Pagination.swift in Sources */,
+				C336E5AC20627631008C2005 /* Order.swift in Sources */,
+				C3715BD4203EE6D400287C1B /* Product.swift in Sources */,
+				C3715C0A203F59F300287C1B /* Currency.swift in Sources */,
+				C336E568206155B2008C2005 /* FlowRequest.swift in Sources */,
+				C336E59F20627628008C2005 /* CartRequest.swift in Sources */,
+				C336E5A12062762C008C2005 /* DataSerializer.swift in Sources */,
+				C354B57820738A5300D26446 /* PaymentMethod.swift in Sources */,
+				C3715BD9203EE6DE00287C1B /* Brand.swift in Sources */,
+				C318D030203EC5AC00B7A81E /* HTTP.swift in Sources */,
+				C3715C09203F59F300287C1B /* Collection.swift in Sources */,
+				C392E9FC203DB6E1006CD1D0 /* Moltin.swift in Sources */,
+				C3434C20203DDAFF00883C84 /* Error.swift in Sources */,
+				C3715BE8203EE93900287C1B /* URLSession.swift in Sources */,
+				C3715C0B203F59F300287C1B /* File.swift in Sources */,
+				C336E56320614A9C008C2005 /* Prices.swift in Sources */,
+				C3715BCE203EE6BB00287C1B /* Requests.swift in Sources */,
+				C336E5A02062762C008C2005 /* Query.swift in Sources */,
+				C318D031203EC5AC00B7A81E /* Parser.swift in Sources */,
+				C3715BED203F1A3900287C1B /* MoltinAuth.swift in Sources */,
+				C3715C0C203F59F300287C1B /* Flow.swift in Sources */,
+				C336E5AB20627631008C2005 /* Customer.swift in Sources */,
+				C336E5CA206295FF008C2005 /* CodableExtract.swift in Sources */,
+				C3434C25203DDB1F00883C84 /* Config.swift in Sources */,
+				C3715BDE203EE6E500287C1B /* Category.swift in Sources */,
+				C336E5AD20627631008C2005 /* Timestamps.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C392EA0E203DB7EB006CD1D0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C354B56D2073740200D26446 /* Collection.swift in Sources */,
+				C336E56E206155DF008C2005 /* FlowTests.swift in Sources */,
+				C354B5732073780000D26446 /* Field.swift in Sources */,
+				C354B5752073791A00D26446 /* Cart.swift in Sources */,
+				C392EA15203DB7EB006CD1D0 /* MoltinTests.swift in Sources */,
+				C354B569206D1D0C00D26446 /* Brands.swift in Sources */,
+				C38141FE203DCFC400B9FDA3 /* RequestTests.swift in Sources */,
+				C354B567206D1C1B00D26446 /* Products.swift in Sources */,
+				C354B56F2073754200D26446 /* Currency.swift in Sources */,
+				C3715BF4203F542600287C1B /* AuthTests.swift in Sources */,
+				C3821AE420443C7D001EF864 /* CartTests.swift in Sources */,
+				C354B5712073773C00D26446 /* File.swift in Sources */,
+				C354B56B2073721300D26446 /* Category.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C392EA1D203DB800006CD1D0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C354B558206D033400D26446 /* UIImageView.swift in Sources */,
+				C336E608206C1E02008C2005 /* CategoryCollectionViewCell.swift in Sources */,
+				C354B563206D134500D26446 /* CustomProduct.swift in Sources */,
+				C354B556206CEF4D00D26446 /* UIColor.swift in Sources */,
+				C354B553206CEE9500D26446 /* ProductCategory.swift in Sources */,
+				C354B54A206CE3FC00D26446 /* MasterSectionHeaderCollectionReusableView.swift in Sources */,
+				C336E5F8206C0A18008C2005 /* MasterViewController.swift in Sources */,
+				C392EA28203DB800006CD1D0 /* DetailViewController.swift in Sources */,
+				C354B560206D0F4B00D26446 /* ProductCollectionViewCell.swift in Sources */,
+				C392EA24203DB800006CD1D0 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C392EA3F203DB823006CD1D0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C392EA4B203DB823006CD1D0 /* ExtensionDelegate.swift in Sources */,
+				C392EA49203DB823006CD1D0 /* InterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C392EA5A203DB836006CD1D0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C392EA61203DB836006CD1D0 /* moltin_tvOS_Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C354B54F206CEAE400D26446 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C392E9C4203DB630006CD1D0 /* moltin iOS */;
+			targetProxy = C354B54E206CEAE400D26446 /* PBXContainerItemProxy */;
+		};
+		C392EA19203DB7EB006CD1D0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C392E9C4203DB630006CD1D0 /* moltin iOS */;
+			targetProxy = C392EA18203DB7EB006CD1D0 /* PBXContainerItemProxy */;
+		};
+		C392EA46203DB823006CD1D0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C392EA42203DB823006CD1D0 /* moltin WatchKit Example Extension */;
+			targetProxy = C392EA45203DB823006CD1D0 /* PBXContainerItemProxy */;
+		};
+		C392EA50203DB823006CD1D0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C392EA36203DB822006CD1D0 /* moltin WatchKit Example */;
+			targetProxy = C392EA4F203DB823006CD1D0 /* PBXContainerItemProxy */;
+		};
+		C392EA65203DB836006CD1D0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C392E9DE203DB64E006CD1D0 /* moltin tvOS */;
+			targetProxy = C392EA64203DB836006CD1D0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C336E58E20626ADD008C2005 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C336E58F20626ADD008C2005 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C392EA29203DB800006CD1D0 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C392EA2A203DB800006CD1D0 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C392EA2E203DB801006CD1D0 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C392EA2F203DB801006CD1D0 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		C392EA39203DB822006CD1D0 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C392EA3A203DB822006CD1D0 /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C336E59520626ADD008C2005 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 6NTG7K23S9;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/Examples/moltin tvOS Example/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.moltin.moltin-tvOS-Example";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 11.2;
+			};
+			name = Debug;
+		};
+		C336E59620626ADD008C2005 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 6NTG7K23S9;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/Examples/moltin tvOS Example/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.moltin.moltin-tvOS-Example";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 11.2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C392E9A3203DB5ED006CD1D0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		C392E9A4203DB5ED006CD1D0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		C392E9CB203DB630006CD1D0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 6NTG7K23S9;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info-iOS.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.moltin.moltin-iOS";
+				PRODUCT_NAME = moltin;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		C392E9CC203DB630006CD1D0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 6NTG7K23S9;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info-iOS.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.moltin.moltin-iOS";
+				PRODUCT_NAME = moltin;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		C392E9D7203DB641006CD1D0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 6NTG7K23S9;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info-watchOS.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.moltin.moltin-watchOS";
+				PRODUCT_NAME = moltin;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+			};
+			name = Debug;
+		};
+		C392E9D8203DB641006CD1D0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 6NTG7K23S9;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info-watchOS.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.moltin.moltin-watchOS";
+				PRODUCT_NAME = moltin;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+			};
+			name = Release;
+		};
+		C392E9E5203DB64E006CD1D0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 6NTG7K23S9;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info-tvOS.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.moltin.moltin-tvOS";
+				PRODUCT_NAME = moltin;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 10.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		C392E9E6203DB64E006CD1D0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 6NTG7K23S9;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info-tvOS.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.moltin.moltin-tvOS";
+				PRODUCT_NAME = moltin;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 10.0;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		C392E9F2203DB65B006CD1D0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 6NTG7K23S9;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_VERSION = A;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info-macOS.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.moltin.moltin-macOS";
+				PRODUCT_NAME = moltin;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		C392E9F3203DB65B006CD1D0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 6NTG7K23S9;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_VERSION = A;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info-macOS.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.moltin.moltin-macOS";
+				PRODUCT_NAME = moltin;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		C392EA1A203DB7EB006CD1D0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 6NTG7K23S9;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "Tests/moltin iOS Tests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.moltin.moltin-iOS-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C392EA1B203DB7EB006CD1D0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 6NTG7K23S9;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "Tests/moltin iOS Tests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.moltin.moltin-iOS-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C392EA33203DB801006CD1D0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 6NTG7K23S9;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/Examples/moltin iOS Example/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.moltin.moltin-iOS-Example";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C392EA34203DB801006CD1D0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 6NTG7K23S9;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/Examples/moltin iOS Example/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.moltin.moltin-iOS-Example";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C392EA54203DB823006CD1D0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 6NTG7K23S9;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/Examples/moltin WatchKit Example Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.moltin.moltin-iOS-Example.watchkitapp.watchkitextension";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.2;
+			};
+			name = Debug;
+		};
+		C392EA55203DB823006CD1D0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 6NTG7K23S9;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/Examples/moltin WatchKit Example Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.moltin.moltin-iOS-Example.watchkitapp.watchkitextension";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 4.2;
+			};
+			name = Release;
+		};
+		C392EA58203DB823006CD1D0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 6NTG7K23S9;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IBSC_MODULE = moltin_WatchKit_Example_Extension;
+				INFOPLIST_FILE = "$(SRCROOT)/Examples/moltin WatchKit Example/Info.plist";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.moltin.moltin-iOS-Example.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.2;
+			};
+			name = Debug;
+		};
+		C392EA59203DB823006CD1D0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 6NTG7K23S9;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IBSC_MODULE = moltin_WatchKit_Example_Extension;
+				INFOPLIST_FILE = "$(SRCROOT)/Examples/moltin WatchKit Example/Info.plist";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.moltin.moltin-iOS-Example.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 4.2;
+			};
+			name = Release;
+		};
+		C392EA67203DB836006CD1D0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 6NTG7K23S9;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "Tests/moltin tvOS Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.moltin.moltin-tvOS-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 11.2;
+			};
+			name = Debug;
+		};
+		C392EA68203DB836006CD1D0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 6NTG7K23S9;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "Tests/moltin tvOS Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.moltin.moltin-tvOS-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 11.2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C336E59420626ADD008C2005 /* Build configuration list for PBXNativeTarget "moltin tvOS Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C336E59520626ADD008C2005 /* Debug */,
+				C336E59620626ADD008C2005 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C392E9A2203DB5ED006CD1D0 /* Build configuration list for PBXProject "moltin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C392E9A3203DB5ED006CD1D0 /* Debug */,
+				C392E9A4203DB5ED006CD1D0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C392E9CA203DB630006CD1D0 /* Build configuration list for PBXNativeTarget "moltin iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C392E9CB203DB630006CD1D0 /* Debug */,
+				C392E9CC203DB630006CD1D0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C392E9D9203DB641006CD1D0 /* Build configuration list for PBXNativeTarget "moltin watchOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C392E9D7203DB641006CD1D0 /* Debug */,
+				C392E9D8203DB641006CD1D0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C392E9E4203DB64E006CD1D0 /* Build configuration list for PBXNativeTarget "moltin tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C392E9E5203DB64E006CD1D0 /* Debug */,
+				C392E9E6203DB64E006CD1D0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C392E9F1203DB65B006CD1D0 /* Build configuration list for PBXNativeTarget "moltin macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C392E9F2203DB65B006CD1D0 /* Debug */,
+				C392E9F3203DB65B006CD1D0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C392EA1C203DB7EB006CD1D0 /* Build configuration list for PBXNativeTarget "moltin iOS Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C392EA1A203DB7EB006CD1D0 /* Debug */,
+				C392EA1B203DB7EB006CD1D0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C392EA32203DB801006CD1D0 /* Build configuration list for PBXNativeTarget "moltin iOS Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C392EA33203DB801006CD1D0 /* Debug */,
+				C392EA34203DB801006CD1D0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C392EA53203DB823006CD1D0 /* Build configuration list for PBXNativeTarget "moltin WatchKit Example Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C392EA54203DB823006CD1D0 /* Debug */,
+				C392EA55203DB823006CD1D0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C392EA57203DB823006CD1D0 /* Build configuration list for PBXNativeTarget "moltin WatchKit Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C392EA58203DB823006CD1D0 /* Debug */,
+				C392EA59203DB823006CD1D0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C392EA66203DB836006CD1D0 /* Build configuration list for PBXNativeTarget "moltin tvOS Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C392EA67203DB836006CD1D0 /* Debug */,
+				C392EA68203DB836006CD1D0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C392E99F203DB5ED006CD1D0 /* Project object */;
+}
