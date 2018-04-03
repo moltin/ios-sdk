@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Moltin'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of Moltin.'
+  s.version          = '2.0.0'
+  s.summary          = 'eCommerce made simple'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,14 +18,13 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+  moltin makes eCommerce simple with a wide range of SDKs and integrations.
                        DESC
 
-  s.homepage         = 'https://github.com/Oliver Foggin/Moltin'
+  s.homepage         = 'https://github.com/moltin/ios-sdk'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'Oliver Foggin' => 'oliver@gospelware.co.uk' }
-  s.source           = { :git => 'https://github.com/Oliver Foggin/Moltin.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/moltin/ios-sdk.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '9.0'
