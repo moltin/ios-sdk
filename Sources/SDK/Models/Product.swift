@@ -140,7 +140,7 @@ open class Product: Codable, HasRelationship {
         self.price = try container.decode([ProductPrice].self, forKey: .price)
         self.status = try container.decode(String.self, forKey: .status)
         self.meta = try container.decode(ProductMeta.self, forKey: .meta)
-        self.relationships = try container.decode(Relationships.self, forKey: .relationships)
+        self.relationships = try container.decodeIfPresent(Relationships.self, forKey: .relationships)
         
         self.manageStock = try container.decode(Bool.self, forKey: .manageStock)
         self.commodityType = try container.decode(String.self, forKey: .commodityType)

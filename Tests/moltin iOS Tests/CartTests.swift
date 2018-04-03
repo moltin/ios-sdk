@@ -12,59 +12,18 @@ import moltin
 
 class CartTests: XCTestCase {
     
-    let cartJSON = """
-        {
-            "id": "abc",
-            "items": [{
-                "id": "12345",
-                "quantity": 5
-            }]
-        }
-    """
-    
-    let cartItemJSON = """
-        { "data": {
-            "id": "12345",
-            "product_id": "12345",
-            "quantity": 5
-          }
-        }
-    """
-    
-    let cartJSONWithItems = """
-        {
-            "id": "abc",
-            "items": [{
-                "id": "12345",
-                "quantity": 5
-            }]
-        }
-    """
-    
-    let cartItemsJSON = """
-    {
-        "data":
-        [{
-            "id": "12345",
-            "quantity": 5
-        }],
-        "meta": {}
-    }
-    """
-    
-    
-    
     func testGettingANewCart() {
-        let (_, request) = MockFactory.mockedCartRequest(withJSON: self.cartJSON)
+        let (_, request) = MockFactory.mockedCartRequest(withJSON: MockCartDataFactory.cartData)
 
         let expectationToFulfill = expectation(description: "CartRequest calls the method and runs the callback closure")
         
-        let _ = request.get(forID: "abc") { (result) in
+        let _ = request.get(forID: "3333") { (result) in
             switch result {
             case .success(let cart):
-                XCTAssert(cart.id == "abc")
-            case .failure(_):
-                XCTFail()
+                XCTAssert(cart.id == "3333")
+                XCTAssert(type(of: cart) == moltin.Cart.self)
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
             }
             
             expectationToFulfill.fulfill()
@@ -80,16 +39,17 @@ class CartTests: XCTestCase {
     }
     
     func testGettingCartItems() {
-        let (_, request) = MockFactory.mockedCartRequest(withJSON: self.cartItemsJSON)
+        let (_, request) = MockFactory.mockedCartRequest(withJSON: MockCartDataFactory.cartItemsData)
         
         let expectationToFulfill = expectation(description: "CartRequest calls the method and runs the callback closure")
         
-        let _ = request.items(forCartID: "abc") { (result) in
+        let _ = request.items(forCartID: "3333") { (result) in
             switch result {
             case .success(let cartItems):
-                XCTAssert(cartItems.data?[0].id == "12345")
-            case .failure(_):
-                XCTFail()
+                XCTAssert(cartItems.data?[0].id == "abc123")
+                XCTAssert(type(of: cartItems.data) == Optional<[moltin.CartItem]>.self)
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
             }
             
             expectationToFulfill.fulfill()
@@ -103,20 +63,19 @@ class CartTests: XCTestCase {
     }
     
     func testAddingAProductToCart() {
-        let (_, request) = MockFactory.mockedCartRequest(withJSON: self.cartJSONWithItems)
+        let (_, request) = MockFactory.mockedCartRequest(withJSON: MockCartDataFactory.cartData)
         
         let expectationToFulfill = expectation(description: "CartRequest calls the method and runs the callback closure")
         
-        let cartID = "12345"
+        let cartID = "3333"
         let productID = "12345"
         let _ = request.addProduct(withID: productID, ofQuantity: 5, toCart: cartID) { (result) in
             switch result {
             case .success(let cart):
-                break
-//                XCTAssert(cart.items.count == 1)
-//                XCTAssert(cart.items[0].quantity == 5)
-            case .failure(_):
-                XCTFail()
+                XCTAssert(cart.id == "3333")
+                XCTAssert(type(of: cart) == moltin.Cart.self)
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
             }
             
             expectationToFulfill.fulfill()
@@ -138,20 +97,19 @@ class CartTests: XCTestCase {
     }
     
     func testAddingACustomItem() {
-        let (_, request) = MockFactory.mockedCartRequest(withJSON: self.cartJSONWithItems)
+        let (_, request) = MockFactory.mockedCartRequest(withJSON: MockCartDataFactory.cartData)
         
         let expectationToFulfill = expectation(description: "CartRequest calls the method and runs the callback closure")
         
-        let cartID: String = "12345"
+        let cartID: String = "3333"
         let customItem = CustomCartItem(withSKU: "12345")
         let _ = request.addCustomItem(customItem, toCart: cartID) { (result) in
             switch result {
             case .success(let cart):
-                break;
-//                XCTAssert(cart.items.count == 1)
-//                XCTAssert(cart.items[0].quantity == 5)
-            case .failure(_):
-                XCTFail()
+                XCTAssert(cart.id == "3333")
+                XCTAssert(type(of: cart) == moltin.Cart.self)
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
             }
             
             expectationToFulfill.fulfill()
@@ -173,17 +131,18 @@ class CartTests: XCTestCase {
     }
     
     func testAddingAPromotion() {
-        let (_, request) = MockFactory.mockedCartRequest(withJSON: self.cartItemJSON)
+        let (_, request) = MockFactory.mockedCartRequest(withJSON: MockCartDataFactory.cartData)
         
         let expectationToFulfill = expectation(description: "CartRequest calls the method and runs the callback closure")
         
-        let cartID: String = "12345"
+        let cartID: String = "3333"
         let _ = request.addPromotion("12345", toCart: cartID) { (result) in
             switch result {
-            case .success(let cartItem):
-                XCTAssert(cartItem.id == "12345")
-            case .failure(_):
-                XCTFail()
+            case .success(let cart):
+                XCTAssert(cart.id == "3333")
+                XCTAssert(type(of: cart) == moltin.Cart.self)
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
             }
             
             expectationToFulfill.fulfill()

@@ -98,27 +98,6 @@ class MyCustomProduct: moltin.Product {
 // MARK: BrandRequestTest - AutoMoltinRequest
 
 class BrandRequestTests: XCTestCase {
-    let productJson = """
-                {
-                  "id": "51b56d92-ab99-4802-a2c1-be150848c629",
-                  "author": {
-                    "name": "Craig"
-                  }
-                }
-                """
-    let multiProductJson = """
-                {
-                  "data":
-                    [{
-                      "id": "51b56d92-ab99-4802-a2c1-be150848c629",
-                      "author": {
-                        "name": "Craig"
-                      }
-                    }],
-                    "meta": {
-                    }
-                }
-                """
 
     let treeJson = """
         {
@@ -130,16 +109,16 @@ class BrandRequestTests: XCTestCase {
     """
 
     func testBrandRequestReturnsBrands() {
-        let (_, brandRequest) = MockFactory.mockedBrandRequest(withJSON: self.multiProductJson)
+        let (_, brandRequest) = MockFactory.mockedBrandRequest(withJSON: MockBrandsDataFactory.multiBrandsData)
         let expectationToFulfill = expectation(description: "BrandRequest calls the method and runs the callback closure")
         let _ = brandRequest.all { (result) in
             switch result {
             case .success(let response):
-                XCTAssert(type(of: response.data) == [moltin.Brand].self)
+                XCTAssert(type(of: response.data) == Optional<[moltin.Brand]>.self)
                 XCTAssert(response.data?.count != 0)
                 break
-            case .failure(_):
-                XCTFail("Response returned error")
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
                 break
             }
             expectationToFulfill.fulfill()
@@ -151,7 +130,7 @@ class BrandRequestTests: XCTestCase {
         }
     }
     func testBrandRequestReturnSingleBrand() {
-        let (_, brandRequest) = MockFactory.mockedBrandRequest(withJSON: self.productJson)
+        let (_, brandRequest) = MockFactory.mockedBrandRequest(withJSON: MockBrandsDataFactory.brandData)
         let expectationToFulfill = expectation(description: "BrandRequest calls the method and runs the callback closure")
         let _ = brandRequest.get(forID: "51b56d92-ab99-4802-a2c1-be150848c629") { (result) in
             switch result {
@@ -159,8 +138,8 @@ class BrandRequestTests: XCTestCase {
                 XCTAssert(type(of: response) == moltin.Brand.self)
                 XCTAssert(response.id == "51b56d92-ab99-4802-a2c1-be150848c629")
                 break
-            case .failure(_):
-                XCTFail("Response returned error")
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
                 break
             }
             expectationToFulfill.fulfill()
@@ -173,16 +152,16 @@ class BrandRequestTests: XCTestCase {
     }
 
     func testBrandRequestReturnsCustomBrands() {
-        let (_, brandRequest) = MockFactory.mockedBrandRequest(withJSON: self.multiProductJson)
+        let (_, brandRequest) = MockFactory.mockedBrandRequest(withJSON: MockBrandsDataFactory.customMultiBrandsData)
         let expectationToFulfill = expectation(description: "BrandRequest calls the method and runs the callback closure")
         let _ = brandRequest.all { (result: Result<PaginatedResponse<[MyCustomBrand]>>) in
             switch result {
             case .success(let response):
-                XCTAssert(type(of: response.data) == [MyCustomBrand].self)
+                XCTAssert(type(of: response.data) == Optional<[MyCustomBrand]>.self)
                 XCTAssert(response.data?.count != 0)
                 break
-            case .failure(_):
-                XCTFail("Response returned error")
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
                 break
             }
             expectationToFulfill.fulfill()
@@ -194,7 +173,7 @@ class BrandRequestTests: XCTestCase {
         }
     }
     func testBrandRequestReturnCustomSingleBrand() {
-        let (_, brandRequest) = MockFactory.mockedBrandRequest(withJSON: self.productJson)
+        let (_, brandRequest) = MockFactory.mockedBrandRequest(withJSON: MockBrandsDataFactory.customBrandData)
         let expectationToFulfill = expectation(description: "BrandRequest calls the method and runs the callback closure")
 
         let _ = brandRequest.get(forID: "51b56d92-ab99-4802-a2c1-be150848c629") { (result: Result<MyCustomBrand>) in
@@ -205,8 +184,8 @@ class BrandRequestTests: XCTestCase {
                 XCTAssert(response.id == "51b56d92-ab99-4802-a2c1-be150848c629")
                 XCTAssert(response.author == author)
                 break
-            case .failure(_):
-                XCTFail("Response returned error")
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
                 break
             }
             expectationToFulfill.fulfill()
@@ -217,55 +196,6 @@ class BrandRequestTests: XCTestCase {
             }
         }
     }
-
-
-
-    func testRequestReturnTree() {
-        let (_, brandRequest) = MockFactory.mockedBrandRequest(withJSON: self.treeJson)
-        let expectationToFulfill = expectation(description: "BrandRequest calls the method and runs the callback closure")
-        let _ = brandRequest.tree { (result) in
-            switch result {
-            case .success(let response):
-                XCTAssert(type(of: response.data) == [moltin.Brand].self)
-                XCTAssert(response.data?.count != 0)
-                break
-            case .failure(_):
-                XCTFail("Response returned error")
-                break
-            }
-            expectationToFulfill.fulfill()
-        }
-        waitForExpectations(timeout: 1) { error in
-            if let error = error {
-                XCTFail("waitForExpectationsWithTimeout errored: \(error)")
-            }
-        }
-    }
-
-
-    func testRequestReturnCustomTree() {
-        let (_, brandRequest) = MockFactory.mockedBrandRequest(withJSON: self.treeJson)
-        let expectationToFulfill = expectation(description: "Request calls the method and runs the callback closure")
-        let _ = brandRequest.tree { (result: Result<PaginatedResponse<[MyCustomBrand]>>) in
-            switch result {
-            case .success(let response):
-                XCTAssert(type(of: response.data) == [MyCustomBrand].self)
-                XCTAssert(response.data?.count != 0)
-                break
-            case .failure(_):
-                XCTFail("Response returned error")
-                break
-            }
-            expectationToFulfill.fulfill()
-        }
-        waitForExpectations(timeout: 1) { error in
-            if let error = error {
-                XCTFail("waitForExpectationsWithTimeout errored: \(error)")
-            }
-        }
-    }
-
-
 }
 // MARK: CategoryRequestTest - AutoMoltinRequest
 
@@ -302,16 +232,16 @@ class CategoryRequestTests: XCTestCase {
     """
 
     func testCategoryRequestReturnsCategorys() {
-        let (_, categoryRequest) = MockFactory.mockedCategoryRequest(withJSON: self.multiProductJson)
+        let (_, categoryRequest) = MockFactory.mockedCategoryRequest(withJSON: MockCategoryDataFactory.multiCategoryData)
         let expectationToFulfill = expectation(description: "CategoryRequest calls the method and runs the callback closure")
         let _ = categoryRequest.all { (result) in
             switch result {
             case .success(let response):
-                XCTAssert(type(of: response.data) == [moltin.Category].self)
+                XCTAssert(type(of: response.data) == Optional<[moltin.Category]>.self)
                 XCTAssert(response.data?.count != 0)
                 break
-            case .failure(_):
-                XCTFail("Response returned error")
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
                 break
             }
             expectationToFulfill.fulfill()
@@ -323,7 +253,7 @@ class CategoryRequestTests: XCTestCase {
         }
     }
     func testCategoryRequestReturnSingleCategory() {
-        let (_, categoryRequest) = MockFactory.mockedCategoryRequest(withJSON: self.productJson)
+        let (_, categoryRequest) = MockFactory.mockedCategoryRequest(withJSON: MockCategoryDataFactory.categoryData)
         let expectationToFulfill = expectation(description: "CategoryRequest calls the method and runs the callback closure")
         let _ = categoryRequest.get(forID: "51b56d92-ab99-4802-a2c1-be150848c629") { (result) in
             switch result {
@@ -331,8 +261,8 @@ class CategoryRequestTests: XCTestCase {
                 XCTAssert(type(of: response) == moltin.Category.self)
                 XCTAssert(response.id == "51b56d92-ab99-4802-a2c1-be150848c629")
                 break
-            case .failure(_):
-                XCTFail("Response returned error")
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
                 break
             }
             expectationToFulfill.fulfill()
@@ -345,12 +275,12 @@ class CategoryRequestTests: XCTestCase {
     }
 
     func testCategoryRequestReturnsCustomCategorys() {
-        let (_, categoryRequest) = MockFactory.mockedCategoryRequest(withJSON: self.multiProductJson)
+        let (_, categoryRequest) = MockFactory.mockedCategoryRequest(withJSON: MockCategoryDataFactory.customMultiCategoryData)
         let expectationToFulfill = expectation(description: "CategoryRequest calls the method and runs the callback closure")
         let _ = categoryRequest.all { (result: Result<PaginatedResponse<[MyCustomCategory]>>) in
             switch result {
             case .success(let response):
-                XCTAssert(type(of: response.data) == [MyCustomCategory].self)
+                XCTAssert(type(of: response.data) == Optional<[MyCustomCategory]>.self)
                 XCTAssert(response.data?.count != 0)
                 break
             case .failure(_):
@@ -366,7 +296,7 @@ class CategoryRequestTests: XCTestCase {
         }
     }
     func testCategoryRequestReturnCustomSingleCategory() {
-        let (_, categoryRequest) = MockFactory.mockedCategoryRequest(withJSON: self.productJson)
+        let (_, categoryRequest) = MockFactory.mockedCategoryRequest(withJSON: MockCategoryDataFactory.customCategoryData)
         let expectationToFulfill = expectation(description: "CategoryRequest calls the method and runs the callback closure")
 
         let _ = categoryRequest.get(forID: "51b56d92-ab99-4802-a2c1-be150848c629") { (result: Result<MyCustomCategory>) in
@@ -389,103 +319,22 @@ class CategoryRequestTests: XCTestCase {
             }
         }
     }
-
-
-
-    func testRequestReturnTree() {
-        let (_, categoryRequest) = MockFactory.mockedCategoryRequest(withJSON: self.treeJson)
-        let expectationToFulfill = expectation(description: "CategoryRequest calls the method and runs the callback closure")
-        let _ = categoryRequest.tree { (result) in
-            switch result {
-            case .success(let response):
-                XCTAssert(type(of: response.data) == [moltin.Category].self)
-                XCTAssert(response.data?.count != 0)
-                break
-            case .failure(_):
-                XCTFail("Response returned error")
-                break
-            }
-            expectationToFulfill.fulfill()
-        }
-        waitForExpectations(timeout: 1) { error in
-            if let error = error {
-                XCTFail("waitForExpectationsWithTimeout errored: \(error)")
-            }
-        }
-    }
-
-
-    func testRequestReturnCustomTree() {
-        let (_, categoryRequest) = MockFactory.mockedCategoryRequest(withJSON: self.treeJson)
-        let expectationToFulfill = expectation(description: "Request calls the method and runs the callback closure")
-        let _ = categoryRequest.tree { (result: Result<PaginatedResponse<[MyCustomCategory]>>) in
-            switch result {
-            case .success(let response):
-                XCTAssert(type(of: response.data) == [MyCustomCategory].self)
-                XCTAssert(response.data?.count != 0)
-                break
-            case .failure(_):
-                XCTFail("Response returned error")
-                break
-            }
-            expectationToFulfill.fulfill()
-        }
-        waitForExpectations(timeout: 1) { error in
-            if let error = error {
-                XCTFail("waitForExpectationsWithTimeout errored: \(error)")
-            }
-        }
-    }
-
-
 }
 // MARK: CollectionRequestTest - AutoMoltinRequest
 
 class CollectionRequestTests: XCTestCase {
-    let productJson = """
-                {
-                  "id": "51b56d92-ab99-4802-a2c1-be150848c629",
-                  "author": {
-                    "name": "Craig"
-                  }
-                }
-                """
-    let multiProductJson = """
-                {
-                  "data":
-                    [{
-                      "id": "51b56d92-ab99-4802-a2c1-be150848c629",
-                      "author": {
-                        "name": "Craig"
-                      }
-                    }],
-                    "meta": {
-                    }
-                }
-                """
-
-    let treeJson = """
-        {
-          "id": "51b56d92-ab99-4802-a2c1-be150848c629",
-          "author": {
-            "name": "Craig"
-          }
-        }
-    """
-
-
     
     func testCollectionRequestReturnCollections() {
-    let (_, collectionRequest) = MockFactory.mockedCollectionRequest(withJSON: self.multiProductJson)
+    let (_, collectionRequest) = MockFactory.mockedCollectionRequest(withJSON: MockCollectionDataFactory.multiCollectionData)
         let expectationToFulfill = expectation(description: "CollectionRequest calls the method and runs the callback closure")
         let _ = collectionRequest.all { (result) in
             switch result {
             case .success(let response):
-                XCTAssert(type(of: response.data) == [moltin.Collection].self)
+                XCTAssert(type(of: response.data) == Optional<[moltin.Collection]>.self)
                 XCTAssert(response.data?.count != 0)
                 break
-            case .failure(_):
-                XCTFail("Response returned error")
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
                 break
             }
             expectationToFulfill.fulfill()
@@ -497,7 +346,7 @@ class CollectionRequestTests: XCTestCase {
         }
     }
     func testCollectionRequestReturnSingleCollection() {
-        let (_, collectionRequest) = MockFactory.mockedCollectionRequest(withJSON: self.productJson)
+        let (_, collectionRequest) = MockFactory.mockedCollectionRequest(withJSON: MockCollectionDataFactory.collectionData)
         let expectationToFulfill = expectation(description: "CollectionRequest calls the method and runs the callback closure")
         let _ = collectionRequest.get(forID: "51b56d92-ab99-4802-a2c1-be150848c629") { (result) in
             switch result {
@@ -505,8 +354,8 @@ class CollectionRequestTests: XCTestCase {
                 XCTAssert(type(of: response) == moltin.Collection.self)
                 XCTAssert(response.id == "51b56d92-ab99-4802-a2c1-be150848c629")
                 break
-            case .failure(_):
-                XCTFail("Response returned error")
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
                 break
             }
             expectationToFulfill.fulfill()
@@ -519,16 +368,16 @@ class CollectionRequestTests: XCTestCase {
     }
 
     func testCollectionRequestReturnsCustomCollections() {
-        let (_, collectionRequest) = MockFactory.mockedCollectionRequest(withJSON: self.multiProductJson)
+        let (_, collectionRequest) = MockFactory.mockedCollectionRequest(withJSON: MockCollectionDataFactory.customMultiCollectionData)
         let expectationToFulfill = expectation(description: "CollectionRequest calls the method and runs the callback closure")
         let _ = collectionRequest.all { (result: Result<PaginatedResponse<[MyCustomCollection]>>) in
             switch result {
             case .success(let response):
-                XCTAssert(type(of: response.data) == [MyCustomCollection].self)
+                XCTAssert(type(of: response.data) == Optional<[MyCustomCollection]>.self)
                 XCTAssert(response.data?.count != 0)
                 break
-            case .failure(_):
-                XCTFail("Response returned error")
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
                 break
             }
             expectationToFulfill.fulfill()
@@ -540,7 +389,7 @@ class CollectionRequestTests: XCTestCase {
         }
     }
     func testCollectionRequestReturnCustomSingleCollection() {
-        let (_, collectionRequest) = MockFactory.mockedCollectionRequest(withJSON: self.productJson)
+        let (_, collectionRequest) = MockFactory.mockedCollectionRequest(withJSON: MockCollectionDataFactory.customCollectionData)
         let expectationToFulfill = expectation(description: "CollectionRequest calls the method and runs the callback closure")
 
         let _ = collectionRequest.get(forID: "51b56d92-ab99-4802-a2c1-be150848c629") { (result: Result<MyCustomCollection>) in
@@ -551,8 +400,8 @@ class CollectionRequestTests: XCTestCase {
                 XCTAssert(response.id == "51b56d92-ab99-4802-a2c1-be150848c629")
                 XCTAssert(response.author == author)
                 break
-            case .failure(_):
-                XCTFail("Response returned error")
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
                 break
             }
             expectationToFulfill.fulfill()
@@ -563,101 +412,22 @@ class CollectionRequestTests: XCTestCase {
             }
         }
     }
-
-
-
-    func testRequestReturnTree() {
-        let (_, collectionRequest) = MockFactory.mockedCollectionRequest(withJSON: self.treeJson)
-        let expectationToFulfill = expectation(description: "CollectionRequest calls the method and runs the callback closure")
-        let _ = collectionRequest.tree { (result) in
-            switch result {
-            case .success(let response):
-                XCTAssert(type(of: response.data) == [moltin.Collection].self)
-                XCTAssert(response.data?.count != 0)
-                break
-            case .failure(_):
-                XCTFail("Response returned error")
-                break
-            }
-            expectationToFulfill.fulfill()
-        }
-        waitForExpectations(timeout: 1) { error in
-            if let error = error {
-                XCTFail("waitForExpectationsWithTimeout errored: \(error)")
-            }
-        }
-    }
-
-
-    func testRequestReturnCustomTree() {
-        let (_, collectionRequest) = MockFactory.mockedCollectionRequest(withJSON: self.treeJson)
-        let expectationToFulfill = expectation(description: "Request calls the method and runs the callback closure")
-        let _ = collectionRequest.tree { (result: Result<PaginatedResponse<[MyCustomCollection]>>) in
-            switch result {
-            case .success(let response):
-                XCTAssert(type(of: response.data) == [MyCustomCollection].self)
-                XCTAssert(response.data?.count != 0)
-                break
-            case .failure(_):
-                XCTFail("Response returned error")
-                break
-            }
-            expectationToFulfill.fulfill()
-        }
-        waitForExpectations(timeout: 1) { error in
-            if let error = error {
-                XCTFail("waitForExpectationsWithTimeout errored: \(error)")
-            }
-        }
-    }
-
-
 }
 // MARK: CurrencyRequestTest - AutoMoltinRequest
 
 class CurrencyRequestTests: XCTestCase {
-    let productJson = """
-                {
-                  "id": "51b56d92-ab99-4802-a2c1-be150848c629",
-                  "author": {
-                    "name": "Craig"
-                  }
-                }
-                """
-    let multiProductJson = """
-                {
-                  "data":
-                    [{
-                      "id": "51b56d92-ab99-4802-a2c1-be150848c629",
-                      "author": {
-                        "name": "Craig"
-                      }
-                    }],
-                    "meta": {
-                    }
-                }
-                """
-
-    let treeJson = """
-        {
-          "id": "51b56d92-ab99-4802-a2c1-be150848c629",
-          "author": {
-            "name": "Craig"
-          }
-        }
-    """
-
+   
     func testCurrencyRequestReturnsCurrencys() {
-        let (_, currencyRequest) = MockFactory.mockedCurrencyRequest(withJSON: self.multiProductJson)
+        let (_, currencyRequest) = MockFactory.mockedCurrencyRequest(withJSON: MockCurrencyDataFactory.multiCurrencyData)
         let expectationToFulfill = expectation(description: "CurrencyRequest calls the method and runs the callback closure")
         let _ = currencyRequest.all { (result) in
             switch result {
             case .success(let response):
-                XCTAssert(type(of: response.data) == [moltin.Currency].self)
+                XCTAssert(type(of: response.data) == Optional<[moltin.Currency]>.self)
                 XCTAssert(response.data?.count != 0)
                 break
-            case .failure(_):
-                XCTFail("Response returned error")
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
                 break
             }
             expectationToFulfill.fulfill()
@@ -669,7 +439,7 @@ class CurrencyRequestTests: XCTestCase {
         }
     }
     func testCurrencyRequestReturnSingleCurrency() {
-        let (_, currencyRequest) = MockFactory.mockedCurrencyRequest(withJSON: self.productJson)
+        let (_, currencyRequest) = MockFactory.mockedCurrencyRequest(withJSON: MockCurrencyDataFactory.currencyData)
         let expectationToFulfill = expectation(description: "CurrencyRequest calls the method and runs the callback closure")
         let _ = currencyRequest.get(forID: "51b56d92-ab99-4802-a2c1-be150848c629") { (result) in
             switch result {
@@ -677,8 +447,8 @@ class CurrencyRequestTests: XCTestCase {
                 XCTAssert(type(of: response) == moltin.Currency.self)
                 XCTAssert(response.id == "51b56d92-ab99-4802-a2c1-be150848c629")
                 break
-            case .failure(_):
-                XCTFail("Response returned error")
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
                 break
             }
             expectationToFulfill.fulfill()
@@ -695,48 +465,18 @@ class CurrencyRequestTests: XCTestCase {
 // MARK: FileRequestTest - AutoMoltinRequest
 
 class FileRequestTests: XCTestCase {
-    let productJson = """
-                {
-                  "id": "51b56d92-ab99-4802-a2c1-be150848c629",
-                  "author": {
-                    "name": "Craig"
-                  }
-                }
-                """
-    let multiProductJson = """
-                {
-                  "data":
-                    [{
-                      "id": "51b56d92-ab99-4802-a2c1-be150848c629",
-                      "author": {
-                        "name": "Craig"
-                      }
-                    }],
-                    "meta": {
-                    }
-                }
-                """
-
-    let treeJson = """
-        {
-          "id": "51b56d92-ab99-4802-a2c1-be150848c629",
-          "author": {
-            "name": "Craig"
-          }
-        }
-    """
 
     func testFileRequestReturnsFiles() {
-        let (_, fileRequest) = MockFactory.mockedFileRequest(withJSON: self.multiProductJson)
+        let (_, fileRequest) = MockFactory.mockedFileRequest(withJSON: MockFileDataFactory.multiFileData)
         let expectationToFulfill = expectation(description: "FileRequest calls the method and runs the callback closure")
         let _ = fileRequest.all { (result) in
             switch result {
             case .success(let response):
-                XCTAssert(type(of: response.data) == [moltin.File].self)
+                XCTAssert(type(of: response.data) == Optional<[moltin.File]>.self)
                 XCTAssert(response.data?.count != 0)
                 break
-            case .failure(_):
-                XCTFail("Response returned error")
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
                 break
             }
             expectationToFulfill.fulfill()
@@ -748,7 +488,7 @@ class FileRequestTests: XCTestCase {
         }
     }
     func testFileRequestReturnSingleFile() {
-        let (_, fileRequest) = MockFactory.mockedFileRequest(withJSON: self.productJson)
+        let (_, fileRequest) = MockFactory.mockedFileRequest(withJSON: MockFileDataFactory.fileData)
         let expectationToFulfill = expectation(description: "FileRequest calls the method and runs the callback closure")
         let _ = fileRequest.get(forID: "51b56d92-ab99-4802-a2c1-be150848c629") { (result) in
             switch result {
@@ -756,8 +496,8 @@ class FileRequestTests: XCTestCase {
                 XCTAssert(type(of: response) == moltin.File.self)
                 XCTAssert(response.id == "51b56d92-ab99-4802-a2c1-be150848c629")
                 break
-            case .failure(_):
-                XCTFail("Response returned error")
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
                 break
             }
             expectationToFulfill.fulfill()
@@ -774,48 +514,18 @@ class FileRequestTests: XCTestCase {
 // MARK: FieldRequestTest - AutoMoltinRequest
 
 class FieldRequestTests: XCTestCase {
-    let productJson = """
-                {
-                  "id": "51b56d92-ab99-4802-a2c1-be150848c629",
-                  "author": {
-                    "name": "Craig"
-                  }
-                }
-                """
-    let multiProductJson = """
-                {
-                  "data":
-                    [{
-                      "id": "51b56d92-ab99-4802-a2c1-be150848c629",
-                      "author": {
-                        "name": "Craig"
-                      }
-                    }],
-                    "meta": {
-                    }
-                }
-                """
-
-    let treeJson = """
-        {
-          "id": "51b56d92-ab99-4802-a2c1-be150848c629",
-          "author": {
-            "name": "Craig"
-          }
-        }
-    """
-
+    
     func testFieldRequestReturnsFields() {
-        let (_, fieldRequest) = MockFactory.mockedFieldRequest(withJSON: self.multiProductJson)
+        let (_, fieldRequest) = MockFactory.mockedFieldRequest(withJSON: MockFieldDataFactory.multiFieldData)
         let expectationToFulfill = expectation(description: "FieldRequest calls the method and runs the callback closure")
         let _ = fieldRequest.all { (result) in
             switch result {
             case .success(let response):
-                XCTAssert(type(of: response.data) == [moltin.Field].self)
+                XCTAssert(type(of: response.data) == Optional<[moltin.Field]>.self)
                 XCTAssert(response.data?.count != 0)
                 break
-            case .failure(_):
-                XCTFail("Response returned error")
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
                 break
             }
             expectationToFulfill.fulfill()
@@ -827,7 +537,7 @@ class FieldRequestTests: XCTestCase {
         }
     }
     func testFieldRequestReturnSingleField() {
-        let (_, fieldRequest) = MockFactory.mockedFieldRequest(withJSON: self.productJson)
+        let (_, fieldRequest) = MockFactory.mockedFieldRequest(withJSON: MockFieldDataFactory.fieldData)
         let expectationToFulfill = expectation(description: "FieldRequest calls the method and runs the callback closure")
         let _ = fieldRequest.get(forID: "51b56d92-ab99-4802-a2c1-be150848c629") { (result) in
             switch result {
@@ -835,8 +545,8 @@ class FieldRequestTests: XCTestCase {
                 XCTAssert(type(of: response) == moltin.Field.self)
                 XCTAssert(response.id == "51b56d92-ab99-4802-a2c1-be150848c629")
                 break
-            case .failure(_):
-                XCTFail("Response returned error")
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
                 break
             }
             expectationToFulfill.fulfill()
@@ -885,12 +595,12 @@ class ProductRequestTests: XCTestCase {
     """
 
     func testProductRequestReturnsProducts() {
-        let (_, productRequest) = MockFactory.mockedProductRequest(withJSON: self.multiProductJson)
+        let (_, productRequest) = MockFactory.mockedProductRequest(withJSON: MockProductDataFactory.multiProductData)
         let expectationToFulfill = expectation(description: "ProductRequest calls the method and runs the callback closure")
         let _ = productRequest.all { (result) in
             switch result {
             case .success(let response):
-                XCTAssert(type(of: response.data) == [moltin.Product].self)
+                XCTAssert(type(of: response.data) == Optional<[moltin.Product]>.self)
                 XCTAssert(response.data?.count != 0)
                 break
             case .failure(_):
@@ -906,7 +616,7 @@ class ProductRequestTests: XCTestCase {
         }
     }
     func testProductRequestReturnSingleProduct() {
-        let (_, productRequest) = MockFactory.mockedProductRequest(withJSON: self.productJson)
+        let (_, productRequest) = MockFactory.mockedProductRequest(withJSON: MockProductDataFactory.productData)
         let expectationToFulfill = expectation(description: "ProductRequest calls the method and runs the callback closure")
         let _ = productRequest.get(forID: "51b56d92-ab99-4802-a2c1-be150848c629") { (result) in
             switch result {
@@ -914,8 +624,8 @@ class ProductRequestTests: XCTestCase {
                 XCTAssert(type(of: response) == moltin.Product.self)
                 XCTAssert(response.id == "51b56d92-ab99-4802-a2c1-be150848c629")
                 break
-            case .failure(_):
-                XCTFail("Response returned error")
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
                 break
             }
             expectationToFulfill.fulfill()
@@ -928,16 +638,16 @@ class ProductRequestTests: XCTestCase {
     }
 
     func testProductRequestReturnsCustomProducts() {
-        let (_, productRequest) = MockFactory.mockedProductRequest(withJSON: self.multiProductJson)
+        let (_, productRequest) = MockFactory.mockedProductRequest(withJSON: MockProductDataFactory.customMultiProductData)
         let expectationToFulfill = expectation(description: "ProductRequest calls the method and runs the callback closure")
         let _ = productRequest.all { (result: Result<PaginatedResponse<[MyCustomProduct]>>) in
             switch result {
             case .success(let response):
-                XCTAssert(type(of: response.data) == [MyCustomProduct].self)
+                XCTAssert(type(of: response.data) == Optional<[MyCustomProduct]>.self)
                 XCTAssert(response.data?.count != 0)
                 break
-            case .failure(_):
-                XCTFail("Response returned error")
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
                 break
             }
             expectationToFulfill.fulfill()
@@ -949,7 +659,7 @@ class ProductRequestTests: XCTestCase {
         }
     }
     func testProductRequestReturnCustomSingleProduct() {
-        let (_, productRequest) = MockFactory.mockedProductRequest(withJSON: self.productJson)
+        let (_, productRequest) = MockFactory.mockedProductRequest(withJSON: MockProductDataFactory.customProductData)
         let expectationToFulfill = expectation(description: "ProductRequest calls the method and runs the callback closure")
 
         let _ = productRequest.get(forID: "51b56d92-ab99-4802-a2c1-be150848c629") { (result: Result<MyCustomProduct>) in

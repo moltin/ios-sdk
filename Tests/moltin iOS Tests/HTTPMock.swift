@@ -65,7 +65,6 @@ class MockObjectFactory {
     }
 }
 
-
 class MockFactory {
     
     static let authJSON = """

@@ -127,7 +127,7 @@ public class CartRequest : MoltinRequest {
      */
     public func addPromotion(_ promotion: String,
                              toCart cart: String,
-                             completionHandler: @escaping ObjectRequestHandler<CartItem>) -> MoltinRequest {
+                             completionHandler: @escaping ObjectRequestHandler<Cart>) -> MoltinRequest {
         
         let data = self.buildCartItem(withID: promotion,
                                       ofType: .promotionItem)

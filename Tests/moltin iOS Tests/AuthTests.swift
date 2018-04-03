@@ -41,7 +41,7 @@ class AuthRequestTests: XCTestCase {
     """
     
     func testAuthAuthenticatesSuccessfullyAndPassesThrough() {
-        let (_, productRequest) = MockFactory.mockedProductRequest(withJSON: self.multiProductJson)
+        let (_, productRequest) = MockFactory.mockedProductRequest(withJSON: MockProductDataFactory.multiProductData)
         
         let expectationToFulfill = expectation(description: "ProductRequest calls the method and runs the callback closure")
         

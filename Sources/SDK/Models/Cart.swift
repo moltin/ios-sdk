@@ -76,8 +76,6 @@ open class CartItem: Codable {
     public let sku: String
     /// The quantity of this cart item
     public let quantity: Int
-    /// Whether or not moltin manages stock for this cart item
-    public let manageStock: Bool
     /// The price for this cart item
     public let unitPrice: ProductPrice
     /// The price for this cart item, taking into account quantity
@@ -89,7 +87,6 @@ open class CartItem: Codable {
     
     enum CodingKeys: String, CodingKey {
         case productId = "product_id"
-        case manageStock = "manage_stock"
         case unitPrice = "unit_price"
         
         case id

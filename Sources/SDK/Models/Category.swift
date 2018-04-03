@@ -39,7 +39,7 @@ open class Category: Codable, HasRelationship {
         self.slug = try container.decode(String.self, forKey: .slug)
         self.description = try container.decode(String.self, forKey: .description)
         self.status = try container.decode(String.self, forKey: .status)
-        self.relationships = try container.decode(Relationships.self, forKey: .relationships)
+        self.relationships = try container.decodeIfPresent(Relationships.self, forKey: .relationships)
         
         
         try self.decodeRelationships(fromRelationships: self.relationships, withIncludes: includes)
