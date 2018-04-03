@@ -25,7 +25,7 @@ NAME=ios-sdk
 TMP=docs/tmp
 GITHUB=https://github.com/$ORGANISATION/$NAME
 
-PREPROC=docs/scripts/doc-preprocessor
+PREPROC=scripts/doc-preprocessor
 
 # ----- Setup and generate docs
 
