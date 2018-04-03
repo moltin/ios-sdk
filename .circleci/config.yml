@@ -79,11 +79,11 @@ workflows:
     jobs:
       - test_iOS
       - test_tvOS
-      - test_macOS
+      # - test_macOS
       - update_cocoapods:
           requires:
             - test_iOS
-            - test_macOS
+            # - test_macOS
             - test_tvOS
           filters:
             branches:
