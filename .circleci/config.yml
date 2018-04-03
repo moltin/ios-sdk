@@ -90,11 +90,11 @@ workflows:
     jobs:
       - swiftlint
       - test_iOS:
-        requires:
-          - swiftlint
+          requires:
+            - swiftlint
       - test_tvOS:
-        requires:
-          - swiftlint
+          requires:
+            - swiftlint
       # - test_macOS
       - update_cocoapods:
           requires:
