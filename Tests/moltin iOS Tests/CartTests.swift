@@ -62,7 +62,7 @@ class CartTests: XCTestCase {
     }
 
     func testAddingAProductToCart() {
-        let (_, request) = MockFactory.mockedCartRequest(withJSON: MockCartDataFactory.cartData)
+        let (_, request) = MockFactory.mockedCartRequest(withJSON: MockCartDataFactory.cartItemsData)
 
         let expectationToFulfill = expectation(description: "CartRequest calls the method and runs the callback closure")
 
@@ -70,9 +70,9 @@ class CartTests: XCTestCase {
         let productID = "12345"
         _ = request.addProduct(withID: productID, ofQuantity: 5, toCart: cartID) { (result) in
             switch result {
-            case .success(let cart):
-                XCTAssert(cart.id == "3333")
-                XCTAssert(type(of: cart) == moltin.Cart.self)
+            case .success(let cartItems):
+                XCTAssert(cartItems[0].id == "abc123")
+                XCTAssert(type(of: cartItems) == [moltin.CartItem].self)
             case .failure(let error):
                 XCTFail(error.localizedDescription)
             }

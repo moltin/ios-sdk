@@ -64,4 +64,14 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
 
         return cell
     }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let product = self.products?[indexPath.row] {
+            self.moltin.cart.addProduct(withID: product.id, ofQuantity: 1, toCart: AppDelegate.cartID, completionHandler: { (_) in
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "DetailToCart", sender: nil)
+                }
+            })
+        }
+    }
 }
