@@ -92,7 +92,7 @@ workflows:
       - test_iOS:
         requires:
           - swiftlint
-      - test_tvOS
+      - test_tvOS:
         requires:
           - swiftlint
       # - test_macOS
