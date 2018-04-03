@@ -37,3 +37,7 @@ playground.xcworkspace
 
 # Carthage
 Carthage/Build
+
+# Fastlane
+fastlane/report.xml
+fastlane/test_output

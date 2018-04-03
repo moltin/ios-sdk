@@ -39,16 +39,6 @@
                ReferencedContainer = "container:moltin.xcodeproj">
             </BuildableReference>
          </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C392EA11203DB7EB006CD1D0"
-               BuildableName = "moltin iOS Tests.xctest"
-               BlueprintName = "moltin iOS Tests"
-               ReferencedContainer = "container:moltin.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
