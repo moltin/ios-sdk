@@ -23,7 +23,7 @@
         <a class="header-link" href="../index.html">
           moltin Docs
         </a>
-         (100% documented)
+         (99% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -303,6 +303,14 @@
             </ul>
           </li>
           <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Other Classes.html">Other Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Other Classes.html#/s:6moltin12OrderSuccessC">OrderSuccess</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
             <a class="nav-group-name-link" href="../Other Functions.html">Other Functions</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
@@ -416,8 +424,8 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">get</span><span class="p">(</span><span class="n">forID</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
-                <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">ObjectRequestHandler</span><span class="o">&lt;</span><span class="kt"><a href="../Classes/Cart.html">Cart</a></span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/MoltinRequest.html">MoltinRequest</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">get</span><span class="p">(</span><span class="n">forID</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+                                   <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">ObjectRequestHandler</span><span class="o">&lt;</span><span class="kt"><a href="../Classes/Cart.html">Cart</a></span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/MoltinRequest.html">MoltinRequest</a></span></code></pre>
 
                         </div>
                       </div>
@@ -484,8 +492,8 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">items</span><span class="p">(</span><span class="n">forCartID</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
-                  <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Classes/CartRequest.html#/s:6moltin11CartRequestC017DefaultCollectionC7Handlera">DefaultCollectionRequestHandler</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/MoltinRequest.html">MoltinRequest</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">items</span><span class="p">(</span><span class="n">forCartID</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+                                     <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Classes/CartRequest.html#/s:6moltin11CartRequestC017DefaultCollectionC7Handlera">DefaultCollectionRequestHandler</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/MoltinRequest.html">MoltinRequest</a></span></code></pre>
 
                         </div>
                       </div>
@@ -530,9 +538,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:6moltin11CartRequestC10addProductAA06MoltinC0CSS6withID_Si10ofQuantitySS02toB0yAA6ResultOyAA0B0CGc17completionHandlertF"></a>
+                    <a name="/s:6moltin11CartRequestC10addProductAA06MoltinC0CSS6withID_Si10ofQuantitySS02toB0yAA6ResultOySayAA0B4ItemCGGc17completionHandlertF"></a>
                     <a name="//apple_ref/swift/Method/addProduct(withID:ofQuantity:toCart:completionHandler:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:6moltin11CartRequestC10addProductAA06MoltinC0CSS6withID_Si10ofQuantitySS02toB0yAA6ResultOyAA0B0CGc17completionHandlertF">addProduct(withID:ofQuantity:toCart:completionHandler:)</a>
+                    <a class="token" href="#/s:6moltin11CartRequestC10addProductAA06MoltinC0CSS6withID_Si10ofQuantitySS02toB0yAA6ResultOySayAA0B4ItemCGGc17completionHandlertF">addProduct(withID:ofQuantity:toCart:completionHandler:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -552,10 +560,10 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">addProduct</span><span class="p">(</span><span class="n">withID</span> <span class="nv">productID</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
-                       <span class="n">ofQuantity</span> <span class="nv">quantity</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span>
-                       <span class="n">toCart</span> <span class="nv">cart</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
-                       <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">ObjectRequestHandler</span><span class="o">&lt;</span><span class="kt"><a href="../Classes/Cart.html">Cart</a></span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/MoltinRequest.html">MoltinRequest</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">addProduct</span><span class="p">(</span><span class="n">withID</span> <span class="nv">productID</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+                                          <span class="n">ofQuantity</span> <span class="nv">quantity</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span>
+                                          <span class="n">toCart</span> <span class="nv">cart</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+                                          <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">ObjectRequestHandler</span><span class="o">&lt;</span><span class="p">[</span><span class="kt"><a href="../Classes/CartItem.html">CartItem</a></span><span class="p">]</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/MoltinRequest.html">MoltinRequest</a></span></code></pre>
 
                         </div>
                       </div>
@@ -646,9 +654,9 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">addCustomItem</span><span class="p">(</span><span class="n">_</span> <span class="nv">customItem</span><span class="p">:</span> <span class="kt"><a href="../Models.html#/s:6moltin14CustomCartItemC">CustomCartItem</a></span><span class="p">,</span>
-                          <span class="n">toCart</span> <span class="nv">cart</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
-                          <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">ObjectRequestHandler</span><span class="o">&lt;</span><span class="kt"><a href="../Classes/Cart.html">Cart</a></span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/MoltinRequest.html">MoltinRequest</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">addCustomItem</span><span class="p">(</span><span class="n">_</span> <span class="nv">customItem</span><span class="p">:</span> <span class="kt"><a href="../Models.html#/s:6moltin14CustomCartItemC">CustomCartItem</a></span><span class="p">,</span>
+                                             <span class="n">toCart</span> <span class="nv">cart</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+                                             <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">ObjectRequestHandler</span><span class="o">&lt;</span><span class="kt"><a href="../Classes/Cart.html">Cart</a></span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/MoltinRequest.html">MoltinRequest</a></span></code></pre>
 
                         </div>
                       </div>
@@ -727,9 +735,9 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">addPromotion</span><span class="p">(</span><span class="n">_</span> <span class="nv">promotion</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
-                         <span class="n">toCart</span> <span class="nv">cart</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
-                         <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">ObjectRequestHandler</span><span class="o">&lt;</span><span class="kt"><a href="../Classes/Cart.html">Cart</a></span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/MoltinRequest.html">MoltinRequest</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">addPromotion</span><span class="p">(</span><span class="n">_</span> <span class="nv">promotion</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+                                            <span class="n">toCart</span> <span class="nv">cart</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+                                            <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">ObjectRequestHandler</span><span class="o">&lt;</span><span class="kt"><a href="../Classes/Cart.html">Cart</a></span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/MoltinRequest.html">MoltinRequest</a></span></code></pre>
 
                         </div>
                       </div>
@@ -808,9 +816,9 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">removeItem</span><span class="p">(</span><span class="n">_</span> <span class="nv">itemID</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
-                       <span class="n">fromCart</span> <span class="nv">cart</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
-                       <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">ObjectRequestHandler</span><span class="o">&lt;</span><span class="kt"><a href="../Classes/Cart.html">Cart</a></span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/MoltinRequest.html">MoltinRequest</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">removeItem</span><span class="p">(</span><span class="n">_</span> <span class="nv">itemID</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+                                          <span class="n">fromCart</span> <span class="nv">cart</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+                                          <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">ObjectRequestHandler</span><span class="o">&lt;</span><span class="kt"><a href="../Classes/Cart.html">Cart</a></span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/MoltinRequest.html">MoltinRequest</a></span></code></pre>
 
                         </div>
                       </div>
@@ -889,10 +897,10 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">updateItem</span><span class="p">(</span><span class="n">_</span> <span class="nv">itemID</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
-                       <span class="n">withQuantity</span> <span class="nv">quantity</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span>
-                       <span class="n">inCart</span> <span class="nv">cart</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
-                       <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">ObjectRequestHandler</span><span class="o">&lt;</span><span class="kt"><a href="../Classes/Cart.html">Cart</a></span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/MoltinRequest.html">MoltinRequest</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">updateItem</span><span class="p">(</span><span class="n">_</span> <span class="nv">itemID</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+                                          <span class="n">withQuantity</span> <span class="nv">quantity</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span>
+                                          <span class="n">inCart</span> <span class="nv">cart</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+                                          <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">ObjectRequestHandler</span><span class="o">&lt;</span><span class="kt"><a href="../Classes/Cart.html">Cart</a></span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/MoltinRequest.html">MoltinRequest</a></span></code></pre>
 
                         </div>
                       </div>
@@ -983,11 +991,11 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">checkout</span><span class="p">(</span><span class="nv">cart</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
-                     <span class="n">withCustomer</span> <span class="nv">customer</span><span class="p">:</span> <span class="kt"><a href="../Classes/Customer.html">Customer</a></span><span class="p">,</span>
-                     <span class="n">withBillingAddress</span> <span class="nv">billingAddress</span><span class="p">:</span> <span class="kt"><a href="../Classes/Address.html">Address</a></span><span class="p">,</span>
-                     <span class="n">withShippingAddress</span> <span class="nv">shippingAddress</span><span class="p">:</span> <span class="kt"><a href="../Classes/Address.html">Address</a></span><span class="p">?,</span>
-                     <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">ObjectRequestHandler</span><span class="o">&lt;</span><span class="kt"><a href="../Classes/Order.html">Order</a></span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/MoltinRequest.html">MoltinRequest</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">checkout</span><span class="p">(</span><span class="nv">cart</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+                                        <span class="n">withCustomer</span> <span class="nv">customer</span><span class="p">:</span> <span class="kt"><a href="../Classes/Customer.html">Customer</a></span><span class="p">,</span>
+                                        <span class="n">withBillingAddress</span> <span class="nv">billingAddress</span><span class="p">:</span> <span class="kt"><a href="../Classes/Address.html">Address</a></span><span class="p">,</span>
+                                        <span class="n">withShippingAddress</span> <span class="nv">shippingAddress</span><span class="p">:</span> <span class="kt"><a href="../Classes/Address.html">Address</a></span><span class="p">?,</span>
+                                        <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">ObjectRequestHandler</span><span class="o">&lt;</span><span class="kt"><a href="../Classes/Order.html">Order</a></span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/MoltinRequest.html">MoltinRequest</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1001,9 +1009,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:6moltin11CartRequestC3payAA06MoltinC0CSS10forOrderID_AA13PaymentMethod_p04withiJ0yAA6ResultOyAA0G0CGc17completionHandlertF"></a>
+                    <a name="/s:6moltin11CartRequestC3payAA06MoltinC0CSS10forOrderID_AA13PaymentMethod_p04withiJ0yAA6ResultOyAA0G7SuccessCGc17completionHandlertF"></a>
                     <a name="//apple_ref/swift/Method/pay(forOrderID:withPaymentMethod:completionHandler:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:6moltin11CartRequestC3payAA06MoltinC0CSS10forOrderID_AA13PaymentMethod_p04withiJ0yAA6ResultOyAA0G0CGc17completionHandlertF">pay(forOrderID:withPaymentMethod:completionHandler:)</a>
+                    <a class="token" href="#/s:6moltin11CartRequestC3payAA06MoltinC0CSS10forOrderID_AA13PaymentMethod_p04withiJ0yAA6ResultOyAA0G7SuccessCGc17completionHandlertF">pay(forOrderID:withPaymentMethod:completionHandler:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1026,9 +1034,9 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">pay</span><span class="p">(</span><span class="n">forOrderID</span> <span class="nv">order</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
-                <span class="n">withPaymentMethod</span> <span class="nv">paymentMethod</span><span class="p">:</span> <span class="kt"><a href="../Protocols/PaymentMethod.html">PaymentMethod</a></span><span class="p">,</span>
-                <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">ObjectRequestHandler</span><span class="o">&lt;</span><span class="kt"><a href="../Classes/Order.html">Order</a></span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/MoltinRequest.html">MoltinRequest</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">pay</span><span class="p">(</span><span class="n">forOrderID</span> <span class="nv">order</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+                                   <span class="n">withPaymentMethod</span> <span class="nv">paymentMethod</span><span class="p">:</span> <span class="kt"><a href="../Protocols/PaymentMethod.html">PaymentMethod</a></span><span class="p">,</span>
+                                   <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">ObjectRequestHandler</span><span class="o">&lt;</span><span class="kt"><a href="../Other Classes.html#/s:6moltin12OrderSuccessC">OrderSuccess</a></span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/MoltinRequest.html">MoltinRequest</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1064,8 +1072,8 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">deleteCart</span><span class="p">(</span><span class="n">_</span> <span class="nv">cart</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
-                       <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">ObjectRequestHandler</span><span class="o">&lt;</span><span class="kt"><a href="../Classes/Cart.html">Cart</a></span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/MoltinRequest.html">MoltinRequest</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">deleteCart</span><span class="p">(</span><span class="n">_</span> <span class="nv">cart</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+                                          <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">ObjectRequestHandler</span><span class="o">&lt;</span><span class="kt"><a href="../Classes/Cart.html">Cart</a></span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/MoltinRequest.html">MoltinRequest</a></span></code></pre>
 
                         </div>
                       </div>

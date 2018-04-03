@@ -1,6 +1,12 @@
 {
   "warnings": [
-
+    {
+      "file": "/Users/craigtweedy/Projects/Moltin/iOS/new/moltin/Sources/SDK/Models/Order.swift",
+      "line": 71,
+      "symbol": "OrderSuccess",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    }
   ],
   "source_directory": "/Users/craigtweedy/Projects/Moltin/iOS/new/moltin"
 }
