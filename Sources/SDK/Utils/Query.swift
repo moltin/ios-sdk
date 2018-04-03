@@ -75,11 +75,11 @@ open class MoltinQuery {
         }
 
         if let limit = self.withLimit {
-            queryParams.append(URLQueryItem(name: "limit", value: limit))
+            queryParams.append(URLQueryItem(name: "page[limit]", value: limit))
         }
 
         if let offset = self.withOffset {
-            queryParams.append(URLQueryItem(name: "offset", value: offset))
+            queryParams.append(URLQueryItem(name: "page[offset]", value: offset))
         }
 
         if self.withFilter.count > 0 {

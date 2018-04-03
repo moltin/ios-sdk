@@ -98,8 +98,7 @@ class AuthRequestTests: XCTestCase {
 
     func testAuthTokenRefreshRequired() {
         let auth = MoltinAuth(withConfiguration: MoltinConfig.default(withClientID: "12345"))
-        auth.token = nil
-        auth.expires = nil
+        auth.credentials = nil
 
         let mockAuthSession = MockURLSession()
         auth.http = MoltinHTTP(withSession: mockAuthSession)
@@ -125,8 +124,7 @@ class AuthRequestTests: XCTestCase {
 
     func testAuthCouldNotConfigure() {
         let auth = MoltinAuth(withConfiguration: MoltinConfig.default(withClientID: "12345"))
-        auth.token = nil
-        auth.expires = nil
+        auth.credentials = nil
         let mockAuthSession = MockURLSession()
         auth.http = MoltinHTTP(withSession: mockAuthSession)
 
@@ -151,8 +149,7 @@ class AuthRequestTests: XCTestCase {
 
     func testAuthenticationFailed() {
         let auth = MoltinAuth(withConfiguration: MoltinConfig.default(withClientID: "12345"))
-        auth.token = nil
-        auth.expires = nil
+        auth.credentials = nil
         let session = MockURLSession()
         session.nextError = MoltinError.couldNotAuthenticate
         auth.http = MoltinHTTP(withSession: session)
@@ -178,8 +175,8 @@ class AuthRequestTests: XCTestCase {
 
     func testAuthTokenNoRefreshRequired() {
         let auth = MoltinAuth(withConfiguration: MoltinConfig.default(withClientID: "12345"))
-        auth.token = "12345"
-        auth.expires = Date().addingTimeInterval(10000)
+        
+        auth.credentials = MoltinAuthCredentials(clientID: "12345", token: "12345", expires: Date().addingTimeInterval(10000))
 
         let session = MockURLSession()
         auth.http = MoltinHTTP(withSession: session)
@@ -189,7 +186,7 @@ class AuthRequestTests: XCTestCase {
         auth.authenticate { (result) in
             switch result {
             case .success(let response):
-                XCTAssert(response.token == auth.token)
+                XCTAssert(response.token == auth.credentials?.token)
             default: XCTFail()
             }
 

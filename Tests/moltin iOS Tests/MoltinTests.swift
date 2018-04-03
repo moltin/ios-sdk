@@ -208,7 +208,7 @@ class MoltinTests: XCTestCase {
         let components = URLComponents(url: urlRequest!.url!, resolvingAgainstBaseURL: false)
         XCTAssertNotNil(components)
         XCTAssertNotNil(components?.query)
-        XCTAssert(components!.query! == "limit=1")
+        XCTAssert(components!.query! == "page[limit]=1")
     }
 
     func testRequestHandlesOffset() {
@@ -226,7 +226,7 @@ class MoltinTests: XCTestCase {
         let components = URLComponents(url: urlRequest!.url!, resolvingAgainstBaseURL: false)
         XCTAssertNotNil(components)
         XCTAssertNotNil(components?.query)
-        XCTAssert(components!.query! == "offset=1")
+        XCTAssert(components!.query! == "page[offset]=1")
     }
 
     func testRequestHandlesSort() {
@@ -303,7 +303,7 @@ class MoltinTests: XCTestCase {
         let components = URLComponents(url: urlRequest!.url!, resolvingAgainstBaseURL: false)
         XCTAssertNotNil(components)
         XCTAssertNotNil(components?.query)
-        XCTAssert(components!.query! == "include=files,categories&sort=key&limit=1&offset=2&filter=eq(test, one)")
+        XCTAssert(components!.query! == "include=files,categories&sort=key&page[limit]=1&page[offset]=2&filter=eq(test, one)")
     }
 
     func testRequestHandlesNoData() {
@@ -416,7 +416,7 @@ class MoltinTests: XCTestCase {
         let components = URLComponents(url: urlRequest!.url!, resolvingAgainstBaseURL: false)
         XCTAssertNotNil(components)
         XCTAssertNotNil(components?.query)
-        XCTAssert(components!.query! == "include=files,categories&sort=key&limit=1&offset=2&filter=eq(test, one)")
+        XCTAssert(components!.query! == "include=files,categories&sort=key&page[limit]=1&page[offset]=2&filter=eq(test, one)")
 
         request = moltin.product.limit(5).offset(8)
         let secondUrlRequest = try? request.http.buildURLRequest(
@@ -430,7 +430,7 @@ class MoltinTests: XCTestCase {
         XCTAssertNotNil(secondComponents)
         XCTAssertNotNil(secondComponents?.query)
 
-        XCTAssert(secondComponents!.query! == "limit=5&offset=8")
+        XCTAssert(secondComponents!.query! == "page[limit]=5&page[offset]=8")
     }
 
 }

@@ -7,36 +7,37 @@
 
 import Foundation
 
+struct MoltinAuthCredentials: Codable {
+    var clientID: String
+    var token: String
+    var expires: Date
+}
+
 class MoltinAuth {
 
     internal var http: MoltinHTTP
     internal var config: MoltinConfig
 
-    var token: String? {
+    var credentials: MoltinAuthCredentials? {
         didSet {
-            UserDefaults.standard.set(self.token, forKey: "Moltin.auth.token")
-            UserDefaults.standard.synchronize()
-        }
-    }
-
-    var expires: Date? {
-        didSet {
-            UserDefaults.standard.set(self.expires, forKey: "Moltin.auth.expires")
+            UserDefaults.standard.set(try? JSONEncoder().encode(self.credentials), forKey: "Moltin.auth.credentials")
             UserDefaults.standard.synchronize()
         }
     }
 
     init(withConfiguration config: MoltinConfig) {
-        self.token = UserDefaults.standard.value(forKey: "Moltin.auth.token") as? String
-        self.expires = UserDefaults.standard.value(forKey: "Moltin.auth.expires") as? Date
+        if let data = UserDefaults.standard.value(forKey: "Moltin.auth.credentials") as? Data {
+            self.credentials = try? JSONDecoder().decode(MoltinAuthCredentials.self, from: data)
+        }
 
         self.http = MoltinHTTP(withSession: URLSession.shared)
         self.config = config
     }
 
     private var requiresRefresh: Bool {
-        guard let expires = self.expires,
-            self.token != nil else {
+        guard let expires = self.credentials?.expires,
+            self.credentials?.token != nil,
+            self.credentials?.clientID == self.config.clientID else {
                 return true
         }
 
@@ -45,7 +46,7 @@ class MoltinAuth {
 
     func authenticate(completionHandler: @escaping (Result<(token: String?, expires: Date?)>) -> Void) {
         guard self.requiresRefresh else {
-            completionHandler(.success(result: (self.token, self.expires)))
+            completionHandler(.success(result: (token: self.credentials?.token, expires: self.credentials?.expires)))
             return
         }
 
@@ -90,10 +91,13 @@ class MoltinAuth {
                     return
             }
 
-            self.token = accessToken
-            self.expires = Date(timeIntervalSince1970: TimeInterval(expires))
+            self.credentials = MoltinAuthCredentials(
+                clientID: self.config.clientID,
+                token: accessToken,
+                expires: Date(timeIntervalSince1970: TimeInterval(expires))
+            )
 
-            completionHandler(.success(result: (self.token, self.expires)))
+            completionHandler(.success(result: (token: self.credentials?.token, expires: self.credentials?.expires)))
         }
     }
 }
