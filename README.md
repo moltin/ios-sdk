@@ -38,7 +38,7 @@ github "Moltin/ios-sdk" ~> 2.1
 Add the following to your `dependencies` value in `Package.swift`:
 ```swift
 dependencies: [
-    .package(url: "https://github.com/moltin/ios-sdk.git", from: "2.1.0")
+    .package(url: "https://github.com/moltin/ios-sdk.git", from: "3.0.0")
 ]
 ```
 
