@@ -22,6 +22,7 @@ Pod::Spec.new do |s|
                        DESC
 
   s.homepage         = 'https://github.com/moltin/ios-sdk'
+  s.authors          = { "Craig Tweedy" => "craig.tweedy@moltin.com" }
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.source           = { :git => 'https://github.com/moltin/ios-sdk.git', :tag => s.version.to_s }
