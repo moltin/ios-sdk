@@ -268,6 +268,29 @@
             </ul>
           </li>
           <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Payment Methods.html">Payment Methods</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/StripeCard.html">StripeCard</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/StripeToken.html">StripeToken</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/BraintreeCustomerID.html">BraintreeCustomerID</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/BraintreePaymentToken.html">BraintreePaymentToken</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/BraintreePaymentNonce.html">BraintreePaymentNonce</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/PaymentMethod.html">PaymentMethod</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
             <a class="nav-group-name-link" href="Utils.html">Utils</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
@@ -294,6 +317,24 @@
           <div class="section-content">
             
             <h1 id='usage' class='heading'>Usage</h1>
+<h2 id='config' class='heading'>Config</h2>
+
+<p>The basic way to set up the Moltin SDK is to create an instance of the <code><a href="Classes/Moltin.html">Moltin</a></code> class with your client ID. However, if you&rsquo;d like to change the locale or the URL of your <code><a href="Classes/Moltin.html">Moltin</a></code> instance, you can do so by passing in <code><a href="Structs/MoltinConfig.html">MoltinConfig</a></code>.</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">config</span> <span class="o">=</span> <span class="kt">MoltinConfig</span><span class="p">(</span>
+<span class="nv">clientID</span><span class="p">:</span> <span class="o">...</span><span class="p">,</span>
+<span class="nv">scheme</span><span class="p">:</span> <span class="o">...</span><span class="p">,</span>
+<span class="nv">host</span><span class="p">:</span> <span class="o">...</span><span class="p">,</span>
+<span class="nv">version</span><span class="p">:</span> <span class="o">...</span><span class="p">,</span>
+<span class="nv">locale</span><span class="p">:</span> <span class="o">...</span><span class="p">)</span>
+<span class="k">let</span> <span class="nv">moltin</span> <span class="o">=</span> <span class="kt">Moltin</span><span class="p">(</span><span class="nv">withConfiguration</span><span class="p">:</span> <span class="n">config</span><span class="p">)</span>
+</code></pre>
+
+<p>Or: </p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">config</span> <span class="o">=</span> <span class="kt">MoltinConfig</span><span class="o">.</span><span class="nf">default</span><span class="p">(</span>
+<span class="nv">withClientID</span><span class="p">:</span> <span class="o">...</span><span class="p">,</span>
+<span class="nv">withLocale</span><span class="p">:</span> <span class="o">...</span><span class="p">)</span>
+<span class="k">let</span> <span class="nv">moltin</span> <span class="o">=</span> <span class="kt">Moltin</span><span class="p">(</span><span class="nv">withConfiguration</span><span class="p">:</span> <span class="n">config</span><span class="p">)</span>
+</code></pre>
 <h2 id='making-a-request' class='heading'>Making a request</h2>
 <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">moltin</span> <span class="o">=</span> <span class="kt">Moltin</span><span class="p">(</span><span class="nv">withClientID</span><span class="p">:</span> <span class="s">"&lt;your client ID&gt;"</span><span class="p">)</span>
 
@@ -305,24 +346,6 @@
         <span class="nf">print</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre>
-<h2 id='config' class='heading'>Config</h2>
-
-<p>The basic way to set up the Moltin SDK is to create an instance of the <code><a href="Classes/Moltin.html">Moltin</a></code> class with your client ID. However, if you&rsquo;d like to change the locale or the URL of your <code><a href="Classes/Moltin.html">Moltin</a></code> instance, you can do so by passing in <code><a href="Structs/MoltinConfig.html">MoltinConfig</a></code>.</p>
-<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">config</span> <span class="o">=</span> <span class="kt">MoltinConfig</span><span class="p">(</span>
-    <span class="nv">clientID</span><span class="p">:</span> <span class="o">...</span><span class="p">,</span>
-    <span class="nv">scheme</span><span class="p">:</span> <span class="o">...</span><span class="p">,</span>
-    <span class="nv">host</span><span class="p">:</span> <span class="o">...</span><span class="p">,</span>
-    <span class="nv">version</span><span class="p">:</span> <span class="o">...</span><span class="p">,</span>
-    <span class="nv">locale</span><span class="p">:</span> <span class="o">...</span><span class="p">)</span>
-<span class="k">let</span> <span class="nv">moltin</span> <span class="o">=</span> <span class="kt">Moltin</span><span class="p">(</span><span class="nv">withConfiguration</span><span class="p">:</span> <span class="n">config</span><span class="p">)</span>
-</code></pre>
-
-<p>Or simply</p>
-<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">config</span> <span class="o">=</span> <span class="kt">MoltinConfig</span><span class="o">.</span><span class="nf">default</span><span class="p">(</span>
-    <span class="nv">withClientID</span><span class="p">:</span> <span class="o">...</span><span class="p">,</span>
-    <span class="nv">withLocale</span><span class="p">:</span> <span class="o">...</span><span class="p">)</span>
-<span class="k">let</span> <span class="nv">moltin</span> <span class="o">=</span> <span class="kt">Moltin</span><span class="p">(</span><span class="nv">withConfiguration</span><span class="p">:</span> <span class="n">config</span><span class="p">)</span>
 </code></pre>
 <h2 id='available-resources' class='heading'>Available Resources</h2>
 

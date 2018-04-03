@@ -269,6 +269,29 @@
             </ul>
           </li>
           <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Payment Methods.html">Payment Methods</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/StripeCard.html">StripeCard</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/StripeToken.html">StripeToken</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/BraintreeCustomerID.html">BraintreeCustomerID</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/BraintreePaymentToken.html">BraintreePaymentToken</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/BraintreePaymentNonce.html">BraintreePaymentNonce</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/PaymentMethod.html">PaymentMethod</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
             <a class="nav-group-name-link" href="../Utils.html">Utils</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
@@ -682,9 +705,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:6moltin11CartRequestC12addPromotionAA06MoltinC0CSS_SS02toB0yAA6ResultOyAA0B4ItemCGc17completionHandlertF"></a>
+                    <a name="/s:6moltin11CartRequestC12addPromotionAA06MoltinC0CSS_SS02toB0yAA6ResultOyAA0B0CGc17completionHandlertF"></a>
                     <a name="//apple_ref/swift/Method/addPromotion(_:toCart:completionHandler:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:6moltin11CartRequestC12addPromotionAA06MoltinC0CSS_SS02toB0yAA6ResultOyAA0B4ItemCGc17completionHandlertF">addPromotion(_:toCart:completionHandler:)</a>
+                    <a class="token" href="#/s:6moltin11CartRequestC12addPromotionAA06MoltinC0CSS_SS02toB0yAA6ResultOyAA0B0CGc17completionHandlertF">addPromotion(_:toCart:completionHandler:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -706,7 +729,7 @@
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">addPromotion</span><span class="p">(</span><span class="n">_</span> <span class="nv">promotion</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
                          <span class="n">toCart</span> <span class="nv">cart</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
-                         <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">ObjectRequestHandler</span><span class="o">&lt;</span><span class="kt"><a href="../Classes/CartItem.html">CartItem</a></span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/MoltinRequest.html">MoltinRequest</a></span></code></pre>
+                         <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">ObjectRequestHandler</span><span class="o">&lt;</span><span class="kt"><a href="../Classes/Cart.html">Cart</a></span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/MoltinRequest.html">MoltinRequest</a></span></code></pre>
 
                         </div>
                       </div>
@@ -965,6 +988,47 @@
                      <span class="n">withBillingAddress</span> <span class="nv">billingAddress</span><span class="p">:</span> <span class="kt"><a href="../Classes/Address.html">Address</a></span><span class="p">,</span>
                      <span class="n">withShippingAddress</span> <span class="nv">shippingAddress</span><span class="p">:</span> <span class="kt"><a href="../Classes/Address.html">Address</a></span><span class="p">?,</span>
                      <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">ObjectRequestHandler</span><span class="o">&lt;</span><span class="kt"><a href="../Classes/Order.html">Order</a></span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/MoltinRequest.html">MoltinRequest</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A instance of <code><a href="../Classes/MoltinRequest.html">MoltinRequest</a></code> which encapsulates the request.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:6moltin11CartRequestC3payAA06MoltinC0CSS10forOrderID_AA13PaymentMethod_p04withiJ0yAA6ResultOyAA0G0CGc17completionHandlertF"></a>
+                    <a name="//apple_ref/swift/Method/pay(forOrderID:withPaymentMethod:completionHandler:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6moltin11CartRequestC3payAA06MoltinC0CSS10forOrderID_AA13PaymentMethod_p04withiJ0yAA6ResultOyAA0G0CGc17completionHandlertF">pay(forOrderID:withPaymentMethod:completionHandler:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Pay for an order</p>
+<div class="aside aside-author">
+    <p class="aside-title">Author</p>
+    <p>Craig Tweedy</p>
+
+</div>
+<li><p>forOrderID: The order to pay for</p></li>
+<li><p>withPaymentMethod: The payment method to pay with</p></li>
+<li><p>completionHandler: The handler to be called on success or failure</p></li>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">pay</span><span class="p">(</span><span class="n">forOrderID</span> <span class="nv">order</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+                <span class="n">withPaymentMethod</span> <span class="nv">paymentMethod</span><span class="p">:</span> <span class="kt"><a href="../Protocols/PaymentMethod.html">PaymentMethod</a></span><span class="p">,</span>
+                <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">ObjectRequestHandler</span><span class="o">&lt;</span><span class="kt"><a href="../Classes/Order.html">Order</a></span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/MoltinRequest.html">MoltinRequest</a></span></code></pre>
 
                         </div>
                       </div>

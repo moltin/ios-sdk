@@ -7,14 +7,20 @@
 
 import Foundation
 
+/// Protocol to encapsulate all payment methods in the system, and allow developers to extend and create new payment methods when needed.
 public protocol PaymentMethod {
+    
+    /// The payment data to be sent to the API
     var paymentData: [String: Any] { get }
 }
 
+/// Payment using a Stripe Token
 open class StripeToken: PaymentMethod {
     
+    /// The stripe token
     var token: String
     
+    /// The payment data to be sent to the API
     public var paymentData: [String : Any] {
         return [
             "gateway" : "stripe",
@@ -23,20 +29,29 @@ open class StripeToken: PaymentMethod {
         ]
     }
     
-    init(withStripeToken token: String) {
+    /// Initialise the payment method with a stripe token
+    public init(withStripeToken token: String) {
         self.token = token
     }
 }
 
+/// Payment using Stripe Card data
 open class StripeCard: PaymentMethod {
     
+    /// The first name of the person on the card
     var firstName: String
+    /// The last name of the person on the card
     var lastName: String
+    /// The card number
     var cardNumber: String
+    /// The expiry month of the card
     var expiryMonth: String
+    /// The expiry year of the card
     var expiryYear: String
+    /// The CVV number of the card
     var cvvNumber: String
     
+    /// The payment data to be sent to the API
     public var paymentData: [String : Any] {
         return [
             "gateway" : "stripe",
@@ -50,7 +65,8 @@ open class StripeCard: PaymentMethod {
         ]
     }
     
-    init(
+    /// Initialise the payment method with card details
+    public init(
         withFirstName firstName: String,
         withLastName lastName: String,
         withCardNumber cardNumber: String,
@@ -67,11 +83,15 @@ open class StripeCard: PaymentMethod {
     }
 }
 
-class BraintreeCustomerID: PaymentMethod {
+/// Payment using Braintree customer ID information
+open class BraintreeCustomerID: PaymentMethod {
     
+    /// The braintree customer ID
     var customerID: String
+    /// Custom fields to be applied to this payment
     var customFields: [String: String]?
     
+    /// The payment data to be sent to the API
     public var paymentData: [String : Any] {
         var data: [String : Any] = [
             "gateway" : "braintree",
@@ -86,17 +106,22 @@ class BraintreeCustomerID: PaymentMethod {
         return data
     }
     
-    init(initWithCustomerID customerID: String, withCustomFields customFields: [String: String]? = nil) {
+    /// Initialise the payment method with a braintree customer ID and custom fields to apply to the payment
+    public init(initWithCustomerID customerID: String, withCustomFields customFields: [String: String]? = nil) {
         self.customerID = customerID
         self.customFields = customFields
     }
 }
 
-class BraintreePaymentToken: PaymentMethod {
+/// Payment using a Braintree payment token
+open class BraintreePaymentToken: PaymentMethod {
     
+    /// The Braintree payment token
     var paymentToken: String
+    /// Custom fields to be applied to this payment
     var customFields: [String: String]?
     
+    /// The payment data to be sent to the API
     public var paymentData: [String: Any] {
         var data: [String: Any] = [
             "gateway": "braintree",
@@ -115,17 +140,22 @@ class BraintreePaymentToken: PaymentMethod {
         return data
     }
     
-    init(initWithPaymentToken paymentToken: String, withCustomFields customFields: [String: String]? = nil) {
+    /// Initialise the payment method with a braintree payment token and custom fields to apply to the payment
+    public init(initWithPaymentToken paymentToken: String, withCustomFields customFields: [String: String]? = nil) {
         self.paymentToken = paymentToken
         self.customFields = customFields
     }
 }
 
-class BraintreePaymentNonce: PaymentMethod {
+/// Payment using a Braintree payment nonce
+open class BraintreePaymentNonce: PaymentMethod {
     
+    /// The Braintree payment nonce
     var paymentNonce: String
+    /// Custom fields to be applied to this payment
     var customFields: [String: String]?
     
+    /// The payment data to be sent to the API
     public var paymentData: [String: Any] {
         var data: [String: Any] = [
             "gateway": "braintree",
@@ -144,7 +174,8 @@ class BraintreePaymentNonce: PaymentMethod {
         return data
     }
     
-    init(initWithPaymentNonce paymentNonce: String, withCustomFields customFields: [String: String]? = nil) {
+    /// Initialise the payment method with a braintree payment nonce and custom fields to apply to the payment
+    public init(initWithPaymentNonce paymentNonce: String, withCustomFields customFields: [String: String]? = nil) {
         self.paymentNonce = paymentNonce
         self.customFields = customFields
     }

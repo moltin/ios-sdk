@@ -85,6 +85,14 @@ custom_categories:
       - RelationshipSingle
       - RelationshipMany
       - Timestamps
+  - name: Payment Methods
+    children:
+      - StripeCard
+      - StripeToken
+      - BraintreeCustomerID
+      - BraintreePaymentToken
+      - BraintreePaymentNonce
+      - PaymentMethod
 
   - name: Utils
     children:
