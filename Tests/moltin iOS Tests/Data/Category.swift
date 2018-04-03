@@ -8,7 +8,7 @@
 import Foundation
 
 class MockCategoryDataFactory {
-    
+
     static let categoryData = """
     {
         "data": {
@@ -21,7 +21,7 @@ class MockCategoryDataFactory {
         }
     }
     """
-    
+
     static let multiCategoryData = """
     {
         "data": [{
@@ -34,7 +34,7 @@ class MockCategoryDataFactory {
         }]
     }
     """
-    
+
     static let customCategoryData = """
     {
         "data": {
@@ -50,7 +50,7 @@ class MockCategoryDataFactory {
         }
     }
     """
-    
+
     static let customMultiCategoryData = """
     {
         "data": [{

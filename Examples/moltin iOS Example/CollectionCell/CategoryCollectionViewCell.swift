@@ -8,7 +8,7 @@
 import UIKit
 
 class CategoryCollectionViewCell: UICollectionViewCell {
-    
+
     @IBOutlet weak var categoryTitleLabel: UILabel!
     @IBOutlet weak var categoryBackgroundImage: UIImageView!
     override func awakeFromNib() {

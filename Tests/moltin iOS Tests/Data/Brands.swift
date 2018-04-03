@@ -20,7 +20,7 @@ class MockBrandsDataFactory {
         }
     }
     """
-    
+
     static let multiBrandsData = """
     {
         "data": [{
@@ -33,7 +33,7 @@ class MockBrandsDataFactory {
         }]
     }
     """
-    
+
     static let customBrandData = """
     {
         "data": {
@@ -49,7 +49,7 @@ class MockBrandsDataFactory {
         }
     }
     """
-    
+
     static let customMultiBrandsData = """
     {
         "data": [{

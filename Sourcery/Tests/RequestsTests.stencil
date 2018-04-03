@@ -37,38 +37,6 @@ class MyCustom{{ case.name|upperFirstLetter }}: moltin.{{ case.name|upperFirstLe
 // MARK: {{ case.name|upperFirstLetter }}RequestTest - AutoMoltinRequest
 
 class {{ case.name|upperFirstLetter }}RequestTests: XCTestCase {
-    
-    let productJson = """
-                {
-                  "id": "51b56d92-ab99-4802-a2c1-be150848c629",
-                  "author": {
-                    "name": "Craig"
-                  }
-                }
-                """
-    
-    let multiProductJson = """
-                {
-                  "data":
-                    [{
-                      "id": "51b56d92-ab99-4802-a2c1-be150848c629",
-                      "author": {
-                        "name": "Craig"
-                      }
-                    }],
-                    "meta": {
-                    }
-                }
-                """
-
-    let treeJson = """
-        {
-          "id": "51b56d92-ab99-4802-a2c1-be150848c629",
-          "author": {
-            "name": "Craig"
-          }
-        }
-    """
 
     func test{{ case.name|upperFirstLetter }}RequestReturns{{ case.name|upperFirstLetter }}s() {
         let (_, {{ case.name }}Request) = MockFactory.mocked{{ case.name|upperFirstLetter }}Request(withJSON: self.multiProductJson)
@@ -80,10 +48,8 @@ class {{ case.name|upperFirstLetter }}RequestTests: XCTestCase {
             case .success(let response):
                 XCTAssert(type(of: response.data) == [moltin.{{ case.name|upperFirstLetter }}].self)
                 XCTAssert(response.data?.count != 0)
-                break
-            case .failure(_):
-                XCTFail("Response returned error")
-                break
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
             }
             
             expectationToFulfill.fulfill()
@@ -106,10 +72,8 @@ class {{ case.name|upperFirstLetter }}RequestTests: XCTestCase {
             case .success(let response):
                 XCTAssert(type(of: response) == moltin.{{ case.name|upperFirstLetter }}.self)
                 XCTAssert(response.id == "51b56d92-ab99-4802-a2c1-be150848c629")
-                break
-            case .failure(_):
-                XCTFail("Response returned error")
-                break
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
             }
             
             expectationToFulfill.fulfill()
@@ -134,10 +98,8 @@ class {{ case.name|upperFirstLetter }}RequestTests: XCTestCase {
             case .success(let response):
                 XCTAssert(type(of: response.data) == [MyCustom{{ case.name|upperFirstLetter }}].self)
                 XCTAssert(response.data?.count != 0)
-                break
-            case .failure(_):
-                XCTFail("Response returned error")
-                break
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
             }
             
             expectationToFulfill.fulfill()
@@ -163,10 +125,8 @@ class {{ case.name|upperFirstLetter }}RequestTests: XCTestCase {
                 XCTAssert(type(of: response) == MyCustom{{ case.name|upperFirstLetter }}.self)
                 XCTAssert(response.id == "51b56d92-ab99-4802-a2c1-be150848c629")
                 XCTAssert(response.author == author)
-                break
-            case .failure(_):
-                XCTFail("Response returned error")
-                break
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
             }
             
             expectationToFulfill.fulfill()
@@ -193,10 +153,8 @@ class {{ case.name|upperFirstLetter }}RequestTests: XCTestCase {
             case .success(let response):
                 XCTAssert(type(of: response.data) == [moltin.{{ case.name|upperFirstLetter}}].self)
                 XCTAssert(response.data?.count != 0)
-                break
-            case .failure(_):
-                XCTFail("Response returned error")
-                break
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
             }
             
             expectationToFulfill.fulfill()
@@ -221,10 +179,8 @@ class {{ case.name|upperFirstLetter }}RequestTests: XCTestCase {
             case .success(let response):
                 XCTAssert(type(of: response.data) == [MyCustom{{ case.name|upperFirstLetter}}].self)
                 XCTAssert(response.data?.count != 0)
-                break
-            case .failure(_):
-                XCTFail("Response returned error")
-                break
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
             }
             
             expectationToFulfill.fulfill()

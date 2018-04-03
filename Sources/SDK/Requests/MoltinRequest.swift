@@ -11,7 +11,7 @@ enum HTTPMethod: String, CustomStringConvertible {
     var description: String {
         return self.rawValue
     }
-    
+
     case GET
     case POST
     case PUT
@@ -30,16 +30,16 @@ public enum Result<T> {
 /// Base class which various endpoints extend from.
 /// This class is responsible for orchestrating a request, by constructing queries, authenticating calls, and parsing data.
 public class MoltinRequest {
-    
+
     internal var config: MoltinConfig
     internal var http: MoltinHTTP
     internal var parser: MoltinParser
-    
+
     internal var query: MoltinQuery
     internal var auth: MoltinAuth
-    
+
     // MARK: - Init
-    
+
     /**
      Initialise a new `MoltinRequest` with some standard configuration
      
@@ -56,9 +56,9 @@ public class MoltinRequest {
         self.query = MoltinQuery()
         self.auth = MoltinAuth(withConfiguration: self.config)
     }
-    
+
     // MARK: - Default Calls
-    
+
     /**
      Return all instances of type `T`, which must be `Codable`.
      - Author:
@@ -81,14 +81,18 @@ public class MoltinRequest {
             completionHandler(.failure(error: error))
             return self
         }
-        
+
         self.send(withURLRequest: urlRequest) { (data, response, error) in
+            if error != nil {
+                completionHandler(.failure(error: MoltinError.responseError(underlyingError: error)))
+                return
+            }
             self.parser.collectionHandler(withData: data, withResponse: response, completionHandler: completionHandler)
         }
-        
+
         return self
     }
-    
+
     /**
      Return a single instance of type `T`, which must be `Codable`.
     - Author:
@@ -111,14 +115,18 @@ public class MoltinRequest {
             completionHandler(.failure(error: error))
             return self
         }
-        
+
         self.send(withURLRequest: urlRequest) { (data, response, error) in
+            if error != nil {
+                completionHandler(.failure(error: MoltinError.responseError(underlyingError: error)))
+                return
+            }
             self.parser.singleObjectHandler(withData: data, withResponse: response, completionHandler: completionHandler)
         }
-        
+
         return self
     }
-    
+
     /**
      Construct a creation request, and return an instance of type `T`, which must be `Codable`
      
@@ -132,7 +140,7 @@ public class MoltinRequest {
      - returns:
         A instance of `MoltinRequest` which encapsulates the request.
      */
-    @discardableResult func post<T: Codable>(withPath path: String, withData data: [String : Any], completionHandler: @escaping ObjectRequestHandler<T>) -> Self {
+    @discardableResult func post<T: Codable>(withPath path: String, withData data: [String: Any], completionHandler: @escaping ObjectRequestHandler<T>) -> Self {
         let urlRequest: URLRequest
         do {
             urlRequest = try self.http.buildURLRequest(
@@ -146,14 +154,18 @@ public class MoltinRequest {
             completionHandler(.failure(error: error))
             return self
         }
-        
+
         self.send(withURLRequest: urlRequest) { (data, response, error) in
+            if error != nil {
+                completionHandler(.failure(error: MoltinError.responseError(underlyingError: error)))
+                return
+            }
             self.parser.singleObjectHandler(withData: data, withResponse: response, completionHandler: completionHandler)
         }
-        
+
         return self
     }
-    
+
     /**
      Construct an update request, and return an instance of type `T`, which must be `Codable`
      
@@ -167,7 +179,7 @@ public class MoltinRequest {
      - returns:
      A instance of `MoltinRequest` which encapsulates the request.
      */
-    @discardableResult func put<T: Codable>(withPath path: String, withData data: [String : Any], completionHandler: @escaping ObjectRequestHandler<T>) -> Self {
+    @discardableResult func put<T: Codable>(withPath path: String, withData data: [String: Any], completionHandler: @escaping ObjectRequestHandler<T>) -> Self {
         let urlRequest: URLRequest
         do {
             urlRequest = try self.http.buildURLRequest(
@@ -181,14 +193,18 @@ public class MoltinRequest {
             completionHandler(.failure(error: error))
             return self
         }
-        
+
         self.send(withURLRequest: urlRequest) { (data, response, error) in
+            if error != nil {
+                completionHandler(.failure(error: MoltinError.responseError(underlyingError: error)))
+                return
+            }
             self.parser.singleObjectHandler(withData: data, withResponse: response, completionHandler: completionHandler)
         }
-        
+
         return self
     }
-    
+
     /**
      Construct a deletion request, and return an instance of type `T`, which must be `Codable`
      
@@ -214,15 +230,19 @@ public class MoltinRequest {
             completionHandler(.failure(error: error))
             return self
         }
-        
+
         self.send(withURLRequest: urlRequest) { (data, response, error) in
+            if error != nil {
+                completionHandler(.failure(error: MoltinError.responseError(underlyingError: error)))
+                return
+            }
             self.parser.singleObjectHandler(withData: data, withResponse: response, completionHandler: completionHandler)
         }
-        
+
         return self
     }
-    
-    private func send(withURLRequest urlRequest: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> ()) {
+
+    private func send(withURLRequest urlRequest: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) {
         self.auth.authenticate { [weak self] (result) in
             switch result {
             case .success(let result):
@@ -235,9 +255,9 @@ public class MoltinRequest {
             }
         }
     }
-    
+
     // MARK: - Modifiers
-    
+
     /**
      Add some includes to the query
      
@@ -254,7 +274,7 @@ public class MoltinRequest {
         self.query.withIncludes = includes
         return self
     }
-    
+
     /**
      Add a limit parameter to the query
      
@@ -271,7 +291,7 @@ public class MoltinRequest {
         self.query.withLimit = "\(limit)"
         return self
     }
-    
+
     /**
      Add a sort parameter to the query
      
@@ -288,7 +308,7 @@ public class MoltinRequest {
         self.query.withSorting = sort
         return self
     }
-    
+
     /**
      Add an offset parameter to the query
      
@@ -305,7 +325,7 @@ public class MoltinRequest {
         self.query.withOffset = "\(offset)"
         return self
     }
-    
+
     /**
      Add an filter parameter to the query
      

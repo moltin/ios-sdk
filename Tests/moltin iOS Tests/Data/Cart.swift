@@ -8,7 +8,7 @@
 import Foundation
 
 class MockCartDataFactory {
-    
+
     static let cartData = """
     {
         "data": {
@@ -38,7 +38,7 @@ class MockCartDataFactory {
         }
     }
     """
-    
+
     static let cartItemsData = """
     {
         "data": [{

@@ -93,7 +93,7 @@ class MockProductDataFactory {
         }
     }
     """
-    
+
     static let multiProductData = """
     {
         "data": [{
@@ -179,7 +179,7 @@ class MockProductDataFactory {
         }]
     }
     """
-    
+
     static let customProductData = """
     {
         "data": {
@@ -268,7 +268,7 @@ class MockProductDataFactory {
         }
     }
     """
-    
+
     static let customMultiProductData = """
     {
         "data": [{

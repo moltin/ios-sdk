@@ -8,7 +8,7 @@
 import Foundation
 
 class MockFieldDataFactory {
-    
+
     static let fieldData = """
     {
         "data": {
@@ -41,7 +41,7 @@ class MockFieldDataFactory {
         }
     }
     """
-    
+
     static let multiFieldData = """
     {
         "data": [{

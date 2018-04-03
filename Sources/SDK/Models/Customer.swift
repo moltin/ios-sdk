@@ -15,7 +15,7 @@ open class Customer: Codable {
     public var email: String?
     /// The name of this customer
     public var name: String?
-    
+
     init(withID id: String? = nil, withEmail email: String? = nil, withName name: String? = nil) {
         self.id = id
         self.email = email

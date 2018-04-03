@@ -23,7 +23,7 @@ public struct DisplayPrices: Codable {
     public let withTax: DisplayPrice
     /// The display price without tax
     public let withoutTax: DisplayPrice
-    
+
     enum CodingKeys: String, CodingKey {
         case withTax = "with_tax"
         case withoutTax = "without_tax"

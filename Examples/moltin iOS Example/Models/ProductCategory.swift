@@ -11,12 +11,12 @@ import moltin
 class ProductCategory: moltin.Category {
     var backgroundColor: UIColor?
     var backgroundImage: String?
-    
-    enum ProductCategoryCodingKeys : String, CodingKey {
+
+    enum ProductCategoryCodingKeys: String, CodingKey {
         case backgroundColor = "background_colour"
         case backgroundImage = "background_image"
     }
-    
+
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: ProductCategoryCodingKeys.self)
         let color: String = try container.decode(String.self, forKey: .backgroundColor)

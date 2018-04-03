@@ -15,10 +15,10 @@ public struct ProductPrice: Codable {
     public let currency: String
     /// Whether this price includes tax
     public let includesTax: Bool
-    
+
     enum CodingKeys: String, CodingKey {
         case includesTax = "includes_tax"
-        
+
         case amount
         case currency
     }
@@ -62,11 +62,11 @@ public class ProductMeta: Codable {
     public let variations: [ProductVariation]?
     /// The variation matrix of this product
     public let variationMatrix: [[String: String]]?
-    
+
     enum CodingKeys: String, CodingKey {
         case displayPrice = "display_price"
         case variationMatrix = "variation_matrix"
-        
+
         case timestamps
         case stock
         case variations
@@ -99,7 +99,7 @@ open class Product: Codable, HasRelationship {
     public let meta: ProductMeta
     /// The relationships this product has
     public let relationships: Relationships?
-    
+
     /// The main image of this product
     public var mainImage: File?
     /// The files this product has
@@ -110,11 +110,11 @@ open class Product: Codable, HasRelationship {
     public var brands: [Brand]?
     /// The collections this product belongs to
     public var collections: [Collection]?
-    
+
     enum CodingKeys: String, CodingKey {
         case manageStock = "manage_stock"
         case commodityType = "commodity_type"
-        
+
         case id
         case type
         case name
@@ -126,11 +126,11 @@ open class Product: Codable, HasRelationship {
         case meta
         case relationships
     }
-    
+
     required public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         let includes: IncludesContainer = decoder.userInfo[.includes] as? IncludesContainer ?? [:]
-        
+
         self.id = try container.decode(String.self, forKey: .id)
         self.type = try container.decode(String.self, forKey: .type)
         self.name = try container.decode(String.self, forKey: .name)
@@ -141,17 +141,17 @@ open class Product: Codable, HasRelationship {
         self.status = try container.decode(String.self, forKey: .status)
         self.meta = try container.decode(ProductMeta.self, forKey: .meta)
         self.relationships = try container.decodeIfPresent(Relationships.self, forKey: .relationships)
-        
+
         self.manageStock = try container.decode(Bool.self, forKey: .manageStock)
         self.commodityType = try container.decode(String.self, forKey: .commodityType)
-        
+
         try self.decodeRelationships(fromRelationships: self.relationships, withIncludes: includes)
-        
+
     }
 }
 
 extension Product {
-    
+
     func decodeRelationships(
         fromRelationships relationships: Relationships?,
         withIncludes includes: IncludesContainer
@@ -164,15 +164,15 @@ extension Product {
         self.files = try self.decodeMany(
             fromRelationships: relationships?[keyPath: \Relationships.files],
             withIncludes: includes["files"])
-        
+
         self.categories = try self.decodeMany(
             fromRelationships: relationships?[keyPath: \Relationships.categories],
             withIncludes: includes["categories"])
-        
+
         self.brands = try self.decodeMany(
             fromRelationships: relationships?[keyPath: \Relationships.brands],
             withIncludes: includes["brands"])
-        
+
         self.collections = try self.decodeMany(
             fromRelationships: relationships?[keyPath: \Relationships.collections],
             withIncludes: includes["collections"])

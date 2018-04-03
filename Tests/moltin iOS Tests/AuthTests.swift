@@ -11,7 +11,7 @@ import XCTest
 import moltin
 
 class AuthRequestTests: XCTestCase {
-    
+
     let multiProductJson = """
                 {
                   "data":
@@ -32,20 +32,20 @@ class AuthRequestTests: XCTestCase {
         "expires": 1001010
     }
     """
-    
+
     let validAuthJson = """
     {
         "access_token": "123asdasd123",
         "expires": 99999999999999999999
     }
     """
-    
+
     func testAuthAuthenticatesSuccessfullyAndPassesThrough() {
         let (_, productRequest) = MockFactory.mockedProductRequest(withJSON: MockProductDataFactory.multiProductData)
-        
+
         let expectationToFulfill = expectation(description: "ProductRequest calls the method and runs the callback closure")
-        
-        let _ = productRequest.all { (result) in
+
+        _ = productRequest.all { (result) in
             switch result {
             case .success(_):
                 XCTAssertTrue(true)
@@ -58,25 +58,25 @@ class AuthRequestTests: XCTestCase {
                 }
                 break
             }
-            
+
             expectationToFulfill.fulfill()
         }
-        
+
         waitForExpectations(timeout: 1) { error in
             if let error = error {
                 XCTFail("waitForExpectationsWithTimeout errored: \(error)")
             }
         }
     }
-    
+
     func testAuthAuthenticatesFailsCorrectly() {
         let (_, productRequest) = MockFactory.mockedProductRequest(withJSON: self.multiProductJson)
         let mockSession = MockURLSession()
         productRequest.auth.http = MoltinHTTP(withSession: mockSession)
-        
+
         let expectationToFulfill = expectation(description: "ProductRequest calls the method and runs the callback closure")
-        
-        let _ = productRequest.all { (result) in
+
+        _ = productRequest.all { (result) in
             switch result {
             case .success(_):
                 XCTFail()
@@ -85,70 +85,70 @@ class AuthRequestTests: XCTestCase {
                 XCTAssertNotNil(error)
                 break
             }
-            
+
             expectationToFulfill.fulfill()
         }
-        
+
         waitForExpectations(timeout: 1) { error in
             if let error = error {
                 XCTFail("waitForExpectationsWithTimeout errored: \(error)")
             }
         }
     }
-    
+
     func testAuthTokenRefreshRequired() {
         let auth = MoltinAuth(withConfiguration: MoltinConfig.default(withClientID: "12345"))
         auth.token = nil
         auth.expires = nil
-        
+
         let mockAuthSession = MockURLSession()
         auth.http = MoltinHTTP(withSession: mockAuthSession)
-        
+
         let expectationToFulfill = expectation(description: "Auth calls the method and runs the callback closure")
-        
+
         auth.authenticate { (result) in
             switch result {
             case .success(_):
                 XCTFail()
             default: XCTAssertTrue(true)
             }
-            
+
             expectationToFulfill.fulfill()
         }
-        
+
         waitForExpectations(timeout: 1) { error in
             if let error = error {
                 XCTFail("waitForExpectationsWithTimeout errored: \(error)")
             }
         }
     }
-    
+
     func testAuthCouldNotConfigure() {
         let auth = MoltinAuth(withConfiguration: MoltinConfig.default(withClientID: "12345"))
         auth.token = nil
         auth.expires = nil
         let mockAuthSession = MockURLSession()
         auth.http = MoltinHTTP(withSession: mockAuthSession)
-        
+
         let expectationToFulfill = expectation(description: "Auth calls the method and runs the callback closure")
-        
+
         auth.authenticate { (result) in
             switch result {
             case .success(_):
                 XCTFail()
             default: XCTAssertTrue(true)
             }
-            
+
             expectationToFulfill.fulfill()
         }
-        
+
         waitForExpectations(timeout: 1) { error in
             if let error = error {
                 XCTFail("waitForExpectationsWithTimeout errored: \(error)")
             }
         }
     }
-    
+
     func testAuthenticationFailed() {
         let auth = MoltinAuth(withConfiguration: MoltinConfig.default(withClientID: "12345"))
         auth.token = nil
@@ -156,51 +156,51 @@ class AuthRequestTests: XCTestCase {
         let session = MockURLSession()
         session.nextError = MoltinError.couldNotAuthenticate
         auth.http = MoltinHTTP(withSession: session)
-        
+
         let expectationToFulfill = expectation(description: "Auth calls the method and runs the callback closure")
-        
+
         auth.authenticate { (result) in
             switch result {
             case .success(_):
                 XCTFail()
             default: XCTAssertTrue(true)
             }
-            
+
             expectationToFulfill.fulfill()
         }
-        
+
         waitForExpectations(timeout: 1) { error in
             if let error = error {
                 XCTFail("waitForExpectationsWithTimeout errored: \(error)")
             }
         }
     }
-    
+
     func testAuthTokenNoRefreshRequired() {
         let auth = MoltinAuth(withConfiguration: MoltinConfig.default(withClientID: "12345"))
         auth.token = "12345"
         auth.expires = Date().addingTimeInterval(10000)
-        
+
         let session = MockURLSession()
         auth.http = MoltinHTTP(withSession: session)
-        
+
         let expectationToFulfill = expectation(description: "Auth calls the method and runs the callback closure")
-        
+
         auth.authenticate { (result) in
             switch result {
             case .success(let response):
                 XCTAssert(response.token == auth.token)
             default: XCTFail()
             }
-            
+
             expectationToFulfill.fulfill()
         }
-        
+
         waitForExpectations(timeout: 1) { error in
             if let error = error {
                 XCTFail("waitForExpectationsWithTimeout errored: \(error)")
             }
         }
     }
-    
+
 }

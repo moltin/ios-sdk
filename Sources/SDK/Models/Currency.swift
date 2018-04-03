@@ -39,13 +39,13 @@ open class Currency: Codable {
     public let links: [String: String]
     /// The meta information for this currency
     public let meta: CurrencyMeta
-    
+
     enum CodingKeys: String, CodingKey {
         case exchangeRate = "exchange_rate"
         case decimalPoint = "decimal_point"
         case thousandSeparator = "thousand_separator"
         case decimalPlaces = "decimal_places"
-        
+
         case id
         case type
         case code

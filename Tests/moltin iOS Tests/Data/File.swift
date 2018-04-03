@@ -8,7 +8,7 @@
 import Foundation
 
 class MockFileDataFactory {
-    
+
     static let fileData = """
     {
         "data": {
@@ -36,7 +36,7 @@ class MockFileDataFactory {
         }
     }
     """
-    
+
     static let multiFileData = """
     {
         "data": [{

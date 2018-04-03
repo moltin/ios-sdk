@@ -8,7 +8,7 @@
 import Foundation
 
 class MockCollectionDataFactory {
-    
+
     static let collectionData = """
     {
         "data": {
@@ -21,7 +21,7 @@ class MockCollectionDataFactory {
         }
     }
     """
-    
+
     static let multiCollectionData = """
     {
         "data": [{
@@ -34,7 +34,7 @@ class MockCollectionDataFactory {
         }]
     }
     """
-    
+
     static let customCollectionData = """
     {
         "data": {
@@ -50,7 +50,7 @@ class MockCollectionDataFactory {
         }
     }
     """
-    
+
     static let customMultiCollectionData = """
     {
         "data": [{

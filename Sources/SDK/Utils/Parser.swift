@@ -12,19 +12,19 @@ extension CodingUserInfoKey {
 }
 
 class MoltinParser {
-    
+
     var decoder: JSONDecoder
-    
+
     init(withDecoder decoder: JSONDecoder) {
         self.decoder = decoder
     }
-    
+
     func singleObjectHandler<T: Codable>(withData data: Data?, withResponse: URLResponse?, completionHandler: @escaping ObjectRequestHandler<T>) {
         guard let data = data else {
             completionHandler(Result.failure(error: MoltinError.noData))
             return
         }
-        
+
         do {
             let object: T = try self.parseObject(data: data)
             completionHandler(Result.success(result: object))
@@ -32,7 +32,7 @@ class MoltinParser {
             completionHandler(Result.failure(error: error))
         }
     }
-    
+
     func collectionHandler<T>(withData data: Data?, withResponse: URLResponse?, completionHandler: @escaping CollectionRequestHandler<T>) {
         guard let data = data else {
             completionHandler(Result.failure(error: MoltinError.noData))
@@ -45,7 +45,7 @@ class MoltinParser {
             completionHandler(Result.failure(error: error))
         }
     }
-    
+
     private func parseCollection<T: Codable>(data: Data) throws  -> PaginatedResponse<T> {
         let collection: PaginatedResponse<T>
         do {
@@ -57,11 +57,11 @@ class MoltinParser {
         }
         return collection
     }
-    
+
     private func parseObject<T: Codable>(data: Data) throws -> T {
         let object: T
         do {
-            
+
             let parsedData = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
             guard let jsonObject = parsedData?["data"] as? [String: Any] else {
                 throw MoltinError.couldNotFindDataKey

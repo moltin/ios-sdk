@@ -8,7 +8,7 @@
 import UIKit
 
 class ProductCollectionViewCell: UICollectionViewCell {
-    
+
     @IBOutlet var label: UILabel!
-    
+
 }

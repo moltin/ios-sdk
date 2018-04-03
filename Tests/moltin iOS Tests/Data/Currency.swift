@@ -8,7 +8,7 @@
 import Foundation
 
 class MockCurrencyDataFactory {
-    
+
     static let currencyData = """
     {
         "data": {
@@ -34,7 +34,7 @@ class MockCurrencyDataFactory {
         }
     }
     """
-    
+
     static let multiCurrencyData = """
     {
         "data": [{

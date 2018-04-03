@@ -11,13 +11,13 @@ import XCTest
 import moltin
 
 class CartTests: XCTestCase {
-    
+
     func testGettingANewCart() {
         let (_, request) = MockFactory.mockedCartRequest(withJSON: MockCartDataFactory.cartData)
 
         let expectationToFulfill = expectation(description: "CartRequest calls the method and runs the callback closure")
-        
-        let _ = request.get(forID: "3333") { (result) in
+
+        _ = request.get(forID: "3333") { (result) in
             switch result {
             case .success(let cart):
                 XCTAssert(cart.id == "3333")
@@ -25,25 +25,24 @@ class CartTests: XCTestCase {
             case .failure(let error):
                 XCTFail(error.localizedDescription)
             }
-            
+
             expectationToFulfill.fulfill()
         }
-        
+
         waitForExpectations(timeout: 1) { error in
             if let error = error {
                 XCTFail("waitForExpectationsWithTimeout errored: \(error)")
             }
         }
-        
-        
+
     }
-    
+
     func testGettingCartItems() {
         let (_, request) = MockFactory.mockedCartRequest(withJSON: MockCartDataFactory.cartItemsData)
-        
+
         let expectationToFulfill = expectation(description: "CartRequest calls the method and runs the callback closure")
-        
-        let _ = request.items(forCartID: "3333") { (result) in
+
+        _ = request.items(forCartID: "3333") { (result) in
             switch result {
             case .success(let cartItems):
                 XCTAssert(cartItems.data?[0].id == "abc123")
@@ -51,25 +50,25 @@ class CartTests: XCTestCase {
             case .failure(let error):
                 XCTFail(error.localizedDescription)
             }
-            
+
             expectationToFulfill.fulfill()
         }
-        
+
         waitForExpectations(timeout: 1) { error in
             if let error = error {
                 XCTFail("waitForExpectationsWithTimeout errored: \(error)")
             }
         }
     }
-    
+
     func testAddingAProductToCart() {
         let (_, request) = MockFactory.mockedCartRequest(withJSON: MockCartDataFactory.cartData)
-        
+
         let expectationToFulfill = expectation(description: "CartRequest calls the method and runs the callback closure")
-        
+
         let cartID = "3333"
         let productID = "12345"
-        let _ = request.addProduct(withID: productID, ofQuantity: 5, toCart: cartID) { (result) in
+        _ = request.addProduct(withID: productID, ofQuantity: 5, toCart: cartID) { (result) in
             switch result {
             case .success(let cart):
                 XCTAssert(cart.id == "3333")
@@ -77,17 +76,17 @@ class CartTests: XCTestCase {
             case .failure(let error):
                 XCTFail(error.localizedDescription)
             }
-            
+
             expectationToFulfill.fulfill()
         }
-        
+
         waitForExpectations(timeout: 1) { error in
             if let error = error {
                 XCTFail("waitForExpectationsWithTimeout errored: \(error)")
             }
         }
     }
-    
+
     func testBuildingACartItem() {
         let request = CartRequest(withConfiguration: MoltinConfig.default(withClientID: "12345"))
         let item = request.buildCartItem(withID: "12345", ofQuantity: 5)
@@ -95,15 +94,15 @@ class CartTests: XCTestCase {
         XCTAssert(item["id"] as? String == "12345")
         XCTAssert(item["quantity"] as? Int == 5)
     }
-    
+
     func testAddingACustomItem() {
         let (_, request) = MockFactory.mockedCartRequest(withJSON: MockCartDataFactory.cartData)
-        
+
         let expectationToFulfill = expectation(description: "CartRequest calls the method and runs the callback closure")
-        
+
         let cartID: String = "3333"
         let customItem = CustomCartItem(withSKU: "12345")
-        let _ = request.addCustomItem(customItem, toCart: cartID) { (result) in
+        _ = request.addCustomItem(customItem, toCart: cartID) { (result) in
             switch result {
             case .success(let cart):
                 XCTAssert(cart.id == "3333")
@@ -111,17 +110,17 @@ class CartTests: XCTestCase {
             case .failure(let error):
                 XCTFail(error.localizedDescription)
             }
-            
+
             expectationToFulfill.fulfill()
         }
-        
+
         waitForExpectations(timeout: 1) { error in
             if let error = error {
                 XCTFail("waitForExpectationsWithTimeout errored: \(error)")
             }
         }
     }
-    
+
     func testBuildingACustomItem() {
         let request = CartRequest(withConfiguration: MoltinConfig.default(withClientID: "12345"))
         let customItem = CustomCartItem(withSKU: "12345")
@@ -129,14 +128,14 @@ class CartTests: XCTestCase {
         XCTAssert(item["type"] as? String == "custom_item")
         XCTAssert(item["sku"] as? String == "12345")
     }
-    
+
     func testAddingAPromotion() {
         let (_, request) = MockFactory.mockedCartRequest(withJSON: MockCartDataFactory.cartData)
-        
+
         let expectationToFulfill = expectation(description: "CartRequest calls the method and runs the callback closure")
-        
+
         let cartID: String = "3333"
-        let _ = request.addPromotion("12345", toCart: cartID) { (result) in
+        _ = request.addPromotion("12345", toCart: cartID) { (result) in
             switch result {
             case .success(let cart):
                 XCTAssert(cart.id == "3333")
@@ -144,36 +143,36 @@ class CartTests: XCTestCase {
             case .failure(let error):
                 XCTFail(error.localizedDescription)
             }
-            
+
             expectationToFulfill.fulfill()
         }
-        
+
         waitForExpectations(timeout: 1) { error in
             if let error = error {
                 XCTFail("waitForExpectationsWithTimeout errored: \(error)")
             }
         }
     }
-    
+
     func testBuildingAPromotionItem() {
         let request = CartRequest(withConfiguration: MoltinConfig.default(withClientID: "12345"))
         let item = request.buildCartItem(withID: "12345", ofType: .promotionItem)
         XCTAssert(item["type"] as? String == "promotion_item")
         XCTAssert(item["code"] as? String == "12345")
     }
-    
+
     func testRemovingAnItemFromCart() {
-        
+
     }
-    
+
     func testUpdatingAnItemInCart() {
-        
+
     }
-    
+
     func testCheckingOutCart() {
-        
+
     }
-    
+
     func testBuildingCheckoutCartDataWithoutShippingAddressWorks() {
         let request = CartRequest(withConfiguration: MoltinConfig.default(withClientID: "12345"))
         let customer = Customer(withID: "12345")
@@ -186,9 +185,9 @@ class CartTests: XCTestCase {
         XCTAssert(customerDetails["id"] as? String == "12345")
         XCTAssert(shippingDetails["line_1"] as? String == "7 Patterdale Terrace")
         XCTAssert(billingDetails["line_1"] as? String == "7 Patterdale Terrace")
-        
+
     }
-    
+
     func testBuildingCheckoutCartDataWithShippingAddressWorks() {
         let request = CartRequest(withConfiguration: MoltinConfig.default(withClientID: "12345"))
         let customer = Customer(withID: "12345")
@@ -203,10 +202,10 @@ class CartTests: XCTestCase {
         XCTAssert(customerDetails["id"] as? String == "12345")
         XCTAssert(shippingDetails["line_1"] as? String == "8 Patterdale Terrace")
         XCTAssert(billingDetails["line_1"] as? String == "7 Patterdale Terrace")
-        
+
     }
-    
+
     func testDeletingCart() {
-        
+
     }
 }

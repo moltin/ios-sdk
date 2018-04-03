@@ -17,10 +17,10 @@ public struct MoltinConfig {
     public var host: String
     /// The version of the API
     public var version: String
-    
+
     /// The locale to use for langauges and currencies
     public var locale: Locale = Locale.current
-    
+
     /// Initialise the config with a clientID, scheme, host, and version
     public init(clientID: String, scheme: String, host: String, version: String) {
         self.clientID = clientID
@@ -28,13 +28,13 @@ public struct MoltinConfig {
         self.host = host
         self.version = version
     }
-    
+
     /// Initialise the config with a clientID, scheme, host, version, and locale
     public init(clientID: String, scheme: String, host: String, version: String, locale: Locale) {
         self.init(clientID: clientID, scheme: scheme, host: host, version: version)
         self.locale = locale
     }
-    
+
     /// Returns a default config set up with a clientID
     static public func `default`(withClientID clientID: String) -> MoltinConfig {
         return MoltinConfig(
@@ -43,7 +43,7 @@ public struct MoltinConfig {
             host: "api.moltin.com",
             version: "v2")
     }
-    
+
     /// Returns a default config set up with a clientID and a locale
     static public func `default`(withClientID clientID: String, withLocale locale: Locale) -> MoltinConfig {
         return MoltinConfig(
@@ -58,7 +58,7 @@ public struct MoltinConfig {
 extension MoltinConfig: Equatable {}
 
 /// Validates that two `MoltinConfig` objects and equal
-public func ==(lhs: MoltinConfig, rhs: MoltinConfig) -> Bool {
+public func == (lhs: MoltinConfig, rhs: MoltinConfig) -> Bool {
     return lhs.clientID == rhs.clientID &&
         lhs.scheme == rhs.scheme &&
         lhs.host == rhs.host &&

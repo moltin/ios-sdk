@@ -43,7 +43,7 @@ open class File: Codable {
     public let links: [String: String]
     /// The meta information for this file
     public let meta: FileMeta
-    
+
     enum CodingKeys: String, CodingKey {
         case id
         case type

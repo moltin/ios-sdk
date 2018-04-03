@@ -60,7 +60,6 @@ public class BrandRequest: MoltinRequest {
         return super.get(withPath: "\(self.endpoint)/\(id)", completionHandler: completionHandler)
     }
 
-
     /**
     Return all instances of type `Brand` by `id`, cast to type `T`, which must be `Codable`.
     - Author:
@@ -75,7 +74,6 @@ public class BrandRequest: MoltinRequest {
         return super.get(withPath: "\(self.endpoint)/\(id)", completionHandler: completionHandler)
     }
 
-
     /**
     Return the tree of `Brand`
     - Author:
@@ -89,7 +87,6 @@ public class BrandRequest: MoltinRequest {
         return super.list(withPath: "\(self.endpoint)/tree", completionHandler: completionHandler)
     }
 
-
     /**
     Return the tree of `Brand`, cast to type `T`, which must be `Codable`.
     - Author:
@@ -102,7 +99,6 @@ public class BrandRequest: MoltinRequest {
     @discardableResult public func tree<T: Codable>(completionHandler: @escaping CollectionRequestHandler<[T]>) -> MoltinRequest {
         return super.list(withPath: "\(self.endpoint)/tree", completionHandler: completionHandler)
     }
-
 
 }
 // MARK: CategoryRequest - AutoMoltinRequest
@@ -164,7 +160,6 @@ public class CategoryRequest: MoltinRequest {
         return super.get(withPath: "\(self.endpoint)/\(id)", completionHandler: completionHandler)
     }
 
-
     /**
     Return all instances of type `Category` by `id`, cast to type `T`, which must be `Codable`.
     - Author:
@@ -179,7 +174,6 @@ public class CategoryRequest: MoltinRequest {
         return super.get(withPath: "\(self.endpoint)/\(id)", completionHandler: completionHandler)
     }
 
-
     /**
     Return the tree of `Category`
     - Author:
@@ -193,7 +187,6 @@ public class CategoryRequest: MoltinRequest {
         return super.list(withPath: "\(self.endpoint)/tree", completionHandler: completionHandler)
     }
 
-
     /**
     Return the tree of `Category`, cast to type `T`, which must be `Codable`.
     - Author:
@@ -206,7 +199,6 @@ public class CategoryRequest: MoltinRequest {
     @discardableResult public func tree<T: Codable>(completionHandler: @escaping CollectionRequestHandler<[T]>) -> MoltinRequest {
         return super.list(withPath: "\(self.endpoint)/tree", completionHandler: completionHandler)
     }
-
 
 }
 // MARK: CollectionRequest - AutoMoltinRequest
@@ -268,7 +260,6 @@ public class CollectionRequest: MoltinRequest {
         return super.get(withPath: "\(self.endpoint)/\(id)", completionHandler: completionHandler)
     }
 
-
     /**
     Return all instances of type `Collection` by `id`, cast to type `T`, which must be `Codable`.
     - Author:
@@ -283,7 +274,6 @@ public class CollectionRequest: MoltinRequest {
         return super.get(withPath: "\(self.endpoint)/\(id)", completionHandler: completionHandler)
     }
 
-
     /**
     Return the tree of `Collection`
     - Author:
@@ -297,7 +287,6 @@ public class CollectionRequest: MoltinRequest {
         return super.list(withPath: "\(self.endpoint)/tree", completionHandler: completionHandler)
     }
 
-
     /**
     Return the tree of `Collection`, cast to type `T`, which must be `Codable`.
     - Author:
@@ -310,7 +299,6 @@ public class CollectionRequest: MoltinRequest {
     @discardableResult public func tree<T: Codable>(completionHandler: @escaping CollectionRequestHandler<[T]>) -> MoltinRequest {
         return super.list(withPath: "\(self.endpoint)/tree", completionHandler: completionHandler)
     }
-
 
 }
 // MARK: CurrencyRequest - AutoMoltinRequest
@@ -359,7 +347,6 @@ public class CurrencyRequest: MoltinRequest {
         return super.get(withPath: "\(self.endpoint)/\(id)", completionHandler: completionHandler)
     }
 
-
 }
 // MARK: FileRequest - AutoMoltinRequest
 
@@ -407,7 +394,6 @@ public class FileRequest: MoltinRequest {
         return super.get(withPath: "\(self.endpoint)/\(id)", completionHandler: completionHandler)
     }
 
-
 }
 // MARK: FieldRequest - AutoMoltinRequest
 
@@ -454,7 +440,6 @@ public class FieldRequest: MoltinRequest {
     @discardableResult public func get(forID id: String, completionHandler: @escaping DefaultObjectRequestHandler) -> MoltinRequest {
         return super.get(withPath: "\(self.endpoint)/\(id)", completionHandler: completionHandler)
     }
-
 
 }
 // MARK: ProductRequest - AutoMoltinRequest
@@ -516,7 +501,6 @@ public class ProductRequest: MoltinRequest {
         return super.get(withPath: "\(self.endpoint)/\(id)", completionHandler: completionHandler)
     }
 
-
     /**
     Return all instances of type `Product` by `id`, cast to type `T`, which must be `Codable`.
     - Author:
@@ -530,6 +514,5 @@ public class ProductRequest: MoltinRequest {
     @discardableResult public func get<T: Codable>(forID id: String, completionHandler: @escaping ObjectRequestHandler<T>) -> MoltinRequest {
         return super.get(withPath: "\(self.endpoint)/\(id)", completionHandler: completionHandler)
     }
-
 
 }

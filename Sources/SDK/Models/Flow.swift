@@ -47,10 +47,10 @@ open class Field: Codable {
     public let relationships: Relationships?
     /// The meta information for this Field
     public let meta: FieldMeta?
-    
+
     enum CodingKeys: String, CodingKey {
         case fieldType = "field_type"
-        
+
         case id
         case type
         case slug

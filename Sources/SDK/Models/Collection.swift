@@ -23,16 +23,16 @@ open class Collection: Codable, HasRelationship {
     public let status: String
     /// The relationships this collection has
     public let relationships: Relationships?
-    
+
     /// The collections associated with this collection
     public var collections: [Collection]?
     /// The products associated with this collection
     public var products: [Product]?
-    
+
     required public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         let includes: IncludesContainer = decoder.userInfo[.includes] as? IncludesContainer ?? [:]
-        
+
         self.id = try container.decode(String.self, forKey: .id)
         self.type = try container.decode(String.self, forKey: .type)
         self.name = try container.decode(String.self, forKey: .name)
@@ -40,8 +40,7 @@ open class Collection: Codable, HasRelationship {
         self.description = try container.decode(String.self, forKey: .description)
         self.status = try container.decode(String.self, forKey: .status)
         self.relationships = try container.decodeIfPresent(Relationships.self, forKey: .relationships)
-        
-        
+
         try self.decodeRelationships(fromRelationships: self.relationships, withIncludes: includes)
     }
 }
@@ -50,10 +49,10 @@ extension Collection {
     func decodeRelationships(
         fromRelationships relationships: Relationships?,
         withIncludes includes: IncludesContainer) throws {
-        
+
         self.collections = try self.decodeMany(fromRelationships: self.relationships?[keyPath: \Relationships.collections],
                                               withIncludes: includes["collections"])
-        
+
         self.products = try self.decodeMany(fromRelationships: self.relationships?[keyPath: \Relationships.products],
                                             withIncludes: includes["products"])
     }

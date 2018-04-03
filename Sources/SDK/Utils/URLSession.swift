@@ -14,12 +14,12 @@ protocol URLSessionProtocol {
 }
 
 extension URLSession: URLSessionProtocol {
-    
+
     func dataTask(with urlRequest: URLRequest, completionHandler: @escaping DataTaskResult) -> URLSessionDataTaskProtocol {
         let dataTask: URLSessionDataTask = self.dataTask(with: urlRequest, completionHandler: completionHandler)
         return dataTask as URLSessionDataTaskProtocol
     }
-    
+
 }
 
 protocol URLSessionDataTaskProtocol {

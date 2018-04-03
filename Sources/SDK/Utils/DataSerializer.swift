@@ -12,7 +12,7 @@ protocol DataSerializer {
 }
 
 class MoltinDataSerializer: DataSerializer {
-    
+
     func serialize(_ data: Any) throws -> Data {
         let payload: [String: Any] = ["data": data]
         return try JSONSerialization.data(withJSONObject: payload, options: [])

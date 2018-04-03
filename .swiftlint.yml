@@ -1,0 +1,11 @@
+excluded:
+ - Tests
+
+disabled_rules:
+  - type_name
+  - identifier_name
+  - large_tuple
+  - file_length
+
+line_length: 180
+file_length: 600

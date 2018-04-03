@@ -9,26 +9,26 @@ import Foundation
 
 /// Protocol to encapsulate all payment methods in the system, and allow developers to extend and create new payment methods when needed.
 public protocol PaymentMethod {
-    
+
     /// The payment data to be sent to the API
     var paymentData: [String: Any] { get }
 }
 
 /// Payment using a Stripe Token
 open class StripeToken: PaymentMethod {
-    
+
     /// The stripe token
     var token: String
-    
+
     /// The payment data to be sent to the API
-    public var paymentData: [String : Any] {
+    public var paymentData: [String: Any] {
         return [
-            "gateway" : "stripe",
-            "method" : "purchase",
-            "payment" : self.token
+            "gateway": "stripe",
+            "method": "purchase",
+            "payment": self.token
         ]
     }
-    
+
     /// Initialise the payment method with a stripe token
     public init(withStripeToken token: String) {
         self.token = token
@@ -37,7 +37,7 @@ open class StripeToken: PaymentMethod {
 
 /// Payment using Stripe Card data
 open class StripeCard: PaymentMethod {
-    
+
     /// The first name of the person on the card
     var firstName: String
     /// The last name of the person on the card
@@ -50,21 +50,21 @@ open class StripeCard: PaymentMethod {
     var expiryYear: String
     /// The CVV number of the card
     var cvvNumber: String
-    
+
     /// The payment data to be sent to the API
-    public var paymentData: [String : Any] {
+    public var paymentData: [String: Any] {
         return [
-            "gateway" : "stripe",
-            "method" : "purchase",
-            "first_name" : self.firstName,
-            "last_name" : self.lastName,
-            "number" : self.cardNumber,
-            "month" : self.expiryMonth,
-            "year" : self.expiryYear,
-            "verification_value" : self.cvvNumber
+            "gateway": "stripe",
+            "method": "purchase",
+            "first_name": self.firstName,
+            "last_name": self.lastName,
+            "number": self.cardNumber,
+            "month": self.expiryMonth,
+            "year": self.expiryYear,
+            "verification_value": self.cvvNumber
         ]
     }
-    
+
     /// Initialise the payment method with card details
     public init(
         withFirstName firstName: String,
@@ -85,27 +85,27 @@ open class StripeCard: PaymentMethod {
 
 /// Payment using Braintree customer ID information
 open class BraintreeCustomerID: PaymentMethod {
-    
+
     /// The braintree customer ID
     var customerID: String
     /// Custom fields to be applied to this payment
     var customFields: [String: String]?
-    
+
     /// The payment data to be sent to the API
-    public var paymentData: [String : Any] {
-        var data: [String : Any] = [
-            "gateway" : "braintree",
-            "method" : "purchase",
-            "payment" : self.customerID
+    public var paymentData: [String: Any] {
+        var data: [String: Any] = [
+            "gateway": "braintree",
+            "method": "purchase",
+            "payment": self.customerID
         ]
-        
+
         if let customFields = self.customFields {
             data["options"] = ["custom_fields": customFields]
         }
-        
+
         return data
     }
-    
+
     /// Initialise the payment method with a braintree customer ID and custom fields to apply to the payment
     public init(initWithCustomerID customerID: String, withCustomFields customFields: [String: String]? = nil) {
         self.customerID = customerID
@@ -115,18 +115,18 @@ open class BraintreeCustomerID: PaymentMethod {
 
 /// Payment using a Braintree payment token
 open class BraintreePaymentToken: PaymentMethod {
-    
+
     /// The Braintree payment token
     var paymentToken: String
     /// Custom fields to be applied to this payment
     var customFields: [String: String]?
-    
+
     /// The payment data to be sent to the API
     public var paymentData: [String: Any] {
         var data: [String: Any] = [
             "gateway": "braintree",
             "method": "purchase",
-            "payment": self.paymentToken,
+            "payment": self.paymentToken
         ]
 
         var options: [String: Any] = ["payment_method_token": true]
@@ -139,7 +139,7 @@ open class BraintreePaymentToken: PaymentMethod {
 
         return data
     }
-    
+
     /// Initialise the payment method with a braintree payment token and custom fields to apply to the payment
     public init(initWithPaymentToken paymentToken: String, withCustomFields customFields: [String: String]? = nil) {
         self.paymentToken = paymentToken
@@ -149,31 +149,31 @@ open class BraintreePaymentToken: PaymentMethod {
 
 /// Payment using a Braintree payment nonce
 open class BraintreePaymentNonce: PaymentMethod {
-    
+
     /// The Braintree payment nonce
     var paymentNonce: String
     /// Custom fields to be applied to this payment
     var customFields: [String: String]?
-    
+
     /// The payment data to be sent to the API
     public var paymentData: [String: Any] {
         var data: [String: Any] = [
             "gateway": "braintree",
             "method": "purchase",
-            "payment": self.paymentNonce,
+            "payment": self.paymentNonce
             ]
-        
+
         var options: [String: Any] = ["payment_method_nonce": true]
-        
+
         if let customFields = self.customFields {
             options["custom_fields"] = customFields
         }
-        
+
         data["options"] = options
-        
+
         return data
     }
-    
+
     /// Initialise the payment method with a braintree payment nonce and custom fields to apply to the payment
     public init(initWithPaymentNonce paymentNonce: String, withCustomFields customFields: [String: String]? = nil) {
         self.paymentNonce = paymentNonce

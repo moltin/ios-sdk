@@ -11,5 +11,5 @@ import XCTest
 import moltin
 
 class FlowTests: XCTestCase {
-    
+
 }

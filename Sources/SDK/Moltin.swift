@@ -14,7 +14,7 @@ public class Moltin {
      The config used for connecting to the Moltin API.
     */
     public var config: MoltinConfig
-    
+
     /**
      Entry point to requesting information about brands
      
@@ -29,7 +29,7 @@ public class Moltin {
     public var brand: BrandRequest {
         return BrandRequest(withConfiguration: self.config)
     }
-    
+
     /**
      Entry point to requesting information about your cart
      
@@ -44,7 +44,7 @@ public class Moltin {
     public var cart: CartRequest {
         return CartRequest(withConfiguration: self.config)
     }
-    
+
     /**
      Entry point to requesting information about categories
      
@@ -59,7 +59,7 @@ public class Moltin {
     public var category: CategoryRequest {
         return CategoryRequest(withConfiguration: self.config)
     }
-    
+
     /**
      Entry point to requesting information about collections
      
@@ -74,7 +74,7 @@ public class Moltin {
     public var collection: CollectionRequest {
         return CollectionRequest(withConfiguration: self.config)
     }
-    
+
     /**
      Entry point to requesting information about currencies
      
@@ -89,7 +89,7 @@ public class Moltin {
     public var currency: CurrencyRequest {
         return CurrencyRequest(withConfiguration: self.config)
     }
-    
+
     /**
      Entry point to requesting information about files
      
@@ -104,7 +104,7 @@ public class Moltin {
     public var file: FileRequest {
         return FileRequest(withConfiguration: self.config)
     }
-    
+
     /**
      Entry point to requesting information about fields
      
@@ -119,7 +119,7 @@ public class Moltin {
     public var field: FieldRequest {
         return FieldRequest(withConfiguration: self.config)
     }
-    
+
     /**
      Entry point to requesting information about flows
      
@@ -134,7 +134,7 @@ public class Moltin {
     public var flow: FlowRequest {
         return FlowRequest(withConfiguration: self.config)
     }
-    
+
     /**
      Entry point to requesting information about products
      
@@ -149,7 +149,7 @@ public class Moltin {
     public var product: ProductRequest {
         return ProductRequest(withConfiguration: self.config)
     }
-    
+
     /**
      Allows the user to set up a instance of the `Moltin` object with a client ID and an optional configuration object
      
@@ -166,7 +166,7 @@ public class Moltin {
     public init(withClientID clientID: String, withConfiguration configuration: MoltinConfig? = nil) {
         self.config = configuration ?? MoltinConfig.default(withClientID: clientID)
     }
-    
+
     /**
      Allows the user to set up a instance of the `Moltin` object with a configuration object
      

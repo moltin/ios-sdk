@@ -11,7 +11,7 @@ import Foundation
 public class CartMeta: Codable {
     /// The display price information for this cart
     public let displayPrice: DisplayPrices
-    
+
     enum CodingKeys: String, CodingKey {
         case displayPrice = "display_price"
     }
@@ -31,7 +31,7 @@ public struct CartItemDisplayPrices: Codable {
     public let withTax: CartItemDisplayPrice
     /// The display price for this cart item without tax
     public let withoutTax: CartItemDisplayPrice
-    
+
     enum CodingKeys: String, CodingKey {
         case withTax = "with_tax"
         case withoutTax = "without_tax"
@@ -42,7 +42,7 @@ public struct CartItemDisplayPrices: Codable {
 public class CartItemMeta: Codable {
     /// The display price for this cart item
     public let displayPrice: CartItemDisplayPrices
-    
+
     enum CodingKeys: String, CodingKey {
         case displayPrice = "display_price"
     }
@@ -84,11 +84,11 @@ open class CartItem: Codable {
     public let links: [String: String]
     /// The meta information for this cart
     public let meta: CartItemMeta
-    
+
     enum CodingKeys: String, CodingKey {
         case productId = "product_id"
         case unitPrice = "unit_price"
-        
+
         case id
         case type
         case name
@@ -113,7 +113,7 @@ public enum CartItemType: String {
 open class CustomCartItem: Codable {
     /// The SKU of this cart item
     var sku: String
-    
+
     internal init(withSKU sku: String) {
         self.sku = sku
     }

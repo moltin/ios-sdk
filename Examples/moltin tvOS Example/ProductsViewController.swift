@@ -9,7 +9,7 @@ import UIKit
 import moltin
 
 class ProductsViewController: UICollectionViewController {
-    
+
     var data: [Product] = []
     let moltin: Moltin = Moltin(withClientID: "bJp5DRgPSrXFCft3AEWeJpX3pNU7A6dc0cfgi7K9Yd")
     var request: MoltinRequest?
@@ -17,9 +17,9 @@ class ProductsViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
+
         self.collectionView?.register(UINib(nibName: "ProductCollectionViewCell", bundle: Bundle.main), forCellWithReuseIdentifier: "Cell")
-        
+
         self.request = self.moltin.product.all { (response) in
             switch response {
             case .success(let products):
@@ -38,7 +38,6 @@ class ProductsViewController: UICollectionViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
 }
 
 // MARK: - Data Source
@@ -48,7 +47,6 @@ extension ProductsViewController {
     }
 }
 
-
 // MARK: - Delegate
 extension ProductsViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -57,7 +55,7 @@ extension ProductsViewController {
         }
         let product = self.data[indexPath.row]
         cell.label.text = product.name
-        
+
         return cell
     }
 }

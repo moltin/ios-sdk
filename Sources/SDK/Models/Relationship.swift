@@ -18,7 +18,7 @@ protocol HasRelationship {
 public class RelationshipMany: Codable {
     /// The relationship data objects
     public var data: [RelationshipData]?
-    
+
     /**
      Returns all ID's for the relationships this object holds
      
@@ -37,7 +37,7 @@ public class RelationshipMany: Codable {
 public class RelationshipSingle: Codable {
     /// The relationship data object
     public var data: RelationshipData?
-    
+
     /**
      Returns the ID for the relationship this object holds
      
@@ -82,11 +82,11 @@ open class Relationships: Codable {
     public var cartItem: RelationshipSingle?
     /// The `Product` relationships
     public var products: RelationshipMany?
-    
+
     enum CodingKeys: String, CodingKey {
         case mainImage = "main_image"
         case cartItem = "cart_item"
-        
+
         case files
         case categories
         case collections

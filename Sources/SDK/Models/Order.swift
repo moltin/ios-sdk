@@ -13,7 +13,7 @@ public class OrderMeta: Codable {
     public let displayPrice: DisplayPrices
     /// The timestamps for an order
     public let timestamps: Timestamps
-    
+
     enum CodingKeys: String, CodingKey {
         case displayPrice = "display_price"
         case timestamps
@@ -52,7 +52,7 @@ open class Order: Codable {
     public let meta: OrderMeta
     /// The relationships for this order
     public let relationships: OrderRelationships?
-    
+
     enum CodingKeys: String, CodingKey {
         case id
         case type
