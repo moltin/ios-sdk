@@ -75,7 +75,7 @@
             </objects>
             <point key="canvasLocation" x="340" y="-332"/>
         </scene>
-        <!--Detail View Controller-->
+        <!--Title-->
         <scene sceneID="EZi-G2-Pac">
             <objects>
                 <viewController id="cWh-V6-qla" customClass="DetailViewController" customModule="moltin_iOS_Example" customModuleProvider="target" sceneMemberID="viewController">
@@ -108,13 +108,58 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZQT-6o-dSD"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="kiK-WL-FVS"/>
                     <connections>
                         <outlet property="collectionView" destination="Sec-kv-XCS" id="vZ1-hw-bU0"/>
+                        <segue destination="l5g-8h-8F8" kind="show" identifier="DetailToCart" id="8lT-IV-oXy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B2U-ki-zOJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1137" y="-332"/>
+        </scene>
+        <!--Cart-->
+        <scene sceneID="oTY-4p-Yjm">
+            <objects>
+                <viewController title="Cart" id="l5g-8h-8F8" customClass="CartViewController" customModule="moltin_iOS_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5ey-uK-isy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WcI-Ya-G2D">
+                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="l5g-8h-8F8" id="4Rm-c2-4VI"/>
+                                    <outlet property="delegate" destination="l5g-8h-8F8" id="9Ya-CE-is0"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="wIZ-Oc-EFl" firstAttribute="bottom" secondItem="WcI-Ya-G2D" secondAttribute="bottom" id="0MP-MA-BLS"/>
+                            <constraint firstItem="WcI-Ya-G2D" firstAttribute="top" secondItem="wIZ-Oc-EFl" secondAttribute="top" id="0N5-1G-ASE"/>
+                            <constraint firstItem="wIZ-Oc-EFl" firstAttribute="trailing" secondItem="WcI-Ya-G2D" secondAttribute="trailing" id="Ekf-2X-bHU"/>
+                            <constraint firstItem="WcI-Ya-G2D" firstAttribute="leading" secondItem="wIZ-Oc-EFl" secondAttribute="leading" id="qHZ-4i-zbl"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="wIZ-Oc-EFl"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Cart" id="I0W-z4-cNl">
+                        <barButtonItem key="rightBarButtonItem" title="Checkout" id="HSi-Fb-Wfr">
+                            <connections>
+                                <action selector="checkout:" destination="l5g-8h-8F8" id="F5f-hJ-gCt"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="WcI-Ya-G2D" id="L6r-v7-fi3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bUQ-sc-GL3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1913" y="-332"/>
         </scene>
     </scenes>
     <resources>

@@ -16,9 +16,22 @@ open class Customer: Codable {
     /// The name of this customer
     public var name: String?
 
-    init(withID id: String? = nil, withEmail email: String? = nil, withName name: String? = nil) {
+    /// Initialise a new customer for checking out with
+    public init(withID id: String? = nil, withEmail email: String? = nil, withName name: String? = nil) {
         self.id = id
         self.email = email
         self.name = name
+    }
+
+    func toDictionary() -> [String: Any] {
+        var customerData: [String: Any] = [:]
+        if let id = self.id {
+            customerData["id"] = id
+        } else {
+            customerData["email"] = self.email
+            customerData["name"] = self.name
+        }
+
+        return customerData
     }
 }

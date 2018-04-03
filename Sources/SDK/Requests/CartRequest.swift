@@ -32,8 +32,8 @@ public class CartRequest: MoltinRequest {
      - returns:
         A instance of `MoltinRequest` which encapsulates the request.
      */
-    public func get(forID id: String,
-                    completionHandler: @escaping ObjectRequestHandler<Cart>) -> MoltinRequest {
+    @discardableResult public func get(forID id: String,
+                                       completionHandler: @escaping ObjectRequestHandler<Cart>) -> MoltinRequest {
 
         return self.get(withPath: "\(self.endpoint)/\(id)",
                 completionHandler: completionHandler)
@@ -52,8 +52,8 @@ public class CartRequest: MoltinRequest {
      - returns:
         A instance of `MoltinRequest` which encapsulates the request.
      */
-    public func items(forCartID id: String,
-                      completionHandler: @escaping DefaultCollectionRequestHandler) -> MoltinRequest {
+    @discardableResult public func items(forCartID id: String,
+                                         completionHandler: @escaping DefaultCollectionRequestHandler) -> MoltinRequest {
 
         return self.list(withPath: "\(self.endpoint)/\(id)/items",
             completionHandler: completionHandler)
@@ -74,10 +74,10 @@ public class CartRequest: MoltinRequest {
      - returns:
         A instance of `MoltinRequest` which encapsulates the request.
      */
-    public func addProduct(withID productID: String,
-                           ofQuantity quantity: Int,
-                           toCart cart: String,
-                           completionHandler: @escaping ObjectRequestHandler<Cart>) -> MoltinRequest {
+    @discardableResult public func addProduct(withID productID: String,
+                                              ofQuantity quantity: Int,
+                                              toCart cart: String,
+                                              completionHandler: @escaping ObjectRequestHandler<[CartItem]>) -> MoltinRequest {
 
         let data = self.buildCartItem(withID: productID,
                                       ofQuantity: quantity)
@@ -101,9 +101,9 @@ public class CartRequest: MoltinRequest {
      - returns:
         A instance of `MoltinRequest` which encapsulates the request.
      */
-    public func addCustomItem(_ customItem: CustomCartItem,
-                              toCart cart: String,
-                              completionHandler: @escaping ObjectRequestHandler<Cart>) -> MoltinRequest {
+    @discardableResult public func addCustomItem(_ customItem: CustomCartItem,
+                                                 toCart cart: String,
+                                                 completionHandler: @escaping ObjectRequestHandler<Cart>) -> MoltinRequest {
         let data = self.buildCustomItem(withCustomItem: customItem)
 
         return self.post(withPath: "\(self.endpoint)/\(cart)/items",
@@ -125,9 +125,9 @@ public class CartRequest: MoltinRequest {
      - returns:
         A instance of `MoltinRequest` which encapsulates the request.
      */
-    public func addPromotion(_ promotion: String,
-                             toCart cart: String,
-                             completionHandler: @escaping ObjectRequestHandler<Cart>) -> MoltinRequest {
+    @discardableResult public func addPromotion(_ promotion: String,
+                                                toCart cart: String,
+                                                completionHandler: @escaping ObjectRequestHandler<Cart>) -> MoltinRequest {
 
         let data = self.buildCartItem(withID: promotion,
                                       ofType: .promotionItem)
@@ -151,9 +151,9 @@ public class CartRequest: MoltinRequest {
      - returns:
         A instance of `MoltinRequest` which encapsulates the request.
      */
-    public func removeItem(_ itemID: String,
-                           fromCart cart: String,
-                           completionHandler: @escaping ObjectRequestHandler<Cart>) -> MoltinRequest {
+    @discardableResult public func removeItem(_ itemID: String,
+                                              fromCart cart: String,
+                                              completionHandler: @escaping ObjectRequestHandler<Cart>) -> MoltinRequest {
 
         return self.delete(withPath: "\(self.endpoint)/\(cart)/items/\(itemID)",
             completionHandler: completionHandler)
@@ -174,10 +174,10 @@ public class CartRequest: MoltinRequest {
      - returns:
         A instance of `MoltinRequest` which encapsulates the request.
      */
-    public func updateItem(_ itemID: String,
-                           withQuantity quantity: Int,
-                           inCart cart: String,
-                           completionHandler: @escaping ObjectRequestHandler<Cart>) -> MoltinRequest {
+    @discardableResult public func updateItem(_ itemID: String,
+                                              withQuantity quantity: Int,
+                                              inCart cart: String,
+                                              completionHandler: @escaping ObjectRequestHandler<Cart>) -> MoltinRequest {
 
         let data = self.buildCartItem(withID: itemID,
                                       ofQuantity: quantity)
@@ -203,11 +203,11 @@ public class CartRequest: MoltinRequest {
      - returns:
         A instance of `MoltinRequest` which encapsulates the request.
      */
-    public func checkout(cart: String,
-                         withCustomer customer: Customer,
-                         withBillingAddress billingAddress: Address,
-                         withShippingAddress shippingAddress: Address?,
-                         completionHandler: @escaping ObjectRequestHandler<Order>) -> MoltinRequest {
+    @discardableResult public func checkout(cart: String,
+                                            withCustomer customer: Customer,
+                                            withBillingAddress billingAddress: Address,
+                                            withShippingAddress shippingAddress: Address?,
+                                            completionHandler: @escaping ObjectRequestHandler<Order>) -> MoltinRequest {
 
         let data = self.buildCartCheckoutData(withCustomer: customer,
                                               withBillingAddress: billingAddress,
@@ -232,9 +232,9 @@ public class CartRequest: MoltinRequest {
      - returns:
      A instance of `MoltinRequest` which encapsulates the request.
      */
-    public func pay(forOrderID order: String,
-                    withPaymentMethod paymentMethod: PaymentMethod,
-                    completionHandler: @escaping ObjectRequestHandler<Order>) -> MoltinRequest {
+    @discardableResult public func pay(forOrderID order: String,
+                                       withPaymentMethod paymentMethod: PaymentMethod,
+                                       completionHandler: @escaping ObjectRequestHandler<OrderSuccess>) -> MoltinRequest {
 
         return self.post(withPath: "/orders/\(order)/payments",
             withData: paymentMethod.paymentData,
@@ -254,8 +254,8 @@ public class CartRequest: MoltinRequest {
      - returns:
         A instance of `MoltinRequest` which encapsulates the request.
      */
-    public func deleteCart(_ cart: String,
-                           completionHandler: @escaping ObjectRequestHandler<Cart>) -> MoltinRequest {
+    @discardableResult public func deleteCart(_ cart: String,
+                                              completionHandler: @escaping ObjectRequestHandler<Cart>) -> MoltinRequest {
 
         return self.delete(withPath: "\(self.endpoint)/\(cart)",
             completionHandler: completionHandler)
@@ -288,15 +288,13 @@ public class CartRequest: MoltinRequest {
                                         withBillingAddress billingAddress: Address,
                                         withShippingAddress shippingAddress: Address?) -> [String: Any] {
         var data: [String: Any] = [:]
-        let customerData: [String: Any] = ["id": customer.id ?? ""]
-        data["customer"] = customerData
-        var billingAddressData: [String: Any] = [:]
-        billingAddressData["line_1"] = billingAddress.line1
-        data["billing_address"] = billingAddressData
+
+        data["customer"] = customer.toDictionary()
+
+        data["billing_address"] = billingAddress.toDictionary()
+
         if let address = shippingAddress {
-            var shippingAddressData: [String: Any] = [:]
-            shippingAddressData["line_1"] = address.line1
-            data["shipping_address"] = shippingAddressData
+            data["shipping_address"] = address.toDictionary()
         } else {
             data["shipping_address"] = data["billing_address"]
         }

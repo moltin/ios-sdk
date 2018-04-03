@@ -23,9 +23,9 @@ public class OrderMeta: Codable {
 /// Represents the relationships for an `Order`
 public class OrderRelationships: Codable {
     /// The items in this order
-    public let items: [String: [[String: String]]]
+    public let items: [String: [[String: String]]]?
     /// The customer information in this order
-    public let customer: [String: [String: String]]
+    public let customer: [String: [String: String]]?
 }
 
 /// Represents a `Order` in Moltin
@@ -67,3 +67,5 @@ open class Order: Codable {
         case relationships
     }
 }
+
+open class OrderSuccess: Codable {}

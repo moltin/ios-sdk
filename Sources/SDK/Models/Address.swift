@@ -37,8 +37,8 @@ open class Address: Codable {
     public var country: String?
 
     enum CodingKeys: String, CodingKey {
-        case firstName = "firstName"
-        case lastName = "lastName"
+        case firstName = "first_name"
+        case lastName = "last_name"
         case companyName = "company_name"
         case line1 = "line_1"
         case line2 = "line_2"
@@ -53,10 +53,32 @@ open class Address: Codable {
         case country
     }
 
-    init(
+    /// Create a new address with first name and last name
+    public init(
         withFirstName firstName: String,
         withLastName lastName: String) {
         self.firstName = firstName
         self.lastName = lastName
+    }
+
+    func toDictionary() -> [String: Any] {
+        var data: [String: Any] = [:]
+
+        data["first_name"] = self.firstName
+        data["last_name"] = self.lastName
+        data["company"] = self.companyName
+
+        data["line_1"] = self.line1
+        data["line_2"] = self.line2
+
+        data["id"] = self.id
+        data["name"] = self.name
+        data["instructions"] = self.instructions
+        data["city"] = self.city
+        data["county"] = self.county
+        data["postcode"] = self.postcode
+        data["country"] = self.country
+
+        return data
     }
 }
