@@ -159,12 +159,19 @@ public class Moltin {
      - parameters:
         - withClientID: Your Moltin Client ID
         - withConfiguration: An optional configuration object
+        - withLocale: An optional `Locale` object
      
      - returns:
      A instance of the Moltin object for users to interact with in order to call the API
      */
-    public init(withClientID clientID: String, withConfiguration configuration: MoltinConfig? = nil) {
-        self.config = configuration ?? MoltinConfig.default(withClientID: clientID)
+    public init(withClientID clientID: String, withConfiguration configuration: MoltinConfig? = nil, withLocale locale: Locale? = Locale.current) {
+        let config: MoltinConfig
+        if let locale = locale {
+            config = MoltinConfig.default(withClientID: clientID, withLocale: locale)
+        } else {
+            config = MoltinConfig.default(withClientID: clientID)
+        }
+        self.config = configuration ?? config
     }
 
     /**

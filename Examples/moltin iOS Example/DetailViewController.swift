@@ -10,10 +10,7 @@ import moltin
 
 class DetailViewController: UIViewController {
 
-    lazy var moltin: Moltin = {
-        let config = MoltinConfig.default(withClientID: "j6hSilXRQfxKohTndUuVrErLcSJWP15P347L6Im0M4", withLocale: Locale(identifier: "en_US"))
-        return Moltin(withConfiguration: config)
-    }()
+    let moltin: Moltin = Moltin(withClientID: "j6hSilXRQfxKohTndUuVrErLcSJWP15P347L6Im0M4", withLocale: Locale(identifier: "en_US"))
 
     @IBOutlet weak var collectionView: UICollectionView!
     var category: ProductCategory?
