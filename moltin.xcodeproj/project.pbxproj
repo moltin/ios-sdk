@@ -337,7 +337,7 @@
 		C392E9F8203DB6E1006CD1D0 /* Moltin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Moltin.swift; sourceTree = "<group>"; };
 		C392E9FE203DB75B006CD1D0 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		C392EA08203DB773006CD1D0 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		C392EA09203DB77F006CD1D0 /* moltin.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = moltin.podspec; sourceTree = "<group>"; };
+		C392EA09203DB77F006CD1D0 /* Moltin.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = Moltin.podspec; sourceTree = "<group>"; };
 		C392EA12203DB7EB006CD1D0 /* moltin iOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "moltin iOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C392EA14203DB7EB006CD1D0 /* MoltinTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoltinTests.swift; sourceTree = "<group>"; };
 		C392EA16203DB7EB006CD1D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -571,7 +571,7 @@
 			children = (
 				C392E9FE203DB75B006CD1D0 /* LICENSE */,
 				C392EA08203DB773006CD1D0 /* README.md */,
-				C392EA09203DB77F006CD1D0 /* moltin.podspec */,
+				C392EA09203DB77F006CD1D0 /* Moltin.podspec */,
 				C392E9F4203DB681006CD1D0 /* Sources */,
 				C392EA69203DB849006CD1D0 /* Examples */,
 				C392EA6A203DB84E006CD1D0 /* Tests */,

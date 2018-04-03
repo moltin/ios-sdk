@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-    s.name         = "moltin"
+    s.name         = "Moltin"
     s.version      = "2.1.0"
     s.summary      = "eCommerce made simple"
 
