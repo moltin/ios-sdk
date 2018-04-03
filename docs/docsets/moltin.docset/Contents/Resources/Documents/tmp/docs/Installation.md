@@ -4,7 +4,7 @@
 
 Add the following to your `Podfile`:
 ```
-pod 'Moltin', '~> 2.1'
+pod 'Moltin', '~> 3.0.0'
 ```
 
 Or, quickly try out our examples:
@@ -15,7 +15,7 @@ pod try Moltin
 
 Add the following to your `Cartfile`:
 ```
-github "Moltin/ios-sdk" ~> 2.1
+github "Moltin/ios-sdk" ~> 3.0.0
 ```
 ## Swift Package Manager
 
