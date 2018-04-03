@@ -14,6 +14,7 @@ protocol DataSerializer {
 class MoltinDataSerializer: DataSerializer {
     
     func serialize(_ data: Any) throws -> Data {
-        return try JSONSerialization.data(withJSONObject: data, options: [])
+        let payload: [String: Any] = ["data": data]
+        return try JSONSerialization.data(withJSONObject: payload, options: [])
     }
 }
