@@ -57,12 +57,23 @@ class CartViewController: UIViewController {
         let paymentMethod = StripeToken(withStripeToken: "tok_visa")
         self.moltin.cart.pay(forOrderID: order.id, withPaymentMethod: paymentMethod) { (result) in
             switch result {
-            case .success(let order):
-                print(order)
+            case .success:
+                DispatchQueue.main.async {
+                    self.showOrderStatus(withSuccess: true)
+                }
             case .failure(let error):
-                print(error)
+                DispatchQueue.main.async {
+                    self.showOrderStatus(withSuccess: false, withError: error)
+                }
             }
         }
+    }
+
+    func showOrderStatus(withSuccess success: Bool, withError error: Error? = nil) {
+        let title = success ? "Order paid!" : "Order error"
+        let message = success ? "Complete!" : error?.localizedDescription
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        self.present(alert, animated: true, completion: nil)
     }
 }
 
