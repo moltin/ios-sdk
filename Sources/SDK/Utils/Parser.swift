@@ -63,19 +63,15 @@ class MoltinParser {
         do {
 
             let parsedData = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
-            var jsonObject: Any?
-            jsonObject = parsedData?["data"]
-            if jsonObject == nil {
-                jsonObject = parsedData?["data"]
-            }
+            let jsonObject: Any? = parsedData?["data"] != nil ? parsedData?["data"] : parsedData
             guard let jsonObj = jsonObject else {
-                throw MoltinError.couldNotFindDataKey
+                throw MoltinError.couldNotFindData
             }
             let jsonData = try JSONSerialization.data(withJSONObject: jsonObj, options: [])
             self.decoder.userInfo[.includes] = parsedData?["included"] as? [String: Any] ?? [:]
             object = try self.decoder.decode(T.self, from: jsonData)
-        } catch MoltinError.couldNotFindDataKey {
-          throw MoltinError.couldNotFindDataKey
+        } catch MoltinError.couldNotFindData {
+          throw MoltinError.couldNotFindData
         } catch {
             throw MoltinError.couldNotParseData(underlyingError: error as? DecodingError)
         }

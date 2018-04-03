@@ -234,7 +234,7 @@ public class CartRequest: MoltinRequest {
      */
     @discardableResult public func pay(forOrderID order: String,
                                        withPaymentMethod paymentMethod: PaymentMethod,
-                                       completionHandler: @escaping ObjectRequestHandler<Order>) -> MoltinRequest {
+                                       completionHandler: @escaping ObjectRequestHandler<OrderSuccess>) -> MoltinRequest {
 
         return self.post(withPath: "/orders/\(order)/payments",
             withData: paymentMethod.paymentData,

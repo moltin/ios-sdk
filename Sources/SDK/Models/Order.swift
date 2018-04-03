@@ -67,3 +67,5 @@ open class Order: Codable {
         case relationships
     }
 }
+
+open class OrderSuccess: Codable {}

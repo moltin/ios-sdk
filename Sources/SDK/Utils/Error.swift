@@ -17,8 +17,8 @@ public enum MoltinError: Error {
     case couldNotSetData
     /// Thrown if the response data can not be parsed correctly. Encapsulates a `DecodingError` for more infromation.
     case couldNotParseData(underlyingError: DecodingError?)
-    /// Thrown if the response does not have a `data` key in the JSON response.
-    case couldNotFindDataKey
+    /// Thrown if the response does not have any data
+    case couldNotFindData
     /// Thrown if the response cannot parse a `Date`
     case couldNotParseDate
     /// Thrown if the request is not formed correctly
@@ -36,8 +36,8 @@ extension MoltinError: LocalizedError {
             return "Could not authenticate"
         case .responseError(let error):
             return error?.localizedDescription ?? "Response did not succeed"
-        case .couldNotFindDataKey:
-            return "Could not find any key with the name data"
+        case .couldNotFindData:
+            return "Could not find any data"
         case .couldNotParseDate:
             return "Date could not be parsed"
         case .noData:
