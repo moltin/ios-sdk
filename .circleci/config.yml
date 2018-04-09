@@ -19,7 +19,7 @@ jobs:
 
   test_iOS:
     macos:
-      xcode: "9.2.0"
+      xcode: "9.3.0"
 
     steps:
       - checkout
@@ -32,7 +32,7 @@ jobs:
 
   test_tvOS:
     macos:
-      xcode: "9.2.0"
+      xcode: "9.3.0"
 
     steps:
       - checkout
@@ -45,7 +45,7 @@ jobs:
 
   test_macOS:
     macos:
-      xcode: "9.2.0"
+      xcode: "9.3.0"
 
     steps:
       - checkout
@@ -58,28 +58,28 @@ jobs:
 
   update_documentation:
     macos:
-      xcode: "9.2.0"
+      xcode: "9.3.0"
     
     steps:
       - run: echo "hello"
 
   update_cocoapods:
     macos:
-      xcode: "9.2.0"
+      xcode: "9.3.0"
     
     steps:
       - run: echo "hello"
 
   tag:
     macos:
-      xcode: "9.2.0"
+      xcode: "9.3.0"
 
     steps:
       - run: echo "hello"
 
   push:
     macos:
-      xcode: "9.2.0"
+      xcode: "9.3.0"
     
     steps:
       - run: echo "hello"
