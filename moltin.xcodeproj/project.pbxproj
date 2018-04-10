@@ -1122,21 +1122,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3821AE6204440F5001EF864 /* Cart.swift in Sources */,
+				C3FF26FF2061205900CA226D /* Timestamps.swift in Sources */,
+				C3715BFC203F59A100287C1B /* Currency.swift in Sources */,
+				C3715BFE203F59CA00287C1B /* File.swift in Sources */,
+				C3715C00203F59D000287C1B /* Flow.swift in Sources */,
+				C3434C18203DDAD500883C84 /* Pagination.swift in Sources */,
 				C3FF2701206124D700CA226D /* DateFormatter.swift in Sources */,
 				C3715BF8203F544B00287C1B /* HTTPMock.swift in Sources */,
-				C3715C00203F59D000287C1B /* Flow.swift in Sources */,
 				C336E565206155B2008C2005 /* FlowRequest.swift in Sources */,
 				C336E5D32064062E008C2005 /* Relationship.swift in Sources */,
 				C3434C0F203DDA0500883C84 /* MoltinRequest.swift in Sources */,
 				C3821AEA20444127001EF864 /* Customer.swift in Sources */,
 				C3779232203EC6D000C20FEC /* Query.swift in Sources */,
 				C3715BD6203EE6DE00287C1B /* Brand.swift in Sources */,
-				C3434C18203DDAD500883C84 /* Pagination.swift in Sources */,
 				C3715BCB203EE6BB00287C1B /* Requests.swift in Sources */,
-				C3FF26FF2061205900CA226D /* Timestamps.swift in Sources */,
 				C3715BEA203F1A3900287C1B /* MoltinAuth.swift in Sources */,
 				C354B57B20738A5500D26446 /* PaymentMethod.swift in Sources */,
-				C3715BFE203F59CA00287C1B /* File.swift in Sources */,
 				C3715BFA203F598500287C1B /* Collection.swift in Sources */,
 				C336E56020614A9C008C2005 /* Prices.swift in Sources */,
 				C318D029203EC4D100B7A81E /* HTTP.swift in Sources */,
@@ -1145,11 +1147,9 @@
 				C3715BE5203EE93900287C1B /* URLSession.swift in Sources */,
 				C3821AE1204422C5001EF864 /* DataSerializer.swift in Sources */,
 				C3434C1D203DDAFF00883C84 /* Error.swift in Sources */,
-				C3821AE6204440F5001EF864 /* Cart.swift in Sources */,
 				C3821AE8204440FD001EF864 /* Address.swift in Sources */,
 				C3715BD1203EE6D400287C1B /* Product.swift in Sources */,
 				C3FB57A8204028870007288D /* CartRequest.swift in Sources */,
-				C3715BFC203F59A100287C1B /* Currency.swift in Sources */,
 				C336E5CD20629601008C2005 /* CodableExtract.swift in Sources */,
 				C318D02B203EC50200B7A81E /* Parser.swift in Sources */,
 				C3434C22203DDB1F00883C84 /* Config.swift in Sources */,
@@ -1161,6 +1161,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C336E5B720627633008C2005 /* Timestamps.swift in Sources */,
+				C3715C03203F59F200287C1B /* File.swift in Sources */,
+				C3715C04203F59F200287C1B /* Flow.swift in Sources */,
 				C336E5A82062762D008C2005 /* DateFormatter.swift in Sources */,
 				C3715BF7203F544B00287C1B /* HTTPMock.swift in Sources */,
 				C336E5B420627633008C2005 /* Address.swift in Sources */,
@@ -1182,17 +1185,14 @@
 				C3434C1E203DDAFF00883C84 /* Error.swift in Sources */,
 				C336E59920627627008C2005 /* Requests.swift in Sources */,
 				C3715BE6203EE93900287C1B /* URLSession.swift in Sources */,
-				C3715C03203F59F200287C1B /* File.swift in Sources */,
 				C336E56120614A9C008C2005 /* Prices.swift in Sources */,
 				C336E5A62062762D008C2005 /* Query.swift in Sources */,
 				C336E59C20627627008C2005 /* CartRequest.swift in Sources */,
 				C318D02D203EC5AB00B7A81E /* Parser.swift in Sources */,
-				C3715C04203F59F200287C1B /* Flow.swift in Sources */,
 				C336E5B520627633008C2005 /* Customer.swift in Sources */,
 				C336E5CC20629600008C2005 /* CodableExtract.swift in Sources */,
 				C3434C23203DDB1F00883C84 /* Config.swift in Sources */,
 				C3715BDC203EE6E500287C1B /* Category.swift in Sources */,
-				C336E5B720627633008C2005 /* Timestamps.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1200,6 +1200,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C336E5B220627632008C2005 /* Timestamps.swift in Sources */,
+				C3715C07203F59F200287C1B /* File.swift in Sources */,
+				C3715C08203F59F200287C1B /* Flow.swift in Sources */,
 				C336E5A52062762D008C2005 /* DateFormatter.swift in Sources */,
 				C3434C13203DDA1F00883C84 /* MoltinRequest.swift in Sources */,
 				C336E5AF20627632008C2005 /* Address.swift in Sources */,
@@ -1220,18 +1223,15 @@
 				C392E9FB203DB6E1006CD1D0 /* Moltin.swift in Sources */,
 				C3434C1F203DDAFF00883C84 /* Error.swift in Sources */,
 				C3715BE7203EE93900287C1B /* URLSession.swift in Sources */,
-				C3715C07203F59F200287C1B /* File.swift in Sources */,
 				C336E56220614A9C008C2005 /* Prices.swift in Sources */,
 				C3715BCD203EE6BB00287C1B /* Requests.swift in Sources */,
 				C336E5A32062762D008C2005 /* Query.swift in Sources */,
 				C318D02F203EC5AB00B7A81E /* Parser.swift in Sources */,
 				C3715BEC203F1A3900287C1B /* MoltinAuth.swift in Sources */,
-				C3715C08203F59F200287C1B /* Flow.swift in Sources */,
 				C336E5B020627632008C2005 /* Customer.swift in Sources */,
 				C336E5CB20629600008C2005 /* CodableExtract.swift in Sources */,
 				C3434C24203DDB1F00883C84 /* Config.swift in Sources */,
 				C3715BDD203EE6E500287C1B /* Category.swift in Sources */,
-				C336E5B220627632008C2005 /* Timestamps.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1239,7 +1239,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C336E5AD20627631008C2005 /* Timestamps.swift in Sources */,
+				C3715C0C203F59F300287C1B /* Flow.swift in Sources */,
 				C336E5A22062762C008C2005 /* DateFormatter.swift in Sources */,
+				C3715C0B203F59F300287C1B /* File.swift in Sources */,
 				C3434C15203DDA2000883C84 /* MoltinRequest.swift in Sources */,
 				C336E5AA20627631008C2005 /* Address.swift in Sources */,
 				C336E5A920627631008C2005 /* Cart.swift in Sources */,
@@ -1259,18 +1262,15 @@
 				C392E9FC203DB6E1006CD1D0 /* Moltin.swift in Sources */,
 				C3434C20203DDAFF00883C84 /* Error.swift in Sources */,
 				C3715BE8203EE93900287C1B /* URLSession.swift in Sources */,
-				C3715C0B203F59F300287C1B /* File.swift in Sources */,
 				C336E56320614A9C008C2005 /* Prices.swift in Sources */,
 				C3715BCE203EE6BB00287C1B /* Requests.swift in Sources */,
 				C336E5A02062762C008C2005 /* Query.swift in Sources */,
 				C318D031203EC5AC00B7A81E /* Parser.swift in Sources */,
 				C3715BED203F1A3900287C1B /* MoltinAuth.swift in Sources */,
-				C3715C0C203F59F300287C1B /* Flow.swift in Sources */,
 				C336E5AB20627631008C2005 /* Customer.swift in Sources */,
 				C336E5CA206295FF008C2005 /* CodableExtract.swift in Sources */,
 				C3434C25203DDB1F00883C84 /* Config.swift in Sources */,
 				C3715BDE203EE6E500287C1B /* Category.swift in Sources */,
-				C336E5AD20627631008C2005 /* Timestamps.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1523,12 +1523,66 @@
 		C392E9A3203DB5ED006CD1D0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_COMPILATION_MODE = singlefile;
 			};
 			name = Debug;
 		};
 		C392E9A4203DB5ED006CD1D0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				SWIFT_COMPILATION_MODE = singlefile;
 			};
 			name = Release;
 		};
@@ -1565,7 +1619,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1602,6 +1656,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1643,7 +1698,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1751,6 +1806,7 @@
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -1901,6 +1957,7 @@
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -2014,7 +2071,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
@@ -2053,6 +2110,7 @@
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				VERSIONING_SYSTEM = "apple-generic";
