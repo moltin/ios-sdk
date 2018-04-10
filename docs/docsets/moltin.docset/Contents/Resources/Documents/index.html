@@ -388,6 +388,24 @@
             <span class="nf">print</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
     <span class="p">}</span>
 <span class="p">}</span>
+
+<span class="n">moltin</span><span class="o">.</span><span class="n">product</span><span class="o">.</span><span class="nf">get</span><span class="p">(</span><span class="s">"&lt;product ID&gt;"</span><span class="p">)</span> <span class="p">{</span> <span class="n">result</span> <span class="k">in</span>
+    <span class="k">switch</span> <span class="n">result</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="o">.</span><span class="nf">success</span><span class="p">(</span><span class="k">let</span> <span class="nv">response</span><span class="p">):</span>
+            <span class="nf">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+        <span class="k">case</span> <span class="o">.</span><span class="nf">failure</span><span class="p">(</span><span class="k">let</span> <span class="nv">error</span><span class="p">):</span>
+            <span class="nf">print</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">moltin</span><span class="o">.</span><span class="n">product</span><span class="o">.</span><span class="n">tree</span> <span class="p">{</span> <span class="n">result</span> <span class="k">in</span>
+    <span class="k">switch</span> <span class="n">result</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="o">.</span><span class="nf">success</span><span class="p">(</span><span class="k">let</span> <span class="nv">response</span><span class="p">):</span>
+            <span class="nf">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+        <span class="k">case</span> <span class="o">.</span><span class="nf">failure</span><span class="p">(</span><span class="k">let</span> <span class="nv">error</span><span class="p">):</span>
+            <span class="nf">print</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre>
 <h2 id='config' class='heading'>Config</h2>
 
