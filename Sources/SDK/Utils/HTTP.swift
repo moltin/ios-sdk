@@ -7,8 +7,11 @@
 
 import Foundation
 
+/// Type alias which defines a common request pattern tuple
 public typealias HTTPRequestHandler = (Data?, URLResponse?, Error?) -> Void
+/// Type alias which defines the standard response for an endpoint which returns a list of data
 public typealias CollectionRequestHandler<T: Codable> = (Result<PaginatedResponse<T>>) -> Void
+/// Type alias which defines the standard response for an endpoint which returns a single item
 public typealias ObjectRequestHandler<T: Codable> = (Result<T>) -> Void
 
 class MoltinHTTP {

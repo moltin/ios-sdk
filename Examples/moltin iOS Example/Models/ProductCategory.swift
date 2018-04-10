@@ -19,9 +19,10 @@ class ProductCategory: moltin.Category {
 
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: ProductCategoryCodingKeys.self)
-        let color: String = try container.decode(String.self, forKey: .backgroundColor)
-        self.backgroundColor = UIColor(hexString: color)
-        self.backgroundImage = try container.decode(String.self, forKey: .backgroundImage)
+        if let color: String = try container.decodeIfPresent(String.self, forKey: .backgroundColor) {
+            self.backgroundColor = UIColor(hexString: color)
+        }
+        self.backgroundImage = try container.decodeIfPresent(String.self, forKey: .backgroundImage)
         try super.init(from: decoder)
     }
 }

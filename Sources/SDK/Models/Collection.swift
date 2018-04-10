@@ -29,6 +29,9 @@ open class Collection: Codable, HasRelationship {
     /// The products associated with this collection
     public var products: [Product]?
 
+    /// The children of this collection
+    public var children: [Collection]?
+
     required public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         let includes: IncludesContainer = decoder.userInfo[.includes] as? IncludesContainer ?? [:]
@@ -40,6 +43,7 @@ open class Collection: Codable, HasRelationship {
         self.description = try container.decode(String.self, forKey: .description)
         self.status = try container.decode(String.self, forKey: .status)
         self.relationships = try container.decodeIfPresent(Relationships.self, forKey: .relationships)
+        self.children = try container.decodeIfPresent([Collection].self, forKey: .children)
 
         try self.decodeRelationships(fromRelationships: self.relationships, withIncludes: includes)
     }

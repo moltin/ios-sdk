@@ -7,7 +7,9 @@
 
 import Foundation
 
-public typealias IncludesContainer = [String: [[String: Any]]]
+/// Container type alias for includes
+public typealias IncludesContainer = [String: IncludesData]
+/// Data schema type alias for includes
 public typealias IncludesData = [[String: Any]]
 
 extension Decodable {

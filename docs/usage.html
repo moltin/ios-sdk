@@ -22,7 +22,7 @@
         <a class="header-link" href="index.html">
           moltin Docs
         </a>
-         (99% documented)
+         (100% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -233,6 +233,9 @@
                 <a class="nav-group-task-link" href="Classes/OrderRelationships.html">OrderRelationships</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Models.html#/s:6moltin12OrderSuccessC">OrderSuccess</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/Product.html">Product</a>
               </li>
               <li class="nav-group-task">
@@ -302,18 +305,30 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a class="nav-group-name-link" href="Other Classes.html">Other Classes</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Other Classes.html#/s:6moltin12OrderSuccessC">OrderSuccess</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
             <a class="nav-group-name-link" href="Other Functions.html">Other Functions</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Other Functions.html#/s:6moltin2eeoiSbAA12MoltinConfigV_ADtF">==(_:_:)</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Other Typealiases.html">Other Type Aliases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Other Typealiases.html#/s:6moltin24CollectionRequestHandlera">CollectionRequestHandler</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Other Typealiases.html#/s:6moltin18HTTPRequestHandlera">HTTPRequestHandler</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Other Typealiases.html#/s:6moltin17IncludesContainera">IncludesContainer</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Other Typealiases.html#/s:6moltin12IncludesDataa">IncludesData</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Other Typealiases.html#/s:6moltin20ObjectRequestHandlera">ObjectRequestHandler</a>
               </li>
             </ul>
           </li>
@@ -325,35 +340,59 @@
           <div class="section-content">
             
             <h1 id='usage' class='heading'>Usage</h1>
-<h2 id='config' class='heading'>Config</h2>
-
-<p>The basic way to set up the Moltin SDK is to create an instance of the <code><a href="Classes/Moltin.html">Moltin</a></code> class with your client ID. However, if you&rsquo;d like to change the locale or the URL of your <code><a href="Classes/Moltin.html">Moltin</a></code> instance, you can do so by passing in <code><a href="Structs/MoltinConfig.html">MoltinConfig</a></code>.</p>
-<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">config</span> <span class="o">=</span> <span class="kt">MoltinConfig</span><span class="p">(</span>
-<span class="nv">clientID</span><span class="p">:</span> <span class="o">...</span><span class="p">,</span>
-<span class="nv">scheme</span><span class="p">:</span> <span class="o">...</span><span class="p">,</span>
-<span class="nv">host</span><span class="p">:</span> <span class="o">...</span><span class="p">,</span>
-<span class="nv">version</span><span class="p">:</span> <span class="o">...</span><span class="p">,</span>
-<span class="nv">locale</span><span class="p">:</span> <span class="o">...</span><span class="p">)</span>
-<span class="k">let</span> <span class="nv">moltin</span> <span class="o">=</span> <span class="kt">Moltin</span><span class="p">(</span><span class="nv">withConfiguration</span><span class="p">:</span> <span class="n">config</span><span class="p">)</span>
-</code></pre>
-
-<p>Or: </p>
-<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">config</span> <span class="o">=</span> <span class="kt">MoltinConfig</span><span class="o">.</span><span class="nf">default</span><span class="p">(</span>
-<span class="nv">withClientID</span><span class="p">:</span> <span class="o">...</span><span class="p">,</span>
-<span class="nv">withLocale</span><span class="p">:</span> <span class="o">...</span><span class="p">)</span>
-<span class="k">let</span> <span class="nv">moltin</span> <span class="o">=</span> <span class="kt">Moltin</span><span class="p">(</span><span class="nv">withConfiguration</span><span class="p">:</span> <span class="n">config</span><span class="p">)</span>
-</code></pre>
 <h2 id='making-a-request' class='heading'>Making a request</h2>
 <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">moltin</span> <span class="o">=</span> <span class="kt">Moltin</span><span class="p">(</span><span class="nv">withClientID</span><span class="p">:</span> <span class="s">"&lt;your client ID&gt;"</span><span class="p">)</span>
 
 <span class="n">moltin</span><span class="o">.</span><span class="n">product</span><span class="o">.</span><span class="n">all</span> <span class="p">{</span> <span class="n">result</span> <span class="k">in</span>
     <span class="k">switch</span> <span class="n">result</span> <span class="p">{</span>
-    <span class="k">case</span> <span class="o">.</span><span class="nf">success</span><span class="p">(</span><span class="k">let</span> <span class="nv">response</span><span class="p">):</span>
-        <span class="nf">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
-    <span class="k">case</span> <span class="o">.</span><span class="nf">failure</span><span class="p">(</span><span class="k">let</span> <span class="nv">error</span><span class="p">):</span>
-        <span class="nf">print</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+        <span class="k">case</span> <span class="o">.</span><span class="nf">success</span><span class="p">(</span><span class="k">let</span> <span class="nv">response</span><span class="p">):</span>
+            <span class="nf">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+        <span class="k">case</span> <span class="o">.</span><span class="nf">failure</span><span class="p">(</span><span class="k">let</span> <span class="nv">error</span><span class="p">):</span>
+            <span class="nf">print</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
     <span class="p">}</span>
 <span class="p">}</span>
+
+<span class="n">moltin</span><span class="o">.</span><span class="n">product</span><span class="o">.</span><span class="nf">get</span><span class="p">(</span><span class="s">"&lt;product ID&gt;"</span><span class="p">)</span> <span class="p">{</span> <span class="n">result</span> <span class="k">in</span>
+    <span class="k">switch</span> <span class="n">result</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="o">.</span><span class="nf">success</span><span class="p">(</span><span class="k">let</span> <span class="nv">response</span><span class="p">):</span>
+            <span class="nf">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+        <span class="k">case</span> <span class="o">.</span><span class="nf">failure</span><span class="p">(</span><span class="k">let</span> <span class="nv">error</span><span class="p">):</span>
+            <span class="nf">print</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">moltin</span><span class="o">.</span><span class="n">product</span><span class="o">.</span><span class="n">tree</span> <span class="p">{</span> <span class="n">result</span> <span class="k">in</span>
+    <span class="k">switch</span> <span class="n">result</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="o">.</span><span class="nf">success</span><span class="p">(</span><span class="k">let</span> <span class="nv">response</span><span class="p">):</span>
+            <span class="nf">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+        <span class="k">case</span> <span class="o">.</span><span class="nf">failure</span><span class="p">(</span><span class="k">let</span> <span class="nv">error</span><span class="p">):</span>
+            <span class="nf">print</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<h2 id='config' class='heading'>Config</h2>
+
+<p>The basic way to set up the Moltin SDK is to create an instance of the <code><a href="Classes/Moltin.html">Moltin</a></code> class with your client ID and optionally the locale of the application. However, if you&rsquo;d like to change additional details of the SDK, such as the URL of your <code><a href="Classes/Moltin.html">Moltin</a></code> instance, you can do so by passing in <code><a href="Structs/MoltinConfig.html">MoltinConfig</a></code>.</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">moltin</span> <span class="o">=</span> <span class="kt">Moltin</span><span class="p">(</span><span class="nv">withClientID</span><span class="p">:</span> <span class="o">...</span><span class="p">)</span> <span class="c1">// Takes Locale.current</span>
+</code></pre>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">moltin</span> <span class="o">=</span> <span class="kt">Moltin</span><span class="p">(</span><span class="nv">withClientID</span><span class="p">:</span> <span class="o">...</span><span class="p">,</span> <span class="nv">withLocale</span><span class="p">:</span> <span class="o">...</span><span class="p">)</span>
+</code></pre>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">config</span> <span class="o">=</span> <span class="kt">MoltinConfig</span><span class="p">(</span>
+    <span class="nv">clientID</span><span class="p">:</span> <span class="o">...</span><span class="p">,</span>
+    <span class="nv">scheme</span><span class="p">:</span> <span class="o">...</span><span class="p">,</span>
+    <span class="nv">host</span><span class="p">:</span> <span class="o">...</span><span class="p">,</span>
+    <span class="nv">version</span><span class="p">:</span> <span class="o">...</span><span class="p">,</span>
+    <span class="nv">locale</span><span class="p">:</span> <span class="o">...</span><span class="p">)</span>
+
+<span class="k">let</span> <span class="nv">moltin</span> <span class="o">=</span> <span class="kt">Moltin</span><span class="p">(</span><span class="nv">withConfiguration</span><span class="p">:</span> <span class="n">config</span><span class="p">)</span>
+</code></pre>
+
+<p>Or: </p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">config</span> <span class="o">=</span> <span class="kt">MoltinConfig</span><span class="o">.</span><span class="nf">default</span><span class="p">(</span>
+    <span class="nv">withClientID</span><span class="p">:</span> <span class="o">...</span><span class="p">,</span>
+    <span class="nv">withLocale</span><span class="p">:</span> <span class="o">...</span><span class="p">)</span>
+
+<span class="k">let</span> <span class="nv">moltin</span> <span class="o">=</span> <span class="kt">Moltin</span><span class="p">(</span><span class="nv">withConfiguration</span><span class="p">:</span> <span class="n">config</span><span class="p">)</span>
 </code></pre>
 <h2 id='available-resources' class='heading'>Available Resources</h2>
 
