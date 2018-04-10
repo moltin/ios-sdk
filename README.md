@@ -56,6 +56,24 @@ moltin.product.all { result in
             print(error)
     }
 }
+
+moltin.product.get("<product ID>") { result in
+    switch result {
+        case .success(let response):
+            print(response)
+        case .failure(let error):
+            print(error)
+    }
+}
+
+moltin.product.tree { result in
+    switch result {
+        case .success(let response):
+            print(response)
+        case .failure(let error):
+            print(error)
+    }
+}
 ```
 
 ## Config
