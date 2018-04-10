@@ -66,4 +66,49 @@ class MockCategoryDataFactory {
         }]
     }
     """
+    
+    static let treeData = """
+    {
+        "data": [{
+            "id": "51b56d92-ab99-4802-a2c1-be150848c629",
+            "type": "category",
+            "name": "Clothing",
+            "slug": "clothing",
+            "description": "Browse our clothing line",
+            "status": "live",
+            "children": [{
+                "id": "41b56d92-ab99-4802-a2c1-be150848c629",
+                "type": "category",
+                "name": "Sub-Category",
+                "slug": "Sub-Category",
+                "description": "Sub Cat!",
+                "status": "live"
+            }]
+        }]
+    }
+    """
+    
+    static let customTreeData = """
+    {
+        "data": [{
+            "author": {
+                "name": "Craig"
+            },
+            "id": "51b56d92-ab99-4802-a2c1-be150848c629",
+            "type": "category",
+            "name": "Clothing",
+            "slug": "clothing",
+            "description": "Browse our clothing line",
+            "status": "live",
+            "children": [{
+                "id": "41b56d92-ab99-4802-a2c1-be150848c629",
+                "type": "category",
+                "name": "Sub-Category",
+                "slug": "Sub-Category",
+                "description": "Sub Cat!",
+                "status": "live"
+            }]
+        }]
+    }
+    """
 }

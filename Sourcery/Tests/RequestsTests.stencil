@@ -39,14 +39,14 @@ class MyCustom{{ case.name|upperFirstLetter }}: moltin.{{ case.name|upperFirstLe
 class {{ case.name|upperFirstLetter }}RequestTests: XCTestCase {
 
     func test{{ case.name|upperFirstLetter }}RequestReturns{{ case.name|upperFirstLetter }}s() {
-        let (_, {{ case.name }}Request) = MockFactory.mocked{{ case.name|upperFirstLetter }}Request(withJSON: self.multiProductJson)
+        let (_, {{ case.name }}Request) = MockFactory.mocked{{ case.name|upperFirstLetter }}Request(withJSON: Mock{{ case.name|upperFirstLetter }}DataFactory.multi{{ case.name|upperFirstLetter }}Data)
         
         let expectationToFulfill = expectation(description: "{{ case.name|upperFirstLetter }}Request calls the method and runs the callback closure")
         
         let _ = {{ case.name }}Request.all { (result) in
             switch result {
             case .success(let response):
-                XCTAssert(type(of: response.data) == [moltin.{{ case.name|upperFirstLetter }}].self)
+                XCTAssert(type(of: response.data) == [moltin.{{ case.name|upperFirstLetter }}]?.self)
                 XCTAssert(response.data?.count != 0)
             case .failure(let error):
                 XCTFail(error.localizedDescription)
@@ -63,7 +63,7 @@ class {{ case.name|upperFirstLetter }}RequestTests: XCTestCase {
     }
     
     func test{{ case.name|upperFirstLetter }}RequestReturnSingle{{ case.name|upperFirstLetter }}() {
-        let (_, {{ case.name }}Request) = MockFactory.mocked{{ case.name|upperFirstLetter }}Request(withJSON: self.productJson)
+        let (_, {{ case.name }}Request) = MockFactory.mocked{{ case.name|upperFirstLetter }}Request(withJSON: Mock{{ case.name|upperFirstLetter }}DataFactory.{{ case.name}}Data)
         
         let expectationToFulfill = expectation(description: "{{ case.name|upperFirstLetter }}Request calls the method and runs the callback closure")
         
@@ -89,14 +89,14 @@ class {{ case.name|upperFirstLetter }}RequestTests: XCTestCase {
     {% if case|annotated:"hasCustomType" %}  
     
     func test{{ case.name|upperFirstLetter }}RequestReturnsCustom{{ case.name|upperFirstLetter }}s() {
-        let (_, {{ case.name }}Request) = MockFactory.mocked{{ case.name|upperFirstLetter }}Request(withJSON: self.multiProductJson)
+        let (_, {{ case.name }}Request) = MockFactory.mocked{{ case.name|upperFirstLetter }}Request(withJSON: Mock{{ case.name|upperFirstLetter }}DataFactory.customMulti{{ case.name|upperFirstLetter }}Data)
         
         let expectationToFulfill = expectation(description: "{{ case.name|upperFirstLetter }}Request calls the method and runs the callback closure")
         
         let _ = {{ case.name }}Request.all { (result: Result<PaginatedResponse<[MyCustom{{ case.name|upperFirstLetter }}]>>) in
             switch result {
             case .success(let response):
-                XCTAssert(type(of: response.data) == [MyCustom{{ case.name|upperFirstLetter }}].self)
+                XCTAssert(type(of: response.data) == [MyCustom{{ case.name|upperFirstLetter }}]?.self)
                 XCTAssert(response.data?.count != 0)
             case .failure(let error):
                 XCTFail(error.localizedDescription)
@@ -113,7 +113,7 @@ class {{ case.name|upperFirstLetter }}RequestTests: XCTestCase {
     }
     
     func test{{ case.name|upperFirstLetter }}RequestReturnCustomSingle{{ case.name|upperFirstLetter }}() {
-        let (_, {{ case.name }}Request) = MockFactory.mocked{{ case.name|upperFirstLetter }}Request(withJSON: self.productJson)
+        let (_, {{ case.name }}Request) = MockFactory.mocked{{ case.name|upperFirstLetter }}Request(withJSON: Mock{{ case.name|upperFirstLetter }}DataFactory.custom{{ case.name|upperFirstLetter }}Data)
         
         
         let expectationToFulfill = expectation(description: "{{ case.name|upperFirstLetter }}Request calls the method and runs the callback closure")
@@ -144,15 +144,16 @@ class {{ case.name|upperFirstLetter }}RequestTests: XCTestCase {
     {% if case|annotated:"hasTree" %}
 
     func testRequestReturnTree() {
-        let (_, {{ case.name}}Request) = MockFactory.mocked{{ case.name|upperFirstLetter }}Request(withJSON: self.treeJson)
+        let (_, {{ case.name}}Request) = MockFactory.mocked{{ case.name|upperFirstLetter }}Request(withJSON: Mock{{ case.name|upperFirstLetter }}DataFactory.treeData)
         
         let expectationToFulfill = expectation(description: "{{ case.name|upperFirstLetter }}Request calls the method and runs the callback closure")
         
         let _ = {{ case.name }}Request.tree { (result) in
             switch result {
             case .success(let response):
-                XCTAssert(type(of: response.data) == [moltin.{{ case.name|upperFirstLetter}}].self)
+                XCTAssert(type(of: response.data) == [moltin.{{ case.name|upperFirstLetter}}]?.self)
                 XCTAssert(response.data?.count != 0)
+                XCTAssert(response.data?[0].children?.count != 0)
             case .failure(let error):
                 XCTFail(error.localizedDescription)
             }
@@ -170,15 +171,16 @@ class {{ case.name|upperFirstLetter }}RequestTests: XCTestCase {
     {% if case|annotated:"hasCustomType" %}
 
     func testRequestReturnCustomTree() {
-        let (_, {{ case.name }}Request) = MockFactory.mocked{{ case.name|upperFirstLetter }}Request(withJSON: self.treeJson)
+        let (_, {{ case.name }}Request) = MockFactory.mocked{{ case.name|upperFirstLetter }}Request(withJSON: Mock{{ case.name|upperFirstLetter }}DataFactory.customTreeData)
         
         let expectationToFulfill = expectation(description: "Request calls the method and runs the callback closure")
         
         let _ = {{ case.name }}Request.tree { (result: Result<PaginatedResponse<[MyCustom{{ case.name|upperFirstLetter }}]>>) in
             switch result {
             case .success(let response):
-                XCTAssert(type(of: response.data) == [MyCustom{{ case.name|upperFirstLetter}}].self)
+                XCTAssert(type(of: response.data) == [MyCustom{{ case.name|upperFirstLetter}}]?.self)
                 XCTAssert(response.data?.count != 0)
+                XCTAssert(response.data?[0].children?.count != 0)
             case .failure(let error):
                 XCTFail(error.localizedDescription)
             }
