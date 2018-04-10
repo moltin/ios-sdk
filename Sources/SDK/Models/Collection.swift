@@ -28,7 +28,7 @@ open class Collection: Codable, HasRelationship {
     public var collections: [Collection]?
     /// The products associated with this collection
     public var products: [Product]?
-    
+
     /// The children of this collection
     public var children: [Collection]?
 

@@ -28,7 +28,7 @@ open class Brand: Codable, HasRelationship {
     public var brands: [Brand]?
     /// The products this brand is associated with
     public var products: [Product]?
-    
+
     /// The children of this brand
     public var children: [Brand]?
 
@@ -44,7 +44,7 @@ open class Brand: Codable, HasRelationship {
         self.status = try container.decode(String.self, forKey: .status)
         self.relationships = try container.decodeIfPresent(Relationships.self, forKey: .relationships)
         self.children = try container.decodeIfPresent([Brand].self, forKey: .children)
-        
+
         try self.decodeRelationships(fromRelationships: self.relationships, withIncludes: includes)
     }
 }
