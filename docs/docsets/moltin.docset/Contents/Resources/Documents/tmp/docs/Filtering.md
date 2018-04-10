@@ -8,15 +8,21 @@
 
 ## Filter
 ```swift
-moltin.product.filter(operator: .eq, key: "name", value: "ProductName")
+moltin.product.filter(operator: .eq, key: "name", value: "ProductName").all {
+   ...
+}
 ```
 
 ## Sort
 ```swift
-moltin.product.sort("order")
+moltin.product.sort("order").all {
+   ...
+}
 ```
 ```swift
-moltin.product.sort("-order")
+moltin.product.sort("-order").all {
+   ...
+}
 ```
 
 ## Offset / Limit
@@ -32,5 +38,13 @@ moltin.product.limit(10).offset(20).all {
 ```swift
 moltin.product.include([.mainImage, .files]).all {
     ...
+}
+```
+
+## Combining Operations
+
+```swift
+moltin.product.sort("-name").include([.mainImage]).limit(20).all {
+   ...
 }
 ```

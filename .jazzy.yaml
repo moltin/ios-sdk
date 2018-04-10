@@ -74,6 +74,7 @@ custom_categories:
       - Order
       - OrderMeta
       - OrderRelationships
+      - OrderSuccess
       - Product
       - ProductMeta
       - ProductVariation
@@ -93,7 +94,6 @@ custom_categories:
       - BraintreePaymentToken
       - BraintreePaymentNonce
       - PaymentMethod
-
   - name: Utils
     children:
       - Decodable

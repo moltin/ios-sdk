@@ -9,6 +9,7 @@ import Foundation
 
 /// `PaginationResponse` wraps around a list endpoint response, to give context to the user about the pagination information
 open class PaginatedResponse<T: Codable>: Codable {
+    /// Holds the real type of T ([Product] / Product / Brand / Collection) etc
     public typealias ContainedType = T
 
     /// The data returned for this response

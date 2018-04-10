@@ -68,4 +68,5 @@ open class Order: Codable {
     }
 }
 
+/// Denotes a successful order returned from the payment gateway
 open class OrderSuccess: Codable {}
