@@ -42,12 +42,18 @@ public struct MoltinFilterOperator: RawRepresentable, Equatable {
 
     public var rawValue: String
 
-    static let equal                = MoltinFilterOperator(rawValue: "eq")
-    static let like                 = MoltinFilterOperator(rawValue: "like")
-    static let greaterThan          = MoltinFilterOperator(rawValue: "gt")
-    static let greaterThanOrEqual   = MoltinFilterOperator(rawValue: "ge")
-    static let lessThan             = MoltinFilterOperator(rawValue: "lt")
-    static let lessThanOrEqual      = MoltinFilterOperator(rawValue: "le")
+    /// Represents an "equals" filter
+    public static let equal                = MoltinFilterOperator(rawValue: "eq")
+    /// Represents an "equals" filter
+    public static let like                 = MoltinFilterOperator(rawValue: "like")
+    ///Represents a "greater than" filter
+    public static let greaterThan          = MoltinFilterOperator(rawValue: "gt")
+    ///Represents a "greater than or equal to" filter
+    public static let greaterThanOrEqual   = MoltinFilterOperator(rawValue: "ge")
+    ///Represents a "less than" filter
+    public static let lessThan             = MoltinFilterOperator(rawValue: "lt")
+    ///Represents a "less than or equal to" filter
+    public static let lessThanOrEqual      = MoltinFilterOperator(rawValue: "le")
 
     public init(rawValue: String) {
         self.rawValue = rawValue
