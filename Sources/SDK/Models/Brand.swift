@@ -47,6 +47,11 @@ open class Brand: Codable, HasRelationship {
 
         try self.decodeRelationships(fromRelationships: self.relationships, withIncludes: includes)
     }
+
+    @available(*, deprecated, message: "Do not use.")
+    init() {
+        fatalError("Swift 4.1 broke Codable synthesized inits")
+    }
 }
 
 extension Brand {

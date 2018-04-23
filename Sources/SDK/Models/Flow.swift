@@ -13,12 +13,22 @@ open class Entry: Codable {
     public let id: String
     /// The type of this object
     public let type: String
+
+    @available(*, deprecated, message: "Do not use.")
+    init() {
+        fatalError("Swift 4.1 broke Codable synthesized inits")
+    }
 }
 
 /// Represents the meta information for a `Field`
 public struct FieldMeta: Codable {
     /// The timestamps for this `Field`
     public let timestamps: Timestamps
+
+    @available(*, deprecated, message: "Do not use.")
+    init() {
+        fatalError("Swift 4.1 broke Codable synthesized inits")
+    }
 }
 
 /// Represents a `Field` in Moltin
@@ -62,6 +72,11 @@ open class Field: Codable {
         case relationships
         case meta
     }
+
+    @available(*, deprecated, message: "Do not use.")
+    init() {
+        fatalError("Swift 4.1 broke Codable synthesized inits")
+    }
 }
 
 /// Represents a `Flow` in Moltin
@@ -78,4 +93,9 @@ open class Flow: Codable {
     public let description: String
     /// Whether this flow is enabled or not
     public let enabled: Bool
+
+    @available(*, deprecated, message: "Do not use.")
+    init() {
+        fatalError("Swift 4.1 broke Codable synthesized inits")
+    }
 }

@@ -15,6 +15,11 @@ class Author: Codable, Equatable {
     static func ==(lhs: Author, rhs: Author) -> Bool {
         return lhs.name == rhs.name
     }
+    
+    @available(*, deprecated, message: "Do not use.")
+    init() {
+        fatalError("Swift 4.1 broke Codable synthesized inits")
+    }
 }
 
 

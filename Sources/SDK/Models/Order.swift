@@ -18,6 +18,11 @@ public class OrderMeta: Codable {
         case displayPrice = "display_price"
         case timestamps
     }
+
+    @available(*, deprecated, message: "Do not use.")
+    init() {
+        fatalError("Swift 4.1 broke Codable synthesized inits")
+    }
 }
 
 /// Represents the relationships for an `Order`
@@ -26,6 +31,11 @@ public class OrderRelationships: Codable {
     public let items: [String: [[String: String]]]?
     /// The customer information in this order
     public let customer: [String: [String: String]]?
+
+    @available(*, deprecated, message: "Do not use.")
+    init() {
+        fatalError("Swift 4.1 broke Codable synthesized inits")
+    }
 }
 
 /// Represents a `Order` in Moltin
@@ -66,7 +76,17 @@ open class Order: Codable {
         case meta
         case relationships
     }
+
+    @available(*, deprecated, message: "Do not use.")
+    init() {
+        fatalError("Swift 4.1 broke Codable synthesized inits")
+    }
 }
 
 /// Denotes a successful order returned from the payment gateway
-open class OrderSuccess: Codable {}
+open class OrderSuccess: Codable {
+    @available(*, deprecated, message: "Do not use.")
+    init() {
+        fatalError("Swift 4.1 broke Codable synthesized inits")
+    }
+}

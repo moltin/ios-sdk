@@ -18,6 +18,11 @@ open class PaginatedResponse<T: Codable>: Codable {
     public var links: [String: String?]?
     /// The meta information for this response
     public var meta: PaginationMeta?
+
+    @available(*, deprecated, message: "Do not use.")
+    init() {
+        fatalError("Swift 4.1 broke Codable synthesized inits")
+    }
 }
 
 /// `PaginationMeta` gives information about the pagination details to the user, such as result information and page information
@@ -26,4 +31,9 @@ open class PaginationMeta: Codable {
     public let results: [String: Int]?
     /// The page information for this response
     public let page: [String: Int]?
+
+    @available(*, deprecated, message: "Do not use.")
+    init() {
+        fatalError("Swift 4.1 broke Codable synthesized inits")
+    }
 }

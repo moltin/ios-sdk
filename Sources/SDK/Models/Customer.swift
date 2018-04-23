@@ -23,6 +23,11 @@ open class Customer: Codable {
         self.name = name
     }
 
+    @available(*, deprecated, message: "Do not use.")
+    init() {
+        fatalError("Swift 4.1 broke Codable synthesized inits")
+    }
+
     func toDictionary() -> [String: Any] {
         var customerData: [String: Any] = [:]
         if let id = self.id {

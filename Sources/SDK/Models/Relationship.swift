@@ -31,6 +31,11 @@ public class RelationshipMany: Codable {
     public func getIds() -> [String]? {
         return self.data?.map { $0.id }
     }
+
+    @available(*, deprecated, message: "Do not use.")
+    init() {
+        fatalError("Swift 4.1 broke Codable synthesized inits")
+    }
 }
 
 /// Represents a relationship which can hold a single item
@@ -50,6 +55,11 @@ public class RelationshipSingle: Codable {
     public func getId() -> String? {
         return self.data?.id
     }
+
+    @available(*, deprecated, message: "Do not use.")
+    init() {
+        fatalError("Swift 4.1 broke Codable synthesized inits")
+    }
 }
 
 /// Represents a relationship item
@@ -58,6 +68,11 @@ public struct RelationshipData: Codable {
     public let type: String
     /// The id of this relationship
     public let id: String
+
+    @available(*, deprecated, message: "Do not use.")
+    init() {
+        fatalError("Swift 4.1 broke Codable synthesized inits")
+    }
 }
 
 /// Represents all possible relationships a resource can have within Moltin
@@ -95,5 +110,10 @@ open class Relationships: Codable {
         case items
         case customer
         case products
+    }
+
+    @available(*, deprecated, message: "Do not use.")
+    init() {
+        fatalError("Swift 4.1 broke Codable synthesized inits")
     }
 }

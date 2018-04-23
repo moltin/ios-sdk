@@ -1122,8 +1122,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C3821AE6204440F5001EF864 /* Cart.swift in Sources */,
-				C3FF26FF2061205900CA226D /* Timestamps.swift in Sources */,
 				C3715BFC203F59A100287C1B /* Currency.swift in Sources */,
 				C3715BFE203F59CA00287C1B /* File.swift in Sources */,
 				C3715C00203F59D000287C1B /* Flow.swift in Sources */,
@@ -1148,7 +1146,9 @@
 				C3821AE1204422C5001EF864 /* DataSerializer.swift in Sources */,
 				C3434C1D203DDAFF00883C84 /* Error.swift in Sources */,
 				C3821AE8204440FD001EF864 /* Address.swift in Sources */,
+				C3FF26FF2061205900CA226D /* Timestamps.swift in Sources */,
 				C3715BD1203EE6D400287C1B /* Product.swift in Sources */,
+				C3821AE6204440F5001EF864 /* Cart.swift in Sources */,
 				C3FB57A8204028870007288D /* CartRequest.swift in Sources */,
 				C336E5CD20629601008C2005 /* CodableExtract.swift in Sources */,
 				C318D02B203EC50200B7A81E /* Parser.swift in Sources */,
@@ -1656,7 +1656,6 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1806,7 +1805,6 @@
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -1957,7 +1955,6 @@
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -2110,7 +2107,6 @@
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				VERSIONING_SYSTEM = "apple-generic";
