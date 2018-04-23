@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
 
     s.source       = { :git => "https://github.com/moltin/ios-sdk.git", :tag => s.version }
 
-    s.source_files = "Sources/*.{h,m}"
+    s.source_files = "Sources/**/*"
     s.requires_arc = true
 
     s.ios.deployment_target = "10.0"
