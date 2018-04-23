@@ -1,47 +1,6 @@
 {
   "warnings": [
-    {
-      "file": "/Users/craigtweedy/Projects/Moltin/iOS/new/moltin/Sources/SDK/Utils/Query.swift",
-      "line": 45,
-      "symbol": "MoltinFilterOperator.equal",
-      "symbol_kind": "source.lang.swift.decl.var.static",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/craigtweedy/Projects/Moltin/iOS/new/moltin/Sources/SDK/Utils/Query.swift",
-      "line": 46,
-      "symbol": "MoltinFilterOperator.like",
-      "symbol_kind": "source.lang.swift.decl.var.static",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/craigtweedy/Projects/Moltin/iOS/new/moltin/Sources/SDK/Utils/Query.swift",
-      "line": 47,
-      "symbol": "MoltinFilterOperator.greaterThan",
-      "symbol_kind": "source.lang.swift.decl.var.static",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/craigtweedy/Projects/Moltin/iOS/new/moltin/Sources/SDK/Utils/Query.swift",
-      "line": 48,
-      "symbol": "MoltinFilterOperator.greaterThanOrEqual",
-      "symbol_kind": "source.lang.swift.decl.var.static",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/craigtweedy/Projects/Moltin/iOS/new/moltin/Sources/SDK/Utils/Query.swift",
-      "line": 49,
-      "symbol": "MoltinFilterOperator.lessThan",
-      "symbol_kind": "source.lang.swift.decl.var.static",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/craigtweedy/Projects/Moltin/iOS/new/moltin/Sources/SDK/Utils/Query.swift",
-      "line": 50,
-      "symbol": "MoltinFilterOperator.lessThanOrEqual",
-      "symbol_kind": "source.lang.swift.decl.var.static",
-      "warning": "undocumented"
-    }
+
   ],
   "source_directory": "/Users/craigtweedy/Projects/Moltin/iOS/new/moltin"
 }

@@ -3,7 +3,7 @@
 ## Operations
 - Filter
 - Sort
-- Offset / Limt
+- Offset / Limit
 - Include
 
 ## Filter
