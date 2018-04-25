@@ -180,3 +180,53 @@ open class BraintreePaymentNonce: PaymentMethod {
         self.customFields = customFields
     }
 }
+
+/// Payment using Ayden data
+open class AdyenPayment: PaymentMethod {
+    
+    /// The first name of the person on the card
+    var firstName: String
+    /// The last name of the person on the card
+    var lastName: String
+    /// The card number
+    var cardNumber: String
+    /// The expiry month of the card
+    var expiryMonth: String
+    /// The expiry year of the card
+    var expiryYear: String
+    /// The CVV number of the card
+    var cvvNumber: String
+    
+    /// The payment data to be sent to the API
+    public var paymentData: [String: Any] {
+        return [
+            "gateway": "adyen",
+            "method": "purchase",
+            "first_name": self.firstName,
+            "last_name": self.lastName,
+            "number": self.cardNumber,
+            "month": self.expiryMonth,
+            "year": self.expiryYear,
+            "verification_value": self.cvvNumber
+        ]
+    }
+    
+    /// Initialise the payment method with card details
+    public init(
+        withFirstName firstName: String,
+        withLastName lastName: String,
+        withCardNumber cardNumber: String,
+        withExpiryMonth expiryMonth: String,
+        withExpiryYear expiryYear: String,
+        withCVVNumber cvv: String
+        ) {
+        self.firstName = firstName
+        self.lastName = lastName
+        self.cardNumber = cardNumber
+        self.expiryMonth = expiryMonth
+        self.expiryYear = expiryYear
+        self.cvvNumber = cvv
+    }
+}
+
+
