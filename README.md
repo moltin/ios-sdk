@@ -76,6 +76,48 @@ moltin.product.tree { result in
 }
 ```
 
+## Checking out & Payment
+
+Paying for a cart is a two step process in Moltin. 
+
+First, check out your cart, which will return you an order:
+
+```swift
+self.moltin.cart.checkout(
+    cart: ...,
+    withCustomer: ...,
+    withBillingAddress: ...,
+    withShippingAddress: ...) { (result) in
+    switch result {
+        case .success(let order):
+            ...
+        default: break
+    }
+}
+```
+
+Now that you have an order, you can pay for your order. Moltin providers several gateways for you to use:
+
+- Stripe
+- BrainTree
+- Manual
+
+Once you've chosen your payment gateway, you can fulfil one of Moltin's `PaymentMethod`'s: 
+
+```swift
+let paymentMethod = StripeToken(withStripeToken: ...)
+```
+
+You can then use this payment method to pay for an order:
+
+```swift
+self.moltin.cart.pay(
+    forOrderID: order.id,
+    withPaymentMethod: paymentMethod) { (result) in
+    ...
+}
+```
+
 ## Config
 
 The basic way to set up the Moltin SDK is to create an instance of the `Moltin` class with your client ID and optionally the locale of the application. However, if you'd like to change additional details of the SDK, such as the URL of your `Moltin` instance, you can do so by passing in `MoltinConfig`.

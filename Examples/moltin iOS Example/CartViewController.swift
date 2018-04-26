@@ -54,7 +54,7 @@ class CartViewController: UIViewController {
     }
 
     func payForOrder(_ order: Order) {
-        let paymentMethod = StripeToken(withStripeToken: "tok_visa")
+        let paymentMethod = ManuallyAuthorizePayment()
         self.moltin.cart.pay(forOrderID: order.id, withPaymentMethod: paymentMethod) { (result) in
             switch result {
             case .success:

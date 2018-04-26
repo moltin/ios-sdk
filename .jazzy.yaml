@@ -93,6 +93,7 @@ custom_categories:
       - BraintreeCustomerID
       - BraintreePaymentToken
       - BraintreePaymentNonce
+      - ManuallyAuthorizePayment
       - PaymentMethod
   - name: Utils
     children:

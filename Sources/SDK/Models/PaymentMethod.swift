@@ -180,3 +180,19 @@ open class BraintreePaymentNonce: PaymentMethod {
         self.customFields = customFields
     }
 }
+
+/// Manually authorize a payment
+open class ManuallyAuthorizePayment: PaymentMethod {
+
+    /// The payment data to be sent to the API
+    public var paymentData: [String: Any] {
+        return [
+            "gateway": "manual",
+            "method": "authorize"
+        ]
+    }
+
+    /// Initialise the manual authorization payment method
+    public init() {
+    }
+}
