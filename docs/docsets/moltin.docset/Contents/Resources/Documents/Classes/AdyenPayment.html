@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>FileRequest Class Reference</title>
+    <title>AdyenPayment Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset="utf-8">
@@ -14,9 +14,9 @@
   </head>
   <body>
 
-    <a name="//apple_ref/swift/Class/FileRequest" class="dashAnchor"></a>
+    <a name="//apple_ref/swift/Class/AdyenPayment" class="dashAnchor"></a>
 
-    <a title="FileRequest Class Reference"></a>
+    <a title="AdyenPayment Class Reference"></a>
 
     <header class="header">
       <p class="header-col header-col--primary">
@@ -44,7 +44,7 @@
     <p class="breadcrumbs">
       <a class="breadcrumb" href="../index.html">moltin Reference</a>
       <img class="carat" src="../img/carat.png" />
-      FileRequest Class Reference
+      AdyenPayment Class Reference
     </p>
 
     <div class="content-wrapper">
@@ -345,14 +345,14 @@
 
         <section class="section">
           <div class="section-content">
-            <h1>FileRequest</h1>
+            <h1>AdyenPayment</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">FileRequest</span><span class="p">:</span> <span class="kt"><a href="../Classes/MoltinRequest.html">MoltinRequest</a></span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">class</span> <span class="kt">AdyenPayment</span><span class="p">:</span> <span class="kt"><a href="../Protocols/PaymentMethod.html">PaymentMethod</a></span></code></pre>
 
                 </div>
               </div>
-            <p>An entry point to make API calls relating to <code><a href="../Classes/File.html">File</a></code></p>
+            <p>Payment using Ayden data</p>
 
           </div>
         </section>
@@ -364,9 +364,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:6moltin11FileRequestC8endpointSSvp"></a>
-                    <a name="//apple_ref/swift/Property/endpoint" class="dashAnchor"></a>
-                    <a class="token" href="#/s:6moltin11FileRequestC8endpointSSvp">endpoint</a>
+                    <a name="/s:6moltin12AdyenPaymentC11paymentDatas10DictionaryVySSypGvp"></a>
+                    <a name="//apple_ref/swift/Property/paymentData" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6moltin12AdyenPaymentC11paymentDatas10DictionaryVySSypGvp">paymentData</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -374,14 +374,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The API endpoint for this resource.</p>
+                        <p>The payment data to be sent to the API</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">endpoint</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">"/files"</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">paymentData</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">Any</span><span class="p">]</span></code></pre>
 
                         </div>
                       </div>
@@ -391,9 +391,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:6moltin11FileRequestC017DefaultCollectionC7Handlera"></a>
-                    <a name="//apple_ref/swift/Alias/DefaultCollectionRequestHandler" class="dashAnchor"></a>
-                    <a class="token" href="#/s:6moltin11FileRequestC017DefaultCollectionC7Handlera">DefaultCollectionRequestHandler</a>
+                    <a name="/s:6moltin12AdyenPaymentCACSS13withFirstName_SS0d4LastF0SS0D10CardNumberSS0D11ExpiryMonthSS0dJ4YearSS0D9CVVNumbertcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(withFirstName:withLastName:withCardNumber:withExpiryMonth:withExpiryYear:withCVVNumber:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6moltin12AdyenPaymentCACSS13withFirstName_SS0d4LastF0SS0D10CardNumberSS0D11ExpiryMonthSS0dJ4YearSS0D9CVVNumbertcfc">init(withFirstName:withLastName:withCardNumber:withExpiryMonth:withExpiryYear:withCVVNumber:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -401,165 +401,23 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A typealias which allows automatic casting of a collection to <code>[File]</code>.</p>
+                        <p>Initialise the payment method with card details</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">DefaultCollectionRequestHandler</span> <span class="o">=</span> <span class="kt"><a href="../Other Typealiases.html#/s:6moltin24CollectionRequestHandlera">CollectionRequestHandler</a></span><span class="o">&lt;</span><span class="p">[</span><span class="kt"><a href="../Classes/File.html">File</a></span><span class="p">]</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span>
+    <span class="n">withFirstName</span> <span class="nv">firstName</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+    <span class="n">withLastName</span> <span class="nv">lastName</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+    <span class="n">withCardNumber</span> <span class="nv">cardNumber</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+    <span class="n">withExpiryMonth</span> <span class="nv">expiryMonth</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+    <span class="n">withExpiryYear</span> <span class="nv">expiryYear</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+    <span class="n">withCVVNumber</span> <span class="nv">cvv</span><span class="p">:</span> <span class="kt">String</span>
+    <span class="p">)</span></code></pre>
 
                         </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:6moltin11FileRequestC013DefaultObjectC7Handlera"></a>
-                    <a name="//apple_ref/swift/Alias/DefaultObjectRequestHandler" class="dashAnchor"></a>
-                    <a class="token" href="#/s:6moltin11FileRequestC013DefaultObjectC7Handlera">DefaultObjectRequestHandler</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>A typealias which allows automatic casting of an object to <code><a href="../Classes/File.html">File</a></code>.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">DefaultObjectRequestHandler</span> <span class="o">=</span> <span class="kt"><a href="../Other Typealiases.html#/s:6moltin20ObjectRequestHandlera">ObjectRequestHandler</a></span><span class="o">&lt;</span><span class="kt"><a href="../Classes/File.html">File</a></span><span class="o">&gt;</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:6moltin11FileRequestC3allAA06MoltinC0CyAA6ResultOyAA17PaginatedResponseCySayAA0B0CGGGc17completionHandler_tF"></a>
-                    <a name="//apple_ref/swift/Method/all(completionHandler:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:6moltin11FileRequestC3allAA06MoltinC0CyAA6ResultOyAA17PaginatedResponseCySayAA0B0CGGGc17completionHandler_tF">all(completionHandler:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Return all instances of type <code><a href="../Classes/File.html">File</a></code></p>
-<div class="aside aside-author">
-    <p class="aside-title">Author</p>
-    Craig Tweedy
-
-</div>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">all</span><span class="p">(</span><span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Classes/FileRequest.html#/s:6moltin11FileRequestC017DefaultCollectionC7Handlera">DefaultCollectionRequestHandler</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/MoltinRequest.html">MoltinRequest</a></span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>completionHandler</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The handler to be called on success or failure</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div>
-                        <h4>Return Value</h4>
-                        <p>A instance of <code><a href="../Classes/MoltinRequest.html">MoltinRequest</a></code> which encapsulates the request.</p>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:6moltin11FileRequestC3getAA06MoltinC0CSS5forID_yAA6ResultOyAA0B0CGc17completionHandlertF"></a>
-                    <a name="//apple_ref/swift/Method/get(forID:completionHandler:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:6moltin11FileRequestC3getAA06MoltinC0CSS5forID_yAA6ResultOyAA0B0CGc17completionHandlertF">get(forID:completionHandler:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Return all instances of type <code><a href="../Classes/File.html">File</a></code> by <code>id</code></p>
-<div class="aside aside-author">
-    <p class="aside-title">Author</p>
-    Craig Tweedy
-
-</div>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">get</span><span class="p">(</span><span class="n">forID</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Classes/FileRequest.html#/s:6moltin11FileRequestC013DefaultObjectC7Handlera">DefaultObjectRequestHandler</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/MoltinRequest.html">MoltinRequest</a></span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>forID</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The ID of the object</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>completionHandler</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The handler to be called on success or failure</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div>
-                        <h4>Return Value</h4>
-                        <p>A instance of <code><a href="../Classes/MoltinRequest.html">MoltinRequest</a></code> which encapsulates the request.</p>
                       </div>
                     </section>
                   </div>

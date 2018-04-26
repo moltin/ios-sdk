@@ -56,6 +56,7 @@ Now that you have an order, you can pay for your order. Moltin providers several
 
 - Stripe
 - BrainTree
+- Adyen
 - Manual
 
 Once you've chosen your payment gateway, you can fulfil one of Moltin's `PaymentMethod`'s: 
