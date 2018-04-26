@@ -183,7 +183,7 @@ open class BraintreePaymentNonce: PaymentMethod {
 
 /// Payment using Ayden data
 open class AdyenPayment: PaymentMethod {
-    
+
     /// The first name of the person on the card
     var firstName: String
     /// The last name of the person on the card
@@ -196,7 +196,7 @@ open class AdyenPayment: PaymentMethod {
     var expiryYear: String
     /// The CVV number of the card
     var cvvNumber: String
-    
+
     /// The payment data to be sent to the API
     public var paymentData: [String: Any] {
         return [
@@ -210,7 +210,7 @@ open class AdyenPayment: PaymentMethod {
             "verification_value": self.cvvNumber
         ]
     }
-    
+
     /// Initialise the payment method with card details
     public init(
         withFirstName firstName: String,
@@ -229,4 +229,18 @@ open class AdyenPayment: PaymentMethod {
     }
 }
 
+/// Manually authorize a payment
+open class ManuallyAuthorizePayment: PaymentMethod {
 
+    /// The payment data to be sent to the API
+    public var paymentData: [String: Any] {
+        return [
+            "gateway": "manual",
+            "method": "authorize"
+        ]
+    }
+
+    /// Initialise the manual authorization payment method
+    public init() {
+    }
+}

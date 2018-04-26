@@ -289,6 +289,9 @@
                 <a class="nav-group-task-link" href="Classes/BraintreePaymentNonce.html">BraintreePaymentNonce</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/ManuallyAuthorizePayment.html">ManuallyAuthorizePayment</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Protocols/PaymentMethod.html">PaymentMethod</a>
               </li>
             </ul>
@@ -358,7 +361,7 @@
 <h2 id='cocoapods' class='heading'>Cocoapods</h2>
 
 <p>Add the following to your <code>Podfile</code>:</p>
-<pre class="highlight plaintext"><code>pod 'Moltin', '~&gt; 3.0.5'
+<pre class="highlight plaintext"><code>pod 'Moltin', '~&gt; 3.0.6'
 </code></pre>
 
 <p>Or, quickly try out our examples:</p>
@@ -367,13 +370,13 @@
 <h2 id='carthage' class='heading'>Carthage</h2>
 
 <p>Add the following to your <code>Cartfile</code>:</p>
-<pre class="highlight plaintext"><code>github "Moltin/ios-sdk" ~&gt; 3.0.5
+<pre class="highlight plaintext"><code>github "Moltin/ios-sdk" ~&gt; 3.0.6
 </code></pre>
 <h2 id='swift-package-manager' class='heading'>Swift Package Manager</h2>
 
 <p>Add the following to your <code>dependencies</code> value in <code>Package.swift</code>:</p>
 <pre class="highlight swift"><code><span class="nv">dependencies</span><span class="p">:</span> <span class="p">[</span>
-    <span class="o">.</span><span class="nf">package</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="s">"https://github.com/moltin/ios-sdk.git"</span><span class="p">,</span> <span class="nv">from</span><span class="p">:</span> <span class="s">"3.0.5"</span><span class="p">)</span>
+    <span class="o">.</span><span class="nf">package</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="s">"https://github.com/moltin/ios-sdk.git"</span><span class="p">,</span> <span class="nv">from</span><span class="p">:</span> <span class="s">"3.0.6"</span><span class="p">)</span>
 <span class="p">]</span>
 </code></pre>
 <h1 id='usage' class='heading'>Usage</h1>
@@ -405,6 +408,43 @@
         <span class="k">case</span> <span class="o">.</span><span class="nf">failure</span><span class="p">(</span><span class="k">let</span> <span class="nv">error</span><span class="p">):</span>
             <span class="nf">print</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
     <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<h2 id='checking-out-amp-payment' class='heading'>Checking out &amp; Payment</h2>
+
+<p>Paying for a cart is a two step process in Moltin. </p>
+
+<p>First, check out your cart, which will return you an order:</p>
+<pre class="highlight swift"><code><span class="k">self</span><span class="o">.</span><span class="n">moltin</span><span class="o">.</span><span class="n">cart</span><span class="o">.</span><span class="nf">checkout</span><span class="p">(</span>
+    <span class="nv">cart</span><span class="p">:</span> <span class="o">...</span><span class="p">,</span>
+    <span class="nv">withCustomer</span><span class="p">:</span> <span class="o">...</span><span class="p">,</span>
+    <span class="nv">withBillingAddress</span><span class="p">:</span> <span class="o">...</span><span class="p">,</span>
+    <span class="nv">withShippingAddress</span><span class="p">:</span> <span class="o">...</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="n">result</span><span class="p">)</span> <span class="k">in</span>
+    <span class="k">switch</span> <span class="n">result</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="o">.</span><span class="nf">success</span><span class="p">(</span><span class="k">let</span> <span class="nv">order</span><span class="p">):</span>
+            <span class="o">...</span>
+        <span class="k">default</span><span class="p">:</span> <span class="k">break</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>Now that you have an order, you can pay for your order. Moltin providers several gateways for you to use:</p>
+
+<ul>
+<li>Stripe</li>
+<li>BrainTree</li>
+<li>Manual</li>
+</ul>
+
+<p>Once you&rsquo;ve chosen your payment gateway, you can fulfil one of Moltin&rsquo;s <code><a href="Protocols/PaymentMethod.html">PaymentMethod</a></code>&lsquo;s: </p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">paymentMethod</span> <span class="o">=</span> <span class="kt">StripeToken</span><span class="p">(</span><span class="nv">withStripeToken</span><span class="p">:</span> <span class="o">...</span><span class="p">)</span>
+</code></pre>
+
+<p>You can then use this payment method to pay for an order:</p>
+<pre class="highlight swift"><code><span class="k">self</span><span class="o">.</span><span class="n">moltin</span><span class="o">.</span><span class="n">cart</span><span class="o">.</span><span class="nf">pay</span><span class="p">(</span>
+    <span class="nv">forOrderID</span><span class="p">:</span> <span class="n">order</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+    <span class="nv">withPaymentMethod</span><span class="p">:</span> <span class="n">paymentMethod</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="n">result</span><span class="p">)</span> <span class="k">in</span>
+    <span class="o">...</span>
 <span class="p">}</span>
 </code></pre>
 <h2 id='config' class='heading'>Config</h2>
