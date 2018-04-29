@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
     s.license      = { :type => 'MIT', :file => 'LICENSE' }
     s.authors      = { "Craig Tweedy" => "craig.tweedy@moltin.com" }
 
-    s.platforms    = { :ios => "10.0", :osx => "10.10", :watchos => "3.0", :tvos => "10.0" }
+    s.platforms    = { :ios => "10.0", :watchos => "3.0", :tvos => "10.0" }
 
     s.source       = { :git => "https://github.com/moltin/ios-sdk.git", :tag => s.version }
 
@@ -19,7 +19,6 @@ Pod::Spec.new do |s|
     s.requires_arc = true
 
     s.ios.deployment_target = "10.0"
-    s.osx.deployment_target = "10.10"
     s.tvos.deployment_target = "10.0"
     s.watchos.deployment_target = "3.0"
 end
