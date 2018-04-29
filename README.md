@@ -6,12 +6,12 @@
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Twitter](https://img.shields.io/badge/twitter-@Moltin-blue.svg?style=flat)](http://twitter.com/Moltin)
 
-iOS/macOS/tvOS/watchOS SDK for the [Moltin](https://moltin.com) platform, written in Swift.
+iOS/tvOS/watchOS SDK for the [Moltin](https://moltin.com) platform, written in Swift.
 
 
 # Requirements
 
-- iOS 10.0+ / macOS 10.10+ / tvOS 10.0+ / watchOS 3.0+
+- iOS 10.0+ / tvOS 10.0+ / watchOS 3.0+
 - Swift 4.0+
 
 # Installation
