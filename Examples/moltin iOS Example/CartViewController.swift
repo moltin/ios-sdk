@@ -11,11 +11,13 @@ import moltin
 class CartViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-
+    @IBOutlet weak var cartTotalLabel: UILabel!
+    
     let moltin: Moltin = Moltin(withClientID: "j6hSilXRQfxKohTndUuVrErLcSJWP15P347L6Im0M4", withLocale: Locale(identifier: "en_US"))
 
     var cartItems: [CartItem] = []
-
+    var product: Product?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -30,6 +32,10 @@ class CartViewController: UIViewController {
             default: break
             }
         }
+        
+        tableView.register(UINib(nibName: "CheckoutItemTableViewCell", bundle: nil), forCellReuseIdentifier: "CheckoutCell")
+        self.tableView.rowHeight = 100.0
+        self.tableView.tableFooterView = UIView(frame: CGRect.zero)
     }
 
     override func didReceiveMemoryWarning() {
@@ -71,8 +77,9 @@ class CartViewController: UIViewController {
 
     func showOrderStatus(withSuccess success: Bool, withError error: Error? = nil) {
         let title = success ? "Order paid!" : "Order error"
-        let message = success ? "Complete!" : error?.localizedDescription
+        let message = success ? "Complete! It Worked" : error?.localizedDescription
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Close", style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
 }
@@ -84,15 +91,39 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell: UITableViewCell!
-        cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
-        if cell == nil {
-            cell = UITableViewCell(style: .default, reuseIdentifier: "Cell")
-        }
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CheckoutCell", for: indexPath) as! CheckoutItemTableViewCell
         let cartItem = self.cartItems[indexPath.row]
-        cell.textLabel?.text = cartItem.name
 
+        cell.qtyLabel.text = String(cartItem.quantity)
+        cell.priceNameLabel.text = cartItem.meta.displayPrice.withTax.value.formatted
+        cell.productNameLabel.text = cartItem.name
+        cell.productImage.load(urlString: self.product?.mainImage?.link["href"])
+
+        //Handle totals somewhere else, what is meta?
+        self.cartTotalLabel.text = cartItem.meta.displayPrice.withTax.value.formatted
         return cell
+    }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let title = "Click checkout to test order"
+        let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Close", style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+        return "Remove from cart"
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == UITableViewCellEditingStyle.delete) {
+            self.cartItems.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
     }
 }
