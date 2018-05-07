@@ -12,6 +12,7 @@ class CartViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var cartTotalLabel: UILabel!
+    @IBOutlet weak var buyNowButtonLabel: UIButton!
     
     let moltin: Moltin = Moltin(withClientID: "j6hSilXRQfxKohTndUuVrErLcSJWP15P347L6Im0M4", withLocale: Locale(identifier: "en_US"))
 
@@ -21,21 +22,18 @@ class CartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-        self.moltin.cart.items(forCartID: AppDelegate.cartID) { (result) in
-            switch result {
-            case .success(let result):
-                DispatchQueue.main.async {
-                    self.cartItems = result.data ?? []
-                    self.tableView.reloadData()
-                }
-            default: break
-            }
-        }
-        
+        self.buyNowButtonLabel.setTitle("Buy Now", for: .normal)
         tableView.register(UINib(nibName: "CheckoutItemTableViewCell", bundle: nil), forCellReuseIdentifier: "CheckoutCell")
-        self.tableView.rowHeight = 100.0
+        self.tableView.rowHeight = 120.0
         self.tableView.tableFooterView = UIView(frame: CGRect.zero)
+        //Handle totals some way better
+        let total  = cartItems.map { $0.meta.displayPrice.withTax.value.amount }
+        let currencyFormatter = NumberFormatter()
+        currencyFormatter.usesGroupingSeparator = true
+        currencyFormatter.numberStyle = .currency
+        currencyFormatter.locale = Locale.current
+        let priceString = currencyFormatter.string(from: (total.reduce(0, +)/100) as NSNumber) ?? "FREE"
+        self.cartTotalLabel.text = priceString
     }
 
     override func didReceiveMemoryWarning() {
@@ -99,8 +97,6 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
         cell.productNameLabel.text = cartItem.name
         cell.productImage.load(urlString: self.product?.mainImage?.link["href"])
 
-        //Handle totals somewhere else, what is meta?
-        self.cartTotalLabel.text = cartItem.meta.displayPrice.withTax.value.formatted
         return cell
     }
     

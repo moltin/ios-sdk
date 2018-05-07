@@ -69,19 +69,28 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
         if let product = self.products?[indexPath.row] {
             self.moltin.cart.addProduct(withID: product.id, ofQuantity: 1, toCart: AppDelegate.cartID, completionHandler: { (_) in
                 DispatchQueue.main.async {
-            
-                    self.moltin.product.include([.mainImage]).get(forID: product.id, completionHandler: { (result: Result<CustomProduct>) in
+                    //now get all the cart items
+                    self.moltin.cart.items(forCartID: AppDelegate.cartID) { (result) in
                         switch result {
-                        case .success(let product):
+                        case .success(let cart):
                             DispatchQueue.main.async {
-                                let vc = self.storyboard?.instantiateViewController(withIdentifier: "DetailToCart") as? CartViewController
-                                vc?.product = product
-                                self.navigationController?.pushViewController(vc!, animated: true)
+                                //Grab products which have the image
+                                self.moltin.product.include([.mainImage]).get(forID: product.id, completionHandler: { (result: Result<CustomProduct>) in
+                                    switch result {
+                                    case .success(let product):
+                                        DispatchQueue.main.async {
+                                            let vc = self.storyboard?.instantiateViewController(withIdentifier: "DetailToCart") as? CartViewController
+                                            vc?.product = product
+                                            vc?.cartItems = cart.data ?? []
+                                            self.navigationController?.pushViewController(vc!, animated: true)
+                                        }
+                                    default: break
+                                    }
+                                })
                             }
                         default: break
                         }
-                    })
-
+                    }
                 }
             })
         }
