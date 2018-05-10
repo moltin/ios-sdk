@@ -32,8 +32,21 @@ class MoltinHTTP {
         }
 
         self.session.dataTask(with: urlRequest) { (data, response, error) in
-            completionHandler(data, response, error)
-        }.resume()
+            guard let statusCode = (response as? HTTPURLResponse)?.statusCode else {
+                completionHandler(data, response, error)
+                return
+            }
+
+            if 200...299 ~= statusCode {
+                completionHandler(data, response, error)
+            } else {
+                let errorData = try? self.dataSerializer.deserialize(data)
+                let errorObject = NSError(domain: "com.moltin", code: statusCode, userInfo: errorData as? [String: Any])
+
+                completionHandler(data, response, errorObject)
+            }
+
+            }.resume()
     }
 
     func buildURLRequest(withConfiguration configuration: MoltinConfig,
