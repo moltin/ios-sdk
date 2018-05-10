@@ -41,9 +41,7 @@ class MoltinHTTP {
                 completionHandler(data, response, error)
             } else {
                 let errorData = try? self.dataSerializer.deserialize(data)
-                let errorObject = NSError(domain: "com.moltin", code: statusCode, userInfo: [
-                    "error": errorData ?? [:]
-                    ])
+                let errorObject = NSError(domain: "com.moltin", code: statusCode, userInfo: errorData as? [String: Any])
 
                 completionHandler(data, response, errorObject)
             }
