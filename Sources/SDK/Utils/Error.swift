@@ -25,6 +25,8 @@ public enum MoltinError: Error {
     case unacceptableRequest
     /// Thrown if no data was returned from the API
     case noData
+    /// Thrown if no next or previous page for this call was available
+    case noPageAvailable
 }
 
 extension MoltinError: LocalizedError {
@@ -46,6 +48,8 @@ extension MoltinError: LocalizedError {
             return "Could not compose request"
         case .couldNotSetData:
             return "Could not serialize data"
+        case .noPageAvailable:
+            return "No page available"
         }
     }
 }

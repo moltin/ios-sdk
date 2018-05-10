@@ -23,6 +23,50 @@ open class PaginatedResponse<T: Codable>: Codable {
     init() {
         fatalError("Swift 4.1 broke Codable synthesized inits")
     }
+
+    @discardableResult public func next(withConfig config: MoltinConfig, withCompletion completionHandler: @escaping (Result<PaginatedResponse<T>>) -> Void) -> MoltinRequest? {
+        guard let page = self.links?["next"] as? String,
+            let url = URL(string: page) else {
+            completionHandler(.failure(error: MoltinError.noPageAvailable))
+            return nil
+        }
+
+        let request = MoltinRequest(withConfiguration: config)
+        return request.paginationRequest(withURL: url, completionHandler: completionHandler)
+    }
+
+    @discardableResult public func previous(withConfig config: MoltinConfig, withCompletion completionHandler: @escaping (Result<PaginatedResponse<T>>) -> Void) -> MoltinRequest? {
+        guard let page = self.links?["prev"] as? String,
+            let url = URL(string: page) else {
+                completionHandler(.failure(error: MoltinError.noPageAvailable))
+                return nil
+        }
+
+        let request = MoltinRequest(withConfiguration: config)
+        return request.paginationRequest(withURL: url, completionHandler: completionHandler)
+    }
+
+    @discardableResult public func first(withConfig config: MoltinConfig, withCompletion completionHandler: @escaping (Result<PaginatedResponse<T>>) -> Void) -> MoltinRequest? {
+        guard let page = self.links?["first"] as? String,
+            let url = URL(string: page) else {
+                completionHandler(.failure(error: MoltinError.noPageAvailable))
+                return nil
+        }
+
+        let request = MoltinRequest(withConfiguration: config)
+        return request.paginationRequest(withURL: url, completionHandler: completionHandler)
+    }
+
+    @discardableResult public func last(withConfig config: MoltinConfig, withCompletion completionHandler: @escaping (Result<PaginatedResponse<T>>) -> Void) -> MoltinRequest? {
+        guard let page = self.links?["last"] as? String,
+            let url = URL(string: page) else {
+                completionHandler(.failure(error: MoltinError.noPageAvailable))
+                return nil
+        }
+
+        let request = MoltinRequest(withConfiguration: config)
+        return request.paginationRequest(withURL: url, completionHandler: completionHandler)
+    }
 }
 
 /// `PaginationMeta` gives information about the pagination details to the user, such as result information and page information

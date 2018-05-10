@@ -242,6 +242,33 @@ public class MoltinRequest {
         return self
     }
 
+    /**
+     Construct a pagination request, and return an instance of type `T`, which must be `Codable`
+     
+     - Author:
+     Craig Tweedy
+     
+     - parameters:
+     - withURL: The URL constructed from a path to call
+     - completionHandler: The handler to be called on success or failure
+     - returns:
+     A instance of `MoltinRequest` which encapsulates the request.
+     */
+    @discardableResult internal func paginationRequest<T: Codable>(withURL url: URL, completionHandler: @escaping CollectionRequestHandler<T>) -> Self {
+
+        let urlRequest = URLRequest(url: url)
+
+        self.send(withURLRequest: urlRequest) { (data, response, error) in
+            if error != nil {
+                completionHandler(.failure(error: MoltinError.responseError(underlyingError: error)))
+                return
+            }
+            self.parser.collectionHandler(withData: data, withResponse: response, completionHandler: completionHandler)
+        }
+
+        return self
+    }
+
     private func send(withURLRequest urlRequest: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) {
         self.auth.authenticate { [weak self] (result) in
             switch result {
