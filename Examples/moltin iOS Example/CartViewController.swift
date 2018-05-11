@@ -21,7 +21,6 @@ class CartViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         self.buyNowButtonLabel.setTitle("Buy Now", for: .normal)
         tableView.register(UINib(nibName: "CheckoutItemTableViewCell", bundle: nil), forCellReuseIdentifier: "CheckoutCell")
         self.tableView.rowHeight = 120.0
@@ -42,43 +41,20 @@ class CartViewController: UIViewController {
     }
 
     @IBAction func checkout(_ sender: Any) {
-        let customer = Customer(withEmail: "craig.tweedy@moltin.com", withName: "Craig Tweedy")
-        let address = Address(withFirstName: "Craig", withLastName: "Tweedy")
-        address.line1 = "1 Silicon Way"
-        address.county = "Somewhere"
-        address.country = "Fiction"
-        address.postcode = "NE1 1AA"
-        self.moltin.cart.checkout(cart: AppDelegate.cartID, withCustomer: customer, withBillingAddress: address, withShippingAddress: nil) { (result) in
-            switch result {
-            case .success(let order):
-                self.payForOrder(order)
-            default: break
-            }
-        }
-    }
+//        let window: UIWindow = UIApplication.shared.keyWindow!
+//        UIGraphicsBeginImageContextWithOptions(window.bounds.size, false, UIScreen.main.scale)
+//        window.drawHierarchy(in: window.bounds, afterScreenUpdates: true)
+//        let screenCapture: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+//        UIGraphicsEndImageContext()
+//        let controller = CheckoutViewController.init(nibName: "CheckoutViewController", bundle: nil)
+//        controller.screenCapture = screenCapture
+//
+//        self.present(controller, animated: false, completion: nil)
+        
+                let controller = CreateAccountCheckoutViewController.init(nibName: "CreateAccountCheckoutViewController", bundle: nil)
+        
+                self.present(controller, animated: false, completion: nil)
 
-    func payForOrder(_ order: Order) {
-        let paymentMethod = ManuallyAuthorizePayment()
-        self.moltin.cart.pay(forOrderID: order.id, withPaymentMethod: paymentMethod) { (result) in
-            switch result {
-            case .success:
-                DispatchQueue.main.async {
-                    self.showOrderStatus(withSuccess: true)
-                }
-            case .failure(let error):
-                DispatchQueue.main.async {
-                    self.showOrderStatus(withSuccess: false, withError: error)
-                }
-            }
-        }
-    }
-
-    func showOrderStatus(withSuccess success: Bool, withError error: Error? = nil) {
-        let title = success ? "Order paid!" : "Order error"
-        let message = success ? "Complete! It Worked" : error?.localizedDescription
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Close", style: .cancel, handler: nil))
-        self.present(alert, animated: true, completion: nil)
     }
 }
 

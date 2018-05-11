@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		98A5BBE720A0958B00A26CBF /* CheckoutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98A5BBE520A0958A00A26CBF /* CheckoutViewController.xib */; };
+		98A5BBE820A0958B00A26CBF /* CheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A5BBE620A0958B00A26CBF /* CheckoutViewController.swift */; };
+		98A5BBEE20A0DC8B00A26CBF /* CreateAcountCheckoutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98A5BBEC20A0DC8B00A26CBF /* CreateAcountCheckoutViewController.xib */; };
+		98A5BBEF20A0DC8B00A26CBF /* CreateAcountCheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A5BBED20A0DC8B00A26CBF /* CreateAcountCheckoutViewController.swift */; };
 		98C9883B209A485900296A56 /* CheckoutItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C98839209A485800296A56 /* CheckoutItemTableViewCell.swift */; };
 		98C9883C209A485900296A56 /* CheckoutItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98C9883A209A485800296A56 /* CheckoutItemTableViewCell.xib */; };
 		C318D029203EC4D100B7A81E /* HTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = C318D028203EC4D100B7A81E /* HTTP.swift */; };
@@ -235,6 +239,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		98A5BBE520A0958A00A26CBF /* CheckoutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckoutViewController.xib; sourceTree = "<group>"; };
+		98A5BBE620A0958B00A26CBF /* CheckoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutViewController.swift; sourceTree = "<group>"; };
+		98A5BBEC20A0DC8B00A26CBF /* CreateAcountCheckoutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateAcountCheckoutViewController.xib; sourceTree = "<group>"; };
+		98A5BBED20A0DC8B00A26CBF /* CreateAcountCheckoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAcountCheckoutViewController.swift; sourceTree = "<group>"; };
 		98C98839209A485800296A56 /* CheckoutItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutItemTableViewCell.swift; sourceTree = "<group>"; };
 		98C9883A209A485800296A56 /* CheckoutItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckoutItemTableViewCell.xib; sourceTree = "<group>"; };
 		C318D028203EC4D100B7A81E /* HTTP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTP.swift; sourceTree = "<group>"; };
@@ -400,6 +408,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		98A5BBEB20A0DB9D00A26CBF /* CheckoutOptions */ = {
+			isa = PBXGroup;
+			children = (
+				98A5BBED20A0DC8B00A26CBF /* CreateAcountCheckoutViewController.swift */,
+				98A5BBEC20A0DC8B00A26CBF /* CreateAcountCheckoutViewController.xib */,
+				98A5BBE620A0958B00A26CBF /* CheckoutViewController.swift */,
+				98A5BBE520A0958A00A26CBF /* CheckoutViewController.xib */,
+			);
+			path = CheckoutOptions;
+			sourceTree = "<group>";
+		};
 		C336E58720626ADD008C2005 /* moltin tvOS Example */ = {
 			isa = PBXGroup;
 			children = (
@@ -592,6 +611,7 @@
 		C392EA22203DB800006CD1D0 /* moltin iOS Example */ = {
 			isa = PBXGroup;
 			children = (
+				98A5BBEB20A0DB9D00A26CBF /* CheckoutOptions */,
 				C354B559206D0DE200D26446 /* ProductCell */,
 				C354B554206CEF4400D26446 /* Extensions */,
 				C354B551206CEE7B00D26446 /* Models */,
@@ -977,8 +997,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98A5BBE720A0958B00A26CBF /* CheckoutViewController.xib in Resources */,
 				C354B54B206CE40200D26446 /* MasterSectionHeaderCollectionReusableView.xib in Resources */,
 				C354B545206CE1EE00D26446 /* CategoryCollectionViewCell.xib in Resources */,
+				98A5BBEE20A0DC8B00A26CBF /* CreateAcountCheckoutViewController.xib in Resources */,
 				C354B561206D0F4B00D26446 /* ProductCollectionViewCell.xib in Resources */,
 				C392EA30203DB801006CD1D0 /* LaunchScreen.storyboard in Resources */,
 				98C9883C209A485900296A56 /* CheckoutItemTableViewCell.xib in Resources */,
@@ -1183,7 +1205,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98A5BBEF20A0DC8B00A26CBF /* CreateAcountCheckoutViewController.swift in Sources */,
 				C354B558206D033400D26446 /* UIImageView.swift in Sources */,
+				98A5BBE820A0958B00A26CBF /* CheckoutViewController.swift in Sources */,
 				C336E608206C1E02008C2005 /* CategoryCollectionViewCell.swift in Sources */,
 				C354B563206D134500D26446 /* CustomProduct.swift in Sources */,
 				C354B556206CEF4D00D26446 /* UIColor.swift in Sources */,
