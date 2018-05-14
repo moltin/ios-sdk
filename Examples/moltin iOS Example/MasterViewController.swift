@@ -13,8 +13,8 @@ class MasterViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
 
     private let masterNibName = "CategoryCollectionViewCell"
-    let moltin: Moltin = Moltin(withClientID: "j6hSilXRQfxKohTndUuVrErLcSJWP15P347L6Im0M4", withLocale: Locale(identifier: "en_US"))
-
+//    let moltin: Moltin = Moltin(withClientID: "j6hSilXRQfxKohTndUuVrErLcSJWP15P347L6Im0M4", withLocale: Locale(identifier: "en_US"))
+    let moltin1: moltin = moltin(withClientID: "j6hSilXRQfxKohTndUuVrErLcSJWP15P347L6Im0M4", withLocale: Locale(identifier: "en_US"))
     var categories: [ProductCategory] = []
 
     override func viewDidLoad() {
