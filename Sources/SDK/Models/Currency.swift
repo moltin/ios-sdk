@@ -45,22 +45,6 @@ open class Currency: Codable {
     /// The meta information for this currency
     public let meta: CurrencyMeta
 
-    enum CodingKeys: String, CodingKey {
-        case exchangeRate = "exchange_rate"
-        case decimalPoint = "decimal_point"
-        case thousandSeparator = "thousand_separator"
-        case decimalPlaces = "decimal_places"
-
-        case id
-        case type
-        case code
-        case format
-        case `default`
-        case enabled
-        case links
-        case meta
-    }
-
     @available(*, deprecated, message: "Do not use.")
     init() {
         fatalError("Swift 4.1 broke Codable synthesized inits")

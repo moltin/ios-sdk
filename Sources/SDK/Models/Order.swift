@@ -14,11 +14,6 @@ public class OrderMeta: Codable {
     /// The timestamps for an order
     public let timestamps: Timestamps
 
-    enum CodingKeys: String, CodingKey {
-        case displayPrice = "display_price"
-        case timestamps
-    }
-
     @available(*, deprecated, message: "Do not use.")
     init() {
         fatalError("Swift 4.1 broke Codable synthesized inits")
@@ -62,20 +57,6 @@ open class Order: Codable {
     public let meta: OrderMeta
     /// The relationships for this order
     public let relationships: OrderRelationships?
-
-    enum CodingKeys: String, CodingKey {
-        case id
-        case type
-        case status
-        case payment
-        case shipping
-        case customer
-        case shippingAddress = "shipping_address"
-        case billingAddress = "billing_address"
-        case links
-        case meta
-        case relationships
-    }
 
     @available(*, deprecated, message: "Do not use.")
     init() {

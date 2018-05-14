@@ -58,21 +58,6 @@ open class Field: Codable {
     /// The meta information for this Field
     public let meta: FieldMeta?
 
-    enum CodingKeys: String, CodingKey {
-        case fieldType = "field_type"
-
-        case id
-        case type
-        case slug
-        case name
-        case description
-        case required
-        case unique
-        case enabled
-        case relationships
-        case meta
-    }
-
     @available(*, deprecated, message: "Do not use.")
     init() {
         fatalError("Swift 4.1 broke Codable synthesized inits")

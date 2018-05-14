@@ -52,9 +52,12 @@ public class MoltinRequest {
     public init(withConfiguration configuration: MoltinConfig) {
         self.config = configuration
         self.http = MoltinHTTP(withSession: URLSession.shared)
-        self.parser = MoltinParser(withDecoder: JSONDecoder.dateFormattingDecoder())
         self.query = MoltinQuery()
         self.auth = MoltinAuth(withConfiguration: self.config)
+
+        let encoder = JSONDecoder.dateFormattingDecoder()
+        encoder.keyDecodingStrategy = .convertFromSnakeCase
+        self.parser = MoltinParser(withDecoder: encoder)
     }
 
     // MARK: - Default Calls

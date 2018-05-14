@@ -29,11 +29,6 @@ public struct DisplayPrices: Codable {
     /// The display price without tax
     public let withoutTax: DisplayPrice
 
-    enum CodingKeys: String, CodingKey {
-        case withTax = "with_tax"
-        case withoutTax = "without_tax"
-    }
-
     @available(*, deprecated, message: "Do not use.")
     init() {
         fatalError("Swift 4.1 broke Codable synthesized inits")

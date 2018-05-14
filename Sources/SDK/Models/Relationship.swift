@@ -98,20 +98,6 @@ open class Relationships: Codable {
     /// The `Product` relationships
     public var products: RelationshipMany?
 
-    enum CodingKeys: String, CodingKey {
-        case mainImage = "main_image"
-        case cartItem = "cart_item"
-
-        case files
-        case categories
-        case collections
-        case brands
-        case flow
-        case items
-        case customer
-        case products
-    }
-
     @available(*, deprecated, message: "Do not use.")
     init() {
         fatalError("Swift 4.1 broke Codable synthesized inits")

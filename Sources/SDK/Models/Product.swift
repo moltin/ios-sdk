@@ -16,13 +16,6 @@ public struct ProductPrice: Codable {
     /// Whether this price includes tax
     public let includesTax: Bool
 
-    enum CodingKeys: String, CodingKey {
-        case includesTax = "includes_tax"
-
-        case amount
-        case currency
-    }
-
     @available(*, deprecated, message: "Do not use.")
     init() {
         fatalError("Swift 4.1 broke Codable synthesized inits")
@@ -83,15 +76,6 @@ public class ProductMeta: Codable {
     /// The variation matrix of this product
     public let variationMatrix: [[String: String]]?
 
-    enum CodingKeys: String, CodingKey {
-        case displayPrice = "display_price"
-        case variationMatrix = "variation_matrix"
-
-        case timestamps
-        case stock
-        case variations
-    }
-
     @available(*, deprecated, message: "Do not use.")
     init() {
         fatalError("Swift 4.1 broke Codable synthesized inits")
@@ -135,22 +119,6 @@ open class Product: Codable, HasRelationship {
     public var brands: [Brand]?
     /// The collections this product belongs to
     public var collections: [Collection]?
-
-    enum CodingKeys: String, CodingKey {
-        case manageStock = "manage_stock"
-        case commodityType = "commodity_type"
-
-        case id
-        case type
-        case name
-        case slug
-        case sku
-        case description
-        case price
-        case status
-        case meta
-        case relationships
-    }
 
     required public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)

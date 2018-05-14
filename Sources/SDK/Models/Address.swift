@@ -36,23 +36,6 @@ open class Address: Codable {
     /// The country for this address
     public var country: String?
 
-    enum CodingKeys: String, CodingKey {
-        case firstName = "first_name"
-        case lastName = "last_name"
-        case companyName = "company_name"
-        case line1 = "line_1"
-        case line2 = "line_2"
-
-        case id
-        case type
-        case name
-        case instructions
-        case city
-        case county
-        case postcode
-        case country
-    }
-
     /// Create a new address with first name and last name
     public init(
         withFirstName firstName: String,

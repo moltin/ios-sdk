@@ -12,10 +12,6 @@ public class CartMeta: Codable {
     /// The display price information for this cart
     public let displayPrice: DisplayPrices
 
-    enum CodingKeys: String, CodingKey {
-        case displayPrice = "display_price"
-    }
-
     @available(*, deprecated, message: "Do not use.")
     init() {
         fatalError("Swift 4.1 broke Codable synthesized inits")
@@ -42,11 +38,6 @@ public struct CartItemDisplayPrices: Codable {
     /// The display price for this cart item without tax
     public let withoutTax: CartItemDisplayPrice
 
-    enum CodingKeys: String, CodingKey {
-        case withTax = "with_tax"
-        case withoutTax = "without_tax"
-    }
-
     @available(*, deprecated, message: "Do not use.")
     init() {
         fatalError("Swift 4.1 broke Codable synthesized inits")
@@ -57,10 +48,6 @@ public struct CartItemDisplayPrices: Codable {
 public class CartItemMeta: Codable {
     /// The display price for this cart item
     public let displayPrice: CartItemDisplayPrices
-
-    enum CodingKeys: String, CodingKey {
-        case displayPrice = "display_price"
-    }
 
     @available(*, deprecated, message: "Do not use.")
     init() {
@@ -109,21 +96,6 @@ open class CartItem: Codable {
     public let links: [String: String]
     /// The meta information for this cart
     public let meta: CartItemMeta
-
-    enum CodingKeys: String, CodingKey {
-        case productId = "product_id"
-        case unitPrice = "unit_price"
-
-        case id
-        case type
-        case name
-        case description
-        case sku
-        case quantity
-        case value
-        case links
-        case meta
-    }
 
     @available(*, deprecated, message: "Do not use.")
     init() {

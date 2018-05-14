@@ -54,18 +54,6 @@ open class File: Codable {
     /// The meta information for this file
     public let meta: FileMeta
 
-    enum CodingKeys: String, CodingKey {
-        case id
-        case type
-        case fileName = "file_name"
-        case mimeType = "mime_type"
-        case fileSize = "file_size"
-        case `public`
-        case link
-        case links
-        case meta
-    }
-
     @available(*, deprecated, message: "Do not use.")
     init() {
         fatalError("Swift 4.1 broke Codable synthesized inits")

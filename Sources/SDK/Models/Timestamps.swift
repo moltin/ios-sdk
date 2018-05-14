@@ -14,11 +14,6 @@ open class Timestamps: Codable {
     /// When the resource was updated
     public let updatedAt: Date?
 
-    enum CodingKeys: String, CodingKey {
-        case createdAt = "created_at"
-        case updatedAt = "updated_at"
-    }
-
     @available(*, deprecated, message: "Do not use.")
     init() {
         fatalError("Swift 4.1 broke Codable synthesized inits")
