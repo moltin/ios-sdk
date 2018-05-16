@@ -117,7 +117,7 @@ class CheckoutViewController: UIViewController {
         self.dismiss(animated: false, completion: nil)
     }
     
-    func showOrderStatus(withSuccess success: Bool, withError error: Error? = nil) {
+    private func showOrderStatus(withSuccess success: Bool, withError error: Error? = nil) {
         let title = success ? "Order paid!" : "Order error"
         let message = success ? "Complete! It Worked" : error?.localizedDescription
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)

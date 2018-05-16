@@ -1,4 +1,4 @@
-//
+ //
 //  CartViewController.swift
 //  moltin iOS Example
 //
@@ -25,14 +25,14 @@ class CartViewController: UIViewController {
         tableView.register(UINib(nibName: "CheckoutItemTableViewCell", bundle: nil), forCellReuseIdentifier: "CheckoutCell")
         self.tableView.rowHeight = 120.0
         self.tableView.tableFooterView = UIView(frame: CGRect.zero)
-        //Handle totals some way better
-        let total  = cartItems.map { $0.meta.displayPrice.withTax.value.amount }
-        let currencyFormatter = NumberFormatter()
-        currencyFormatter.usesGroupingSeparator = true
-        currencyFormatter.numberStyle = .currency
-        currencyFormatter.locale = Locale.current
-        let priceString = currencyFormatter.string(from: (total.reduce(0, +)/100) as NSNumber) ?? "FREE"
-        self.cartTotalLabel.text = priceString
+        moltin.cart.get(forID: AppDelegate.cartID) { (result) in
+            if case .success(let cart) = result {
+                DispatchQueue.main.async {
+                    self.cartTotalLabel.text = cart.meta.displayPrice.withTax.formatted
+                }
+
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,9 +51,12 @@ class CartViewController: UIViewController {
 //
 //        self.present(controller, animated: false, completion: nil)
         
-        let controller = CreateAccountCheckoutViewController.init(nibName: "CreateAccountCheckoutViewController", bundle: nil)
         
-        self.present(controller, animated: false, completion: nil)
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "AccountCheckoutViewController") as? AccountCheckoutViewController
+
+        self.navigationController?.pushViewController(vc!, animated: true)
+
+//        self.present(controller, animated: false, completion: nil)
 
     }
 }
