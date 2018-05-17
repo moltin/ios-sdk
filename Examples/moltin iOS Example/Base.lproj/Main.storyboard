@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RMx-3f-FxP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RMx-3f-FxP">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -121,45 +121,66 @@
         <!--Cart-->
         <scene sceneID="oTY-4p-Yjm">
             <objects>
-                <viewController title="Cart" id="l5g-8h-8F8" customClass="CartViewController" customModule="moltin_iOS_Example" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailToCart" title="Cart" useStoryboardIdentifierAsRestorationIdentifier="YES" id="l5g-8h-8F8" customClass="CartViewController" customModule="moltin_iOS_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5ey-uK-isy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WcI-Ya-G2D">
-                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="340"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="l5g-8h-8F8" id="4Rm-c2-4VI"/>
                                     <outlet property="delegate" destination="l5g-8h-8F8" id="9Ya-CE-is0"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EkN-aa-20U">
+                                <rect key="frame" x="258" y="464" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t9N-Jy-879">
+                                <rect key="frame" x="317" y="465" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gC0-Ze-a2b">
+                                <rect key="frame" x="164" y="553" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="checkout:" destination="l5g-8h-8F8" eventType="touchUpInside" id="kb5-Od-voq"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="wIZ-Oc-EFl" firstAttribute="bottom" secondItem="WcI-Ya-G2D" secondAttribute="bottom" id="0MP-MA-BLS"/>
                             <constraint firstItem="WcI-Ya-G2D" firstAttribute="top" secondItem="wIZ-Oc-EFl" secondAttribute="top" id="0N5-1G-ASE"/>
+                            <constraint firstItem="gC0-Ze-a2b" firstAttribute="centerX" secondItem="wIZ-Oc-EFl" secondAttribute="centerX" id="1uM-ic-U0Y"/>
+                            <constraint firstItem="wIZ-Oc-EFl" firstAttribute="bottom" secondItem="gC0-Ze-a2b" secondAttribute="bottom" constant="40" id="2RI-Ro-YPK"/>
+                            <constraint firstItem="EkN-aa-20U" firstAttribute="top" secondItem="WcI-Ya-G2D" secondAttribute="bottom" constant="60" id="9Qr-Kf-3iB"/>
                             <constraint firstItem="wIZ-Oc-EFl" firstAttribute="trailing" secondItem="WcI-Ya-G2D" secondAttribute="trailing" id="Ekf-2X-bHU"/>
+                            <constraint firstItem="wIZ-Oc-EFl" firstAttribute="trailing" secondItem="t9N-Jy-879" secondAttribute="trailing" constant="16" id="Fhl-K0-I50"/>
+                            <constraint firstItem="t9N-Jy-879" firstAttribute="leading" secondItem="EkN-aa-20U" secondAttribute="trailing" constant="17" id="NDw-sk-IbJ"/>
+                            <constraint firstItem="wIZ-Oc-EFl" firstAttribute="bottom" secondItem="EkN-aa-20U" secondAttribute="bottom" constant="138" id="bp0-ft-gQK"/>
                             <constraint firstItem="WcI-Ya-G2D" firstAttribute="leading" secondItem="wIZ-Oc-EFl" secondAttribute="leading" id="qHZ-4i-zbl"/>
+                            <constraint firstItem="wIZ-Oc-EFl" firstAttribute="bottom" secondItem="t9N-Jy-879" secondAttribute="bottom" constant="137" id="x7D-pF-hEc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wIZ-Oc-EFl"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Cart" id="I0W-z4-cNl">
-                        <barButtonItem key="rightBarButtonItem" title="Checkout" id="HSi-Fb-Wfr">
-                            <connections>
-                                <action selector="checkout:" destination="l5g-8h-8F8" id="F5f-hJ-gCt"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Cart" id="I0W-z4-cNl"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="buyNowButtonLabel" destination="gC0-Ze-a2b" id="RFF-Et-Wq0"/>
+                        <outlet property="cartTotalLabel" destination="t9N-Jy-879" id="F92-fV-Gse"/>
                         <outlet property="tableView" destination="WcI-Ya-G2D" id="L6r-v7-fi3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bUQ-sc-GL3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1913" y="-332"/>
+            <point key="canvasLocation" x="1912.8" y="-332.38380809595208"/>
         </scene>
     </scenes>
     <resources>

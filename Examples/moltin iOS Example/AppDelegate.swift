@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import moltin
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {

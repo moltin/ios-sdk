@@ -1,4 +1,4 @@
-//
+ //
 //  CartViewController.swift
 //  moltin iOS Example
 //
@@ -11,23 +11,26 @@ import moltin
 class CartViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-
+    @IBOutlet weak var cartTotalLabel: UILabel!
+    @IBOutlet weak var buyNowButtonLabel: UIButton!
+    
     let moltin: Moltin = Moltin(withClientID: "j6hSilXRQfxKohTndUuVrErLcSJWP15P347L6Im0M4", withLocale: Locale(identifier: "en_US"))
 
     var cartItems: [CartItem] = []
-
+    var product: Product?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        self.moltin.cart.items(forCartID: AppDelegate.cartID) { (result) in
-            switch result {
-            case .success(let result):
+        self.buyNowButtonLabel.setTitle("Buy Now", for: .normal)
+        tableView.register(UINib(nibName: "CheckoutItemTableViewCell", bundle: nil), forCellReuseIdentifier: "CheckoutCell")
+        self.tableView.rowHeight = 120.0
+        self.tableView.tableFooterView = UIView(frame: CGRect.zero)
+        moltin.cart.get(forID: AppDelegate.cartID) { (result) in
+            if case .success(let cart) = result {
                 DispatchQueue.main.async {
-                    self.cartItems = result.data ?? []
-                    self.tableView.reloadData()
+                    self.cartTotalLabel.text = cart.meta.displayPrice.withTax.formatted
                 }
-            default: break
+
             }
         }
     }
@@ -38,42 +41,23 @@ class CartViewController: UIViewController {
     }
 
     @IBAction func checkout(_ sender: Any) {
-        let customer = Customer(withEmail: "craig.tweedy@moltin.com", withName: "Craig Tweedy")
-        let address = Address(withFirstName: "Craig", withLastName: "Tweedy")
-        address.line1 = "1 Silicon Way"
-        address.county = "Somewhere"
-        address.country = "Fiction"
-        address.postcode = "NE1 1AA"
-        self.moltin.cart.checkout(cart: AppDelegate.cartID, withCustomer: customer, withBillingAddress: address, withShippingAddress: nil) { (result) in
-            switch result {
-            case .success(let order):
-                self.payForOrder(order)
-            default: break
-            }
-        }
-    }
+//        let window: UIWindow = UIApplication.shared.keyWindow!
+//        UIGraphicsBeginImageContextWithOptions(window.bounds.size, false, UIScreen.main.scale)
+//        window.drawHierarchy(in: window.bounds, afterScreenUpdates: true)
+//        let screenCapture: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+//        UIGraphicsEndImageContext()
+//        let controller = CheckoutViewController.init(nibName: "CheckoutViewController", bundle: nil)
+//        controller.screenCapture = screenCapture
+//
+//        self.present(controller, animated: false, completion: nil)
+        
+        
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "AccountCheckoutViewController") as? AccountCheckoutViewController
 
-    func payForOrder(_ order: Order) {
-        let paymentMethod = ManuallyAuthorizePayment()
-        self.moltin.cart.pay(forOrderID: order.id, withPaymentMethod: paymentMethod) { (result) in
-            switch result {
-            case .success:
-                DispatchQueue.main.async {
-                    self.showOrderStatus(withSuccess: true)
-                }
-            case .failure(let error):
-                DispatchQueue.main.async {
-                    self.showOrderStatus(withSuccess: false, withError: error)
-                }
-            }
-        }
-    }
+        self.navigationController?.pushViewController(vc!, animated: true)
 
-    func showOrderStatus(withSuccess success: Bool, withError error: Error? = nil) {
-        let title = success ? "Order paid!" : "Order error"
-        let message = success ? "Complete!" : error?.localizedDescription
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        self.present(alert, animated: true, completion: nil)
+//        self.present(controller, animated: false, completion: nil)
+
     }
 }
 
@@ -84,15 +68,37 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell: UITableViewCell!
-        cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
-        if cell == nil {
-            cell = UITableViewCell(style: .default, reuseIdentifier: "Cell")
-        }
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CheckoutCell", for: indexPath) as! CheckoutItemTableViewCell
         let cartItem = self.cartItems[indexPath.row]
-        cell.textLabel?.text = cartItem.name
+
+        cell.qtyLabel.text = String(cartItem.quantity)
+        cell.priceNameLabel.text = cartItem.meta.displayPrice.withTax.value.formatted
+        cell.productNameLabel.text = cartItem.name
+        cell.productImage.load(urlString: self.product?.mainImage?.link["href"])
 
         return cell
+    }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let title = "Click checkout to test order"
+        let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Close", style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+        return "Remove from cart"
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == UITableViewCellEditingStyle.delete) {
+            self.cartItems.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
     }
 }
