@@ -13,7 +13,7 @@ class CartViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var cartTotalLabel: UILabel!
     @IBOutlet weak var buyNowButtonLabel: UIButton!
-    
+    @IBOutlet weak var topLabel: UILabel!
     let moltin: Moltin = Moltin(withClientID: "j6hSilXRQfxKohTndUuVrErLcSJWP15P347L6Im0M4", withLocale: Locale(identifier: "en_US"))
 
     var cartItems: [CartItem] = []
@@ -21,14 +21,22 @@ class CartViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.buyNowButtonLabel.setTitle("Buy Now", for: .normal)
         tableView.register(UINib(nibName: "CheckoutItemTableViewCell", bundle: nil), forCellReuseIdentifier: "CheckoutCell")
         self.tableView.rowHeight = 120.0
         self.tableView.tableFooterView = UIView(frame: CGRect.zero)
+        
+        
+        self.buyNowButtonLabel.setTitle("Proceed to checkout", for: .normal)
+        self.buyNowButtonLabel.setTitleColor(UIColor.black, for: .normal)
+        buyNowButtonLabel.backgroundColor = .clear
+        buyNowButtonLabel.layer.borderWidth = 2
+        buyNowButtonLabel.layer.borderColor = UIColor.yellow.cgColor
+        
         moltin.cart.get(forID: AppDelegate.cartID) { (result) in
             if case .success(let cart) = result {
                 DispatchQueue.main.async {
                     self.cartTotalLabel.text = cart.meta.displayPrice.withTax.formatted
+                            self.topLabel.text = "You have \(self.cartItems.count) in your cart totaling \(cart.meta.displayPrice.withTax.formatted)"
                 }
 
             }
@@ -41,6 +49,7 @@ class CartViewController: UIViewController {
     }
 
     @IBAction func checkout(_ sender: Any) {
+        //Example 1
 //        let window: UIWindow = UIApplication.shared.keyWindow!
 //        UIGraphicsBeginImageContextWithOptions(window.bounds.size, false, UIScreen.main.scale)
 //        window.drawHierarchy(in: window.bounds, afterScreenUpdates: true)
@@ -51,15 +60,15 @@ class CartViewController: UIViewController {
 //
 //        self.present(controller, animated: false, completion: nil)
         
-        
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "AccountCheckoutViewController") as? AccountCheckoutViewController
+        //Example 2
+        let controller = AccountCheckoutViewController.init(nibName: "AccountCheckoutViewController", bundle: nil)
 
-        self.navigationController?.pushViewController(vc!, animated: true)
-
-//        self.present(controller, animated: false, completion: nil)
+        self.present(controller, animated: false, completion: nil)
 
     }
 }
+ 
+ 
 
 extension CartViewController: UITableViewDelegate, UITableViewDataSource {
 
@@ -73,11 +82,12 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
 
         cell.qtyLabel.text = String(cartItem.quantity)
         cell.priceNameLabel.text = cartItem.meta.displayPrice.withTax.value.formatted
-        cell.productNameLabel.text = cartItem.name
+        cell.productNameLabel.text = cartItem.unitPrice
         cell.productImage.load(urlString: self.product?.mainImage?.link["href"])
 
         return cell
     }
+    
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -14,21 +14,26 @@
             <connections>
                 <outlet property="addressFieldLabel" destination="tyf-Mn-mEP" id="loQ-3O-U6z"/>
                 <outlet property="addressTextInput" destination="a4G-Zb-JdE" id="fW7-jZ-HL6"/>
+                <outlet property="addressView" destination="bEG-KW-oKU" id="p2B-Zc-u25"/>
                 <outlet property="ccCVVTextInput" destination="EZN-Wj-hlb" id="sWo-rQ-6pO"/>
                 <outlet property="ccMMYYTextInput" destination="KlN-eV-cva" id="XFW-Jr-8ZO"/>
                 <outlet property="ccNumberInput" destination="F6R-bs-zVt" id="auM-LX-WGZ"/>
                 <outlet property="cityFieldLabel" destination="yNG-rb-Fpm" id="AMi-hm-9bH"/>
                 <outlet property="cityTextInput" destination="VuE-gS-ltl" id="fXE-Gw-0ZD"/>
+                <outlet property="cityView" destination="QfG-lX-dM7" id="VGd-WJ-opI"/>
                 <outlet property="countryFieldLabel" destination="YaP-z7-qb3" id="D9h-qT-yKy"/>
                 <outlet property="countryTextInput" destination="Mj9-ot-BzQ" id="lrM-q6-5Fq"/>
+                <outlet property="countryView" destination="yY6-6G-GZp" id="4MK-up-byd"/>
                 <outlet property="ctaButtonLabel" destination="w4L-XB-n0F" id="oal-bq-1UK"/>
                 <outlet property="emailFieldLabel" destination="Jrn-Id-7za" id="kul-0j-qY2"/>
                 <outlet property="emailTextInput" destination="mpw-Bi-tCk" id="aTO-EY-5Cx"/>
                 <outlet property="nameFieldLabel" destination="sfG-gd-4eA" id="Un8-a8-GDD"/>
                 <outlet property="nameTextInput" destination="gVu-Oh-yqk" id="pCH-rq-O2j"/>
+                <outlet property="nameView" destination="7EF-G9-HBQ" id="prH-go-PYg"/>
                 <outlet property="view" destination="IaP-3I-dUT" id="LEk-Lw-1Gq"/>
                 <outlet property="zipFieldLabel" destination="r7e-A3-slh" id="tmG-I2-XCn"/>
                 <outlet property="zipTextInput" destination="pyq-tz-x1L" id="xna-xv-sni"/>
+                <outlet property="zipcodeView" destination="Aqm-OB-LMI" id="0EF-zK-pXr"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -42,13 +47,13 @@
                         <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hld-NJ-qHt">
                             <rect key="frame" x="0.0" y="5" width="375" height="44"/>
                             <items>
-                                <navigationItem title="Checkout" id="NyH-VU-j9l">
-                                    <barButtonItem key="backBarButtonItem" title="Back" id="pGa-R7-Sp7">
+                                <navigationItem id="NyH-VU-j9l">
+                                    <barButtonItem key="backBarButtonItem" title="Back" id="pGa-R7-Sp7"/>
+                                    <barButtonItem key="leftBarButtonItem" title="Cart" id="Jf6-iw-LKu">
                                         <connections>
-                                            <action selector="backBarPressed:" destination="-1" id="NVw-PZ-kHm"/>
+                                            <action selector="backBarPressed:" destination="-1" id="BDb-mQ-S9J"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem key="leftBarButtonItem" title="Back" id="Jf6-iw-LKu"/>
                                 </navigationItem>
                             </items>
                         </navigationBar>
@@ -233,15 +238,23 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w4L-XB-n0F">
-                            <rect key="frame" x="147.5" y="611" width="80" height="30"/>
+                            <rect key="frame" x="47.5" y="591" width="280" height="60"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="80" id="qpr-MQ-4lr"/>
+                                <constraint firstAttribute="height" constant="60" id="EMw-Wg-uF9"/>
+                                <constraint firstAttribute="width" constant="280" id="qpr-MQ-4lr"/>
                             </constraints>
                             <state key="normal" title="Buy Now"/>
                             <connections>
                                 <action selector="ctaButtonPressed:" destination="-1" eventType="touchUpInside" id="QyE-iP-oKu"/>
                             </connections>
                         </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Checkout" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6TA-sP-BCe">
+                            <rect key="frame" x="150.5" y="79" width="74" height="25"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" red="0.87699699741571058" green="0.87699699741571058" blue="0.87699699741571058" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <constraints>
@@ -256,8 +269,10 @@
                         <constraint firstItem="yjN-Ns-fRU" firstAttribute="top" secondItem="hXn-9z-9iT" secondAttribute="bottom" constant="40" id="LfX-Bp-hh4"/>
                         <constraint firstItem="yjN-Ns-fRU" firstAttribute="leading" secondItem="vHj-Zo-oXp" secondAttribute="leading" constant="10" id="NP1-NH-J80"/>
                         <constraint firstItem="7EF-G9-HBQ" firstAttribute="top" secondItem="duu-5c-H1S" secondAttribute="bottom" constant="5" id="Nc0-nP-SvZ"/>
+                        <constraint firstItem="6TA-sP-BCe" firstAttribute="top" secondItem="hld-NJ-qHt" secondAttribute="bottom" constant="30" id="Pb6-EE-r5W"/>
                         <constraint firstItem="hld-NJ-qHt" firstAttribute="trailing" secondItem="vHj-Zo-oXp" secondAttribute="trailing" id="Qak-7P-AG3"/>
                         <constraint firstItem="QfG-lX-dM7" firstAttribute="trailing" secondItem="vHj-Zo-oXp" secondAttribute="trailing" id="S9e-ma-xeA"/>
+                        <constraint firstItem="hXn-9z-9iT" firstAttribute="top" secondItem="6TA-sP-BCe" secondAttribute="bottom" constant="25" id="SAr-3c-816"/>
                         <constraint firstItem="hXn-9z-9iT" firstAttribute="trailing" secondItem="vHj-Zo-oXp" secondAttribute="trailing" id="Tmw-i2-vLW"/>
                         <constraint firstItem="yY6-6G-GZp" firstAttribute="top" secondItem="Aqm-OB-LMI" secondAttribute="bottom" id="UH0-tY-JaT"/>
                         <constraint firstItem="QfG-lX-dM7" firstAttribute="leading" secondItem="vHj-Zo-oXp" secondAttribute="leading" id="bv9-Wa-zn3"/>
@@ -269,7 +284,8 @@
                         <constraint firstItem="duu-5c-H1S" firstAttribute="leading" secondItem="vHj-Zo-oXp" secondAttribute="leading" constant="10" id="jzZ-sE-vVz"/>
                         <constraint firstItem="bEG-KW-oKU" firstAttribute="leading" secondItem="vHj-Zo-oXp" secondAttribute="leading" id="kUU-ee-igJ"/>
                         <constraint firstItem="hld-NJ-qHt" firstAttribute="top" secondItem="l93-TT-tCe" secondAttribute="top" constant="5" id="lkk-Dz-zCz"/>
-                        <constraint firstItem="w4L-XB-n0F" firstAttribute="top" secondItem="yY6-6G-GZp" secondAttribute="bottom" constant="50" id="p6l-SZ-dQX"/>
+                        <constraint firstItem="6TA-sP-BCe" firstAttribute="centerX" secondItem="vHj-Zo-oXp" secondAttribute="centerX" id="m2Y-fJ-6Kv"/>
+                        <constraint firstItem="w4L-XB-n0F" firstAttribute="top" secondItem="yY6-6G-GZp" secondAttribute="bottom" constant="30" id="p6l-SZ-dQX"/>
                         <constraint firstItem="bEG-KW-oKU" firstAttribute="trailing" secondItem="vHj-Zo-oXp" secondAttribute="trailing" id="qF1-aA-a80"/>
                         <constraint firstItem="q9e-9K-BEJ" firstAttribute="trailing" secondItem="vHj-Zo-oXp" secondAttribute="trailing" id="r5Z-F8-vMD"/>
                         <constraint firstItem="Aqm-OB-LMI" firstAttribute="top" secondItem="QfG-lX-dM7" secondAttribute="bottom" id="uYw-Hm-Dga"/>

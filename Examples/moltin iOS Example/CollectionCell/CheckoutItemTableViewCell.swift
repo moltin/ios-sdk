@@ -16,6 +16,8 @@ class CheckoutItemTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        self.backgroundColor = UIColor(red:237, green:239, blue:240, alpha:1.0)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

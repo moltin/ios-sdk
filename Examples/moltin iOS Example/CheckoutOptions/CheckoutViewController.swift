@@ -29,7 +29,7 @@ class CheckoutViewController: UIViewController {
         self.underlyingScreenCapture.image = screenCapture
         //Style card input
         self.titleLabel.text = "Generic 1-step Checkout"
-        self.checkoutView.backgroundColor = UIColor(red:0.36, green:0.74, blue:0.82, alpha:1.0)
+        self.view.backgroundColor = UIColor(red:237, green:239, blue:240, alpha:1.0)
         checkoutView.layer.cornerRadius = 10
     }
 
@@ -114,7 +114,11 @@ class CheckoutViewController: UIViewController {
     }
     
     @IBAction func closeButtonPressed(_ sender: Any) {
-        self.dismiss(animated: false, completion: nil)
+        
+        let controller = AccountCheckoutViewController.init(nibName: "AccountCheckoutViewController", bundle: nil)
+        
+        self.present(controller, animated: false, completion: nil)
+
     }
     
     private func showOrderStatus(withSuccess success: Bool, withError error: Error? = nil) {
