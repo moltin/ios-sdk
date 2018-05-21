@@ -27,7 +27,13 @@ class AccountCheckoutViewController: UIViewController {
     @IBOutlet weak var ccNumberInput: UITextField!
     @IBOutlet weak var ccMMYYTextInput: UITextField!
     @IBOutlet weak var ccCVVTextInput: UITextField!
-
+    
+    @IBOutlet weak var nameView: UIView!
+    @IBOutlet weak var addressView: UIView!
+    @IBOutlet weak var cityView: UIView!
+    @IBOutlet weak var zipcodeView: UIView!
+    @IBOutlet weak var countryView: UIView!
+    
     @IBOutlet weak var ctaButtonLabel: UIButton!
     
     //fields
@@ -39,6 +45,14 @@ class AccountCheckoutViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.backgroundColor = UIColor(red:237, green:239, blue:240, alpha:1.0)
+        ctaButtonLabel.setTitle("Place your order", for: .normal)
+        ctaButtonLabel.setTitleColor(UIColor.black, for: .normal)
+        ctaButtonLabel.backgroundColor = .clear
+        ctaButtonLabel.layer.borderWidth = 2
+        ctaButtonLabel.layer.borderColor = UIColor.yellow.cgColor
+        
         //TODO: field validation stuff
         let fullName = self.nameTextInput.text ?? ""
         var nameComponents = fullName.components(separatedBy: " ")
@@ -54,14 +68,12 @@ class AccountCheckoutViewController: UIViewController {
             month = dateComponents.removeFirst()
             year = dateComponents.joined(separator: " ")
         }
-        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
     
     private func showOrderStatus(withSuccess success: Bool, withError error: Error? = nil) {
         let title = success ? "Order paid!" : "Order error"
@@ -133,9 +145,8 @@ class AccountCheckoutViewController: UIViewController {
     }
     
     @IBAction func backBarPressed(_ sender: Any) {
-        let controller = CartViewController.init(nibName: "CartViewController", bundle: nil)
-        
-        self.present(controller, animated: false, completion: nil)
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "DetailToCart") as? CartViewController
+        self.navigationController?.pushViewController(vc!, animated: true)
     }
     //TODO: Public helpers move somewhere
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
