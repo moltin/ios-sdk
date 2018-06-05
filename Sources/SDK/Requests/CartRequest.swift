@@ -153,7 +153,7 @@ public class CartRequest: MoltinRequest {
      */
     @discardableResult public func removeItem(_ itemID: String,
                                               fromCart cart: String,
-                                              completionHandler: @escaping ObjectRequestHandler<Cart>) -> MoltinRequest {
+                                              completionHandler: @escaping ObjectRequestHandler<CartItem>) -> MoltinRequest {
 
         return self.delete(withPath: "\(self.endpoint)/\(cart)/items/\(itemID)",
             completionHandler: completionHandler)
