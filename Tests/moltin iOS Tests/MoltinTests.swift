@@ -171,7 +171,7 @@ class MoltinTests: XCTestCase {
         let components = URLComponents(url: urlRequest!.url!, resolvingAgainstBaseURL: false)
         XCTAssertNotNil(components)
         XCTAssertNotNil(components?.query)
-        XCTAssert(components!.query! == "filter=eq(test, hello)")
+        XCTAssert(components!.query! == "filter=eq(test,hello)")
     }
 
     func testRequestHandlesMultipleFilter() {
@@ -190,7 +190,7 @@ class MoltinTests: XCTestCase {
         let components = URLComponents(url: urlRequest!.url!, resolvingAgainstBaseURL: false)
         XCTAssertNotNil(components)
         XCTAssertNotNil(components?.query)
-        XCTAssert(components!.query! == "filter=eq(test, hello):eq(other, thing)")
+        XCTAssert(components!.query! == "filter=eq(test,hello):eq(other,thing)")
     }
 
     func testRequestHandlesLimit() {
@@ -303,7 +303,7 @@ class MoltinTests: XCTestCase {
         let components = URLComponents(url: urlRequest!.url!, resolvingAgainstBaseURL: false)
         XCTAssertNotNil(components)
         XCTAssertNotNil(components?.query)
-        XCTAssert(components!.query! == "include=files,categories&sort=key&page[limit]=1&page[offset]=2&filter=eq(test, one)")
+        XCTAssert(components!.query! == "include=files,categories&sort=key&page[limit]=1&page[offset]=2&filter=eq(test,one)")
     }
 
     func testRequestHandlesNoData() {
@@ -416,7 +416,7 @@ class MoltinTests: XCTestCase {
         let components = URLComponents(url: urlRequest!.url!, resolvingAgainstBaseURL: false)
         XCTAssertNotNil(components)
         XCTAssertNotNil(components?.query)
-        XCTAssert(components!.query! == "include=files,categories&sort=key&page[limit]=1&page[offset]=2&filter=eq(test, one)")
+        XCTAssert(components!.query! == "include=files,categories&sort=key&page[limit]=1&page[offset]=2&filter=eq(test,one)")
 
         request = moltin.product.limit(5).offset(8)
         let secondUrlRequest = try? request.http.buildURLRequest(

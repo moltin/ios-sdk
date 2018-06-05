@@ -1,7 +1,8 @@
 Pod::Spec.new do |s|
     s.name         = "Moltin"
-    s.version      = "3.0.8"
+    s.version      = "3.0.10"
     s.summary      = "eCommerce made simple"
+    s.module_name   = 'moltin'
 
     s.description  = <<-DESC
         moltin makes eCommerce simple with a wide range of SDKs and integrations.

@@ -32,8 +32,21 @@ class MoltinHTTP {
         }
 
         self.session.dataTask(with: urlRequest) { (data, response, error) in
-            completionHandler(data, response, error)
-        }.resume()
+            guard let statusCode = (response as? HTTPURLResponse)?.statusCode else {
+                completionHandler(data, response, error)
+                return
+            }
+
+            if 200...299 ~= statusCode {
+                completionHandler(data, response, error)
+            } else {
+                let errorData = try? self.dataSerializer.deserialize(data)
+                let errorObject = NSError(domain: "com.moltin", code: statusCode, userInfo: errorData as? [String: Any])
+
+                completionHandler(data, response, errorObject)
+            }
+
+            }.resume()
     }
 
     func buildURLRequest(withConfiguration configuration: MoltinConfig,
@@ -92,7 +105,7 @@ class MoltinHTTP {
         mutableRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
 
         mutableRequest.addValue("swift", forHTTPHeaderField: "X-MOLTIN-SDK-LANGUAGE")
-        mutableRequest.addValue("3.0.7", forHTTPHeaderField: "X-MOLTIN-SDK-VERSION")
+        mutableRequest.addValue("3.0.10", forHTTPHeaderField: "X-MOLTIN-SDK-VERSION")
 
         if let config = config {
             mutableRequest.addValue(config.locale.identifier, forHTTPHeaderField: "X-MOLTIN-LOCALE")

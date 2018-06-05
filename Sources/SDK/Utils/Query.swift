@@ -90,7 +90,7 @@ open class MoltinQuery {
 
         if self.withFilter.count > 0 {
             let filterString = self.withFilter.map { (op, key, value) -> String in
-                return "\(op.rawValue)(\(key), \(value))"
+                return "\(op.rawValue)(\(key),\(value))"
             }.joined(separator: ":")
             queryParams.append(URLQueryItem(name: "filter", value: filterString))
         }

@@ -45,6 +45,9 @@ class MockedMoltinHTTP: MoltinHTTP {
 }
 
 class MockedMoltinDataSerializer: DataSerializer {
+    func deserialize(_ data: Data?) throws -> Any {
+        throw MoltinError.couldNotParseData(underlyingError: nil)
+    }
 
     func serialize(_ data: Any) throws -> Data {
         throw MoltinError.couldNotSetData
