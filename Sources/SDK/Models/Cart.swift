@@ -75,9 +75,9 @@ open class Cart: Codable {
     /// The type of this object
     public let type: String
     /// The external links for this cart
-    public let links: [String: String]
+    public let links: [String: String]?
     /// The meta information for this cart
-    public let meta: CartMeta
+    public let meta: CartMeta?
 
     @available(*, deprecated, message: "Do not use.")
     init() {

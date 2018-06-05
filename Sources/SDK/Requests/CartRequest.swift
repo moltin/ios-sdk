@@ -103,7 +103,7 @@ public class CartRequest: MoltinRequest {
      */
     @discardableResult public func addCustomItem(_ customItem: CustomCartItem,
                                                  toCart cart: String,
-                                                 completionHandler: @escaping ObjectRequestHandler<Cart>) -> MoltinRequest {
+                                                 completionHandler: @escaping ObjectRequestHandler<[CartItem]>) -> MoltinRequest {
         let data = self.buildCustomItem(withCustomItem: customItem)
 
         return self.post(withPath: "\(self.endpoint)/\(cart)/items",
@@ -127,7 +127,7 @@ public class CartRequest: MoltinRequest {
      */
     @discardableResult public func addPromotion(_ promotion: String,
                                                 toCart cart: String,
-                                                completionHandler: @escaping ObjectRequestHandler<Cart>) -> MoltinRequest {
+                                                completionHandler: @escaping ObjectRequestHandler<[CartItem]>) -> MoltinRequest {
 
         let data = self.buildCartItem(withID: promotion,
                                       ofType: .promotionItem)
@@ -153,7 +153,7 @@ public class CartRequest: MoltinRequest {
      */
     @discardableResult public func removeItem(_ itemID: String,
                                               fromCart cart: String,
-                                              completionHandler: @escaping ObjectRequestHandler<Cart>) -> MoltinRequest {
+                                              completionHandler: @escaping ObjectRequestHandler<[CartItem]>) -> MoltinRequest {
 
         return self.delete(withPath: "\(self.endpoint)/\(cart)/items/\(itemID)",
             completionHandler: completionHandler)
@@ -177,7 +177,7 @@ public class CartRequest: MoltinRequest {
     @discardableResult public func updateItem(_ itemID: String,
                                               withQuantity quantity: Int,
                                               inCart cart: String,
-                                              completionHandler: @escaping ObjectRequestHandler<Cart>) -> MoltinRequest {
+                                              completionHandler: @escaping ObjectRequestHandler<[CartItem]>) -> MoltinRequest {
 
         let data = self.buildCartItem(withID: itemID,
                                       ofQuantity: quantity)
@@ -255,7 +255,7 @@ public class CartRequest: MoltinRequest {
         A instance of `MoltinRequest` which encapsulates the request.
      */
     @discardableResult public func deleteCart(_ cart: String,
-                                              completionHandler: @escaping ObjectRequestHandler<Cart>) -> MoltinRequest {
+                                              completionHandler: @escaping ObjectRequestHandler<[Cart]>) -> MoltinRequest {
 
         return self.delete(withPath: "\(self.endpoint)/\(cart)",
             completionHandler: completionHandler)
