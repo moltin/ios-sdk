@@ -583,6 +583,26 @@ class FileRequestTests: XCTestCase {
             }
         }
     }
+    
+    func testFileRequestReturnSingleFileNoDimensions() {
+        let (_, fileRequest) = MockFactory.mockedFileRequest(withJSON: MockFileDataFactory.fileDataNoDimensions)
+        let expectationToFulfill = expectation(description: "FileRequest calls the method and runs the callback closure")
+        let _ = fileRequest.get(forID: "51b56d92-ab99-4802-a2c1-be150848c629") { (result) in
+            switch result {
+            case .success(let response):
+                XCTAssert(type(of: response) == moltin.File.self)
+                XCTAssert(response.id == "51b56d92-ab99-4802-a2c1-be150848c629")
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
+            }
+            expectationToFulfill.fulfill()
+        }
+        waitForExpectations(timeout: 1) { error in
+            if let error = error {
+                XCTFail("waitForExpectationsWithTimeout errored: \(error)")
+            }
+        }
+    }
 
 
 }
