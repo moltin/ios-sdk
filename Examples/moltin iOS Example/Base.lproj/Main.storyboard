@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RMx-3f-FxP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RMx-3f-FxP">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -29,7 +30,6 @@
         <!--Master View Controller-->
         <scene sceneID="idG-TB-NMf">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cgG-9X-HXl" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="vhc-yt-qvJ" customClass="MasterViewController" customModule="moltin_iOS_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LGR-JZ-X2O">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -71,6 +71,7 @@
                         <segue destination="cWh-V6-qla" kind="show" identifier="CategoriesToProducts" id="DM3-s1-szT"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cgG-9X-HXl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="340" y="-332"/>
         </scene>
@@ -162,6 +163,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ill-dark" width="1002" height="87"/>
+        <image name="ill-dark" width="501" height="43"/>
     </resources>
 </document>
