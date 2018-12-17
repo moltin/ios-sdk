@@ -56,6 +56,7 @@
 		C336E5D32064062E008C2005 /* Relationship.swift in Sources */ = {isa = PBXBuildFile; fileRef = C336E5CE2064057B008C2005 /* Relationship.swift */; };
 		C336E5F8206C0A18008C2005 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C336E5F6206C0A12008C2005 /* MasterViewController.swift */; };
 		C336E608206C1E02008C2005 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C336E604206C1DFD008C2005 /* CategoryCollectionViewCell.swift */; };
+		C339F42F21C6C309002C0A7A /* PaymentMethodTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C339F42E21C6C309002C0A7A /* PaymentMethodTests.swift */; };
 		C3434C0F203DDA0500883C84 /* MoltinRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3434C0E203DDA0500883C84 /* MoltinRequest.swift */; };
 		C3434C13203DDA1F00883C84 /* MoltinRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3434C0E203DDA0500883C84 /* MoltinRequest.swift */; };
 		C3434C18203DDAD500883C84 /* Pagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3434C17203DDAD500883C84 /* Pagination.swift */; };
@@ -254,6 +255,7 @@
 		C336E5F6206C0A12008C2005 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		C336E604206C1DFD008C2005 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		C336E605206C1DFD008C2005 /* CategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCollectionViewCell.xib; sourceTree = "<group>"; };
+		C339F42E21C6C309002C0A7A /* PaymentMethodTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodTests.swift; sourceTree = "<group>"; };
 		C3434C0E203DDA0500883C84 /* MoltinRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoltinRequest.swift; sourceTree = "<group>"; };
 		C3434C17203DDAD500883C84 /* Pagination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pagination.swift; sourceTree = "<group>"; };
 		C3434C1C203DDAFF00883C84 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
@@ -588,6 +590,7 @@
 				C3715BEE203F53A000287C1B /* AuthTests.swift */,
 				C3821AE220443C5F001EF864 /* CartTests.swift */,
 				C336E569206155BE008C2005 /* FlowTests.swift */,
+				C339F42E21C6C309002C0A7A /* PaymentMethodTests.swift */,
 			);
 			path = "moltin iOS Tests";
 			sourceTree = "<group>";
@@ -1171,6 +1174,7 @@
 				C354B56D2073740200D26446 /* Collection.swift in Sources */,
 				C336E56E206155DF008C2005 /* FlowTests.swift in Sources */,
 				C354B5732073780000D26446 /* Field.swift in Sources */,
+				C339F42F21C6C309002C0A7A /* PaymentMethodTests.swift in Sources */,
 				C354B5752073791A00D26446 /* Cart.swift in Sources */,
 				C392EA15203DB7EB006CD1D0 /* MoltinTests.swift in Sources */,
 				C354B569206D1D0C00D26446 /* Brands.swift in Sources */,
