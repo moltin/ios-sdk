@@ -13,11 +13,6 @@ public struct FileDimensions: Codable {
     public let width: Float
     /// The height of the file
     public let height: Float
-
-    @available(*, deprecated, message: "Do not use.")
-    init() {
-        fatalError("Swift 4.1 broke Codable synthesized inits")
-    }
 }
 
 /// The meta information for a `File`
@@ -26,11 +21,6 @@ public class FileMeta: Codable {
     public let dimensions: FileDimensions
     /// The timsestamps for a `File`
     public let timestamps: Timestamps
-
-    @available(*, deprecated, message: "Do not use.")
-    init() {
-        fatalError("Swift 4.1 broke Codable synthesized inits")
-    }
 }
 
 /// Represents a `File` in Moltin
@@ -64,10 +54,5 @@ open class File: Codable {
         case link
         case links
         case meta
-    }
-
-    @available(*, deprecated, message: "Do not use.")
-    init() {
-        fatalError("Swift 4.1 broke Codable synthesized inits")
     }
 }

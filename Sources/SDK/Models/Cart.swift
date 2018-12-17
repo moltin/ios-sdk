@@ -15,11 +15,6 @@ public class CartMeta: Codable {
     enum CodingKeys: String, CodingKey {
         case displayPrice = "display_price"
     }
-
-    @available(*, deprecated, message: "Do not use.")
-    init() {
-        fatalError("Swift 4.1 broke Codable synthesized inits")
-    }
 }
 
 /// The display price for a `CartItem`
@@ -28,11 +23,6 @@ public struct CartItemDisplayPrice: Codable {
     public let unit: DisplayPrice
     /// The value price (based on quantity) for a cart item
     public let value: DisplayPrice
-
-    @available(*, deprecated, message: "Do not use.")
-    init() {
-        fatalError("Swift 4.1 broke Codable synthesized inits")
-    }
 }
 
 /// The display prices information for a `CartItem`
@@ -46,11 +36,6 @@ public struct CartItemDisplayPrices: Codable {
         case withTax = "with_tax"
         case withoutTax = "without_tax"
     }
-
-    @available(*, deprecated, message: "Do not use.")
-    init() {
-        fatalError("Swift 4.1 broke Codable synthesized inits")
-    }
 }
 
 /// The meta information for this `CartItem`
@@ -60,11 +45,6 @@ public class CartItemMeta: Codable {
 
     enum CodingKeys: String, CodingKey {
         case displayPrice = "display_price"
-    }
-
-    @available(*, deprecated, message: "Do not use.")
-    init() {
-        fatalError("Swift 4.1 broke Codable synthesized inits")
     }
 }
 
@@ -78,11 +58,6 @@ open class Cart: Codable {
     public let links: [String: String]?
     /// The meta information for this cart
     public let meta: CartMeta?
-
-    @available(*, deprecated, message: "Do not use.")
-    init() {
-        fatalError("Swift 4.1 broke Codable synthesized inits")
-    }
 }
 
 /// Represents a `CartItem` in Moltin
@@ -124,11 +99,6 @@ open class CartItem: Codable {
         case links
         case meta
     }
-
-    @available(*, deprecated, message: "Do not use.")
-    init() {
-        fatalError("Swift 4.1 broke Codable synthesized inits")
-    }
 }
 
 /// Represents various types of cart items
@@ -146,10 +116,5 @@ open class CustomCartItem: Codable {
 
     internal init(withSKU sku: String) {
         self.sku = sku
-    }
-
-    @available(*, deprecated, message: "Do not use.")
-    init() {
-        fatalError("Swift 4.1 broke Codable synthesized inits")
     }
 }
