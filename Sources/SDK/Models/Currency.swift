@@ -11,11 +11,6 @@ import Foundation
 public class CurrencyMeta: Codable {
     /// The timestamps of this currency
     public let timestamps: Timestamps
-
-    @available(*, deprecated, message: "Do not use.")
-    init() {
-        fatalError("Swift 4.1 broke Codable synthesized inits")
-    }
 }
 
 /// Represents a `Currency` in Moltin
@@ -44,9 +39,4 @@ open class Currency: Codable {
     public let links: [String: String]
     /// The meta information for this currency
     public let meta: CurrencyMeta
-
-    @available(*, deprecated, message: "Do not use.")
-    init() {
-        fatalError("Swift 4.1 broke Codable synthesized inits")
-    }
 }

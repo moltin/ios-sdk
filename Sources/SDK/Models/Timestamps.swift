@@ -13,9 +13,4 @@ open class Timestamps: Codable {
     public let createdAt: Date
     /// When the resource was updated
     public let updatedAt: Date?
-
-    @available(*, deprecated, message: "Do not use.")
-    init() {
-        fatalError("Swift 4.1 broke Codable synthesized inits")
-    }
 }

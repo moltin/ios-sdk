@@ -42,9 +42,9 @@ class AuthRequestTests: XCTestCase {
 
     func testAuthAuthenticatesSuccessfullyAndPassesThrough() {
         let (_, productRequest) = MockFactory.mockedProductRequest(withJSON: MockProductDataFactory.multiProductData)
-
+        
         let expectationToFulfill = expectation(description: "ProductRequest calls the method and runs the callback closure")
-
+        
         _ = productRequest.all { (result) in
             switch result {
             case .success(_):
@@ -58,10 +58,10 @@ class AuthRequestTests: XCTestCase {
                 }
                 break
             }
-
+            
             expectationToFulfill.fulfill()
         }
-
+        
         waitForExpectations(timeout: 1) { error in
             if let error = error {
                 XCTFail("waitForExpectationsWithTimeout errored: \(error)")

@@ -11,11 +11,6 @@ import Foundation
 public class CartMeta: Codable {
     /// The display price information for this cart
     public let displayPrice: DisplayPrices
-
-    @available(*, deprecated, message: "Do not use.")
-    init() {
-        fatalError("Swift 4.1 broke Codable synthesized inits")
-    }
 }
 
 /// The display price for a `CartItem`
@@ -24,11 +19,6 @@ public struct CartItemDisplayPrice: Codable {
     public let unit: DisplayPrice
     /// The value price (based on quantity) for a cart item
     public let value: DisplayPrice
-
-    @available(*, deprecated, message: "Do not use.")
-    init() {
-        fatalError("Swift 4.1 broke Codable synthesized inits")
-    }
 }
 
 /// The display prices information for a `CartItem`
@@ -37,22 +27,12 @@ public struct CartItemDisplayPrices: Codable {
     public let withTax: CartItemDisplayPrice
     /// The display price for this cart item without tax
     public let withoutTax: CartItemDisplayPrice
-
-    @available(*, deprecated, message: "Do not use.")
-    init() {
-        fatalError("Swift 4.1 broke Codable synthesized inits")
-    }
 }
 
 /// The meta information for this `CartItem`
 public class CartItemMeta: Codable {
     /// The display price for this cart item
     public let displayPrice: CartItemDisplayPrices
-
-    @available(*, deprecated, message: "Do not use.")
-    init() {
-        fatalError("Swift 4.1 broke Codable synthesized inits")
-    }
 }
 
 /// Represents a `Cart` in Moltin
@@ -65,11 +45,6 @@ open class Cart: Codable {
     public let links: [String: String]?
     /// The meta information for this cart
     public let meta: CartMeta?
-
-    @available(*, deprecated, message: "Do not use.")
-    init() {
-        fatalError("Swift 4.1 broke Codable synthesized inits")
-    }
 }
 
 /// Represents a `CartItem` in Moltin
@@ -96,11 +71,6 @@ open class CartItem: Codable {
     public let links: [String: String]
     /// The meta information for this cart
     public let meta: CartItemMeta
-
-    @available(*, deprecated, message: "Do not use.")
-    init() {
-        fatalError("Swift 4.1 broke Codable synthesized inits")
-    }
 }
 
 /// Represents various types of cart items
@@ -118,10 +88,5 @@ open class CustomCartItem: Codable {
 
     internal init(withSKU sku: String) {
         self.sku = sku
-    }
-
-    @available(*, deprecated, message: "Do not use.")
-    init() {
-        fatalError("Swift 4.1 broke Codable synthesized inits")
     }
 }

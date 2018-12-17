@@ -15,11 +15,6 @@ public struct DisplayPrice: Codable {
     public let currency: String
     /// The formatted display price
     public let formatted: String
-
-    @available(*, deprecated, message: "Do not use.")
-    init() {
-        fatalError("Swift 4.1 broke Codable synthesized inits")
-    }
 }
 
 /// Represents display prices in Moltin with and without tax
@@ -28,9 +23,4 @@ public struct DisplayPrices: Codable {
     public let withTax: DisplayPrice
     /// The display price without tax
     public let withoutTax: DisplayPrice
-
-    @available(*, deprecated, message: "Do not use.")
-    init() {
-        fatalError("Swift 4.1 broke Codable synthesized inits")
-    }
 }

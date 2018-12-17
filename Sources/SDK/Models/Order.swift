@@ -13,11 +13,6 @@ public class OrderMeta: Codable {
     public let displayPrice: DisplayPrices
     /// The timestamps for an order
     public let timestamps: Timestamps
-
-    @available(*, deprecated, message: "Do not use.")
-    init() {
-        fatalError("Swift 4.1 broke Codable synthesized inits")
-    }
 }
 
 /// Represents the relationships for an `Order`
@@ -26,11 +21,6 @@ public class OrderRelationships: Codable {
     public let items: [String: [[String: String]]]?
     /// The customer information in this order
     public let customer: [String: [String: String]]?
-
-    @available(*, deprecated, message: "Do not use.")
-    init() {
-        fatalError("Swift 4.1 broke Codable synthesized inits")
-    }
 }
 
 /// Represents a `Order` in Moltin
@@ -57,17 +47,9 @@ open class Order: Codable {
     public let meta: OrderMeta
     /// The relationships for this order
     public let relationships: OrderRelationships?
-
-    @available(*, deprecated, message: "Do not use.")
-    init() {
-        fatalError("Swift 4.1 broke Codable synthesized inits")
-    }
 }
 
 /// Denotes a successful order returned from the payment gateway
 open class OrderSuccess: Codable {
-    @available(*, deprecated, message: "Do not use.")
-    init() {
-        fatalError("Swift 4.1 broke Codable synthesized inits")
-    }
+
 }

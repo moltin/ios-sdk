@@ -15,11 +15,6 @@ public struct ProductPrice: Codable {
     public let currency: String
     /// Whether this price includes tax
     public let includesTax: Bool
-
-    @available(*, deprecated, message: "Do not use.")
-    init() {
-        fatalError("Swift 4.1 broke Codable synthesized inits")
-    }
 }
 
 /// Represents stock levels on a `Product`
@@ -28,11 +23,6 @@ public struct ProductStock: Codable {
     public let level: Int
     /// in-stock / out-stock
     public let availability: String
-
-    @available(*, deprecated, message: "Do not use.")
-    init() {
-        fatalError("Swift 4.1 broke Codable synthesized inits")
-    }
 }
 
 /// Represents variation options on a `Product`
@@ -43,11 +33,6 @@ public class ProductVariationOption: Codable {
     public let name: String
     /// The description of this option
     public let description: String
-
-    @available(*, deprecated, message: "Do not use.")
-    init() {
-        fatalError("Swift 4.1 broke Codable synthesized inits")
-    }
 }
 
 /// Represents variations on a `Product`
@@ -56,11 +41,6 @@ public class ProductVariation: Codable {
     public let id: String
     /// The options this variation has
     public let options: [ProductVariationOption]
-
-    @available(*, deprecated, message: "Do not use.")
-    init() {
-        fatalError("Swift 4.1 broke Codable synthesized inits")
-    }
 }
 
 /// Represents the meta properties of a `Product`
@@ -75,11 +55,6 @@ public class ProductMeta: Codable {
     public let variations: [ProductVariation]?
     /// The variation matrix of this product
     public let variationMatrix: [[String: String]]?
-
-    @available(*, deprecated, message: "Do not use.")
-    init() {
-        fatalError("Swift 4.1 broke Codable synthesized inits")
-    }
 }
 
 /// Represents a `Product` in moltin
@@ -140,11 +115,6 @@ open class Product: Codable, HasRelationship {
 
         try self.decodeRelationships(fromRelationships: self.relationships, withIncludes: includes)
 
-    }
-
-    @available(*, deprecated, message: "Do not use.")
-    init() {
-        fatalError("Swift 4.1 broke Codable synthesized inits")
     }
 }
 
