@@ -97,4 +97,16 @@ class MockCartDataFactory {
         }]
     }
     """
+    
+    
+    static let deletedCartData = """
+        {
+           "data" : [
+              {
+                 "type" : "cart",
+                 "id" : "12345"
+              }
+           ]
+        }
+    """
 }

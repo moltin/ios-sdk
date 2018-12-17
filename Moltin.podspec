@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name         = "Moltin"
-    s.version      = "3.0.9"
+    s.version      = "3.0.11"
     s.summary      = "eCommerce made simple"
     s.module_name   = 'moltin'
 
@@ -22,4 +22,5 @@ Pod::Spec.new do |s|
     s.ios.deployment_target = "10.0"
     s.tvos.deployment_target = "10.0"
     s.watchos.deployment_target = "3.0"
+    s.module_name   = 'moltin'
 end
