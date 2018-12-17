@@ -17,11 +17,6 @@ struct MoltinAuthCredentials: Codable {
         self.token = token
         self.expires = expires
     }
-
-    @available(*, deprecated, message: "Do not use.")
-    init() {
-        fatalError("Swift 4.1 broke Codable synthesized inits")
-    }
 }
 
 class MoltinAuth {
