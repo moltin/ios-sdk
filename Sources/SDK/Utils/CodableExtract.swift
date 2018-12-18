@@ -48,6 +48,7 @@ extension Decodable {
         let itemData = try JSONSerialization.data(withJSONObject: item, options: [])
 
         let decoder = JSONDecoder.dateFormattingDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
         return try decoder.decode(T.self, from: itemData)
     }
 
@@ -59,6 +60,7 @@ extension Decodable {
         let itemData = try JSONSerialization.data(withJSONObject: items, options: [])
 
         let decoder = JSONDecoder.dateFormattingDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
         return try decoder.decode([T].self, from: itemData)
     }
 

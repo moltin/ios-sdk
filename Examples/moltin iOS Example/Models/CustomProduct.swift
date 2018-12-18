@@ -12,7 +12,7 @@ class CustomProduct: Product {
     var backgroundColor: UIColor?
 
     enum ProductCodingKeys: String, CodingKey {
-        case backgroundColor = "background_colour"
+        case backgroundColor = "backgroundColor"
     }
 
     required init(from decoder: Decoder) throws {
