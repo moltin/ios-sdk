@@ -13,11 +13,6 @@ public struct FileDimensions: Codable {
     public let width: Float?
     /// The height of the file
     public let height: Float?
-
-    @available(*, deprecated, message: "Do not use.")
-    init() {
-        fatalError("Swift 4.1 broke Codable synthesized inits")
-    }
 }
 
 /// The meta information for a `File`
