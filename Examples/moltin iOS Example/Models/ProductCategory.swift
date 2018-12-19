@@ -13,8 +13,8 @@ class ProductCategory: moltin.Category {
     var backgroundImage: String?
 
     enum ProductCategoryCodingKeys: String, CodingKey {
-        case backgroundColor = "backgroundColor"
-        case backgroundImage = "backgroundImage"
+        case backgroundColor = "backgroundColour"
+        case backgroundImage
     }
 
     required init(from decoder: Decoder) throws {

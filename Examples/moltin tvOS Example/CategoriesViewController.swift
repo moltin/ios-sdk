@@ -58,7 +58,7 @@ class ProductCategory: moltin.Category {
     var backgroundImage: String?
 
     enum ProductCategoryCodingKeys: String, CodingKey {
-        case backgroundColor = "backgroundColor"
+        case backgroundColor = "backgroundColour"
         case backgroundImage = "backgroundImage"
     }
 
