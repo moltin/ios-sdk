@@ -20,18 +20,28 @@ open class StripeToken: PaymentMethod {
     /// The stripe token
     var token: String
 
+    /// The stripe options
+    var options: [String: String]?
+
     /// The payment data to be sent to the API
     public var paymentData: [String: Any] {
-        return [
+        var payload: [String: Any] = [
             "gateway": "stripe",
             "method": "purchase",
             "payment": self.token
         ]
+
+        if let options = self.options {
+            payload["options"] = options
+        }
+
+        return payload
     }
 
     /// Initialise the payment method with a stripe token
-    public init(withStripeToken token: String) {
+    public init(withStripeToken token: String, withOptions options: [String: String]? = nil) {
         self.token = token
+        self.options = options
     }
 }
 
