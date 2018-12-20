@@ -10,15 +10,16 @@ import Foundation
 /// The dimensions of a `File`
 public struct FileDimensions: Codable {
     /// The width of the file
-    public let width: Float
+    public let width: Float?
     /// The height of the file
-    public let height: Float
+    public let height: Float?
+
 }
 
 /// The meta information for a `File`
 public class FileMeta: Codable {
     /// The dimensions for a `File`
-    public let dimensions: FileDimensions
+    public let dimensions: FileDimensions?
     /// The timsestamps for a `File`
     public let timestamps: Timestamps
 }
