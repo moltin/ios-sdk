@@ -82,6 +82,8 @@ open class Relationships: Codable {
     public var cartItem: RelationshipSingle?
     /// The `Product` relationships
     public var products: RelationshipMany?
+    /// The `TaxItem` relationships
+    public var taxes: RelationshipMany?
 
     enum CodingKeys: String, CodingKey {
         case mainImage = "main_image"
@@ -95,5 +97,6 @@ open class Relationships: Codable {
         case items
         case customer
         case products
+        case taxes
     }
 }

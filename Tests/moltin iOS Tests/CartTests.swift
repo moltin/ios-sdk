@@ -60,6 +60,31 @@ class CartTests: XCTestCase {
             }
         }
     }
+    
+    func testGettingCartItemsWithTaxes() {
+        let (_, request) = MockFactory.mockedCartRequest(withJSON: MockCartDataFactory.cartItemsWithTaxesData)
+        
+        let expectationToFulfill = expectation(description: "CartRequest calls the method and runs the callback closure")
+        
+        _ = request.items(forCartID: "3333") { (result) in
+            switch result {
+            case .success(let cartItems):
+                XCTAssert(cartItems.data?[0].id == "abc123")
+                XCTAssert(type(of: cartItems.data) == Optional<[moltin.CartItem]>.self)
+                XCTAssert(cartItems.data?[0].relationships != nil)
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
+            }
+            
+            expectationToFulfill.fulfill()
+        }
+        
+        waitForExpectations(timeout: 1) { error in
+            if let error = error {
+                XCTFail("waitForExpectationsWithTimeout errored: \(error)")
+            }
+        }
+    }
 
     func testAddingAProductToCart() {
         let (_, request) = MockFactory.mockedCartRequest(withJSON: MockCartDataFactory.cartItemsData)
