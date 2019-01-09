@@ -105,7 +105,7 @@ class MoltinHTTP {
         mutableRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
 
         mutableRequest.addValue("swift", forHTTPHeaderField: "X-MOLTIN-SDK-LANGUAGE")
-        mutableRequest.addValue("3.0.11", forHTTPHeaderField: "X-MOLTIN-SDK-VERSION")
+        mutableRequest.addValue("3.0.12", forHTTPHeaderField: "X-MOLTIN-SDK-VERSION")
 
         if let config = config {
             mutableRequest.addValue(config.locale.identifier, forHTTPHeaderField: "X-MOLTIN-LOCALE")
