@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name         = "Moltin"
-    s.version      = "3.0.12"
+    s.version      = "3.1.0"
     s.summary      = "eCommerce made simple"
     s.module_name   = 'moltin'
 
