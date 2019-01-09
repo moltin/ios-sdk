@@ -27,6 +27,8 @@ public struct MoltinInclude: RawRepresentable, Equatable {
     public static let categories = MoltinInclude(rawValue: "categories")
     /// Includes a `File` object representing the main image
     public static let mainImage = MoltinInclude(rawValue: "main_image")
+    /// Includes `TaxItem` objects
+    public static let taxes = MoltinInclude(rawValue: "tax_items")
 
     public init(rawValue: String) {
         self.rawValue = rawValue

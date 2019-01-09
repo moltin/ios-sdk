@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0930"
+   LastUpgradeVersion = "1010"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,9 +14,23 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C392E9C4203DB630006CD1D0"
-               BuildableName = "moltin.framework"
-               BlueprintName = "moltin iOS"
+               BlueprintIdentifier = "C392EA36203DB822006CD1D0"
+               BuildableName = "moltin WatchKit Example.app"
+               BlueprintName = "moltin WatchKit Example"
+               ReferencedContainer = "container:moltin.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "C392EA20203DB800006CD1D0"
+               BuildableName = "moltin iOS Example.app"
+               BlueprintName = "moltin iOS Example"
                ReferencedContainer = "container:moltin.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -26,26 +40,15 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      codeCoverageEnabled = "YES"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C392EA11203DB7EB006CD1D0"
-               BuildableName = "moltin iOS Tests.xctest"
-               BlueprintName = "moltin iOS Tests"
-               ReferencedContainer = "container:moltin.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C392E9C4203DB630006CD1D0"
-            BuildableName = "moltin.framework"
-            BlueprintName = "moltin iOS"
+            BlueprintIdentifier = "C392EA36203DB822006CD1D0"
+            BuildableName = "moltin WatchKit Example.app"
+            BlueprintName = "moltin WatchKit Example"
             ReferencedContainer = "container:moltin.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -62,12 +65,24 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
+      <RemoteRunnable
+         runnableDebuggingMode = "2"
+         BundleIdentifier = "com.apple.Carousel"
+         RemotePath = "/moltin iOS Example">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "C392EA36203DB822006CD1D0"
+            BuildableName = "moltin WatchKit Example.app"
+            BlueprintName = "moltin WatchKit Example"
+            ReferencedContainer = "container:moltin.xcodeproj">
+         </BuildableReference>
+      </RemoteRunnable>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C392E9C4203DB630006CD1D0"
-            BuildableName = "moltin.framework"
-            BlueprintName = "moltin iOS"
+            BlueprintIdentifier = "C392EA36203DB822006CD1D0"
+            BuildableName = "moltin WatchKit Example.app"
+            BlueprintName = "moltin WatchKit Example"
             ReferencedContainer = "container:moltin.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -80,12 +95,24 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <RemoteRunnable
+         runnableDebuggingMode = "2"
+         BundleIdentifier = "com.apple.Carousel"
+         RemotePath = "/moltin iOS Example">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "C392EA36203DB822006CD1D0"
+            BuildableName = "moltin WatchKit Example.app"
+            BlueprintName = "moltin WatchKit Example"
+            ReferencedContainer = "container:moltin.xcodeproj">
+         </BuildableReference>
+      </RemoteRunnable>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C392E9C4203DB630006CD1D0"
-            BuildableName = "moltin.framework"
-            BlueprintName = "moltin iOS"
+            BlueprintIdentifier = "C392EA36203DB822006CD1D0"
+            BuildableName = "moltin WatchKit Example.app"
+            BlueprintName = "moltin WatchKit Example"
             ReferencedContainer = "container:moltin.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

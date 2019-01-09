@@ -15,11 +15,6 @@ public class CartMeta: Codable {
     enum CodingKeys: String, CodingKey {
         case displayPrice = "display_price"
     }
-
-    @available(*, deprecated, message: "Do not use.")
-    init() {
-        fatalError("Swift 4.1 broke Codable synthesized inits")
-    }
 }
 
 /// The display price for a `CartItem`
@@ -28,11 +23,6 @@ public struct CartItemDisplayPrice: Codable {
     public let unit: DisplayPrice
     /// The value price (based on quantity) for a cart item
     public let value: DisplayPrice
-
-    @available(*, deprecated, message: "Do not use.")
-    init() {
-        fatalError("Swift 4.1 broke Codable synthesized inits")
-    }
 }
 
 /// The display prices information for a `CartItem`
@@ -41,15 +31,13 @@ public struct CartItemDisplayPrices: Codable {
     public let withTax: CartItemDisplayPrice
     /// The display price for this cart item without tax
     public let withoutTax: CartItemDisplayPrice
+    /// The display price for this cart item's tax amount
+    public let tax: CartItemDisplayPrice
 
     enum CodingKeys: String, CodingKey {
         case withTax = "with_tax"
         case withoutTax = "without_tax"
-    }
-
-    @available(*, deprecated, message: "Do not use.")
-    init() {
-        fatalError("Swift 4.1 broke Codable synthesized inits")
+        case tax
     }
 }
 
@@ -60,11 +48,6 @@ public class CartItemMeta: Codable {
 
     enum CodingKeys: String, CodingKey {
         case displayPrice = "display_price"
-    }
-
-    @available(*, deprecated, message: "Do not use.")
-    init() {
-        fatalError("Swift 4.1 broke Codable synthesized inits")
     }
 }
 
@@ -78,11 +61,6 @@ open class Cart: Codable {
     public let links: [String: String]?
     /// The meta information for this cart
     public let meta: CartMeta?
-
-    @available(*, deprecated, message: "Do not use.")
-    init() {
-        fatalError("Swift 4.1 broke Codable synthesized inits")
-    }
 }
 
 /// Represents a `CartItem` in Moltin
@@ -105,10 +83,14 @@ open class CartItem: Codable {
     public let unitPrice: ProductPrice
     /// The price for this cart item, taking into account quantity
     public let value: ProductPrice
+    /// The tax for this cart item, taking into account quantity
+    public var taxes: [TaxItem]?
     /// The external links for this cart item
     public let links: [String: String]
-    /// The meta information for this cart
+    /// The meta information for this cart item
     public let meta: CartItemMeta
+    /// The relationships this item has
+    public let relationships: Relationships?
 
     enum CodingKeys: String, CodingKey {
         case productId = "product_id"
@@ -123,11 +105,41 @@ open class CartItem: Codable {
         case value
         case links
         case meta
+        case relationships
     }
 
-    @available(*, deprecated, message: "Do not use.")
-    init() {
-        fatalError("Swift 4.1 broke Codable synthesized inits")
+    required public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let includes: IncludesContainer = decoder.userInfo[.includes] as? IncludesContainer ?? [:]
+
+        self.id = try container.decode(String.self, forKey: .id)
+        self.type = try container.decode(String.self, forKey: .type)
+        self.productId = try container.decode(String.self, forKey: .productId)
+        self.name = try container.decode(String.self, forKey: .name)
+        self.description = try container.decode(String.self, forKey: .description)
+        self.sku = try container.decode(String.self, forKey: .sku)
+        self.quantity = try container.decode(Int.self, forKey: .quantity)
+        self.unitPrice = try container.decode(ProductPrice.self, forKey: .unitPrice)
+        self.value = try container.decode(ProductPrice.self, forKey: .value)
+        self.links = try container.decode([String: String].self, forKey: .links)
+        self.meta = try container.decode(CartItemMeta.self, forKey: .meta)
+        self.relationships = try? container.decode(Relationships.self, forKey: .relationships)
+
+        try self.decodeRelationships(fromRelationships: self.relationships, withIncludes: includes)
+    }
+}
+
+extension CartItem {
+
+    func decodeRelationships(
+        fromRelationships relationships: Relationships?,
+        withIncludes includes: IncludesContainer
+        ) throws {
+
+        self.taxes = try self.decodeMany(
+            fromRelationships: relationships?[keyPath: \Relationships.taxes],
+            withIncludes: includes["tax_items"])
+
     }
 }
 
@@ -147,9 +159,15 @@ open class CustomCartItem: Codable {
     internal init(withSKU sku: String) {
         self.sku = sku
     }
+}
 
-    @available(*, deprecated, message: "Do not use.")
-    init() {
-        fatalError("Swift 4.1 broke Codable synthesized inits")
-    }
+/// A tax item
+open class TaxItem: Codable {
+
+    public let type: String
+    public let id: String
+    public let jurisdiction: String
+    public let code: String
+    public let name: String
+    public let rate: Float
 }

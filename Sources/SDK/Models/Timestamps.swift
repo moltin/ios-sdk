@@ -18,9 +18,4 @@ open class Timestamps: Codable {
         case createdAt = "created_at"
         case updatedAt = "updated_at"
     }
-
-    @available(*, deprecated, message: "Do not use.")
-    init() {
-        fatalError("Swift 4.1 broke Codable synthesized inits")
-    }
 }

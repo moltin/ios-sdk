@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0930"
+   LastUpgradeVersion = "1010"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C392E9C4203DB630006CD1D0"
-               BuildableName = "moltin.framework"
-               BlueprintName = "moltin iOS"
+               BlueprintIdentifier = "C392EA20203DB800006CD1D0"
+               BuildableName = "moltin iOS Example.app"
+               BlueprintName = "moltin iOS Example"
                ReferencedContainer = "container:moltin.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -26,7 +26,6 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      codeCoverageEnabled = "YES"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
          <TestableReference
@@ -43,9 +42,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C392E9C4203DB630006CD1D0"
-            BuildableName = "moltin.framework"
-            BlueprintName = "moltin iOS"
+            BlueprintIdentifier = "C392EA20203DB800006CD1D0"
+            BuildableName = "moltin iOS Example.app"
+            BlueprintName = "moltin iOS Example"
             ReferencedContainer = "container:moltin.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -62,15 +61,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C392E9C4203DB630006CD1D0"
-            BuildableName = "moltin.framework"
-            BlueprintName = "moltin iOS"
+            BlueprintIdentifier = "C392EA20203DB800006CD1D0"
+            BuildableName = "moltin iOS Example.app"
+            BlueprintName = "moltin iOS Example"
             ReferencedContainer = "container:moltin.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -80,15 +80,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C392E9C4203DB630006CD1D0"
-            BuildableName = "moltin.framework"
-            BlueprintName = "moltin iOS"
+            BlueprintIdentifier = "C392EA20203DB800006CD1D0"
+            BuildableName = "moltin iOS Example.app"
+            BlueprintName = "moltin iOS Example"
             ReferencedContainer = "container:moltin.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
