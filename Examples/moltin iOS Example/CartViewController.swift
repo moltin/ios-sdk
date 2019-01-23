@@ -27,7 +27,8 @@ class CartViewController: UIViewController {
                     self.cartItems = result.data ?? []
                     self.tableView.reloadData()
                 }
-            default: break
+            case .failure(let error):
+                print(error)
             }
         }
     }

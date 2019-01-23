@@ -32,8 +32,21 @@ class MoltinHTTP {
         }
 
         self.session.dataTask(with: urlRequest) { (data, response, error) in
-            completionHandler(data, response, error)
-        }.resume()
+            guard let statusCode = (response as? HTTPURLResponse)?.statusCode else {
+                completionHandler(data, response, error)
+                return
+            }
+
+            if 200...299 ~= statusCode {
+                completionHandler(data, response, error)
+            } else {
+                let errorData = try? self.dataSerializer.deserialize(data)
+                let errorObject = NSError(domain: "com.moltin", code: statusCode, userInfo: errorData as? [String: Any])
+
+                completionHandler(data, response, errorObject)
+            }
+
+            }.resume()
     }
 
     func buildURLRequest(withConfiguration configuration: MoltinConfig,
@@ -82,7 +95,11 @@ class MoltinHTTP {
         return urlComponents.url
     }
 
-    func configureRequest(_ urlRequest: URLRequest, withToken token: String?, withConfig config: MoltinConfig?) -> URLRequest {
+    func configureRequest(
+        _ urlRequest: URLRequest,
+        withToken token: String?,
+        withConfig config: MoltinConfig?,
+        withAdditionalHeaders headers: [String: String]? = [:]) -> URLRequest {
         var mutableRequest = urlRequest
 
         if let token = token {
@@ -92,7 +109,7 @@ class MoltinHTTP {
         mutableRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
 
         mutableRequest.addValue("swift", forHTTPHeaderField: "X-MOLTIN-SDK-LANGUAGE")
-        mutableRequest.addValue("3.0.7", forHTTPHeaderField: "X-MOLTIN-SDK-VERSION")
+        mutableRequest.addValue("3.1.0", forHTTPHeaderField: "X-MOLTIN-SDK-VERSION")
 
         if let config = config {
             mutableRequest.addValue(config.locale.identifier, forHTTPHeaderField: "X-MOLTIN-LOCALE")
@@ -103,6 +120,10 @@ class MoltinHTTP {
             if let currencyCode = config.locale.currencyCode {
                 mutableRequest.addValue(currencyCode, forHTTPHeaderField: "X-MOLTIN-CURRENCY")
             }
+        }
+
+        for (key, value) in headers ?? [:] {
+            mutableRequest.addValue(value, forHTTPHeaderField: key)
         }
 
         return mutableRequest

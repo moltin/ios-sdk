@@ -75,9 +75,4 @@ open class PaginationMeta: Codable {
     public let results: [String: Int]?
     /// The page information for this response
     public let page: [String: Int]?
-
-    @available(*, deprecated, message: "Do not use.")
-    init() {
-        fatalError("Swift 4.1 broke Codable synthesized inits")
-    }
 }

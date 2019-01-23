@@ -61,14 +61,10 @@ open class Address: Codable {
         self.lastName = lastName
     }
 
-    @available(*, deprecated, message: "Do not use.")
-    init() {
-        fatalError("Swift 4.1 broke Codable synthesized inits")
-    }
-
     func toDictionary() -> [String: Any] {
         var data: [String: Any] = [:]
 
+        data["type"] = self.type
         data["first_name"] = self.firstName
         data["last_name"] = self.lastName
         data["company"] = self.companyName

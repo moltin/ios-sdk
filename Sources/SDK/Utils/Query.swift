@@ -27,6 +27,8 @@ public struct MoltinInclude: RawRepresentable, Equatable {
     public static let categories = MoltinInclude(rawValue: "categories")
     /// Includes a `File` object representing the main image
     public static let mainImage = MoltinInclude(rawValue: "main_image")
+    /// Includes `TaxItem` objects
+    public static let taxes = MoltinInclude(rawValue: "tax_items")
 
     public init(rawValue: String) {
         self.rawValue = rawValue
@@ -90,7 +92,7 @@ open class MoltinQuery {
 
         if self.withFilter.count > 0 {
             let filterString = self.withFilter.map { (op, key, value) -> String in
-                return "\(op.rawValue)(\(key), \(value))"
+                return "\(op.rawValue)(\(key),\(value))"
             }.joined(separator: ":")
             queryParams.append(URLQueryItem(name: "filter", value: filterString))
         }
