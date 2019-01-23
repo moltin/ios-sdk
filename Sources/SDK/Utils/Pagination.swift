@@ -19,11 +19,6 @@ open class PaginatedResponse<T: Codable>: Codable {
     /// The meta information for this response
     public var meta: PaginationMeta?
 
-    @available(*, deprecated, message: "Do not use.")
-    init() {
-        fatalError("Swift 4.1 broke Codable synthesized inits")
-    }
-
     @discardableResult public func next(withConfig config: MoltinConfig, withCompletion completionHandler: @escaping (Result<PaginatedResponse<T>>) -> Void) -> MoltinRequest? {
         guard let page = self.links?["next"] as? String,
             let url = URL(string: page) else {
