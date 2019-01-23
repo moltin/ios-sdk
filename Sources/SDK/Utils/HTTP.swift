@@ -95,7 +95,11 @@ class MoltinHTTP {
         return urlComponents.url
     }
 
-    func configureRequest(_ urlRequest: URLRequest, withToken token: String?, withConfig config: MoltinConfig?) -> URLRequest {
+    func configureRequest(
+        _ urlRequest: URLRequest,
+        withToken token: String?,
+        withConfig config: MoltinConfig?,
+        withAdditionalHeaders headers: [String: String]? = [:]) -> URLRequest {
         var mutableRequest = urlRequest
 
         if let token = token {
@@ -116,6 +120,10 @@ class MoltinHTTP {
             if let currencyCode = config.locale.currencyCode {
                 mutableRequest.addValue(currencyCode, forHTTPHeaderField: "X-MOLTIN-CURRENCY")
             }
+        }
+
+        for (key, value) in headers ?? [:] {
+            mutableRequest.addValue(value, forHTTPHeaderField: key)
         }
 
         return mutableRequest

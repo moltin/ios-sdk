@@ -442,6 +442,80 @@ public class FieldRequest: MoltinRequest {
     }
 
 }
+// MARK: OrderRequest - AutoMoltinRequest
+
+/// An entry point to make API calls relating to `Order`
+public class OrderRequest: MoltinRequest {
+
+    /**
+     The API endpoint for this resource.
+    */
+    public var endpoint: String = "/orders"
+
+    /**
+     A typealias which allows automatic casting of a collection to `[Order]`.
+    */
+    public typealias DefaultCollectionRequestHandler = CollectionRequestHandler<[Order]>
+    /**
+     A typealias which allows automatic casting of an object to `Order`.
+    */
+    public typealias DefaultObjectRequestHandler = ObjectRequestHandler<Order>
+
+    /**
+     Return all instances of type `Order`
+     - Author:
+     Craig Tweedy
+     - parameters:
+        - completionHandler: The handler to be called on success or failure
+     - returns:
+        A instance of `MoltinRequest` which encapsulates the request.
+     */
+    @discardableResult public func all(completionHandler: @escaping DefaultCollectionRequestHandler) -> MoltinRequest {
+        return super.list(withPath: "\(self.endpoint)", completionHandler: completionHandler)
+    }
+
+    /**
+     Return all instances of type `Order`, cast to type `T`, which must be `Codable`.
+     - Author:
+     Craig Tweedy
+     - parameters:
+        - completionHandler: The handler to be called on success or failure
+     - returns:
+        A instance of `MoltinRequest` which encapsulates the request.
+     */
+    @discardableResult public func all<T: Codable>(completionHandler: @escaping CollectionRequestHandler<[T]>) -> MoltinRequest {
+        return super.list(withPath: "\(self.endpoint)", completionHandler: completionHandler)
+    }
+
+    /**
+     Return all instances of type `Order` by `id`
+     - Author:
+     Craig Tweedy
+     - parameters:
+        - forID: The ID of the object
+        - completionHandler: The handler to be called on success or failure
+     - returns:
+        A instance of `MoltinRequest` which encapsulates the request.
+     */
+    @discardableResult public func get(forID id: String, completionHandler: @escaping DefaultObjectRequestHandler) -> MoltinRequest {
+        return super.get(withPath: "\(self.endpoint)/\(id)", completionHandler: completionHandler)
+    }
+
+    /**
+    Return all instances of type `Order` by `id`, cast to type `T`, which must be `Codable`.
+    - Author:
+    Craig Tweedy
+    - parameters:
+        - forID: The ID of the object
+        - completionHandler: The handler to be called on success or failure
+    - returns:
+        A instance of `MoltinRequest` which encapsulates the request.
+    */
+    @discardableResult public func get<T: Codable>(forID id: String, completionHandler: @escaping ObjectRequestHandler<T>) -> MoltinRequest {
+        return super.get(withPath: "\(self.endpoint)/\(id)", completionHandler: completionHandler)
+    }
+
+}
 // MARK: ProductRequest - AutoMoltinRequest
 
 /// An entry point to make API calls relating to `Product`

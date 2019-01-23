@@ -38,6 +38,8 @@ public class MoltinRequest {
     internal var query: MoltinQuery
     internal var auth: MoltinAuth
 
+    internal var headers: [String: String] = [:]
+
     // MARK: - Init
 
     /**
@@ -246,7 +248,10 @@ public class MoltinRequest {
         self.auth.authenticate { [weak self] (result) in
             switch result {
             case .success(let result):
-                let request = self?.http.configureRequest(urlRequest, withToken: result.token, withConfig: self?.config)
+                let request = self?.http.configureRequest(urlRequest,
+                                                          withToken: result.token,
+                                                          withConfig: self?.config,
+                                                          withAdditionalHeaders: self?.headers)
                 self?.http.executeRequest(request) { (data, response, error) in
                     completionHandler(data, response, error)
                 }
@@ -342,6 +347,24 @@ public class MoltinRequest {
      */
     public func filter(operator op: MoltinFilterOperator, key: String, value: String) -> Self {
         self.query.withFilter.append((op, key, value))
+        return self
+    }
+
+    /**
+     Add a header to the request
+     
+     - Author:
+     Craig Tweedy
+     
+     - parameters:
+        - key: The header key
+        - withValue: The header value
+     
+     - returns:
+     An instance of `MoltinRequest` which encapsulates the request.
+    */
+    public func addHeader(_ key: String, withValue value: String) -> Self {
+        self.headers[key] = value
         return self
     }
 }

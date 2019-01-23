@@ -64,6 +64,7 @@ open class Address: Codable {
     func toDictionary() -> [String: Any] {
         var data: [String: Any] = [:]
 
+        data["type"] = self.type
         data["first_name"] = self.firstName
         data["last_name"] = self.lastName
         data["company"] = self.companyName
