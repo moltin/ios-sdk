@@ -8,15 +8,6 @@ PlaygroundPage.current.needsIndefiniteExecution = true
 
 let moltin = Moltin(withClientID: "j6hSilXRQfxKohTndUuVrErLcSJWP15P347L6Im0M4")
 
-moltin.product.all { (result: Result<PaginatedResponse<[Product]>>) in
-    switch result {
-    case .success(let products):
-        print(products)
-    case .failure(let error):
-        print(error)
-    }
-}
-
 moltin.product.all { (result) in
     guard case .success(let products) = result else {
         // something went wrong
@@ -25,4 +16,15 @@ moltin.product.all { (result) in
     }
 
     print(products)
+    
+    products.next(withConfig: moltin.config) { (paginatedResult) in
+        guard case .success(let nextPage) = paginatedResult else {
+            // something went wrong
+            if case .failure(let error) = paginatedResult { print(error) }
+            return
+        }
+        
+        print(nextPage)
+        
+    }
 }
