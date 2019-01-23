@@ -19,6 +19,18 @@ open class PaginatedResponse<T: Codable>: Codable {
     /// The meta information for this response
     public var meta: PaginationMeta?
 
+    /**
+     Get the next page for this response
+     
+     - Author:
+     Craig Tweedy
+     
+     - parameters:
+         - withConfig: The moltin config to use
+         - withCompletion: The handler to be called on success or failure
+     - returns:
+        A instance of `MoltinRequest` which encapsulates the request.
+     */
     @discardableResult public func next(withConfig config: MoltinConfig, withCompletion completionHandler: @escaping (Result<PaginatedResponse<T>>) -> Void) -> MoltinRequest? {
         guard let page = self.links?["next"] as? String,
             let url = URL(string: page) else {
@@ -30,6 +42,18 @@ open class PaginatedResponse<T: Codable>: Codable {
         return request.paginationRequest(withURL: url, completionHandler: completionHandler)
     }
 
+    /**
+     Get the previous page for this response
+     
+     - Author:
+        Craig Tweedy
+     
+     - parameters:
+        - withConfig: The moltin config to use
+        - withCompletion: The handler to be called on success or failure
+     - returns:
+        A instance of `MoltinRequest` which encapsulates the request.
+     */
     @discardableResult public func previous(withConfig config: MoltinConfig, withCompletion completionHandler: @escaping (Result<PaginatedResponse<T>>) -> Void) -> MoltinRequest? {
         guard let page = self.links?["prev"] as? String,
             let url = URL(string: page) else {
@@ -41,6 +65,18 @@ open class PaginatedResponse<T: Codable>: Codable {
         return request.paginationRequest(withURL: url, completionHandler: completionHandler)
     }
 
+    /**
+     Get the first page for this response
+     
+     - Author:
+     Craig Tweedy
+     
+     - parameters:
+        - withConfig: The moltin config to use
+        - withCompletion: The handler to be called on success or failure
+     - returns:
+        A instance of `MoltinRequest` which encapsulates the request.
+     */
     @discardableResult public func first(withConfig config: MoltinConfig, withCompletion completionHandler: @escaping (Result<PaginatedResponse<T>>) -> Void) -> MoltinRequest? {
         guard let page = self.links?["first"] as? String,
             let url = URL(string: page) else {
@@ -52,6 +88,18 @@ open class PaginatedResponse<T: Codable>: Codable {
         return request.paginationRequest(withURL: url, completionHandler: completionHandler)
     }
 
+    /**
+     Get the last page for this response
+     
+     - Author:
+     Craig Tweedy
+     
+     - parameters:
+        - withConfig: The moltin config to use
+        - withCompletion: The handler to be called on success or failure
+     - returns:
+        A instance of `MoltinRequest` which encapsulates the request.
+     */
     @discardableResult public func last(withConfig config: MoltinConfig, withCompletion completionHandler: @escaping (Result<PaginatedResponse<T>>) -> Void) -> MoltinRequest? {
         guard let page = self.links?["last"] as? String,
             let url = URL(string: page) else {
