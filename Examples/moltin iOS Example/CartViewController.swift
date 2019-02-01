@@ -58,7 +58,7 @@ class CartViewController: UIViewController {
         let paymentMethod = ManuallyAuthorizePayment()
         self.moltin.cart.pay(forOrderID: order.id, withPaymentMethod: paymentMethod) { (result) in
             switch result {
-            case .success:
+            case .success(let _):
                 DispatchQueue.main.async {
                     self.showOrderStatus(withSuccess: true)
                 }
@@ -74,6 +74,7 @@ class CartViewController: UIViewController {
         let title = success ? "Order paid!" : "Order error"
         let message = success ? "Complete!" : error?.localizedDescription
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
 }
