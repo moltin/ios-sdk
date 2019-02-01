@@ -153,6 +153,8 @@
 		C392EA52203DB823006CD1D0 /* moltin WatchKit Example.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = C392EA37203DB822006CD1D0 /* moltin WatchKit Example.app */; };
 		C392EA61203DB836006CD1D0 /* moltin_tvOS_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C392EA60203DB836006CD1D0 /* moltin_tvOS_Tests.swift */; };
 		C392EA63203DB836006CD1D0 /* moltin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C392E9DF203DB64E006CD1D0 /* moltin.framework */; };
+		C39C35FC22047FFF0044173C /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34D626D22047AF8009C7248 /* Transaction.swift */; };
+		C39C35FD220480000044173C /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34D626D22047AF8009C7248 /* Transaction.swift */; };
 		C3E739DA209113610070C361 /* CustomerRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E739D9209113610070C361 /* CustomerRequest.swift */; };
 		C3F492B520B45C560081C5EC /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F492B420B45C560081C5EC /* CategoriesViewController.swift */; };
 		C3F492B720B611D10081C5EC /* ProductsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F492B620B611D10081C5EC /* ProductsCollectionViewController.swift */; };
@@ -1109,6 +1111,7 @@
 				C3F610E021F8A93200F42212 /* CustomerRequest.swift in Sources */,
 				C336E5A82062762D008C2005 /* DateFormatter.swift in Sources */,
 				C3715BF7203F544B00287C1B /* HTTPMock.swift in Sources */,
+				C39C35FC22047FFF0044173C /* Transaction.swift in Sources */,
 				C336E5B420627633008C2005 /* Address.swift in Sources */,
 				C336E5B320627633008C2005 /* Cart.swift in Sources */,
 				C336E5D22064062D008C2005 /* Relationship.swift in Sources */,
@@ -1149,6 +1152,7 @@
 				C3F610E121F8A93200F42212 /* CustomerRequest.swift in Sources */,
 				C336E5A52062762D008C2005 /* DateFormatter.swift in Sources */,
 				C3434C13203DDA1F00883C84 /* MoltinRequest.swift in Sources */,
+				C39C35FD220480000044173C /* Transaction.swift in Sources */,
 				C336E5AF20627632008C2005 /* Address.swift in Sources */,
 				C336E5AE20627632008C2005 /* Cart.swift in Sources */,
 				C336E5D12064062D008C2005 /* Relationship.swift in Sources */,
