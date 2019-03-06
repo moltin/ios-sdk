@@ -101,7 +101,7 @@ public class CartRequest: MoltinRequest {
      - returns:
         A instance of `MoltinRequest` which encapsulates the request.
      */
-    @discardableResult public func addCustomItem(_ customItem: [String: Any],
+    @discardableResult public func addCustomItem(_ customItem: CustomCartItem,
                                                  toCart cart: String,
                                                  completionHandler: @escaping ObjectRequestHandler<[CartItem]>) -> MoltinRequest {
         let data = self.buildCustomItem(withCustomItem: customItem)
@@ -277,9 +277,9 @@ public class CartRequest: MoltinRequest {
         return payload
     }
 
-    internal func buildCustomItem(withCustomItem item: [String: Any]) -> [String: Any] {
-        var payload: [String: Any] = item
-        payload["type"] = "custom_item"        
+    internal func buildCustomItem(withCustomItem item: CustomCartItem) -> [String: Any] {
+        var payload: [String: Any] =  item.toDictionary()
+        payload["type"] = "custom_item"
 
         return payload
     }

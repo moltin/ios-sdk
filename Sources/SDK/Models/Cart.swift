@@ -153,12 +153,42 @@ public enum CartItemType: String {
 
 /// A custom cart item
 open class CustomCartItem: Codable {
-    /// The SKU of this cart item
-    var sku: String
+    var name: String
+    var sku: String?
+    var quantity: Int
+    var description: String?
+    var price: Int
+    var attributes: [String: String]?
 
-    internal init(withSKU sku: String) {
+    public init(withName name: String, sku: String?, quantity: Int, description: String?, price: Int, withAttributes attributes: [String: String]? = nil) {
+        self.name = name
         self.sku = sku
+        self.quantity = quantity
+        self.description = description
+        self.price = price
+        
+        self.attributes = attributes
     }
+    
+    func toDictionary() -> [String: Any] {
+        var cartItemData: [String: Any] = [:]
+        if let sku = self.sku {
+            cartItemData["sku"] = sku
+        }
+        if let description = self.description {
+            cartItemData["description"] = description
+        }
+        cartItemData["name"] = self.name
+        cartItemData["quantity"] = self.quantity
+        cartItemData["amount"] = self.price
+
+        if let attributes = self.attributes {
+            cartItemData = attributes
+        }
+        
+        return cartItemData
+    }
+    
 }
 
 /// A tax item
