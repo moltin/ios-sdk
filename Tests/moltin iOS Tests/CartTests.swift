@@ -126,7 +126,10 @@ class CartTests: XCTestCase {
         let expectationToFulfill = expectation(description: "CartRequest calls the method and runs the callback closure")
 
         let cartID: String = "3333"
-        let customItem = CustomCartItem(withSKU: "12345")
+        let customCartPrice = CartItemPrice(amount: 111, includes_tax: false)
+
+        let customItem = CustomCartItem(withName: "testItem", sku: "1231", quantity: 1, description: "test desc", price: customCartPrice)
+
         _ = request.addCustomItem(customItem, toCart: cartID) { (result) in
             switch result {
             case .success(let cart):
@@ -143,14 +146,6 @@ class CartTests: XCTestCase {
                 XCTFail("waitForExpectationsWithTimeout errored: \(error)")
             }
         }
-    }
-
-    func testBuildingACustomItem() {
-        let request = CartRequest(withConfiguration: MoltinConfig.default(withClientID: "12345"))
-        let customItem = CustomCartItem(withSKU: "12345")
-        let item = request.buildCustomItem(withCustomItem: customItem)
-        XCTAssert(item["type"] as? String == "custom_item")
-        XCTAssert(item["sku"] as? String == "12345")
     }
 
     func testAddingAPromotion() {

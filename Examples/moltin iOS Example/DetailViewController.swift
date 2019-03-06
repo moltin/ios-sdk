@@ -69,9 +69,17 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
         if let product = self.products?[indexPath.row] {
             self.moltin.cart.addProduct(withID: product.id, ofQuantity: 1, toCart: AppDelegate.cartID, completionHandler: { (_) in
                 DispatchQueue.main.async {
-                    self.performSegue(withIdentifier: "DetailToCart", sender: nil)
+                    //test custom cart
+                    let customCartPrice = CartItemPrice(amount: 111, includes_tax: false)
+                    let customCartItem = CustomCartItem(withName: "test", sku: "sku", quantity: 1, description: "test desc", price: customCartPrice)
+                    self.moltin.cart.addCustomItem(customCartItem, toCart: AppDelegate.cartID, completionHandler: { (_) in
+                        DispatchQueue.main.async {
+                            self.performSegue(withIdentifier: "DetailToCart", sender: nil)
+                        }
+                    })
                 }
             })
+
         }
     }
 }

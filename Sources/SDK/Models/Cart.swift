@@ -25,6 +25,37 @@ public struct CartItemDisplayPrice: Codable {
     public let value: DisplayPrice
 }
 
+
+open class CartItemPrice: Codable {
+    /// The price for this cart item
+    public var amount: Int
+    /// The price for this cart item including tax
+    public var includes_tax:  Bool?
+    /// The type of this object
+    
+    enum CodingKeys: String, CodingKey {
+        case amount = "amount"
+        case includes_tax = "includes_tax"
+    }
+    
+    /// Create a new address with first name and last name
+    public init(
+        amount: Int,
+        includes_tax: Bool?) {
+        self.amount = amount
+        self.includes_tax = includes_tax
+    }
+    
+    func toDictionary() -> [String: Any] {
+        var data: [String: Any] = [:]
+        
+        data["amount"] = self.amount
+        data["includes_tax"] = self.includes_tax
+        return data
+    }
+}
+
+
 /// The display prices information for a `CartItem`
 public struct CartItemDisplayPrices: Codable {
     /// The display price for this cart item including tax
@@ -153,12 +184,42 @@ public enum CartItemType: String {
 
 /// A custom cart item
 open class CustomCartItem: Codable {
-    /// The SKU of this cart item
-    var sku: String
+    var name: String
+    var sku: String?
+    var quantity: Int
+    var description: String?
+    var price: CartItemPrice
+    var attributes: [String: String]?
 
-    internal init(withSKU sku: String) {
+    public init(withName name: String, sku: String?, quantity: Int, description: String?, price: CartItemPrice, withAttributes attributes: [String: String]? = nil) {
+        self.name = name
         self.sku = sku
+        self.quantity = quantity
+        self.description = description
+        self.price = price
+        
+        self.attributes = attributes
     }
+    
+    func toDictionary() -> [String: Any] {
+        var cartItemData: [String: Any] = [:]
+        if let sku = self.sku {
+            cartItemData["sku"] = sku
+        }
+        if let description = self.description {
+            cartItemData["description"] = description
+        }
+        cartItemData["name"] = self.name
+        cartItemData["quantity"] = self.quantity
+        cartItemData["price"] = self.price.toDictionary()
+
+        if let attributes = self.attributes {
+            cartItemData = attributes
+        }
+        
+        return cartItemData
+    }
+    
 }
 
 /// A tax item

@@ -278,9 +278,9 @@ public class CartRequest: MoltinRequest {
     }
 
     internal func buildCustomItem(withCustomItem item: CustomCartItem) -> [String: Any] {
-        var payload: [String: Any] = [:]
+        var payload: [String: Any] =  item.toDictionary()
         payload["type"] = "custom_item"
-        payload["sku"] = item.sku
+
         return payload
     }
 
