@@ -126,8 +126,9 @@ class CartTests: XCTestCase {
         let expectationToFulfill = expectation(description: "CartRequest calls the method and runs the callback closure")
 
         let cartID: String = "3333"
+        let customCartPrice = CartItemPrice(amount: 111, includes_tax: false)
 
-        let customItem = CustomCartItem(withName: "testItem", sku: "1231", quantity: 1, description: "test desc", price: 1000)
+        let customItem = CustomCartItem(withName: "testItem", sku: "1231", quantity: 1, description: "test desc", price: customCartPrice)
 
         _ = request.addCustomItem(customItem, toCart: cartID) { (result) in
             switch result {

@@ -25,6 +25,37 @@ public struct CartItemDisplayPrice: Codable {
     public let value: DisplayPrice
 }
 
+
+open class CartItemPrice: Codable {
+    /// The price for this cart item
+    public var amount: Int
+    /// The price for this cart item including tax
+    public var includes_tax:  Bool?
+    /// The type of this object
+    
+    enum CodingKeys: String, CodingKey {
+        case amount = "amount"
+        case includes_tax = "includes_tax"
+    }
+    
+    /// Create a new address with first name and last name
+    public init(
+        amount: Int,
+        includes_tax: Bool?) {
+        self.amount = amount
+        self.includes_tax = includes_tax
+    }
+    
+    func toDictionary() -> [String: Any] {
+        var data: [String: Any] = [:]
+        
+        data["amount"] = self.amount
+        data["includes_tax"] = self.includes_tax
+        return data
+    }
+}
+
+
 /// The display prices information for a `CartItem`
 public struct CartItemDisplayPrices: Codable {
     /// The display price for this cart item including tax
@@ -157,10 +188,10 @@ open class CustomCartItem: Codable {
     var sku: String?
     var quantity: Int
     var description: String?
-    var price: Int
+    var price: CartItemPrice
     var attributes: [String: String]?
 
-    public init(withName name: String, sku: String?, quantity: Int, description: String?, price: Int, withAttributes attributes: [String: String]? = nil) {
+    public init(withName name: String, sku: String?, quantity: Int, description: String?, price: CartItemPrice, withAttributes attributes: [String: String]? = nil) {
         self.name = name
         self.sku = sku
         self.quantity = quantity
@@ -180,7 +211,7 @@ open class CustomCartItem: Codable {
         }
         cartItemData["name"] = self.name
         cartItemData["quantity"] = self.quantity
-        cartItemData["amount"] = self.price
+        cartItemData["price"] = self.price.toDictionary()
 
         if let attributes = self.attributes {
             cartItemData = attributes
