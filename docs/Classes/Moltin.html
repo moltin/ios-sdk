@@ -23,7 +23,7 @@
         <a class="header-link" href="../index.html">
           moltin Docs
         </a>
-         (100% documented)
+         (98% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -192,7 +192,7 @@
                 <a class="nav-group-task-link" href="../Classes/CurrencyMeta.html">CurrencyMeta</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Models.html#/s:6moltin14CustomCartItemC">CustomCartItem</a>
+                <a class="nav-group-task-link" href="../Classes/CustomCartItem.html">CustomCartItem</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/Customer.html">Customer</a>
@@ -312,10 +312,33 @@
             </ul>
           </li>
           <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Other Classes.html">Other Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/CartItemPrice.html">CartItemPrice</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/CustomerRequest.html">CustomerRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/CustomerToken.html">CustomerToken</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/OrderRequest.html">OrderRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/TaxItem.html">TaxItem</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/UpdateCustomer.html">UpdateCustomer</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
             <a class="nav-group-name-link" href="../Other Functions.html">Other Functions</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Other Functions.html#/s:6moltin2eeoiSbAA12MoltinConfigV_ADtF">==(_:_:)</a>
+                <a class="nav-group-task-link" href="../Other Functions.html#/s:6moltin2eeoiySbAA12MoltinConfigV_ADtF">==(_:_:)</a>
               </li>
             </ul>
           </li>
@@ -582,6 +605,44 @@ Create this class with a Moltin client ID and an optional configuration to acces
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:6moltin6MoltinC8customer17withCustomerTokenAA0E7RequestCSS_tF"></a>
+                    <a name="//apple_ref/swift/Method/customer(withCustomerToken:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6moltin6MoltinC8customer17withCustomerTokenAA0E7RequestCSS_tF">customer(withCustomerToken:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Entry point to requesting information about customers and related entries</p>
+<div class="aside aside-author">
+    <p class="aside-title">Author</p>
+    <p>Craig Tweedy</p>
+
+</div>
+
+<p>This object allows the developer to interact with customers and related entires such as addresses. Customers and Addresses can only be accessed with valid customer tokens.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">customer</span><span class="p">(</span><span class="n">withCustomerToken</span> <span class="nv">customerToken</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/CustomerRequest.html">CustomerRequest</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A <code><a href="../Classes/CustomerRequest.html">CustomerRequest</a></code> object, inheriting from <code><a href="../Classes/MoltinRequest.html">MoltinRequest</a></code>, with the config from the <code>Moltin</code> class.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:6moltin6MoltinC4fileAA11FileRequestCvp"></a>
                     <a name="//apple_ref/swift/Property/file" class="dashAnchor"></a>
                     <a class="token" href="#/s:6moltin6MoltinC4fileAA11FileRequestCvp">file</a>
@@ -696,6 +757,44 @@ Create this class with a Moltin client ID and an optional configuration to acces
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:6moltin6MoltinC5order17withCustomerTokenAA12OrderRequestCSS_tF"></a>
+                    <a name="//apple_ref/swift/Method/order(withCustomerToken:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6moltin6MoltinC5order17withCustomerTokenAA12OrderRequestCSS_tF">order(withCustomerToken:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Entry point to requesting information about orders</p>
+<div class="aside aside-author">
+    <p class="aside-title">Author</p>
+    <p>Craig Tweedy</p>
+
+</div>
+
+<p>This object allows the developer to interact with orders. Orders can only be accessed with customer tokens.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">order</span><span class="p">(</span><span class="n">withCustomerToken</span> <span class="nv">customerToken</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/OrderRequest.html">OrderRequest</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A <code><a href="../Classes/OrderRequest.html">OrderRequest</a></code> object, inheriting from <code><a href="../Classes/MoltinRequest.html">MoltinRequest</a></code>, with the config from the <code>Moltin</code> class.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:6moltin6MoltinC7productAA14ProductRequestCvp"></a>
                     <a name="//apple_ref/swift/Property/product" class="dashAnchor"></a>
                     <a class="token" href="#/s:6moltin6MoltinC7productAA14ProductRequestCvp">product</a>
@@ -734,9 +833,9 @@ Create this class with a Moltin client ID and an optional configuration to acces
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:6moltin6MoltinCACSS12withClientID_AA0B6ConfigVSg0C13Configuration10Foundation6LocaleVSg0cI0tcfc"></a>
+                    <a name="/s:6moltin6MoltinC12withClientID0C13Configuration0C6LocaleACSS_AA0B6ConfigVSg10Foundation0G0VSgtcfc"></a>
                     <a name="//apple_ref/swift/Method/init(withClientID:withConfiguration:withLocale:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:6moltin6MoltinCACSS12withClientID_AA0B6ConfigVSg0C13Configuration10Foundation6LocaleVSg0cI0tcfc">init(withClientID:withConfiguration:withLocale:)</a>
+                    <a class="token" href="#/s:6moltin6MoltinC12withClientID0C13Configuration0C6LocaleACSS_AA0B6ConfigVSg10Foundation0G0VSgtcfc">init(withClientID:withConfiguration:withLocale:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -813,9 +912,9 @@ Create this class with a Moltin client ID and an optional configuration to acces
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:6moltin6MoltinCAcA0B6ConfigV17withConfiguration_tcfc"></a>
+                    <a name="/s:6moltin6MoltinC17withConfigurationAcA0B6ConfigV_tcfc"></a>
                     <a name="//apple_ref/swift/Method/init(withConfiguration:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:6moltin6MoltinCAcA0B6ConfigV17withConfiguration_tcfc">init(withConfiguration:)</a>
+                    <a class="token" href="#/s:6moltin6MoltinC17withConfigurationAcA0B6ConfigV_tcfc">init(withConfiguration:)</a>
                     </code>
                   </div>
                   <div class="height-container">

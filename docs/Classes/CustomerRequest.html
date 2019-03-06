@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>CustomerRequest Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset="utf-8">
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+
+    <a name="//apple_ref/swift/Class/CustomerRequest" class="dashAnchor"></a>
+
+    <a title="CustomerRequest Class Reference"></a>
+
+    <header class="header">
+      <p class="header-col header-col--primary">
+        <a class="header-link" href="../index.html">
+          moltin Docs
+        </a>
+         (98% documented)
+      </p>
+    
+      <p class="header-col--secondary">
+        <form role="search" action="../search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
+      </p>
+    
+        <p class="header-col header-col--secondary">
+          <a class="header-link" href="https://github.com/moltin/ios-sdk">
+            <img class="header-icon" src="../img/gh.png"/>
+            View on GitHub
+          </a>
+        </p>
+    
+    </header>
+
+    <p class="breadcrumbs">
+      <a class="breadcrumb" href="../index.html">moltin Reference</a>
+      <img class="carat" src="../img/carat.png" />
+      CustomerRequest Class Reference
+    </p>
+
+    <div class="content-wrapper">
+      <nav class="navigation">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Guides.html">Guides</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../requirements.html">Requirements</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../installation.html">Installation</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../usage.html">Usage</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../authentication.html">Authentication</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../filtering.html">Filtering</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../flows.html">Flows</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../further-documentation.html">Further Documentation</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../communication.html">Communication</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../license.html">License</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Moltin Core.html">Moltin Core</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Moltin.html">Moltin</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/MoltinConfig.html">MoltinConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Moltin Core.html#/s:6moltin11MoltinQueryC">MoltinQuery</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/MoltinError.html">MoltinError</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/MoltinFilterOperator.html">MoltinFilterOperator</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/MoltinInclude.html">MoltinInclude</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/Result.html">Result</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/PaginatedResponse.html">PaginatedResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/PaginationMeta.html">PaginationMeta</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Resources.html">Resources</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/BrandRequest.html">BrandRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/CartRequest.html">CartRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/CategoryRequest.html">CategoryRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/CollectionRequest.html">CollectionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/CurrencyRequest.html">CurrencyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/FieldRequest.html">FieldRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/FileRequest.html">FileRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/FlowRequest.html">FlowRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/ProductRequest.html">ProductRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/MoltinRequest.html">MoltinRequest</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Models.html">Models</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Address.html">Address</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Brand.html">Brand</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Cart.html">Cart</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/CartMeta.html">CartMeta</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/CartItem.html">CartItem</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/CartItemMeta.html">CartItemMeta</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/CartItemType.html">CartItemType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/CartItemDisplayPrice.html">CartItemDisplayPrice</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/CartItemDisplayPrices.html">CartItemDisplayPrices</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Category.html">Category</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Collection.html">Collection</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Currency.html">Currency</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/CurrencyMeta.html">CurrencyMeta</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/CustomCartItem.html">CustomCartItem</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Customer.html">Customer</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/DisplayPrice.html">DisplayPrice</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/DisplayPrices.html">DisplayPrices</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Entry.html">Entry</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Field.html">Field</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/FieldMeta.html">FieldMeta</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/File.html">File</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/FileMeta.html">FileMeta</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/FileDimensions.html">FileDimensions</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Flow.html">Flow</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Order.html">Order</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/OrderMeta.html">OrderMeta</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/OrderRelationships.html">OrderRelationships</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Models.html#/s:6moltin12OrderSuccessC">OrderSuccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Product.html">Product</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/ProductMeta.html">ProductMeta</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/ProductVariation.html">ProductVariation</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/ProductVariationOption.html">ProductVariationOption</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/ProductPrice.html">ProductPrice</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/ProductStock.html">ProductStock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Relationships.html">Relationships</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/RelationshipData.html">RelationshipData</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/RelationshipSingle.html">RelationshipSingle</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/RelationshipMany.html">RelationshipMany</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Timestamps.html">Timestamps</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Payment Methods.html">Payment Methods</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/StripeCard.html">StripeCard</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/StripeToken.html">StripeToken</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/BraintreeCustomerID.html">BraintreeCustomerID</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/BraintreePaymentToken.html">BraintreePaymentToken</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/BraintreePaymentNonce.html">BraintreePaymentNonce</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/AdyenPayment.html">AdyenPayment</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/ManuallyAuthorizePayment.html">ManuallyAuthorizePayment</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/PaymentMethod.html">PaymentMethod</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Utils.html">Utils</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Extensions/Decodable.html">Decodable</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Extensions/JSONDecoder.html">JSONDecoder</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Other Classes.html">Other Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/CartItemPrice.html">CartItemPrice</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/CustomerRequest.html">CustomerRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/CustomerToken.html">CustomerToken</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/OrderRequest.html">OrderRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/TaxItem.html">TaxItem</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/UpdateCustomer.html">UpdateCustomer</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Other Functions.html">Other Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Other Functions.html#/s:6moltin2eeoiySbAA12MoltinConfigV_ADtF">==(_:_:)</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Other Typealiases.html">Other Type Aliases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Other Typealiases.html#/s:6moltin24CollectionRequestHandlera">CollectionRequestHandler</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Other Typealiases.html#/s:6moltin18HTTPRequestHandlera">HTTPRequestHandler</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Other Typealiases.html#/s:6moltin17IncludesContainera">IncludesContainer</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Other Typealiases.html#/s:6moltin12IncludesDataa">IncludesData</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Other Typealiases.html#/s:6moltin20ObjectRequestHandlera">ObjectRequestHandler</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+
+        <section class="section">
+          <div class="section-content">
+            <h1>CustomerRequest</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">CustomerRequest</span> <span class="p">:</span> <span class="kt"><a href="../Classes/MoltinRequest.html">MoltinRequest</a></span></code></pre>
+
+                </div>
+              </div>
+            <p>An entry point to make API calls relating to <code><a href="../Classes/Customer.html">Customer</a></code> and related items</p>
+
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-content">
+            <div class="task-group">
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:6moltin15CustomerRequestC8endpointSSvp"></a>
+                    <a name="//apple_ref/swift/Property/endpoint" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6moltin15CustomerRequestC8endpointSSvp">endpoint</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The API endpoint for this resource.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">endpoint</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:6moltin15CustomerRequestC017DefaultCollectionC7Handlera"></a>
+                    <a name="//apple_ref/swift/Alias/DefaultCollectionRequestHandler" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6moltin15CustomerRequestC017DefaultCollectionC7Handlera">DefaultCollectionRequestHandler</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A typealias which allows automatic casting of a collection to <code>[Customer]</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">DefaultCollectionRequestHandler</span> <span class="o">=</span> <span class="kt"><a href="../Other Typealiases.html#/s:6moltin24CollectionRequestHandlera">CollectionRequestHandler</a></span><span class="o">&lt;</span><span class="p">[</span><span class="kt"><a href="../Classes/Customer.html">Customer</a></span><span class="p">]</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:6moltin15CustomerRequestC013DefaultObjectC7Handlera"></a>
+                    <a name="//apple_ref/swift/Alias/DefaultObjectRequestHandler" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6moltin15CustomerRequestC013DefaultObjectC7Handlera">DefaultObjectRequestHandler</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A typealias which allows automatic casting of an object to <code><a href="../Classes/Customer.html">Customer</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">DefaultObjectRequestHandler</span> <span class="o">=</span> <span class="kt"><a href="../Other Typealiases.html#/s:6moltin20ObjectRequestHandlera">ObjectRequestHandler</a></span><span class="o">&lt;</span><span class="kt"><a href="../Classes/Customer.html">Customer</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:6moltin15CustomerRequestC024DefaultAddressCollectionC7Handlera"></a>
+                    <a name="//apple_ref/swift/Alias/DefaultAddressCollectionRequestHandler" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6moltin15CustomerRequestC024DefaultAddressCollectionC7Handlera">DefaultAddressCollectionRequestHandler</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A typealias which allows automatic casting of a collection to <code>[Address]</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">DefaultAddressCollectionRequestHandler</span> <span class="o">=</span> <span class="kt"><a href="../Other Typealiases.html#/s:6moltin24CollectionRequestHandlera">CollectionRequestHandler</a></span><span class="o">&lt;</span><span class="p">[</span><span class="kt"><a href="../Classes/Address.html">Address</a></span><span class="p">]</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:6moltin15CustomerRequestC020DefaultAddressObjectC7Handlera"></a>
+                    <a name="//apple_ref/swift/Alias/DefaultAddressObjectRequestHandler" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6moltin15CustomerRequestC020DefaultAddressObjectC7Handlera">DefaultAddressObjectRequestHandler</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A typealias which allows automatic casting of an object to <code><a href="../Classes/Address.html">Address</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">DefaultAddressObjectRequestHandler</span> <span class="o">=</span> <span class="kt"><a href="../Other Typealiases.html#/s:6moltin20ObjectRequestHandlera">ObjectRequestHandler</a></span><span class="o">&lt;</span><span class="kt"><a href="../Classes/Address.html">Address</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:6moltin15CustomerRequestC8getToken9withEmail0F8Password17completionHandlerAA06MoltinC0CSS_SSyAA6ResultOyAA0bE0CGctF"></a>
+                    <a name="//apple_ref/swift/Method/getToken(withEmail:withPassword:completionHandler:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6moltin15CustomerRequestC8getToken9withEmail0F8Password17completionHandlerAA06MoltinC0CSS_SSyAA6ResultOyAA0bE0CGctF">getToken(withEmail:withPassword:completionHandler:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get a token for a <code><a href="../Classes/Customer.html">Customer</a></code></p>
+<div class="aside aside-author">
+    <p class="aside-title">Author</p>
+    Craig Tweedy
+
+</div>
+<li>withEmail: The email for the customer</li>
+<li>withPassword: The password for the customer</li>
+<li>completionHandler: The handler to be called on success or failure</li>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">getToken</span><span class="p">(</span><span class="n">withEmail</span> <span class="nv">email</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+                     <span class="n">withPassword</span> <span class="nv">password</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+                     <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Other Typealiases.html#/s:6moltin20ObjectRequestHandlera">ObjectRequestHandler</a></span><span class="o">&lt;</span><span class="kt"><a href="../Classes/CustomerToken.html">CustomerToken</a></span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/MoltinRequest.html">MoltinRequest</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A instance of <code><a href="../Classes/MoltinRequest.html">MoltinRequest</a></code> which encapsulates the request.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:6moltin15CustomerRequestC3all17completionHandlerAA06MoltinC0CyAA6ResultOyAA17PaginatedResponseCySayAA0B0CGGGc_tF"></a>
+                    <a name="//apple_ref/swift/Method/all(completionHandler:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6moltin15CustomerRequestC3all17completionHandlerAA06MoltinC0CyAA6ResultOyAA17PaginatedResponseCySayAA0B0CGGGc_tF">all(completionHandler:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Return all instances of type <code><a href="../Classes/Customer.html">Customer</a></code></p>
+<div class="aside aside-author">
+    <p class="aside-title">Author</p>
+    Craig Tweedy
+
+</div>
+<li>completionHandler: The handler to be called on success or failure</li>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">all</span><span class="p">(</span><span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Classes/CustomerRequest.html#/s:6moltin15CustomerRequestC017DefaultCollectionC7Handlera">DefaultCollectionRequestHandler</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/MoltinRequest.html">MoltinRequest</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A instance of <code><a href="../Classes/MoltinRequest.html">MoltinRequest</a></code> which encapsulates the request.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:6moltin15CustomerRequestC3get5forID17completionHandlerAA06MoltinC0CSS_yAA6ResultOyAA0B0CGctF"></a>
+                    <a name="//apple_ref/swift/Method/get(forID:completionHandler:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6moltin15CustomerRequestC3get5forID17completionHandlerAA06MoltinC0CSS_yAA6ResultOyAA0B0CGctF">get(forID:completionHandler:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Return all instances of type <code><a href="../Classes/Customer.html">Customer</a></code> by <code>id</code></p>
+<div class="aside aside-author">
+    <p class="aside-title">Author</p>
+    Craig Tweedy
+
+</div>
+<li>forID: The ID of the object</li>
+<li>completionHandler: The handler to be called on success or failure</li>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">get</span><span class="p">(</span><span class="n">forID</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Classes/CustomerRequest.html#/s:6moltin15CustomerRequestC013DefaultObjectC7Handlera">DefaultObjectRequestHandler</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/MoltinRequest.html">MoltinRequest</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A instance of <code><a href="../Classes/MoltinRequest.html">MoltinRequest</a></code> which encapsulates the request.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:6moltin15CustomerRequestC6update_17completionHandlerAA06MoltinC0CAA06UpdateB0C_yAA6ResultOyAA0B0CGctF"></a>
+                    <a name="//apple_ref/swift/Method/update(_:completionHandler:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6moltin15CustomerRequestC6update_17completionHandlerAA06MoltinC0CAA06UpdateB0C_yAA6ResultOyAA0B0CGctF">update(_:completionHandler:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Update a <code><a href="../Classes/Customer.html">Customer</a></code></p>
+<div class="aside aside-author">
+    <p class="aside-title">Author</p>
+    Craig Tweedy
+
+</div>
+<li>customer: The <code><a href="../Classes/UpdateCustomer.html">UpdateCustomer</a></code> data object to update this <code><a href="../Classes/Customer.html">Customer</a></code> with.</li>
+<li>completionHandler: The handler to be called on success or failure</li>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">update</span><span class="p">(</span><span class="n">_</span> <span class="nv">customer</span><span class="p">:</span> <span class="kt"><a href="../Classes/UpdateCustomer.html">UpdateCustomer</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Classes/CustomerRequest.html#/s:6moltin15CustomerRequestC013DefaultObjectC7Handlera">DefaultObjectRequestHandler</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/MoltinRequest.html">MoltinRequest</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A instance of <code><a href="../Classes/MoltinRequest.html">MoltinRequest</a></code> which encapsulates the request.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:6moltin15CustomerRequestC9addresses03forB017completionHandlerAA06MoltinC0CSS_yAA6ResultOyAA17PaginatedResponseCySayAA7AddressCGGGctF"></a>
+                    <a name="//apple_ref/swift/Method/addresses(forCustomer:completionHandler:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6moltin15CustomerRequestC9addresses03forB017completionHandlerAA06MoltinC0CSS_yAA6ResultOyAA17PaginatedResponseCySayAA7AddressCGGGctF">addresses(forCustomer:completionHandler:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Return all instances of <code><a href="../Classes/Address.html">Address</a></code> for a <code><a href="../Classes/Customer.html">Customer</a></code></p>
+<div class="aside aside-author">
+    <p class="aside-title">Author</p>
+    Craig Tweedy
+
+</div>
+<li>forCustomer: The customer ID</li>
+<li>completionHandler: The handler to be called on success or failure</li>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">addresses</span><span class="p">(</span><span class="n">forCustomer</span> <span class="nv">customer</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Classes/CustomerRequest.html#/s:6moltin15CustomerRequestC024DefaultAddressCollectionC7Handlera">DefaultAddressCollectionRequestHandler</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/MoltinRequest.html">MoltinRequest</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A instance of <code><a href="../Classes/MoltinRequest.html">MoltinRequest</a></code> which encapsulates the request.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:6moltin15CustomerRequestC10getAddress6withID03forB017completionHandlerAA06MoltinC0CSS_SSyAA6ResultOyAA0E0CGctF"></a>
+                    <a name="//apple_ref/swift/Method/getAddress(withID:forCustomer:completionHandler:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6moltin15CustomerRequestC10getAddress6withID03forB017completionHandlerAA06MoltinC0CSS_SSyAA6ResultOyAA0E0CGctF">getAddress(withID:forCustomer:completionHandler:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get a specific <code><a href="../Classes/Address.html">Address</a></code> for a <code><a href="../Classes/Customer.html">Customer</a></code></p>
+<div class="aside aside-author">
+    <p class="aside-title">Author</p>
+    Craig Tweedy
+
+</div>
+<li>withID: The <code><a href="../Classes/Address.html">Address</a></code> ID</li>
+<li>forCustomer: The <code><a href="../Classes/Customer.html">Customer</a></code> ID</li>
+<li>completionHandler: The handler to be called on success or failure</li>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">getAddress</span><span class="p">(</span><span class="n">withID</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">forCustomer</span> <span class="nv">customer</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Classes/CustomerRequest.html#/s:6moltin15CustomerRequestC020DefaultAddressObjectC7Handlera">DefaultAddressObjectRequestHandler</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/MoltinRequest.html">MoltinRequest</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A instance of <code><a href="../Classes/MoltinRequest.html">MoltinRequest</a></code> which encapsulates the request.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:6moltin15CustomerRequestC13createAddress_03forB017completionHandlerAA06MoltinC0CAA0E0C_SSyAA6ResultOyAJGctF"></a>
+                    <a name="//apple_ref/swift/Method/createAddress(_:forCustomer:completionHandler:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6moltin15CustomerRequestC13createAddress_03forB017completionHandlerAA06MoltinC0CAA0E0C_SSyAA6ResultOyAJGctF">createAddress(_:forCustomer:completionHandler:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Create an <code><a href="../Classes/Address.html">Address</a></code> for a <code><a href="../Classes/Customer.html">Customer</a></code></p>
+<div class="aside aside-author">
+    <p class="aside-title">Author</p>
+    Craig Tweedy
+
+</div>
+<li>address: The <code><a href="../Classes/Address.html">Address</a></code> object to create</li>
+<li>forCustomer: The <code><a href="../Classes/Customer.html">Customer</a></code> ID to associate this address with</li>
+<li>completionHandler: The handler to be called on success or failure</li>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">createAddress</span><span class="p">(</span><span class="n">_</span> <span class="nv">address</span><span class="p">:</span> <span class="kt"><a href="../Classes/Address.html">Address</a></span><span class="p">,</span>
+                          <span class="n">forCustomer</span> <span class="nv">customer</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+                          <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Classes/CustomerRequest.html#/s:6moltin15CustomerRequestC020DefaultAddressObjectC7Handlera">DefaultAddressObjectRequestHandler</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/MoltinRequest.html">MoltinRequest</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A instance of <code><a href="../Classes/MoltinRequest.html">MoltinRequest</a></code> which encapsulates the request.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:6moltin15CustomerRequestC13updateAddress_03forB017completionHandlerAA06MoltinC0CAA0E0C_SSyAA6ResultOyAJGctF"></a>
+                    <a name="//apple_ref/swift/Method/updateAddress(_:forCustomer:completionHandler:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6moltin15CustomerRequestC13updateAddress_03forB017completionHandlerAA06MoltinC0CAA0E0C_SSyAA6ResultOyAJGctF">updateAddress(_:forCustomer:completionHandler:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Update an <code><a href="../Classes/Address.html">Address</a></code> for a <code><a href="../Classes/Customer.html">Customer</a></code></p>
+<div class="aside aside-author">
+    <p class="aside-title">Author</p>
+    Craig Tweedy
+
+</div>
+<li>address: The <code><a href="../Classes/Address.html">Address</a></code> object to create</li>
+<li>forCustomer: The <code><a href="../Classes/Customer.html">Customer</a></code> ID to associate this address with</li>
+<li>completionHandler: The handler to be called on success or failure</li>
+
+<p>Ensure the <code><a href="../Classes/Address.html">Address</a></code> contains the ID for the <code><a href="../Classes/Address.html">Address</a></code> that you wish to create, and then fill in any variables you want to update in the request.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">updateAddress</span><span class="p">(</span><span class="n">_</span> <span class="nv">address</span><span class="p">:</span> <span class="kt"><a href="../Classes/Address.html">Address</a></span><span class="p">,</span>
+                          <span class="n">forCustomer</span> <span class="nv">customer</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+                          <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Classes/CustomerRequest.html#/s:6moltin15CustomerRequestC020DefaultAddressObjectC7Handlera">DefaultAddressObjectRequestHandler</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/MoltinRequest.html">MoltinRequest</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A instance of <code><a href="../Classes/MoltinRequest.html">MoltinRequest</a></code> which encapsulates the request.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:6moltin15CustomerRequestC13deleteAddress6withID03forB017completionHandlerAA06MoltinC0CSS_SSyAA6ResultOyAA0E0CGctF"></a>
+                    <a name="//apple_ref/swift/Method/deleteAddress(withID:forCustomer:completionHandler:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6moltin15CustomerRequestC13deleteAddress6withID03forB017completionHandlerAA06MoltinC0CSS_SSyAA6ResultOyAA0E0CGctF">deleteAddress(withID:forCustomer:completionHandler:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Delete an <code><a href="../Classes/Address.html">Address</a></code> for a <code><a href="../Classes/Customer.html">Customer</a></code></p>
+<div class="aside aside-author">
+    <p class="aside-title">Author</p>
+    Craig Tweedy
+
+</div>
+<li>withID: The address ID</li>
+<li>forCustomer: The <code><a href="../Classes/Customer.html">Customer</a></code> ID to associate this address with</li>
+<li>completionHandler: The handler to be called on success or failure</li>
+
+<p>Ensure the <code><a href="../Classes/Address.html">Address</a></code> contains the ID for the <code><a href="../Classes/Address.html">Address</a></code> that you wish to create, and then fill in any variables you want to update in the request.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">deleteAddress</span><span class="p">(</span><span class="n">withID</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+                          <span class="n">forCustomer</span> <span class="nv">customer</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+                          <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Classes/CustomerRequest.html#/s:6moltin15CustomerRequestC020DefaultAddressObjectC7Handlera">DefaultAddressObjectRequestHandler</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/MoltinRequest.html">MoltinRequest</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A instance of <code><a href="../Classes/MoltinRequest.html">MoltinRequest</a></code> which encapsulates the request.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+      </article>
+    </div>
+    <section class="footer">
+      <p>© <a class="link" href="https://moltin.com/" target="_blank" rel="external">Moltin</a>. See <a class="link" href="https://github.com/moltin/ios-sdk/blob/master/LICENSE.md" target="_blank" rel="external">license</a> for more details.</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+    </section>
+  </body>
+</div>
+</html>

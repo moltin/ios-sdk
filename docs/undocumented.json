@@ -1,6 +1,61 @@
 {
   "warnings": [
-
+    {
+      "file": "/Users/georgefitzgibbons/dev/ios-sdk/Sources/SDK/Models/Cart.swift",
+      "line": 29,
+      "symbol": "CartItemPrice",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/georgefitzgibbons/dev/ios-sdk/Sources/SDK/Models/Cart.swift",
+      "line": 194,
+      "symbol": "CustomCartItem.init(withName:sku:quantity:description:price:withAttributes:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/georgefitzgibbons/dev/ios-sdk/Sources/SDK/Models/Cart.swift",
+      "line": 228,
+      "symbol": "TaxItem.type",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/georgefitzgibbons/dev/ios-sdk/Sources/SDK/Models/Cart.swift",
+      "line": 229,
+      "symbol": "TaxItem.id",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/georgefitzgibbons/dev/ios-sdk/Sources/SDK/Models/Cart.swift",
+      "line": 230,
+      "symbol": "TaxItem.jurisdiction",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/georgefitzgibbons/dev/ios-sdk/Sources/SDK/Models/Cart.swift",
+      "line": 231,
+      "symbol": "TaxItem.code",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/georgefitzgibbons/dev/ios-sdk/Sources/SDK/Models/Cart.swift",
+      "line": 232,
+      "symbol": "TaxItem.name",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/georgefitzgibbons/dev/ios-sdk/Sources/SDK/Models/Cart.swift",
+      "line": 233,
+      "symbol": "TaxItem.rate",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    }
   ],
-  "source_directory": "/Users/georgefitzgibbons/ios-sdk"
+  "source_directory": "/Users/georgefitzgibbons/dev/ios-sdk"
 }

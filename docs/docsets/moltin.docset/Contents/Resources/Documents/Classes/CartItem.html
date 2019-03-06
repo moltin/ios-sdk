@@ -23,7 +23,7 @@
         <a class="header-link" href="../index.html">
           moltin Docs
         </a>
-         (100% documented)
+         (98% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -192,7 +192,7 @@
                 <a class="nav-group-task-link" href="../Classes/CurrencyMeta.html">CurrencyMeta</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Models.html#/s:6moltin14CustomCartItemC">CustomCartItem</a>
+                <a class="nav-group-task-link" href="../Classes/CustomCartItem.html">CustomCartItem</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/Customer.html">Customer</a>
@@ -312,10 +312,33 @@
             </ul>
           </li>
           <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Other Classes.html">Other Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/CartItemPrice.html">CartItemPrice</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/CustomerRequest.html">CustomerRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/CustomerToken.html">CustomerToken</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/OrderRequest.html">OrderRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/TaxItem.html">TaxItem</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/UpdateCustomer.html">UpdateCustomer</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
             <a class="nav-group-name-link" href="../Other Functions.html">Other Functions</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Other Functions.html#/s:6moltin2eeoiSbAA12MoltinConfigV_ADtF">==(_:_:)</a>
+                <a class="nav-group-task-link" href="../Other Functions.html#/s:6moltin2eeoiySbAA12MoltinConfigV_ADtF">==(_:_:)</a>
               </li>
             </ul>
           </li>
@@ -607,9 +630,36 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:6moltin8CartItemC5linkss10DictionaryVyS2SGvp"></a>
+                    <a name="/s:6moltin8CartItemC5taxesSayAA03TaxC0CGSgvp"></a>
+                    <a name="//apple_ref/swift/Property/taxes" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6moltin8CartItemC5taxesSayAA03TaxC0CGSgvp">taxes</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The tax for this cart item, taking into account quantity</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">taxes</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/TaxItem.html">TaxItem</a></span><span class="p">]?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:6moltin8CartItemC5linksSDyS2SGvp"></a>
                     <a name="//apple_ref/swift/Property/links" class="dashAnchor"></a>
-                    <a class="token" href="#/s:6moltin8CartItemC5linkss10DictionaryVyS2SGvp">links</a>
+                    <a class="token" href="#/s:6moltin8CartItemC5linksSDyS2SGvp">links</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -644,7 +694,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The meta information for this cart</p>
+                        <p>The meta information for this cart item</p>
 
                       </div>
                       <div class="declaration">
@@ -652,6 +702,59 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">meta</span><span class="p">:</span> <span class="kt"><a href="../Classes/CartItemMeta.html">CartItemMeta</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:6moltin8CartItemC13relationshipsAA13RelationshipsCSgvp"></a>
+                    <a name="//apple_ref/swift/Property/relationships" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6moltin8CartItemC13relationshipsAA13RelationshipsCSgvp">relationships</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The relationships this item has</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">relationships</span><span class="p">:</span> <span class="kt"><a href="../Classes/Relationships.html">Relationships</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:Se4fromxs7Decoder_p_tKcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(from:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:Se4fromxs7Decoder_p_tKcfc">init(from:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">required</span> <span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">from</span> <span class="nv">decoder</span><span class="p">:</span> <span class="kt">Decoder</span><span class="p">)</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
