@@ -101,13 +101,13 @@ open class CartItem: Codable {
     /// The type of this object
     public let type: String
     /// The product ID for this `CartItem`
-    public let productId: String
+    public let productId: String?
     /// The name of this cart item
     public let name: String
     /// The description of this cart item
-    public let description: String
+    public let description: String?
     /// The SKU of this cart item
-    public let sku: String
+    public let sku: String?
     /// The quantity of this cart item
     public let quantity: Int
     /// The price for this cart item
@@ -145,7 +145,7 @@ open class CartItem: Codable {
 
         self.id = try container.decode(String.self, forKey: .id)
         self.type = try container.decode(String.self, forKey: .type)
-        self.productId = try container.decode(String.self, forKey: .productId)
+        self.productId = try? container.decode(String.self, forKey: .productId)
         self.name = try container.decode(String.self, forKey: .name)
         self.description = try container.decode(String.self, forKey: .description)
         self.sku = try container.decode(String.self, forKey: .sku)
