@@ -20,7 +20,7 @@ iOS/tvOS/watchOS SDK for the [Moltin](https://moltin.com) platform, written in S
 
 Add the following to your `Podfile`:
 ```
-pod 'Moltin', '~> 3.1.1'
+pod 'Moltin', '~> 3.1.2'
 ```
 
 Or, quickly try out our examples:
@@ -31,14 +31,14 @@ pod try Moltin
 
 Add the following to your `Cartfile`:
 ```
-github "Moltin/ios-sdk" ~> 3.1.1
+github "Moltin/ios-sdk" ~> 3.1.2
 ```
 ## Swift Package Manager
 
 Add the following to your `dependencies` value in `Package.swift`:
 ```swift
 dependencies: [
-    .package(url: "https://github.com/moltin/ios-sdk.git", from: "3.1.1")
+    .package(url: "https://github.com/moltin/ios-sdk.git", from: "3.1.2")
 ]
 ```
 
